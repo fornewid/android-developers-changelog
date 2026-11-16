@@ -4,6 +4,8 @@ url: https://developer.android.com/ai/overview
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/ai/llms.txt
+
 This guide helps you find the right AI/ML solution for your use case. It
 provides guidance to help you navigate the various solutions available and
 choose the one that best fits your needs, given the requirements of the feature
@@ -16,13 +18,13 @@ solution, you need to think through the following:
 > [!IMPORTANT]
 > **Key Point:** You should use the simplest model and tooling that fulfills your needs.
 
-- Does the feature need to generate new content (generative AI), or predict/categorize in a deterministic way (traditional ML)?
+- Does the feature need to generate new content (generative AI), or predict or categorize in a deterministic way (traditional ML)?
 - Feature scope: can the task be done entirely within your app (in-app intelligence), or does it require multiple apps to accomplish (system-level intelligence)?
 - Model location: can the task be done offline (on-device model), or does it require interacting with a server (cloud-based model)?
-- Toolkit or model version: how complex is the task, ranging from simple, single-inference tasks to multi-agent orchestration?
+- Toolkit or model version: how complex is the task, ranging from single-inference tasks to multi-agent orchestration?
 
 The following flow chart shows the decision process at a high level:
-Yes No Yes No Yes No Yes Not all Yes No Feature Do you need to generate new content (rather than predict or classify data)? Generative AI Is it a cross-app task? Traditional ML System intelligence Use AppFunctions In-app intelligence Can the feature run offline, or do you have cost constraints? Do the target devices support on-device models? Do you need the feature to keep running (the state to be preserved) when the app is closed, or need private database access? On-device model Use Gemini Nano through ML Kit, or LiteRT Hybrid approach Prefer on-device models, but use cloud models as fallback Cloud-based model Use custom self-hosted server Cloud-based model Use managed backend through Firebase AI Logic [](https://developer.android.com/ai/overview#system-level-intelligence) [](https://developer.android.com/ai/overview#on-device-models) [](https://developer.android.com/ai/overview#hybrid-approach) [](https://developer.android.com/ai/overview#cloud-based-models) [](https://developer.android.com/ai/overview#cloud-based-models) **Figure 1.** High-level decision process for choosing an AI/ML solution.
+Yes No Yes No Yes No Yes Not all Yes No Feature Do you need to generate new content (rather than predict or classify data)? Generative AI Is it a cross-app task? Traditional ML System intelligence Use AppFunctions In-app intelligence Can the feature run offline, or do you have cost constraints? Do the target devices support on-device models? Do you need the feature to keep running (the state to be preserved) when the app is closed, or need private database access? On-device model Use Gemini Nano through ML Kit, or LiteRT Hybrid approach Prefer on-device models, but use cloud models as fallback Cloud-based model Use custom self-hosted server Cloud-based model Use managed backend through Firebase AI Logic [](https://developer.android.com/ai/overview.md.txt#system-level-intelligence) [](https://developer.android.com/ai/overview.md.txt#on-device-models) [](https://developer.android.com/ai/overview.md.txt#hybrid-approach) [](https://developer.android.com/ai/overview.md.txt#cloud-based-models) [](https://developer.android.com/ai/overview.md.txt#cloud-based-models) **Figure 1.** High-level decision process for choosing an AI/ML solution.
 
 To inform your decision at each step, refer to sections in the rest of this
 document.
@@ -40,10 +42,10 @@ solutions:
 
 | Toolkit / Solution | Type | Primary use case | Examples |
 |---|---|---|---|
-| [ML Kit SDK](https://developers.google.com/ml-kit) | On-device | Pre-built vision and natural language processing tasks | - OCR receipt scanner - Fast event QR check-ins - Offline menu translation |
-| [LiteRT](https://developer.android.com/ai/custom) | On-device | Custom model runtimes | - Medical image classification - Smart keyboard word prediction for niche subject matter |
+| [ML Kit SDK](https://developers.google.com/ml-kit) | On-device | Prebuilt vision and natural language processing tasks | - OCR receipt scanner - Fast event QR check-ins - Offline menu translation |
+| [LiteRT](https://developer.android.com/ai/custom.md.txt) | On-device | Custom model runtimes | - Medical image classification - Smart keyboard word prediction for niche subject matter |
 | [MediaPipe](https://developers.google.com/edge/mediapipe/solutions/guide) | On-device | Real-time video or audio stream perception tasks | - Real-time workout pose coaching - Facial filters and effects - Hand gesture recognition |
-| Google Cloud APIs including [Cloud Vision API](https://docs.cloud.google.com/vision/docs) and [Cloud Natural Language API](https://docs.cloud.google.com/natural-language/docs) | Cloud-based | Pre-built vision and natural language processing tasks | - Automated video captioning - Image quality control and compliance |
+| Google Cloud APIs including [Cloud Vision API](https://docs.cloud.google.com/vision/docs) and [Cloud Natural Language API](https://docs.cloud.google.com/natural-language/docs) | Cloud-based | Prebuilt vision and natural language processing tasks | - Automated video captioning - Image quality control and compliance |
 | [Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning) | Cloud-based | End-to-end custom model training and deployment | - Specialized image recognition at scale - Stock photo search |
 
 The rest of this document is about generative AI solutions.
@@ -110,9 +112,9 @@ tooling:
 Use the ML Kit Prompt API for straightforward single-turn or multi-turn
 conversational text generation. When your feature requires autonomous,
 multi-step execution on-device, use the ML Kit GenAI Agent API. The Agent API
-supports on-device reasoning loops that can plan, invoke typed tools using
-`@Tool` annotations, persist session context across interactions, and enforce
-turn limits using `maxTurns`.
+supports on-device reasoning loops that can plan, invoke typed tools declared
+with `@AppFunctionDeclaration`, persist session context across interactions, and
+enforce turn limits using `maxTurns`.
 
 ### Cloud-based models
 
@@ -149,13 +151,13 @@ for cloud-based, in-app generative AI tooling:
 
 Use a hybrid approach when your feature can run locally, but not all of your
 users have devices that support on-device models and you need to use cloud
-models as a fallback. For more information, see [Hybrid inference](https://developer.android.com/ai/hybrid).
+models as a fallback. For more information, see [Hybrid inference](https://developer.android.com/ai/hybrid.md.txt).
 
 ## System-level intelligence
 
-System-level intelligence enables the Android platform to act as a task
-orchestrator. System-level intelligence enables system agents, such as Gemini,
-to complete user requests across multiple apps and web services.
+System-level intelligence lets the Android platform act as a task orchestrator,
+so AI agents, such as Gemini, can complete user requests across multiple apps
+and web services.
 
 To connect your app with the Android intelligence system, choose an integration
 method based on whether you want programmatic control or automated UI-driven
@@ -163,9 +165,9 @@ actions:
 
 | Integration option | Use case |
 |---|---|
-| [AppFunctions](https://developer.android.com/ai/appfunctions) | Make specific capabilities on your app available for agents to discover and execute on-device. |
+| [AppFunctions](https://developer.android.com/ai/appfunctions.md.txt) | Make specific capabilities on your app available for agents to discover and execute on-device. |
 | Remote MCP server | Make specific capabilities on your app available to integrate directly with the agent's backend. Good for cross-platform development. |
-| [Computer Control](https://developer.android.com/ai/computer-control) | Allows an OEM-preloaded assistant to automate tasks by interacting directly with an app's UI. |
+| [Computer Control](https://developer.android.com/ai/computer-control.md.txt) | Allows an OEM-preloaded assistant to automate tasks by interacting directly with an app's UI. |
 
 For more information on system-level intelligence tooling options, see
-[Connect your app to the Android intelligence system](https://developer.android.com/ai/intelligence-system).
+[Connect your app to the Android intelligence system](https://developer.android.com/ai/intelligence-system.md.txt).

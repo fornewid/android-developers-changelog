@@ -4,6 +4,8 @@ url: https://developer.android.com/courses/pathways/android-ai-overview
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/courses/llms.txt
+
 # AI-ML learning pathway
 
 

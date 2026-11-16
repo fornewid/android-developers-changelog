@@ -4,6 +4,8 @@ url: https://developer.android.com/ai/appfunctions/create-manage-connected-apps
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/ai/appfunctions/llms.txt
+
 Use Google Connected Console to integrate your Android app's on-device
 AppFunctions with Gemini on Android. By creating a connected app with the
 Android MCP connection type and linking it to your Play app, you enable Gemini
@@ -22,6 +24,7 @@ testing, and production publishing.
 
 Before you begin, make sure you have the following:
 
+- **Access to the Connected Apps Platform developer preview** : You need access to the developer preview to create Connected Apps and test them with Gemini. To request access, [apply for the preview](https://connected.google.com/console/help/?apply).
 - **Access to a registered developer account in
   [Google Connected Console](https://connected.google.com/console)** :
   - **Terms of Service acceptance**: The first time your organization accesses Connected Apps in Google Connected Console, an account owner or admin must review and accept the Connected Apps Terms of Service before team members can create Connected Apps.
@@ -53,7 +56,7 @@ upload and submit your AppFunctions, test on-device, and publish to production.
 
 To create a connected app and link it to your Play app, follow these steps:
 
-1. Sign in to [Google Connected Console](https://play.google.com/console/developers).
+1. Sign in to [Google Connected Console](https://connected.google.com/console).
 2. On the **Home** page, select **Create app**.
 3. In the **Choose what to create** dialog:
    - If prompted to accept the Connected Apps Terms of Service, select **View
@@ -69,8 +72,9 @@ To create a connected app and link it to your Play app, follow these steps:
 6. In the **Choose connection type** dialog, choose **Android MCP**.
 
    For a detailed walkthrough on setting up an MCP server connected app, see
-   the [Google Play Console integration guide](https://developer.android.com/connected-apps/gpc). For now, you can only
-   choose one connection type per connected app, and you can't change it later.
+   the [Google Connected Console integration guide](https://developers.google.com/connected-apps/gpc). For now,
+   you can only choose one connection type per connected app, and you can't
+   change it later.
 7. Select **Create connected app**.
 
 8. In the **Select app** dialog, find the Play app that contains (or will
@@ -141,9 +145,9 @@ To upload an app bundle containing your AppFunctions, follow these steps:
    app bundle** to go to your linked Play app's **Test and release** overview.
 2. Alternatively, open your linked Play app directly in Google Connected Console. In your Play app's left navigation menu, go to **Testing \> Internal
    testing** (or another test track) and select **Create new release** (or **Edit release** if you already have a draft release).
-3. Under **App bundles** , select **Upload** to upload your `.aab` bundle with AppFunctions, or select **Add from library** if you uploaded the bundle after completing [Step 2](https://developer.android.com/ai/appfunctions/create-manage-connected-apps#step-2-provide-details).
+3. Under **App bundles** , select **Upload** to upload your `.aab` bundle with AppFunctions, or select **Add from library** if you uploaded the bundle after completing [Step 2](https://developer.android.com/ai/appfunctions/create-manage-connected-apps.md.txt#step-2-provide-details).
 4. Once the upload finishes, go to the **App functions were detected in your
-   app bundle** section on the release page. Confirm that your connected app name, bundle version code, detected tool count, language count, and Play app country targeting appear as expected, and verify that automated checks report no issues. (If any validation errors appear, follow the instructions in [Troubleshoot issues related to AppFunctions](https://developer.android.com/ai/appfunctions/create-manage-connected-apps#troubleshoot-appfunctions) before continuing.)
+   app bundle** section on the release page. Confirm that your connected app name, bundle version code, detected tool count, language count, and Play app country targeting appear as expected, and verify that automated checks report no issues. (If any validation errors appear, follow the instructions in [Troubleshoot issues related to AppFunctions](https://developer.android.com/ai/appfunctions/create-manage-connected-apps.md.txt#troubleshoot-appfunctions) before continuing.)
 5. At the bottom of the release page, select **Submit connected app and
    continue**.
 
@@ -177,6 +181,10 @@ To make your connected app available to testers, you must add them on the
 interact with your unpublished connected app. You can only add testers with an
 `@gmail.com` account.
 
+Your Play app's testing track has its own testers list, which controls who can
+install your test build from Google Play. Use the same testers for your
+connected app and for the testing track that contains your release.
+
 1. On your connected app's overview page, in the **Test your app** card, select **Add testers** (or **Manage testers** if you've already added some).
 2. On the **Manage testers** page, select existing email lists or select **Create email list** to add the Google Accounts authorized to test your integration. Make sure to include your own email address if you want to test the app yourself.
 3. Select **Save**.
@@ -184,25 +192,29 @@ interact with your unpublished connected app. You can only add testers with an
    > [!NOTE]
    > **Note:** Once you add testers, it can take up to 10 minutes for your connected app to become visible to those accounts.
 
-4. Testers in the Gemini app can invoke your connected app by typing `@`
+4. In your linked Play app, go to the testing track that contains your release
+   (for example, **Testing \> Internal testing** ), select the **Testers** tab,
+   and select the same email lists.
+
+5. Testers in the Gemini app can invoke your connected app by typing `@`
    followed by your connected app's name and selecting it from the menu. You
    can also view and connect your app in Gemini by navigating to **Settings \&
-   help \> Connected apps** in the left navigation bar.
+   help \> Connected Apps** in the left navigation bar.
 
 Before testing on-device, confirm that each tester meets the following
 requirements:
 
-- Signed in on an Android mobile phone or tablet using a Google Account included in the email list configured in [Step 5](https://developer.android.com/ai/appfunctions/create-manage-connected-apps#step-5-test-connected-app).
-- Running the exact Android app build whose bundle version code matches the version submitted in [Step 4](https://developer.android.com/ai/appfunctions/create-manage-connected-apps#step-4-verify-version).
+- Signed in to the Gemini app on a phone or tablet that runs Android using a Google Account on your connected app's testers list.
+- Running the exact Android app build whose bundle version code matches the version submitted in [Step 3](https://developer.android.com/ai/appfunctions/create-manage-connected-apps.md.txt#step-3-upload-and-submit).
 
 We recommend thoroughly testing your integration:
 
 - Try all of your **Example prompts**.
 - Test both explicit `@<AppName>` invocations and natural-language queries.
-- Verify tool parameter handling, confirmation prompts, and end-to-end execution across your AppFunctions.
+- Verify parameter handling, confirmation prompts, and end-to-end execution across both read and state-changing AppFunctions. After running a state-changing prompt, open your app to confirm that the change appears in its UI.
 
 > [!NOTE]
-> **Note:** You can also debug your connected app in Gemini Developer Mode, where you can interactively test your Model Context Protocol (MCP) server, diagnose schema or runtime errors, and benchmark tool quality before submitting your connected app for review in Google Connected Console. Make sure you are signed into Gemini with an account.
+> **Note:** Gemini Apps Developer Mode runs in the Gemini web app and connects to MCP servers over HTTPS, so you can't use it to test Android MCP connected apps. To test your AppFunctions on a device without Gemini, use ADB commands or the [AppFunctions testing agent](https://github.com/android/appfunctions). For details, see [Verify AppFunction integration](https://developer.android.com/ai/appfunctions/add-appfunctions.md.txt#verify-integration).
 
 When you are satisfied with your testing, you are ready to submit your connected
 app to Google for review.
@@ -224,7 +236,7 @@ When you have completed testing and are ready to launch to users:
 4. Select **Submit connected app and continue**, complete your release details, and submit your Play app production release for review and rollout.
 
 > [!NOTE]
-> **Note:** Connected Apps are reviewed by Google alongside your Play app release, which may increase the time it takes to review your Play app. Until your production release is approved and rolled out, your connected app integration remains visible only to the testers configured on your connected app.
+> **Note:** Connected Apps are reviewed by Google alongside your Play app release, which might increase the time it takes to review your Play app. Until your production release is approved and rolled out, your connected app integration remains visible only to the testers configured on your connected app.
 
 Once your Play app production release is approved and rolled out:
 
@@ -249,7 +261,7 @@ unpublished draft app bundle before re-uploading:
       bundles** (if you don't see the bundle listed, select **View all app
       bundles**).
    2. Open your app bundle's details and, if the **Delete app bundle** button is available, select **Delete app bundle**. This frees the version code so you can upload the updated app bundle without incrementing the version code.
-4. If **Delete app bundle** is unavailable (for example, because the release was already published to a track), increment the `versionCode` in your app build configuration, generate a new app bundle, and upload and submit the new version as described in [Step 4](https://developer.android.com/ai/appfunctions/create-manage-connected-apps#step-4-verify-version).
+4. If **Delete app bundle** is unavailable (for example, because the release was already published to a track), increment the `versionCode` in your app build configuration, generate a new app bundle, and upload and submit the new version as described in [Step 3](https://developer.android.com/ai/appfunctions/create-manage-connected-apps.md.txt#step-3-upload-and-submit).
 
 ## Troubleshoot issues related to AppFunctions
 
@@ -283,10 +295,10 @@ app setup, bundle upload, or testing, along with their causes and resolutions:
 
 | Issue | Console message or symptom | Cause | Resolution |
 |---|---|---|---|
-| **App bundle uploaded before creating or linking a connected app** | Release page shows **Create or link connected app**. | The uploaded `.aab` contains AppFunctions, but the Play app isn't yet linked to an Android MCP connected app. | Complete [Step 1](https://developer.android.com/ai/appfunctions/create-manage-connected-apps#step-1-create-connected-app) through [Step 3](https://developer.android.com/ai/appfunctions/create-manage-connected-apps#step-3-upload-and-submit) to create a connected app, select **Android MCP** , link your Play app, and save **App details** . Then either delete and re-upload the app bundle or upload a new bundle with an incremented `versionCode`. |
+| **App bundle uploaded before creating or linking a connected app** | Release page shows **Create or link connected app**. | The uploaded `.aab` contains AppFunctions, but the Play app isn't yet linked to an Android MCP connected app. | Complete [Step 1](https://developer.android.com/ai/appfunctions/create-manage-connected-apps.md.txt#step-1-create-connected-app) through [Step 3](https://developer.android.com/ai/appfunctions/create-manage-connected-apps.md.txt#step-3-upload-and-submit) to create a connected app, select **Android MCP** , link your Play app, and save **App details** . Then either delete and re-upload the app bundle or upload a new bundle with an incremented `versionCode`. |
 | **App bundle uploaded before saving connected app details** | Release page shows **Connected app details required** and a **Provide connected app details** button. | The Play app is linked to an Android MCP connected app, but required fields on the **App details** page weren't saved before the bundle was uploaded. | Select **Provide connected app details** (or go to **Connected Apps \> Manage \> Add app details** ), complete and save all required fields, and then delete and re-upload the bundle or upload a new bundle with an incremented `versionCode`. |
-| **Play app can't be selected when linking** | Target Play app shows an **Already linked** badge or doesn't appear in the **Select app** dialog. | Each Play app can only be linked to one Android MCP connected app, or the Play app hasn't been created in this developer account yet. | Check existing entries under **Connected apps** to see if another connected app already links to your Play app, or create the Play app in Google Connected Console first before linking. |
-| **Can't create a connected app** | The option to create a connected app doesn't exist, or creating a connected app displays a permissions or Terms of Service warning. | Your user account lacks connected apps permissions, or an account owner or admin hasn't yet accepted the Connected Apps Terms of Service. | Ask an account owner or admin to accept the Connected Apps Terms of Service and grant your account **View Connected Apps** or **Create and manage Connected Apps** on the **Users and permissions** page. |
+| **Play app can't be selected when linking** | Target Play app shows an **Already linked** badge or doesn't appear in the **Select app** dialog. | Each Play app can only be linked to one Android MCP connected app, or the Play app hasn't been created in this developer account yet. | Check existing entries under **Connected Apps** to see if another connected app already links to your Play app, or create the Play app in Google Connected Console first before linking. |
+| **Can't create a connected app** | The option to create a connected app doesn't exist, or creating a connected app displays a permissions or Terms of Service warning. | Your user account lacks Connected Apps permissions, or an account owner or admin hasn't yet accepted the Connected Apps Terms of Service. | Ask an account owner or admin to accept the Connected Apps Terms of Service and grant your account **View Connected Apps** or **Create and manage Connected Apps** on the **Users and permissions** page. |
 | **Connected app version stuck in "Pending submission"** | On **Connected Apps \> Manage \> Versions** , your bundle version appears under **Pending submission** instead of **Available to testers**. | Google Connected Console detected AppFunctions in your uploaded bundle, but the connected app version hasn't been submitted from the release page. | Open the Play app release containing that bundle and select **Submit connected app and continue** so testers can preview it. |
 | **Example prompts validation error on App details page** | **Public app card** form can't be saved and displays an error under **Example prompts**. | Prompts don't meet formatting or mention rules, or **App name** was edited after writing prompts. | Provide three to four prompts total: start at least two with `@<YourAppName>`, mention `<YourAppName>` naturally without `@` in at least one, and remove numbered prefixes (`1.`, `2.`) or surrounding quotes (`"..."`). |
-| **Connected app not visible to testers in Gemini on Android** | Testers can't find the connected app under **Connected Apps** or using an `@` mention in the Android Gemini app. | Propagation is still in progress, the tester account isn't eligible, or the installed app version doesn't match. | Wait about 20 minutes after submission (and up to 10 minutes after saving testers). Confirm the tester uses a personal `@gmail.com` account on the saved email list, uses an Android phone or tablet, and has installed the exact submitted bundle version. |
+| **Connected app not visible to testers in Gemini on Android** | Testers can't find the connected app under **Connected Apps** or using an `@` mention in the Android Gemini app. | Propagation is still in progress, the tester account isn't eligible, or the installed app version doesn't match. | Wait about 20 minutes after submission (and up to 10 minutes after saving testers). Confirm the tester's personal `@gmail.com` account is on your connected app's testers list, not only on your Play app's testing track. Also confirm that the tester uses a phone or tablet that runs Android and has installed the exact submitted bundle version. |

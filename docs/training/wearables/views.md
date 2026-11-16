@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/views
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/views/llms.txt
+
 Try the Compose way Jetpack Compose on Wear OS is the recommended UI toolkit for Wear OS. [Try Compose on Wear OS →](https://developer.android.com/training/wearables/compose.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 
@@ -36,7 +38,7 @@ dependencies {
   // Standard Wear OS libraries
   implementation "androidx.wear:wear:1.4.0"
   // includes support for wearable specific inputs
-  implementation "androidx.wear:wear-input:1.1.0"
+  implementation "androidx.wear:wear-input:1.2.0"
 }
 ```
 

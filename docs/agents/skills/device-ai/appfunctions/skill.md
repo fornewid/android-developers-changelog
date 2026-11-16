@@ -21,7 +21,7 @@ AppFunctions, part of the Android platform API, are available from Android 16
 onwards.
 Always use the Jetpack library because it handles backward compatibility.
 Use `androidx.appfunctions:appfunctions` and the KSP compiler
-`androidx.appfunctions:appfunctions-compiler`, version 1.0.0-beta01 or later.
+`androidx.appfunctions:appfunctions-compiler`, version 1.0.0-rc01 or later.
 
 ## Workflows
 
@@ -31,10 +31,10 @@ for agents, and use ADB commands for local evaluation and testing.
 
 The full AppFunction development flow consists of these four steps:
 
-- *[Step 1: Discovery](https://developer.android.com/agents/skills/device-ai/appfunctions/references/feature-discovery-analysis)*: Analyze Android codebases to identify and recommend potential AppFunctions. Use this step when a user asks to "discover AppFunctions," "find features for AI," or "analyze my app for agentic tools."
-- *[Step 2: Implementation and configuration](https://developer.android.com/agents/skills/device-ai/appfunctions/references/implementation-configuration)*: Generate Kotlin implementations of AppFunctions, manage system-wide configuration, and configure build dependencies. Use this step when a user asks to "implement AppFunctions," "set up the AppFunctions framework," or "configure Hilt for AppFunctions."
-- *[Step 3: KDoc refinement](https://developer.android.com/agents/skills/device-ai/appfunctions/references/kdoc-refinement-optimization)*: Optimize AppFunction KDoc and the app description for AI agents and Model Context Protocol. If a user asks to "write KDoc", "optimize for MCP", or "refactor tool descriptions for LLMs", use this step.
-- *[Step 4: Testing and debugging](https://developer.android.com/agents/skills/device-ai/appfunctions/references/adb-interaction-testing)*: Provide commands to interact with AppFunctions using ADB for testing and debugging. If a user wants to "list app functions", "invoke an app function", or "verify app function registration" on a device, use this step.
+- *[Step 1: Discovery](https://developer.android.com/agents/skills/device-ai/appfunctions/references/feature-discovery-analysis.md.txt)*: Analyze Android codebases to identify and recommend potential AppFunctions. Use this step when a user asks to "discover AppFunctions," "find features for AI," or "analyze my app for agentic tools."
+- *[Step 2: Implementation and configuration](https://developer.android.com/agents/skills/device-ai/appfunctions/references/implementation-configuration.md.txt)*: Generate Kotlin implementations of AppFunctions, manage system-wide configuration, and configure build dependencies. Use this step when a user asks to "implement AppFunctions," "set up the AppFunctions framework," or "configure Hilt for AppFunctions."
+- *[Step 3: KDoc refinement](https://developer.android.com/agents/skills/device-ai/appfunctions/references/kdoc-refinement-optimization.md.txt)*: Optimize AppFunction KDoc and the app description for AI agents and Model Context Protocol. If a user asks to "write KDoc", "optimize for MCP", or "refactor tool descriptions for LLMs", use this step.
+- *[Step 4: Testing and debugging](https://developer.android.com/agents/skills/device-ai/appfunctions/references/adb-interaction-testing.md.txt)*: Provide commands to interact with AppFunctions using ADB for testing and debugging. If a user wants to "list app functions", "invoke an app function", or "verify app function registration" on a device, use this step.
 
 When the user asks for a subset of the steps, run those steps and any step
 that the critical constraints require. Then list the skipped steps and ask
@@ -42,8 +42,8 @@ whether to run them.
 
 If they apply, you must load the following references:
 
-- *[Context and terminology](https://developer.android.com/agents/skills/device-ai/appfunctions/references/context)*: Defines the ubiquitous language, architecture definitions, and design patterns across the AppFunctions skill suite. Load when you need to understand core architecture terminology or check the distinctions between modern and legacy AppFunctions APIs.
-- *[Migration to service entry point](https://developer.android.com/agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point)* : Migrates apps on AppFunctions 1.0.0-alpha09 or lower to the `AppFunctionServiceEntryPoint` architecture from 1.0.0-alpha10, and upgrades apps to 1.0.0-beta01. Load it when a user asks to migrate or upgrade existing AppFunctions code. When you find legacy `AppFunctionConfiguration.Provider` implementations, `@AppFunction` annotations, or `appfn:description` attributes, load it and ask the user before you migrate.
+- *[Context and terminology](https://developer.android.com/agents/skills/device-ai/appfunctions/references/context.md.txt)*: Defines the ubiquitous language, architecture definitions, and design patterns across the AppFunctions skill suite. Load when you need to understand core architecture terminology or check the distinctions between modern and legacy AppFunctions APIs.
+- *[Migration to service entry point](https://developer.android.com/agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point.md.txt)* : Migrates apps on AppFunctions 1.0.0-alpha09 or lower to the `AppFunctionServiceEntryPoint` architecture from 1.0.0-alpha10, and upgrades apps to 1.0.0-rc01. Load it when a user asks to migrate or upgrade existing AppFunctions code. When you find legacy `AppFunctionConfiguration.Provider` implementations, `@AppFunction` annotations, or `appfn:description` attributes, load it and ask the user before you migrate.
 
 ## Critical constraints
 
@@ -53,7 +53,7 @@ If they apply, you must load the following references:
 
 ## Troubleshooting
 
-- If you encounter build-time errors such as Kotlin Symbol Processing (KSP) issues, see [Implementation and configuration](https://developer.android.com/agents/skills/device-ai/appfunctions/references/implementation-configuration).
-- If you encounter runtime errors such as missing services or execution failures, see [Testing and debugging](https://developer.android.com/agents/skills/device-ai/appfunctions/references/adb-interaction-testing).
-- If you need architecture definitions and vocabulary, see [Context and terminology](https://developer.android.com/agents/skills/device-ai/appfunctions/references/context).
-- If you encounter issues when upgrading AppFunctions, such as errors on `@AppFunction`, which is no longer an annotation, see [Migration to service entry point](https://developer.android.com/agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point).
+- If you encounter build-time errors such as Kotlin Symbol Processing (KSP) issues, see [Implementation and configuration](https://developer.android.com/agents/skills/device-ai/appfunctions/references/implementation-configuration.md.txt).
+- If you encounter runtime errors such as missing services or execution failures, see [Testing and debugging](https://developer.android.com/agents/skills/device-ai/appfunctions/references/adb-interaction-testing.md.txt).
+- If you need architecture definitions and vocabulary, see [Context and terminology](https://developer.android.com/agents/skills/device-ai/appfunctions/references/context.md.txt).
+- If you encounter issues when upgrading AppFunctions, such as errors on `@AppFunction`, which is no longer an annotation, see [Migration to service entry point](https://developer.android.com/agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point.md.txt).

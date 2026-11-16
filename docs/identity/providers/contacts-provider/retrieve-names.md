@@ -4,6 +4,8 @@ url: https://developer.android.com/identity/providers/contacts-provider/retrieve
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/identity/providers/contacts-provider/llms.txt
+
 This lesson shows you how to retrieve a list of contacts whose data matches all or part of a
 search string, using the following techniques:
 
@@ -28,8 +30,8 @@ Match any type of data
 
 
 **Note:** All the examples in this lesson use a
-`https://developer.android.com/reference/androidx/loader/content/CursorLoader` to retrieve data from the Contacts
-Provider. A `https://developer.android.com/reference/androidx/loader/content/CursorLoader` runs its query on a
+`CursorLoader` to retrieve data from the Contacts
+Provider. A `CursorLoader` runs its query on a
 thread that's separate from the UI thread. This ensures that the query doesn't slow down UI
 response times and cause a poor user experience. For more information, see the Android
 training class [Loading Data in the Background](https://developer.android.com/training/load-data-background).
@@ -38,11 +40,11 @@ training class [Loading Data in the Background](https://developer.android.com/tr
 
 
 To do any type of search of the Contacts Provider, your app must have
-`https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS` permission.
+`READ_CONTACTS` permission.
 To request this, add this
-`https://developer.android.com/guide/topics/manifest/uses-permission-element`
+`<uses-permission>`
 element to your manifest file as a child element of
-`https://developer.android.com/guide/topics/manifest/manifest-element`:
+`<manifest>`:
 
 ```xml
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -52,16 +54,16 @@ element to your manifest file as a child element of
 
 
 This technique tries to match a search string to the name of a contact or contacts in the
-Contact Provider's `https://developer.android.com/reference/android/provider/ContactsContract.Contacts` table. You usually want
-to display the results in a `https://developer.android.com/reference/android/widget/ListView`, to allow the user to choose among
+Contact Provider's `ContactsContract.Contacts` table. You usually want
+to display the results in a `ListView`, to allow the user to choose among
 the matched contacts.
 
 ### Define ListView and item layouts
 
 
-To display the search results in a `https://developer.android.com/reference/android/widget/ListView`, you need a main layout file
-that defines the entire UI including the `https://developer.android.com/reference/android/widget/ListView`, and an item layout
-file that defines one line of the `https://developer.android.com/reference/android/widget/ListView`. For example, you could create
+To display the search results in a `ListView`, you need a main layout file
+that defines the entire UI including the `ListView`, and an item layout
+file that defines one line of the `ListView`. For example, you could create
 the main layout file `res/layout/contacts_list_view.xml` with
 the following XML:
 
@@ -74,8 +76,8 @@ the following XML:
 ```
 
 
-This XML uses the built-in Android `https://developer.android.com/reference/android/widget/ListView` widget
-`https://developer.android.com/reference/android/R.id#list`.
+This XML uses the built-in Android `ListView` widget
+`android:id/list`.
 
 
 Define the item layout file `contacts_list_item.xml` with the following XML:
@@ -90,8 +92,8 @@ Define the item layout file `contacts_list_item.xml` with the following XML:
 ```
 
 
-This XML uses the built-in Android `https://developer.android.com/reference/android/widget/TextView` widget
-`https://developer.android.com/reference/android/R.id#text1`.
+This XML uses the built-in Android `TextView` widget
+`android:text1`.
 
 
 **Note:** This lesson doesn't describe the UI for getting a search string from the
@@ -100,28 +102,28 @@ an option to search for contacts whose name matches a string in an incoming text
 
 
 The two layout files you've written define a user interface that shows a
-`https://developer.android.com/reference/android/widget/ListView`. The next step is to write code that uses this UI to display a
+`ListView`. The next step is to write code that uses this UI to display a
 list of contacts.
 
 ### Define a Fragment that displays the list of contacts
 
 
-To display the list of contacts, start by defining a `https://developer.android.com/reference/androidx/fragment/app/Fragment`
-that's loaded by an `https://developer.android.com/reference/android/app/Activity`. Using a
-`https://developer.android.com/reference/androidx/fragment/app/Fragment` is a more flexible technique, because you can use
-one `https://developer.android.com/reference/androidx/fragment/app/Fragment` to display the list and a second
-`https://developer.android.com/reference/androidx/fragment/app/Fragment` to display the details for a contact that the user
+To display the list of contacts, start by defining a `Fragment`
+that's loaded by an `Activity`. Using a
+`Fragment` is a more flexible technique, because you can use
+one `Fragment` to display the list and a second
+`Fragment` to display the details for a contact that the user
 chooses from the list. Using this approach, you can combine one of the techniques presented in
 this lesson with one from the lesson [Retrieve details for a contact](https://developer.android.com/training/contacts-provider/retrieve-details).
 
 
-To learn how to use one or more `https://developer.android.com/reference/androidx/fragment/app/Fragment` objects from an
-an `https://developer.android.com/reference/android/app/Activity`, read the training class
+To learn how to use one or more `Fragment` objects from an
+an `Activity`, read the training class
 [Build a dynamic UI with Fragments](https://developer.android.com/training/basics/fragments).
 
 
 To help you write queries against the Contacts Provider, the Android framework provides a
-contracts class called `https://developer.android.com/reference/android/provider/ContactsContract`, which defines useful
+contracts class called `ContactsContract`, which defines useful
 constants and methods for accessing the provider. When you use this class, you don't have to
 define your own constants for content URIs, table names, or columns. To use this class,
 include the following statement:
@@ -139,19 +141,19 @@ import android.provider.ContactsContract;
 ```
 
 
-Since the code uses a `https://developer.android.com/reference/androidx/loader/content/CursorLoader` to retrieve data
+Since the code uses a `CursorLoader` to retrieve data
 from the provider, you must specify that it implements the loader interface
-`https://developer.android.com/reference/androidx/loader/app/LoaderManager.LoaderCallbacks`. Also, to help detect which contact
+`LoaderManager.LoaderCallbacks`. Also, to help detect which contact
 the user selects from the list of search results, implement the adapter interface
-`https://developer.android.com/reference/android/widget/AdapterView.OnItemClickListener`. For example:
+`AdapterView.OnItemClickListener`. For example:
 
 ### Kotlin
 
 ```kotlin
 ...
-import android.support.v4.app.Fragment
-import android.support.v4.app.LoaderManager
 import android.widget.AdapterView
+import androidx.fragment.app.Fragment
+import androidx.loader.app.LoaderManager
 ...
 class ContactsFragment :
         Fragment(),
@@ -163,9 +165,9 @@ class ContactsFragment :
 
 ```java
 ...
-import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.widget.AdapterView;
+import androidx.fragment.app.Fragment;
+import androidx.loader.app.LoaderManager;
 ...
 public class ContactsFragment extends Fragment implements
         LoaderManager.LoaderCallbacks<Cursor>,
@@ -259,7 +261,7 @@ class ContactsFragment :
 
 
 **Note:** Since
-`https://developer.android.com/reference/android/provider/ContactsContract.ContactNameColumns#DISPLAY_NAME_PRIMARY` requires Android 3.0 (API version 11) or later, setting your
+`Contacts.DISPLAY_NAME_PRIMARY` requires Android 3.0 (API version 11) or later, setting your
 app's `minSdkVersion` to 10 or lower generates an Android Lint warning in
 Android Studio. To turn off this warning, add the annotation
 `@SuppressLint("InlinedApi")` before the definition of `FROM_COLUMNS`.
@@ -267,9 +269,9 @@ Android Studio. To turn off this warning, add the annotation
 ### Initialize the Fragment
 
 
-Initialize the `https://developer.android.com/reference/androidx/fragment/app/Fragment`. Add the empty, public constructor
-required by the Android system, and inflate the `https://developer.android.com/reference/androidx/fragment/app/Fragment` object's
-UI in the callback method `https://developer.android.com/reference/androidx/fragment/app/Fragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)`.
+Initialize the `Fragment`. Add the empty, public constructor
+required by the Android system, and inflate the `Fragment` object's
+UI in the callback method `onCreateView()`.
 For example:
 
 ### Kotlin
@@ -305,11 +307,11 @@ For example:
 ### Set up the CursorAdapter for the ListView
 
 
-Set up the `https://developer.android.com/reference/androidx/cursoradapter/widget/SimpleCursorAdapter` that binds the results of the
-search to the `https://developer.android.com/reference/android/widget/ListView`. To get the `https://developer.android.com/reference/android/widget/ListView` object
-that displays the contacts, you need to call `https://developer.android.com/reference/android/app/Activity#findViewById(int)` using the parent activity of the
-`https://developer.android.com/reference/androidx/fragment/app/Fragment`. Use the `https://developer.android.com/reference/android/content/Context` of the
-parent activity when you call `https://developer.android.com/reference/android/widget/AdapterView#setAdapter(T)`.
+Set up the `SimpleCursorAdapter` that binds the results of the
+search to the `ListView`. To get the `ListView` object
+that displays the contacts, you need to call `Activity.findViewById()` using the parent activity of the
+`Fragment`. Use the `Context` of the
+parent activity when you call `setAdapter()`.
 For example:
 
 ### Kotlin
@@ -362,13 +364,13 @@ For example:
 When you display the results of a search, you usually want to allow the user to select a
 single contact for further processing. For example, when the user clicks a contact you can
 display the contact's address on a map. To provide this feature, you first defined the current
-`https://developer.android.com/reference/androidx/fragment/app/Fragment` as the click listener by specifying that the class
-implements `https://developer.android.com/reference/android/widget/AdapterView.OnItemClickListener`, as shown in the section
-[Define a Fragment that displays the list of contacts](https://developer.android.com/identity/providers/contacts-provider/retrieve-names#Fragment).
+`Fragment` as the click listener by specifying that the class
+implements `AdapterView.OnItemClickListener`, as shown in the section
+[Define a Fragment that displays the list of contacts](https://developer.android.com/identity/providers/contacts-provider/retrieve-names.md.txt#Fragment).
 
 
-To continue setting up the listener, bind it to the `https://developer.android.com/reference/android/widget/ListView` by
-calling the method `https://developer.android.com/reference/android/widget/AdapterView#setOnItemClickListener(android.widget.AdapterView.OnItemClickListener)` in `https://developer.android.com/reference/androidx/fragment/app/Fragment#onActivityCreated(android.os.Bundle)`. For example:
+To continue setting up the listener, bind it to the `ListView` by
+calling the method `setOnItemClickListener()` in `onActivityCreated()`. For example:
 
 ### Kotlin
 
@@ -393,27 +395,27 @@ calling the method `https://developer.android.com/reference/android/widget/Adapt
 ```
 
 
-Since you specified that the current `https://developer.android.com/reference/androidx/fragment/app/Fragment` is the
-`https://developer.android.com/reference/android/widget/AdapterView.OnItemClickListener` for the
-`https://developer.android.com/reference/android/widget/ListView`, you now need to implement its required method
-`https://developer.android.com/reference/android/widget/AdapterView.OnItemClickListener#onItemClick(android.widget.AdapterView<?>, android.view.View, int, long)`, which
+Since you specified that the current `Fragment` is the
+`OnItemClickListener` for the
+`ListView`, you now need to implement its required method
+`onItemClick()`, which
 handles the click event. This is described in a succeeding section.
 
 ### Define a projection
 
 
 Define a constant that contains the columns you want to return from your query. Each item in
-the `https://developer.android.com/reference/android/widget/ListView` displays the contact's display name,
+the `ListView` displays the contact's display name,
 which contains the main form of the contact's name. In Android 3.0 (API version 11) and later,
 the name of this column is
-`https://developer.android.com/reference/android/provider/ContactsContract.ContactNameColumns#DISPLAY_NAME_PRIMARY`; in versions previous to that, its name is
-`https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#DISPLAY_NAME`.
+`Contacts.DISPLAY_NAME_PRIMARY`; in versions previous to that, its name is
+`Contacts.DISPLAY_NAME`.
 
 
-The column `https://developer.android.com/reference/android/provider/BaseColumns#_ID` is used by the
-`https://developer.android.com/reference/androidx/cursoradapter/widget/SimpleCursorAdapter` binding process.
-`https://developer.android.com/reference/android/provider/BaseColumns#_ID` and
-`https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY` are used together to
+The column `Contacts._ID` is used by the
+`SimpleCursorAdapter` binding process.
+`Contacts._ID` and
+`LOOKUP_KEY` are used together to
 construct a content URI for the contact the user selects.
 
 ### Kotlin
@@ -451,9 +453,9 @@ private static final String[] PROJECTION =
 ### Define constants for the Cursor column indexes
 
 
-To get data from an individual column in a `https://developer.android.com/reference/android/database/Cursor`, you need
-the column's index within the `https://developer.android.com/reference/android/database/Cursor`. You can define constants
-for the indexes of the `https://developer.android.com/reference/android/database/Cursor` columns, because the indexes are
+To get data from an individual column in a `Cursor`, you need
+the column's index within the `Cursor`. You can define constants
+for the indexes of the `Cursor` columns, because the indexes are
 the same as the order of the column names in your projection. For example:
 
 ### Kotlin
@@ -523,9 +525,9 @@ private val SELECTION: String =
 ### Define the onItemClick() method
 
 
-In a previous section, you set the item click listener for the `https://developer.android.com/reference/android/widget/ListView`.
+In a previous section, you set the item click listener for the `ListView`.
 Now implement the action for the listener by defining the method
-`https://developer.android.com/reference/android/widget/AdapterView.OnItemClickListener#onItemClick(android.widget.AdapterView<?>, android.view.View, int, long)`:
+`AdapterView.OnItemClickListener.onItemClick()`:
 
 ### Kotlin
 
@@ -575,10 +577,10 @@ Now implement the action for the listener by defining the method
 ### Initialize the loader
 
 
-Since you're using a `https://developer.android.com/reference/androidx/loader/content/CursorLoader` to retrieve data,
+Since you're using a `CursorLoader` to retrieve data,
 you must initialize the background thread and other variables that control asynchronous
 retrieval. Do the initialization in
-`https://developer.android.com/reference/androidx/fragment/app/Fragment#onCreate(android.os.Bundle)` as
+`onCreate()` as
 shown in the following example:
 
 ### Kotlin
@@ -593,7 +595,7 @@ class ContactsFragment :
         super.onCreate(savedInstanceState)
         ...
         // Initializes the loader
-        loaderManager.initLoader(0, null, this)
+        LoaderManager.getInstance(this).initLoader(0, null, this)
 ```
 
 ### Java
@@ -609,27 +611,27 @@ public class ContactsFragment extends Fragment implements
         super.onCreate(savedInstanceState);
         ...
         // Initializes the loader
-        getLoaderManager().initLoader(0, null, this);
+        LoaderManager.getInstance(this).initLoader(0, null, this);
 ```
 
 ### Implement onCreateLoader()
 
 
 Implement the method
-`https://developer.android.com/reference/androidx/loader/app/LoaderManager.LoaderCallbacks#onCreateLoader(int, android.os.Bundle)`,
+`onCreateLoader()`,
 which is called by the loader framework immediately after you call
-`https://developer.android.com/reference/androidx/loader/app/LoaderManager#initLoader(int, android.os.Bundle, android.support.v4.app.LoaderManager.LoaderCallbacks<D>)`.
+`initLoader()`.
 
 
-In `https://developer.android.com/reference/androidx/loader/app/LoaderManager.LoaderCallbacks#onCreateLoader(int, android.os.Bundle)`,
+In `onCreateLoader()`,
 set up the search string pattern. To make a string into a pattern, insert "%"
 (percent) characters to represent a sequence of zero or more characters, or "_" (underscore)
 characters to represent a single character, or both. For example, the pattern "%Jefferson%"
 would match both "Thomas Jefferson" and "Jefferson Davis".
 
 
-Return a new `https://developer.android.com/reference/androidx/loader/content/CursorLoader` from the method. For the content
-URI, use `https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_URI`.
+Return a new `CursorLoader` from the method. For the content
+URI, use `Contacts.CONTENT_URI`.
 This URI refers to the entire table, as shown in the following example:
 
 ### Kotlin
@@ -683,13 +685,13 @@ This URI refers to the entire table, as shown in the following example:
 
 
 Implement the
-`https://developer.android.com/reference/androidx/loader/app/LoaderManager.LoaderCallbacks#onLoadFinished(android.support.v4.content.Loader<D>, D)`
+`onLoadFinished()`
 method. The loader framework calls
-`https://developer.android.com/reference/androidx/loader/app/LoaderManager.LoaderCallbacks#onLoadFinished(android.support.v4.content.Loader<D>, D)`
+`onLoadFinished()`
 when the Contacts Provider returns the results of the query. In this method, put the
-result `https://developer.android.com/reference/android/database/Cursor` in the
-`https://developer.android.com/reference/androidx/cursoradapter/widget/SimpleCursorAdapter`. This automatically updates the
-`https://developer.android.com/reference/android/widget/ListView` with the search results:
+result `Cursor` in the
+`SimpleCursorAdapter`. This automatically updates the
+`ListView` with the search results:
 
 ### Kotlin
 
@@ -711,11 +713,11 @@ result `https://developer.android.com/reference/android/database/Cursor` in the
 ```
 
 
-The method `https://developer.android.com/reference/androidx/loader/app/LoaderManager.LoaderCallbacks#onLoaderReset(android.support.v4.content.Loader<D>)` is invoked when the loader framework detects that the
-result `https://developer.android.com/reference/android/database/Cursor` contains stale data. Delete the
-`https://developer.android.com/reference/androidx/cursoradapter/widget/SimpleCursorAdapter` reference to the existing
-`https://developer.android.com/reference/android/database/Cursor`. If you don't, the loader framework will not
-recycle the `https://developer.android.com/reference/android/database/Cursor`, which causes a memory leak. For example:
+The method `onLoaderReset()` is invoked when the loader framework detects that the
+result `Cursor` contains stale data. Delete the
+`SimpleCursorAdapter` reference to the existing
+`Cursor`. If you don't, the loader framework won't
+recycle the `Cursor`, which causes a memory leak. For example:
 
 ### Kotlin
 
@@ -739,7 +741,7 @@ recycle the `https://developer.android.com/reference/android/database/Cursor`, w
 
 
 You now have the key pieces of an app that matches a search string to contact names and returns
-the result in a `https://developer.android.com/reference/android/widget/ListView`. The user can click a contact name to select it.
+the result in a `ListView`. The user can click a contact name to select it.
 This triggers a listener, in which you can work further with the contact's data. For example,
 you can retrieve the contact's details. To learn how to do this, continue with the next
 lesson, [Retrieve details for a contact](https://developer.android.com/training/contacts-provider/retrieve-details).
@@ -790,14 +792,14 @@ a particular type of detail data and display the results.
 To search for a particular type of detail data, you have to know the custom MIME type value
 for the data type. Each data type has a unique MIME type
 value defined by a constant `CONTENT_ITEM_TYPE` in the subclass of
-`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds` associated with the data type.
+`ContactsContract.CommonDataKinds` associated with the data type.
 The subclasses have names that indicate their data type; for example, the subclass for email
-data is `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email`, and the custom MIME
+data is `ContactsContract.CommonDataKinds.Email`, and the custom MIME
 type for email data is defined by the constant
-`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email#CONTENT_ITEM_TYPE`.
+`Email.CONTENT_ITEM_TYPE`.
 
 
-Use the `https://developer.android.com/reference/android/provider/ContactsContract.Data` table for your search. All of the
+Use the `ContactsContract.Data` table for your search. All of the
 constants you need for your projection, selection clause, and sort order are defined in or
 inherited by this table.
 
@@ -805,8 +807,8 @@ inherited by this table.
 
 
 To define a projection, choose one or more of the columns defined in
-`https://developer.android.com/reference/android/provider/ContactsContract.Data` or the classes from which it inherits. The
-Contacts Provider does an implicit join between `https://developer.android.com/reference/android/provider/ContactsContract.Data`
+`ContactsContract.Data` or the classes from which it inherits. The
+Contacts Provider does an implicit join between `ContactsContract.Data`
 and other tables before it returns rows. For example:
 
 ### Kotlin
@@ -859,10 +861,10 @@ private val PROJECTION: Array<out String> = arrayOf(
 To search for a string within a particular type of data, construct a selection clause from
 the following:
 
-- The name of the column that contains your search string. This name varies by data type, so you need to find the subclass of `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds` that corresponds to the data type and then choose the column name from that subclass. For example, to search for email addresses, use the column `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email#ADDRESS`.
+- The name of the column that contains your search string. This name varies by data type, so you need to find the subclass of `ContactsContract.CommonDataKinds` that corresponds to the data type and then choose the column name from that subclass. For example, to search for email addresses, use the column `Email.ADDRESS`.
 - The search string itself, represented as the "?" character in the selection clause.
-- The name of the column that contains the custom MIME type value. This name is always `https://developer.android.com/reference/android/provider/ContactsContract.DataColumns#MIMETYPE`.
-- The custom MIME type value for the data type. As described previously, this is the constant `CONTENT_ITEM_TYPE` in the `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds` subclass. For example, the MIME type value for email data is `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email#CONTENT_ITEM_TYPE`. Enclose the value in single quotes by concatenating a "`'`" (single quote) character to the start and end of the constant; otherwise, the provider interprets the value as a variable name rather than as a string value. You don't need to use a placeholder for this value, because you're using a constant rather than a user-supplied value.
+- The name of the column that contains the custom MIME type value. This name is always `Data.MIMETYPE`.
+- The custom MIME type value for the data type. As described previously, this is the constant `CONTENT_ITEM_TYPE` in the `ContactsContract.CommonDataKinds` subclass. For example, the MIME type value for email data is `Email.CONTENT_ITEM_TYPE`. Enclose the value in single quotes by concatenating a "`'`" (single quote) character to the start and end of the constant; otherwise, the provider interprets the value as a variable name rather than as a string value. You don't need to use a placeholder for this value, because you're using a constant rather than a user-supplied value.
 
 
 For example:
@@ -932,11 +934,11 @@ Next, define variables to contain the selection argument:
 
 
 Now that you've specified the data you want and how to find it, define a query in your
-implementation of `https://developer.android.com/reference/androidx/loader/app/LoaderManager.LoaderCallbacks#onCreateLoader(int, android.os.Bundle)`.
-Return a new `https://developer.android.com/reference/androidx/loader/content/CursorLoader` from this
+implementation of `onCreateLoader()`.
+Return a new `CursorLoader` from this
 method, using your projection, selection text expression, and selection array as
 arguments. For a content URI, use
-`https://developer.android.com/reference/android/provider/ContactsContract.Data#CONTENT_URI`. For example:
+`Data.CONTENT_URI`. For example:
 
 ### Kotlin
 
@@ -1012,7 +1014,7 @@ previous sections:
 - Define a projection.
 - Define constants for the Cursor column indexes.
   For this type of retrieval, you're using the same table you used in the section
-  [Match a contact by name and list the results](https://developer.android.com/identity/providers/contacts-provider/retrieve-names#NameMatch). Use the
+  [Match a contact by name and list the results](https://developer.android.com/identity/providers/contacts-provider/retrieve-names.md.txt#NameMatch). Use the
   same column indexes as well.
 
 - Define the onItemClick() method.
@@ -1032,12 +1034,12 @@ These aren't used in this type of retrieval.
 ### Implement onCreateLoader()
 
 
-Implement the `https://developer.android.com/reference/androidx/loader/app/LoaderManager.LoaderCallbacks#onCreateLoader(int, android.os.Bundle)`
-method, returning a new `https://developer.android.com/reference/androidx/loader/content/CursorLoader`.
+Implement the `onCreateLoader()`
+method, returning a new `CursorLoader`.
 You don't need to convert the search string into a pattern, because the Contacts Provider does
 that automatically. Use
-`https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_FILTER_URI` as the base URI, and append your search string to it by calling
-`https://developer.android.com/reference/android/net/Uri#withAppendedPath(android.net.Uri, java.lang.String)`. Using this URI
+`Contacts.CONTENT_FILTER_URI` as the base URI, and append your search string to it by calling
+`Uri.withAppendedPath()`. Using this URI
 automatically triggers searching for any data type, as shown in the following example:
 
 ### Kotlin

@@ -6056,8 +6056,8 @@
     },
     "training/wearables/views.md": {
       "original_url": "https://developer.android.com/training/wearables/views",
-      "hash": "f937f29bcc13df454feec3040d5293f2023a93e9c05c388e2de9e6b2f5f7a250",
-      "last_updated": "2026-11-11T15:05:52.259664",
+      "hash": "067da29c30bd479522ff07bebbc28cd58dbcd0f43820eec7ddfa96907015013e",
+      "last_updated": "2026-11-16T15:05:17.880286",
       "fetch_method": "md.txt"
     },
     "media/legacy/audio/mediasession.md": {
@@ -8102,8 +8102,8 @@
     },
     "games/playgames/native-pc/publish/developer-installed.md": {
       "original_url": "https://developer.android.com/games/playgames/native-pc/publish/developer-installed",
-      "hash": "6df1e9abfe48650f491a9fe134cdc3f279693051a0e64813f0f00c1f6fdf12a1",
-      "last_updated": "2026-09-22T15:06:32.711553",
+      "hash": "98a4d1f31bc840f109c239724741783f32cb5425bce04f5fb1e11f0c841b7f91",
+      "last_updated": "2026-11-16T15:09:10.485553",
       "fetch_method": "md.txt"
     },
     "build/releases/agp-1-5-0-release-notes.md": {
@@ -10958,8 +10958,8 @@
     },
     "google/play/integrity/device-recall.md": {
       "original_url": "https://developer.android.com/google/play/integrity/device-recall",
-      "hash": "a1e057fbe476e7b580e20e05c952abcf04775c7f3bc3294c5d7fb03c669a4ff6",
-      "last_updated": "2026-10-16T15:07:18.257000",
+      "hash": "b7b250c479868c5d499ee3b3e807ee7772932a55d7f524d334b6e4899e091359",
+      "last_updated": "2026-11-16T15:06:40.441511",
       "fetch_method": "md.txt"
     },
     "media/media3/session/serve-content.md": {
@@ -12800,8 +12800,8 @@
     },
     "ai/overview.md": {
       "original_url": "https://developer.android.com/ai/overview",
-      "hash": "5a9d8c84b2049dd5fabc98c384d902c0a428e9d083ebeb3598ad4002f7b2ec75",
-      "last_updated": "2026-10-28T15:04:38.816877",
+      "hash": "c7ccdddacf7d4508ce465ed112adc735e056148c60633e976511035e69f8b66c",
+      "last_updated": "2026-11-16T15:04:46.704175",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/system/keyboard-animations.md": {
@@ -21266,8 +21266,8 @@
     },
     "ai.md": {
       "original_url": "https://developer.android.com/ai",
-      "hash": "331eca25a260026dc5e8f590e3d0312bc5e1de99299fb6a1b225360eca6e7a62",
-      "last_updated": "2026-10-30T15:04:35.823673",
+      "hash": "443dde8412df315e99ba5a115b7aedbb681500a586237af1b1957632d906a4bc",
+      "last_updated": "2026-11-16T15:04:40.750414",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/quick-guides/content/custom-page-indicator.md": {
@@ -24770,8 +24770,8 @@
     },
     "identity/providers/contacts-provider/retrieve-names.md": {
       "original_url": "https://developer.android.com/identity/providers/contacts-provider/retrieve-names",
-      "hash": "c49d54004b56e11ce0980717e12929c92e234dd20ad336552d3f4454fd0535e7",
-      "last_updated": "2026-10-13T15:07:23.295336",
+      "hash": "a8d9e1e7fe9f48f3532970621465bb65823326cf346a65aaa5b2bb9cc7cb7beb",
+      "last_updated": "2026-11-16T15:04:10.733880",
       "fetch_method": "md.txt"
     },
     "studio/gemini/analyze-runtime-errors-with-logcat.md": {
@@ -24926,8 +24926,8 @@
     },
     "courses/pathways/android-ai-overview.md": {
       "original_url": "https://developer.android.com/courses/pathways/android-ai-overview",
-      "hash": "a365f79bda9fa7c5918c1d22462b2337f2391798ab5b8734323df3eb1de043bd",
-      "last_updated": "2026-11-10T15:07:12.871760",
+      "hash": "eb19d24e13ac02531dbe13d7f6eedf94117f0024c6073ce724d82c8521e6304b",
+      "last_updated": "2026-11-16T15:06:46.506075",
       "fetch_method": "md.txt"
     },
     "develop/ui/views/components/appbar.md": {
@@ -25232,8 +25232,8 @@
     },
     "ai/appfunctions.md": {
       "original_url": "https://developer.android.com/ai/appfunctions",
-      "hash": "15e606b2b8630e1ca48d5a12b52a206746f04b426165a65f958ef28547966dac",
-      "last_updated": "2026-11-11T15:06:28.810636",
+      "hash": "cbe0daf86ce37d459708f10a123fb3c4a1a9322f9f248081d5e9070cff5c7dcb",
+      "last_updated": "2026-11-16T15:05:54.100365",
       "fetch_method": "md.txt"
     },
     "design/ui/gallery/social/comments.md": {
@@ -26102,8 +26102,8 @@
     },
     "games/playgames/native-pc/checklist.md": {
       "original_url": "https://developer.android.com/games/playgames/native-pc/checklist",
-      "hash": "562e9248d659d36da0f9cda4a5275a2c0b2802e3f62d3f4c040be4a8efd7b55c",
-      "last_updated": "2026-09-22T15:08:48.242969",
+      "hash": "e3a527fb9353720ccf766bfd6af49404e62389a14b7682627d963c036557d579",
+      "last_updated": "2026-11-16T15:06:02.970713",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/touch-input/scroll/two-dimensional-scrolling.md": {
@@ -28892,8 +28892,8 @@
     },
     "ai/appfunctions/add-appfunctions.md": {
       "original_url": "https://developer.android.com/ai/appfunctions/add-appfunctions",
-      "hash": "7f3842e080590a3da845475eed1669f655836c81107f6c0bd1de7d39fa2eb57d",
-      "last_updated": "2026-11-10T15:07:57.897637",
+      "hash": "0f2c59d310c8db1e96c8316eb80094f31f5a7837daae0547bfe3cee9f9c24f41",
+      "last_updated": "2026-11-16T15:07:27.603162",
       "fetch_method": "md.txt"
     },
     "agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/material-hct-source.md": {
@@ -28970,8 +28970,8 @@
     },
     "agents/skills/device-ai/appfunctions/skill.md": {
       "original_url": "https://developer.android.com/agents/skills/device-ai/appfunctions/skill",
-      "hash": "78c07f38571cc89246d51a84cab35569927c0baa23d7af341e337cbf4b6a0960",
-      "last_updated": "2026-10-28T16:47:07.127209",
+      "hash": "6750821043bd86df1bb9e7e3a3319478f683d7d38a05a556b990b9413b4e0503",
+      "last_updated": "2026-11-16T15:09:07.251378",
       "fetch_method": "md.txt"
     },
     "agents/skills/play/engage-sdk-integration/references/patterns.md": {
@@ -29048,8 +29048,8 @@
     },
     "agents/skills/device-ai/appfunctions/references/implementation-configuration.md": {
       "original_url": "https://developer.android.com/agents/skills/device-ai/appfunctions/references/implementation-configuration",
-      "hash": "46c9a7d8ba45ad89a859b34e40d3ae942fd45dda02ceced7229e0f524044bec5",
-      "last_updated": "2026-11-04T15:04:56.972084",
+      "hash": "a5235a8998f83f8fac1f442f0007eff6f24e4e969e9a172f3f9f37af902feb1a",
+      "last_updated": "2026-11-16T15:05:23.043042",
       "fetch_method": "md.txt"
     },
     "agents/skills/device-ai/appfunctions/references/adb-interaction-testing.md": {
@@ -31676,8 +31676,8 @@
     },
     "agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point.md": {
       "original_url": "https://developer.android.com/agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point",
-      "hash": "9f0812797d099ab3b0557450029529caf59d7048cec36e05708ec44ed67b52fb",
-      "last_updated": "2026-11-11T15:10:40.613934",
+      "hash": "5b202e86ded7855cb801ef34c7560dadceba4dbe1dd840869d54706a3d2502f3",
+      "last_updated": "2026-11-16T15:09:43.972972",
       "fetch_method": "md.txt"
     },
     "blog/topics/coroutines.md": {
@@ -32390,8 +32390,8 @@
     },
     "ai/intelligence-system.md": {
       "original_url": "https://developer.android.com/ai/intelligence-system",
-      "hash": "6aec5a8c573970a2f3318c988716e9f4d297160ea8ff00bbb99575cc006d489e",
-      "last_updated": "2026-11-04T15:04:33.272201",
+      "hash": "e02a1eb74e253f49b582d72414072ebbce4e3e220812df0d3fa3f92577ddaf32",
+      "last_updated": "2026-11-16T15:04:49.406183",
       "fetch_method": "md.txt"
     },
     "games/engines/unreal/unreal-memory-usage.md": {
@@ -36056,8 +36056,8 @@
     },
     "ai/appfunctions/create-manage-connected-apps.md": {
       "original_url": "https://developer.android.com/ai/appfunctions/create-manage-connected-apps",
-      "hash": "41d90aedaad6feae243d3715adf84f5d54d3a2a76b07104c790345c368e759a7",
-      "last_updated": "2026-10-29T15:06:27.070582",
+      "hash": "7c3aa28a7e3de43ba64b4819ffd0f1a9050f87ba52c6c7abc1835822e887d4fd",
+      "last_updated": "2026-11-16T15:06:03.643326",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/glimmer/pager.md": {
@@ -36284,8 +36284,8 @@
     },
     "ai/gemini-nano/mlkit-agent-api.md": {
       "original_url": "https://developer.android.com/ai/gemini-nano/mlkit-agent-api",
-      "hash": "b028d4bc243f96fc515eeae7df5cc0de748e7b6ab3d34d3c77de361810ede946",
-      "last_updated": "2026-10-30T15:06:53.558436",
+      "hash": "9204d914bd6449d7aa1fd0427969989c5e3bc36fca5242ec5b3df0874f54482a",
+      "last_updated": "2026-11-16T15:06:35.521979",
       "fetch_method": "md.txt"
     },
     "media/media3/exoplayer/flags.md": {
@@ -37171,5 +37171,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-11-15T15:08:47.111100"
+  "last_updated": "2026-11-16T15:09:52.314416"
 }

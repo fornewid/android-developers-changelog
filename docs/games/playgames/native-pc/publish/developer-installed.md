@@ -4,13 +4,15 @@ url: https://developer.android.com/games/playgames/native-pc/publish/developer-i
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/playgames/native-pc/llms.txt
+
 This document shows you how to publish your game on Google Play Games on PC using your game installer.
 
 With the Developer Installed flow, the game installer you provide must manage the installation, update, and uninstallation of the game.
 
 ## Before you begin
 
-Integrate the [Google Play Games SDK](https://developer.android.com/games/playgames/native-pc/setup) into your game.
+Integrate the [Google Play Games SDK](https://developer.android.com/games/playgames/native-pc/setup.md.txt) into your game.
 
 ## Package your game as a WAB file
 
@@ -80,7 +82,7 @@ Google Play Console as a Windows app bundle (WAB) file. To create a WAB file,
      - `ACCEPTS_COMMAND_LINE_ARGUMENTS`: A boolean value that
        indicates whether the installer can accept command-line arguments to
        enable the auto-play feature. This is optional and the default value
-       is false. For more information, see [Enabling Auto-Play](https://developer.android.com/games/playgames/native-pc/publish/developer-installed#enable-auto-play).
+       is false. For more information, see [Enabling Auto-Play](https://developer.android.com/games/playgames/native-pc/publish/developer-installed.md.txt#enable-auto-play).
 
      - `INSTALLER_PATH`: The path to your installer file
        within the WAB. This path can be either *absolute* or *relative* to the
@@ -103,8 +105,12 @@ Google Play Console as a Windows app bundle (WAB) file. To create a WAB file,
        hive name in the path string. For example, if your installer writes to
        `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\YourUniqueName`,
        specify only `Software\Microsoft\Windows\CurrentVersion\Uninstall\YourUniqueName`.
-       Google Play Games on PC searches for this path under multiple hives to locate the values required for launch and
-       uninstallation.
+       Google Play Games on PC searches for this path in `HKEY_LOCAL_MACHINE`
+       first and then `HKEY_CURRENT_USER`, using the first matching value it
+       finds.
+
+       > [!CAUTION]
+       > **Caution:** Because Google Play Games on PC checks `HKEY_LOCAL_MACHINE` before `HKEY_CURRENT_USER` and stops at the first match, don't mix system-wide (`HKEY_LOCAL_MACHINE`) and per-user (`HKEY_CURRENT_USER`) installations across versions or across multiple titles that share a launcher registry key. If a stale path remains in `HKEY_LOCAL_MACHINE` after uninstallation or relocation to `HKEY_CURRENT_USER`, Google Play Games on PC reads the stale `HKEY_LOCAL_MACHINE` path and fails to verify or launch the game.
 
        The executable specified in `INSTALLER_PATH` must create these registry keys. Before installation completes, these registry-key and value-name pairs specified under `installation-path-registry-location`, `launch-path-registry-location`, and `uninstall-path-registry-location` must be created. While the example uses `InstallLocation` and `UninstallString`, you can specify any name in these `<value-name>` tags, as long as your installer creates corresponding registry entries for all three.
        Google Play Games on PC uses these values to launch and uninstall the
@@ -351,11 +357,11 @@ Google Play Console as a Windows app bundle (WAB) file. To create a WAB file,
       What you must do:
       - Extraction: Your installer must parse the command-line arguments to retrieve the token string.
       - Propagation: If your installation flow involves launching a secondary launcher or game process, your installer is responsible for securely passing the session token to the final game process that uses the SDK.
-      - Launch: Use the provided session token to start the game executable. This ensures the game runs within an authenticated GPG context. Otherwise, [InitializeSDK](https://developer.android.com/games/playgames/native-pc/setup#step-4) will fail and your player will need to restart your game.
+      - Launch: Use the provided session token to start the game executable. This ensures the game runs within an authenticated GPG context. Otherwise, [InitializeSDK](https://developer.android.com/games/playgames/native-pc/setup.md.txt#step-4) will fail and your player will need to restart your game.
    3. Error Handling and Fallbacks
 
       - Token Retrieval: If, for any reason, GPG cannot generate or pass a session token (e.g., token generation failure), the installation process will still proceed. However, your installer will be launched without the `--g_session_token` argument.
-      - Robustness: Your installer should be designed to handle scenarios where the session token is absent. In such cases, the installer should proceed with a standard installation; you shouldn't trigger automatic game launch as [InitializeSDK](https://developer.android.com/games/playgames/native-pc/setup#step-4) will fail anyway.
+      - Robustness: Your installer should be designed to handle scenarios where the session token is absent. In such cases, the installer should proceed with a standard installation; you shouldn't trigger automatic game launch as [InitializeSDK](https://developer.android.com/games/playgames/native-pc/setup.md.txt#step-4) will fail anyway.
       - Installer Errors: You are responsible for the robustness and error handling of your installer and the game launch sequence it initiates. GPG does not have control over processes that occur within the installer after it has been launched.
 
 ## Publish the game using Play Console

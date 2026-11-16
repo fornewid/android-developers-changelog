@@ -4,6 +4,8 @@ url: https://developer.android.com/ai/appfunctions/add-appfunctions
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/ai/appfunctions/llms.txt
+
 This guide explains how to integrate the AppFunctions API into your Android app,
 implement the logic for a function, and verify that the integration works
 correctly.
@@ -21,15 +23,15 @@ returns null if not.
 ### Dependencies
 
 Add the required library dependencies to your module's `build.gradle.kts` (or
-build.gradle) file, and configure the KSP plugin in your top-level app module as
-shown:
+`build.gradle`) file, and configure the KSP plugin in your top-level app module
+as shown:
 
 ```kotlin
 dependencies {
-  implementation("androidx.appfunctions:appfunctions:1.0.0-beta01")
+  implementation("androidx.appfunctions:appfunctions:1.0.0-rc01")
   // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
   // See Add the KSP plugin to your project
-  ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-beta01")
+  ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-rc01")
 }
 ```
 
@@ -56,9 +58,11 @@ abstract class BaseTaskAppFunctionService : AppFunctionService() {
     @Inject internal lateinit var taskRepository: TaskRepository
 
     /**
-     * Creates a task based on [createTaskParams].
+     * Creates a task with a title, content, or both.
      *
-     * @param createTaskParams The parameter to describe how to create the task.
+     * @param createTaskParams The title and content of the task. At least one
+     *   of them is required.
+     * @return The created task, including its ID.
      */
     @AppFunctionDeclaration(isDescribedByKDoc = true)
     suspend fun createTask(
@@ -67,7 +71,7 @@ abstract class BaseTaskAppFunctionService : AppFunctionService() {
         // Developers can use predefined exceptions to let the agent know
         // why it failed.
         if (createTaskParams.title == null && createTaskParams.content == null) {
-            throw AppFunctionInvalidArgumentException("Title or content should be non-null")
+            throw AppFunctionInvalidArgumentException("A task needs a title, content, or both.")
         }
 
         val id = taskRepository.createTask(
@@ -195,9 +199,8 @@ suspend fun onFeatureDisabled(context: Context) {
 ## Considerations of types of functionalities to make available
 
 Security is always paramount. When you're choosing which capabilities of your
-app to make available as AppFunctions, it's important to remember that system
-agents may process user queries on the server to leverage advanced LLM
-capabilities.
+app to make available as AppFunctions, keep in mind that AI agents might process
+user queries on the server to use advanced LLM capabilities.
 
 To provide a great user experience that also avoids exposing sensitive
 information, we recommend following these guidelines:
@@ -205,12 +208,26 @@ information, we recommend following these guidelines:
 - **Functionality that benefits from natural language**: Make tasks available that are easier for a user to express in conversation than through manual UI navigation.
 - **Narrow access**: Create AppFunctions that only give the agent access to data and actions that are required to fulfill the user's specific request.
 - **Non-sensitive information**: Only share data that is not highly personal or confidential, or data the user explicitly consents to share in the context of the action.
-- **Unambiguous confirmation for any destructive action**: Be extremely cautious with functions that perform destructive actions (like deleting data). While the agent might invoke them, your app should include its own confirmation step and use clear, unambiguous language about the intentions. It's also helpful to add more than one confirmation step to really ensure that the user is aware of what they are being asked to do.
+- **Safe, non-destructive actions** : Make available only safe, non-destructive tasks that users would normally do in your app, such as creating a task or searching for notes. For more information, see [Permissible actions and data
+  sharing](https://developer.android.com/ai/appfunctions/quality-guidelines#permissible-actions).
 
 ## Verify AppFunction integration
 
-To verify whether you have correctly integrated AppFunctions, you can use `adb
-shell cmd app_function`.
+Because your AppFunctions act as services that AI agents call, testing has two
+sides: how your function behaves, and how agents behave when calling it.
+
+### Test your function
+
+Start with unit tests for your function logic, accounting for how an agent call
+through the AppFunctions library differs from a direct Kotlin call:
+
+- **Default values** : Kotlin default parameter values don't apply. An omitted optional parameter arrives as `null`, `0`, `false`, or an empty list or array, so a `limit: Int = 10` parameter arrives as `0`. Test omitted parameters with those values and resolve defaults in the function body. For more information, see [Optional parameters](https://developer.android.com/ai/appfunctions/quality-guidelines.md.txt#optional-parameters).
+- **Main thread** : Platform calls start on the main thread, and calling your `suspend` function directly from a unit test doesn't catch main-thread blocking. Make sure database, network, and disk I/O run on a background coroutine dispatcher, such as `Dispatchers.IO`.
+- **Exceptions** : When a request can't succeed, throw a specific [`AppFunctionException`](https://developer.android.com/reference/kotlin/androidx/appfunctions/AppFunctionException.md.txt) subclass. Other uncaught exceptions reach the agent as [`AppFunctionAppUnknownException`](https://developer.android.com/reference/kotlin/androidx/appfunctions/AppFunctionAppUnknownException.md.txt) with your raw exception message attached, which doesn't identify the kind of failure. For more information, see [Error handling](https://developer.android.com/ai/appfunctions/quality-guidelines.md.txt#error-handling).
+- **Model inputs**: Because inputs come from a model rather than constrained UI controls, test blank strings, synonyms such as "dollars" for "USD", and out-of-range values.
+
+On a device or emulator, use `adb shell cmd app_function` to verify that the
+platform indexed your generated metadata and can invoke your service.
 
 Use `adb shell cmd app_function list-app-functions --package $myPackageName` to
 see details of the AppFunctions your app provides.
@@ -225,16 +242,23 @@ adb shell "cmd app_function execute-app-function \
   --parameters '{\"createTaskParams\": {\"title\": \"Buy milk\", \"content\": \"From grocery store\"}}'"
 ```
 
-To experience Android MCP in action and verify end-to-end workflows without
-needing any prompts, install and run the [AppFunctions testing
-agent](https://github.com/android/appfunctions) Android app on your device.
+### Test with agents
 
-If you're verifying your integration using chat-based assistants like Gemini in
-Android Studio, use the AppFunctions development skill, or provide a prompt such
-as the following:
+Test with an agent to verify that it selects the right function from your
+descriptions and that the request works as you expect. Because each agent
+behaves differently, test with the agents that call your AppFunctions:
+
+- **Sample agent** : To test tool discovery and end-to-end workflows locally, install and run the open-source [AppFunctions testing agent](https://github.com/android/appfunctions) on your device.
+- **Gemini** : To test how Gemini on Android calls your AppFunctions, join the Connected Apps Platform developer preview and follow [Create and manage
+  Connected Apps](https://developer.android.com/ai/appfunctions/create-manage-connected-apps).
+- **In-app agent** : If your app includes its own agent that calls `AppFunctionManager` for functions in the same package, test your functions through that agent as well.
+
+During development, you can also verify your integration using chat-based
+assistants like Gemini in Android Studio with the [AppFunctions agent skill](https://developer.android.com/ai/appfunctions/add-appfunctions.md.txt#android-skills-card__implement-appfunctions),
+or provide a prompt such as the following:
 
     Execute `adb shell cmd app_function` to learn how the tool works, then act as a
-    chat agent aiming to invoke AppFunctions to fulfil user prompts for this app.
+    chat agent aiming to invoke AppFunctions to fulfill user prompts for this app.
     Use the AppFunction descriptions to choose functions and parameters.
 
 ## Migrate from lower API versions
@@ -246,15 +270,17 @@ dependencies and replaces legacy configuration providers
 providers. Version 1.0.0-alpha13 renamed the `@AppFunction` annotation to
 `@AppFunctionDeclaration`, and version 1.0.0-beta01 renamed the
 `appfn:description` attribute in your app metadata XML file to
-`appfn:instructions`.
+`appfn:instructions`. Version 1.0.0-rc01 removed the legacy
+`appfunctions:aggregateAppFunctions` compiler option; if your build passes it as
+a KSP argument, remove it.
 
-If your app uses an earlier version of AppFunctions (such as 1.0.0-alpha09 or
+If your app uses a lower version of AppFunctions (such as 1.0.0-alpha09 or
 1.0.0-alpha10), you can automate your migration using the [AppFunctions agent
 skill](https://developer.android.com/ai/appfunctions/add-appfunctions#android-skills-card__implement-appfunctions) in an AI IDE like Gemini in Android Studio. The skill contains
 dedicated migration rules that guide an agent to consolidate your build
 dependencies, create the required `@AppFunctionServiceEntryPoint` service
-wrapper, decouple context parameters, update your manifest declarations, and
-apply the 1.0.0-beta01 renames.
+wrapper, decouple context parameters, update your manifest declarations, apply
+the 1.0.0-beta01 renames, and remove retired compiler options.
 
 
 ## Android skills
@@ -269,6 +295,6 @@ Use the AppFunctions [Android skill](https://developer.android.com/tools/agents/
 
 To activate the skill, try the following prompt:
 
-    Use the AppFunctions skill to upgrade my app's AppFunctions implementation to 1.0.0-beta01.
+    Use the AppFunctions skill to upgrade my app's AppFunctions implementation to 1.0.0-rc01.
 
 <br />
