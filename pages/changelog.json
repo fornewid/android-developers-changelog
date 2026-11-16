@@ -1,5 +1,107 @@
 [
   {
+    "date": "2026-11-16T15:09:52Z",
+    "commit_hash": "78603305",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/appfunctions/references/implementation-configuration\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/device-ai/appfunctions/references/implementation-configuration.md",
+        "summary": "Updated the App Functions library version requirement to `1.0.0-rc01`, replaced the XML `appfn:description` metadata attribute with `appfn:instructions`, added comprehensive KDoc comments to sample functions (such as `send` and `createTask`), and refined exception handling messages and parameter descriptions to improve overall clarity and consistency in AI agent integration code.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/78603305_implementation-configuration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point\" target=\"_blank\">libs.versions.toml</a>",
+        "path": "agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point.md",
+        "summary": "Updated the AppFunctions migration guide to reference version 1.0.0-rc01 instead of 1.0.0-beta01. Added missing KDoc comments to sample app function declarations and documented the removal of the `appfunctions:aggregateAppFunctions` KSP compiler argument in the rc01 release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/78603305_migrate-to-service-entry-point.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/appfunctions/skill\" target=\"_blank\">Analyze, generate, and refine AppFunctions</a>",
+        "path": "agents/skills/device-ai/appfunctions/skill.md",
+        "summary": "Updated the AppFunctions Jetpack library dependency version requirement from `1.0.0-beta01` to `1.0.0-rc01` or later, and updated all internal documentation reference links to append the `.md.txt` extension to ensure correct resolution.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/78603305_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/appfunctions\" target=\"_blank\">Overview of AppFunctions</a>",
+        "path": "ai/appfunctions.md",
+        "summary": "Updated the AppFunctions documentation to replace references to the private preview and Early Access Program with instructions for applying to the Connected Apps Platform developer preview. It also includes code sample improvements for task creation parameters, expanded testing guidelines for Gemini and AI agents, and a new link to the documentation index for LLMs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/78603305_appfunctions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/appfunctions/add-appfunctions\" target=\"_blank\">Add the AppFunctions API to your app</a>",
+        "path": "ai/appfunctions/add-appfunctions.md",
+        "summary": "Updated the AppFunctions documentation to version 1.0.0-rc01, added guidance on writing unit tests for functions (covering default parameter values, thread handling, and error handling), expanded testing instructions for AI agents, and updated migration steps to account for removed compiler options.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/78603305_add-appfunctions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/appfunctions/create-manage-connected-apps\" target=\"_blank\">Create and manage Connected Apps with AppFunctions in Google Connected Console</a>",
+        "path": "ai/appfunctions/create-manage-connected-apps.md",
+        "summary": "Updated the documentation for creating and managing connected apps with AppFunctions. Changes include clarifying requirements for the Connected Apps developer preview, updating instructions for tester lists and testing tracks, correcting notes on Gemini Developer Mode support for Android MCP, and fixing internal links and references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/78603305_create-manage-connected-apps.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/gemini-nano/mlkit-agent-api\" target=\"_blank\">Build agentic workflows with Gemini Nano</a>",
+        "path": "ai/gemini-nano/mlkit-agent-api.md",
+        "summary": "Updated the ML Kit Agent API documentation to include explicit syntax highlighting for code blocks (Kotlin and XML), bumped the `androidx.appfunctions` dependency version from `1.0.0-alpha13` to `1.0.0-rc01`, and fixed minor markdown link and formatting issues.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/78603305_mlkit-agent-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/intelligence-system\" target=\"_blank\">Connect your app to the Android intelligence system</a>",
+        "path": "ai/intelligence-system.md",
+        "summary": "The intelligence-system.md documentation was updated to include a link to the documentation index (llms.txt) and to correct internal links for AppFunctions and Computer Control resources by pointing them to their corresponding text files. Additionally, minor copyediting improvements were made to streamline the description of Android's on-device APIs and cloud integrations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/78603305_intelligence-system.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/courses/pathways/android-ai-overview\" target=\"_blank\">AI-ML learning pathway</a>",
+        "path": "courses/pathways/android-ai-overview.md",
+        "summary": "Added a documentation index link pointing to llms.txt at the top of the AI-ML learning pathway overview. This matters as it provides AI agents and users with a direct machine-readable index for better navigation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/78603305_android-ai-overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/publish/developer-installed\" target=\"_blank\">Installer Publishing</a>",
+        "path": "games/playgames/native-pc/publish/developer-installed.md",
+        "summary": "Updated documentation for publishing native PC games using the Developer Installed flow. Key changes include clarifying the registry search order (checking HKEY_LOCAL_MACHINE before HKEY_CURRENT_USER) with a new caution note regarding potential launch failures from stale registry paths, and updating internal documentation links to point to raw markdown files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/78603305_developer-installed.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/integrity/device-recall\" target=\"_blank\">Detect repeat abuse using device recall (beta)</a>",
+        "path": "google/play/integrity/device-recall.md",
+        "summary": "Updated the Device Recall documentation to specify eligibility criteria for the beta program, requiring active integrations with both the Play Integrity API and Google Play's billing system meeting minimum production usage thresholds. Additionally, minor updates were made to internal links and code block formatting for the Golang library snippet.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/78603305_device-recall.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/views\" target=\"_blank\">Build View-based UIs on Wear OS</a>",
+        "path": "training/wearables/views.md",
+        "summary": "Updated the Wear OS dependencies in the views documentation, bumping the `wear-input` library version from `1.1.0` to `1.2.0`. Additionally, added a documentation index link for LLMs to help developers access structured resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/78603305_views.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-15T15:08:47Z",
     "commit_hash": "684cbf02",
     "entries": [

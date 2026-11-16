@@ -1,0 +1,118 @@
+diff --git a/docs/ai/appfunctions.md b/docs/ai/appfunctions.md
+index 0f769822..1031117e 100644
+--- a/docs/ai/appfunctions.md
++++ b/docs/ai/appfunctions.md
+@@ -4,16 +4,18 @@ url: https://developer.android.com/ai/appfunctions
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/ai/appfunctions/llms.txt
++
+ > [!WARNING]
+ > **Experimental:** AppFunctions is in an experimental preview as we refine the API surface, and is subject to change. Read our [FAQs](https://developer.android.com/ai/appfunctions.md.txt#faqs) for more information.
+ 
+ AppFunctions is an [Android platform API](https://developer.android.com/reference/android/app/appfunctions/package-summary.md.txt) with an accompanying [Jetpack
+ library](https://developer.android.com/jetpack/androidx/releases/appfunctions) to simplify Android MCP integration. It empowers your apps to behave
+-like on device MCP servers, contributing functions that act as tools for use by
+-proactive features along with agents and assistants, like Google Gemini. As of
+-May 2026, AppFunctions integration with Gemini is in a private preview with
+-trusted testers. You can begin preparing your apps now to use AppFunctions and
+-development tools.
++like on-device MCP servers, contributing functions that act as tools for use by
++proactive features along with agents and assistants, like Google Gemini. To
++test and publish your AppFunctions with Gemini, [apply for the Connected Apps
++Platform developer preview](https://connected.google.com/console/help/?apply). After you join, follow the steps in
++[Create and manage Connected Apps](https://developer.android.com/ai/appfunctions/create-manage-connected-apps.md.txt).
+ 
+ By defining these AppFunctions, you enable your app to provide services, data,
+ and actions to the registry built into the Android OS, allowing users to
+@@ -195,9 +197,11 @@ abstract class BaseTaskAppFunctionService : AppFunctionService() {
+     @Inject internal lateinit var taskRepository: TaskRepository
+ 
+     /**
+-     * Creates a task based on [createTaskParams].
++     * Creates a task with a title, content, or both.
+      *
+-     * @param createTaskParams The parameter to describe how to create the task.
++     * @param createTaskParams The title and content of the task. At least one
++     *   of them is required.
++     * @return The created task, including its ID.
+      */
+     @AppFunctionDeclaration(isDescribedByKDoc = true)
+     suspend fun createTask(
+@@ -206,7 +210,7 @@ abstract class BaseTaskAppFunctionService : AppFunctionService() {
+         // Developers can use predefined exceptions to let the agent know
+         // why it failed.
+         if (createTaskParams.title == null && createTaskParams.content == null) {
+-            throw AppFunctionInvalidArgumentException("Title or content should be non-null")
++            throw AppFunctionInvalidArgumentException("A task needs a title, content, or both.")
+         }
+ 
+         val id = taskRepository.createTask(
+@@ -229,7 +233,7 @@ abstract class BaseTaskAppFunctionService : AppFunctionService() {
+ 
+ 
+ ```kotlin
+-/** The parameter to create the task. */
++/** The title and content of a new task. */
+ @AppFunctionSerializable(isDescribedByKDoc = true)
+ data class CreateTaskParams(
+     /** The title of the task. */
+@@ -262,8 +266,9 @@ We've made the following available to help you upskill in AppFunctions:
+   - **Implementation \& Configuration**: Generate Kotlin implementations and configure system metadata and build dependencies.
+   - **KDoc Refinement**: Optimize function and property documentation for AI agents and Android MCP.
+   - **Testing \& Debugging**: Provide ADB commands for local evaluation and debugging on-device.
+-- For command-line testing and verification, use ADB commands such as `adb
+-  shell cmd app_function ...` as a direct, lightweight way to test function registration, inspect metadata descriptions, and execute functions on-device.
++- Test both how your functions behave---including omitted defaults, main-thread calls, `AppFunctionException` errors, and model-generated inputs---and how agents select and call them. For more information about unit, ADB, and agent testing, see [Verify AppFunction integration](https://developer.android.com/ai/appfunctions/add-appfunctions.md.txt#verify-integration).
++- To test how Gemini uses your AppFunctions, follow the steps in [Create and
++  manage Connected Apps](https://developer.android.com/ai/appfunctions/create-manage-connected-apps).
+ 
+ ## Frequently asked questions (FAQs)
+ 
+@@ -286,12 +291,13 @@ In short, developing with AppFunctions lets you use the existing app state
+ directly on-device and does not require you to maintain services outside your
+ Android app.
+ 
+-**I have implemented AppFunctions in my app. Why can my system agent not access
+-them?**
++**I have implemented AppFunctions in my app. Why can't Gemini or other AI
++agents access them?**
+ 
+-AppFunctions are an experimental feature. To carefully evaluate the quality of
+-the overall experience during this experimental phase, only a limited number of
+-apps and system agents can access the entire pipeline.
++- **To use your AppFunctions with Gemini on Android** : Register and submit your app in Google Connected Console through the [Connected Apps Platform
++  developer preview](https://connected.google.com/console/help/?apply). Until your connected app is published, only the testers on your connected app's tester list can use it, and only on the app bundle version you submitted. For setup steps, see the Google Connected Console guides for [Connected Apps](https://developers.google.com/connected-apps/gpc) and [Android
++  MCP](https://developer.android.com/ai/appfunctions/create-manage-connected-apps).
++- **To call AppFunctions from your own agent** : An app can call AppFunctions declared inside its own package. Discovering and calling other apps' AppFunctions requires the privileged [`EXECUTE_APP_FUNCTIONS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#EXECUTE_APP_FUNCTIONS) permission, which Android grants only to authorized system assistants.
+ 
+ **How can I prepare my app for general availability of AppFunctions?**
+ 
+@@ -301,17 +307,14 @@ preceding sections on this page, and verify that they are registered on the
+ device by calling `adb shell cmd app_function list-app-functions --package`
+ with your app's package name.
+ 
+-**Can I get early access to the end-to-end agentic developer experience?**
++**How can I test and publish my AppFunctions with Gemini?**
+ 
+-We're conducting an Early Access Program (EAP) to onboard select apps in testing
+-the end-to-end developer experience required to launch AppFunctions to
+-production on Android. You can register your interest in integrating your
+-AppFunctions through this [EAP registration up form](https://forms.gle/GN5ybjQFhzHRCguM7). By
+-registering your interest, you do NOT automatically obtain access to the full
+-integration. We'll email you if your app is selected for the EAP, or to let you
+-know when AppFunctions become publicly available.
++Join the Connected Apps Platform developer preview. To request access, [apply
++for the preview](https://connected.google.com/console/help/?apply). After you join, in Google Connected Console,
++create an Android MCP connected app, upload your app bundle to a testing track,
++and add the same testers to both. For details, see [Create and manage Connected
++Apps](https://developer.android.com/ai/appfunctions/create-manage-connected-apps).
+ 
+ **How can I provide feedback on AppFunctions?**
+ 
+-You can provide feedback on the API by [filing an issue](https://issuetracker.google.com/issues/new?component=1709065&template=2081773) and
+-registering your interest in the Early Access Program form.
+\ No newline at end of file
++You can provide feedback on the API by [filing an issue](https://issuetracker.google.com/issues/new?component=1709065&template=2081773).
+\ No newline at end of file

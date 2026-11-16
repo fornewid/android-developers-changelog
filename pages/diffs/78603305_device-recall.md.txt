@@ -1,0 +1,50 @@
+diff --git a/docs/google/play/integrity/device-recall.md b/docs/google/play/integrity/device-recall.md
+index e4d1fda3..3313810a 100644
+--- a/docs/google/play/integrity/device-recall.md
++++ b/docs/google/play/integrity/device-recall.md
+@@ -4,8 +4,10 @@ url: https://developer.android.com/google/play/integrity/device-recall
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/google/play/integrity/llms.txt
++
+ > [!IMPORTANT]
+-> **Important:** Device recall is a new feature in Play Integrity API that is available in beta and subject to change. [Express interest](https://forms.gle/2d24B4gNyoVrqztG6) in joining the beta program.
++> **Important:** Device recall is a feature in the Play Integrity API that is available in beta and subject to change. The beta is open only to apps that meet specific eligibility criteria. These criteria include active integrations with both the Play Integrity API and [Google Play's billing system](https://developer.android.com/google/play/billing.md.txt) that each meet minimum production usage thresholds. [Express interest](https://forms.gle/2d24B4gNyoVrqztG6) in joining the beta program.
+ 
+ This page describes how to use device recall to store and retrieve custom data
+ with specific devices. You can reliably recall the custom data again later when
+@@ -61,7 +63,7 @@ recall works as follows:
+ 
+ > [!NOTE]
+ > **Note:** To turn on device recall, you must first complete the [device recall beta
+-> interest form](https://forms.gle/2d24B4gNyoVrqztG6). Once approved, you will be able to turn on device recall in the Play Console.
++> interest form](https://forms.gle/2d24B4gNyoVrqztG6). If your app is eligible and approved, you can turn on device recall in the Play Console.
+ 
+ When you are ready, turn on device recall in the Play Console:
+ 
+@@ -84,7 +86,7 @@ Device recall works in both Play Integrity API classic and standard requests. In
+ standard requests, device recall is refreshed in the warmup call. In other
+ words, after you modify per-device data, you will need to perform another warm
+ up to see the updated value. Once device recall is enabled, you will be able to
+-[read device recall values](https://developer.android.com/google/play/integrity/verdicts#device-recall) in your integrity verdicts.
++[read device recall values](https://developer.android.com/google/play/integrity/verdicts.md.txt#device-recall) in your integrity verdicts.
+ 
+ ## Modify device recall values
+ 
+@@ -117,7 +119,9 @@ playintegrity.googleapis.com/v1/PACKAGE_NAME/deviceRecall:write -d \
+ > > [!TIP]
+ > > **Tip:** If you are using the [Golang library for the Play Integrity API](https://pkg.go.dev/google.golang.org/api/playintegrity/v1), remember to add the field name to [ForceSendFields](https://pkg.go.dev/google.golang.org/api#hdr-ForceSendFields) when setting a bit value to false, as in the following snippet.
+ >
+->     newValues.BitFirst = true // ForceSendFields optional for value true
+->     newValues.BitSecond = false // ForceSendFields required for value false
+->     newValues.BitThird = nil // do not set ForceSendFields for unspecified bits
+->     newValues.ForceSendFields = []string{"BitSecond"}
+\ No newline at end of file
++> ```go
++> newValues.BitFirst = true // ForceSendFields optional for value true
++> newValues.BitSecond = false // ForceSendFields required for value false
++> newValues.BitThird = nil // do not set ForceSendFields for unspecified bits
++> newValues.ForceSendFields = []string{"BitSecond"}
++> ```
+\ No newline at end of file
