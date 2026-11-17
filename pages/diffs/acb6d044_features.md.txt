@@ -1,0 +1,114 @@
+diff --git a/docs/studio/preview/features.md b/docs/studio/preview/features.md
+index 5e1585e1..a2075242 100644
+--- a/docs/studio/preview/features.md
++++ b/docs/studio/preview/features.md
+@@ -4,9 +4,11 @@ url: https://developer.android.com/studio/preview/features
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/studio/preview/llms.txt
++
+ This page lists the new features introduced in Android Studio preview releases.
+ The preview builds provide early access to the latest features and improvements
+-in Android Studio. [You can download these preview versions](https://developer.android.com/studio/preview).
++in Android Studio. [You can download these preview versions](https://developer.android.com/studio/preview.md.txt).
+ If you encounter any problems using a preview version of Android Studio, [let us
+ know](https://developer.android.com/studio/report-bugs). Your bug reports help to make Android Studio better.
+ 
+@@ -15,7 +17,7 @@ lightly tested. While you can use Canary builds for development, be aware that
+ features might be added or changed. Release Candidates (RC) are the next version
+ of Android Studio, and are almost ready for stable release. The feature set for
+ the next version has been stabilized. See
+-[Android Studio release names](https://developer.android.com/studio/releases/studio-release-names) to understand Android
++[Android Studio release names](https://developer.android.com/studio/releases/studio-release-names.md.txt) to understand Android
+ Studio version naming.
+ 
+ For the latest news on Android Studio preview releases, including a list of
+@@ -32,7 +34,8 @@ respective channels.
+ |---|---|
+ | Android Studio Rabbit 2 | Stable |
+ | Android Gradle plugin 9.5.0 | Stable |
+-| Android Studio Rabbit 3 | Canary |
++| Android Studio Rabbit 3 | RC |
++| Android Studio Stingray 1 | Canary |
+ 
+ <br />
+ 
+@@ -41,7 +44,7 @@ respective channels.
+ Each preview version of Android Studio is published alongside a corresponding
+ version of the Android Gradle plugin (AGP). Preview versions of Studio should
+ work with any
+-[compatible](https://developer.android.com/studio/releases#android_gradle_plugin_and_android_studio_compatibility)
++[compatible](https://developer.android.com/studio/releases.md.txt#android_gradle_plugin_and_android_studio_compatibility)
+ stable version of AGP. However, if you're using a preview version of AGP, you
+ must use the corresponding preview version of Studio (for example, Android
+ Studio Chipmunk Canary 7 with AGP 7.2.0-alpha07). Attempts to use divergent
+@@ -53,28 +56,35 @@ For a detailed log of Android Gradle plugin API deprecations and removals, see
+ the [Android Gradle plugin API
+ updates](https://developer.android.com/studio/releases/gradle-plugin-api-updates).
+ 
+-## Studio Labs
++## Android Studio Rabbit 3
+ 
+-Studio Labs lets you try out the latest AI experimental features in a stable
+-version of Android Studio, so you can more quickly integrate our AI assistance
+-offerings in your development workflow. For more information, see
+-[Studio Labs](https://developer.android.com/studio/gemini/labs).
++The following are new features in Android Studio Rabbit 3.
+ 
+-> [!NOTE]
+-> **Note:** Studio Labs is accessible in RC and stable releases starting with Android Studio Narwhal. In the corresponding canary versions of Android Studio, the features are enabled by default.
++To see what's been fixed in this version of Android Studio, see the [closed
++issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.3).
+ 
+-The following are features currently available in Studio Labs.
++### Migrations in Android Studio
+ 
+-| Feature | Description | Docs |
+-|---|---|---|
+-| Journeys for Android Studio | Use natural language to describe steps and assertions for end-to-end tests. | [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys) |
++You can now migrate a project with views-based UI to a Kotlin and Jetpack
++Compose-based app. This feature produces a functional project that's ready for
++testing and verification.
+ 
+-## Android Studio Rabbit 3
++### Agentic Journeys
+ 
+-The following are new features in Android Studio Rabbit 3.
++Journeys let you describe end-to-end user flows in natural language and run them
++directly with the AI agent on a connected device or emulator. The agent steps
++through the flow, verifies expected outcomes, and generates a pass or fail
++report with screenshots. Ask the agent in the **Agent** window to create, edit,
++or run a journey, or open a journey file and click **Run** in the toolbar.
++
++To learn more, see [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys.md.txt).
++
++## Android Studio Stingray 1
++
++The following are new features in Android Studio Stingray 1.
+ 
+ To see what's been fixed in this version of Android Studio, see the [closed
+-issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.3).
++issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.3.1).
+ 
+ ### Compose Preview Screenshot Testing tool
+ 
+@@ -99,18 +109,6 @@ to assign a model to each feature category. You can also change the model direct
+ from the model selector dropdown in the Agent Mode panel---the Model Assignment
+ settings for **Thinking** features will automatically update to reflect your selection.
+ 
+-### Migrate iOS, Flutter, and React Native apps to Android
+-
+-You can now migrate existing iOS, Flutter, and React Native projects to native
+-Android using automated migration tooling in Android Studio. From the New
+-Project Wizard, you can call the assistant to convert the selected project to a
+-Kotlin and Jetpack Compose-based Android app. The integrated progress UI
+-provides end-to-end visibility across task planning, code transformation, and
+-compilation checks, producing a functional project that's ready for testing and
+-verification.
+-
+-To learn more, see [Perform cross-platform app migrations](https://developer.android.com/tools/agents/workflows/app-migrations).
+-
+ ### Publish to Google Play for testing
+ 
+ Android Studio now gives you the ability to upload new releases of your app

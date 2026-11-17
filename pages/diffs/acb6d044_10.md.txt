@@ -1,0 +1,38 @@
+diff --git a/docs/blog/latest/10.md b/docs/blog/latest/10.md
+index 3749168c..41fa5794 100644
+--- a/docs/blog/latest/10.md
++++ b/docs/blog/latest/10.md
+@@ -9,6 +9,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_1yXUBh.webp)](https://developer.android.com/blog/authors/luke-hopkins.md.txt) 23 Oct 2025 23 Oct 2025 ![](https://developer.android.com/static/blog/assets/xr_Week5_985628de53_1yw3Kc.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
++
++  ## [Optimizing Performance for Android XR with Unity](https://developer.android.com/blog/posts/optimizing-performance-for-android-xr-with-unity.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/optimizing-performance-for-android-xr-with-unity.md.txt) Samsung Galaxy XR is here, powered by Android XR! This blog post is part of our Android XR Spotlight Week, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR.
++  [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins.md.txt) • 6 min read
+ - [![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_ZmA5Q1.webp)](https://developer.android.com/blog/authors/dereck-bridie.md.txt) 22 Oct 2025 22 Oct 2025 ![](https://developer.android.com/static/blog/assets/xr_Week6_1e2e4ab4ae_ZeyaAC.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+ 
+   ## [Bringing Androidify to XR with the Jetpack XR SDK](https://developer.android.com/blog/posts/bringing-androidify-to-xr-with-the-jetpack-xr-sdk.md.txt)
+@@ -134,12 +140,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts.md.txt) With new form factors like the Pixel 10 Pro Fold joining the Android ecosystem, adaptive app development is essential for creating high-quality user experiences across phones, tablets, and foldables.
+   [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor.md.txt) • 3 min read
+-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt) 10 Jun 2025 10 Jun 2025 ![](https://developer.android.com/static/blog/assets/across_Devices_1742e15ff4_1wqMDQ.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+-
+-  ## [A product manager's guide to adapting Android apps across devices](https://developer.android.com/blog/posts/product-manager-guide-to-adapting-android-apps-across-devices.md.txt)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/product-manager-guide-to-adapting-android-apps-across-devices.md.txt) This includes the start of Android 16's rollout, with details for both developers and users, a Developer Preview for enhanced Android desktop experiences with connected displays, and updates for Android users across Google apps and more, plus the June Pixel Drop.
+-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt) • 6 min read
+ [arrow_back](https://developer.android.com/blog/latest/9.md.txt)
+ 
+ #### Page 10
+@@ -227,6 +227,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
+ - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
+ - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
++- [#Monetization](https://developer.android.com/blog/topics/monetization.md.txt)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Large Screens](https://developer.android.com/blog/topics/large-screens)

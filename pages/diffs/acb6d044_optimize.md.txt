@@ -1,0 +1,101 @@
+diff --git a/docs/develop/sensors-and-location/location/battery/optimize.md b/docs/develop/sensors-and-location/location/battery/optimize.md
+index 886d7973..efca9256 100644
+--- a/docs/develop/sensors-and-location/location/battery/optimize.md
++++ b/docs/develop/sensors-and-location/location/battery/optimize.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/sensors-and-location/location/battery
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/develop/sensors-and-location/location/battery/llms.txt
++
+ Take the following actions to [improve your app's
+ impact on a device's battery life](https://developer.android.com/develop/sensors-and-location/location/battery) when using location services.
+ 
+@@ -12,10 +14,10 @@ impact on a device's battery life](https://developer.android.com/develop/sensors
+ A common source of unnecessary battery drain is the failure to remove location
+ updates when they are no longer needed.
+ 
+-This can happen when an activity's [`onStart()`](https://developer.android.com/reference/android/app/Activity#onStart()) or [`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume())
++This can happen when an activity's [`onStart()`](https://developer.android.com/reference/android/app/Activity.md.txt#onStart()) or [`onResume()`](https://developer.android.com/reference/android/app/Activity.md.txt#onResume())
+ lifecycle methods contain a call to [`requestlocationUpdates()`](https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#requestLocationUpdates(com.google.android.gms.location.LocationRequest,%20android.app.PendingIntent)) without a
+-corresponding call to [`removeLocationUpdates()`](https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient.html#removeLocationUpdates(com.google.android.gms.location.LocationCallback)) in the [`onPause()`](https://developer.android.com/reference/android/app/Activity#onPause()) or
+-[`onStop()`](https://developer.android.com/reference/android/app/Activity#onStop()) lifecycle methods.
++corresponding call to [`removeLocationUpdates()`](https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient.html#removeLocationUpdates(com.google.android.gms.location.LocationCallback)) in the [`onPause()`](https://developer.android.com/reference/android/app/Activity.md.txt#onPause()) or
++[`onStop()`](https://developer.android.com/reference/android/app/Activity.md.txt#onStop()) lifecycle methods.
+ 
+ You can use lifecycle-aware components to better manage the lifecycle of the
+ activities in your app. For more information, see [Handling Lifecycles with
+@@ -39,23 +41,28 @@ To add a timeout to a geofence location request, call the
+ ## Batch requests
+ 
+ For all non-foreground use cases, batch multiple requests together. Use the
+-[`setIntervalMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#setIntervalMillis(long)) method to specify the interval at which you would like
+-location to be computed. Then, use the [`setMaxUpdateDelayMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#setMaxUpdateDelayMillis(long)) method to set
+-the interval at which location is *delivered* to your app. Pass a value to the
+-`setMaxUpdateDelayMillis()` method that is a multiple of the value passed to the
+-`setIntervalMillis()` method. For example, consider the following location request:
++[`setIntervalMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#setIntervalMillis(long)) method to specify the interval at which you would
++like location to be computed. Then, use the [`setMaxUpdateDelayMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#setMaxUpdateDelayMillis(long))
++method to set the interval at which location is *delivered* to your app. Pass a
++value to the `setMaxUpdateDelayMillis()` method that is a multiple of the value
++passed to the `setIntervalMillis()` method. For example, consider the following
++location request:
+ 
+ ### Kotlin
+ 
+-    val request = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 10 * 60 * 1000)
+-    .setMaxUpdateDelayMillis(60 * 60 * 1000)
+-    .build()
++```kotlin
++val request = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 10 * 60 * 1000)
++.setMaxUpdateDelayMillis(60 * 60 * 1000)
++.build()
++```
+ 
+ ### Java
+ 
+-    LocationRequest request = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 10 * 60 * 1000)
+-        .setMaxUpdateDelayMillis(60 * 60 * 1000)
+-        .build();
++```java
++LocationRequest request = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 10 * 60 * 1000)
++    .setMaxUpdateDelayMillis(60 * 60 * 1000)
++    .build();
++```
+ 
+ In this case, the system computes location roughly every ten minutes and
+ delivers approximately six location data points in a batch approximately every
+@@ -75,15 +82,19 @@ request, which opportunistically consumes location data:
+ 
+ ### Kotlin
+ 
+-    val request = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 15 * 60 * 1000)
+-    .setMinUpdateIntervalMillis(2 * 60 * 1000)
+-    .build()
++```kotlin
++val request = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 15 * 60 * 1000)
++.setMinUpdateIntervalMillis(2 * 60 * 1000)
++.build()
++```
+ 
+ ### Java
+ 
+-    LocationRequest request = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 15 * 60 * 1000)
+-        .setMinUpdateIntervalMillis(2 * 60 * 1000)
+-        .build();
++```java
++LocationRequest request = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 15 * 60 * 1000)
++    .setMinUpdateIntervalMillis(2 * 60 * 1000)
++    .build();
++```
+ 
+ In the previous example, the app's location computes roughly every 15 minutes.
+ If other apps request location, the app receives the data at a maximum interval
+@@ -92,4 +103,4 @@ of two minutes.
+ While consuming location passively incurs no battery drain, take extra care in
+ cases where the receipt of location data triggers expensive CPU or I/O
+ operations. To minimize battery costs, the interval specified in
+-[`setMinUpdateIntervalMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#public-locationrequest.builder-setmaxupdateagemillis-long-maxupdateagemillis(long)) shouldn't be too small.
+\ No newline at end of file
++[`setMinUpdateIntervalMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#public-locationrequest.builder-setminupdateintervalmillis-long-minupdateintervalmillis) shouldn't be too small.
+\ No newline at end of file

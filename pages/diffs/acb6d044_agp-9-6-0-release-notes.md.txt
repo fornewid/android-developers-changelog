@@ -1,0 +1,42 @@
+diff --git a/docs/build/releases/agp-9-6-0-release-notes.md b/docs/build/releases/agp-9-6-0-release-notes.md
+index e7c292dd..945faca3 100644
+--- a/docs/build/releases/agp-9-6-0-release-notes.md
++++ b/docs/build/releases/agp-9-6-0-release-notes.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/build/releases/agp-9-6-0-release-notes
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/build/llms.txt
++
+ <br />
+ 
+ Android Gradle plugin 9.6 is a minor release that includes a variety of new
+@@ -17,13 +19,24 @@ Here is other compatibility info:
+ 
+ |   | Minimum version | Default version | Notes |
+ |---:|:---:|:---:|:---:|
+-| Gradle | 9.7.1 | 9.7.1 | To learn more, see [updating Gradle](https://developer.android.com/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
+-| SDK Build Tools | 36.0.0 | 36.0.0 | [Install](https://developer.android.com/studio/intro/update#sdk-manager) or [configure](https://developer.android.com/tools/releases/build-tools) SDK Build Tools. |
+-| NDK | N/A | 28.2.13676358 | [Install](https://developer.android.com/studio/projects/install-ndk#specific-version) or [configure](https://developer.android.com/studio/projects/install-ndk#apply-specific-version) a different version of the NDK. |
+-| JDK | 17 | 17 | To learn more, see [setting the JDK version](https://developer.android.com/studio/intro/studio-config#jdk). |
++| Gradle | 9.8.2 | 9.8.2 | To learn more, see [updating Gradle](https://developer.android.com/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
++| SDK Build Tools | 36.0.0 | 36.0.0 | [Install](https://developer.android.com/studio/intro/update.md.txt#sdk-manager) or [configure](https://developer.android.com/tools/releases/build-tools.md.txt) SDK Build Tools. |
++| NDK | N/A | 28.2.13676358 | [Install](https://developer.android.com/studio/projects/install-ndk.md.txt#specific-version) or [configure](https://developer.android.com/studio/projects/install-ndk.md.txt#apply-specific-version) a different version of the NDK. |
++| JDK | 17 | 17 | To learn more, see [setting the JDK version](https://developer.android.com/studio/intro/studio-config.md.txt#jdk). |
+ 
+ <br />
+ 
++## Unified coverage and test reports
++
++> [!WARNING]
++> **Experimental:** This is an experimental feature. To enable this feature, set `android.experimental.reportAggregationSupport=true` in your `gradle.properties` file.
++
++AGP 9.6.0-alpha05 introduces tasks to generate HTML dashboards that consolidate
++test results and coverage from various test types (unit and instrumentation),
++modules, and build variants, providing a comprehensive overview in a single
++dashboard. For more information, see [Generate unified code coverage reports](https://developer.android.com/studio/test/coverage-report.md.txt#unified)
++and [View unified test reports](https://developer.android.com/studio/test/command-line.md.txt#view-test-reports).
++
+ ## On-device code coverage for instrumented tests
+ 
+ > [!WARNING]

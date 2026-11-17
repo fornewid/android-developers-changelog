@@ -1,0 +1,176 @@
+diff --git a/docs/develop/connectivity/usb/host.md b/docs/develop/connectivity/usb/host.md
+index 95ac5883..cf875640 100644
+--- a/docs/develop/connectivity/usb/host.md
++++ b/docs/develop/connectivity/usb/host.md
+@@ -4,30 +4,32 @@ url: https://developer.android.com/develop/connectivity/usb/host
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/develop/connectivity/usb/llms.txt
++
+ When your Android-powered device is in USB host mode, it acts as the USB host, powers the bus,
+ and enumerates connected USB devices. USB host mode is supported in Android 3.1 and higher.
+ 
+ ## API Overview
+ 
+ Before you begin, it is important to understand the classes that you need to work with. The
+-following table describes the USB host APIs in the `https://developer.android.com/reference/android/hardware/usb/package-summary` package.
++following table describes the USB host APIs in the `android.hardware.usb` package.
+ 
+ **Table 1.** USB Host APIs
+ 
+ | Class | Description |
+ |---|---|
+-| `https://developer.android.com/reference/android/hardware/usb/UsbManager` | Allows you to enumerate and communicate with connected USB devices. |
+-| `https://developer.android.com/reference/android/hardware/usb/UsbDevice` | Represents a connected USB device and contains methods to access its identifying information, interfaces, and endpoints. |
+-| `https://developer.android.com/reference/android/hardware/usb/UsbInterface` | Represents an interface of a USB device, which defines a set of functionality for the device. A device can have one or more interfaces on which to communicate. |
+-| `https://developer.android.com/reference/android/hardware/usb/UsbEndpoint` | Represents an interface endpoint, which is a communication channel for this interface. An interface can have one or more endpoints, and usually has input and output endpoints for two-way communication with the device. |
+-| `https://developer.android.com/reference/android/hardware/usb/UsbDeviceConnection` | Represents a connection to the device, which transfers data on endpoints. This class allows you to send data back and forth synchronously or asynchronously. |
+-| `https://developer.android.com/reference/android/hardware/usb/UsbRequest` | Represents an asynchronous request to communicate with a device through a `https://developer.android.com/reference/android/hardware/usb/UsbDeviceConnection`. |
+-| `https://developer.android.com/reference/android/hardware/usb/UsbConstants` | Defines USB constants that correspond to definitions in linux/usb/ch9.h of the Linux kernel. |
+-
+-In most situations, you need to use all of these classes (`https://developer.android.com/reference/android/hardware/usb/UsbRequest` is only required if you are doing asynchronous communication)
+-when communicating with a USB device. In general, you obtain a `https://developer.android.com/reference/android/hardware/usb/UsbManager` to retrieve the desired `https://developer.android.com/reference/android/hardware/usb/UsbDevice`.
+-When you have the device, you need to find the appropriate `https://developer.android.com/reference/android/hardware/usb/UsbInterface` and the `https://developer.android.com/reference/android/hardware/usb/UsbEndpoint` of that
+-interface to communicate on. Once you obtain the correct endpoint, open a `https://developer.android.com/reference/android/hardware/usb/UsbDeviceConnection` to communicate with the USB device.
++| `UsbManager` | Lets you enumerate and communicate with connected USB devices. |
++| `UsbDevice` | Represents a connected USB device and contains methods to access its identifying information, interfaces, and endpoints. |
++| `UsbInterface` | Represents an interface of a USB device, which defines a set of functionality for the device. A device can have one or more interfaces on which to communicate. |
++| `UsbEndpoint` | Represents an interface endpoint, which is a communication channel for this interface. An interface can have one or more endpoints, and usually has input and output endpoints for two-way communication with the device. |
++| `UsbDeviceConnection` | Represents a connection to the device, which transfers data on endpoints. This class lets you send data back and forth synchronously or asynchronously. |
++| `UsbRequest` | Represents an asynchronous request to communicate with a device through a `UsbDeviceConnection`. |
++| `UsbConstants` | Defines USB constants that correspond to definitions in linux/usb/ch9.h of the Linux kernel. |
++
++In most situations, you need to use all of these classes (`UsbRequest` is only required if you are doing asynchronous communication)
++when communicating with a USB device. In general, you obtain a `UsbManager` to retrieve the `UsbDevice` you want.
++When you have the device, you need to find the appropriate `UsbInterface` and the `UsbEndpoint` of that
++interface to communicate on. Once you obtain the correct endpoint, open a `UsbDeviceConnection` to communicate with the USB device.
+ 
+ ## Android manifest requirements
+ 
+@@ -51,10 +53,10 @@ working with the USB host APIs:
+   - `subclass`
+   - `protocol` (device or interface)
+ 
+-  Save the resource file in the `res/xml/` directory. The resource file name
++  Save the resource file in the `res/xml/` directory. The resource filename
+   (without the .xml extension) must be the same as the one you specified in the
+-  `<meta-data>` element. The format for the XML resource file is in the
+-  [example](https://developer.android.com/develop/connectivity/usb/host#example) below.
++  `<meta-data>` element. The format for the XML resource file is shown in the following
++  [example](https://developer.android.com/develop/connectivity/usb/host.md.txt#manifest-example).
+ 
+ ### Manifest and resource file examples
+ 
+@@ -95,7 +97,7 @@ attributes should be filtered:
+ 
+ When users connect USB devices to an Android-powered device, the Android system can determine
+ whether your application is interested in the connected device. If so, you can set up
+-communication with the device if desired. To do this, your application has to:
++communication with the device if you want. To do this, your application has to:
+ 
+ 1. Discover connected USB devices by using an intent filter to be notified when the user connects a USB device or by enumerating USB devices that are already connected.
+ 2. Ask the user for permission to connect to the USB device, if not already obtained.
+@@ -106,7 +108,7 @@ communication with the device if desired. To do this, your application has to:
+ Your application can discover USB devices by either using an intent filter to be notified when
+ the user connects a device or by enumerating USB devices that are already connected. Using an
+ intent filter is useful if you want to be able to have your application automatically detect a
+-desired device. Enumerating connected USB devices is useful if you want to get a list of all
++device you want. Enumerating connected USB devices is useful if you want to get a list of all
+ connected devices or if your application did not filter for an intent.
+ 
+ #### Use an intent filter
+@@ -144,7 +146,7 @@ USB devices that you're interested in:
+ </resources>
+ ```
+ 
+-In your activity, you can obtain the `https://developer.android.com/reference/android/hardware/usb/UsbDevice` that represents
++In your activity, you can obtain the `UsbDevice` that represents
+ the attached device from the intent like this:
+ 
+ ### Kotlin
+@@ -162,7 +164,7 @@ UsbDevice device = (UsbDevice) intent.getParcelableExtra(UsbManager.EXTRA_DEVICE
+ #### Enumerate devices
+ 
+ If your application is interested in inspecting all of the USB devices currently connected
+-while your application is running, it can enumerate devices on the bus. Use the `https://developer.android.com/reference/android/hardware/usb/UsbManager#getDeviceList()` method to get a hash map of all
++while your application is running, it can enumerate devices on the bus. Use the `getDeviceList()` method to get a hash map of all
+ the USB devices that are connected. The hash map is keyed by the USB device's name if you want to
+ obtain a device from the map.
+ 
+@@ -184,7 +186,7 @@ HashMap<String, UsbDevice> deviceList = manager.getDeviceList();
+ UsbDevice device = deviceList.get("deviceName");
+ ```
+ 
+-If desired, you can also just obtain an iterator from the hash map and process each device one
++If you want, you can also just obtain an iterator from the hash map and process each device one
+ by one:
+ 
+ ### Kotlin
+@@ -227,7 +229,7 @@ one. You must check for permission to access a device before trying to communica
+ not, you will receive a runtime error if the user denied permission to access the device.
+ 
+ To explicitly obtain permission, first create a broadcast receiver. This receiver listens for
+-the intent that gets broadcast when you call `https://developer.android.com/reference/android/hardware/usb/UsbManager#requestPermission(android.hardware.usb.UsbAccessory, android.app.PendingIntent)`. The call to `https://developer.android.com/reference/android/hardware/usb/UsbManager#requestPermission(android.hardware.usb.UsbAccessory, android.app.PendingIntent)` displays a dialog to the
++the intent that gets broadcast when you call `requestPermission()`. The call to `requestPermission()` displays a dialog to the
+ user asking for permission to connect to the device. The following sample code shows how to
+ create the broadcast receiver:
+ 
+@@ -312,7 +314,7 @@ IntentFilter filter = new IntentFilter(ACTION_USB_PERMISSION);
+ registerReceiver(usbReceiver, filter);
+ ```
+ 
+-To display the dialog that asks users for permission to connect to the device, call the `https://developer.android.com/reference/android/hardware/usb/UsbManager#requestPermission(android.hardware.usb.UsbAccessory, android.app.PendingIntent)` method:
++To display the dialog that asks users for permission to connect to the device, call the `requestPermission()` method:
+ 
+ ### Kotlin
+ 
+@@ -331,7 +333,7 @@ usbManager.requestPermission(device, permissionIntent);
+ ```
+ 
+ When users reply to the dialog, your broadcast receiver receives the intent that contains the
+-`https://developer.android.com/reference/android/hardware/usb/UsbManager#EXTRA_PERMISSION_GRANTED` extra, which is a boolean
++`EXTRA_PERMISSION_GRANTED` extra, which is a boolean
+ representing the answer. Check this extra for a value of true before connecting to the
+ device.
+ 
+@@ -340,13 +342,13 @@ device.
+ Communication with a USB device can be either synchronous or asynchronous. In either case, you
+ should create a new thread on which to carry out all data transmissions, so you don't block the
+ UI thread. To properly set up communication with a device, you need to obtain the appropriate
+-`https://developer.android.com/reference/android/hardware/usb/UsbInterface` and `https://developer.android.com/reference/android/hardware/usb/UsbEndpoint` of the
+-device that you want to communicate on and send requests on this endpoint with a `https://developer.android.com/reference/android/hardware/usb/UsbDeviceConnection`. In general, your code should:
++`UsbInterface` and `UsbEndpoint` of the
++device that you want to communicate on and send requests on this endpoint with a `UsbDeviceConnection`. In general, your code should:
+ 
+-- Check a `https://developer.android.com/reference/android/hardware/usb/UsbDevice` object's attributes, such as product ID, vendor ID, or device class to figure out whether or not you want to communicate with the device.
+-- When you are certain that you want to communicate with the device, find the appropriate `https://developer.android.com/reference/android/hardware/usb/UsbInterface` that you want to use to communicate along with the appropriate `https://developer.android.com/reference/android/hardware/usb/UsbEndpoint` of that interface. Interfaces can have one or more endpoints, and commonly will have an input and output endpoint for two-way communication.
+-- When you find the correct endpoint, open a `https://developer.android.com/reference/android/hardware/usb/UsbDeviceConnection` on that endpoint.
+-- Supply the data that you want to transmit on the endpoint with the `https://developer.android.com/reference/android/hardware/usb/UsbDeviceConnection#bulkTransfer(android.hardware.usb.UsbEndpoint, byte[], int, int)` or `https://developer.android.com/reference/android/hardware/usb/UsbDeviceConnection#controlTransfer(int, int, int, int, byte[], int, int)` method. You should carry out this step in another thread to prevent blocking the main UI thread. For more information about using threads in Android, see [Processes and
++- Check a `UsbDevice` object's attributes, such as product ID, vendor ID, or device class to figure out whether or not you want to communicate with the device.
++- When you are certain that you want to communicate with the device, find the appropriate `UsbInterface` that you want to use to communicate along with the appropriate `UsbEndpoint` of that interface. Interfaces can have one or more endpoints, and commonly will have an input and output endpoint for two-way communication.
++- When you find the correct endpoint, open a `UsbDeviceConnection` on that endpoint.
++- Supply the data that you want to transmit on the endpoint with the `bulkTransfer()` or `controlTransfer()` method. You should carry out this step in another thread to prevent blocking the main UI thread. For more information about using threads in Android, see [Processes and
+   Threads](https://developer.android.com/guide/components/processes-and-threads#Threads).
+ 
+ The following code snippet is a trivial way to do a synchronous data transfer. Your code
+@@ -388,14 +390,14 @@ connection.claimInterface(intf, forceClaim);
+ connection.bulkTransfer(endpoint, bytes, bytes.length, TIMEOUT); //do in another thread
+ ```
+ 
+-To send data asynchronously, use the `https://developer.android.com/reference/android/hardware/usb/UsbRequest` class to `https://developer.android.com/reference/android/hardware/usb/UsbRequest#initialize(android.hardware.usb.UsbDeviceConnection, android.hardware.usb.UsbEndpoint)` and `https://developer.android.com/reference/android/hardware/usb/UsbRequest#queue(java.nio.ByteBuffer)` an asynchronous request, then wait for the result
+-with `https://developer.android.com/reference/android/hardware/usb/UsbDeviceConnection#requestWait()`.
++To send data asynchronously, use the `UsbRequest` class to `initialize` and `queue` an asynchronous request, then wait for the result
++with `requestWait()`.
+ 
+ ### Terminating communication with a device
+ 
+-When you are done communicating with a device or if the device was detached, close the `https://developer.android.com/reference/android/hardware/usb/UsbInterface` and `https://developer.android.com/reference/android/hardware/usb/UsbDeviceConnection` by
+-calling `https://developer.android.com/reference/android/hardware/usb/UsbDeviceConnection#releaseInterface(android.hardware.usb.UsbInterface)` and
+-`https://developer.android.com/reference/android/hardware/usb/UsbDeviceConnection#close()`. To listen for detached events,
++When you are done communicating with a device or if the device was detached, close the `UsbInterface` and `UsbDeviceConnection` by
++calling `releaseInterface()` and
++`close()`. To listen for detached events,
+ create a broadcast receiver like below:
+ 
+ ### Kotlin

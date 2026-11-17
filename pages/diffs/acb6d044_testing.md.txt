@@ -1,0 +1,46 @@
+diff --git a/docs/develop/sensors-and-location/location/testing.md b/docs/develop/sensors-and-location/location/testing.md
+index 6855c892..3e5f0bf7 100644
+--- a/docs/develop/sensors-and-location/location/testing.md
++++ b/docs/develop/sensors-and-location/location/testing.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/sensors-and-location/location/testing
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/develop/sensors-and-location/location/llms.txt
++
+ The guidelines on this page help you evaluate your app as you make updates to
+ support the latest location features and behavior.
+ 
+@@ -19,8 +21,8 @@ location access from the dialog, do the following:
+ 
+ 1. Request both `ACCESS_FINE_LOCATION` and `ACCESS_COARSE_LOCATION`.
+ 2. In the dialog that appears, where the user can [request approximate
+-   location](https://developer.android.com/training/location/permissions#approximate-request), select **Approximate** near the top, and either **While using the app** or **Only this
+-   time** near the bottom.
++   location](https://developer.android.com/develop/sensors-and-location/location/permissions/runtime#approximate-request), select **Approximate** near the top, and either **While using the
++   app** or **Only this time** near the bottom.
+ 3. Check whether your app's use cases still work as expected, even when your app only has approximate location access.
+ 
+ ### Handle approximate location downgrade from system settings
+@@ -32,8 +34,8 @@ access from precise to approximate in system settings, do the following:
+ 
+ 1. Request both `ACCESS_FINE_LOCATION` and `ACCESS_COARSE_LOCATION`.
+ 2. In the dialog that appears, where the user can [request approximate
+-   location](https://developer.android.com/training/location/permissions#approximate-request), select **Precise** near the top, and either **While using the app** or **Only this
+-   time** near the bottom.
++   location](https://developer.android.com/develop/sensors-and-location/location/permissions/runtime#approximate-request), select **Precise** near the top, and either **While using the
++   app** or **Only this time** near the bottom.
+ 3. Navigate to your app's permissions screen in system settings.
+ 4. On the location permission screen, turn off **Use precise location** . This
+    option appears in figure 1.
+@@ -49,8 +51,8 @@ access from approximate to precise in system settings, do the following:
+ 
+ 1. Request both `ACCESS_FINE_LOCATION` and `ACCESS_COARSE_LOCATION`.
+ 2. In the dialog that appears, where the user can [request approximate
+-   location](https://developer.android.com/training/location/permissions#approximate-request), select **Approximate** near the top, and either **While using the app** or **Only this
+-   time** near the bottom.
++   location](https://developer.android.com/develop/sensors-and-location/location/permissions/runtime#approximate-request), select **Approximate** near the top, and either **While using the
++   app** or **Only this time** near the bottom.
+ 3. Navigate to your app's permissions screen in system settings.
+ 4. On the location permission screen, turn on **Use precise location** , as shown
+    in figure 1.

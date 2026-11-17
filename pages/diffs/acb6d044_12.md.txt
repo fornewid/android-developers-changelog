@@ -1,0 +1,38 @@
+diff --git a/docs/blog/categories/product-news/12.md b/docs/blog/categories/product-news/12.md
+index f1f2a025..d7b4ae23 100644
+--- a/docs/blog/categories/product-news/12.md
++++ b/docs/blog/categories/product-news/12.md
+@@ -4,11 +4,20 @@ url: https://developer.android.com/blog/categories/product-news/12
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/blog/categories/product-news/llms.txt
++
+ ![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1Ad42c.webp)
+ 
+ # Product News
+ 
+ Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_1Ctd29.webp)
++
++  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding.md.txt) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
++  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt) • 2 min read
++  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
+ - [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/michael-stillwell.md.txt)[![View Dimitris Kosmidis's profile](https://developer.android.com/static/blog/assets/dimitris_kosmidis_08bb21b8a2_Z2oix8v.webp)](https://developer.android.com/blog/authors/dimitris-kosmidis.md.txt) 01 Apr 2026 01 Apr 2026 ![](https://developer.android.com/static/blog/assets/wear_os_64_1de6378905_Z2fNN6j.webp)
+ 
+   ## [Get your Wear OS apps ready for the 64-bit requirement](https://developer.android.com/blog/posts/get-your-wear-os-apps-ready-for-the-64-bit-requirement.md.txt)
+@@ -42,12 +51,6 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+   [arrow_forward](https://developer.android.com/blog/posts/redefining-location-privacy-new-tools-and-improvements-for-android-17.md.txt) A pillar of the Android ecosystem is our shared commitment to user trust. As the mobile landscape has evolved, so does our approach to protecting sensitive information.
+   [Robert Clifford](https://developer.android.com/blog/authors/robert-clifford.md.txt) • 3 min read
+   - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
+-- [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](https://developer.android.com/blog/authors/roxanna-walker.md.txt) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/contact_Picker_4392c5da87_SiXoB.webp)
+-
+-  ## [Contact Picker: Privacy-First Contact Sharing](https://developer.android.com/blog/posts/contact-picker-privacy-first-contact-sharing.md.txt)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/contact-picker-privacy-first-contact-sharing.md.txt) Privacy and user control remain at the heart of the Android experience. Just as the photo picker made media sharing secure and easy to implement, we are now bringing that same level of privacy, simplicity, and great user experience to contact selection.
+-  [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker.md.txt) • 4 min read
+ [arrow_back](https://developer.android.com/blog/categories/product-news/11.md.txt)
+ 
+ #### Page 12

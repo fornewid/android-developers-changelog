@@ -1,5 +1,894 @@
 [
   {
+    "date": "2026-11-17T15:09:57Z",
+    "commit_hash": "acb6d044",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/about/versions/17/qpr3/get\" target=\"_blank\">Get Android 17 QPR 3</a>",
+        "path": "about/versions/17/qpr3/get.md",
+        "summary": "The Android Studio download link in the virtual device setup instructions was updated to point to the markdown version of the page (studio.md.txt) instead of the standard URL. This ensures documentation consistency for specific rendering pipelines.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_get.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/skill\" target=\"_blank\">Jetpack Compose performance optimization skill</a>",
+        "path": "agents/skills/jetpack-compose/jetpack-compose-performance/skill.md",
+        "summary": "Updated the Jetpack Compose performance skill documentation to clarify `contentType` usage examples for both standard `items` and `itemsIndexed` in lazy layouts, and fixed a broken relative path link in the effects and threading section references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/android-performance-analyzer/release-notes\" target=\"_blank\">Android Performance Analyzer release notes</a>",
+        "path": "android-performance-analyzer/release-notes.md",
+        "summary": "The Android Performance Analyzer release notes have been restructured to clearly separate Stable and Canary channels. It introduces documentation for version 0.10.0-Canary 6 (adding features like `Shift+drag` track selection, improved thread activity visibility for processes without CPU data, faster Frame Profiler load times, and various bug fixes) while reorganizing previous release labels.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog\" target=\"_blank\">The Android Developers' Blog</a>",
+        "path": "blog.md",
+        "summary": "Added a new blog post titled 'Beyond the app: Expanding buyer reach across new surfaces with Google Play' by Phalene Gowling and Rejane França, removed an older community post about developer sessions, and included a link to the documentation index llms.txt.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_blog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors.md",
+        "summary": "Updated the blog authors documentation by appending '.md.txt' to author profile links, adding a documentation index reference link, removing a specific author (Ulises Uriel Verduzco Díaz), and adding a new author (Andrei Shikov).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_authors.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/11\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/11.md",
+        "summary": "The authors documentation was updated to remove Nick Butcher's entry, add a new author profile for Penny Li (Software Engineer), and include a documentation index link for LLMs at the top of the file.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/12\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/12.md",
+        "summary": "Updated the Android blog author directory (12.md) by removing Penny Li, promoting Phalene Gowling to Senior Product Manager with an updated post count, and adding Rejane França as a Group Product Manager. These updates maintain accurate author credentials and directory listings for the Android developer blog.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_12.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/16\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/16.md",
+        "summary": "The authors documentation index was updated to include a link to 'llms.txt', a new author profile for Ulises Uriel Verduzco Díaz was added, and the profile for Yacine Rezgui was removed. These updates keep the official Android developer blog author directory accurate and up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_16.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/17\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/17.md",
+        "summary": "Added a documentation index link and a new author profile for Yacine Rezgui, including their role as a Developer Relations Engineer and post statistics. This update expands the Android blog author directory to properly attribute content creators.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/2\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/2.md",
+        "summary": "Updated author profile links to point to their respective `.md.txt` files, added a new author (Blair Harmon) to the listing, and updated pagination links to support LLM-friendly documentation formats.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/3\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/3.md",
+        "summary": "Updated author profile links to point directly to markdown text files (.md.txt), added a documentation index reference link, and included a new author (Chiara Chiappini) to page 3 of the Android blog authors directory.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/4\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/4.md",
+        "summary": "Updated author links to reference the `.md.txt` documentation format, removed Chiara Chiappini from the author list, added Dimitris Kosmidis, and updated pagination links to maintain consistent navigation across documentation index pages.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/5\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/5.md",
+        "summary": "Updated the authors documentation page to include a documentation index link, removed the entry for Dimitris Kosmidis, and added a new author profile for Fabien Sanglard, Staff Software Engineer. This keeps the Android developer blog author directory accurate and up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/7\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/7.md",
+        "summary": "The author list on page 7 of the Android developer blog has been updated to remove Ivy Knight and add Jose Alcérreca as a Developer Relations Engineer. This update keeps the contributor directory current and accurately reflects the active authors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/8\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/8.md",
+        "summary": "Updated author profile URLs to point to markdown format files (`.md.txt`), added Luke Hopkins to the authors listing on page 8, and updated the documentation index and pagination links accordingly.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/9\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/9.md",
+        "summary": "Updated author profile links to point to `.md.txt` files, added a documentation index reference, and included a new author profile (Mayuri Khinvasara Khabya) on page 9 of the blog authors listing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/phalene-gowling\" target=\"_blank\">Phalene Gowling</a>",
+        "path": "blog/authors/phalene-gowling.md",
+        "summary": "Updated author profile details for Phalene Gowling, including a promotion to Senior Product Manager for Google Play Monetization Platform, the addition of a new post about expanding buyer reach across surfaces, and updated links to reference Markdown documentation files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_phalene-gowling.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/rejane-franca\" target=\"_blank\">Rejane França</a>",
+        "path": "blog/authors/rejane-franca.md",
+        "summary": "Added a new author profile documentation page for Rejane França, Group Product Manager for Google Play Monetization Platform, highlighting published posts on expanding buyer reach.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news.md",
+        "summary": "The Product News documentation was updated to include a new blog post about expanding buyer reach across new surfaces with Google Play, alongside a documentation index link, while an older post regarding contacts permissions was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_product-news.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/10\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/10.md",
+        "summary": "The Product News category page was updated to include a new post regarding Jetpack Telecom v1.1.0 (\"Bring Native Visibility to Your VoIP App Experience with Telecom's Latest Alpha\") by Nataraj K R, while removing an older post about the Android 17 Beta 4 release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/11\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/11.md",
+        "summary": "The Android product news blog category index has been updated to include the announcement for the Fourth Beta of Android 17 (the final scheduled beta for stability testing) and a documentation index link, while removing an older post regarding Android Studio support for Gemma 4.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/12\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/12.md",
+        "summary": "The product news category page has been updated to include a new blog post regarding Android Studio's support for the Gemma 4 local model for agentic coding, while removing an older post about the Privacy-First Contact Picker and adding a reference link to the documentation index.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_12.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/13\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/13.md",
+        "summary": "Updated the Product News category page to include a new post on the privacy-first Contact Picker feature by Roxanna Aliabadi Walker and removed an older post regarding Android Bench.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_13.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/14\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/14.md",
+        "summary": "Added a new blog post entry about Android Bench and AI-assisted Android development, and removed an older post regarding the Intelligent OS from the product news category page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_14.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/15\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/15.md",
+        "summary": "The product news documentation was updated to include a new blog post about AI agents on Android (\"The Intelligent OS: Making AI agents more helpful for Android apps\") by Matthew McCullough, and removed an older post regarding the Embedded Photo Picker. Additionally, a link to the documentation index for LLMs was added.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_15.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/16\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/16.md",
+        "summary": "The product news documentation was updated to include a new blog post about 'The Embedded Photo Picker' by Roxanna Aliabadi Walker and Yacine Rezgui, while an older post regarding 'Bringing Androidify to Wear OS with Watch Face Push' was removed. Additionally, a documentation index link for LLMs was added.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_16.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/17\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/17.md",
+        "summary": "The product news blog index was updated to include a new post about bringing Androidify to Wear OS with Watch Face Push, and an older post regarding building a safer Android and Google Play was removed. This matters as it keeps the developer documentation current with the latest product announcements and blog additions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/18\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/18.md",
+        "summary": "The product news documentation was updated to include a new blog post entry regarding platform safety (\"Building a safer Android and Google Play, together\") authored by Matthew Forsythe and Ron Aquino, while removing an older post about the Jetpack Navigation 3 stable release. Additionally, an LLMS documentation index link was added to the top of the file.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_18.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/19\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/19.md",
+        "summary": "Updated the Product News category page to include the stable release announcement for Jetpack Navigation 3 by Don Turner, alongside general content curation updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_19.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/2\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/2.md",
+        "summary": "The product news blog index was updated to add a new article regarding more reliable ways to add and edit contacts on Android (restricting direct writes via WRITE_CONTACTS for apps targeting upcoming releases) and to remove an older post about AI agents in Android Studio.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/20\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/20.md",
+        "summary": "The product news documentation was updated to include a link to the LLM documentation index, add a new blog post entry regarding the Fall episode of The Android Show featuring agentic experiences for Android Studio and AI APIs, and remove an older post about CameraX 1.5 feature combinations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_20.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/21\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/21.md",
+        "summary": "Added a new blog post entry regarding CameraX 1.5 feature combinations by Tahsin Masrur and removed an older Media3 part 1 post entry from the product news category page. These updates keep the developer blog index current with the latest Android tooling releases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_21.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/22\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/22.md",
+        "summary": "Added a new blog post entry for 'Elevating media playback: Introducing preloading with Media3 - Part 1' by Mayuri Khinvasara Khabya to the product news documentation index, along with a reference link to llms.txt.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_22.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/3\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/3.md",
+        "summary": "Added a new product news blog post regarding support for custom AI coding agents in Android Studio, and removed an older post about Android Studio Quail. Additionally, a documentation index link was added to the top of the page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/4\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/4.md",
+        "summary": "Added a new blog post entry for the Android Studio Quail 4 release featuring Gemma 4 and Android skills, and removed an older post regarding the Jetpack Compose August '26 release. These updates keep the product news category page current with the latest releases and announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/5\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/5.md",
+        "summary": "The product news documentation was updated to include a link to the LLMs index, add the Jetpack Compose August '26 release post by Nick Butcher, and remove an older post regarding Android Studio Quail 2. This keeps the product news category page current with the latest developer communications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/6\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/6.md",
+        "summary": "Added a new blog post entry for the stable release of Android Studio Quail 2, introducing concurrent agentic workflows and AI-driven features, while removing an older post regarding Android 17.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/7\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/7.md",
+        "summary": "Added an entry for the Android 17 release announcement by Matthew McCullough, pointing to its availability on supported Pixel devices, and removed an older post regarding Android Studio I/O Edition tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/8\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/8.md",
+        "summary": "Updated the Product News category page to include a new blog post entry for 'Android Studio I/O Edition: What's new in Android Developer tools' by Matthew Warner, and removed the entry for 'What's new in Android for Cars'. This keeps the product news index current with the latest developer announcements from Google I/O.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/9\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/9.md",
+        "summary": "The product news blog index was updated to include a new post regarding Android for Cars (\"What's new in Android for Cars: Unifying platforms and unlocking premium experiences\") while removing an older post about Jetpack Telecom's VoIP app visibility features. Additionally, a documentation index link was added to the top of the page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest.md",
+        "summary": "The Android developer blog index was updated to feature a new product news post titled 'Beyond the app: Expanding buyer reach across new surfaces with Google Play' by Phalene Gowling and Rejane França, along with the inclusion of the monetization topic tag, while an older post regarding Googlebook adaptive development was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_latest.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/10\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/10.md",
+        "summary": "The documentation was updated to add a new blog post entry about optimizing performance for Android XR with Unity as part of the Android XR Spotlight Week, remove an outdated post about adapting Android apps across devices, and include a new '#Monetization' tag in the topics list. These updates keep developers informed about the latest XR tooling and platform resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/11\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/11.md",
+        "summary": "Added a new blog post entry titled 'A product manager's guide to adapting Android apps across devices' by Fahd Imtiaz, along with a new '#Monetization' topic tag to the latest announcements page. This update keeps developers informed about cross-device adaptation strategies and monetization topics.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/2\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/2.md",
+        "summary": "Added a new blog post entry about developing apps for 'Googlebook' using adaptive development and Jetpack Compose, removed an older post celebrating 5 years of Jetpack Compose, and added the '#Monetization' tag to the topic list.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/3\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/3.md",
+        "summary": "Updated the latest Android blog posts page by adding a new announcement celebrating five years of Jetpack Compose, removing an older post about building premium Android experiences from Google I/O '26, and appending the new '#Monetization' topic tag to the footer list.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/4\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/4.md",
+        "summary": "Added a new blog post entry for 'Building Premium Android Experiences at Google I/O '26' by Ataul Munim, removed an older post about publishing safer apps, and updated the available topic tags to include Monetization.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/5\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/5.md",
+        "summary": "Updated the latest Android blog feed by adding a new product news post from Vijaya Kaza regarding safer app publishing (May 2026), removing an older post about location privacy for Android 17, and adding the 'Monetization' topic tag to the sidebar.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/6\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/6.md",
+        "summary": "Added a new blog post entry regarding location privacy tools and improvements for Android 17 by Robert Clifford, removed an older entry for Google I/O, and added the Monetization topic tag to the sidebar.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/7\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/7.md",
+        "summary": "The updates to the latest blog directory page include the addition of an announcement for Google I/O (May 19-20, 2026), the removal of an older #WeArePlay community post, and the inclusion of the new '#Monetization' tag in the topics list.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/8\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/8.md",
+        "summary": "The latest Android blog documentation was updated to include a new #WeArePlay feature on the Matraquinha app, which helps non-verbal children communicate. Additionally, an older post regarding Android Performance Spotlight Week by Ben Weiss was removed, and the '#Monetization' tag was added to the topics list. These updates keep the latest announcements feed current and accurately categorized.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/9\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/9.md",
+        "summary": "The latest blog updates page was modified to add a new entry for 'Android Performance Spotlight Week' by Ben Weiss, remove an older post regarding Android XR optimization with Unity, and include the '#Monetization' tag in the topic list. These changes keep the developer landing page current with recent articles and taxonomy.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations\" target=\"_blank\">Accelerating your insights with faster, smarter monetization data and recommendations</a>",
+        "path": "blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations.md",
+        "summary": "Updated author metadata for Phalene Gowling to Senior Product Manager, added a link to the documentation index, and updated the related blog posts section at the bottom of the page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/beyond-the-app-google-play-buyer-reach\" target=\"_blank\">Beyond the app: Expanding buyer reach across new surfaces with Google Play</a>",
+        "path": "blog/posts/beyond-the-app-google-play-buyer-reach.md",
+        "summary": "This new documentation details Google Play's expansion of buyer reach across multi-surface channels—such as Play Store search, web stores, and conversational AI—allowing developers to optimize catalog exposure and manage flexible checkouts directly through the Play Console.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation\" target=\"_blank\">Boost user engagement with AI Image Generation</a>",
+        "path": "blog/posts/boost-user-engagement-with-ai-image-generation.md",
+        "summary": "Added a documentation index link to the LLMs text file and updated the 'Continue reading' section at the end of the post to reference new related articles, authors, and metadata.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_boost-user-engagement-with-ai-image-generation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-native-android-apps-in-google-ai-studio\" target=\"_blank\">Build native Android apps in Google AI Studio</a>",
+        "path": "blog/posts/build-native-android-apps-in-google-ai-studio.md",
+        "summary": "Added a documentation index link, updated links to use local text-based file formats (.md.txt), and updated the 'Continue reading' section to include a new post about Google Play channel expansion while removing an older post entry.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_build-native-android-apps-in-google-ai-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions\" target=\"_blank\">Driving growth on Google Play: The next era of subscriptions</a>",
+        "path": "blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions.md",
+        "summary": "Added a documentation index link and updated the 'Continue reading' section by including a new related post about expanding buyer reach across new surfaces with Google Play and removing an older post regarding intelligent apps at the Android Developer Summit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_driving-growth-on-google-play-the-next-era-of-subscriptions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/get-inspired-and-take-your-apps-to-desktop\" target=\"_blank\">Get inspired and take your apps to desktop</a>",
+        "path": "blog/posts/get-inspired-and-take-your-apps-to-desktop.md",
+        "summary": "Updated the 'Stay in the loop' recommended blog posts list by adding a new entry regarding expanding buyer reach across new surfaces with Google Play ('Beyond the app') and removing an older post about intelligent apps at the Android Developer Summit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_get-inspired-and-take-your-apps-to-desktop.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025\" target=\"_blank\">Notes from Google Play: A look back at the tools that powered your growth in 2025</a>",
+        "path": "blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to include a new related article about expanding buyer reach across new surfaces with Google Play, while removing an older post regarding intelligent apps from the Android Developer Summit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/open-source-google-sign-in-unity\" target=\"_blank\">Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity</a>",
+        "path": "blog/posts/open-source-google-sign-in-unity.md",
+        "summary": "Updated the blog post's related articles and navigation links, adding a reference to the documentation index, including a new post about expanding buyer reach with Google Play, and removing an older post about the Android Dev Summit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_open-source-google-sign-in-unity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/monetization\" target=\"_blank\">#Monetization</a>",
+        "path": "blog/topics/monetization.md",
+        "summary": "Added a new monetization topic documentation page that lists blog posts and resources related to expanding buyer reach and product monetization through Google Play.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-9-6-0-release-notes\" target=\"_blank\">Android Gradle plugin 9.6.0</a>",
+        "path": "build/releases/agp-9-6-0-release-notes.md",
+        "summary": "The Android Gradle Plugin (AGP) 9.6.0 release notes were updated to bump the minimum and default Gradle version requirement to 9.8.2 and introduce an experimental feature for unified coverage and test reports, which aggregates test results and coverage into a single HTML dashboard.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_agp-9-6-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/adaptive-apps/guides/app-orientation-aspect-ratio-resizability\" target=\"_blank\">App orientation, aspect ratio, and resizability</a>",
+        "path": "develop/adaptive-apps/guides/app-orientation-aspect-ratio-resizability.md",
+        "summary": "The documentation updates primarily consist of formatting internal link URLs to point to markdown (`.md.txt`) files, properly formatting XML code blocks for the opt-out configuration snippets, and adding a new resource link regarding scaling media content across form factors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_app-orientation-aspect-ratio-resizability.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/adaptive-apps/guides/mediaquery\" target=\"_blank\">Query information for adaptive layouts with mediaQuery</a>",
+        "path": "develop/adaptive-apps/guides/mediaquery.md",
+        "summary": "The media query documentation was updated to include a reference link for applying these adaptive techniques to media playback using Compose scaling, alongside the addition of a documentation index link for LLMs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_mediaquery.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/background-tasks/persistent/configuration/custom-configuration\" target=\"_blank\">Custom WorkManager Configuration and Initialization</a>",
+        "path": "develop/background-work/background-tasks/persistent/configuration/custom-configuration.md",
+        "summary": "The changes in this file are purely formatting, Markdown link adjustments, and code block syntax additions (such as formatting XML snippets properly). Because these edits only affect document presentation and link paths rather than technical guidance, no functional or meaningful documentation changes were made.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_custom-configuration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/background-tasks/persistent/how-to/states\" target=\"_blank\">Work states</a>",
+        "path": "develop/background-work/background-tasks/persistent/how-to/states.md",
+        "summary": "Updated reference links across the document to point to local `.md.txt` files for LLM consumption, added accessibility alt text to diagram images, and improved formatting and headings consistency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_states.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/background-tasks/persistent/threading/coroutineworker\" target=\"_blank\">Threading in CoroutineWorker</a>",
+        "path": "develop/background-work/background-tasks/persistent/threading/coroutineworker.md",
+        "summary": "The CoroutineWorker documentation has been updated to fix markdown code blocks, improve link formats (targeting local markdown files instead of web links for some references), and add a documentation index header. These changes improve readability and document structure for developers consuming the docs offline or via LLM-friendly formats.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_coroutineworker.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/bluetooth/ble-audio/audio-recording\" target=\"_blank\">Audio recording</a>",
+        "path": "develop/connectivity/bluetooth/ble-audio/audio-recording.md",
+        "summary": "The changes in this documentation update consist of formatting improvements, such as adding proper Markdown code blocks for build configuration and Java snippets, fixing internal documentation links, and making minor textual clarifications. These updates improve readability and ensure consistency across the BLE Audio recording guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_audio-recording.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/bluetooth/ble/ble-overview\" target=\"_blank\">Bluetooth Low Energy</a>",
+        "path": "develop/connectivity/bluetooth/ble/ble-overview.md",
+        "summary": "Updated the BLE overview documentation to include a documentation index link, converted standard warning text into a Markdown callout block for better visibility, and updated internal documentation links to point directly to local markdown (.md.txt) files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_ble-overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/bluetooth/ble/transfer-ble-data\" target=\"_blank\">Transfer BLE data</a>",
+        "path": "develop/connectivity/bluetooth/ble/transfer-ble-data.md",
+        "summary": "Updated reference links within the BLE data transfer documentation to point to local Markdown files (`.md.txt`) and added a documentation index reference link at the top of the file.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_transfer-ble-data.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/bluetooth/bt-permissions\" target=\"_blank\">Bluetooth permissions</a>",
+        "path": "develop/connectivity/bluetooth/bt-permissions.md",
+        "summary": "Updated the Bluetooth permissions documentation to include formatting improvements, such as converting code blocks to standard markdown fence blocks and adding markdown extensions to internal links for consistency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_bt-permissions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/network-ops/network-access-optimization\" target=\"_blank\">Optimize network access</a>",
+        "path": "develop/connectivity/network-ops/network-access-optimization.md",
+        "summary": "Updated the network-access-optimization.md documentation to improve accessibility by adding descriptive alt text to images (Figures 1, 2, and 3), corrected internal and external link references, and refined phrasing for clarity and tone.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_network-access-optimization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/preserving-battery\" target=\"_blank\">About preserving battery</a>",
+        "path": "develop/connectivity/preserving-battery.md",
+        "summary": "The preserving-battery.md documentation was updated to include a link to the documentation index for LLMs and fixed several internal Markdown link targets by appending '.md.txt' extensions to ensure proper navigation in the repository. Additionally, minor text refinements were made to improve clarity and conciseness regarding Android 8.0 battery management features and developer responsibilities.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_preserving-battery.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/usb/host\" target=\"_blank\">USB host overview</a>",
+        "path": "develop/connectivity/usb/host.md",
+        "summary": "Cleaned up API reference URLs in the documentation, converting explicit absolute URL paths for classes and methods (such as UsbManager, UsbDevice, and various methods) into standard class and method names with proper markdown formatting.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_host.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/wifi/passpoint\" target=\"_blank\">Passpoint</a>",
+        "path": "develop/connectivity/wifi/passpoint.md",
+        "summary": "The Passpoint documentation was updated to include a link to the documentation index for LLMs and to fix a broken reference link for the WifiNetworkSuggestion.Builder API.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_passpoint.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/sensors-and-location/location/battery/optimize\" target=\"_blank\">Optimize location use for battery life</a>",
+        "path": "develop/sensors-and-location/location/battery/optimize.md",
+        "summary": "Updated reference links across the document to use proper Markdown files and correct anchor tags, added an llms.txt documentation index link at the top, and wrapped code snippets in proper markdown code blocks for improved readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_optimize.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/sensors-and-location/location/geofencing\" target=\"_blank\">Create and monitor geofences</a>",
+        "path": "develop/sensors-and-location/location/geofencing.md",
+        "summary": "Cleaned up documentation references by removing absolute URLs for standard Android framework and Google Play services classes, replacing them with standard inline class names and local markdown links. This improves readability and maintainability of the geofencing guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_geofencing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/sensors-and-location/location/maps-and-places\" target=\"_blank\">Maps and places</a>",
+        "path": "develop/sensors-and-location/location/maps-and-places.md",
+        "summary": "Added a documentation index link (llms.txt) and improved accessibility by adding descriptive alt text and a figure caption to the header image. These changes help screen readers and provide clearer context for the documentation's visual assets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_maps-and-places.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/sensors-and-location/location/testing\" target=\"_blank\">Test your app's location workflows</a>",
+        "path": "develop/sensors-and-location/location/testing.md",
+        "summary": "The documentation was updated to add a reference to the LLM documentation index and to fix broken hyperlinks pointing to the location permissions guide, redirecting them to the correct path under the sensors-and-location developer documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_testing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/animation/composables-modifiers\" target=\"_blank\">Animation modifiers and composables</a>",
+        "path": "develop/ui/compose/animation/composables-modifiers.md",
+        "summary": "The Compose animation documentation was updated to include accessibility improvements for images (adding alt text and figure captions), new guidance on controlling draw order and keeping initial content using `targetContentZIndex` and `KeepUntilTransitionsFinished` in `AnimatedContent`, API reference links for `animateContentSize`, and a new code example demonstrating how to use optional parameters like `animationSpec` with `animateContentSize`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_composables-modifiers.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/animation/customize\" target=\"_blank\">Customize animations</a>",
+        "path": "develop/ui/compose/animation/customize.md",
+        "summary": "The documentation was updated to include new easing presets (`Ease`, `EaseIn`, `EaseOut`, `EaseInOut`) and describes the addition of various curve presets like sine, quad, cubic, and bounce for Jetpack Compose animations. This matters because it gives developers direct visibility into the newly available easing curves directly within the guide rather than requiring them to dig through the API reference.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_customize.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/animation/shared-elements\" target=\"_blank\">Shared element transitions in Compose</a>",
+        "path": "develop/ui/compose/animation/shared-elements.md",
+        "summary": "The documentation was updated to introduce the new `SharedTransitionScope` composable alongside `SharedTransitionLayout`. This addition allows developers to provide a shared transition scope without introducing an extra layout wrapper, which is useful when dealing with layout hierarchies and zIndex considerations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_shared-elements.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/graphics/images/customize\" target=\"_blank\">Customize an image</a>",
+        "path": "develop/ui/compose/graphics/images/customize.md",
+        "summary": "Added a documentation index link at the top and a new note directing developers to Media3 guidance for scaling media content and handling aspect ratios across form factors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_customize.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/notifications/metric-style\" target=\"_blank\">Create a metric style notification</a>",
+        "path": "develop/ui/views/notifications/metric-style.md",
+        "summary": "Updated documentation for Android 17's MetricStyle notifications to fix internal API reference links (appending .md.txt extensions) and added new relevant class and method references such as Notification.MetricStyle.setCriticalMetric(int) and Notification.Metric.FixedDate. These updates ensure accurate documentation navigation for developers implementing health, fitness, timer, or travel app notifications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_metric-style.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context\" target=\"_blank\">Use a projected context to access hardware on audio glasses and display glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md",
+        "summary": "Updated the Jetpack XR SDK documentation for accessing hardware projected context, refining Kotlin code examples for monitoring device connectivity, handling cleanup actions, binding CameraX use cases with dynamic camera IDs, and retrieving host device contexts to improve robustness and state handling in XR apps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_access-hardware-projected-context.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/developer-verification\" target=\"_blank\">Android developer verification</a>",
+        "path": "developer-verification.md",
+        "summary": "The developer-verification documentation updates link paths to append .md.txt extensions across internal references and clarifies the Android device requirement for the upcoming September 30, 2026 protection rollout, updating it from Android 7+ to Android 8 (API level 26) or higher.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_developer-verification.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/developer-verification/guides/faq\" target=\"_blank\">Frequently asked questions</a>",
+        "path": "developer-verification/guides/faq.md",
+        "summary": "Updated the Android developer verification FAQ documentation to change the enforcement target from Android 7 or higher to Android 8 (API level 26) or higher. Additionally, updated date formats (spelled out 'September' instead of 'Sept'), fixed a typo ('intitial' to 'initial'), added an LLM documentation index link, and adjusted internal links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_faq.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/engines/cocos/cocos-aab\" target=\"_blank\">Publish your game with Android App Bundle in Cocos Creator</a>",
+        "path": "games/engines/cocos/cocos-aab.md",
+        "summary": "The Cocos AAB publishing documentation was updated to include a documentation index link for LLMs, fix internal markdown links to reference .md.txt files, and improve the accessibility alt text and caption for the Android Build panel screenshot.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_cocos-aab.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/engines/unity/unity-large-screen\" target=\"_blank\">Make your Unity game great on all form factors</a>",
+        "path": "games/engines/unity/unity-large-screen.md",
+        "summary": "Updated internal documentation links throughout the Unity large-screen guide to reference `.md.txt` extensions, and added a documentation index link at the beginning of the file.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_unity-large-screen.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/console/cloud-platform\" target=\"_blank\">Manage Play Games Services project settings in Google Cloud</a>",
+        "path": "games/pgs/console/cloud-platform.md",
+        "summary": "Added a documentation index link for LLMs and minor internal link fixes for the Google Cloud Play Games Services documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_cloud-platform.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/manage-catalog\" target=\"_blank\">Manage your product catalog</a>",
+        "path": "google/play/billing/manage-catalog.md",
+        "summary": "Updated documentation references to point to local markdown file formats instead of external web links, added a documentation index link, formatted a raw JSON code block for better readability, and made minor paragraph readability improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_manage-catalog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/app-bundle/code-transparency\" target=\"_blank\">Code transparency for app bundles</a>",
+        "path": "guide/app-bundle/code-transparency.md",
+        "summary": "Updated the code transparency documentation to fix broken internal links (converting them to use `.md.txt` suffixes) and refactored note/important callouts to use standard Markdown blockquote alert syntax.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_code-transparency.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/app-bundle/test\" target=\"_blank\">Build and test your Android App Bundle</a>",
+        "path": "guide/app-bundle/test.md",
+        "summary": "Updated documentation links to include the '.md.txt' file extension for cross-referencing internal guides and incorporated markdown improvements such as note callouts. These changes ensure proper link resolution for LLM-focused documentation indexes without altering the core technical guidance on building and testing App Bundles.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_test.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-swipe-view\" target=\"_blank\">Create swipe views with tabs using ViewPager</a>",
+        "path": "guide/navigation/navigation-swipe-view.md",
+        "summary": "Updated documentation links to include markdown file extensions, added an LLM documentation index reference, improved code block formatting with explicit XML syntax highlighting, and updated image alt text for better accessibility.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_navigation-swipe-view.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/use-graph/animate-transitions\" target=\"_blank\">Animate transitions between destinations</a>",
+        "path": "guide/navigation/use-graph/animate-transitions.md",
+        "summary": "The changes in the documentation consist entirely of minor formatting adjustments, link updates to internal documentation formats (such as appending .md.txt), and slight rewording for clarity. Because these updates are trivial and do not introduce any new functional concepts or changes to Android Navigation APIs, no documentation summary is required.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_animate-transitions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/use-graph/safe-args\" target=\"_blank\">Safe Args</a>",
+        "path": "guide/navigation/use-graph/safe-args.md",
+        "summary": "The documentation changes update internal links to point to local markdown reference files (adding '.md.txt' extensions), add a documentation index link for LLMs, and improve code block formatting for Kotlin and Java examples in the Safe Args guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_safe-args.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack\" target=\"_blank\">Android Jetpack Dev Resources - Android Developers</a>",
+        "path": "jetpack.md",
+        "summary": "Added a documentation index link pointing to the LLM-readable text file (llms.txt) for Android Jetpack, making it easier for AI tools and developers to discover structured documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_jetpack.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/explorer\" target=\"_blank\">Explore the Jetpack libraries by type</a>",
+        "path": "jetpack/androidx/explorer.md",
+        "summary": "Added a documentation index link pointing to llms.txt to the explorer.md file. This matters because it provides developers and AI tools with a direct entry point to machine-readable documentation for Android Jetpack libraries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_explorer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/latest-updates\" target=\"_blank\">Android latest updates</a>",
+        "path": "latest-updates.md",
+        "summary": "Added a documentation index link for LLMs and updated the Android Studio preview release track from RC (Rabbit 3 2026.2.3 RC 1) to Canary (Stingray 1 2026.3.1 Canary 1), reflecting the latest toolchain updates and release milestones.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_latest-updates.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/implement/surfaces/large_screens\" target=\"_blank\">Design for large screens from the start</a>",
+        "path": "media/implement/surfaces/large_screens.md",
+        "summary": "Added a reference and link to step-by-step guidance for implementing dynamic aspect ratio adaptation and scaling using Media3 and Jetpack Compose on large screens. This matters because it provides developers with direct, actionable resources to optimize media apps across tablets, foldables, and ChromeOS devices without letterboxing or stretching.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_large_screens.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/compose-customization\" target=\"_blank\">Core Compose</a>",
+        "path": "media/media3/ui/compose-customization.md",
+        "summary": "Added a documentation index link at the top and a reference link directing developers to best practices for scaling media content across different form factors within the Compose UI customization guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_compose-customization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/compose-material3\" target=\"_blank\">Material3 Compose</a>",
+        "path": "media/media3/ui/compose-material3.md",
+        "summary": "Added a link to the LLM documentation index and included a new reference guide on configuring content scaling, adapting to window sizes, and managing edge-to-edge layouts using the media3-ui-compose-material3 library. This matters for developers as it provides direct access to best practices for responsive media UI design across various form factors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_compose-material3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/compose-scaling\" target=\"_blank\">Scale media content across form factors</a>",
+        "path": "media/media3/ui/compose-scaling.md",
+        "summary": "Added a new guide detailing best practices for handling window scaling, window insets, and dynamic layout updates in Media3 Jetpack Compose video players.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/journeys\" target=\"_blank\">Journeys for Android Studio</a>",
+        "path": "studio/gemini/journeys.md",
+        "summary": "Updated documentation for Android Studio's Journeys feature to reflect changes in Android Studio Rabbit, shifting execution flow from Android Gradle Plugin (AGP) test suites to direct integration with the AI agent in the Agent window. The guide details new ways to create journey files via the UI or the agent, updated editor views (Code, Design, and Split), and revised lists of supported capabilities (such as added long-press support) and limitations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_journeys.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview\" target=\"_blank\">Android Studio Preview</a>",
+        "path": "studio/preview.md",
+        "summary": "Updated the Android Studio preview version from Rabbit 3 (2026.2.3 Canary 3) to Stingray 1 (2026.3.1 Canary 1), updating all download links, filenames, and references across Windows, macOS, and Linux platforms. Additionally, added a documentation index reference for LLMs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/features\" target=\"_blank\">Release notes for Android Studio preview</a>",
+        "path": "studio/preview/features.md",
+        "summary": "This update updates the Android Studio preview release channels and features. It updates the status of Android Studio Rabbit 3 to RC, introduces Android Studio Stingray 1 as a Canary release, adds a new migration feature for views-based UI to Jetpack Compose, expands on Agentic Journeys, and removes the cross-platform migration and Studio Labs sections.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases\" target=\"_blank\">Android Studio Rabbit 2</a>",
+        "path": "studio/releases.md",
+        "summary": "Added a documentation index link pointing to the LLM-readable text file (llms.txt) at the top of the Android Studio releases page. This provides an easily accessible machine-readable index for developers and AI tools tracking IDE updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_releases.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/emulator/37\" target=\"_blank\">Android Emulator 37 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/emulator/37.md",
+        "summary": "Added release notes for Android Emulator 37.4.1 Canary, which fixes a tablet orientation bug (Issue #476026968) on API 35 devices, along with a documentation index link. This matters for developers tracking emulator stability and bug fixes in the canary channel.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_37.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2026.3.1\" target=\"_blank\">Android Studio Stingray 1 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/studio/2026.3.1.md",
+        "summary": "This new documentation page details the fixed bugs and release notes for Android Studio Stingray 1 (2026.3.1 Canary 1) and Android Gradle Plugin 9.6.0-alpha04. It tracks critical fixes across adb, AGP, Database Inspector, Emulator, and other IDE components.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/data-storage/sqlite\" target=\"_blank\">Save data using SQLite</a>",
+        "path": "training/data-storage/sqlite.md",
+        "summary": "Cleaned up API reference links throughout the SQLite training documentation by replacing long URL paths with standard class and method names (e.g., SQLiteOpenHelper, insert, query), improving readability for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_sqlite.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/package-visibility/declaring\" target=\"_blank\">Declare package visibility needs</a>",
+        "path": "training/package-visibility/declaring.md",
+        "summary": "Updated internal documentation links throughout the guide to append the '.md.txt' extension, ensuring correct resolution for LLM-focused documentation indexing and reference mapping.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_declaring.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/wff/build\" target=\"_blank\">Build and deploy a watch face</a>",
+        "path": "training/wearables/wff/build.md",
+        "summary": "The build documentation for Watch Face Format was updated to include a link to the documentation index for LLMs and fix a broken relative link to the validator tools. Additionally, a minor typographical error in the pre-submission checks section was corrected.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/acb6d044_build.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-16T15:09:52Z",
     "commit_hash": "78603305",
     "entries": [

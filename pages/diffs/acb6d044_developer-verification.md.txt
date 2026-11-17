@@ -1,0 +1,77 @@
+diff --git a/docs/developer-verification.md b/docs/developer-verification.md
+index 066b4e27..ea91aa52 100644
+--- a/docs/developer-verification.md
++++ b/docs/developer-verification.md
+@@ -4,24 +4,26 @@ url: https://developer.android.com/developer-verification
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/developer-verification/llms.txt
++
+ ### Android developer verification
+ 
+ By making Android safer, we're protecting an environment for developers and users to confidently create and connect. This extra layer of security helps deter bad actors and makes it harder for them to repeatedly spread harm. **Effective September 30, 2026**
+ 
+ 
+-Protections begin for users installing apps from [participating stores](https://developer.android.com/developer-verification/guides#locations) in select regions on [certified Android devices](https://developer.android.com/developer-verification/guides/faq#versions). We'll continue rolling out user protections globally in 2027.
++Protections begin for users installing apps from [participating stores](https://developer.android.com/developer-verification/guides.md.txt#locations) in select regions on [certified Android devices](https://developer.android.com/developer-verification/guides/faq.md.txt#versions). We'll continue rolling out user protections globally in 2027.
+ 
+ ## Choose your verification path
+ 
+-Wherever you choose to distribute your apps, Google supports you in your developer journey. Review the guides to understand your account options and potential fees. [![](http://developer.android.com/static/images/logos/android.svg)](http://developer.android.com/developer-verification/guides/android-developer-console) Android Developer Console
++Wherever you choose to distribute your apps, Google supports you in your developer journey. Review the guides to understand your account options and potential fees. [![](http://developer.android.com/static/images/logos/android.svg)](http://developer.android.com/developer-verification/guides/android-developer-console.md.txt) Android Developer Console
+ 
+-### [Distribute exclusively outside Google Play](http://developer.android.com/developer-verification/guides/android-developer-console)
++### [Distribute exclusively outside Google Play](http://developer.android.com/developer-verification/guides/android-developer-console.md.txt)
+ 
+-For developers distributing apps exclusively outside of Google Play. [Guide](http://developer.android.com/developer-verification/guides/android-developer-console) [Console](https://android.google.com/developerconsole) [![](http://developer.android.com/static/images/logos/google-play.svg)](http://developer.android.com/developer-verification/guides/google-play-console) Google Play Console
++For developers distributing apps exclusively outside of Google Play. [Guide](http://developer.android.com/developer-verification/guides/android-developer-console.md.txt) [Console](https://android.google.com/developerconsole) [![](http://developer.android.com/static/images/logos/google-play.svg)](http://developer.android.com/developer-verification/guides/google-play-console.md.txt) Google Play Console
+ 
+-### [Distribute on and outside Google Play](http://developer.android.com/developer-verification/guides/google-play-console)
++### [Distribute on and outside Google Play](http://developer.android.com/developer-verification/guides/google-play-console.md.txt)
+ 
+-Google Play automatically registers 99% of apps. Use Play Console to manually register remaining apps or those distributed outside Google Play. [Guide](http://developer.android.com/developer-verification/guides/google-play-console) [Console](https://play.google.com/console/signup)
++Google Play automatically registers 99% of apps. Use Play Console to manually register remaining apps or those distributed outside Google Play. [Guide](http://developer.android.com/developer-verification/guides/google-play-console.md.txt) [Console](https://play.google.com/console/signup)
+ 
+ ## Timeline
+ 
+@@ -30,18 +32,18 @@ We're announcing these changes early and incorporating developer feedback to hel
+ | Milestone | Details |
+ |---|---|
+ | **August 2026** | Developer APIs, limited distribution accounts, and power user advanced flow launch. |
+-| **September 30, 2026** | Protections begin for all users who install apps from participating stores in Brazil, Indonesia, Singapore, and Thailand on certified devices running Android 7+. |
++| **September 30, 2026** | Protections begin for all users who install apps from participating stores in Brazil, Indonesia, Singapore, and Thailand on certified devices running Android 8 (API level 26) or higher. |
+ | **2027 and beyond** | Verification capability will be expanded globally for all apps on certified Android devices in 2027. |
+ 
+ ![](http://developer.android.com/static/images/picto-icons/help.svg)
+ 
+ ## Get support
+ 
+-### [Guides](http://developer.android.com/developer-verification/guides)
++### [Guides](http://developer.android.com/developer-verification/guides.md.txt)
+ 
+ Explore technical documentation and video guides.
+ 
+-### [FAQ](http://developer.android.com/developer-verification/guides/faq)
++### [FAQ](http://developer.android.com/developer-verification/guides/faq.md.txt)
+ 
+ Find quick answers about registration fees, requirements, and signing keys.
+ 
+@@ -54,13 +56,13 @@ Visit the [Android Developer Console Help Center](https://support.google.com/and
+ 
+ ## Latest News
+ 
+-[![](http://developer.android.com/static/developer-verification/assets/latestnewsheadericon.png)](http://developer.android.com/developer-verification/guides/open-source-app-registration) Guide
++[![](http://developer.android.com/static/developer-verification/assets/latestnewsheadericon.png)](http://developer.android.com/developer-verification/guides/open-source-app-registration.md.txt) Guide
+ 
+-### [Register an app on open-source registry](http://developer.android.com/developer-verification/guides/open-source-app-registration)
++### [Register an app on open-source registry](http://developer.android.com/developer-verification/guides/open-source-app-registration.md.txt)
+ 
+-Learn how to register both existing and new open source apps for distribution. [![](http://developer.android.com/static/developer-verification/assets/latestnewsheadericon.png)](https://developer.android.com/developer-verification/guides/limited-distribution) Guide
++Learn how to register both existing and new open source apps for distribution. [![](http://developer.android.com/static/developer-verification/assets/latestnewsheadericon.png)](https://developer.android.com/developer-verification/guides/limited-distribution.md.txt) Guide
+ 
+-### [Limited distribution accounts are now available](https://developer.android.com/developer-verification/guides/limited-distribution)
++### [Limited distribution accounts are now available](https://developer.android.com/developer-verification/guides/limited-distribution.md.txt)
+ 
+ Learn how students, teachers, and hobbyists can share apps with up to 20 devices without a government-issued ID or registration fee. [![](http://developer.android.com/static/developer-verification/assets/blogicon.png)](http://android-developers.googleblog.com/2026/06/android-developer-verification.html) Blog
+ 

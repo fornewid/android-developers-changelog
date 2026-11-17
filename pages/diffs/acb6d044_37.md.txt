@@ -1,0 +1,17 @@
+diff --git a/docs/studio/releases/fixed-bugs/emulator/37.md b/docs/studio/releases/fixed-bugs/emulator/37.md
+index 1d7cc641..22ca4f94 100644
+--- a/docs/studio/releases/fixed-bugs/emulator/37.md
++++ b/docs/studio/releases/fixed-bugs/emulator/37.md
+@@ -4,6 +4,12 @@ url: https://developer.android.com/studio/releases/fixed-bugs/emulator/37
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/studio/releases/llms.txt
++
++### Android Emulator 37.4.1 Canary
++
++Fixed Issues **Emulator** [Issue #476026968](https://issuetracker.google.com/issues/476026968) Running Devices orientation issue \[Tablet - API35\]
++
+ ### Android Emulator 37.3.9 Beta
+ 
+ *This release includes minor fixes and improvements.*

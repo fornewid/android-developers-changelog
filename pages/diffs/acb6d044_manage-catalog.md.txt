@@ -1,0 +1,72 @@
+diff --git a/docs/google/play/billing/manage-catalog.md b/docs/google/play/billing/manage-catalog.md
+index 027e6261..9a0ceddc 100644
+--- a/docs/google/play/billing/manage-catalog.md
++++ b/docs/google/play/billing/manage-catalog.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/google/play/billing/manage-catalog
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/google/play/billing/llms.txt
++
+ This guide explains how to use the Google Play Developer API to create and
+ manage a product catalog for your Play app.
+ 
+@@ -14,7 +16,7 @@ catalog management using the Google Play Developer API. Automation can help
+ ensure your catalog is always up-to-date, and scale to large catalogs where
+ manual coordination is impractical. In this guide you will see how to use the
+ [Play Developer API](https://developers.google.com/android-publisher#subscriptions) to create and manage a product catalog
+-for your Play app. Review our [Getting ready](https://developer.android.com/google/play/billing/getting-ready#dev-api) guide for
++for your Play app. Review our [Getting ready](https://developer.android.com/google/play/billing/getting-ready.md.txt#dev-api) guide for
+ instructions on how to set up the Google Play Developer API for your backend
+ integration.
+ 
+@@ -151,16 +153,18 @@ that includes an HTTP response status code and an `errors` object, providing
+ further details about the error domain and a debug message. For example, if you
+ surpass your daily limit, you may encounter an error similar to the following:
+ 
+-    {
+-      "code" : 403,
+-      "errors" : [ {
+-        "domain" : "usageLimits",
+-        "message" : "Daily Limit Exceeded. The quota will be reset at midnight Pacific Time (PT). You may monitor your quota usage and adjust limits in the API
+-      Console: https://console.developers.google.com/apis/api/androidpublisher.googleapis.com/quotas?project=xxxxxxx",
+-      "reason" : "dailyLimitExceeded",
+-      "extendedHelp" : "https://console.developers.google.com/apis/api/androidpublisher.googleapis.com/quotas?project=xxxxxx"
+-      } ],
+-    }
++```json
++{
++  "code" : 403,
++  "errors" : [ {
++    "domain" : "usageLimits",
++    "message" : "Daily Limit Exceeded. The quota will be reset at midnight Pacific Time (PT). You may monitor your quota usage and adjust limits in the API
++  Console: https://console.developers.google.com/apis/api/androidpublisher.googleapis.com/quotas?project=xxxxxxx",
++  "reason" : "dailyLimitExceeded",
++  "extendedHelp" : "https://console.developers.google.com/apis/api/androidpublisher.googleapis.com/quotas?project=xxxxxx"
++  } ],
++}
++```
+ 
+ ## Catalog management implementation
+ 
+@@ -186,12 +190,14 @@ your catalog as changes occur. On occasion, you might need to take a periodic
+ updates approach, where you send a battery of changes in the same process. Each
+ approach requires different design choices. Each synchronization strategy will
+ fit some use cases better than others, and you might have a set of needs that
+-calls for both, depending on the situation. Sometimes you may want to make an
+-update to a product the moment you are aware of a new change, for example to
+-process an urgent product update (i.e. a wrong price needs to be corrected as
+-soon as possible). Other times you can use a periodic background sync to ensure
+-your backend and Play catalogs are always consistent. Read some common use cases
+-where you might want to implement these different catalog management strategies.
++calls for both, depending on the situation.
++
++Sometimes you may want to make an update to a product the moment you are aware
++of a new change, for example to process an urgent product update (i.e. a wrong
++price needs to be corrected as soon as possible). Other times you can use a
++periodic background sync to ensure your backend and Play catalogs are always
++consistent. Read some common use cases where you might want to implement these
++different catalog management strategies.
+ 
+ **When to send updates as your local catalog changes**
+ 

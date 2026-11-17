@@ -1,0 +1,21 @@
+diff --git a/docs/media/media3/ui/compose-material3.md b/docs/media/media3/ui/compose-material3.md
+index a2ac99ea..5c960b27 100644
+--- a/docs/media/media3/ui/compose-material3.md
++++ b/docs/media/media3/ui/compose-material3.md
+@@ -4,10 +4,15 @@ url: https://developer.android.com/media/media3/ui/compose-material3
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/media/media3/llms.txt
++
+ The `media3-ui-compose-material3` library provides a [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable.md.txt) Composable that
+ shows player controls, progress bar and current media content. It handles both
+ the state management and the Material3 styling internally. For more information
+-on which library to use, see the [Media3 Compose overview](https://developer.android.com/media/media3/ui/compose.md.txt).
++on which library to use, see the [Media3 Compose overview](https://developer.android.com/media/media3/ui/compose.md.txt). To learn how to
++configure content scaling, adapt to changing window sizes, and avoid system bar
++collisions in edge-to-edge layouts, see [Scale media content across form
++factors](https://developer.android.com/media/media3/ui/compose-scaling).
+ 
+ 
+ ```kotlin

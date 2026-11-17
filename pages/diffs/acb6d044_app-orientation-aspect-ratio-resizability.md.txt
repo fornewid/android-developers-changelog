@@ -1,0 +1,116 @@
+diff --git a/docs/develop/adaptive-apps/guides/app-orientation-aspect-ratio-resizability.md b/docs/develop/adaptive-apps/guides/app-orientation-aspect-ratio-resizability.md
+index 886f14eb..3f485129 100644
+--- a/docs/develop/adaptive-apps/guides/app-orientation-aspect-ratio-resizability.md
++++ b/docs/develop/adaptive-apps/guides/app-orientation-aspect-ratio-resizability.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/adaptive-apps/guides/app-orientation-
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/develop/llms.txt
++
+ Android apps run on devices of all kinds: phones, tablets, foldables, ChromeOS
+ devices, cars, TVs, and even XR. To adapt to this varied environment, your app
+ should support all device form factors and display sizes.
+@@ -18,7 +20,7 @@ ratio, and resizability. The overrides apply to devices with smallest width \>=
+ - Desktop windowing (on all form factors)
+ 
+ Apps that target API level 36 are resizable and able to enter multi‑window
+-mode (equivalent to [`resizeableActivity="true"`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity)) if the display's smallest
++mode (equivalent to [`resizeableActivity="true"`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#resizeableActivity)) if the display's smallest
+ width is \>= 600dp.
+ ![App is letterboxed on an unfolded large screen device prior to Android 16, but is full screen when targeting Android 16. App shows more news items when full screen than when letterboxed.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/app_letterboxed_and_full_screen.png) **Figure 1.** Developer News feed previously letterboxed on large screen devices (left) runs full screen when targeting Android 16 (right).
+ 
+@@ -46,11 +48,11 @@ Exceptions to the Android 16 changes include the following:
+ - Displays smaller than sw600dp (most phones, flippables, and outer displays
+   of large screen foldables)
+ 
+-- Games, based on the [`android:appCategory`](https://developer.android.com/guide/topics/manifest/application-element#appCategory) flag
++- Games, based on the [`android:appCategory`](https://developer.android.com/guide/topics/manifest/application-element.md.txt#appCategory) flag
+ 
+   Publish your game using Android App Bundles and Play App Signing, allowing
+   Google Play to manage the flag and provide the benefits of app bundles
+-  automatically. See also [App manifest overview](https://developer.android.com/guide/topics/manifest/manifest-intro).
++  automatically. See also [App manifest overview](https://developer.android.com/guide/topics/manifest/manifest-intro.md.txt).
+ - User opt in to app's default behavior in the aspect ratio settings
+ 
+ ## Opt out
+@@ -61,21 +63,25 @@ To opt out of the API level 36 behavior, declare the
+ To opt out for a specific activity, set the property in the `<activity>`
+ element:
+ 
+-    <activity ...>
+-        <property
+-            android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY"
+-            android:value="true" />
+-        ...
+-    </activity>
++```xml
++<activity ...>
++    <property
++        android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY"
++        android:value="true" />
++    ...
++</activity>
++```
+ 
+ To opt out for your entire app, set the property in the `<application>` element:
+ 
+-    <application ...>
+-        <property
+-            android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY"
+-            android:value="true" />
+-        ...
+-    </application>
++```xml
++<application ...>
++    <property
++        android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY"
++        android:value="true" />
++    ...
++</application>
++```
+ 
+ If your app targets Android 16 (API level 36) or higher, this [property
+ doesn't lock the display orientation or prevent screen rotation](https://developer.android.com/about/versions/16/behavior-changes-16#ignore-orientation) on
+@@ -91,9 +97,9 @@ Tablet and Pixel Fold series emulators in Android Studio and set
+ `targetSdkPreview = "Baklava"` in your app's module `build.gradle` file.
+ 
+ Or use the app compatibility framework on your test devices by enabling the
+-[UNIVERSAL_RESIZABLE_BY_DEFAULT](https://developer.android.com/about/versions/16/reference/compat-framework-changes#universal_resizable_by_default) flag (see [Compatibility framework tools](https://developer.android.com/guide/app-compatibility/test-debug)).
++[UNIVERSAL_RESIZABLE_BY_DEFAULT](https://developer.android.com/about/versions/16/reference/compat-framework-changes.md.txt#universal_resizable_by_default) flag (see [Compatibility framework tools](https://developer.android.com/guide/app-compatibility/test-debug.md.txt)).
+ 
+-You can automate testing with the [Espresso](https://developer.android.com/training/testing/espresso) testing framework and [Jetpack
++You can automate testing with the [Espresso](https://developer.android.com/training/testing/espresso.md.txt) testing framework and [Jetpack
+ Compose testing APIs](https://developer.android.com/develop/ui/compose/testing/apis).
+ 
+ ## Implementation guide
+@@ -111,14 +117,14 @@ changes:
+ - **Avoid stretched UI components:** Layouts designed for standard, portrait phone screens can fail to accommodate other aspect ratios. For example, UI elements that fill the entire width of the display can appear stretched in landscape orientation. Add a maximum width to components to avoid stretching.
+ - **Enable layouts to scroll:** If layouts don't scroll, users might not be able to access buttons or other UI elements that are off screen in landscape orientation. Enable app layouts to scroll to verify all content is reachable regardless of the height of the display.
+ - **Verify camera compatibility in portrait and landscape:** Camera viewfinder previews that assume a specific aspect ratio and orientation relative to the camera sensor can result in stretched or flipped previews on nonconforming displays. Verify that viewfinders rotate properly with orientation changes. Enable viewfinders to adjust to UI aspect ratios that differ from the sensor aspect ratio.
+-- **Preserve state during window size changes:** The removal of orientation and aspect ratio restrictions can result in frequent app window size changes in response to how users prefer to use an app, for example, by rotating, folding, or unfolding a device or by resizing an app in multi-window or desktop windowing mode. Configuration changes such as orientation changes and window resizing cause activity recreation (by default). To help provide an optimal user experience, [preserve app state](https://developer.android.com/develop/ui/compose/state-saving) so your app retains data (such as form input) and users can maintain context.
++- **Preserve state during window size changes:** The removal of orientation and aspect ratio restrictions can result in frequent app window size changes in response to how users prefer to use an app, for example, by rotating, folding, or unfolding a device or by resizing an app in multi-window or desktop windowing mode. Configuration changes such as orientation changes and window resizing cause activity recreation (by default). To help provide an optimal user experience, [preserve app state](https://developer.android.com/develop/ui/compose/state-saving.md.txt) so your app retains data (such as form input) and users can maintain context.
+ - **Use window size classes:** Support different window sizes and aspect ratios without device‑specific customizations. Assume window sizes will change frequently. Use [window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/window-size-classes) to characterize window dimensions, and then apply an appropriate adaptive layout.
+ - **Build responsive layouts:** Within window size classes, [responsive
+   layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes) adjust to changes in display dimensions to always create an optimal app presentation.
+ 
+ For a hands-on guide to building adaptive layouts in Compose, see the
+ [Build adaptive apps with Jetpack Compose](https://codelabs.developers.google.com/jetpack-compose-adaptability) codelab. If you are migrating an
+-app that uses views, see [Compose adoption strategy](https://developer.android.com/develop/ui/compose/migrate/strategy).
++app that uses views, see [Compose adoption strategy](https://developer.android.com/develop/ui/compose/migrate/strategy.md.txt).
+ 
+ ## Timeline
+ 
+@@ -133,6 +139,7 @@ Play will require apps to target API level 36 as of August 2026.
+ 
+ ## Additional resources
+ 
+-- [Behavior changes: Apps targeting Android 16 or higher](https://developer.android.com/about/versions/16/behavior-changes-16)
+-- [Build adaptive apps](https://developer.android.com/develop/ui/compose/build-adaptive-apps)
+-- [Adaptive do's and don'ts](https://developer.android.com/develop/ui/compose/layouts/adaptive/adaptive-dos-and-donts)
+\ No newline at end of file
++- [Behavior changes: Apps targeting Android 16 or higher](https://developer.android.com/about/versions/16/behavior-changes-16.md.txt)
++- [Build adaptive apps](https://developer.android.com/develop/ui/compose/build-adaptive-apps.md.txt)
++- [Adaptive do's and don'ts](https://developer.android.com/develop/ui/compose/layouts/adaptive/adaptive-dos-and-donts.md.txt)
++- [Scale media content across form factors](https://developer.android.com/media/media3/ui/compose-scaling.md.txt)
+\ No newline at end of file

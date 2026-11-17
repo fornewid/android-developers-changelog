@@ -1,0 +1,108 @@
+diff --git a/docs/developer-verification/guides/faq.md b/docs/developer-verification/guides/faq.md
+index f72048c9..6e13a55c 100644
+--- a/docs/developer-verification/guides/faq.md
++++ b/docs/developer-verification/guides/faq.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/developer-verification/guides/faq
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/developer-verification/guides/llms.txt
++
+ This guide answers some of the most common questions regarding Android developer
+ verification.
+ 
+@@ -32,7 +34,7 @@ verification.
+ - **What happens if I don't comply?** If you don't verify your identity and
+   register your apps by September 30, 2026, your apps cannot be installed
+   from participating stores in select regions on certified Android devices.
+-  *Last updated: Sept 30, 2025*
++  *Last updated: September 30, 2025*
+ 
+ - **If I have a limited distribution account type, and want to convert my
+   account to a full distribution, how would I do this? Similarly, can I
+@@ -46,21 +48,21 @@ verification.
+   developer, you are free to install apps without verification with ADB. This is
+   designed to support developers' need to develop, test apps that are not
+   intended or not yet ready to distribute to the wider consumer population.
+-  *Last updated: Sept 3, 2025*
++  *Last updated: September 3, 2025*
+ 
+ - **Do enterprise apps need to complete the verification requirements?** Apps
+   distributed through your organization store, on managed devices, won't need to
+   complete the verification requirements since your IT admin has vetted them.
+   However, we recommend to still register and claim these apps since this
+   creates a smooth installation, if the app is downloaded from another source
+-  (not the managed store) or to a non-managed device. *Last updated: Sept 3,
+-  2025*
++  (not the managed store) or to a non-managed device. *Last updated: September
++  3, 2025*
+ 
+ - **If I want to modify or hack some apk and install it on my own device, do I
+   have to verify?** Apps installed using ADB won't require verification. This
+   ensures developers can build and test apps that aren't intended or not yet
+   ready to be distributed to the wider consumer population. *Last updated:
+-  Sept 11, 2025*
++  September 11, 2025*
+ 
+ - **How does this program impact developers in sanctioned countries?** Because
+   Google is legally prohibited from doing business with individuals and
+@@ -69,13 +71,13 @@ verification.
+   developer verification checks won't run on certified Android devices
+   physically located in comprehensively sanctioned countries. Any app can be
+   installed by a user in a country where verification checks are not run.
+-  *Last updated: Sept 30, 2026*
++  *Last updated: September 30, 2026*
+ 
+ - **What Android versions will the developer verification
+   requirements be enforced on?** It will apply to all certified Android
+-  devices running Android 7 or higher. These updates are delivered through
+-  Google Play services to help maintain consistent security across the
+-  ecosystem. *Last updated: March 23, 2026*
++  devices running Android 8 (API level 26) or higher. These updates are
++  delivered through Google Play services to help maintain consistent security
++  across the ecosystem. *Last updated: November 10, 2026*
+ 
+ - **Does this mean Android is becoming a closed system?** No. Android remains
+   an open ecosystem where you distribute through a variety of channels you
+@@ -89,7 +91,7 @@ verification.
+   advanced flow setup launching August 2026. *Last updated: June 18, 2026*
+ 
+ - **What happens if I distribute my app through a store that isn't included in
+-  the intitial September 2026 list?** If you use a store that is not
++  the initial September 2026 list?** If you use a store that is not
+   explicitly listed in this announcement, the new developer verification
+   requirements won't be enforced for your apps during this initial phase.
+   Enforcement starting September 30, 2026, is limited only to the specific
+@@ -100,7 +102,7 @@ verification.
+ - **What happens starting September 30, 2026 if I sideload my app or
+   distribute it through another store that isn't included in the list of
+   participating stores?** The September 30, 2026 deadline only applies to the
+-  [specific participating stores](https://developer.android.com/developer-verification/guides#locations). If you distribute your app through
++  [specific participating stores](https://developer.android.com/developer-verification/guides.md.txt#locations). If you distribute your app through
+   other stores, or if users sideload your app directly, these new verification
+   requirements won't apply to your app yet. While your users' install
+   experiences won't change in September, we still recommend that you plan to
+@@ -117,10 +119,9 @@ verification.
+ 
+ ## Identity and accounts
+ 
+-- **What is a D-U-N-S number and how do I get one?** A D-U-N-S number is a unique nine-digit identifier for businesses provided by Dun \& Bradstreet. It is required if you are registering as an **organization** . If your organization does not have one, you can [get one for free](https://www.dnb.com/en-us/smb/duns/get-a-duns.html) from the Dun \& Bradstreet website. The process can take up to 28 days so you should make preparations to obtain a D-U-N-S number. *Last updated: Sept 3,
+-  2025*
++- **What is a D-U-N-S number and how do I get one?** A D-U-N-S number is a unique nine-digit identifier for businesses provided by Dun \& Bradstreet. It is required if you are registering as an **organization** . If your organization does not have one, you can [get one for free](https://www.dnb.com/en-us/smb/duns/get-a-duns.html) from the Dun \& Bradstreet website. The process can take up to 28 days so you should make preparations to obtain a D-U-N-S number. *Last updated: September 3, 2025*
+ - **How is my personal information handled?** We use your personal information to verify your identity, and it is handled in accordance with [Google's
+-  Privacy Policy](https://policies.google.com/privacy). We are committed to protecting your data. *Last updated: Sept 3, 2025*
++  Privacy Policy](https://policies.google.com/privacy). We are committed to protecting your data. *Last updated: September 3, 2025*
+ - **How does this impact developers who do not want to verify, preferring to
+   remain anonymous?** While we respect developer privacy, we must balance it with user safety. Adding this security layer better protects all users by default and Google is only using your information to verify your identity and allow you to register which apps belong to you. We will handle your personal information in accordance with our Privacy Policy. Developers who want to remain unverified can use a limited distribution account, which requires no ID verification. Or you can distribute your unregistered app to users who have activated advanced flow. *Last updated: June 18, 2026*
+ - **Why is there a $25 fee for the ADC? How can I pay?** The $25 fee for the **Full Distribution** account in the ADC helps cover administrative costs and investment in protecting the ecosystem, similar to Play's $25 registration fee. We are actively working to support multiple forms of payment to accommodate developers globally and will have more details when the console launches. We are waiving the fee for developers who qualify for a Limited Distribution account. *Last update: March 25, 2026*
+@@ -128,8 +129,8 @@ verification.
+ 
+ ## Package name registration and signing keys
+ 
+-- **I distribute my apps through Play and other channels** : To simplify the process, developers with a Play Console account can use it as the single place to manage all their verification requirements, including for their apps distributed outside of Play. *Last updated: Sept 3, 2025*
+-- **I use Play App Signing, are my apps claimed automatically?** Yes. If you use Play App Signing, we have the necessary information to securely identify your ownership. Your eligible apps will be part of the automatic registration process. *Last updated: Sept 3, 2025*
++- **I distribute my apps through Play and other channels** : To simplify the process, developers with a Play Console account can use it as the single place to manage all their verification requirements, including for their apps distributed outside of Play. *Last updated: September 3, 2025*
++- **I use Play App Signing, are my apps claimed automatically?** Yes. If you use Play App Signing, we have the necessary information to securely identify your ownership. Your eligible apps will be part of the automatic registration process. *Last updated: September 3, 2025*
+ - **Can I recover a lost signing key?** We strongly recommend all developers use a secure key management solution. If you lose your signing key you won't be able to register your packages. *Last updated: March 23, 2026*
+ - **Can my app use multiple signing keys?** The Android Developer Console lets you add and verify multiple signing keys for a single package. *Last
+   updated: March 23, 2026*
