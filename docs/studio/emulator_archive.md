@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/emulator_archive
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/llms.txt
+
 This page provides an archive of Emulator releases. Please review the
 [license file](https://cs.android.com/android/platform/superproject/+/master:prebuilts/android-emulator/NOTICE)
 in the emulator package for licensing information.
@@ -50,4 +52,4 @@ specified in the `package.xml` file. Specifically, follow these steps:
 
    This is where you should specify the emulator version you downloaded and want to install.
 
-<iframe src="https://android.devsite.google/frame/studio/emulator_archive_1b0e28a5256ca1bb6c7045a7049c8c40bbfcbab265dedaf2625ae90cccab90f2.frame" class="framebox inherit-locale scroll" allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/studio/emulator_archive_2af825b0cb21006bf49f61634e30a48312ac02d6388354a8b05799a96626a823.frame" class="framebox inherit-locale scroll" allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>

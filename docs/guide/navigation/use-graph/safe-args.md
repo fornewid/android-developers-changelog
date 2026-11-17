@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/navigation/use-graph/safe-args
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/navigation/llms.txt
+
 The recommended way to navigate between destinations is to use the Safe Args
 Gradle plugin. This plugin generates object and builder classes that enable
 type-safe navigation between destinations. Use Safe Args for
@@ -89,7 +91,7 @@ plugins {
 
 You must have `android.useAndroidX=true` in your
 [`gradle.properties` file](https://developer.android.com/studio/build#properties-files) as per
-[Migrating to AndroidX](https://developer.android.com/jetpack/androidx/migrate#migrate)).
+[Migrating to AndroidX](https://developer.android.com/jetpack/androidx/migrate.md.txt#migrate)).
 
 ## Generated code
 
@@ -105,8 +107,8 @@ name. For example, if the originating destination is named
 
 The generated class contains a static method for each action defined in the
 originating destination. This method takes any defined [action parameters](https://developer.android.com/guide/navigation/navigation-pass-data) as
-arguments and returns a [`NavDirections`](https://developer.android.com/reference/androidx/navigation/NavDirections) object that you can pass directly
-to [`navigate()`](https://developer.android.com/reference/androidx/navigation/NavController#navigate(androidx.navigation.NavDirections)).
+arguments and returns a [`NavDirections`](https://developer.android.com/reference/androidx/navigation/NavDirections.md.txt) object that you can pass directly
+to [`navigate()`](https://developer.android.com/reference/androidx/navigation/NavController.md.txt#navigate(androidx.navigation.NavDirections)).
 
 ## Safe Args example
 
@@ -124,24 +126,28 @@ directly to `navigate()`, as shown in the following example:
 
 ### Kotlin
 
-    override fun onClick(v: View) {
-        val amount: Float = ...
-        val action =
-            SpecifyAmountFragmentDirections
-                .actionSpecifyAmountFragmentToConfirmationFragment(amount)
-        v.findNavController().navigate(action)
-    }
+```kotlin
+override fun onClick(v: View) {
+    val amount: Float = ...
+    val action =
+        SpecifyAmountFragmentDirections
+            .actionSpecifyAmountFragmentToConfirmationFragment(amount)
+    v.findNavController().navigate(action)
+}
+```
 
 ### Java
 
-    @Override
-    public void onClick(View view) {
-        float amount = ...;
-        action =
-            SpecifyAmountFragmentDirections
-                .actionSpecifyAmountFragmentToConfirmationFragment(amount);
-        Navigation.findNavController(view).navigate(action);
-    }
+```java
+@Override
+public void onClick(View view) {
+    float amount = ...;
+    action =
+        SpecifyAmountFragmentDirections
+            .actionSpecifyAmountFragmentToConfirmationFragment(amount);
+    Navigation.findNavController(view).navigate(action);
+}
+```
 
 For more information about passing data between destinations with Safe Args, see
 [Use Safe Args to pass data with type safety](https://developer.android.com/guide/navigation/navigation-pass-data#Safe-args).
@@ -227,7 +233,7 @@ plugins {
 
 You must have `android.useAndroidX=true` in your
 [`gradle.properties` file](https://developer.android.com/studio/build#properties-files) as per
-[Migrating to AndroidX](https://developer.android.com/jetpack/androidx/migrate#migrate)).
+[Migrating to AndroidX](https://developer.android.com/jetpack/androidx/migrate.md.txt#migrate)).
 
 After you enable Safe Args, the plugin generates code that contains classes and
 methods for each action you've defined. For each action, Safe Args also

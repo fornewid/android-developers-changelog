@@ -4,17 +4,19 @@ url: https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-
 source: md.txt
 ---
 
-[Case Studies](https://developer.android.com/blog/categories/case-studies)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer
 
-4 min read ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) 18 Aug 2026 3 Authors [Ajesh Pai,](https://developer.android.com/blog/authors/ajesh-pai) [Ulises Uriel Verduzco Díaz ,](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz) [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles. However, as their Android application codebase grew in size, so did its complexity. Prior to their latest optimization efforts, approximately 70% of the application was not optimized, carrying 17 dex files,including three dedicated just to startup. Although they had enabled R8, much of its optimization potential was blocked due to keep rules, and the team was unable to identify which specific rules were preventing optimization. To reduce startup time and decrease user-perceived Application Not Responding (ANR) errors, Tinder turned to the new R8 Configuration Analyzer to tackle these challenges.
+4 min read ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) 18 Aug 2026 3 Authors [Ajesh Pai,](https://developer.android.com/blog/authors/ajesh-pai.md.txt) [Ulises Uriel Verduzco Díaz ,](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz.md.txt) [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles. However, as their Android application codebase grew in size, so did its complexity. Prior to their latest optimization efforts, approximately 70% of the application was not optimized, carrying 17 dex files,including three dedicated just to startup. Although they had enabled R8, much of its optimization potential was blocked due to keep rules, and the team was unable to identify which specific rules were preventing optimization. To reduce startup time and decrease user-perceived Application Not Responding (ANR) errors, Tinder turned to the new R8 Configuration Analyzer to tackle these challenges.
 
-By utilizing the [R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer), Tinder successfully identified and removed unintentional optimization blockers. The results were immediate and impactful: Tinder achieved a 47% reduction in app cold starts, shrank their app download size by 28.98% (down to 61.5 MB), and reduced user-perceived ANRs by 28%.
+By utilizing the [R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer.md.txt), Tinder successfully identified and removed unintentional optimization blockers. The results were immediate and impactful: Tinder achieved a 47% reduction in app cold starts, shrank their app download size by 28.98% (down to 61.5 MB), and reduced user-perceived ANRs by 28%.
 
 ## **Configuration analyzer**
 
-The [R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer) shows R8 optimization by tracking shrinking, optimization, and obfuscation scores to show available refinement areas. It shows the broad, redundant, or obsolete keep rules, including those from external libraries so that you can analyse the keep rule impact and refine the keep rules.
+The [R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer.md.txt) shows R8 optimization by tracking shrinking, optimization, and obfuscation scores to show available refinement areas. It shows the broad, redundant, or obsolete keep rules, including those from external libraries so that you can analyse the keep rule impact and refine the keep rules.
 
 Key metrics shown in Configuration Analyzer include:
 
@@ -97,13 +99,13 @@ The report is generated at `build/reports/r8/r8-config-analyzer-release.html.`
 ./gradlew assembleRelease  -Dcom.android.tools.r8.dumpkeepradiushtmltodirectory=<output_directory>
 ```
 
-To learn more, see the [R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer) documentation.
-- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+To learn more, see the [R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer.md.txt) documentation.
+- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
 Written by:
 
 -
 
-  ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai)
+  ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -111,7 +113,7 @@ Written by:
   View profile](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp)
 -
 
-  ## [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz)
+  ## [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz.md.txt)
 
   ###### Software Engineer
 
@@ -119,34 +121,34 @@ Written by:
   View profile](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz) ![View Ulises Uriel Verduzco Díaz 's profile](https://developer.android.com/static/blog/assets/IMG_20260209_160438_447c913f52_Z4U8v9.webp) ![View Ulises Uriel Verduzco Díaz 's profile](https://developer.android.com/static/blog/assets/IMG_20260209_160438_447c913f52_Z4U8v9.webp)
 -
 
-  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
+  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt)
 
   ###### Product Marketing Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
 Continue reading
-- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time)
+  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
+  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
-  - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_276PBK.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys.md.txt) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt), [Mayank Jain](https://developer.android.com/blog/authors/blog-author.md.txt) • 8 min read
+  - [#Passkeys](https://developer.android.com/blog/topics/passkeys.md.txt)
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan.md.txt)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_276PBK.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature)
+  ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature) Karrot is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 2 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
+  [arrow_forward](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature.md.txt) Karrot is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
+  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 2 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
 Stay in the loop
 
 

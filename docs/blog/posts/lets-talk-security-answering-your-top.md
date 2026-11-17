@@ -4,17 +4,19 @@ url: https://developer.android.com/blog/posts/lets-talk-security-answering-your-
 source: md.txt
 ---
 
-[Community](https://developer.android.com/blog/categories/community)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Community](https://developer.android.com/blog/categories/community.md.txt)
 
 # Let's talk security: Answering your top questions about Android developer verification
 
-2 min read ![](https://developer.android.com/static/blog/assets/lets_Talk_Security_3e0a595955_ZQycm0.webp) 30 Sep 2025 [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe) [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) Director, Product Management Android recently [announced](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) [developer verification](https://developer.android.com/developer-verification), an extra layer of security that deters bad actors and makes it harder for them to spread harm.
+2 min read ![](https://developer.android.com/static/blog/assets/lets_Talk_Security_3e0a595955_ZQycm0.webp) 30 Sep 2025 [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) Director, Product Management, Android App Safety Android recently [announced](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) [developer verification](https://developer.android.com/developer-verification), an extra layer of security that deters bad actors and makes it harder for them to spread harm.
 
 Developer feedback is essential as we build this process. One of the most important themes we hear from the developer community is the need for more lead time to adapt to changes, which is why we announced this requirement more than a year before it takes effect. This extended timeline allows you to ask questions, provide feedback that will help shape the final process, and prepare for the new requirement, ensuring a smooth transition for your workflow.
 
 <br />
 
-We're committed to answering your top questions, which you can find regularly updated in our [guides](https://developer.android.com/developer-verification/guides) and [FAQ](https://support.google.com/android-developer-console/answer/16561738), and we've compiled the most frequent answers below. For a deeper discussion on developer identification, check out our conversation on [Android Developer Backstage](https://www.youtube.com/watch?v=A7DEhW-mjdc&feature=youtu.be).
+We're committed to answering your top questions, which you can find regularly updated in our [guides](https://developer.android.com/developer-verification/guides.md.txt) and [FAQ](https://support.google.com/android-developer-console/answer/16561738), and we've compiled the most frequent answers below. For a deeper discussion on developer identification, check out our conversation on [Android Developer Backstage](https://www.youtube.com/watch?v=A7DEhW-mjdc&feature=youtu.be).
 
 [Video](https://www.youtube.com/watch?v=A7DEhW-mjdc)
 
@@ -24,11 +26,11 @@ Absolutely not. Sideloading is fundamental to Android and it is not going away. 
 
 ### How does developer verification impact my use of Android Studio?
 
-We are working to ensure these changes don't have an impact on your day-to-day workflow so you can continue building your apps as smoothly as possible. Participating in developer verification **will not affect your experience in** [**Android Studio**](https://developer.android.com/studio)**, the official IDE for Android app development.** You will continue to be able to build and run an app even if your identity is not verified. Android Studio is unaffected because deployments performed with [adb](https://developer.android.com/tools/adb), which Android Studio uses behind the scenes to push builds to devices, is unaffected. You can continue to develop, debug, and test your app locally by deploying to both emulators and physical devices, just as you do now.
+We are working to ensure these changes don't have an impact on your day-to-day workflow so you can continue building your apps as smoothly as possible. Participating in developer verification **will not affect your experience in** [**Android Studio**](https://developer.android.com/studio.md.txt)**, the official IDE for Android app development.** You will continue to be able to build and run an app even if your identity is not verified. Android Studio is unaffected because deployments performed with [adb](https://developer.android.com/tools/adb.md.txt), which Android Studio uses behind the scenes to push builds to devices, is unaffected. You can continue to develop, debug, and test your app locally by deploying to both emulators and physical devices, just as you do now.
 
 #### Making APKs available to your test team
 
-If your team's current test process relies on distributing APKs to testers for installation using methods other than [adb](https://developer.android.com/tools/adb), you will need to verify your identity and register the package. This also applies if you make APKs available to your test teams through [Google Play Internal Testing](https://play.google.com/console/about/internal-testing/), [Firebase App Distribution](https://firebase.google.com/docs/app-distribution), or similar solutions through other distribution partners.
+If your team's current test process relies on distributing APKs to testers for installation using methods other than [adb](https://developer.android.com/tools/adb.md.txt), you will need to verify your identity and register the package. This also applies if you make APKs available to your test teams through [Google Play Internal Testing](https://play.google.com/console/about/internal-testing/), [Firebase App Distribution](https://firebase.google.com/docs/app-distribution), or similar solutions through other distribution partners.
 
 ### Do I still need to register my apps if I'm only distributing to a limited number of users?
 
@@ -43,45 +45,45 @@ The best way to get ready and stay updated is to sign up for [early access](http
 We recommend you participate in developer verification because, even though verification is not required to develop apps with Android Studio, you will need it to distribute apps to certified Android devices. Apps installed through enterprise management tools on managed devices will also be installable without being registered.
 
 Please let us know if you have any [feedback or questions](https://goo.gle/Android-verification-feedback) about the verification requirements.
-- [#Android](https://developer.android.com/blog/topics/android)
-- [#identity](https://developer.android.com/blog/topics/identity)
+- [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [#identity](https://developer.android.com/blog/topics/identity.md.txt)
 Written by:
 
 -
 
-  ## [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe)
+  ## [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt)
 
   ###### Director, Product Management
 
   [read_more
   View profile](https://developer.android.com/blog/authors/matthew-forsythe) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)
 Continue reading
-- [![View Florina Muntenescu's profile](https://developer.android.com/static/blog/assets/unnamed_27_1d76df3c3b_2gwEzo.webp)](https://developer.android.com/blog/authors/florina-muntenescu) 02 Nov 2026 02 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_155_Strapi_1_f48145e2db_Z2jyq4w.webp) [Community](https://developer.android.com/blog/categories/community)
+- [![View Florina Muntenescu's profile](https://developer.android.com/static/blog/assets/unnamed_27_1d76df3c3b_2gwEzo.webp)](https://developer.android.com/blog/authors/florina-muntenescu.md.txt) 02 Nov 2026 02 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_155_Strapi_1_f48145e2db_Z2jyq4w.webp) [Community](https://developer.android.com/blog/categories/community.md.txt)
 
-  ## [Developing for Today: 50+ New Developer Sessions on Building Apps Today](https://developer.android.com/blog/posts/building-apps-developer-sessions)
+  ## [Developing for Today: 50+ New Developer Sessions on Building Apps Today](https://developer.android.com/blog/posts/building-apps-developer-sessions.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/building-apps-developer-sessions) Over 900 attendees joined our event spaces for a keynote about our outlook on the future, demo sessions, dozens of workshops, a hackathon, and for community discussions focused on ideas and feedback on Android platform.
-  [Florina Muntenescu](https://developer.android.com/blog/authors/florina-muntenescu) • 1 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_16cSIX.webp)](https://developer.android.com/blog/authors/daniel-galpin) 20 Oct 2025 20 Oct 2025 ![](https://developer.android.com/static/blog/assets/Now_In_Android121_f4ff784252_ZG9AcL.webp) [Community](https://developer.android.com/blog/categories/community)
+  [arrow_forward](https://developer.android.com/blog/posts/building-apps-developer-sessions.md.txt) Over 900 attendees joined our event spaces for a keynote about our outlook on the future, demo sessions, dozens of workshops, a hackathon, and for community discussions focused on ideas and feedback on Android platform.
+  [Florina Muntenescu](https://developer.android.com/blog/authors/florina-muntenescu.md.txt) • 1 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_16cSIX.webp)](https://developer.android.com/blog/authors/daniel-galpin.md.txt) 20 Oct 2025 20 Oct 2025 ![](https://developer.android.com/static/blog/assets/Now_In_Android121_f4ff784252_ZG9AcL.webp) [Community](https://developer.android.com/blog/categories/community.md.txt)
 
-  ## [Now in Android #121](https://developer.android.com/blog/posts/now-in-android-121)
+  ## [Now in Android #121](https://developer.android.com/blog/posts/now-in-android-121.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/now-in-android-121) Compose 1.9, Media 3 1.8, QPR2 Beta 1, Narwhal Feature Drop, and more!
-  [Daniel Galpin](https://developer.android.com/blog/authors/daniel-galpin) • 9 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-  - [#Now In Android](https://developer.android.com/blog/topics/now-in-android)
-  - [#Compose](https://developer.android.com/blog/topics/compose)
+  [arrow_forward](https://developer.android.com/blog/posts/now-in-android-121.md.txt) Compose 1.9, Media 3 1.8, QPR2 Beta 1, Narwhal Feature Drop, and more!
+  [Daniel Galpin](https://developer.android.com/blog/authors/daniel-galpin.md.txt) • 9 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
+  - [#Now In Android](https://developer.android.com/blog/topics/now-in-android.md.txt)
+  - [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
   - +2 ↩
-- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)](https://developer.android.com/blog/authors/jose-alcerreca) 06 Aug 2026 06 Aug 2026 ![](https://developer.android.com/static/blog/assets/Inside_Android_Skills_Built_for_deprecation_Strapi_V01_8f34b79673_Z25NBy7.webp) [Community](https://developer.android.com/blog/categories/community)
+- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)](https://developer.android.com/blog/authors/jose-alcerreca.md.txt) 06 Aug 2026 06 Aug 2026 ![](https://developer.android.com/static/blog/assets/Inside_Android_Skills_Built_for_deprecation_Strapi_V01_8f34b79673_Z25NBy7.webp) [Community](https://developer.android.com/blog/categories/community.md.txt)
 
-  ## [Inside Android Skills - Built for deprecation](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation)
+  ## [Inside Android Skills - Built for deprecation](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation) We released the official Android Skills in April. This blog post covers the feedback we received and explains the philosophy and methodology behind the project.
-  [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca) • 4 min read
-  - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding)
-  - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+  [arrow_forward](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation.md.txt) We released the official Android Skills in April. This blog post covers the feedback we received and explains the philosophy and methodology behind the project.
+  [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca.md.txt) • 4 min read
+  - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding.md.txt)
+  - [#Android Skills](https://developer.android.com/blog/topics/android-skills.md.txt)
 Stay in the loop
 
 

@@ -4,6 +4,8 @@ url: https://developer.android.com/topic/performance/issues/slow-session
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/topic/performance/issues/llms.txt
+
 A slow game session is one in which a significant portion of frames (for
 example, more than 25% of frames) fail to meet your target frame time---such as
 50ms per frame (equivalent to 20 FPS) or 34ms per frame (equivalent to 30 FPS).
@@ -16,11 +18,11 @@ On Android, session frame rates are measured using data from
 drawn on surfaces owned by the game (including OpenGL, Vulkan, and Android UI
 toolkit surfaces). If your app uses the `View`-based UI toolkit where the
 user-visible portion of the app is drawn from
-[`Canvas`](https://developer.android.com/reference/android/graphics/Canvas) or the `View` hierarchy,
-refer to [Slow Rendering](https://developer.android.com/topic/performance/issues/render).
+[`Canvas`](https://developer.android.com/reference/android/graphics/Canvas.md.txt) or the `View` hierarchy,
+refer to [Slow Rendering](https://developer.android.com/topic/performance/issues/render.md.txt).
 
 > [!NOTE]
-> **Note:** For information on how Android Play Vitals tracks and reports this issue, see [Slow Sessions in Android vitals](https://developer.android.com/google/play/vitals/slow-session).
+> **Note:** For information on how Android Play Vitals tracks and reports this issue, see [Slow Sessions in Android vitals](https://developer.android.com/google/play/vitals/slow-session.md.txt).
 
 ## How to measure FPS and detect slow frames
 
@@ -83,13 +85,13 @@ the device is **overheating and activates a throttled thermal state** . Or
 there's **a mismatch in the game's framerate and the device's display
 refresh rate**.
 
-Use [Android Frame Pacing (Swappy)](https://developer.android.com/topic/performance/issues/slow-session#what_is_swappy),
-[Vulkan](https://developer.android.com/topic/performance/issues/slow-session#what_is_vulkan), and [ADPF](https://developer.android.com/topic/performance/issues/slow-session#what_is_adpf) to
+Use [Android Frame Pacing (Swappy)](https://developer.android.com/topic/performance/issues/slow-session.md.txt#what_is_swappy),
+[Vulkan](https://developer.android.com/topic/performance/issues/slow-session.md.txt#what_is_vulkan), and [ADPF](https://developer.android.com/topic/performance/issues/slow-session.md.txt#what_is_adpf) to
 address these issues and improve your game's performance.
 
 ## What is Swappy
 
-The Android [Frame Pacing library](https://developer.android.com/games/sdk/frame-pacing), also known as Swappy, is part of the
+The Android [Frame Pacing library](https://developer.android.com/games/sdk/frame-pacing.md.txt), also known as Swappy, is part of the
 [AGDK libraries](https://developer.android.com/games/agdk#game-libraries). Swappy helps OpenGL and Vulkan games
 achieve smooth rendering and correct frame pacing on Android.
 
@@ -104,15 +106,15 @@ the following:
 - Detects late frame submissions
 - Repeats the display of past frames when late frames are detected
 
-Learn how [Mir 2 used Swappy to reduce their slow session rate from 40% to 10%](https://developer.android.com/stories/games/swappy).
+Learn how [Mir 2 used Swappy to reduce their slow session rate from 40% to 10%](https://developer.android.com/stories/games/swappy.md.txt).
 
 #### How to use Swappy in native projects
 
 See the following guides to integrate the Android Frame Pacing library
 into your game:
 
-- [Integrate Android Frame Pacing into your OpenGL renderer](https://developer.android.com/games/sdk/frame-pacing/opengl)
-- [Integrate Android Frame Pacing into your Vulkan renderer](https://developer.android.com/games/sdk/frame-pacing/vulkan)
+- [Integrate Android Frame Pacing into your OpenGL renderer](https://developer.android.com/games/sdk/frame-pacing/opengl.md.txt)
+- [Integrate Android Frame Pacing into your Vulkan renderer](https://developer.android.com/games/sdk/frame-pacing/vulkan.md.txt)
 
 ### How to use Swappy in Unity game engine
 
@@ -127,7 +129,7 @@ distribute frames for less variance in frame rate, creating smoother gameplay.
 
 ### How to use Swappy in Unreal game engine
 
-Unreal 4.25 and higher integrate the [Android Frame Pacing Library](https://developer.android.com/games/sdk/frame-pacing), which is part of the
+Unreal 4.25 and higher integrate the [Android Frame Pacing Library](https://developer.android.com/games/sdk/frame-pacing.md.txt), which is part of the
 [Android Game Development Kit](https://developer.android.com/games/agdk). The [Mobile Frame Pacing](https://docs.unrealengine.com/SharingAndReleasing/Mobile/Rendering/MobileFramePacing/) article explains how to enable the Android
 Frame Pacing Library and how to control frame pacing from C++ code.
 
@@ -155,7 +157,7 @@ on the screen. Use the codelab to learn how to render your game graphics.
 ### How to use Vulkan in Unity game engine
 
 To enable automatic device selection on Unity, follow the steps to configure
-[Auto Graphics API](https://developer.android.com/games/engines/unity/start-in-unity#auto_graphics_api).
+[Auto Graphics API](https://developer.android.com/games/engines/unity/start-in-unity.md.txt#auto_graphics_api).
 ![Project settings dialog.](https://developer.android.com/static/topic/performance/issues/images/unity-vulkan.png) **Figure 2.** Enable Unity Auto Graphics API.
 
 Alternatively, you can enable Vulkan manually by disabling *Auto Graphics API* ,
@@ -163,7 +165,7 @@ and put Vulkan in the highest priority in the *Graphics APIs* list. If you're
 using Unity 2021.1 or a previous version, this is the only way to use Vulkan.
 ![Project settings dialog.](https://developer.android.com/static/topic/performance/issues/images/unity-vulkan-2.png) **Figure 3.** Manually choose Vulkan as main Graphics API in Unity.
 
-Use the [VkQuality Unity engine plugin](https://developer.android.com/games/engines/unity/unity-vkquality)
+Use the [VkQuality Unity engine plugin](https://developer.android.com/games/engines/unity/unity-vkquality.md.txt)
 to provide launch-time recommendations of the graphics API for your game to use
 on specific devices.
 
@@ -185,7 +187,7 @@ the optimizations.
 
 ## What is ADPF
 
-The [Android Dynamic Performance Framework (ADPF)](https://developer.android.com/games/optimize/adpf)
+The [Android Dynamic Performance Framework (ADPF)](https://developer.android.com/games/optimize/adpf.md.txt)
 optimizes games based on the dynamic thermal, CPU, and GPU management features
 on Android. The focus is on games, but you can also use the features for other
 performance-intensive apps.
@@ -197,11 +199,11 @@ optimize game performance at a sustainable level that doesn't overheat devices.
 
 Here are the main ADPF features:
 
-- [Thermal API](https://developer.android.com/games/optimize/adpf/thermal): Monitor the thermal state of a device so that the application can proactively adjust workload before it becomes unsustainable.
-- [CPU Performance Hint API](https://developer.android.com/games/optimize/adpf/performance-hint-api): Provide performance hints that let Android choose the right performance settings (for example, CPU operating point or core) for the workload.
-- [Game Mode API and Game State API](https://developer.android.com/games/optimize/adpf/gamemode/about-API-and-interventions): Enable game play optimization by prioritizing performance or battery life characteristics, based on user's settings and game specific configurations.
-- [Fixed Performance Mode](https://developer.android.com/games/optimize/adpf/fixed-performance-mode): Enable fixed-performance mode on a device during benchmarking to get measurements that aren't altered by dynamic CPU clocking.
-- [Power Efficiency Mode](https://developer.android.com/reference/android/os/PerformanceHintManager.Session#setPreferPowerEfficiency(boolean)): Tells the session that the threads in Performance Hint Session can be safely scheduled to prefer power efficiency over performance. Available in Android 15 (API leve 35).
+- [Thermal API](https://developer.android.com/games/optimize/adpf/thermal.md.txt): Monitor the thermal state of a device so that the application can proactively adjust workload before it becomes unsustainable.
+- [CPU Performance Hint API](https://source.android.com/docs/core/perf/performance-hint-api): Provide performance hints that let Android choose the right performance settings (for example, CPU operating point or core) for the workload.
+- [Game Mode API and Game State API](https://developer.android.com/games/optimize/adpf/gamemode/about-API-and-interventions.md.txt): Enable game play optimization by prioritizing performance or battery life characteristics, based on user's settings and game specific configurations.
+- [Fixed Performance Mode](https://developer.android.com/games/optimize/adpf/fixed-performance-mode.md.txt): Enable fixed-performance mode on a device during benchmarking to get measurements that aren't altered by dynamic CPU clocking.
+- [Power Efficiency Mode](https://developer.android.com/reference/android/os/PerformanceHintManager.Session.md.txt#setPreferPowerEfficiency(boolean)): Tells the session that the threads in Performance Hint Session can be safely scheduled to prefer power efficiency over performance. Available in Android 15 (API leve 35).
 
 ### How to use ADPF in native Android projects
 
@@ -209,10 +211,10 @@ The [Integrating Adaptability Features Into Your Native Game](https://developer.
 game with steps that you can follow at your own pace. At the end of the
 codelab, you will have integrated the following features:
 
-- [Thermal API](https://developer.android.com/games/optimize/adpf#thermal): Listen to device thermal condition and react before the device falls into thermal throttling state.
-- [Game Mode API](https://developer.android.com/games/optimize/adpf/gamemode/about-API-and-interventions): Understand player optimization preferences (maximize performance or preserve battery) and adjust accordingly.
-- [Game State API](https://developer.android.com/reference/android/app/GameState): Let the system know the state of your game (loading, playing, UI, etc.), and the system can adjust resources accordingly (boost I/O, or CPU, GPU, etc.).
-- [Performance Hint API](https://developer.android.com/reference/android/os/PerformanceHintManager): Let the system know your threading model and workload so that the system can allocate resources accordingly.
+- [Thermal API](https://developer.android.com/games/optimize/adpf.md.txt#thermal): Listen to device thermal condition and react before the device falls into thermal throttling state.
+- [Game Mode API](https://developer.android.com/games/optimize/adpf/gamemode/about-API-and-interventions.md.txt): Understand player optimization preferences (maximize performance or preserve battery) and adjust accordingly.
+- [Game State API](https://developer.android.com/reference/android/app/GameState.md.txt): Let the system know the state of your game (loading, playing, UI, etc.), and the system can adjust resources accordingly (boost I/O, or CPU, GPU, etc.).
+- [Performance Hint API](https://developer.android.com/reference/android/os/PerformanceHintManager.md.txt): Let the system know your threading model and workload so that the system can allocate resources accordingly.
 
 ### How to use ADPF in Unity game engine
 
@@ -236,7 +238,7 @@ guides you through the steps to implement ADPF in Unity.
 4. Relaunch Unreal editor
 5. [Build and cook](https://dev.epicgames.com/documentation/en-us/unreal-engine/cooking-content-in-unreal-engine?application_version=5.0) the game
 
-The [Android Dynamic Performance Framework](https://developer.android.com/games/optimize/adpf)(ADPF) plugin
+The [Android Dynamic Performance Framework](https://developer.android.com/games/optimize/adpf.md.txt)(ADPF) plugin
 for [Unreal Engine](https://www.unrealengine.com/en-US) provides
 stable performance and prevents thermal throttling.
 [Download the plugin](https://github.com/android/adpf-unreal-plugin)

@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/views/notifications/metric-style
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/views/notifications/llms.txt
+
 Android 17 introduces the `MetricStyle` notifications template to support
 health and fitness apps, timers, and travel app use cases.
 ![Timer example using MetricStyle](https://developer.android.com/static/images/ui/notifications/timer.png) **Figure 1:** A `MetricStyle` notification template and Live Update for a clock app
@@ -12,9 +14,9 @@ health and fitness apps, timers, and travel app use cases.
 
 Metric style notifications have the following capabilities:
 
-- Supports using the [`setContentTitle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setContentTitle(java.lang.CharSequence)) method.
+- Supports using the [`setContentTitle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setContentTitle(java.lang.CharSequence)) method.
 - Doesn't show the context text.
-- Supports up to 3 [action](https://developer.android.com/reference/android/app/Notification.Action) buttons.
+- Supports up to 3 [action](https://developer.android.com/reference/android/app/Notification.Action.md.txt) buttons.
 - Supports measurement of up to 3 metrics.
   - Each `Notification.Metric` requires a label, value, and an optional unit.
   - Expanded layout appearance varies depending on the number of metrics taken.
@@ -35,23 +37,26 @@ The metric style notification changes behaviors based on its state:
 When a metric style notification is promoted to a Live Update, keep in mind the
 following considerations:
 
-- No need to provide [`Notification.Builder#setContentTitle`](https://developer.android.com/reference/android/app/Notification.Builder#setContentTitle(java.lang.CharSequence)) because the metric value is used instead. If no title is provided, the app name is shown.
-- If [`Notification.Builder#setSubtext`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setSubText(java.lang.CharSequence)) is provided, it is shown in the header line, rather than moved to a new line as for other promoted styles.
+- No need to provide [`Notification.Builder#setContentTitle`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setContentTitle(java.lang.CharSequence)) because the metric value is used instead. If no title is provided, the app name is shown.
+- If [`Notification.Builder#setSubtext`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.md.txt#setSubText(java.lang.CharSequence)) is provided, it is shown in the header line, rather than moved to a new line as for other promoted styles.
 - Action buttons have the same pill visual treatment.
 
 ## Key points about the code
 
 - The following is a list of relevant classes and reference documentation:
-  - [`Notification.MetricStyle`](https://developer.android.com/reference/android/app/Notification.MetricStyle)
-  - [`Notification.Metric`](https://developer.android.com/reference/android/app/Notification.Metric)
-  - [`Notification.Metric.FixedFloat`](https://developer.android.com/reference/android/app/Notification.Metric.FixedFloat)
+  - [`Notification.MetricStyle`](https://developer.android.com/reference/android/app/Notification.MetricStyle.md.txt)
+  - [`Notification.MetricStyle.setCriticalMetric(int)`](https://developer.android.com/reference/android/app/Notification.MetricStyle.md.txt#setCriticalMetric(int))
+  - [`Notification.Metric`](https://developer.android.com/reference/android/app/Notification.Metric.md.txt)
+  - [`Notification.Metric.FixedDate`](https://developer.android.com/reference/android/app/Notification.Metric.FixedDate)
+  - [`Notification.Metric.FixedFloat`](https://developer.android.com/reference/android/app/Notification.Metric.FixedFloat.md.txt)
   - [`Notification.Metric.FixedInt`](https://developer.android.com/reference/android/app/Notification.Metric.FixedInt)
+  - [`Notification.Metric.FixedText`](https://developer.android.com/reference/android/app/Notification.Metric.FixedText.md.txt)
   - [`Notification.Metric.FixedTime`](https://developer.android.com/reference/android/app/Notification.Metric.FixedTime)
-  - [`Notification.Metric.MetricValue`](https://developer.android.com/reference/android/app/Notification.Metric.MetricValue)
+  - [`Notification.Metric.MetricValue`](https://developer.android.com/reference/android/app/Notification.Metric.MetricValue.md.txt)
   - [`Notification.Metric.TimeDifference`](https://developer.android.com/reference/android/app/Notification.Metric.TimeDifference)
 
 ## See also
 
-- [Notification.MetricStyle API reference](https://developer.android.com/reference/android/app/Notification.MetricStyle)
-- [Notification.Metric API reference](https://developer.android.com/reference/android/app/Notification.Metric)
-- [Notification.Action API reference](https://developer.android.com/reference/android/app/Notification.Action)
+- [Notification.MetricStyle API reference](https://developer.android.com/reference/android/app/Notification.MetricStyle.md.txt)
+- [Notification.Metric API reference](https://developer.android.com/reference/android/app/Notification.Metric.md.txt)
+- [Notification.Action API reference](https://developer.android.com/reference/android/app/Notification.Action.md.txt)

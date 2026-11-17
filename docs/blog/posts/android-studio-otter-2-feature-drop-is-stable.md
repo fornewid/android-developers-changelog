@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/posts/android-studio-otter-2-feature-dro
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Android Studio Otter 2 Feature Drop is stable!
@@ -60,7 +62,7 @@ This release incorporates all stability and quality improvements from the [Intel
 
 **Get started**
 
-Ready to dive in and accelerate your development? [Download](https://developer.android.com/studio) Android Studio Otter 2 Feature Drop and start exploring these powerful new features today! As always, your feedback is crucial to us. [Check known issues](https://developer.android.com/studio/known-issues.md.txt), [report bugs](https://developer.android.com/studio/report-bugs.md.txt), and be part of our vibrant community on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all) [Medium](https://medium.com/androiddevelopers), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), or [X](https://twitter.com/androidstudio). Let's build the future of Android apps together!
+Ready to dive in and accelerate your development? [Download](https://developer.android.com/studio.md.txt) Android Studio Otter 2 Feature Drop and start exploring these powerful new features today! As always, your feedback is crucial to us. [Check known issues](https://developer.android.com/studio/known-issues.md.txt), [report bugs](https://developer.android.com/studio/report-bugs.md.txt), and be part of our vibrant community on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all) [Medium](https://medium.com/androiddevelopers), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), or [X](https://twitter.com/androidstudio). Let's build the future of Android apps together!
 Written by:
 
 -
@@ -92,12 +94,13 @@ Continue reading
 
   [arrow_forward](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio.md.txt) In January we announced Android Studio Otter 3 Feature Drop in stable, including Agent Mode enhancements and many other updates to provide more control and flexibility over using AI to help you build high quality Android apps.
   [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns.md.txt) • 4 min read
-- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+- [![View Phalene Gowling's profile](https://developer.android.com/static/blog/assets/Phalene_Gowling_0adca8708d_Z1EF0vK.webp)](https://developer.android.com/blog/authors/phalene-gowling.md.txt)[![View Rejane França's profile](https://developer.android.com/static/blog/assets/unnamed_31_d80d832499_1LWl7t.webp)](https://developer.android.com/blog/authors/rejane-franca.md.txt) 16 Nov 2026 16 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_158_Beyond_the_App_A_bd07c85947_982bv.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
+  ## [Beyond the app: Expanding buyer reach across new surfaces with Google Play](https://developer.android.com/blog/posts/beyond-the-app-google-play-buyer-reach.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
-  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+  [arrow_forward](https://developer.android.com/blog/posts/beyond-the-app-google-play-buyer-reach.md.txt) Discover how Google Play's channel expansion tools in Play Console expand buyer reach across store, web, and external surfaces while protecting margins.
+  [Phalene Gowling](https://developer.android.com/blog/authors/phalene-gowling.md.txt), [Rejane França](https://developer.android.com/blog/authors/rejane-franca.md.txt) • 4 min read
+  - [#Monetization](https://developer.android.com/blog/topics/monetization.md.txt)
 Stay in the loop
 
 

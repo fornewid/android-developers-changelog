@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/connectivity/bluetooth/profiles
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/connectivity/bluetooth/llms.txt
+
 The Bluetooth API includes support for working with Bluetooth profiles. A
 Bluetooth profile is a wireless interface specification for Bluetooth-based
 communication between devices, such as the Hands-Free profile. For a mobile
@@ -13,18 +15,18 @@ Hands-Free profile.
 The Bluetooth API provides implementations for the following Bluetooth
 profiles:
 
-- **Headset** . The Headset profile provides support for Bluetooth headsets to be used with mobile phones. Android provides the [`BluetoothHeadset`](https://developer.android.com/reference/android/bluetooth/BluetoothHeadset) class, which is a proxy for controlling the Bluetooth Headset Service. This includes both Bluetooth Headset and Hands-Free (v1.5) profiles. The `BluetoothHeadset` class includes support for AT commands. For more on this topic, see [Vendor-specific AT commands](https://developer.android.com/develop/connectivity/bluetooth/profiles#at-commands).
-- **A2DP** . The Advanced Audio Distribution Profile (A2DP) profile defines how high-quality audio can be streamed from one device to another over a Bluetooth connection. Android provides the [`BluetoothA2dp`](https://developer.android.com/reference/android/bluetooth/BluetoothA2dp) class, which is a proxy for controlling the Bluetooth A2DP Service.
-- **Health Device** . Android provides support for the Bluetooth Health Device Profile (HDP). This lets you create apps that use Bluetooth to communicate with health devices that support Bluetooth, such as heart-rate monitors, blood meters, thermometers, scales, and so on. For a list of supported devices and their corresponding device data specialization codes, see [Bluetooth's HDP
-  Device Data
-  Specializations](https://www.bluetooth.com/specifications/assigned-numbers/health-device-profile). These values are also referenced in the ISO/IEEE 11073-20601 \[7\] specification as `MDC_DEV_SPEC_PROFILE_*` in the Nomenclature Codes Annex. For more information about HDP, see [Health Device Profile](https://developer.android.com/develop/connectivity/bluetooth/profiles#health-profile).
+- **Headset** . The Headset profile provides support for Bluetooth headsets to be used with mobile phones. Android provides the [`BluetoothHeadset`](https://developer.android.com/reference/android/bluetooth/BluetoothHeadset.md.txt) class, which is a proxy for controlling the Bluetooth Headset Service. This includes both Bluetooth Headset and Hands-Free (v1.5) profiles. The `BluetoothHeadset` class includes support for AT commands. For more on this topic, see [Vendor-specific AT commands](https://developer.android.com/develop/connectivity/bluetooth/profiles.md.txt#at-commands).
+- **A2DP** . The Advanced Audio Distribution Profile (A2DP) profile defines how high-quality audio can be streamed from one device to another over a Bluetooth connection. Android provides the [`BluetoothA2dp`](https://developer.android.com/reference/android/bluetooth/BluetoothA2dp.md.txt) class, which is a proxy for controlling the Bluetooth A2DP Service.
+- **Health Device** . Android provides support for the Bluetooth Health Device Profile (HDP). This lets you create apps that use Bluetooth to communicate with health devices that support Bluetooth, such as heart-rate monitors, blood meters, thermometers, and scales. For a list of supported devices and their corresponding device data specialization codes, see [Bluetooth's HDP Device
+  Data Specializations](https://www.bluetooth.com/specifications/assigned-numbers/health-device-profile). These values are also referenced in the ISO/IEEE 11073-20601 \[7\] specification as `MDC_DEV_SPEC_PROFILE_*` in the Nomenclature Codes Annex. For more information about HDP, see [Health Device
+  Profile](https://developer.android.com/develop/connectivity/bluetooth/profiles#health-profile).
 
 Here are the basic steps for working with a profile:
 
-1. Get the default adapter, as described in [Bluetooth setup](https://developer.android.com/develop/connectivity/bluetooth/setup).
-2. Set up a [`BluetoothProfile.ServiceListener`](https://developer.android.com/reference/android/bluetooth/BluetoothProfile.ServiceListener). This listener notifies [`BluetoothProfile`](https://developer.android.com/reference/android/bluetooth/BluetoothProfile) clients when they have been connected to or disconnected from the service.
-3. Use [`getProfileProxy()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#getProfileProxy(android.content.Context,%20android.bluetooth.BluetoothProfile.ServiceListener,%20int)) to establish a connection to the profile proxy object associated with the profile. In the following example, the profile proxy object is an instance of `BluetoothHeadset`.
-4. In [`onServiceConnected()`](https://developer.android.com/reference/android/bluetooth/BluetoothProfile.ServiceListener#onServiceConnected(int,%20android.bluetooth.BluetoothProfile)), get a handle to the profile proxy object.
+1. Get the default adapter, as described in [Bluetooth setup](https://developer.android.com/develop/connectivity/bluetooth/setup.md.txt).
+2. Set up a [`BluetoothProfile.ServiceListener`](https://developer.android.com/reference/android/bluetooth/BluetoothProfile.ServiceListener.md.txt). This listener notifies [`BluetoothProfile`](https://developer.android.com/reference/android/bluetooth/BluetoothProfile.md.txt) clients when they have been connected to or disconnected from the service.
+3. Use [`getProfileProxy()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt#getProfileProxy(android.content.Context,%20android.bluetooth.BluetoothProfile.ServiceListener,%20int)) to establish a connection to the profile proxy object associated with the profile. In the following example, the profile proxy object is an instance of `BluetoothHeadset`.
+4. In [`onServiceConnected()`](https://developer.android.com/reference/android/bluetooth/BluetoothProfile.ServiceListener.md.txt#onServiceConnected(int,%20android.bluetooth.BluetoothProfile)), get a handle to the profile proxy object.
 5. Once you have the profile proxy object, use it to monitor the state of the connection and perform other operations that are relevant to that profile.
 
 The following code snippet shows how to connect to a `BluetoothHeadset` proxy
@@ -89,7 +91,7 @@ bluetoothAdapter.getProfileProxy(context, profileListener, BluetoothProfile.HEAD
 // ... call functions on bluetoothHeadset
 
 // Close proxy connection after use.
-bluetoothAdapter.closeProfileProxy(bluetoothHeadset);
+bluetoothAdapter.closeProfileProxy(BluetoothProfile.HEADSET, bluetoothHeadset);
 ```
 
 ### Vendor-specific AT commands
@@ -98,23 +100,18 @@ Apps can register to receive system broadcasts of predefined vendor-specific AT
 commands sent by headsets (such as a Plantronics +XEVENT command). For example,
 an app could receive broadcasts that indicate a connected device's battery level
 and could notify the user or take other action as needed. Create a broadcast
-receiver for the
-[`ACTION_VENDOR_SPECIFIC_HEADSET_EVENT`](https://developer.android.com/reference/android/bluetooth/BluetoothHeadset#ACTION_VENDOR_SPECIFIC_HEADSET_EVENT)
-intent to handle vendor-specific AT commands for the headset.
+receiver for the [`ACTION_VENDOR_SPECIFIC_HEADSET_EVENT`](https://developer.android.com/reference/android/bluetooth/BluetoothHeadset.md.txt#ACTION_VENDOR_SPECIFIC_HEADSET_EVENT) intent to handle
+vendor-specific AT commands for the headset.
 
 ## Health Device Profile
 
 Android supports the Bluetooth Health Device Profile (HDP). The Bluetooth Health
-API includes the classes
-[`BluetoothHealth`](https://developer.android.com/reference/android/bluetooth/BluetoothHealth),
-[`BluetoothHealthCallback`](https://developer.android.com/reference/android/bluetooth/BluetoothHealthCallback),
-and
-[`BluetoothHealthAppConfiguration`](https://developer.android.com/reference/android/bluetooth/BluetoothHealthAppConfiguration),
-which are described in [Key classes and
-interfaces](https://developer.android.com/develop/connectivity/bluetooth#key-classes).
+API includes the classes [`BluetoothHealth`](https://developer.android.com/reference/android/bluetooth/BluetoothHealth.md.txt),
+[`BluetoothHealthCallback`](https://developer.android.com/reference/android/bluetooth/BluetoothHealthCallback.md.txt), and [`BluetoothHealthAppConfiguration`](https://developer.android.com/reference/android/bluetooth/BluetoothHealthAppConfiguration.md.txt),
+which are described in [Key classes and interfaces](https://developer.android.com/develop/connectivity/bluetooth.md.txt#key-classes).
 
 > [!CAUTION]
-> **Caution:** The Health Device Profile (HDP) and MCAP protocols are no longer used. New apps should use Bluetooth Low Energy based solutions such as [`BluetoothGatt`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt), [`BluetoothAdapter.listenUsingL2capChannel()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#listenUsingL2capChannel()), or [`BluetoothDevice#createL2capChannel(int)`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice#createL2capChannel(int)).
+> **Caution:** The Health Device Profile (HDP) and MCAP protocols are no longer used. New apps should use Bluetooth Low Energy based solutions such as [`BluetoothGatt`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt.md.txt), [`BluetoothAdapter.listenUsingL2capChannel()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt#listenUsingL2capChannel()), or [`BluetoothDevice#createL2capChannel(int)`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.md.txt#createL2capChannel(int)).
 
 When using the Bluetooth Health API, it's helpful to understand these key HDP
 concepts:
@@ -141,9 +138,8 @@ Here are the basic steps involved in creating an HDP app:
 
 1. Get a reference to the `BluetoothHealth` proxy object. As with regular
    headset and A2DP profile devices, you must call `getProfileProxy()` with a
-   `BluetoothProfile.ServiceListener` and the
-   [`HEALTH`](https://developer.android.com/reference/android/bluetooth/BluetoothProfile#HEALTH) profile type
-   to establish a connection with the profile proxy object.
+   `BluetoothProfile.ServiceListener` and the [`HEALTH`](https://developer.android.com/reference/android/bluetooth/BluetoothProfile.md.txt#HEALTH) profile type to
+   establish a connection with the profile proxy object.
 
 2. Create a `BluetoothHealthCallback` and register an app configuration
    (`BluetoothHealthAppConfiguration`) that acts as a health sink.

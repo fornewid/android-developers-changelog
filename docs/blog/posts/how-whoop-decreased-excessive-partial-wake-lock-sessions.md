@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/how-whoop-decreased-excessive-part
 source: md.txt
 ---
 
-[Case Studies](https://developer.android.com/blog/categories/case-studies)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # How WHOOP decreased excessive partial wake lock sessions by over 90%
 
-4 min read ![](https://developer.android.com/static/blog/assets/whoop2_fcb73fdc54_hpsm4.webp) 04 Mar 2026 [![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_1PpSPG.webp)](https://developer.android.com/blog/authors/breana-tate)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) [Breana Tate](https://developer.android.com/blog/authors/breana-tate) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) Building an Android app for a wearable means the real work starts when the screen turns off. [WHOOP](https://www.whoop.com/us/en/) helps members understand how their body responds to training, recovery, sleep, and stress, and for the many WHOOP members on [Android](https://play.google.com/store/apps/details?id=com.whoop.android&pli=1), reliable background syncing and connectivity are what make those insights possible.
+4 min read ![](https://developer.android.com/static/blog/assets/whoop2_fcb73fdc54_hpsm4.webp) 04 Mar 2026 [![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_1PpSPG.webp)](https://developer.android.com/blog/authors/breana-tate.md.txt)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) [Breana Tate](https://developer.android.com/blog/authors/breana-tate.md.txt) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) Building an Android app for a wearable means the real work starts when the screen turns off. [WHOOP](https://www.whoop.com/us/en/) helps members understand how their body responds to training, recovery, sleep, and stress, and for the many WHOOP members on [Android](https://play.google.com/store/apps/details?id=com.whoop.android&pli=1), reliable background syncing and connectivity are what make those insights possible.
 
 Earlier this year, Google Play [released a new metric in Android vitals](https://android-developers.googleblog.com/2025/11/raising-bar-on-battery-performance.html): Excessive partial wake locks. This metric measures the percentage of user sessions where cumulative, non-exempt wake lock usage exceeds 2 hours in a 24-hour period. The aim of this metric is to help you identify and address possible sources of battery drain, which is crucial for delivering a great user experience.
 
@@ -23,7 +25,7 @@ The team viewed the Android vitals metric as a clear signal that their backgroun
 
 To figure out where to get started, the team first turned to Android vitals for more insight into which wake locks were affecting the metric. By consulting the **Android vitals excessive partial wake locks dashboard** , they were able to identify the biggest contributor to excessive partial wake locks as one of their WorkManager workers (identified in the dashboard as `androidx.work.impl.background.systemjob.SystemJobService`). To support the WHOOP "always-on experience", the app uses WorkManager for background tasks like periodic syncing and delivering recurring updates to the wearable.
 
-While the team *was* aware that WorkManager [acquires a wake lock](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls#workmanager) while executing tasks in the background, they previously did not have visibility into how all of their background work (beyond just WorkManager) was distributed until the introduction of the excessive partial wake locks metric in Android vitals.
+While the team *was* aware that WorkManager [acquires a wake lock](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls.md.txt#workmanager) while executing tasks in the background, they previously did not have visibility into how all of their background work (beyond just WorkManager) was distributed until the introduction of the excessive partial wake locks metric in Android vitals.
 
 With the dashboard identifying WorkManager as the main contributor, the team was then able to focus their efforts on identifying *which* of their workers was contributing the most and work towards resolving the issue.
 
@@ -40,13 +42,13 @@ Tracking more than just worker successes and failures gives the team visibility 
 
 The internal metrics flagged **high average runtime** for a select few workers, enabling them to narrow the investigation down even further.
 
-In addition to their internal metrics, the team also used **Android Studio's** [**Background Task Inspector**](https://developer.android.com/studio/inspect/task) to inspect and debug the workers of interest, with a specific focus on associated wake locks, to align with the metric flagged in Android vitals.
+In addition to their internal metrics, the team also used **Android Studio's** [**Background Task Inspector**](https://developer.android.com/studio/inspect/task.md.txt) to inspect and debug the workers of interest, with a specific focus on associated wake locks, to align with the metric flagged in Android vitals.
 
 ### **Investigation: Distinguishing between worker variants**
 
-WHOOP uses both [one-time](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work#schedule_one-time_work) and [periodic](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work#schedule_periodic_work) scheduling for some workers. This allows the app to reuse the same Worker logic for identical tasks with the same success criteria, differing only in timing.
+WHOOP uses both [one-time](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work.md.txt#schedule_one-time_work) and [periodic](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work.md.txt#schedule_periodic_work) scheduling for some workers. This allows the app to reuse the same Worker logic for identical tasks with the same success criteria, differing only in timing.
 
-Using their internal metrics made it possible to narrow their search to a specific worker, but they couldn't tell if the bug occurred when the worker was one-time, periodic, or both. So, they rolled out an update to use WorkManager's [setTraceTag method](https://developer.android.com/reference/androidx/work/WorkRequest.Builder#setTraceTag(kotlin.String)) to distinguish between the one-time and periodic variants of the same Worker.
+Using their internal metrics made it possible to narrow their search to a specific worker, but they couldn't tell if the bug occurred when the worker was one-time, periodic, or both. So, they rolled out an update to use WorkManager's [setTraceTag method](https://developer.android.com/reference/androidx/work/WorkRequest.Builder.md.txt#setTraceTag(kotlin.String)) to distinguish between the one-time and periodic variants of the same Worker.
 
 This extra detail would allow them to definitively identify which Worker variant (periodic or one-time) was contributing the most to sessions with excessive partial wake locks. However, the team was surprised when the data revealed that neither variant appeared to be contributing more than the other.
 
@@ -97,12 +99,12 @@ The WHOOP team's advice to other developers that want to improve their backgroun
 
 ### **Get Started**
 
-If you're interested in trying to reduce your app's excessive partial wake locks or trying to improve worker efficiency, view your app's excessive partial wake locks metric in [Android vitals](https://play.google.com/console/u/0/developers/app/vitals/metrics/overview), and review the [wake locks documentation](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock) for more best practices and debugging strategies.
+If you're interested in trying to reduce your app's excessive partial wake locks or trying to improve worker efficiency, view your app's excessive partial wake locks metric in [Android vitals](https://play.google.com/console/u/0/developers/app/vitals/metrics/overview), and review the [wake locks documentation](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock.md.txt) for more best practices and debugging strategies.
 Written by:
 
 -
 
-  ## [Breana Tate](https://developer.android.com/blog/authors/breana-tate)
+  ## [Breana Tate](https://developer.android.com/blog/authors/breana-tate.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -110,34 +112,34 @@ Written by:
   View profile](https://developer.android.com/blog/authors/breana-tate) ![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_1PpSPG.webp) ![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_1PpSPG.webp)
 -
 
-  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
+  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt)
 
   ###### Product Marketing Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
 Continue reading
-- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time)
+  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
+  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
-  - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys.md.txt) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt), [Mayank Jain](https://developer.android.com/blog/authors/blog-author.md.txt) • 8 min read
+  - [#Passkeys](https://developer.android.com/blog/topics/passkeys.md.txt)
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
+  ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+  [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer.md.txt) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 4 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
 Stay in the loop
 
 

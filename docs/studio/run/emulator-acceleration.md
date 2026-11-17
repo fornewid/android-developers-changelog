@@ -225,7 +225,7 @@ Before you can enable WHPX, your computer must meet the following requirements:
 
 - Intel processors: Support for Virtualization Technology (VT-x), Extended Page Tables (EPT), and Unrestricted Guest (UG) features. VT-x must be enabled in your computer's BIOS settings.
 - AMD processors: AMD Ryzen processor recommended. Virtualization or SVM must be enabled in your computer's BIOS settings.
-- [Android Studio 3.2 Beta 1 or higher](https://developer.android.com/studio/preview)
+- [Android Studio 3.2 Beta 1 or higher](https://developer.android.com/studio/preview.md.txt)
 - [Android Emulator version 27.3.8 or higher](https://developer.android.com/studio/intro/update.md.txt#sdk-manager)
 - Windows 10 or higher
 

@@ -4,14 +4,13 @@ url: https://developer.android.com/android-performance-analyzer/release-notes
 source: md.txt
 ---
 
-This page contains release notes for current and previous releases of
-Android Performance Analyzer.
+This page contains release notes for current and previous Stable and Canary
+releases of Android Performance Analyzer.
 
-## 0.10.0-canary (September 2026)
 
-This release brings the experimental rollout of the Frame Profiler component.
+## Stable
 
-## 0.9.0 (July 2026)
+## 0.9.0-Stable (July 2026)
 
 This release brings various usability improvements such as slice search and
 property copy/paste. It also contains various bug fixes for loading and
@@ -19,14 +18,14 @@ displaying traces.
 
 ### New features and enhancements
 
-- Support searching for slices and navigating to next/previous with Enter/Shift-Enter.
+- Support searching for slices and navigating to next or previous with Enter or Shift+Enter.
 - Accelerated data load times on zoom by 2.5x for large traces.
 - Add 'm' keyboard shortcut to toggle timeline measurement.
-- Support select/copy texts from the properties panel.
-- Support regex in slice search and track filter.
+- Support selecting and copying text from the properties panel.
+- Support regular expressions in slice search and track filter.
 - Improved precision and visualization of timestamps in timeline ruler.
-- Label the process/thread the pinned track is rooted in.
-- Add checkbox to enable/disable vsync highlights.
+- Label the process or thread the pinned track is rooted in.
+- Add checkbox to enable or disable vsync highlights.
 
 ### Fixes
 
@@ -40,7 +39,7 @@ displaying traces.
 ### Other
 
 - Updated Trace Processor to v56.
-- Support overriding Android SDK Location via Settings.
+- Support overriding Android SDK Location using Settings.
 
 ## 0.8.1 (June 2026)
 
@@ -59,3 +58,15 @@ visibility, and delivers smoother navigation and visual polish.
 ## 0.8.0 (May 2026)
 
 Android Performance Analyzer is publicly released.
+
+## Canary
+
+## 0.10.0-Canary 6 (5th November 2026)
+
+- Improved trace selection and visuals: Selecting and viewing trace data is now easier. Using `Shift+drag` selects across entire tracks, selected items stand out with a high-contrast outline, and a 1-pixel gap ensures tiny trace slices are no longer hidden.
+- Better visibility for thread activity: Trace rows for processes without CPU data no longer appear completely empty; they now display the activity of up to 8 of their busiest threads.
+- Faster loading and UI fixes: Frame Profiler captures now load faster in Canary builds, and several bugs have been fixed, including issues with lost selections and forgotten recording settings.
+
+## 0.10.0-Canary 1 (1st September 2026)
+
+This release brings the experimental rollout of the Frame Profiler component.

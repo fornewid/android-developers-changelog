@@ -4,48 +4,42 @@ url: https://developer.android.com/develop/connectivity/wifi/wifi-bootstrap
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/connectivity/wifi/llms.txt
+
 On Android 10 (API level 29) and higher devices, you can use a new peer to peer API to
 bootstrap configuration for secondary devices like Chromecast and Google Home
 hardware. This feature enables your app to prompt the user to change the access
-point that the device is connected to by using
-[`WifiNetworkSpecifier`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier)
-to describe properties of a requested network.
+point that the device is connected to by using [`WifiNetworkSpecifier`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.md.txt) to
+describe properties of a requested network.
 
 To use this API, do the following:
 
-1. Create a Wi-Fi network specifier using
-   [`WifiNetworkSpecifier.Builder`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.Builder).
+1. Create a Wi-Fi network specifier using [`WifiNetworkSpecifier.Builder`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.Builder.md.txt).
 
 2. Set a network filter to match networks to connect to, along with required
    credentials.
 
-3. Decide on a combination of [`SSID`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.Builder#setssid),
-   [`SSID pattern`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.Builder#setssidpattern),
-   [`BSSID`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.Builder#setbssid),
-   and [`BSSID pattern`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.Builder#setbssidpattern)
-   to set the network filter in each request, subject to the following
-   requirements:
+3. Decide on a combination of [`SSID`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.Builder.md.txt#setssid), [`SSID pattern`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.Builder.md.txt#setssidpattern), [`BSSID`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.Builder.md.txt#setbssid),
+   and [`BSSID pattern`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier.Builder.md.txt#setbssidpattern) to set the network filter in each request, subject
+   to the following requirements:
 
    - Each request should provide at least one of `SSID`, `SSID pattern`, `BSSID`, or `BSSID pattern`
    - Each request can set only one of `SSID` or `SSID pattern`
    - Each request can set only one of `BSSID` or `BSSID pattern`
 4. Add the specifiers to the network request along with a
-   [`NetworkCallback`](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback)
-   instance to track the status of the request.
+   [`NetworkCallback`](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback.md.txt) instance to track the status of the request.
 
    If the user accepts the request and the connection to the network is
-   successful,
-   [`NetworkCallback.onAvailable()`](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback#onAvailable(android.net.Network))
-   is invoked on the callback object. If the user denies the request or if the
-   connection to the network is unsuccessful,
-   [`NetworkCallback.onUnavailable()`](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback#onUnavailable())
-   is invoked on the callback object.
+   successful, [`NetworkCallback.onAvailable()`](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback.md.txt#onAvailable(android.net.Network)) is invoked on the callback
+   object. If the user denies the request or if the connection to the network
+   is unsuccessful, [`NetworkCallback.onUnavailable()`](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback.md.txt#onUnavailable()) is invoked on the
+   callback object.
 
-Initiating the request to connect to a peer device launches a dialog box on the
-same device, from which that device's user can accept the connection request.
+Initiating the request to connect to a peer device launches a dialog on the same
+device, from which that device's user can accept the connection request.
 
 > [!NOTE]
-> **Note:** Creating a connection using this API does not provide an internet connection to the app or to the device. To provide an internet connection to the apps on a device, use the [Wi-Fi Suggestion API](https://developer.android.com/develop/connectivity/wifi/wifi-suggest) instead.
+> **Note:** Creating a connection using this API does not provide an internet connection to the app or to the device. To provide an internet connection to the apps on a device, use the [Wi-Fi Suggestion API](https://developer.android.com/develop/connectivity/wifi/wifi-suggest.md.txt) instead.
 
 ## Bypassing user approval
 

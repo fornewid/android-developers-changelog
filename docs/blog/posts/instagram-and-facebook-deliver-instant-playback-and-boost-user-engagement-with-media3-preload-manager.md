@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/instagram-and-facebook-deliver-ins
 source: md.txt
 ---
 
-[Case Studies](https://developer.android.com/blog/categories/case-studies)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # Instagram and Facebook deliver instant playback and boost user engagement with Media3 PreloadManager
 
-4 min read ![](https://developer.android.com/static/blog/assets/meta_Header_2ac893569c_OwkKL.webp) 05 Mar 2026 [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp)](https://developer.android.com/blog/authors/mayuri-khabya)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) In the dynamic world of social media, user attention is won or lost quickly. Meta apps (Facebook and Instagram) are among the world's largest social platforms and serve billions of users globally. For Meta, delivering videos seamlessly isn't just a feature, it's the core of their user experience. Short-form videos, particularly Facebook Newsfeed and Instagram Reels, have become a primary driver of engagement. They enable creative expression and rapid content consumption; connecting and entertaining people around the world.
+4 min read ![](https://developer.android.com/static/blog/assets/meta_Header_2ac893569c_OwkKL.webp) 05 Mar 2026 [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp)](https://developer.android.com/blog/authors/mayuri-khabya.md.txt)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya.md.txt) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) In the dynamic world of social media, user attention is won or lost quickly. Meta apps (Facebook and Instagram) are among the world's largest social platforms and serve billions of users globally. For Meta, delivering videos seamlessly isn't just a feature, it's the core of their user experience. Short-form videos, particularly Facebook Newsfeed and Instagram Reels, have become a primary driver of engagement. They enable creative expression and rapid content consumption; connecting and entertaining people around the world.
 
 This blog post takes you through the journey of how Meta transformed video playback for billions by delivering true instant playback.
 
@@ -18,7 +20,7 @@ Short-form videos lead to highly fast paced interactions as users quickly scroll
 
 ### **The path forward with Media3 PreloadManager**
 
-To address the shifts in consumption habits from rise in short form content and the limitations of traditional long form playback architecture, Jetpack Media3 introduced [PreloadManager](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/create). This component allows developers to move beyond disk caching, offering granular control and customization to keep media ready in memory before the user hits play. Read this [blog series](https://android-developers.googleblog.com/2025/09/introducing-preloading-with-media3.html) to understand technical details about media playback with PreloadManager.
+To address the shifts in consumption habits from rise in short form content and the limitations of traditional long form playback architecture, Jetpack Media3 introduced [PreloadManager](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/create.md.txt). This component allows developers to move beyond disk caching, offering granular control and customization to keep media ready in memory before the user hits play. Read this [blog series](https://android-developers.googleblog.com/2025/09/introducing-preloading-with-media3.html) to understand technical details about media playback with PreloadManager.
 
 ## **How Meta achieved true instant playback**
 
@@ -89,7 +91,7 @@ Broaden your market reach by testing on various devices, including mid-to-low-en
 
 To get started and learn more, visit[](https://www.google.com/search?q=https://developer.android.com/guide/topics/media/media3/exoplayer/preload-manager)
 
-- Explore the Media3 [PreloadManager documentation](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager).
+- Explore the Media3 [PreloadManager documentation](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager.md.txt).
 - Read the[blog series](https://android-developers.googleblog.com/2025/09/introducing-preloading-with-media3.html) for advanced technical and implementation details.
   - [Part 1: Introducing Preloading with Media3](https://android-developers.googleblog.com/2025/09/introducing-preloading-with-media3.html)
   - [Part 2: A deep dive into Media3's PreloadManager](https://android-developers.googleblog.com/2025/09/a-deep-dive-into-media3-preloadmanager.html)
@@ -100,7 +102,7 @@ Written by:
 
 -
 
-  ## [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya)
+  ## [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -108,34 +110,34 @@ Written by:
   View profile](https://developer.android.com/blog/authors/mayuri-khabya) ![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp) ![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp)
 -
 
-  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
+  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt)
 
   ###### Product Marketing Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
 Continue reading
-- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time)
+  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
+  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
-  - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys.md.txt) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt), [Mayank Jain](https://developer.android.com/blog/authors/blog-author.md.txt) • 8 min read
+  - [#Passkeys](https://developer.android.com/blog/topics/passkeys.md.txt)
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
+  ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+  [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer.md.txt) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 4 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
 Stay in the loop
 
 

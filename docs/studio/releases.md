@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/releases
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/releases/llms.txt
+
 Android Studio is the official IDE for Android development, and includes
 everything you need to build Android apps.
 

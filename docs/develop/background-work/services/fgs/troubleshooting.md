@@ -4,18 +4,21 @@ url: https://developer.android.com/develop/background-work/services/fgs/troubles
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/background-work/services/fgs/llms.txt
+
 This page discusses some common reasons foreground services can fail and helps
 you identify what's causing the problem.
 
 This document discusses the following issues:
 
-- [Application Not Responding (ANR) errors](https://developer.android.com/develop/background-work/services/fgs/troubleshooting#ANRs)
-  - [Short service runs too long, causing ANR](https://developer.android.com/develop/background-work/services/fgs/troubleshooting#short-service)
-- [Foreground service exceptions](https://developer.android.com/develop/background-work/services/fgs/troubleshooting#fgs-exceptions)
-  - [Internal exception: Timeout exceeded](https://developer.android.com/develop/background-work/services/fgs/troubleshooting#fgs-exceeds-timeout)
-  - [Internal exception: `ForegroundServiceDidNotStartInTimeException`](https://developer.android.com/develop/background-work/services/fgs/troubleshooting#startForeground-too-slow)
-  - [ForegroundServiceStartNotAllowedException](https://developer.android.com/develop/background-work/services/fgs/troubleshooting#issue-foregroundservicestartnotallowedexception)
-  - [SecurityException](https://developer.android.com/develop/background-work/services/fgs/troubleshooting#issue-securityexception)
+- [Application Not Responding (ANR) errors](https://developer.android.com/develop/background-work/services/fgs/troubleshooting.md.txt#ANRs)
+  - [Short service runs too long, causing ANR](https://developer.android.com/develop/background-work/services/fgs/troubleshooting.md.txt#short-service)
+- [Foreground service exceptions](https://developer.android.com/develop/background-work/services/fgs/troubleshooting.md.txt#fgs-exceptions)
+  - [Internal exception: Timeout exceeded](https://developer.android.com/develop/background-work/services/fgs/troubleshooting.md.txt#fgs-exceeds-timeout)
+  - [Internal exception:
+    `ForegroundServiceDidNotStartInTimeException`](https://developer.android.com/develop/background-work/services/fgs/troubleshooting#startForeground-too-slow)
+  - [ForegroundServiceStartNotAllowedException](https://developer.android.com/develop/background-work/services/fgs/troubleshooting.md.txt#issue-foregroundservicestartnotallowedexception)
+  - [SecurityException](https://developer.android.com/develop/background-work/services/fgs/troubleshooting.md.txt#issue-securityexception)
 
 ## Before you troubleshoot
 
@@ -46,11 +49,11 @@ triggers an *Application Not Responding* (ANR) error.
 
 ### Short service runs too long causing ANR
 
-Foreground services that use the [short service](https://developer.android.com/develop/background-work/services/fgs/service-types#short-service) type
+Foreground services that use the [short service](https://developer.android.com/develop/background-work/services/fgs/service-types.md.txt#short-service) type
 must complete quickly, within about three minutes. When the time runs out, the
 system calls the service's
-[`Service.onTimeout(int,int)`](https://developer.android.com/reference/android/app/Service#onTimeout(int,%20int)) method. The service has
-a few seconds to call [`stopSelf()`](https://developer.android.com/reference/android/app/Service#stopSelf()). If the service does not
+[`Service.onTimeout(int,int)`](https://developer.android.com/reference/android/app/Service.md.txt#onTimeout(int,%20int)) method. The service has
+a few seconds to call [`stopSelf()`](https://developer.android.com/reference/android/app/Service.md.txt#stopSelf()). If the service does not
 stop itself, the system triggers an Application Not Responding error.
 
 > [!NOTE]
@@ -71,7 +74,7 @@ message:
 **Fix**:
 
 Make sure that all time-limited foreground services finish their work and call
-[`stopForeground(int)`](https://developer.android.com/reference/android/app/Service#stopForeground(int)) within the system time limit.
+[`stopForeground(int)`](https://developer.android.com/reference/android/app/Service.md.txt#stopForeground(int)) within the system time limit.
 
 Have your foreground services implement `Service.onTimeout(int,int)`.
 Make sure your implementation of that method calls `stopSelf()` right away.
@@ -83,12 +86,12 @@ system to throw an exception. If the app does not catch the exception, the user
 sees a dialog telling them that the app has stopped.
 
 In some cases, the system throws an internal exception. In those cases you can
-find out what the exception was by [looking in the stack trace](https://developer.android.com/studio/debug/stacktraces), and
-you can check [Logcat](https://developer.android.com/tools/logcat) for more detailed error information.
+find out what the exception was by [looking in the stack trace](https://developer.android.com/studio/debug/stacktraces.md.txt), and
+you can check [Logcat](https://developer.android.com/tools/logcat.md.txt) for more detailed error information.
 
 ### Internal exception: Timeout exceeded
 
-[The system imposes a limit](https://developer.android.com/develop/background-work/services/fgs/timeout) on how long data sync and media
+[The system imposes a limit](https://developer.android.com/develop/background-work/services/fgs/timeout.md.txt) on how long data sync and media
 processing foreground services can run while the app is in the background. If
 the service exceeds that limit, the system calls the service's
 `Service.onTimeout(int,int)` method. The service has a few seconds to call
@@ -96,13 +99,12 @@ the service exceeds that limit, the system calls the service's
 internal `RemoteServiceException` causing the app to crash.
 
 > [!NOTE]
-> **Note:** The short service foreground service type has even stricter time limits. If a short service runs too long, the system generates an ANR. For more information, see [Short service runs too long causing
-> ANR](https://developer.android.com/develop/background-work/services/fgs/troubleshooting#short-service).
+> **Note:** The short service foreground service type has even stricter time limits. If a short service runs too long, the system generates an ANR. For more information, see [Short service runs too long causing ANR](https://developer.android.com/develop/background-work/services/fgs/troubleshooting.md.txt#short-service).
 
 **Diagnose**:
 
 You can find out what the exception was by
-[looking in the stack trace](https://developer.android.com/studio/debug/stacktraces), and you can check [Logcat](https://developer.android.com/tools/logcat) for
+[looking in the stack trace](https://developer.android.com/studio/debug/stacktraces.md.txt), and you can check [Logcat](https://developer.android.com/tools/logcat.md.txt) for
 more detailed error information. In this case, Logcat has the following error
 message:
 
@@ -120,17 +122,17 @@ Make sure your implementation of that method calls `stopSelf()` right away.
 ### Internal exception: `ForegroundServiceDidNotStartInTimeException`
 
 When you launch a service by calling
-[`context.startForegroundService()`](https://developer.android.com/reference/android/content/Context#startForegroundService(android.content.Intent)),
+[`context.startForegroundService()`](https://developer.android.com/reference/android/content/Context.md.txt#startForegroundService(android.content.Intent)),
 that service has a few seconds to promote itself to a foreground service by
 calling
-[`ServiceCompat.startForeground()`](https://developer.android.com/reference/androidx/core/app/ServiceCompat#startForeground(android.app.Service,int,android.app.Notification,int)).
+[`ServiceCompat.startForeground()`](https://developer.android.com/reference/androidx/core/app/ServiceCompat.md.txt#startForeground(android.app.Service,int,android.app.Notification,int)).
 If the service does not do so, the throws an internal
 `ForegroundServiceDidNotStartInTimeException`.
 
 **Diagnose**:
 
 You can find out what the exception was by
-[looking in the stack trace](https://developer.android.com/studio/debug/stacktraces), and you can check [Logcat](https://developer.android.com/tools/logcat) for
+[looking in the stack trace](https://developer.android.com/studio/debug/stacktraces.md.txt), and you can check [Logcat](https://developer.android.com/tools/logcat.md.txt) for
 more detailed error information. In this case, Logcat has the following error
 message:
 
@@ -154,7 +156,7 @@ crash will be accompanied by the following log:
     Re-initializing SystemForegroundService after a request to shut-down
 
 A fix for this crash was introduced in
-[WorkManager version 2.10.5](https://developer.android.com/jetpack/androidx/releases/work#2.10.5).
+[WorkManager version 2.10.5](https://developer.android.com/jetpack/androidx/releases/work.md.txt#2.10.5).
 
 If your app is encountering
 this exception, update to the most recent version of WorkManager and report any
@@ -164,7 +166,7 @@ persisting issues to the WorkManager [issue tracker](https://issuetracker.google
 
 **Error**:
 
-System throws [`ForegroundServiceStartNotAllowedException`](https://developer.android.com/reference/android/app/ForegroundServiceStartNotAllowedException).
+System throws [`ForegroundServiceStartNotAllowedException`](https://developer.android.com/reference/android/app/ForegroundServiceStartNotAllowedException.md.txt).
 
 **Cause**:
 
@@ -174,7 +176,7 @@ background when there is no valid exemption.
 Beginning with Android 12 (API level 31), apps are [not allowed to start
 foreground services while the app is running in the
 background](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start), with a
-[few specific exemptions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#background-start-restriction-exemptions).
+[few specific exemptions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start.md.txt#background-start-restriction-exemptions).
 If you attempt to start a foreground service from the background and you don't
 meet the requirements of one of the exemptions, the system
 throws `ForegroundServiceStartNotAllowedException`. The system also does this if
@@ -187,10 +189,10 @@ app in the background. The app would then try to launch the service
 from the background. If the app does not meet one of the specified exemptions,
 the system throws a `ForegroundServiceStartNotAllowedException`.
 
-In addition, some exemptions have a short time limit. For
-example, there is a brief exemption if your app launches a foreground service
-in response to a high-priority FCM message. If you don't launch the service
-quickly enough, you get a `ForegroundServiceStartNotAllowedException`.
+In addition, some exemptions have a short time limit. For example, launching a
+foreground service in response to a high-priority FCM message has a brief
+exemption. If you don't launch the service quickly enough, you get a
+`ForegroundServiceStartNotAllowedException`.
 
 Specific exemptions sometimes become more restrictive with new
 Android releases. If you have changed which version of Android your app is
@@ -204,7 +206,7 @@ Change your app's workflow so it does not need to launch foreground services
 while the app is in the background, or confirm that your app meets one of the
 exemptions.
 
-You can use [lifecycle-aware components](https://developer.android.com/topic/libraries/architecture/lifecycle) to manage
+You can use [lifecycle-aware components](https://developer.android.com/topic/libraries/architecture/lifecycle.md.txt) to manage
 your app's lifecycle so you don't inadvertently try to launch a foreground
 service from the background.
 
@@ -212,7 +214,7 @@ service from the background.
 
 **Error**:
 
-System throws[`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException).
+System throws[`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException.md.txt).
 
 **Cause**:
 

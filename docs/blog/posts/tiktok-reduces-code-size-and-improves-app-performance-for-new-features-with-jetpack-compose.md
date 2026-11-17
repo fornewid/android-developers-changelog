@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/posts/tiktok-reduces-code-size-and-impro
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # TikTok reduces code size by 58% and improves app performance for new features with Jetpack Compose

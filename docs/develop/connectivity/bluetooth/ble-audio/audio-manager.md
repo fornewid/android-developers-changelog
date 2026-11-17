@@ -4,21 +4,25 @@ url: https://developer.android.com/develop/connectivity/bluetooth/ble-audio/audi
 source: md.txt
 ---
 
-This guide covers communication applications, such as Voice over Internet Protocol (VoIP), that want to self-manage their audio and hearable device state.
+> Documentation index: https://developer.android.com/develop/connectivity/bluetooth/llms.txt
+
+This guide covers communication applications, such as Voice over Internet
+Protocol (VoIP), that want to self-manage their audio and hearable device state.
 
 > [!NOTE]
-> **Note:** Starting in Android 13 (API level 33), applications must migrate from [`AudioManager#startBluetoothSco()`](https://developer.android.com/reference/android/media/AudioManager#startBluetoothSco()) to [`AudioManager#setCommunicationDevice()`](https://developer.android.com/reference/android/media/AudioManager#setCommunicationDevice(android.media.AudioDeviceInfo)) to support upcoming BLE audio headsets. This change is backward-compatible with Hands-Free Profile (HFP) devices.
+> **Note:** Starting in Android 13 (API level 33), applications must migrate from [`AudioManager#startBluetoothSco`](https://developer.android.com/reference/android/media/AudioManager.md.txt#startBluetoothSco()) to [`AudioManager#setCommunicationDevice`](https://developer.android.com/reference/android/media/AudioManager.md.txt#setCommunicationDevice(android.media.AudioDeviceInfo)) to support BLE audio headsets. This change is backward-compatible with Hands-Free Profile (HFP) devices.
 
 ## Register audio callback
 
-First, create an `AudioDeviceCallback`, which notifies your app when audio devices connect or disconnect from the device.
+First, create an `AudioDeviceCallback`, which notifies your app when audio
+devices connect or disconnect from the device.
 
 ### Kotlin
 
 ```kotlin
 val audioDeviceCallback: AudioDeviceCallback = object : AudioDeviceCallback() {
-  override fun onAudioDevicesAdded(addedDevices: Array) {}
-  override fun onAudioDevicesRemoved(removedDevices: Array) {}
+  override fun onAudioDevicesAdded(addedDevices: Array<AudioDeviceInfo>) {}
+  override fun onAudioDevicesRemoved(removedDevices: Array<AudioDeviceInfo>) {}
 }
 
 audioManager.registerAudioDeviceCallback(audioDeviceCallback)
@@ -57,7 +61,8 @@ val currentCommunicationDevice: AudioDeviceInfo? = audioManager.communicationDev
 AudioDeviceInfo currentCommunicationDevice = audioManager.getCommunicationDevice();
 ```
 
-Listening for when a communication device has changed lets your app know when routing is applied and the device that you selected is active.
+Listening for when a communication device has changed lets your app know when
+routing is applied and the device that you selected is active.
 
 ### Kotlin
 
@@ -72,7 +77,7 @@ audioManager.addOnCommunicationDeviceChangedListener(executor, listener)
 ### Java
 
 ```java
-AudioManager.OnCommunicationDeviceChangedListener listener = 
+AudioManager.OnCommunicationDeviceChangedListener listener =
       new AudioManager.OnCommunicationDeviceChangedListener() {
   @Override
   void onCommunicationDeviceChanged(AudioDeviceInfo device) {
@@ -85,83 +90,97 @@ AudioManager.addOnCommunicationDeviceChangedListener(executor, listener);
 
 ## Find BLE audio device
 
-Use [`getAvailableCommuncationDevices()`](https://developer.android.com/reference/android/media/AudioManager#getAvailableCommunicationDevices()) to see which devices are available for a VoIP call. Use `AudioDeviceInfo` to see if the device is a BLE headset. This example looks for the first device that supports BLE Audio, but you might also consider finding all supported devices and allowing users to choose.
+Use [`getAvailableCommunicationDevices`](https://developer.android.com/reference/android/media/AudioManager.md.txt#getAvailableCommunicationDevices()) to see which devices are available
+for a VoIP call. Use `AudioDeviceInfo` to see if the device is a BLE headset.
+This example looks for the first device that supports BLE Audio, but you might
+also consider finding all supported devices and letting users choose.
 
 ### Kotlin
 
+```kotlin
+// Get list of currently available devices
+val devices = audioManager.availableCommunicationDevices
 
-    // Get list of currently available devices
-    val devices = audioManager.availableCommunicationDevices
+// User choose one of the devices, for example, TYPE_BLE_HEADSET
+val userSelectedDeviceType = AudioDeviceInfo.TYPE_BLE_HEADSET
 
-    // User choose one of the devices, let's say, TYPE_BLE_HEADSET
-    val userSelectedDeviceType = AudioDeviceInfo.TYPE_BLE_HEADSET
-
-    //for the device from the list
-    var selectedDevice: AudioDeviceInfo? = null
-    for (device in devices) {
-      if (device.type == userSelectedDeviceType) {
-        selectedDevice = device
-        break
-      }
-    }
+//for the device from the list
+var selectedDevice: AudioDeviceInfo? = null
+for (device in devices) {
+  if (device.type == userSelectedDeviceType) {
+    selectedDevice = device
+    break
+  }
+}
+```
 
 ### Java
 
+```java
+// Get list of currently available devices
+List<AudioDeviceInfo> devices = audioManager.getAvailableCommunicationDevices();
 
-    // Get list of currently available devices
-    List<AudioDeviceInfo> devices = audioManager.getAvailableCommunicationDevices();
+// User choose one of the devices, for example, TYPE_BLE_HEADSET
+int userSelectedDeviceType = AudioDeviceInfo.TYPE_BLE_HEADSET;
 
-    // User choose one of the devices, for example, TYPE_BLE_HEADSET
-    int userSelectedDeviceType = AudioDeviceInfo.TYPE_BLE_HEADSET;
-
-    // Filter for the device from the list
-    AudioDeviceInfo selectedDevice = null;
-    for (AudioDeviceInfo device : devices) {
-        if (device.getType() == userSelectedDeviceType) {
-            selectedDevice = device;
-            break;
-        }
+// Filter for the device from the list
+AudioDeviceInfo selectedDevice = null;
+for (AudioDeviceInfo device : devices) {
+    if (device.getType() == userSelectedDeviceType) {
+        selectedDevice = device;
+        break;
     }
+}
+```
 
 ## Set communication device
 
-After you find a compatible device, use `setCommunicationDevice` to set the device you wish to route to. Checking the result informs your app if the audio manager is trying to set the device or if it encountered an error.
+After you find a compatible device, use `setCommunicationDevice` to set the
+device you want to route to. Checking the result informs your app if the audio
+manager is trying to set the device or if it encountered an error.
 
 ### Kotlin
 
-
-    val result = audioManager.setCommunicationDevice(selectedDevice)
-    if (!result) {
-      // Handle error.
-    }
-    // Wait for currentCommunicationDevice to become selectedDevice with a timeout (e.g. 30s)
+```kotlin
+val result = audioManager.setCommunicationDevice(selectedDevice)
+if (!result) {
+  // Handle error.
+}
+// Wait for currentCommunicationDevice to become selectedDevice with a timeout (e.g. 30s)
+```
 
 ### Java
 
-
-    boolean result = audioManager.setCommunicationDevice(selectedDevice);
-    if (!result) {
-      // Handle error.
-    }
-    // Wait for currentCommunicationDevice to become selectedDevice with a timeout (e.g. 30s)
+```java
+boolean result = audioManager.setCommunicationDevice(selectedDevice);
+if (!result) {
+  // Handle error.
+}
+// Wait for currentCommunicationDevice to become selectedDevice with a timeout (e.g. 30s)
+```
 
 > [!NOTE]
-> **Note:** Once you set a communication device, wait a maximum of 30 seconds. Unless an error occurs, `AudioDeviceCallback` is called within 30 seconds. If an error occurs, call `clearCommuncationDevice()`, and then call `setCommunicationDevice()`.
+> **Note:** After you set a communication device, wait a maximum of 30 seconds. Unless an error occurs, `AudioDeviceCallback` is called within 30 seconds. If an error occurs, call `clearCommunicationDevice`, and then call `setCommunicationDevice`.
 
-Now that the BLE Audio device has been set, when placing a call, the audio stream will have the correct audio routing.
+After you set the BLE audio device, the audio stream uses the correct audio
+routing when you place a call.
 
 ## End the session
 
-After your app finishes a call or session, clear the active communication device. This helps ensure the user has a great experience when moving between different applications.
+After your app finishes a call or session, clear the active communication
+device. This helps ensure the user has a great experience when moving between
+different applications.
 
 ### Kotlin
 
-
-    // Clear the selection, ready for next call
-    audioManager.clearCommunicationDevice()
+```kotlin
+// Clear the selection, ready for next call
+audioManager.clearCommunicationDevice()
+```
 
 ### Java
 
-
-    // Clear the selection, ready for next call
-    audioManager.clearCommunicationDevice();
+```java
+// Clear the selection, ready for next call
+audioManager.clearCommunicationDevice();
+```

@@ -4,19 +4,21 @@ url: https://developer.android.com/develop/ui/compose/system/remote-compose
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/llms.txt
+
 Remote Compose is a Jetpack library that lets you build UI with Compose-style
 APIs in your app and display it in system processes, such as App Widgets or Wear
 OS Widgets. Your app records the UI as a compact document, and a player in the
 host process renders it and handles interactions, state changes, and animations
 locally, without calling back into your app.
 
-This guide explains the [Remote Compose](https://developer.android.com/jetpack/androidx/releases/compose-remote) architecture and how it differs from
+This guide explains the [Remote Compose](https://developer.android.com/jetpack/androidx/releases/compose-remote.md.txt) architecture and how it differs from
 standard Jetpack Compose. This guide focuses on building UI with components.
 
 ## Remote Compose use cases
 
 Remote Compose can be used on any surface with a supporting player. On Android,
-it powers App widgets and [Wear OS widgets](https://developer.android.com/training/wearables/widgets).
+it powers App widgets and [Wear OS widgets](https://developer.android.com/training/wearables/widgets.md.txt).
 
 ## How it works: Three-block architecture
 
@@ -46,13 +48,13 @@ Remote Compose components and `RemoteModifier` instead of their standard Compose
 equivalents. These include basic layout containers as well as adaptive
 components specifically designed to handle dynamic screen sizes:
 
-- **Basic layout components:** Common Compose-like layout elements such as [`RemoteBox`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteBox.composable), [`RemoteRow`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteRow.composable), and [`RemoteColumn`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteColumn.composable).
-- **Adaptive layout components:** Specialized components such as [`RemoteFitBox`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteFitBox.composable), [`RemoteCollapsibleRow`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteCollapsibleRow.composable), and [`RemoteCollapsibleColumn`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteCollapsibleColumn.composable) designed to adapt cleanly across remote surfaces.
-- **Material design theming:** Theming works the same way for Wear OS widgets, with a hierarchy of color and typography provided by [`RemoteMaterialTheme`](https://developer.android.com/reference/kotlin/androidx/wear/compose/remote/material3/RemoteMaterialTheme.composable). This allows for consistent branding and design system implementation across your app and widgets.
+- **Basic layout components:** Common Compose-like layout elements such as [`RemoteBox`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteBox.composable.md.txt), [`RemoteRow`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteRow.composable.md.txt), and [`RemoteColumn`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteColumn.composable.md.txt).
+- **Adaptive layout components:** Specialized components such as [`RemoteFitBox`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteFitBox.composable.md.txt), [`RemoteCollapsibleRow`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteCollapsibleRow.composable.md.txt), and [`RemoteCollapsibleColumn`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteCollapsibleColumn.composable.md.txt) designed to adapt cleanly across remote surfaces.
+- **Material design theming:** Theming works the same way for Wear OS widgets, with a hierarchy of color and typography provided by [`RemoteMaterialTheme`](https://developer.android.com/reference/kotlin/androidx/wear/compose/remote/material3/RemoteMaterialTheme.composable.md.txt). This allows for consistent branding and design system implementation across your app and widgets.
 
 ## Custom drawing with `RemoteCanvas`
 
-For custom graphics and time-based animations, use [`RemoteCanvas`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteCanvas.composable), which
+For custom graphics and time-based animations, use [`RemoteCanvas`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteCanvas.composable.md.txt), which
 records drawing commands that the player runs on the host. This guide focuses on
 building UI with components.
 
@@ -70,7 +72,7 @@ in local app memory, they declare bindings that the remote player manages and
 updates locally at runtime. Keep the following considerations in mind when
 declaring state in Remote Compose:
 
-- Use Remote Compose factory functions to declare state such as [`rememberMutableRemoteInt`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/state/rememberMutableRemoteInt.composable), [`rememberMutableRemoteFloat`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/state/rememberMutableRemoteFloat.composable), or [`rememberMutableRemoteString`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/state/rememberMutableRemoteString.composable).
+- Use Remote Compose factory functions to declare state such as [`rememberMutableRemoteInt`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/state/rememberMutableRemoteInt.composable.md.txt), [`rememberMutableRemoteFloat`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/state/rememberMutableRemoteFloat.composable.md.txt), or [`rememberMutableRemoteString`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/state/rememberMutableRemoteString.composable.md.txt).
 - Your app code cannot inspect or read the value of a remote state variable directly during composition.
 - The player stores and updates these values locally as the user interacts with the document.
 
@@ -82,14 +84,14 @@ time, such as repeating a row for each item in a list, but they can't react to a
 remote state that changes later on. Keep the following in mind when working in
 Remote Compose:
 
-- **Branching logic:** Dynamic UI switching is done using [`RemoteStateLayout`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteStateLayout.composable) by mapping state to different `RemoteComposable` slots.
-- **Text evaluation:** Avoid standard Kotlin string interpolation ("`$remoteValue`"), which evaluates only when the document is created. Instead, pass [`RemoteString`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/state/RemoteString) to [`RemoteText`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteText.composable).
+- **Branching logic:** Dynamic UI switching is done using [`RemoteStateLayout`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteStateLayout.composable.md.txt) by mapping state to different `RemoteComposable` slots.
+- **Text evaluation:** Avoid standard Kotlin string interpolation ("`$remoteValue`"), which evaluates only when the document is created. Instead, pass [`RemoteString`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/state/RemoteString.md.txt) to [`RemoteText`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteText.composable.md.txt).
 
 ### Dynamic styling using `RemoteModifier`
 
 Dynamic styling on the host does not rerun composition; instead, remote state
 variables are passed directly into modifiers, such as
-[`RemoteModifier.background(remoteColor)`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/modifier/RemoteModifier).
+[`RemoteModifier.background(remoteColor)`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/modifier/RemoteModifier.md.txt).
 
 ### Remote system context
 
@@ -98,7 +100,7 @@ reflect the local app environment at the moment the document is recorded. They
 don't update dynamically on the remote host as the surface resizes, changes
 display state, or advances through time. Instead, use values that the player
 resolves on the host at runtime, such as the component's current size,
-[`RemoteConfiguration`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/state/RemoteConfiguration) or[`RemoteDensity`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/capture/RemoteDensity).
+[`RemoteConfiguration`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/state/RemoteConfiguration.md.txt) or [`RemoteDensity`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/capture/RemoteDensity.md.txt).
 
 ### Declarative actions
 
@@ -114,9 +116,9 @@ click, use `combinedAction`.
 | Feature domain | Standard Jetpack Compose | Remote Compose |
 |---|---|---|
 | **Click and touch events** | In-process synchronous lambdas | Declarative serialized Action objects |
-| **Conditional logic** | Kotlin if and when control flow | Standard Kotlin `if/when` works normally for static state known when generating the document. Dynamic branching uses [`RemoteStateLayout`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteStateLayout.composable) (for UI trees). |
+| **Conditional logic** | Kotlin if and when control flow | Standard Kotlin `if/when` works normally for static state known when generating the document. Dynamic branching uses [`RemoteStateLayout`](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/layout/RemoteStateLayout.composable.md.txt) (for UI trees). |
 | **Control flow loops** | Standard Kotlin for and while loops | Standard Kotlin loops (repeat, for, forEach) run only when the document is created. They can't loop over remote state on the host |
 | **Execution host** | App process | Launcher (AppWidget), Wear OS widgets or any form factor with a supporting player |
 | **Process lifecycle** | Process must remain active to recompose \& render | Process records UI snapshot document; the Remote Player engine parses the component tree, tracks state mutations, and redraws locally without calling back into the app. |
-| **Side effects** | Coroutine lifecycles ([LaunchedEffect](https://developer.android.com/reference/kotlin/androidx/compose/runtime/LaunchedEffect.composable)) | Not available on the host. Composition runs in your app to create the document, so coroutine effects can't drive the remote UI, unless the integration keeps a composition open. |
-| **State paradigm** | Local memory state values | Factory functions ([rememberMutableRemoteInt](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/state/rememberMutableRemoteInt.composable)(), [rememberNamedRemoteColor](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/state/rememberNamedRemoteColor.composable)()) that return symbolic state references rather than raw values. |
+| **Side effects** | Coroutine lifecycles ([LaunchedEffect](https://developer.android.com/reference/kotlin/androidx/compose/runtime/LaunchedEffect.composable.md.txt)) | Not available on the host. Composition runs in your app to create the document, so coroutine effects can't drive the remote UI, unless the integration keeps a composition open. |
+| **State paradigm** | Local memory state values | Factory functions ([rememberMutableRemoteInt](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/state/rememberMutableRemoteInt.composable.md.txt)(), [rememberNamedRemoteColor](https://developer.android.com/reference/kotlin/androidx/compose/remote/creation/compose/state/rememberNamedRemoteColor.composable.md.txt)()) that return symbolic state references rather than raw values. |

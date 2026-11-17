@@ -1243,8 +1243,8 @@ To learn more, see[Install and configure the NDK, CMake, and LLDB](https://devel
 
 Android Studio now officially supports ChromeOS devices, such as the HP
 Chromebook x360 14, Acer Chromebook 13/Spin 13, and others that you can read
-about in the [system requirements](https://developer.android.com/studio#Requirements). To get
-started, [download Android Studio](https://developer.android.com/studio) on your compatible
+about in the [system requirements](https://developer.android.com/studio.md.txt#Requirements). To get
+started, [download Android Studio](https://developer.android.com/studio.md.txt) on your compatible
 ChromeOS device and follow the
 [installation instructions](https://developer.android.com/studio/install.md.txt#chrome-os).
 
@@ -1383,7 +1383,7 @@ To see a list of notable bug fixes, read the related post on the
 - Profiling is disabled when deploying your app to a device
   running Android Q Beta.
 
-- When using the Data Binding Library, `LiveDataListener.onChanged()` might fail with a NPE. A fix for this issue will be included in Android Studio 3.4.1 and is already available in the latest [Preview version](https://developer.android.com/studio/preview) of Android Studio 3.5. (See [issue #122066788](https://issuetracker.google.com/122066788))
+- When using the Data Binding Library, `LiveDataListener.onChanged()` might fail with a NPE. A fix for this issue will be included in Android Studio 3.4.1 and is already available in the latest [Preview version](https://developer.android.com/studio/preview.md.txt) of Android Studio 3.5. (See [issue #122066788](https://issuetracker.google.com/122066788))
 
 <br />
 

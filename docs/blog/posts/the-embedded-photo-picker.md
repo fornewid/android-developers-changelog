@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/posts/the-embedded-photo-picker
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # The Embedded Photo Picker
@@ -264,12 +266,13 @@ Continue reading
 
   [arrow_forward](https://developer.android.com/blog/posts/contact-picker-privacy-first-contact-sharing.md.txt) Privacy and user control remain at the heart of the Android experience. Just as the photo picker made media sharing secure and easy to implement, we are now bringing that same level of privacy, simplicity, and great user experience to contact selection.
   [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker.md.txt) • 4 min read
-- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+- [![View Phalene Gowling's profile](https://developer.android.com/static/blog/assets/Phalene_Gowling_0adca8708d_Z1EF0vK.webp)](https://developer.android.com/blog/authors/phalene-gowling.md.txt)[![View Rejane França's profile](https://developer.android.com/static/blog/assets/unnamed_31_d80d832499_1LWl7t.webp)](https://developer.android.com/blog/authors/rejane-franca.md.txt) 16 Nov 2026 16 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_158_Beyond_the_App_A_bd07c85947_982bv.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
+  ## [Beyond the app: Expanding buyer reach across new surfaces with Google Play](https://developer.android.com/blog/posts/beyond-the-app-google-play-buyer-reach.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
-  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+  [arrow_forward](https://developer.android.com/blog/posts/beyond-the-app-google-play-buyer-reach.md.txt) Discover how Google Play's channel expansion tools in Play Console expand buyer reach across store, web, and external surfaces while protecting margins.
+  [Phalene Gowling](https://developer.android.com/blog/authors/phalene-gowling.md.txt), [Rejane França](https://developer.android.com/blog/authors/rejane-franca.md.txt) • 4 min read
+  - [#Monetization](https://developer.android.com/blog/topics/monetization.md.txt)
 Stay in the loop
 
 

@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/gemini/availability
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/llms.txt
+
 Android Studio's built-in agent is available in many countries and territories,
 with support for the English language.
 
@@ -11,7 +13,7 @@ We'll gradually expand to more countries and territories in a way that is
 consistent with local regulations and our
 [AI principles](https://ai.google/principles/). Availability in
 some locations depends on your version of Android Studio. For the widest
-geographic availability, make sure you're using the [latest version](https://developer.android.com/studio).
+geographic availability, make sure you're using the [latest version](https://developer.android.com/studio.md.txt).
 
 **The built-in agent is available in the following countries and
 territories:**
@@ -245,7 +247,7 @@ territories:**
 - United States
 - United States Minor Outlying Islands
 - Uruguay
-- Uzbekistans
+- Uzbekistan
 - Vanuatu
 - Vatican City
 - Venezuela

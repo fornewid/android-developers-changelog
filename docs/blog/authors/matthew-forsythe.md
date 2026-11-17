@@ -4,50 +4,54 @@ url: https://developer.android.com/blog/authors/matthew-forsythe
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 6 posts ![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)
 
 # Matthew Forsythe
 
 Director, Product Management
-- 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_KDejo.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
+Android App Safety
+- 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_KDejo.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
+  ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together.md.txt) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
   2 min read
-- 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Verification2_40caaf2e67_Z10Vf7G.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Verification2_40caaf2e67_Z10Vf7G.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android developer verification: Rolling out to all developers on Play Console and Android Developer Console](https://developer.android.com/blog/posts/android-developer-verification-rolling-out-to-all-developers-on-play-console-and-android-developer-console)
+  ## [Android developer verification: Rolling out to all developers on Play Console and Android Developer Console](https://developer.android.com/blog/posts/android-developer-verification-rolling-out-to-all-developers-on-play-console-and-android-developer-console.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-rolling-out-to-all-developers-on-play-console-and-android-developer-console) Android is for everyone. It's built on a commitment to an open and safe platform. Users should feel confident installing apps, no matter where they get them from.
+  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-rolling-out-to-all-developers-on-play-console-and-android-developer-console.md.txt) Android is for everyone. It's built on a commitment to an open and safe platform. Users should feel confident installing apps, no matter where they get them from.
   3 min read
-- 19 Mar 2026 19 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Verification2_b4044e9b89_ZkItcl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 19 Mar 2026 19 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Verification2_b4044e9b89_ZkItcl.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android developer verification: Balancing openness and choice with safety](https://developer.android.com/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety)
+  ## [Android developer verification: Balancing openness and choice with safety](https://developer.android.com/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety) Android proves you don't have to choose between an open ecosystem and a secure one. Since announcing updated verification requirements, we've worked with the community to ensure these protections are robust yet respectful of platform freedom.
+  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety.md.txt) Android proves you don't have to choose between an open ecosystem and a secure one. Since announcing updated verification requirements, we've worked with the community to ensure these protections are robust yet respectful of platform freedom.
   2 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/251210_Header_v01_de706a19ce_11Dc1K.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/251210_Header_v01_de706a19ce_11Dc1K.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Building a safer Android and Google Play, together](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together)
+  ## [Building a safer Android and Google Play, together](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together) Earlier this year, we reiterated our commitment to keeping Android and Google Play safe for everyone and maintaining a thriving environment where users can trust the apps they download and your business can flourish.
+  [arrow_forward](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together.md.txt) Earlier this year, we reiterated our commitment to keeping Android and Google Play safe for everyone and maintaining a thriving environment where users can trust the apps they download and your business can flourish.
   3 min read
-- 12 Nov 2025 12 Nov 2025 ![](https://developer.android.com/static/blog/assets/developer_Verification_2bb1c616ea_1NGKqg.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 12 Nov 2025 12 Nov 2025 ![](https://developer.android.com/static/blog/assets/developer_Verification_2bb1c616ea_1NGKqg.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Android developer verification: Early access starts now as we continue to build with your feedback](https://developer.android.com/blog/posts/android-developer-verification-early-access-starts-now-as-we-continue-to-build-with-your-feedback)
+  ## [Android developer verification: Early access starts now as we continue to build with your feedback](https://developer.android.com/blog/posts/android-developer-verification-early-access-starts-now-as-we-continue-to-build-with-your-feedback.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-early-access-starts-now-as-we-continue-to-build-with-your-feedback) We recently announced new developer verification requirements, which serve as an additional layer of defense in our ongoing effort to keep Android users safe. We know that security works best when it accounts for the diverse ways people use our tools.
+  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-early-access-starts-now-as-we-continue-to-build-with-your-feedback.md.txt) We recently announced new developer verification requirements, which serve as an additional layer of defense in our ongoing effort to keep Android users safe. We know that security works best when it accounts for the diverse ways people use our tools.
   3 min read
-- 30 Sep 2025 30 Sep 2025 ![](https://developer.android.com/static/blog/assets/lets_Talk_Security_3e0a595955_ZQycm0.webp) [Community](https://developer.android.com/blog/categories/community)
+- 30 Sep 2025 30 Sep 2025 ![](https://developer.android.com/static/blog/assets/lets_Talk_Security_3e0a595955_ZQycm0.webp) [Community](https://developer.android.com/blog/categories/community.md.txt)
 
-  ## [Let's talk security: Answering your top questions about Android developer verification](https://developer.android.com/blog/posts/lets-talk-security-answering-your-top)
+  ## [Let's talk security: Answering your top questions about Android developer verification](https://developer.android.com/blog/posts/lets-talk-security-answering-your-top.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/lets-talk-security-answering-your-top) Android recently announced developer verification, an extra layer of security that deters bad actors and makes it harder for them to spread harm.
+  [arrow_forward](https://developer.android.com/blog/posts/lets-talk-security-answering-your-top.md.txt) Android recently announced developer verification, an extra layer of security that deters bad actors and makes it harder for them to spread harm.
   2 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#identity](https://developer.android.com/blog/topics/identity)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#identity](https://developer.android.com/blog/topics/identity.md.txt)
 Stay in the loop
 
 

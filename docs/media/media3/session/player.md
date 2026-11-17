@@ -13,7 +13,7 @@ includes:
 
 - Affecting playback controls, such as playing, pausing, and seeking
 - Querying properties of the currently playing media, such as the playback position
-- Managing a playlist/queue of media items
+- Managing a playlist or queue of media items
 - Configuring playback properties, such as shuffling, repeating, speed, and volume
 - Rendering video to the screen
 
@@ -21,7 +21,8 @@ Media3 also provides an implementation of the `Player` interface, called
 [`ExoPlayer`](https://developer.android.com/media/media3/exoplayer.md.txt).
 
 > [!TIP]
-> **Tip:** If you're looking to implement a media player app using ExoPlayer, check out the [Create a basic media player app using Media3 ExoPlayer](https://developer.android.com/media/implement/playback-app.md.txt) guide.
+> **Tip:** If you're looking to implement a media player app using ExoPlayer, check out the [Create a basic media player app using Media3
+> ExoPlayer](https://developer.android.com/media/implement/playback-app) guide.
 
 ## A common interface between components
 
@@ -54,7 +55,7 @@ player within a `MediaSessionService` or `MediaLibraryService` that runs as a
 foreground service. If you do so, you can separate your player from the Activity
 in your app that contains the UI for playback control. This may necessitate that
 you use a media controller.
-![A diagram showing how Media3 playback components fit into a media app architecture.](https://developer.android.com/static/guide/topics/media/images/backgroundplayback.png) **Figure 1** : The `Player` interface plays a key role in the architecture of Media3.
+![Media3 playback components in a media app architecture.](https://developer.android.com/static/guide/topics/media/images/backgroundplayback.png) **Figure 1** : The `Player` interface plays a key role in the architecture of Media3.
 
 ## Player state
 
@@ -68,7 +69,7 @@ primarily of 4 categories of information:
    - A sequence of `MediaItem` instances for playback.
    - Retrieve with [`getCurrentTimeline()`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt#getCurrentTimeline())
    - `Player` instances can provide playlist operation methods like [adding](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt#addMediaItem(androidx.media3.common.MediaItem)) or [removing](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt#removeMediaItem(int)) a `MediaItem` and convenience methods like [`getCurrentMediaItem()`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt#getCurrentMediaItem()).
-3. Play/pause properties, such as:
+3. Play and pause properties, such as:
    - [`playWhenReady`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt#getPlayWhenReady()): An indication of whether the user wants media to play when possible or remain paused
    - [Playback suppression reason](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt#getPlaybackSuppressionReason()): An indication of why playback is suppressed, if applicable, even if `playWhenReady` is `true`
    - [`isPlaying`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt#isPlaying()): An indication of whether the player is currently playing, which will only be `true` if the playback state is `STATE_READY`, `playWhenReady` is `true`, and playback is not suppressed
@@ -205,9 +206,9 @@ call [`invalidateState()`](https://developer.android.com/reference/androidx/medi
 Beyond the `getState()` method, you only need to implement methods that are used
 for commands your player declares to be available. Find the overridable handler
 method that corresponds to the functionality you want to implement. For example,
-override the [`handleSeek()`](https://developer.android.com/reference/androidx/media3/common/SimpleBasePlayer.md.txt#handleSeek(int,long,int))
-method to support operations like [`COMMAND_SEEK_IN_CURRENT_MEDIA_ITEM`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#COMMAND_SEEK_IN_CURRENT_MEDIA_ITEM())
-and [`COMMAND_SEEK_TO_NEXT_MEDIA_ITEM`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#COMMAND_SEEK_TO_NEXT_MEDIA_ITEM()).
+override the [`handleSeek()`](https://developer.android.com/reference/androidx/media3/common/SimpleBasePlayer.md.txt#handleSeek(int,long,int)) method to support operations like
+[`COMMAND_SEEK_IN_CURRENT_MEDIA_ITEM`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#COMMAND_SEEK_IN_CURRENT_MEDIA_ITEM()) and
+[`COMMAND_SEEK_TO_NEXT_MEDIA_ITEM`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#COMMAND_SEEK_TO_NEXT_MEDIA_ITEM()).
 
 ### Modify `Player` implementations
 

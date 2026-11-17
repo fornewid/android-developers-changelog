@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/releases/past-releases/as-bumblebee-re
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/releases/past-releases/llms.txt
+
 The following are new features in Android Studio Bumblebee.
 
 ## Support for KMP test execution
@@ -24,12 +26,12 @@ you have all the requirements below:
 
 The **Device Manager** is a stand-in replacement for the AVD Manager, both from
 Android Studio's Welcome Screen or after you open a project. The Device Manager
-introduces some new capabilities that make this feature more easy to create and
-manage all of your local test devices, such as:
+introduces some new capabilities that make it easier to create and manage all
+of your local test devices, such as:
 
 - A more flexible UI that supports being docked in the IDE, floating, or in a separate window, like you can with other Android Studio tool windows. This gives you easier access to your devices without obstructing other windows of the IDE.
-- A **Virtual** tab that allows you to create, manage, and deploy virtual devices; see details of each device at a glance; or quickly inspect the device in the Device File Explorer with a single click.
-- A **Physical** tab that allows you to quickly pair to a new device using ADB Wifi and see details of each physical device at a glance. You can also quickly inspect each device's file system using the Device File Explorer with a click of a button.
+- A **Virtual** tab that lets you create, manage, and deploy virtual devices; see details of each device at a glance; or quickly inspect the device in the Device File Explorer with a single click.
+- A **Physical** tab that lets you quickly pair to a new device using ADB Wifi and see details of each physical device at a glance. You can also quickly inspect each device's file system using the Device File Explorer with a click of a button.
 
 To open the new **Device Manager**, do one of the following:
 
@@ -45,8 +47,8 @@ To open the new **Device Manager**, do one of the following:
 
 ### Capture layout hierarchy snapshots
 
-Layout Inspector now allows you to save snapshots of your running app's layout
-hierarchy, so that you can easily share them with others or refer to them later.
+Layout Inspector now lets you save snapshots of your running app's layout
+hierarchy, so you can share them with others or refer to them later.
 
 Snapshots capture the data you would typically see when using the Layout
 Inspector, including a detailed 3D rendering of your layout, the component tree
@@ -56,7 +58,7 @@ component of your UI. To save a snapshot, do the following:
 1. Deploy your app to a device running API level 23 or higher
 2. Open the Layout Inspector by selecting **View \> Tool Windows \> Layout
    Inspector**.
-3. The Layout Inspector should connect to your app process automatically. If not, select the app process from the dropdown menu.
+3. The Layout Inspector should connect to your app process automatically. If not, select the app process from the drop-down menu.
 4. When you want to capture a snapshot, click **Export snapshot** ![Export
    icon](https://developer.android.com/static/studio/images/debug/export-icon.png) from the Layout Inspector toolbar.
 5. In the system dialog that appears, specify the name and location you want to save your snapshot. Make sure to save the file with a `*.li` extension.
@@ -76,19 +78,19 @@ services and for the
 Android Studio Bumblebee, you can now use the Layout Inspector to inspect
 semantic information in your Compose layouts.
 
-![Semantic information displayed via the Layout Inspector](https://developer.android.com/static/studio/images/debug/layout-inspector-semantic-info.png)
+![Semantic information displayed using the Layout Inspector](https://developer.android.com/static/studio/images/debug/layout-inspector-semantic-info.png)
 
 When selecting a Compose node, use the **Attributes** window to check whether it
 declares semantic information directly, merges semantics from its children, or
 both. To quickly identify which nodes include semantics, either declared or
-merged, use select the **View options** dropdown in the **Component Tree**
+merged, use select the **View options** drop-down in the **Component Tree**
 window and select **Highlight Semantics Layers**. This highlights only the nodes
 in the tree that include semantics, and you can use your keyboard to quickly
 navigate between them.
 
 ### Avoid Activity restarts
 
-Connecting the Layout Inspector to a running app on older versions of Android
+Connecting the Layout Inspector to a running app on earlier versions of Android
 Studio would cause your app's Activity to restart. This is required to set a
 device flag that enables inspection of your app's layouts.
 
@@ -126,7 +128,7 @@ icon](https://developer.android.com/static/studio/images/debug/export-icon.png) 
 and save the snapshot with an `*.li` extension. You can then load a Layout
 Inspector snapshot by selecting **File \> Open** from the main menu bar, and
 opening a `*.li` file. The snapshot appears in a tab in the Editor window, so
-that you can easily compare it with your running app.
+that you can compare it with your running app.
 
 ![](https://developer.android.com/static/studio/images/debug/layout-inspector-snapshot.gif)
 
@@ -146,12 +148,12 @@ Inspector \> Network Inspector** tab.
 
 ### Inspect Jobs, Alarms, and Wakelocks
 
-The **Background Task Inspector** now allows you to inspect your app's Jobs,
+The **Background Task Inspector** now lets you inspect your app's Jobs,
 Alarms, and Wakelocks, in addition to the existing support for inspecting
 Workers. Each type of asynchronous task now appears under the appropriate
-heading in the inspector tab, allowing you to easily monitor its status and
-progress. Similar to Workers, you can select a Job, Alarm, or Wakelock to
-inspect its detailed information in the **Task Details** panel.
+heading in the inspector tab, letting you monitor its status and progress.
+Similar to Workers, you can select a Job, Alarm, or Wakelock to inspect its
+detailed information in the **Task Details** panel.
 
 ![Background Task Inspector showing Jobs, Alarms, and Wakelocks](https://developer.android.com/static/studio/images/inspect/background-task-inspector.png)
 
@@ -175,24 +177,26 @@ When profiling your app using devices running Android 11 (API level 30) or
 higher, the CPU profiler now shows a new group of tracks that illustrate the
 stages of each frame under **Frame Lifecycle** : **Application** ,
 **Wait for GPU** , **Composition** and **Frames on display** . Each track labels
-the frames with a frame number and color-codes the rectangle to make it easy
-for you to visualize where a particular frame is in its lifecycle, along with
-guides you can toggle to compare with Vsync events. You can use this data to
-understand where jank might occur in your app and investigate the root causes.
+the frames with a frame number and color-codes the rectangle so you can
+visualize where a particular frame is in its lifecycle, along with guides you
+can toggle to compare with Vsync events. You can use this data to understand
+where jank might occur in your app and investigate the root causes.
 In the **Analysis** panel, there is now a **Frames** tab, which conveniently
 summarizes rendering information for all frames. For more information, see
-[UI jank detection](https://developer.android.com/studio/profile/jank-detection).
+[UI jank detection](https://developer.android.com/studio/profile/jank-detection.md.txt).
 
 ### Profileable app profiling support
 
 When profiling your app, it's important to generate accurate data with the
 version of your app that most closely resembles what your users will install. To
 do so, you can now include the
-[`<profileable>`](https://developer.android.com/guide/topics/manifest/profileable-element) property in your
+[`<profileable>`](https://developer.android.com/guide/topics/manifest/profileable-element.md.txt) property in your
 app's manifest to profile apps that are not debuggable, as shown by the
 following code.
 
-    <profileable android:shell="true"/>
+```xml
+<profileable android:shell="true"/>
+```
 
 Profileable is a manifest configuration introduced in Android 10, and is
 available for CPU and Memory profiling tasks. Using the profileable flag
@@ -200,17 +204,17 @@ instead of the debuggable flag has the key advantage of lower overhead for
 performance measurement; however, certain profiling features are not available
 for Profileable builds, such as the Event timeline, API initiated CPU profiling,
 heap dumps, or live location recordings. For more information, see
-[Profileable applications](https://developer.android.com/studio/profile#profileable-apps).
+[Profileable applications](https://developer.android.com/studio/profile.md.txt#profileable-apps).
 
 ### Collapse callstack frames
 
 You can now collapse frames that are irrelevant to your investigation when
 inspecting a **Callstack Sample Recording** in the **Profilers** tool window.
 Callstacks are useful to understand which part of the code has been executed,
-and why it was invoked. However, the callstack for a Java/Kotlin program usually
-includes not only Java/Kotlin code, but also frames from native code that can be
-distracting. To learn more about refining the callstack view, see
-[Inspect callstack frames](https://developer.android.com/studio/profile/inspect-traces#callstack-frame).
+and why it was invoked. However, the callstack for a Java or Kotlin program
+usually includes not only Java or Kotlin code, but also frames from native code
+that can be distracting. To learn more about refining the callstack view, see
+[Inspect callstack frames](https://developer.android.com/studio/profile/inspect-traces.md.txt#callstack-frame).
 
 ## Wireless debugging
 
@@ -222,15 +226,15 @@ option from the device selection menu, and then either choose a QR code or
 Pairing PIN Code. Then on your Android 11 and higher device, under
 **Developer options** , and find the **Wireless Debugging** screen and initialize
 and connect to an adb session wirelessly with Android Studio. Learn more about
-the wireless debugging setup at
-[Connect to a device over Wi-Fi (Android 11+)](https://developer.android.com/studio/command-line/adb#connect-to-a-device-over-wi-fi-android-11+).
+the wireless debugging setup at [Connect to a device over Wi-Fi (Android
+11+)](https://developer.android.com/studio/command-line/adb#connect-to-a-device-over-wi-fi-android-11+).
 
 ![Pairing a device over Wi-Fi](https://developer.android.com/static/studio/images/releases/wireless-debugging.gif)
 
 ## Compose interactive preview enabled by default
 
 Starting with Android Studio Bumblebee, the interactive preview feature is
-enabled by default. The interactive preview allows you to interact with a
+enabled by default. The interactive preview lets you interact with a
 preview as it would work on a device. The interactive preview is
 isolated from other preview in a sandbox environment, where you can
 click elements and enter user input in the preview. It's a quick way to test
@@ -311,7 +315,7 @@ tests from Android Studio or from the command line using the Gradle plugin, you
 might see different test results, such as tests passing using one runner and
 failing on another.
 
-![Discrete test runners in older versions of Android Studio](https://developer.android.com/static/studio/images/test/no-consolidated-test-runner.png)
+![Discrete test runners in earlier versions of Android Studio](https://developer.android.com/static/studio/images/test/no-consolidated-test-runner.png)
 
 If you already have instrumented test configurations saved to your project,
 they'll use Gradle to run tests on your connected device. You can create a new
@@ -324,15 +328,13 @@ When running your instrumented tests, you can confirm that Android Studio is
 using the Gradle test runner by inspecting the test output in the Test Matrix
 for Gradle task output. Although we are improving this feature with each release
 of Android Studio, there are some known issues. If you are experiencing issues,
-please
-[report a bug](https://issuetracker.google.com/issues/new?component=192708&title=%5BUTP%5D+%5BIssue+title%5D&template=840533).
-You can also [disable the new testing pipeline](https://developer.android.com/studio/releases/past-releases/as-bumblebee-release-notes#disable-utp) to revert to the
-old behavior.
+[report a bug](https://issuetracker.google.com/issues/new?component=192708&title=%5BUTP%5D+%5BIssue+title%5D&template=840533). You can also [disable the new testing pipeline](https://developer.android.com/studio/releases/past-releases/as-bumblebee-release-notes.md.txt#disable-utp)
+to revert to the old behavior.
 
 #### Android Emulator now runs directly inside Android Studio by default
 
-The Android Emulator runs directly inside Android Studio by default. This allows
-you to conserve screen real estate, navigate quickly between the emulator and
+The Android Emulator runs directly inside Android Studio by default. This lets
+you conserve screen real estate, navigate quickly between the emulator and
 the editor window using hotkeys, and organize your IDE and emulator workflow
 in a single application window.
 
@@ -346,19 +348,18 @@ Emulator** on macOS) and deselect **Launch in a tool window**.
 
 #### Disable the new testing pipeline
 
-By default Android Studio Bumblebee uses Gradle to run its instrumentation tests.
-If you're experiencing issues, you can disable this behavior as follows:
+By default, Android Studio Bumblebee uses Gradle to run its instrumentation
+tests. If you're experiencing issues, you can disable this behavior as follows:
 
 1. Select **File \> Settings \> Build, Execution, Deployment \> Testing** (or **Android Studio \> Preferences \> Build, Execution, Deployment \> Testing** on MacOS.)
-2. Uncheck the box next to **Run Android instrumented tests using Gradle** and click **OK**.
+2. Clear the box next to **Run Android instrumented tests using Gradle** and click **OK**.
 
 You can also revert to older behaviors by doing one of the following:
 
 - When running Gradle tasks from the command line, use the following command line parameter: `-Pandroid.experimental.androidTest.useUnifiedTestPlatform=false`
 - Add the following parameter to your project's `gradle.properties` file: `android.experimental.androidTest.useUnifiedTestPlatform=false`
 
-To help resolve issues that you might be expereincing, please
-[report a bug](https://issuetracker.google.com/issues/new?component=192708&title=%5BUTP%5D+%5BIssue+title%5D&template=840533).
+To help resolve issues that you might be experiencing, [report a bug](https://issuetracker.google.com/issues/new?component=192708&title=%5BUTP%5D+%5BIssue+title%5D&template=840533).
 
 ## Patch releases
 
@@ -370,7 +371,7 @@ This minor update includes the following bug fixes:
 - Android Gradle plugin
   - Duplicate class issues reported by R8
 - Build Variants
-  - `versionNameSuffix` no longer works if the variant's version name is set via the new onVariants API
+  - `versionNameSuffix` no longer works if the variant's version name is set using the new onVariants API
 - Compose Preview
   - Performance and stability related bug fixes.
   - Solve freeze that occurred occasionally when using the Live Edit of Literals feature.

@@ -36,7 +36,7 @@ To set up a virtual device to run Wear OS 6, follow these steps.
 > [!NOTE]
 > **Note:** Unlike in previous versions of Wear OS, the emulator that runs Wear OS 6 **uses a signed build**. This means that you can't get root access to the emulator image.
 
-1. Download the [latest preview release of Android Studio](https://developer.android.com/studio/preview).
+1. Download the [latest preview release of Android Studio](https://developer.android.com/studio/preview.md.txt).
 
    > [!NOTE]
    > **Note:** You need Android Studio Narwhal or later to get the emulator for Wear OS 6.

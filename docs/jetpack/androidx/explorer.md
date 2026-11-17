@@ -4,6 +4,8 @@ url: https://developer.android.com/jetpack/androidx/explorer
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 Select a category:
 <button value="all" default="">All</button> <button value="popular" default="">Popular</button> <button value="beyond">Beyond phones</button> <button value="data">Data</button> <button value="graphics">Graphics</button>   
 

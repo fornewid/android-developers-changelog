@@ -4,10 +4,12 @@ url: https://developer.android.com/develop/background-work/services/fgs
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/background-work/services/fgs/llms.txt
+
 Foreground services let you asynchronously perform operations that are
 noticeable to the user. Foreground services show a [status bar
-notification](https://developer.android.com/develop/ui/views/notifications), to make users aware that your
-app is performing a task in the foreground and is consuming system resources.
+notification](https://developer.android.com/develop/ui/views/notifications) to make users aware that your app is performing a
+task in the foreground and is consuming system resources.
 
 Examples of apps that use foreground services include the following:
 
@@ -18,18 +20,18 @@ Only use a foreground service when your app needs to perform a task
 that is noticeable by the user, even when they're not directly interacting with
 the app. If the action is of low enough importance that you want to use a
 minimum-priority notification, you probably want to use a different
-[background work option](https://developer.android.com/develop/background-work/background-tasks).
+[background work option](https://developer.android.com/develop/background-work/background-tasks.md.txt).
 
 This guide explains the following areas:
 
-- [Declare foreground services and request
-  permissions](https://developer.android.com/develop/background-work/services/fgs/declare)
-- [Launch a foreground service](https://developer.android.com/develop/background-work/services/fgs/launch)
-- [Stop a foreground service](https://developer.android.com/develop/background-work/services/fgs/stop-fgs)
+- [Declare foreground services and request permissions](https://developer.android.com/develop/background-work/services/fgs/declare.md.txt)
+- [Launch a foreground service](https://developer.android.com/develop/background-work/services/fgs/launch.md.txt)
+- [Stop a foreground service](https://developer.android.com/develop/background-work/services/fgs/stop-fgs.md.txt)
 - [Handle when a user stops an app that has a foreground
   service](https://developer.android.com/develop/background-work/services/fgs/handle-user-stopping)
-- [Restrictions on starting a foreground service from the background](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start)
-- [Foreground service types](https://developer.android.com/develop/background-work/services/fgs/service-types)
-- [Foreground service timeout behavior](https://developer.android.com/develop/background-work/services/fgs/timeout)
-- [Foreground service troubleshooting](https://developer.android.com/develop/background-work/services/fgs/troubleshooting)
-- [Changes to foreground services](https://developer.android.com/develop/background-work/services/fgs/changes)
+- [Restrictions on starting a foreground service from the
+  background](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start)
+- [Foreground service types](https://developer.android.com/develop/background-work/services/fgs/service-types.md.txt)
+- [Foreground service timeout behavior](https://developer.android.com/develop/background-work/services/fgs/timeout.md.txt)
+- [Foreground service troubleshooting](https://developer.android.com/develop/background-work/services/fgs/troubleshooting.md.txt)
+- [Changes to foreground services](https://developer.android.com/develop/background-work/services/fgs/changes.md.txt)

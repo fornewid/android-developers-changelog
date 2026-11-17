@@ -4,11 +4,13 @@ url: https://developer.android.com/games/agdk/game-activity/use-text-input
 source: md.txt
 ---
 
-# TextInput in GameActivity
-Part of [Android Game Development Kit](https://developer.android.com/games/agdk/overview).
+> Documentation index: https://developer.android.com/games/agdk/game-activity/llms.txt
 
-[GameActivity](https://developer.android.com/reference/games/game-activity) integrates
-[GameTextInput](https://developer.android.com/reference/games/game-text-input) by:
+# TextInput in GameActivity
+Part of [Android Game Development Kit](https://developer.android.com/games/agdk/overview.md.txt).
+
+[GameActivity](https://developer.android.com/reference/games/game-activity.md.txt) integrates
+[GameTextInput](https://developer.android.com/reference/games/game-text-input.md.txt) by:
 
 - providing a wrapper
 - creating a flag for new text input event availability
@@ -20,7 +22,7 @@ components for user text input purpose:
 ![alt_text](https://developer.android.com/static/games/agdk/game-activity/images/GameActivityTextInput.png "TextInput paths")
 
 > [!NOTE]
-> **Note:** Bypassing GameActivity and directly creating a `GameTextInput` instance is out of the scope of this document. For more information about that usage, refer to the [GameTextInput documentation](https://developer.android.com/games/agdk/add-support-for-text-input).
+> **Note:** Bypassing GameActivity and directly creating a `GameTextInput` instance is out of the scope of this document. For more information about that usage, refer to the [GameTextInput documentation](https://developer.android.com/games/agdk/add-support-for-text-input.md.txt).
 
 There are three broad steps to using the built-in `GameTextInput` library:
 
@@ -36,8 +38,8 @@ The rest of this document describes them in detail. For an example of
 
 `GameActivity` provides two functions to control the soft keyboard on the UI:
 
-- [`GameActivity_showSoftInput()`](https://developer.android.com/reference/games/game-activity/group/game-activity#gameactivity_showsoftinput) displays the soft keyboard.
-- [`GameActivity_hideSoftInput()`](https://developer.android.com/reference/games/game-activity/group/game-activity#gameactivity_hidesoftinput) hides the soft keyboard.
+- [`GameActivity_showSoftInput()`](https://developer.android.com/reference/games/game-activity/group/game-activity.md.txt#gameactivity_showsoftinput) displays the soft keyboard.
+- [`GameActivity_hideSoftInput()`](https://developer.android.com/reference/games/game-activity/group/game-activity.md.txt#gameactivity_hidesoftinput) hides the soft keyboard.
 
 Refer to the API reference docs for their definitions. After the
 keyboard is displayed, the application's UI may look similar to the following:
@@ -48,8 +50,8 @@ keyboard is displayed, the application's UI may look similar to the following:
 
 Soft keyboard events get passed from `GameTextInput` on the Java side to the
 C/C++ side through the JNI, then travel up to GameActivity's wrapper, finally
-reflecting in the [`android_app::textInputState`](https://developer.android.com/reference/games/game-activity/structandroid/app#textinputstate) flag
-implemented in [`native_app_glue`](https://developer.android.com/reference/games/game-activity/group/android-native-app-glue). Applications
+reflecting in the [`android_app::textInputState`](https://developer.android.com/reference/games/game-activity/structandroid/app.md.txt#textinputstate) flag
+implemented in [`native_app_glue`](https://developer.android.com/reference/games/game-activity/group/android-native-app-glue.md.txt). Applications
 should poll this flag periodically to perform the intended processing:
 
 - GameActivity only sets the `android_app::textInputState` flag.
@@ -59,42 +61,44 @@ should poll this flag periodically to perform the intended processing:
 Note that `android_app::textInputState` does not differentiate between single
 and multiple text input events.
 
-For a simple example, the following code polls the `textInputState` flag after
+For an example, the following code polls the `textInputState` flag after
 handling app cycle commands, touch events, and key events:
 
-    while (true) {
-       // Read all pending events.
-       int events;
-       struct android_poll_source* source;
+```c++
+while (true) {
+   // Read all pending events.
+   int events;
+   struct android_poll_source* source;
 
-       while ((ALooper_pollOnce(engine.animating ? 0 : -1, nullptr, &events,
-                                     (void**)&source)) >= 0) {
-           // Process this event, etc.
-           ...
-           // Check if we are exiting.
-           if (app->destroyRequested != 0) {
-               engine_term_display(&engine);
-               return;
-           }
+   while ((ALooper_pollOnce(engine.animating ? 0 : -1, nullptr, &events,
+                                 (void**)&source)) >= 0) {
+       // Process this event, etc.
+       ...
+       // Check if we are exiting.
+       if (app->destroyRequested != 0) {
+           engine_term_display(&engine);
+           return;
        }
-       engine_handle_input(app);
+   }
+   engine_handle_input(app);
 
-       // Process text input events if there is any outstanding.
-       if (app->textInputState) {
-           // process TextInput events.
-              ...
-           //reset the textInputState flag
-           app->textInputState = 0;
-       }
-       if (engine.animating) {
-             // draw frames.
-       }
-    }
+   // Process text input events if there is any outstanding.
+   if (app->textInputState) {
+       // process TextInput events.
+          ...
+       //reset the textInputState flag
+       app->textInputState = 0;
+   }
+   if (engine.animating) {
+         // draw frames.
+   }
+}
+```
 
 ## Retrieve the user input text
 
 The input texts and other states are accumulated in GameTextInput's
-internal buffer, [`GameTextInput::currentState_`](https://developer.android.com/reference/games/game-text-input/struct/game-text-input-state). Applications
+internal buffer, [`GameTextInput::currentState_`](https://developer.android.com/reference/games/game-text-input/struct/game-text-input-state.md.txt). Applications
 can use one of the following ways to retrieve its content:
 
 - GameActivity's wrapper API (recommended)
@@ -104,48 +108,52 @@ can use one of the following ways to retrieve its content:
 
 Applications acquire the current text input with the typical callback mechanism:
 
-- Implement a callback function of type [`GameTextInputGetStateCallback`](https://developer.android.com/reference/games/game-text-input/group/game-text-input#gametextinputgetstatecallback) to process text input events.
+- Implement a callback function of type [`GameTextInputGetStateCallback`](https://developer.android.com/reference/games/game-text-input/group/game-text-input.md.txt#gametextinputgetstatecallback) to process text input events.
 - Call `GameActivity_getInputState()` when there is one or multiple outstanding events.
-- Clear the [`android_app::textInputState`](https://developer.android.com/reference/games/game-activity/structandroid/app#textinputstate) after the events are processed.
+- Clear the [`android_app::textInputState`](https://developer.android.com/reference/games/game-activity/structandroid/app.md.txt#textinputstate) after the events are processed.
 
 Continuing with the snippet in the previous section, the following code
 acquires a reference to the text input buffer, processes it (not shown), and
 resets the event flag:
 
-    extern "C" void GameTextInputGetStateCB(void *ctx, const struct GameTextInputState *state) {
-        auto* engine = (struct engine*)ctx;
-        if (!engine || !state) return;
+```c++
+extern "C" void GameTextInputGetStateCB(void *ctx, const struct GameTextInputState *state) {
+    auto* engine = (struct engine*)ctx;
+    if (!engine || !state) return;
 
-        // Process the text event(s).
-        LOGI("UserInputText: %s", state->text_UTF8);
+    // Process the text event(s).
+    LOGI("UserInputText: %s", state->text_UTF8);
 
-        // Clear the text input flag.
-        engine->app->textInputState = 0;
-    }
+    // Clear the text input flag.
+    engine->app->textInputState = 0;
+}
+```
 
 In the game loop shown in the previous section, check and process text
-with the above text input handler:
+with the preceding text input handler:
 
-    if (state->textInputState) {
-        GameActivity_getTextInputState(
-            app->activity,
-            GameTextInputGetStateCB,  // App's event handler shown above.
-            &engine // Context to the GameTextInputGetStateCB function.
-        );
-    }
+```c++
+if (state->textInputState) {
+    GameActivity_getTextInputState(
+        app->activity,
+        GameTextInputGetStateCB,  // App's event handler shown above.
+        &engine // Context to the GameTextInputGetStateCB function.
+    );
+}
+```
 
 Applications can optionally initialize the `GameTextInputState` content with
-[`GameActivity_setTextInputState()`](https://developer.android.com/reference/games/game-activity/group/game-activity#gameactivity_settextinputstate).
+[`GameActivity_setTextInputState()`](https://developer.android.com/reference/games/game-activity/group/game-activity.md.txt#gameactivity_settextinputstate).
 
 ### Get TextInput state with GameTextInput API
 
 Applications can also directly use `GameTextInput` API to retrieve the current
 `GameTextInputState`:
 
-- Use [`GameActivity_getTextInput()`](https://developer.android.com/reference/games/game-activity/group/game-activity#gameactivity_gettextinput) to get GameActivity's internal `GameTextInput` instance.
-- With the `GameTextInput` instance in hand, call [`GameTextInput_getState()`](https://developer.android.com/reference/games/game-text-input/group/game-text-input#gametextinput_getstate) to get the same `GameTextInputState` content.
+- Use [`GameActivity_getTextInput()`](https://developer.android.com/reference/games/game-activity/group/game-activity.md.txt#gameactivity_gettextinput) to get GameActivity's internal `GameTextInput` instance.
+- With the `GameTextInput` instance in hand, call [`GameTextInput_getState()`](https://developer.android.com/reference/games/game-text-input/group/game-text-input.md.txt#gametextinput_getstate) to get the same `GameTextInputState` content.
 
-Again, note that applications should not initialize `GameTextInput`
+Again, note that applications shouldn't initialize `GameTextInput`
 directly; `GameActivity` already does that during its initialization process.
 
 The callback mechanism is the same as that used by the GameActivity's
@@ -156,11 +164,11 @@ The callback mechanism is the same as that used by the GameActivity's
 Developers might find the following resources helpful when creating
 `GameActivity` applications:
 
-- [GameActivity get started](https://developer.android.com/games/agdk/game-activity/get-started)
-- [GameTextInput user documentation](https://developer.android.com/games/agdk/add-support-for-text-input)
+- [GameActivity get started](https://developer.android.com/games/agdk/game-activity/get-started.md.txt)
+- [GameTextInput user documentation](https://developer.android.com/games/agdk/add-support-for-text-input.md.txt)
 - [agdkTunnel sample](https://github.com/android/games-samples/tree/main/agdk/agdktunnel)
-- [Jetpack reference documentation for GameActivity](https://developer.android.com/reference/games/game-activity)
-- [Jetpack reference documentation for GameTextInput](https://developer.android.com/reference/games/game-text-input)
+- [Jetpack reference documentation for GameActivity](https://developer.android.com/reference/games/game-activity.md.txt)
+- [Jetpack reference documentation for GameTextInput](https://developer.android.com/reference/games/game-text-input.md.txt)
 - [AGDK source code](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/refs/heads/master/game-activity/)
 
 ## Feedback

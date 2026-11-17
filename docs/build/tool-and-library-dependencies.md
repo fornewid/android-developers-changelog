@@ -9,7 +9,7 @@ source: md.txt
 Build dependencies are external components required to successfully build your
 project. A build can depend on [libraries, plugins, subprojects](https://developer.android.com/build/gradle-build-overview.md.txt#external-dependencies), the Android
 SDK, tooling such as [Kotlin](http://kotlinlang.org) and [Java](https://www.java.com/)
-compilers, development environments like [Android Studio](https://developer.android.com/studio), and
+compilers, development environments like [Android Studio](https://developer.android.com/studio.md.txt), and
 [Gradle](https://gradle.org/) itself.
 
 Each dependency can itself require other dependencies. We call these *transitive

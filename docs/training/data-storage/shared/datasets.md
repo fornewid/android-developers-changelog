@@ -38,23 +38,23 @@ The next step depends on whether data is available.
 
 ### Dataset available
 
-If the dataset is already available on the device, then access it from the system,
-as shown in the following code snippet:
+If the dataset is already available on the device, then access it from the
+system, as shown in the following code snippet:
 
 ### Kotlin
 
 ```kotlin
 val blobStoreManager =
-        getSystemService(Context.BLOB_STORE_SERVICE) as BlobStoreManager
+      getSystemService(Context.BLOB_STORE_SERVICE) as BlobStoreManager
 // The label "Sample photos" is visible to the user.
 val blobHandle = BlobHandle.createWithSha256(sha256DigestBytes,
-        "Sample photos",
-        System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1),
-        "photoTrainingDataset")
+      "Sample photos",
+      System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1),
+      "photoTrainingDataset")
 try {
-    val input = ParcelFileDescriptor.AutoCloseInputStream(
-            blobStoreManager.openBlob(blobHandle))
-    useDataset(input)
+  val input = ParcelFileDescriptor.AutoCloseInputStream(
+          blobStoreManager.openBlob(blobHandle))
+  useDataset(input)
 }
 ```
 
@@ -62,47 +62,47 @@ try {
 
 ```java
 BlobStoreManager blobStoreManager =
-        ((BlobStoreManager) getSystemService(Context.BLOB_STORE_SERVICE));
+      ((BlobStoreManager) getSystemService(Context.BLOB_STORE_SERVICE));
 if (blobStoreManager != null) {
-    // The label "Sample photos" is visible to the user.
-    BlobHandle blobHandle = BlobHandle.createWithSha256(
-            sha256DigestBytes,
-            "Sample photos",
-            System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1),
-            "photoTrainingDataset");
-    try (InputStream input = new ParcelFileDescriptor.AutoCloseInputStream(
-            blobStoreManager.openBlob(blobHandle))) {
-        useDataset(input);
-    }
+  // The label "Sample photos" is visible to the user.
+  BlobHandle blobHandle = BlobHandle.createWithSha256(
+          sha256DigestBytes,
+          "Sample photos",
+          System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1),
+          "photoTrainingDataset");
+  try (InputStream input = new ParcelFileDescriptor.AutoCloseInputStream(
+          blobStoreManager.openBlob(blobHandle))) {
+      useDataset(input);
+  }
 }
 ```
 
 ### Dataset unavailable
 
-If the dataset isn't available, then download it from the server and contribute it
-to the system, as shown in the following code snippet:
+If the dataset isn't available, then download it from the server and contribute
+it to the system, as shown in the following code snippet:
 
 ### Kotlin
 
 ```kotlin
 val sessionId = blobStoreManager.createSession(blobHandle)
 try {
-    val session = blobStoreManager.openSession(sessionId)
-    try {
-        // For this example, write 200 MiB at the beginning of the file.
-        val output = ParcelFileDescriptor.AutoCloseOutputStream(
-                session.openWrite(0, 1024 * 1024 * 200))
-        writeDataset(output)
+  val session = blobStoreManager.openSession(sessionId)
+  try {
+      // For this example, write 200 MiB at the beginning of the file.
+      val output = ParcelFileDescriptor.AutoCloseOutputStream(
+              session.openWrite(0, 1024 * 1024 * 200))
+      writeDataset(output)
 
-        session.apply {
-            allowSameSignatureAccess()
-            allowPackageAccess(your-app-package,
-                    app-certificate)
-            allowPackageAccess(some-other-app-package,
-                    app-certificate)
-            commit(mainExecutor, callback)
-        }
-    }
+      session.apply {
+          allowSameSignatureAccess()
+          allowPackageAccess(your-app-package,
+                  app-certificate)
+          allowPackageAccess(some-other-app-package,
+                  app-certificate)
+          commit(mainExecutor, callback)
+      }
+  }
 }
 ```
 
@@ -111,17 +111,17 @@ try {
 ```java
 long sessionId = blobStoreManager.createSession(blobHandle);
 try (BlobStoreManager.Session session =
-        blobStoreManager.openSession(sessionId)) {
-    // For this example, write 200 MiB at the beginning of the file.
-    try (OutputStream output = new ParcelFileDescriptor.AutoCloseOutputStream(
-            session.openWrite(0, 1024 * 1024 * 200)))
-        writeDataset(output);
-        session.allowSameSignatureAccess();
-        session.allowPackageAccess(your-app-package,
-                    app-certificate);
-        session.allowPackageAccess(some-other-app-package,
-                    app-certificate);
-        session.commit(getMainExecutor(), callback);
-    }
+      blobStoreManager.openSession(sessionId)) {
+  // For this example, write 200 MiB at the beginning of the file.
+  try (OutputStream output = new ParcelFileDescriptor.AutoCloseOutputStream(
+          session.openWrite(0, 1024 * 1024 * 200)))
+      writeDataset(output);
+      session.allowSameSignatureAccess();
+      session.allowPackageAccess(your-app-package,
+                  app-certificate);
+      session.allowPackageAccess(some-other-app-package,
+                  app-certificate);
+      session.commit(getMainExecutor(), callback);
+  }
 }
 ```

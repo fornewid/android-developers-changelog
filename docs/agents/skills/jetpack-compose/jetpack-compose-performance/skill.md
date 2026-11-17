@@ -68,7 +68,7 @@ place:
 **MUST** read [references/lazy-layouts.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/lazy-layouts.md.txt).
 
 - **Lazy Layout Scope Guard** : Directives for `key` and `contentType` apply **strictly** to Lazy containers (`LazyColumn`, `LazyRow`, `LazyGrid`). Never flag standard non-lazy containers (`Column`, `Row`, `Box`) iterating over collections.
-- **Mandatory `contentType` and Primitive `key`** : Always specify both primitive `key`s (`Int`, `Long`, `String`) **and** `contentType`s for all items in lazy layouts (`LazyColumn`, `LazyRow`, `LazyGrid`). When using `items` or `itemsIndexed`, never omit `contentType`: `contentType = { _, item -> item.type }`. Omitting `contentType` prevents Compose from reusing composition slots during scrolling.
+- **Mandatory `contentType` and Primitive `key`** : Always specify both primitive `key`s (`Int`, `Long`, `String`) **and** `contentType`s for all items in lazy layouts (`LazyColumn`, `LazyRow`, `LazyGrid`). Never omit `contentType`: use `contentType = { item -> item.type }` with `items` and `contentType = { _, item -> item.type }` with `itemsIndexed`. Omitting `contentType` prevents Compose from reusing composition slots during scrolling.
 - **In-Item Index Lookups** : Replace `list.indexOf(item)` with `itemsIndexed` to eliminate `O(N²)` lookups during layout passes.
 - **Observable Selection \& State Queries** : Convert selection tracking from `mutableStateListOf` to an immutable `Set` in `MutableState` (`mutableStateOf(emptySet<String>())`), `mutableStateSetOf()`, or Map for `O(1)` lookups. Pass lambda providers (`isSelected: () -> Boolean`) to leaf composables to isolate recomposition from parent `items` scopes.
 - **Propagate CompositionLocals in Lazy Items** : Avoid querying `CompositionLocal`s (`LocalContext.current`, `LocalDensity.current`, `LocalSharedTransitionScope.current`, scopes, etc.) inside individual lazy item composables; resolve them once in the parent container or screen and propagate the resolved values down as parameters.
@@ -90,7 +90,7 @@ place:
 - **Lambda Providers** : Pass lambda providers (`() -> Float`) instead of raw animated values to child composables to keep state reads deferred to Draw or Layout.
 - **Persistent `Animatable` in Nodes** : Store `Animatable` as a persistent member property on `Modifier.Node` and launch in `onAttach()` using `coroutineScope.launch`.
 
-## 5. Effects, lifecycle, and threading ([effects-and-threading.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/effects-and-threading.md.txt))
+## 5. Effects, lifecycle, and threading ([references/effects-and-threading.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/effects-and-threading.md.txt))
 
 **MANDATORY** : Before flagging or fixing any issue in this category, you
 **MUST** read [references/effects-and-threading.md](https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/effects-and-threading.md.txt).

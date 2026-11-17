@@ -4,15 +4,15 @@ url: https://developer.android.com/develop/background-work/background-tasks/test
 source: md.txt
 ---
 
-WorkManager provides APIs for testing [`Worker`](https://developer.android.com/reference/kotlin/androidx/work/Worker.md.txt),
-[`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker.md.txt), and the
-`ListenableWorker` variants
-([`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker.md.txt)
-and [`RxWorker`](https://developer.android.com/reference/androidx/work/RxWorker.md.txt)).
+> Documentation index: https://developer.android.com/develop/background-work/background-tasks/llms.txt
+
+WorkManager provides APIs for testing [`Worker`](https://developer.android.com/reference/kotlin/androidx/work/Worker.md.txt), [`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker.md.txt),
+and the `ListenableWorker` variants ([`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker.md.txt) and
+[`RxWorker`](https://developer.android.com/reference/androidx/work/RxWorker.md.txt)).
 
 ## Testing Workers
 
-Let's say we have a `Worker` which looks like this:
+Suppose you have a `Worker` that looks like this:
 
 
 ```kotlin
@@ -29,10 +29,9 @@ class SleepWorker(context: Context, parameters: WorkerParameters) :
 
 <br />
 
-To test this `Worker`, you can use
-[`TestWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestWorkerBuilder.md.txt). This
-builder helps build instances of `Worker` that can be used for the purpose of
-testing business logic.
+To test this `Worker`, you can use [`TestWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestWorkerBuilder.md.txt). This builder helps
+build instances of `Worker` that can be used for the purpose of testing business
+logic.
 
 
 ```kotlin
@@ -124,20 +123,16 @@ class SleepWorkerTest {
 <br />
 
 For more details on the `TestWorkerBuilder` API, see the reference page for
-[`TestListenableWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestListenableWorkerBuilder.md.txt),
-the superclass of `TestWorkerBuilder`.
+[`TestListenableWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestListenableWorkerBuilder.md.txt), the superclass of `TestWorkerBuilder`.
 
 ## Testing ListenableWorker and its variants
 
-To test a [`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker.md.txt) or its
-variants ([`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker.md.txt)
-and [`RxWorker`](https://developer.android.com/reference/androidx/work/RxWorker.md.txt)), use
-[`TestListenableWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestListenableWorkerBuilder.md.txt).
-The main difference between `TestWorkerBuilder` and a
-[`TestListenableWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestListenableWorkerBuilder.md.txt)
-is that `TestWorkerBuilder` lets you specify the background `Executor` used to
-run the `Worker`, whereas `TestListenableWorkerBuilder` relies on the
-threading logic of the `ListenableWorker` implementation.
+To test a [`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker.md.txt) or its variants ([`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker.md.txt) and
+[`RxWorker`](https://developer.android.com/reference/androidx/work/RxWorker.md.txt)), use [`TestListenableWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestListenableWorkerBuilder.md.txt). The main difference
+between `TestWorkerBuilder` and a [`TestListenableWorkerBuilder`](https://developer.android.com/reference/androidx/work/testing/TestListenableWorkerBuilder.md.txt) is that
+`TestWorkerBuilder` lets you specify the background `Executor` used to run the
+`Worker`, whereas `TestListenableWorkerBuilder` relies on the threading logic of
+the `ListenableWorker` implementation.
 
 For example, suppose we need to test a `CoroutineWorker` which looks like this:
 

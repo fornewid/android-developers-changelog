@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/connectivity/network-ops
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/connectivity/network-ops/llms.txt
+
 The guides in this section explain the basic tasks involved in connecting to the
 network, monitoring the network connection (including connection changes), and
 giving users control over an app\\'s network usage. They also describe how to
@@ -15,19 +17,19 @@ network traffic.
 
 To learn more about this topic, see the following related guides:
 
-- [Reduce network battery drain: Overview](https://developer.android.com/develop/connectivity/preserving-battery)
-- [Minimize the effect of regular updates](https://developer.android.com/develop/connectivity/minimize-effect-regular-updates)
+- [Reduce network battery drain: Overview](https://developer.android.com/develop/connectivity/preserving-battery.md.txt)
+- [Minimize the effect of regular updates](https://developer.android.com/develop/connectivity/minimize-effect-regular-updates.md.txt)
 - [Web-based content](https://developer.android.com/guide/webapps)
 
 ## Guides
 
-**[Connect to the network](https://developer.android.com/develop/connectivity/network-ops/connecting)**
+**[Connect to the network](https://developer.android.com/develop/connectivity/network-ops/connecting.md.txt)**
 :   Learn how to connect to the network, choose an HTTP client, and perform
     network operations outside of the UI thread.
 
-**[Manage network usage](https://developer.android.com/develop/connectivity/network-ops/managing)**
+**[Manage network usage](https://developer.android.com/develop/connectivity/network-ops/managing.md.txt)**
 :   Learn how to check a device\\'s network connection, create a preference UI
     for controlling network usage, and respond to connection changes.
 
-**[Parse XML data](https://developer.android.com/develop/connectivity/network-ops/xml)**
+**[Parse XML data](https://developer.android.com/develop/connectivity/network-ops/xml.md.txt)**
 :   Learn how to parse and consume XML data.

@@ -4,52 +4,62 @@ url: https://developer.android.com/games/agdk/add-touch-support
 source: md.txt
 ---
 
-# Add touch support
+> Documentation index: https://developer.android.com/games/llms.txt
 
-To handle touch input events, read the array[`motionEvents`](https://developer.android.com/reference/android/view/MotionEvent)in your game loop. These contain events that have happened since the last time these arrays were cleared. The number of events contained is stored in`motionEventsCount`.
-| **Note:** Prior to the addition of`GameActivity`, the`AInputQueue* inputQueue`field was used to handle input events. With`GameActivity`, this field has been removed from the`android_app`and no longer used for handling input events.
+To handle touch input events, read the [`motionEvents`](https://developer.android.com/reference/android/view/MotionEvent.md.txt) array in your game
+loop. This array contains events that happened since the last time the array was
+cleared. The `motionEventsCount` field stores the number of events.
 
-1. Iterate and handle each event in your game loop. In this example, the following code iterates`motionEvents`and handles them via`handle_event`:
+> [!NOTE]
+> **Note:** Prior to the addition of `GameActivity`, the `AInputQueue* inputQueue` field was used to handle input events. With `GameActivity`, this field has been removed from the `android_app` and no longer used for handling input events.
 
-       for(size_t i = 0; i < mApp->motionEventsCount; ++i) {
-         GameActivityMotionEvent* motionEvent = mApp->motionEvents[i];
+1. Iterate and handle each event in your game loop. In this example, the
+   following code iterates `motionEvents` and handles them using
+   `handle_event`:
 
-         int action = motionEvent->action;
-         int actionMasked = action & AMOTION_EVENT_ACTION_MASK;
-         int ptrIndex = (action & AMOTION_EVENT_ACTION_POINTER_INDEX_MASK) >>
-           AMOTION_EVENT_ACTION_POINTER_INDEX_SHIFT;
+   ```c++
+   for(size_t i = 0; i < mApp->motionEventsCount; ++i) {
+     GameActivityMotionEvent* motionEvent = mApp->motionEvents[i];
 
-         struct CookedEvent ev;
-         memset(&ev, 0, sizeof(ev));
+     int action = motionEvent->action;
+     int actionMasked = action & AMOTION_EVENT_ACTION_MASK;
+     int ptrIndex = (action & AMOTION_EVENT_ACTION_POINTER_INDEX_MASK) >>
+       AMOTION_EVENT_ACTION_POINTER_INDEX_SHIFT;
 
-         if (actionMasked == AMOTION_EVENT_ACTION_DOWN ||
-           actionMasked == AMOTION_EVENT_ACTION_POINTER_DOWN) {
-             ev.type = COOKED_EVENT_TYPE_POINTER_DOWN;
-         } else if (actionMasked == AMOTION_EVENT_ACTION_UP ||
-           actionMasked == AMOTION_EVENT_ACTION_POINTER_UP) {
-             ev.type = COOKED_EVENT_TYPE_POINTER_UP;
-         } else {
-             ev.type = COOKED_EVENT_TYPE_POINTER_MOVE;
-         }
+     struct CookedEvent ev;
+     memset(&ev, 0, sizeof(ev));
 
-         ev.motionPointerId = motionEvent->pointers[ptrIndex].id;
-         ev.motionIsOnScreen = motionEvent->source == AINPUT_SOURCE_TOUCHSCREEN;
-         ev.motionX = GameActivityPointerInfo_getX(
-           &motionEvent->pointers[ptrIndex]);
-         ev.motionY = GameActivityPointerInfo_getY(
-           &motionEvent->pointers[ptrIndex]);
+     if (actionMasked == AMOTION_EVENT_ACTION_DOWN ||
+       actionMasked == AMOTION_EVENT_ACTION_POINTER_DOWN) {
+         ev.type = COOKED_EVENT_TYPE_POINTER_DOWN;
+     } else if (actionMasked == AMOTION_EVENT_ACTION_UP ||
+       actionMasked == AMOTION_EVENT_ACTION_POINTER_UP) {
+         ev.type = COOKED_EVENT_TYPE_POINTER_UP;
+     } else {
+         ev.type = COOKED_EVENT_TYPE_POINTER_MOVE;
+     }
 
-         if (ev.motionIsOnScreen) {
-           // Use screen size as the motion range.
-           ev.motionMinX = 0.0f;
-           ev.motionMaxX = SceneManager::GetInstance()->GetScreenWidth();
-           ev.motionMinY = 0.0f;
-           ev.motionMaxY = SceneManager::GetInstance()->GetScreenHeight();
-         }
+     ev.motionPointerId = motionEvent->pointers[ptrIndex].id;
+     ev.motionIsOnScreen = motionEvent->source == AINPUT_SOURCE_TOUCHSCREEN;
+     ev.motionX = GameActivityPointerInfo_getX(
+       &motionEvent->pointers[ptrIndex]);
+     ev.motionY = GameActivityPointerInfo_getY(
+       &motionEvent->pointers[ptrIndex]);
 
-         handle_event(&ev);
-       }
+     if (ev.motionIsOnScreen) {
+       // Use screen size as the motion range.
+       ev.motionMinX = 0.0f;
+       ev.motionMaxX = SceneManager::GetInstance()->GetScreenWidth();
+       ev.motionMinY = 0.0f;
+       ev.motionMaxY = SceneManager::GetInstance()->GetScreenHeight();
+     }
 
-2. When you are done, remember to clear the queue of events that you have just handled:
+     handle_event(&ev);
+   }
+   ```
+2. When you are done, remember to clear the queue of events that you have just
+   handled:
 
-       android_app_clear_motion_events(mApp);
+   ```c++
+   android_app_clear_motion_events(mApp);
+   ```

@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/releases/past-releases/as-arctic-fox-r
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/releases/past-releases/llms.txt
+
 Android Studio Arctic Fox is a major release that includes a variety of new
 features and improvements.
 
@@ -29,7 +31,7 @@ Going forward, here's how the Android Studio version number is determined:
 
 - The first two number groups represent the version of the IntellIj platform that a particular Android Studio release is based on. For this release, it's version *2020.3*.
 - The third number group represents the Studio major version, starting at *1* and incrementing by one for every major release.
-- The fourth number group represents the Studio minor/patch version, starting at *1* and incrementing by one for every minor release.
+- The fourth number group represents the Studio minor or patch version, starting at *1* and incrementing by one for every minor release.
 - We are also giving each major release a version name, incrementing from A to Z based on animal names. This release is named *Arctic Fox*.
 
 ### Updated version numbering for Android Gradle plugin
@@ -38,8 +40,7 @@ We have changed the version numbering for Android Gradle plugin (AGP) to
 more closely match the underlying Gradle build tool. Therefore, *AGP 7.0*
 is the next release after *AGP 4.2*.
 
-For more details, see [Versioning changes](https://developer.android.com/studio/releases/gradle-plugin#versioning-update)
-in the AGP release notes.
+For more details, see [Versioning changes](https://developer.android.com/studio/releases/gradle-plugin#versioning-update) in the AGP release notes.
 
 ## Android Gradle plugin 7.0.0
 
@@ -49,12 +50,12 @@ more, read the [full Android Gradle plugin release notes](https://developer.andr
 ### Unit tests now uses Gradle test runner
 
 To improve overall consistency of test executions, Android Studio now uses
-Gradle to run all unit tests by default. In many cases, this change will not
+Gradle to run all unit tests by default. In many cases, this change won't
 affect your testing workflow in the IDE.
 
 For example, when you click the **Run** command in the context menu (visible
 when you right-click on a test class) or its corresponding gutter action
-![](https://developer.android.com/static/studio/images/buttons/gutter-action-run-test.png),
+![Run test gutter icon](https://developer.android.com/static/studio/images/buttons/gutter-action-run-test.png),
 Android Studio will use the Gradle run configuration by default to run unit
 tests.
 
@@ -65,7 +66,7 @@ configurations, so you should migrate Android JUnit run configurations that
 you might save as project files to Gradle run configurations.
 
 To create a Gradle test configuration, select the Gradle template when
-following the instructions in [Create a new run/debug configuration](https://developer.android.com/studio/run/rundebugconfig#creating).
+following the instructions in [Create a new run/debug configuration](https://developer.android.com/studio/run/rundebugconfig.md.txt#creating).
 When you've created a new configuration, it will appear in the
 **Edit Configurations** dialog in the Gradle section:
 
@@ -79,35 +80,37 @@ recognized, you can do one of two things:
   `<my-app>/.idea/workspace.xml` and look under the
   `<component name="RunManager" ...>` node. For example:
 
-      <component name="RunManager" selected="Gradle.PlantTest">
-      ...
-      <configuration name="PlantTest" type="AndroidJUnit" factoryName="Android JUnit" nameIsGenerated="true">
-            <module name="Sunflower.app" />
-            <useClassPathOnly />
-            <extension name="coverage">
-              <pattern>
-                <option name="PATTERN" value="com.google.samples.apps.sunflower.data.*" />
-                <option name="ENABLED" value="true" />
-              </pattern>
-            </extension>
-            <option name="PACKAGE_NAME" value="com.google.samples.apps.sunflower.data" />
-            <option name="MAIN_CLASS_NAME" value="com.google.samples.apps.sunflower.data.PlantTest" />
-            <option name="METHOD_NAME" value="" />
-            <option name="TEST_OBJECT" value="class" />
-            <option name="PARAMETERS" value="" />
-            <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-            <method v="2">
-              <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-            </method>
-          </configuration>
+  ```xml
+  <component name="RunManager" selected="Gradle.PlantTest">
+  ...
+  <configuration name="PlantTest" type="AndroidJUnit" factoryName="Android JUnit" nameIsGenerated="true">
+        <module name="Sunflower.app" />
+        <useClassPathOnly />
+        <extension name="coverage">
+          <pattern>
+            <option name="PATTERN" value="com.google.samples.apps.sunflower.data.*" />
+            <option name="ENABLED" value="true" />
+          </pattern>
+        </extension>
+        <option name="PACKAGE_NAME" value="com.google.samples.apps.sunflower.data" />
+        <option name="MAIN_CLASS_NAME" value="com.google.samples.apps.sunflower.data.PlantTest" />
+        <option name="METHOD_NAME" value="" />
+        <option name="TEST_OBJECT" value="class" />
+        <option name="PARAMETERS" value="" />
+        <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+        <method v="2">
+          <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+        </method>
+      </configuration>
+  ```
 
 ### Improved Upgrade Assistant for AGP
 
-The [Upgrade Assistant for Android Gradle plugin](https://developer.android.com/studio/releases#agp-upgrade-assistant)
-now has a persistent tool window with the list of steps that will be completed.
-Additional information is also presented on the right side of the tool window.
-If needed, you can also choose a different version of AGP to upgrade to.
-Clicking on the **Refresh** button updates the corresponding update steps.
+The [Upgrade Assistant for Android Gradle plugin](https://developer.android.com/studio/releases.md.txt#agp-upgrade-assistant) now has a persistent tool
+window with the list of steps that will be completed. Additional information is
+also presented on the right side of the tool window. If needed, you can also
+choose a different version of AGP to upgrade to. Clicking on the **Refresh**
+button updates the corresponding update steps.
 
 ![New persistent tool window in the upgrade assistant](https://developer.android.com/static/studio/images/releases/improved-upgrade-assistant-agp.png)
 
@@ -115,7 +118,9 @@ Clicking on the **Refresh** button updates the corresponding update steps.
 
 You can use non-transitive R classes with the Android Gradle plugin to build
 faster builds for applications with multiple modules. Doing so helps prevent
-resource duplication by ensuring that each module's R class only contains references to its own resources, without pulling references from its dependencies. This leads to more up-to-date builds and the corresponding
+resource duplication by ensuring that each module's R class only contains
+references to its own resources, without pulling references from its
+dependencies. This leads to more up-to-date builds and the corresponding
 benefits of compilation avoidance.
 
 You can access this feature by going to **Refactor \> Migrate to Non-transitive R
@@ -126,11 +131,10 @@ Classes**.
 
 ## New Background Task Inspector
 
-You can visualize, monitor, and debug your app's background
-workers using the new **Background Task Inspector** . To get started, deploy your
-app to a device running [WorkManager library](https://developer.android.com/jetpack/androidx/releases/work)
-2.5.0 or higher, and select **View** \> **Tool Windows** \> **App Inspection** from
-the menu bar.
+You can visualize, monitor, and debug your app's background workers using the
+new **Background Task Inspector** . To get started, deploy your app to a device
+running [WorkManager library](https://developer.android.com/jetpack/androidx/releases/work.md.txt) 2.5.0 or higher,
+and select **View** \> **Tool Windows** \> **App Inspection** from the menu bar.
 
 ![Active workers in Background Task Inspector](https://developer.android.com/static/studio/images/releases/bg-task-inspector.png)
 
@@ -141,18 +145,21 @@ worker chain, and the result of the execution.
 ![Worker Details tab](https://developer.android.com/static/studio/images/releases/worker-details.png)
 
 You can also view a visual representation of a worker chain by selecting a
-worker from the table and clicking **Show Graph View** ![](https://developer.android.com/static/studio/images/buttons/workmanager-show-graph-view.png)
-from the toolbar. You can then select any worker in the chain to see its details,
-or stop it if it's currently enqueued or running. To return to the table, click
-**Show List View** ![](https://developer.android.com/static/studio/images/buttons/workmanager-list-view.png).
+worker from the table and clicking **Show Graph View**
+![Graph View button](https://developer.android.com/static/studio/images/buttons/workmanager-show-graph-view.png)
+from the toolbar. You can then select any worker in the chain to see its
+details, or stop it if it's currently enqueued or running. To return to the
+table, click **Show List View**
+![Show List View button](https://developer.android.com/static/studio/images/buttons/workmanager-list-view.png).
 
 ![Background Task Inspector worker chain](https://developer.android.com/static/studio/preview/features/images/workmanager-worker-chain.png)
 
 To help you investigate issues from workers that fail execution, you can stop a
 currently running or enqueued worker by selecting it from the table and clicking
-**Cancel Selected Worker** ![](https://developer.android.com/static/studio/images/buttons/workmanager-cancel.png)
+**Cancel Selected Worker**
+![Cancel Selected Worker button](https://developer.android.com/static/studio/images/buttons/workmanager-cancel.png)
 from the toolbar. You can also filter workers in the table by tags you've
-assigned to them using the **All tags** dropdown menu.
+assigned to them using the **All tags** drop-down menu.
 
 ## Updates Database Inspector
 
@@ -163,10 +170,11 @@ window, where you can also find the new **Background Task Inspector** . Open the
 
 ### Export data from the Database Inspector
 
-In Arctic Fox, you can easily export databases, tables, and query results from the **Database
-Inspector** to save, share, or recreate locally. When you open up an app project
-in Android Studio and inspect the app for that project in the **Database
-Inspector**, you can start exporting data in one of the following ways:
+In Arctic Fox, you can export databases, tables, and query results from
+the **Database Inspector** to save, share, or recreate locally. When you open up
+an app project in Android Studio and inspect the app for that project in the
+**Database Inspector**, you can start exporting data in one of the following
+ways:
 
 - Select a database or table in the **Databases** panel and click **Export to
   file** near the top of the panel.
@@ -193,7 +201,7 @@ options:
 
 - **Capture heap dump**: View objects in your app that are using memory at a specific point in time.
 - **Record native allocations**: View how each C/C++ object was allocated over a period of time.
-- **Record Java/Kotlin allocations**: View how each Java/Kotlin object was allocated over a period of time.
+- **Record Java/Kotlin allocations**: View how each Java or Kotlin object was allocated over a period of time.
 
 Here's how to use these three options:
 
@@ -204,7 +212,8 @@ Here's how to use these three options:
   ![Sample heap dump in Memory Profiler](https://developer.android.com/static/studio/preview/features/images/profiler-heap-dump-display.png)
 - To record native allocations on devices running Android 10 and higher,
   select **Record native allocations** , then select **Record** . The recording
-  continues until you click **Stop** ![](https://developer.android.com/static/studio/images/buttons/toolbar-stop-new-1.png),
+  continues until you click **Stop**
+  ![Stop button](https://developer.android.com/static/studio/images/buttons/toolbar-stop-new-1.png),
   after which the Memory Profiler UI transitions into a separate screen
   displaying the native recording.
 
@@ -216,7 +225,8 @@ Here's how to use these three options:
   Memory Profiler UI transitions to a separate screen displaying the ongoing
   recording. You can interact with the mini timeline above the recording
   (for example, to change the selection range). To complete the recording,
-  select **Stop** ![](https://developer.android.com/static/studio/images/buttons/toolbar-stop-new-2.png).
+  select **Stop**
+  ![Stop button](https://developer.android.com/static/studio/images/buttons/toolbar-stop-new-2.png).
 
   ![Visualization of Java allocations in Memory Profiler](https://developer.android.com/static/studio/preview/features/images/profiler-record-kotlin-java-visualization.png)
 
@@ -251,7 +261,7 @@ your app.
 
 To take advantage of this feature:
 
-1. Choose **Select Multiple Devices** in the target device dropdown menu from
+1. Choose **Select Multiple Devices** in the target device drop-down menu from
    the top-center of the IDE).
 
    ![Modify device set dialog](https://developer.android.com/static/studio/images/releases/instrumentation-dropdown-select-multiple-devices.png)
@@ -260,9 +270,10 @@ To take advantage of this feature:
    ![Modify device set dialog](https://developer.android.com/static/studio/images/releases/instrumentation-dialog-select-multiple-devices.png)
 3. Run your tests.
 
-To view your test results in the **Run** panel, go to **View \> Tool Windows \> Run**.
+To view your test results in the **Run** panel, go to **View \> Tool Windows \>
+Run**.
 
-The new test results panel allows you to filter your test results by status,
+The new test results panel lets you filter your test results by status,
 device, and API level. Additionally, you can sort each column by clicking the
 header. By clicking on an individual test, you can view logs and device
 information individually for each device.
@@ -270,10 +281,9 @@ information individually for each device.
 ## `StateFlow` support in data binding
 
 For Kotlin apps that use coroutines, you can now use
-[`StateFlow`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/)
-objects as a data binding source to automatically notify the UI about
-changes in the data. Your data bindings will be lifecycle aware and
-will only be triggered when the UI is visible on the screen.
+[`StateFlow`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/) objects as a data binding source to automatically
+notify the UI about changes in the data. Your data bindings will be lifecycle
+aware and will only be triggered when the UI is visible on the screen.
 
 To use a `StateFlow` object with your binding class, you need to specify a
 lifecycle owner to define the scope of the `StateFlow` object, and in your
@@ -281,36 +291,40 @@ layout, assign the properties and methods of your `ViewModel` component to the
 corresponding views using binding expressions, as shown in the following
 example:
 
-    class ViewModel() {
-       val username: StateFlow<String>
-    }
+```kotlin
+class ViewModel() {
+   val username: StateFlow<String>
+}
+```
 
-    <TextView
-        android:id="@+id/name"
-        android:text="@{viewmodel.username}" />
+```xml
+<TextView
+    android:id="@+id/name"
+    android:text="@{viewmodel.username}" />
+```
 
 If you're in a Kotlin app that uses AndroidX, `StateFlow` support is
 automatically included in the functionality of data binding, including the
 coroutines dependencies.
 
-To learn more, see [Work with observable data objects](https://developer.android.com/topic/libraries/data-binding/observability#lifecycle-objects).
+To learn more, see [Work with observable data objects](https://developer.android.com/topic/libraries/data-binding/observability.md.txt#lifecycle-objects).
 
 ## Improved suggested import
 
 We've improved the number of libraries that are supported by the suggested
 import feature and update the index more frequently. Suggested import helps you
-quickly and easily import certain Google Maven artifacts into both your class
-and Gradle project. When Android Studio detects unresolved symbols from certain
-Google libraries, the IDE suggests importing the library into both the class and
-the project.
+quickly import certain Google Maven artifacts into both your class and Gradle
+project. When Android Studio detects unresolved symbols from certain Google
+libraries, the IDE suggests importing the library into both the class and the
+project.
 
 ## Support for configuration cache in Build Analyzer
 
-[Build Analyzer](https://developer.android.com/studio/build/build-analyzer) now
-identifies when a project doesn't have [configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html)
-enabled, and offers it as an optimization. Build Analyzer runs a compatibility
-assessment to inform you if there are any issues with configuration cache in
-your project before it gets enabled.
+[Build Analyzer](https://developer.android.com/studio/build/build-analyzer) now identifies when a project
+doesn't have [configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html) enabled, and offers it as an
+optimization. Build Analyzer runs a compatibility assessment to inform you if
+there are any issues with configuration cache in your project before it gets
+enabled.
 
 ![Configuration cache information in Build Analyzer](https://developer.android.com/static/studio/images/releases/configuration-cache-in-build-analyzer.png)
 
@@ -332,7 +346,7 @@ are now available:
 
 - **showBackground**: Switch on and off a background for your preview.
 - **backgroundColor**: Set a color that is only used in the preview surface.
-- **uiMode** : This new parameter can take any of the [Configuration.UI_\*](https://developer.android.com/reference/android/content/res/Configuration#UI_MODE_NIGHT_MASK) constants and allows you to change the behavior of the preview to, for example, set it to Night Mode to see how the theme reacts.
+- **uiMode** : This new parameter can take any of the [Configuration.UI_\*](https://developer.android.com/reference/android/content/res/Configuration.md.txt#UI_MODE_NIGHT_MASK) constants and lets you change the behavior of the preview to, for example, set it to Night Mode to see how the theme reacts.
 
 ![Compose preview UI](https://developer.android.com/static/studio/images/releases/compose-preview-ui.png)
 
@@ -342,10 +356,10 @@ You can use this feature to interact with your UI components, click them, and
 see how the state changes. It's a quick way to get feedback on how your UI
 reacts and to preview the animations. To enable it, click the **Interactive**
 icon
-![](https://developer.android.com/static/studio/images/buttons/interactive-preview-icon.png),
+![Interactive preview icon](https://developer.android.com/static/studio/images/buttons/interactive-preview-icon.png),
 and the preview will switch modes.
 
-To stop, click on **Stop Interactive Preview** in the top toolbar.
+To stop, click **Stop Interactive Preview** in the top toolbar.
 
 ![Interactive preview UI](https://developer.android.com/static/studio/images/releases/interactive-preview-ui.gif)
 
@@ -356,9 +370,9 @@ test small parts of your code in the device without having to start the full
 application.
 
 Click the **Deploy to Device** icon
-![](https://developer.android.com/static/studio/images/buttons/deploy-to-device-icon.png)
-next to the `@Preview` annotation or at the top of the preview, and Android Studio
-will deploy that @Preview to your connected device or emulator.
+![Deploy to device icon](https://developer.android.com/static/studio/images/buttons/deploy-to-device-icon.png)
+next to the `@Preview` annotation or at the top of the preview, and Android
+Studio will deploy that @Preview to your connected device or emulator.
 
 ### Live Edit of literals
 
@@ -372,7 +386,7 @@ instantaneously in the previews, emulator, or physical device.
 
 ## Compose support in the Layout Inspector
 
-The **Layout Inspector** allows you to see rich detail about your app's layout
+The **Layout Inspector** lets you see rich detail about your app's layout
 running on your connected device. You can interact with your app and see live
 updates in the tool to quickly debug issues that might arise.
 
@@ -386,7 +400,7 @@ you understand how your layouts are rendered on your running device.
 To get started, deploy your app to a connected device and then open the
 **Layout Inspector** window by selecting **View** \> **Tool Windows** \> **Layout
 Inspector** . If the **Layout Inspector** doesn't automatically connect to your
-app process, select the desired app process from the process pulldown. You
+app process, select the app process you want from the process pulldown. You
 should soon see your app's layout rendered in the tool window. To get started
 inspecting your Compose layout, select the layout component visible in the
 rendering or select it from the **Component Tree**.
@@ -403,13 +417,14 @@ The **Layout Inspector** shows all Compose functions in the call stack that emit
 components to your app's layout. In many cases, this includes Compose functions
 that are called internally by the Compose Library. If you want to see only the
 Compose functions in the **Component Tree** that your app calls directly, click
-the filter ![](https://developer.android.com/static/studio/images/buttons/filter-icon.png)
+the filter
+![Filter icon](https://developer.android.com/static/studio/images/buttons/filter-icon.png)
 action, which might help reduce the number of nodes shown in the tree to the
 ones you are likely to want to inspect.
 
-## Improved deploy dropdown
+## Improved deploy drop-down
 
-The device dropdown now distinguishes between different kinds of errors within
+The device drop-down now distinguishes between different kinds of errors within
 your chosen device configuration. Iconography and stylistic changes now
 differentiate between *errors* (device selections that result in a broken
 configuration) and *warnings* (device selections that may result in unexpected
@@ -424,16 +439,17 @@ The new Wear OS pairing assistant guides developers step-by-step through pairing
 Wear OS emulators with physical or virtual phones directly in Android Studio.
 The assistant can help you get the right Wear OS Companion app installed on
 your phone and set up a connection between the two devices. You can get started
-by going to the device dropdown \> **Wear OS Emulator Pairing Assistant**.
+by going to the device drop-down \> **Wear OS Emulator Pairing Assistant**.
 
 ![Demo of the Wear OS pairing assistant](https://developer.android.com/static/studio/images/releases/wear-pairing-assistant-demo.png)
 
 ## Responsive layout template
 
-Android Studio Arctic Fox now includes a new layout template that adapts to various
-display dimensions and app resizing, such as phones, foldables, tablets, and split
-screen modes. When creating a new project or module, select the Responsive Activity
-template to create a layout with components that dynamically resize.
+Android Studio Arctic Fox now includes a new layout template that adapts to
+various display dimensions and app resizing, such as phones, foldables, tablets,
+and split screen modes. When creating a new project or module, select the
+Responsive Activity template to create a layout with components that dynamically
+resize.
 
 ![Responsive layout template in small screen](https://developer.android.com/static/studio/preview/features/images/responsive-layout-small-screen.png)
 ![Responsive layout template in mid screen](https://developer.android.com/static/studio/preview/features/images/responsive-layout-mid-screen.png)
@@ -450,8 +466,8 @@ We have integrated Android Accessibility Test Framework in Android Studio to
 help you find accessibility issues in your layouts. The tool reports
 accessibility related issues and offers suggested fixes for some common problems
 (i.e. missing content descriptions, or low contrast). To launch the panel, click
-on the error report button
-![](https://developer.android.com/static/studio/images/buttons/toggle-issue-panel-button.png)
+the error report button
+![Toggle Issue icon](https://developer.android.com/static/studio/images/buttons/toggle-issue-panel-button.png)
 in the Layout Editor.
 
 ![Demo of the Accessibility Scanner](https://developer.android.com/static/studio/images/releases/atf-scanner.gif)
@@ -459,8 +475,8 @@ in the Layout Editor.
 ## Support for Apple silicon
 
 Android Studio and Android Emulator now contain initial support for core
-developer workflows when running the Apple silicon (arm64) hardware architecture,
-including corresponding emulator system images.
+developer workflows when running the Apple silicon (arm64) hardware
+architecture, including corresponding emulator system images.
 
 Support is not yet available for all SDK and NDK command-line tools. You
 may have to run Rosetta 2 on your machine to run some tools.
@@ -494,7 +510,7 @@ This minor update includes the following bug fixes:
   - Disable `MediaCapabilities` lint check
   - Lint reports false positive \[Instantiable\] error when `shrinkResources` is enabled
 - Templates
-  - Import Module option grayed out
+  - Import Module option unavailable
 
 For more information, see the
 [2020.3.1 Patch 4 blog post](https://androidstudio.googleblog.com/2021/12/android-studio-arctic-fox-202031-patch.html).

@@ -4,6 +4,8 @@ url: https://developer.android.com/media/camera/camera-deprecated/camera-api
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/camera/camera-deprecated/llms.txt
+
 This page refers to the [Camera](https://developer.android.com/reference/android/hardware/Camera.md.txt) class, which
 is deprecated. We recommend using [CameraX](https://developer.android.com/media/camera/camerax.md.txt) or, for specific use
 cases, [Camera2](https://developer.android.com/media/camera/camera2.md.txt). Both CameraX and Camera2 support Android 5.0
@@ -34,11 +36,28 @@ questions about how your app intends to use this hardware feature.
 
 <br />
 
-- **Camera Requirement** - Is the use of a camera so important to your application that you do not want your application installed on a device that does not have a camera? If so, you should declare the [camera requirement in your
-  manifest](https://developer.android.com/media/camera/camera-deprecated/camera-api#manifest).
-- **Quick Picture or Customized Camera** - How will your application use the camera? Are you just interested in snapping a quick picture or video clip, or will your application provide a new way to use cameras? For getting a quick snap or clip, consider [Using Existing Camera Apps](https://developer.android.com/media/camera/camera-deprecated/camera-api.md.txt#camera-apps). For developing a customized camera feature, check out the [Building a Camera App](https://developer.android.com/media/camera/camera-deprecated/camera-api.md.txt#custom-camera) section.
-- **Foreground Services Requirement** - When does your app interact with the camera? On Android 9 (API level 28) and later, apps running in the background cannot access the camera. Therefore, you should use the camera either when your app is in the foreground or as part of a [foreground service](https://developer.android.com/guide/components/services#Foreground).
-- **Storage** - Are the images or videos your application generates intended to be only visible to your application or shared so that other applications such as Gallery or other media and social apps can use them? Do you want the pictures and videos to be available even if your application is uninstalled? Check out the [Saving Media Files](https://developer.android.com/media/camera/camera-deprecated/camera-api.md.txt#saving-media) section to see how to implement these options.
+- **Camera Requirement** - Is the use of a camera so important to your
+  application that you don't want your application installed on a device that
+  doesn't have a camera? If so, you should declare the [camera requirement in
+  your manifest](https://developer.android.com/media/camera/camera-deprecated/camera-api#manifest).
+
+- **Quick Picture or Customized Camera** - How will your application use the
+  camera? Are you just interested in snapping a quick picture or video clip, or
+  will your application provide a new way to use cameras? For getting a quick
+  snap or clip, consider [Using Existing Camera Apps](https://developer.android.com/media/camera/camera-deprecated/camera-api.md.txt#camera-apps). For developing a
+  customized camera feature, check out the [Building a Camera App](https://developer.android.com/media/camera/camera-deprecated/camera-api.md.txt#custom-camera) section.
+
+- **Foreground Services Requirement** - When does your app interact with the
+  camera? On Android 9 (API level 28) and later, apps running in the background
+  cannot access the camera. Therefore, you should use the camera either when
+  your app is in the foreground or as part of a [foreground service](https://developer.android.com/develop/background-work/services/fgs.md.txt).
+
+- **Storage** - Are the images or videos your application generates intended to
+  be only visible to your application or shared so that other applications such
+  as Gallery or other media and social apps can use them? Do you want the
+  pictures and videos to be available even if your application is uninstalled?
+  Check out the [Saving Media Files](https://developer.android.com/media/camera/camera-deprecated/camera-api.md.txt#saving-media) section to see how to implement these
+  options.
 
 ## The basics
 
@@ -69,50 +88,55 @@ Before starting development on your application with the Camera API, you should 
 your manifest has the appropriate declarations to allow use of camera hardware and other
 related features.
 
-- **Camera Permission** - Your application must request permission to use a device camera.
+- **Camera Permission** - Your application must request permission to use a
+  device camera.
 
   ```xml
   <uses-permission android:name="android.permission.CAMERA" />
   ```
 
-  **Note:** If you are using the camera [by
-  invoking an existing camera app](https://developer.android.com/media/camera/camera-deprecated/camera-api#camera-apps),
-  your application does not need to request this permission.
-- **Camera Features** - Your application must also declare use of camera features, for example:
+  > [!NOTE]
+  > **Note:** If you are using the camera [by invoking an existing camera app](https://developer.android.com/media/camera/camera-deprecated/camera-api.md.txt#camera-apps), your application does not need to request this permission.
+
+- **Camera Features** - Your application must also declare use of camera
+  features, for example:
 
   ```xml
   <uses-feature android:name="android.hardware.camera" />
   ```
 
-  For a list of camera features, see the manifest
-  [Features
-  Reference](https://developer.android.com/guide/topics/manifest/uses-feature-element#hw-features).
+  For a list of camera features, see the manifest [Features Reference](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt#hw-features).
 
-  Adding camera features to your manifest causes Google Play to prevent your application from
-  being installed to devices that do not include a camera or do not support the camera features you
-  specify. For more information about using feature-based filtering with Google Play, see [Google
-  Play and Feature-Based Filtering](https://developer.android.com/guide/topics/manifest/uses-feature-element#market-feature-filtering).
+  Adding camera features to your manifest causes Google Play to prevent your
+  application from being installed to devices that don't include a camera or
+  don't support the camera features you specify. For more information about
+  using feature-based filtering with Google Play, see [Google Play and
+  Feature-Based Filtering](https://developer.android.com/guide/topics/manifest/uses-feature-element#market-feature-filtering).
 
-  If your application *can use* a camera or camera feature for proper operation, but does
-  not *require* it, you should specify this in the manifest by including the `android:required` attribute, and setting it to `false`:
+  If your application *can use* a camera or camera feature for proper operation,
+  but does not *require* it, you should specify this in the manifest by
+  including the `android:required` attribute, and setting it to `false`:
 
   ```xml
   <uses-feature android:name="android.hardware.camera" android:required="false" />
   ```
-- **Storage Permission** - Your application can save images or videos to the device's external storage (SD Card) if it targets Android 10 (API level 29) or lower and specifies the following in the manifest.
+- **Storage Permission** - Your application can save images or videos to the
+  device's external storage (SD Card) if it targets Android 10 (API level 29) or
+  lower and specifies the following in the manifest.
 
   ```xml
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   ```
-- **Audio Recording Permission** - For recording audio with video capture, your application must request the audio capture permission.
+- **Audio Recording Permission** - For recording audio with video capture, your
+  application must request the audio capture permission.
 
   ```xml
   <uses-permission android:name="android.permission.RECORD_AUDIO" />
   ```
-- **Location Permission** - If your application tags images
-  with GPS location information, you must request the `ACCESS_FINE_LOCATION`
-  permission. Note that, if your app targets Android 5.0 (API level 21) or
-  higher, you also need to declare that your app uses the device's GPS:
+- **Location Permission** - If your application tags images with GPS location
+  information, you must request the `ACCESS_FINE_LOCATION` permission. Note
+  that, if your app targets Android 5.0 (API level 21) or higher, you also need
+  to declare that your app uses the device's GPS:
 
   ```xml
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -121,8 +145,8 @@ related features.
   <uses-feature android:name="android.hardware.location.gps" />
   ```
 
-  For more information about getting user location, see
-  [Location Strategies](https://developer.android.com/guide/topics/location/strategies).
+  For more information about getting user location, see [Location
+  Strategies](https://developer.android.com/guide/topics/location/strategies).
 
 ## Using existing camera apps
 
@@ -145,7 +169,7 @@ recommended.**
 The general steps for creating a custom camera interface for your application are as follows:
 
 - **Detect and Access Camera** - Create code to check for the existence of cameras and request access.
-- **Create a Preview Class** - Create a camera preview class that extends `SurfaceView` and implements the `SurfaceHolder` interface. This class previews the live images from the camera.
+- **Create a Preview Class** - Create a camera preview class that extends [`SurfaceView`](https://developer.android.com/reference/android/view/SurfaceView.md.txt) and implements the [`SurfaceHolder`](https://developer.android.com/reference/android/view/SurfaceHolder.md.txt) interface. This class previews the live images from the camera.
 - **Build a Preview Layout** - Once you have the camera preview class, create a view layout that incorporates the preview and the user interface controls you want.
 - **Setup Listeners for Capture** - Connect listeners for your interface controls to start image or video capture in response to user actions, such as pressing a button.
 - **Capture and Save Files** - Setup the code for capturing pictures or videos and saving the output.
@@ -156,11 +180,8 @@ not collide with other applications that may also want to use it. The following 
 how to detect camera hardware, how to request access to a camera, how to capture pictures or video
 and how to release the camera when your application is done using it.
 
-**Caution:** Remember to release the `Camera`
-object by calling the `Camera.release()` when your
-application is done using it! If your application does not properly release the camera, all
-subsequent attempts to access the camera, including those by your own application, will fail and may
-cause your or other applications to be shut down.
+> [!CAUTION]
+> **Caution:** Remember to release the [`Camera`](https://developer.android.com/reference/android/hardware/Camera.md.txt) object by calling [`Camera.release()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#release()) when your application is done using it! If your application does not properly release the camera, all subsequent attempts to access the camera, including those by your own application, will fail and may cause your or other applications to be shut down.
 
 ### Detecting camera hardware
 
@@ -197,9 +218,12 @@ private boolean checkCameraHardware(Context context) {
 }
 ```
 
-Android devices can have multiple cameras, for example a back-facing camera for photography and a
-front-facing camera for video calls. Android 2.3 (API Level 9) and later allows you to check the
-number of cameras available on a device using the `Camera.getNumberOfCameras()` method.
+Android devices can have multiple cameras, for example a back-facing camera
+for photography and a front-facing camera for video calls. Android 2.3 (API
+Level 9) and later lets you check the number of cameras available on a device
+using the
+`Camera.getNumberOfCameras()`
+method.
 
 ### Accessing cameras
 
@@ -240,8 +264,8 @@ public static Camera getCameraInstance(){
 }
 ```
 
-**Caution:** Always check for exceptions when using `Camera.open()`. Failing to check for exceptions if the camera is in
-use or does not exist will cause your application to be shut down by the system.
+> [!CAUTION]
+> **Caution:** Always check for exceptions when using [`Camera.open()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#open()). Failing to check for exceptions if the camera is in use or does not exist will cause your application to be shut down by the system.
 
 On devices running Android 2.3 (API Level 9) or higher, you can access specific cameras using
 `Camera.open(int)`. The example code above will access
@@ -398,13 +422,8 @@ If you want to set a specific size for your camera preview, set this in the `sur
 *must use* values from `getSupportedPreviewSizes()`.
 *Do not* set arbitrary values in the `setPreviewSize()` method.
 
-**Note:**
-With the introduction of the [Multi-Window](https://developer.android.com/guide/topics/ui/multi-window) feature in Android 7.0 (API level 24) and higher, you can no
-longer assume the aspect ratio of the preview is the same as your activity
-even after calling `setDisplayOrientation()`.
-Depending on the window size and aspect ratio, you may may have to fit a wide
-camera preview into a portrait-orientated layout, or vice versa, using a
-letterbox layout.
+> [!NOTE]
+> **Note:** With the introduction of the [Multi-Window](https://developer.android.com/guide/topics/ui/multi-window) feature in Android 7.0 (API level 24) and higher, you can no longer assume the aspect ratio of the preview is the same as your activity even after calling [`setDisplayOrientation()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#setDisplayOrientation(int)). Depending on the window size and aspect ratio, you may have to fit a wide camera preview into a portrait-orientated layout, or the other way around, using a letterbox layout.
 
 ### Placing preview in a layout
 
@@ -461,11 +480,8 @@ manifest.
 </activity>
 ```
 
-**Note:** A camera preview does not have to be in landscape mode.
-Starting in Android 2.2 (API Level 8), you can use the `setDisplayOrientation()` method to set the
-rotation of the preview image. In order to change preview orientation as the user re-orients the
-phone, within the `surfaceChanged()` method of your preview class, first stop the preview with `Camera.stopPreview()` change the orientation and then
-start the preview again with `Camera.startPreview()`.
+> [!NOTE]
+> **Note:** A camera preview does not have to be in landscape mode. Starting in Android 2.2 (API Level 8), you can use the [`setDisplayOrientation()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#setDisplayOrientation(int)) method to set the rotation of the preview image. In order to change preview orientation as the user re-orients the phone, within the [`surfaceChanged()`](https://developer.android.com/reference/android/view/SurfaceHolder.Callback.md.txt#surfaceChanged(android.view.SurfaceHolder,%20int,%20int,%20int)) method of your preview class, first stop the preview with [`Camera.stopPreview()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#stopPreview()), change the orientation, and then start the preview again with [`Camera.startPreview()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#startPreview()).
 
 In the activity for your camera view, add your preview class to the `FrameLayout` element shown in the example above. Your camera activity must also
 ensure that it releases the camera when it is paused or shut down. The following example shows how
@@ -525,8 +541,8 @@ public class CameraActivity extends Activity {
 }
 ```
 
-**Note:** The `getCameraInstance()` method in the example above
-refers to the example method shown in [Accessing cameras](https://developer.android.com/media/camera/camera-deprecated/camera-api.md.txt#access-camera).
+> [!NOTE]
+> **Note:** The `getCameraInstance()` method in the example above refers to the example method shown in [Accessing cameras](https://developer.android.com/media/camera/camera-deprecated/camera-api.md.txt#access-camera).
 
 ### Capturing pictures
 
@@ -615,12 +631,11 @@ captureButton.setOnClickListener(
 );
 ```
 
-**Note:** The `mPicture` member in the following example refers
-to the example code above.
+> [!NOTE]
+> **Note:** The `mPicture` member in the following example refers to the example code above.
 
-**Caution:** Remember to release the `Camera`
-object by calling the `Camera.release()` when your
-application is done using it! For information about how to release the camera, see [Releasing the camera](https://developer.android.com/media/camera/camera-deprecated/camera-api.md.txt#release-camera).
+> [!CAUTION]
+> **Caution:** Remember to release the [`Camera`](https://developer.android.com/reference/android/hardware/Camera.md.txt) object by calling [`Camera.release()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#release()) when your application is done using it! For information about how to release the camera, see [Releasing the camera](https://developer.android.com/media/camera/camera-deprecated/camera-api.md.txt#release-camera).
 
 ### Capturing videos
 
@@ -628,49 +643,62 @@ Video capture using the Android framework requires careful management of the `Ca
 class. When recording video with `Camera`, you must manage the `Camera.lock()` and `Camera.unlock()` calls to allow `MediaRecorder` access to the camera hardware,
 in addition to the `Camera.open()` and `Camera.release()` calls.
 
-**Note:** Starting with Android 4.0 (API level 14), the `Camera.lock()` and `Camera.unlock()` calls are managed for you automatically.
+> [!NOTE]
+> **Note:** Starting with Android 4.0 (API level 14), the [`Camera.lock()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#lock()) and [`Camera.unlock()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#unlock()) calls are managed for you automatically.
 
 Unlike taking pictures with a device camera, capturing video requires a very particular call
 order. You must follow a specific order of execution to successfully prepare for and capture video
 with your application, as detailed below.
 
-1. **Open Camera** - Use the `Camera.open()` to get an instance of the camera object.
-2. **Connect Preview** - Prepare a live camera image preview by connecting a `SurfaceView` to the camera using `Camera.setPreviewDisplay()`.
-3. **Start Preview** - Call `Camera.startPreview()` to begin displaying the live camera images.
-4. **Start Recording Video** - The following steps must be completed *in
-   order* to successfully record video:
-   1. **Unlock the Camera** - Unlock the camera for use by `MediaRecorder` by calling `Camera.unlock()`.
-   2. **Configure MediaRecorder** - Call in the following `MediaRecorder` methods *in this order* . For more information, see the `MediaRecorder` reference documentation.
-      1. `setCamera()` - Set the camera to be used for video capture, use your application's current instance of `Camera`.
-      2. `setAudioSource()` - Set the audio source, use `MediaRecorder.AudioSource.CAMCORDER`.
-      3. `setVideoSource()` - Set the video source, use `MediaRecorder.VideoSource.CAMERA`.
-      4. Set the video output format and encoding. For Android 2.2 (API Level 8) and higher, use the `MediaRecorder.setProfile` method, and get a profile instance using `CamcorderProfile.get()`. For versions of Android prior to 2.2, you must set the video output format and encoding parameters:
-         1. `setOutputFormat()` - Set the output format, specify the default setting or `MediaRecorder.OutputFormat.MPEG_4`.
-         2. `setAudioEncoder()` - Set the sound encoding type, specify the default setting or `MediaRecorder.AudioEncoder.AMR_NB`.
-         3. `setVideoEncoder()` - Set the video encoding type, specify the default setting or `MediaRecorder.VideoEncoder.MPEG_4_SP`.
-      5. `setOutputFile()` - Set the output file, use `getOutputMediaFile(MEDIA_TYPE_VIDEO).toString()` from the example method in the [Saving Media Files](https://developer.android.com/media/camera/camera-deprecated/camera-api.md.txt#saving-media) section.
-      6. `setPreviewDisplay()` - Specify the `SurfaceView` preview layout element for your application. Use the same object you specified for **Connect Preview**.
+1. **Open Camera** - Use [`Camera.open()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#open()) to get an instance of the camera object.
+2. **Connect Preview** - Prepare a live camera image preview by connecting a [`SurfaceView`](https://developer.android.com/reference/android/view/SurfaceView.md.txt) to the camera using [`Camera.setPreviewDisplay()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#setPreviewDisplay(android.view.SurfaceHolder)).
+3. **Start Preview** - Call [`Camera.startPreview()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#startPreview()) to begin displaying the live camera images.
+4. **Start Recording Video** - The following steps must be completed *in order*
+   to successfully record video:
 
-      **Caution:** You must call these `MediaRecorder` configuration methods *in this order*, otherwise your
-      application will encounter errors and the recording will fail.
-   3. **Prepare MediaRecorder** - Prepare the `MediaRecorder` with provided configuration settings by calling `MediaRecorder.prepare()`.
-   4. **Start MediaRecorder** - Start recording video by calling `MediaRecorder.start()`.
-5. **Stop Recording Video** - Call the following methods *in order* , to successfully complete a video recording:
-   1. **Stop MediaRecorder** - Stop recording video by calling `MediaRecorder.stop()`.
-   2. **Reset MediaRecorder** - Optionally, remove the configuration settings from the recorder by calling `MediaRecorder.reset()`.
-   3. **Release MediaRecorder** - Release the `MediaRecorder` by calling `MediaRecorder.release()`.
-   4. **Lock the Camera** - Lock the camera so that future `MediaRecorder` sessions can use it by calling `Camera.lock()`. Starting with Android 4.0 (API level 14), this call is not required unless the `MediaRecorder.prepare()` call fails.
-6. **Stop the Preview** - When your activity has finished using the camera, stop the preview using `Camera.stopPreview()`.
-7. **Release Camera** - Release the camera so that other applications can use it by calling `Camera.release()`.
+   1. **Unlock the Camera** - Unlock the camera for use by [`MediaRecorder`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt) by calling [`Camera.unlock()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#unlock()).
+   2. **Configure MediaRecorder** - Call the following [`MediaRecorder`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt)
+      methods *in this order* . For more information, see the
+      [`MediaRecorder`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt) reference documentation.
 
-**Note:** It is possible to use `MediaRecorder`
-without creating a camera preview first and skip the first few steps of this process. However,
-since users typically prefer to see a preview before starting a recording, that process is not
-discussed here.
+      1. [`setCamera()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setCamera(android.hardware.Camera)) - Set the camera to be used for video capture; use your application's current instance of [`Camera`](https://developer.android.com/reference/android/hardware/Camera.md.txt).
+      2. [`setAudioSource()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setAudioSource(int)) - Set the audio source; use [`MediaRecorder.AudioSource.CAMCORDER`](https://developer.android.com/reference/android/media/MediaRecorder.AudioSource.md.txt#CAMCORDER).
+      3. [`setVideoSource()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setVideoSource(int)) - Set the video source; use [`MediaRecorder.VideoSource.CAMERA`](https://developer.android.com/reference/android/media/MediaRecorder.VideoSource.md.txt#CAMERA).
+      4. Set the video output format and encoding. For Android 2.2 (API Level 8) and higher, use the [`MediaRecorder.setProfile`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setProfile(android.media.CamcorderProfile)) method, and get a profile instance using [`CamcorderProfile.get()`](https://developer.android.com/reference/android/media/CamcorderProfile.md.txt#get(int)). For versions of Android prior to 2.2, you must set the video output format and encoding parameters:
+         1. [`setOutputFormat()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setOutputFormat(int)) - Set the output format; specify the default setting or [`MediaRecorder.OutputFormat.MPEG_4`](https://developer.android.com/reference/android/media/MediaRecorder.OutputFormat.md.txt#MPEG_4).
+         2. [`setAudioEncoder()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setAudioEncoder(int)) - Set the sound encoding type; specify the default setting or [`MediaRecorder.AudioEncoder.AMR_NB`](https://developer.android.com/reference/android/media/MediaRecorder.AudioEncoder.md.txt#AMR_NB).
+         3. [`setVideoEncoder()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setVideoEncoder(int)) - Set the video encoding type; specify the default setting or [`MediaRecorder.VideoEncoder.MPEG_4_SP`](https://developer.android.com/reference/android/media/MediaRecorder.VideoEncoder.md.txt#MPEG_4_SP).
+      5. [`setOutputFile()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setOutputFile(java.lang.String)) - Set the output file; use `getOutputMediaFile(MEDIA_TYPE_VIDEO).toString()` from the example method in the [Saving Media Files](https://developer.android.com/media/camera/camera-deprecated/camera-api.md.txt#saving-media) section.
+      6. [`setPreviewDisplay()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setPreviewDisplay(android.view.Surface)) - Specify the [`SurfaceView`](https://developer.android.com/reference/android/view/SurfaceView.md.txt) preview layout element for your application. Use the same object you specified for **Connect Preview**.
 
-**Tip:** If your application is typically used for recording video, set
-`setRecordingHint(boolean)` to `true` prior to starting your
-preview. This setting can help reduce the time it takes to start recording.
+      > [!CAUTION]
+      > **Caution:** You must call these [`MediaRecorder`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt) configuration methods *in this order*; otherwise, your application will encounter errors and the recording will fail.
+
+   3. **Prepare MediaRecorder** - Prepare the [`MediaRecorder`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt) with
+      provided configuration settings by calling
+      [`MediaRecorder.prepare()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#prepare()).
+
+   4. **Start MediaRecorder** - Start recording video by calling
+      [`MediaRecorder.start()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#start()).
+
+5. **Stop Recording Video** - Call the following methods *in order* to
+   successfully complete a video recording:
+
+   1. **Stop MediaRecorder** - Stop recording video by calling [`MediaRecorder.stop()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#stop()).
+   2. **Reset MediaRecorder** - Optionally, remove the configuration settings from the recorder by calling [`MediaRecorder.reset()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#reset()).
+   3. **Release MediaRecorder** - Release the [`MediaRecorder`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt) by calling [`MediaRecorder.release()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#release()).
+   4. **Lock the Camera** - Lock the camera so that future [`MediaRecorder`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt) sessions can use it by calling [`Camera.lock()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#lock()). Starting with Android 4.0 (API level 14), this call is not required unless the [`MediaRecorder.prepare()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#prepare()) call fails.
+6. **Stop the Preview** - When your activity has finished using the camera,
+   stop the preview using [`Camera.stopPreview()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#stopPreview()).
+
+7. **Release Camera** - Release the camera so that other applications can use
+   it by calling [`Camera.release()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#release()).
+
+> [!NOTE]
+> **Note:** It is possible to use [`MediaRecorder`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt) without creating a camera preview first and skip the first few steps of this process. However, since users typically prefer to see a preview before starting a recording, that process is not discussed here.
+
+> [!TIP]
+> **Tip:** If your application is typically used for recording video, set [`setRecordingHint(boolean)`](https://developer.android.com/reference/android/hardware/Camera.Parameters.md.txt#setRecordingHint(boolean)) to `true` prior to starting your preview. This setting can help reduce the time it takes to start recording.
 
 #### Configuring MediaRecorder
 
@@ -708,7 +736,6 @@ private fun prepareVideoRecorder(): Boolean {
             setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
             setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT)
             setVideoEncoder(MediaRecorder.VideoEncoder.DEFAULT)
-
 
             // Step 6: Prepare configured MediaRecorder
             return try {
@@ -798,31 +825,31 @@ demonstrated in the following code:
 The following video recording parameters for `MediaRecorder` are given
 default settings, however, you may want to adjust these settings for your application:
 
-- `setVideoEncodingBitRate()`
-- `setVideoSize()`
-- `setVideoFrameRate()`
-- `setAudioEncodingBitRate()`
-- `setAudioChannels()`
-- `setAudioSamplingRate()`
+- [`setVideoEncodingBitRate()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setVideoEncodingBitRate(int))
+- [`setVideoSize()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setVideoSize(int,%20int))
+- [`setVideoFrameRate()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setVideoFrameRate(int))
+- [`setAudioEncodingBitRate()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setAudioEncodingBitRate(int))
+- [`setAudioChannels()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setAudioChannels(int))
+- [`setAudioSamplingRate()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setAudioSamplingRate(int))
 
 #### Starting and stopping MediaRecorder
 
 When starting and stopping video recording using the `MediaRecorder` class,
 you must follow a specific order, as listed below.
 
-1. Unlock the camera with `Camera.unlock()`
-2. Configure `MediaRecorder` as shown in the code example above
-3. Start recording using `MediaRecorder.start()`
+1. Unlock the camera with [`Camera.unlock()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#unlock())
+2. Configure [`MediaRecorder`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt) as shown in the code example above
+3. Start recording using [`MediaRecorder.start()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#start())
 4. Record the video
-5. Stop recording using `MediaRecorder.stop()`
-6. Release the media recorder with `MediaRecorder.release()`
-7. Lock the camera using `Camera.lock()`
+5. Stop recording using [`MediaRecorder.stop()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#stop())
+6. Release the media recorder with [`MediaRecorder.release()`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#release())
+7. Lock the camera using [`Camera.lock()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#lock())
 
 The following example code demonstrates how to wire up a button to properly start and stop
 video recording using the camera and the `MediaRecorder` class.
 
-**Note:** When completing a video recording, do not release the camera
-or else your preview will be stopped.
+> [!NOTE]
+> **Note:** When completing a video recording, don't release the camera or else your preview will be stopped.
 
 ### Kotlin
 
@@ -899,9 +926,8 @@ captureButton.setOnClickListener(
 );
 ```
 
-**Note:** In the above example, the `prepareVideoRecorder()`
-method refers to the example code shown in [Configuring MediaRecorder](https://developer.android.com/media/camera/camera-deprecated/camera-api.md.txt#configuring-mediarecorder). This method takes care of locking
-the camera, configuring and preparing the `MediaRecorder` instance.
+> [!NOTE]
+> **Note:** In the preceding example, the `prepareVideoRecorder()` method refers to the example code shown in [Configuring MediaRecorder](https://developer.android.com/media/camera/camera-deprecated/camera-api.md.txt#configuring-mediarecorder). This method takes care of locking the camera, configuring and preparing the [`MediaRecorder`](https://developer.android.com/reference/android/media/MediaRecorder.md.txt) instance.
 
 ### Releasing the camera
 
@@ -978,9 +1004,8 @@ public class CameraActivity extends Activity {
 }
 ```
 
-**Caution:** If your application does not properly release the
-camera, all subsequent attempts to access the camera, including those by your own application, will
-fail and may cause your or other applications to be shut down.
+> [!CAUTION]
+> **Caution:** If your application does not properly release the camera, all subsequent attempts to access the camera, including those by your own application, will fail and may cause your or other applications to be shut down.
 
 ## Saving media files
 
@@ -989,8 +1014,8 @@ storage directory (SD Card) to conserve system space and to allow users to acces
 without their device. There are many possible directory locations to save media files on a device,
 however there are only two standard locations you should consider as a developer:
 
-- **`Environment.getExternalStoragePublicDirectory`(`Environment.DIRECTORY_PICTURES`)** - This method returns the standard, shared and recommended location for saving pictures and videos. This directory is shared (public), so other applications can easily discover, read, change and delete files saved in this location. If your application is uninstalled by the user, media files saved to this location will not be removed. To avoid interfering with users existing pictures and videos, you should create a sub-directory for your application's media files within this directory, as shown in the code sample below. This method is available in Android 2.2 (API Level 8), for equivalent calls in earlier API versions, see [Saving Shared Files](https://developer.android.com/guide/topics/data/data-storage#SavingSharedFiles).
-- **`Context.getExternalFilesDir`(`Environment.DIRECTORY_PICTURES`)** - This method returns a standard location for saving pictures and videos which are associated with your application. If your application is uninstalled, any files saved in this location are removed. Security is not enforced for files in this location and other applications may read, change and delete them.
+- **[`Environment.getExternalStoragePublicDirectory`](https://developer.android.com/reference/android/os/Environment.md.txt#getExternalStoragePublicDirectory(java.lang.String))** **`(`[`Environment.DIRECTORY_PICTURES`](https://developer.android.com/reference/android/os/Environment.md.txt#DIRECTORY_PICTURES)`)`** - This method returns the standard, shared and recommended location for saving pictures and videos. This directory is shared (public), so other applications can easily discover, read, change and delete files saved in this location. If your application is uninstalled by the user, media files saved to this location won't be removed. To avoid interfering with users existing pictures and videos, you should create a sub-directory for your application's media files within this directory, as shown in the code sample below. This method is available in Android 2.2 (API Level 8), for equivalent calls in earlier API versions, see [Saving Shared Files](https://developer.android.com/guide/topics/data/data-storage#SavingSharedFiles).
+- **[`Context.getExternalFilesDir`](https://developer.android.com/reference/android/content/Context.md.txt#getExternalFilesDir(java.lang.String))** **`(`[`Environment.DIRECTORY_PICTURES`](https://developer.android.com/reference/android/os/Environment.md.txt#DIRECTORY_PICTURES)`)`** - This method returns a standard location for saving pictures and videos which are associated with your application. If your application is uninstalled, any files saved in this location are removed. Security is not enforced for files in this location and other applications may read, change and delete them.
 
 The following example code demonstrates how to create a `File` or `Uri` location for a media file that can be used when invoking a device's camera with
 an `Intent` or as part of a [Building a Camera
@@ -1029,7 +1054,7 @@ private fun getOutputMediaFile(type: Int): File? {
         }
     }
 
-    // Create a media file name
+    // Create a media filename
     val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
     return when (type) {
         MEDIA_TYPE_IMAGE -> {
@@ -1072,7 +1097,7 @@ private static File getOutputMediaFile(int type){
         }
     }
 
-    // Create a media file name
+    // Create a media filename
     String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
     File mediaFile;
     if (type == MEDIA_TYPE_IMAGE){
@@ -1089,15 +1114,14 @@ private static File getOutputMediaFile(int type){
 }
 ```
 
-**Note:** `Environment.getExternalStoragePublicDirectory()` is available in Android 2.2 (API Level 8) or
-higher. If you are targeting devices with earlier versions of Android, use `Environment.getExternalStorageDirectory()`
-instead. For more information, see [Saving Shared Files](https://developer.android.com/guide/topics/data/data-storage#SavingSharedFiles).
+> [!NOTE]
+> **Note:** [`Environment.getExternalStoragePublicDirectory()`](https://developer.android.com/reference/android/os/Environment.md.txt#getExternalStoragePublicDirectory(java.lang.String)) is available in Android 2.2 (API Level 8) or higher. If you are targeting devices with earlier versions of Android, use [`Environment.getExternalStorageDirectory()`](https://developer.android.com/reference/android/os/Environment.md.txt#getExternalStorageDirectory()) instead. For more information, see [Saving Shared Files](https://developer.android.com/guide/topics/data/data-storage#SavingSharedFiles).
 
 To make the URI support work profiles, first [convert the file URI to a content URI](https://developer.android.com/work/managed-profiles.md.txt#sharing_files). Then, add the content URI to
 [`EXTRA_OUTPUT`](https://developer.android.com/reference/android/provider/MediaStore.md.txt#EXTRA_OUTPUT)
 of an [`Intent`](https://developer.android.com/reference/android/content/Intent.md.txt).
 
-For more information about saving files on an Android device, see [Data Storage](https://developer.android.com/guide/topics/data/data-storage).
+For more information about saving files on an Android-powered device, see [Data Storage](https://developer.android.com/guide/topics/data/data-storage).
 
 ## Camera features
 
@@ -1144,10 +1168,8 @@ were introduced.
 | `Picture Format` | 1 | Specify the file format for the picture |
 | `Picture Size` | 1 | Specify the pixel dimensions of the saved picture |
 
-**Note:** These features are not supported on all devices due to
-hardware differences and software implementation. For information on checking the availability
-of features on the device where your application is running, see [Checking
-feature availability](https://developer.android.com/media/camera/camera-deprecated/camera-api#check-feature).
+> [!NOTE]
+> **Note:** These features are not supported on all devices due to hardware differences and software implementation. For information on checking the availability of features on the device where your application is running, see [Checking feature availability](https://developer.android.com/media/camera/camera-deprecated/camera-api.md.txt#check-feature).
 
 ### Checking feature availability
 
@@ -1190,10 +1212,11 @@ You can use the technique shown above for most camera features. The
 `Camera.Parameters` object provides a `getSupported...()`, `is...Supported()` or `getMax...()` method to determine if (and to what extent) a feature is
 supported.
 
-If your application requires certain camera features in order to function properly, you can
-require them through additions to your application manifest. When you declare the use of specific
-camera features, such as flash and auto-focus, Google Play restricts your application from
-being installed on devices which do not support these features. For a list of camera features that
+If your application requires certain camera features in order to function
+properly, you can require them through additions to your application manifest.
+When you declare the use of specific camera features, such as flash and
+auto-focus, Google Play restricts your application from being installed on
+devices which don't support these features. For a list of camera features that
 can be declared in your app manifest, see the manifest
 [Features
 Reference](https://developer.android.com/guide/topics/manifest/uses-feature-element#hw-features).
@@ -1230,10 +1253,8 @@ parameters are typically visible to the user immediately in the application's ca
 On the software side, parameter changes may take several frames to actually take effect as the
 camera hardware processes the new instructions and then sends updated image data.
 
-**Important:** Some camera features cannot be changed at will. In
-particular, changing the size or orientation of the camera preview requires that you first stop the
-preview, change the preview size, and then restart the preview. Starting with Android 4.0 (API
-Level 14) preview orientation can be changed without restarting the preview.
+> [!IMPORTANT]
+> **Important:** Some camera features cannot be changed at will. In particular, changing the size or orientation of the camera preview requires that you first stop the preview, change the preview size, and then restart the preview. Starting with Android 4.0 (API Level 14) preview orientation can be changed without restarting the preview.
 
 Other camera features require more code in order to implement, including:
 
@@ -1245,11 +1266,12 @@ A quick outline of how to implement these features is provided in the following 
 
 ### Metering and focus areas
 
-In some photographic scenarios, automatic focusing and light metering may not produce the
-desired results. Starting with Android 4.0 (API Level 14), your camera application can provide
-additional controls to allow your app or users to specify areas in an image to use for determining
-focus or light level settings and pass these values to the camera hardware for use in capturing
-images or video.
+In some photographic scenarios, automatic focusing and light metering may not
+produce the results you want. Starting with Android 4.0 (API Level 14), your
+camera application can provide additional controls to allow your app or users to
+specify areas in an image to use for determining focus or light level settings
+and pass these values to the camera hardware for use in capturing images or
+video.
 
 Areas for metering and focus work very similarly to other camera features, in that you control
 them through methods in the `Camera.Parameters` object. The following code
@@ -1308,20 +1330,13 @@ The `Rect` field in a `Camera.Area` object
 describes a rectangular shape mapped on a 2000 x 2000 unit grid. The coordinates -1000, -1000
 represent the top, left corner of the camera image, and coordinates 1000, 1000 represent the
 bottom, right corner of the camera image, as shown in the illustration below.
+![Coordinate system grid for specifying a Camera.Area within a camera preview.](https://developer.android.com/static/media/camera/camera-deprecated/images/camera-area-coordinates.png) **Figure 1.** The red lines illustrate the coordinate system for specifying a `Camera.Area` within a camera preview. The blue box shows the location and shape of a camera area with the `Rect` values 333,333,667,667.
 
-![](https://developer.android.com/static/media/camera/camera-deprecated/images/camera-area-coordinates.png)
-
-
-**Figure 1.** The red lines illustrate the coordinate system for specifying a
-`Camera.Area` within a camera preview. The blue box shows the location and
-shape of an camera area with the `Rect` values 333,333,667,667.
-
-<br />
-
-The bounds of this coordinate system always correspond to the outer edge of the image visible in
-the camera preview and do not shrink or expand with the zoom level. Similarly, rotation of the image
-preview using `Camera.setDisplayOrientation()`
-does not remap the coordinate system.
+The bounds of this coordinate system always correspond to the outer edge of
+the image visible in the camera preview and don't shrink or expand with the zoom
+level. Similarly, rotation of the image preview using
+`Camera.setDisplayOrientation()`
+doesn't remap the coordinate system.
 
 ### Face detection
 
@@ -1330,10 +1345,8 @@ should be used for determining both focus and white balance when capturing an im
 (API Level 14) framework provides APIs for identifying faces and calculating picture settings using
 face recognition technology.
 
-**Note:** While the face detection feature is running,
-`setWhiteBalance(String)`,
-`setFocusAreas(List<Camera.Area>)` and
-`setMeteringAreas(List<Camera.Area>)` have no effect.
+> [!NOTE]
+> **Note:** While the face detection feature is running, [`setWhiteBalance(String)`](https://developer.android.com/reference/android/hardware/Camera.Parameters.md.txt#setWhiteBalance(java.lang.String)), [`setFocusAreas(List<Camera.Area>)`](https://developer.android.com/reference/android/hardware/Camera.Parameters.md.txt#setFocusAreas(java.util.List%3Candroid.hardware.Camera.Area%3E)), and [`setMeteringAreas(List<Camera.Area>)`](https://developer.android.com/reference/android/hardware/Camera.Parameters.md.txt#setMeteringAreas(java.util.List%3Candroid.hardware.Camera.Area%3E)) have no effect.
 
 Using the face detection feature in your camera application requires a few general steps:
 
@@ -1521,10 +1534,8 @@ public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
 }
 ```
 
-**Note:** Remember to call this method *after* calling
-`startPreview()`. Do not attempt to start face detection
-in the `onCreate()` method of your camera app's main activity,
-as the preview is not available by this point in your application's the execution.
+> [!NOTE]
+> **Note:** Remember to call this method *after* calling [`startPreview()`](https://developer.android.com/reference/android/hardware/Camera.md.txt#startPreview()). Don't attempt to start face detection in the [`onCreate()`](https://developer.android.com/reference/android/app/Activity.md.txt#onCreate(android.os.Bundle)) method of your camera app's main activity, as the preview is not available by this point in your application's execution.
 
 ### Time lapse video
 
@@ -1563,11 +1574,9 @@ samples further demonstrate the use of the APIs covered on this page.
 
 ## Camera fields that require permission
 
-Apps running Android 10 (API level 29) or higher must have the
-[`CAMERA`](https://developer.android.com/reference/android/Manifest.permission.md.txt#CAMERA) permission in order to
-access the values of the following fields that the
-[`getCameraCharacteristics()`](https://developer.android.com/reference/android/hardware/camera2/CameraManager.md.txt#getCameraCharacteristics(java.lang.String))
-method returns:
+Apps running Android 10 (API level 29) or higher must have the [`CAMERA`](https://developer.android.com/reference/android/Manifest.permission.md.txt#CAMERA)
+permission in order to access the values of the following fields that the
+[`getCameraCharacteristics()`](https://developer.android.com/reference/android/hardware/camera2/CameraManager.md.txt#getCameraCharacteristics(java.lang.String)) method returns:
 
 - `LENS_POSE_ROTATION`
 - `LENS_POSE_TRANSLATION`

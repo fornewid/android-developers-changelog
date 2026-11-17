@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/platform
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/platform/llms.txt
+
 ## Android Studio for Platform
 
 Get the official IDE for Android platform development, now featuring the Built-in Agent in AI in Android Studio with Soong build and test tools, faster project setup, Cuttlefish virtual device management, and in-editor `Android.bp` workflows.

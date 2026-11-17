@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/p
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial/llms.txt
+
 <br />
 
 
@@ -20,7 +22,7 @@ the Earth. It is composed of the following components:
 - Orientation, which approximates the direction the pose is facing in the EUS coordinate system. The EUS coordinate system has X+ pointing east, Y+ pointing up, and Z+ pointing south.
 
 The Geospatial API provides access to the device's Geospatial pose and provides
-conversions between Geospatial poses and [device-local poses](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/pose).
+conversions between Geospatial poses and [device-local poses](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/Pose.md.txt).
 
 ## Prerequisites
 

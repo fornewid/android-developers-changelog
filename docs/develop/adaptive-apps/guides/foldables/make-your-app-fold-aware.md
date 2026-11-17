@@ -4,9 +4,11 @@ url: https://developer.android.com/develop/adaptive-apps/guides/foldables/make-y
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/llms.txt
+
 Large unfolded displays and unique folded states enable new user experiences on
 foldable devices. To make your app fold aware in Jetpack Compose, use the
-[Compose Material 3 Adaptive library](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive), which provides APIs for foldable
+[Compose Material 3 Adaptive library](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive.md.txt), which provides APIs for foldable
 device window features such as folds, hinges, and device postures. When your app
 is fold aware, it can adapt its layout to avoid placing important content in the
 area of folds or hinges and use folds and hinges as natural separators.
@@ -20,38 +22,40 @@ specific features.
 In Jetpack Compose, use the [`collectFoldingFeaturesAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/collectFoldingFeaturesAsState.composable) composable
 function to observe window folding information.
 `collectFoldingFeaturesAsState()` collects the current window folding features
-from [`WindowInfoTracker`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowInfoTracker) into a Compose [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State) containing a list of
-[`FoldingFeature`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature) objects.
+from [`WindowInfoTracker`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowInfoTracker.md.txt) into a Compose [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State.md.txt) containing a list of
+[`FoldingFeature`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.md.txt) objects.
 
 Because `collectFoldingFeaturesAsState()` returns a Compose `State`, your
 composables automatically recompose whenever the device fold state or posture
 changes, without requiring manual lifecycle management or flow collection:
 
-    @Composable
-    fun FoldAwareScreen() {
-        val foldingFeatures by collectFoldingFeaturesAsState()
+```kotlin
+@Composable
+fun FoldAwareScreen() {
+    val foldingFeatures by collectFoldingFeaturesAsState()
 
-        // Access folding features for the current window.
-        val foldFeature = foldingFeatures.firstOrNull()
-        if (foldFeature != null) {
-            // Adapt layout based on the fold feature.
-        }
+    // Access folding features for the current window.
+    val foldFeature = foldingFeatures.firstOrNull()
+    if (foldFeature != null) {
+        // Adapt layout based on the fold feature.
     }
+}
+```
 
 ## Features of foldable displays
 
-The list of [`FoldingFeature`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature) elements returned by
-[`collectFoldingFeaturesAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/collectFoldingFeaturesAsState.composable) (a subtype of [`DisplayFeature`](https://developer.android.com/reference/kotlin/androidx/window/layout/DisplayFeature))
+The list of [`FoldingFeature`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.md.txt) elements returned by
+[`collectFoldingFeaturesAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/collectFoldingFeaturesAsState.composable) (a subtype of [`DisplayFeature`](https://developer.android.com/reference/kotlin/androidx/window/layout/DisplayFeature.md.txt))
 provides information about foldable displays, including the following
 properties:
 
-- `state`: The folded state of the device, [`FLAT`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State#FLAT()) or [`HALF_OPENED`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State#HALF_OPENED())
+- `state`: The folded state of the device, [`FLAT`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State.md.txt#FLAT()) or [`HALF_OPENED`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State.md.txt#HALF_OPENED())
 
-- `orientation`: The orientation of the fold or hinge, [`HORIZONTAL`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.Orientation#HORIZONTAL()) or
-  [`VERTICAL`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.Orientation#VERTICAL())
+- `orientation`: The orientation of the fold or hinge, [`HORIZONTAL`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.Orientation.md.txt#HORIZONTAL()) or
+  [`VERTICAL`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.Orientation.md.txt#VERTICAL())
 
 - `occlusionType`: Whether the fold or hinge conceals part of the display,
-  [`NONE`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.OcclusionType#NONE()) or [`FULL`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.OcclusionType#FULL())
+  [`NONE`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.OcclusionType.md.txt#NONE()) or [`FULL`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.OcclusionType.md.txt#FULL())
 
 - `isSeparating`: Whether the fold or hinge creates two logical display areas,
   true or false
@@ -64,22 +68,24 @@ because the screen is separated into two display areas. Also, `isSeparating` is
 always true on a dual‑screen device when the application spans both
 screens.
 
-The `FoldingFeature` [`bounds`](https://developer.android.com/reference/kotlin/androidx/window/layout/DisplayFeature#bounds()) property (inherited from `DisplayFeature`)
+The `FoldingFeature` [`bounds`](https://developer.android.com/reference/kotlin/androidx/window/layout/DisplayFeature.md.txt#bounds()) property (inherited from `DisplayFeature`)
 represents the bounding rectangle of a folding feature such as a fold or hinge.
 The bounds can be used to position elements on screen relative to the feature:
 
-    @Composable
-    fun FoldFeatureDemo() {
-        val foldingFeatures by collectFoldingFeaturesAsState()
-        val foldFeature = foldingFeatures.firstOrNull()
+```kotlin
+@Composable
+fun FoldFeatureDemo() {
+    val foldingFeatures by collectFoldingFeaturesAsState()
+    val foldFeature = foldingFeatures.firstOrNull()
 
-        if (foldFeature != null) {
-            val isSeparating = foldFeature.isSeparating
-            val occlusionType = foldFeature.occlusionType
-            val bounds = foldFeature.bounds
-            // Use bounds and properties to position content.
-        }
+    if (foldFeature != null) {
+        val isSeparating = foldFeature.isSeparating
+        val occlusionType = foldFeature.occlusionType
+        val bounds = foldFeature.bounds
+        // Use bounds and properties to position content.
     }
+}
+```
 
 ### Tabletop posture
 
@@ -94,32 +100,36 @@ taking photos, and making video calls.
 upright vertical portion of the screen and playback controls on the
 lower horizontal portion.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/foldables/tabletop.png) **Figure 1.** A video player app in tabletop posture---video on vertical portion of screen; playback controls on horizontal portion.
 
-Use [`FoldingFeature.State`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State) and [`FoldingFeature.Orientation`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.Orientation) from
+Use [`FoldingFeature.State`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State.md.txt) and [`FoldingFeature.Orientation`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.Orientation.md.txt) from
 `collectFoldingFeaturesAsState()` to determine whether the device is in tabletop
 posture:
 
-    @Composable
-    fun TabletopContent() {
-        val foldingFeatures by collectFoldingFeaturesAsState()
-        val foldFeature = foldingFeatures.firstOrNull()
+```kotlin
+@Composable
+fun TabletopContent() {
+    val foldingFeatures by collectFoldingFeaturesAsState()
+    val foldFeature = foldingFeatures.firstOrNull()
 
-        val isTableTopPosture = foldFeature != null &&
-            foldFeature.state == FoldingFeature.State.HALF_OPENED &&
-            foldFeature.orientation == FoldingFeature.Orientation.HORIZONTAL
+    val isTableTopPosture = foldFeature != null &&
+        foldFeature.state == FoldingFeature.State.HALF_OPENED &&
+        foldFeature.orientation == FoldingFeature.Orientation.HORIZONTAL
 
-        if (isTableTopPosture) {
-            // Tabletop layout: separate content and controls across the fold.
-        } else {
-            // Standard layout.
-        }
+    if (isTableTopPosture) {
+        // Tabletop layout: separate content and controls across the fold.
+    } else {
+        // Standard layout.
     }
+}
+```
 
 Alternatively, you can determine whether the window is in tabletop posture by
-checking the [`Posture`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/Posture) property returned by
-[`currentWindowAdaptiveInfoV2()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/currentWindowAdaptiveInfoV2.composable):
+checking the [`Posture`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/Posture.md.txt) property returned by
+[`currentWindowAdaptiveInfoV2()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/currentWindowAdaptiveInfoV2.composable.md.txt):
 
-    val adaptiveInfo = currentWindowAdaptiveInfoV2()
-    val isTabletop = adaptiveInfo.windowPosture.isTabletop
+```kotlin
+val adaptiveInfo = currentWindowAdaptiveInfoV2()
+val isTabletop = adaptiveInfo.windowPosture.isTabletop
+```
 
 Once you know the device is in tabletop posture, update your app layout
 accordingly. For media apps, that typically means placing the playback above the
@@ -129,8 +139,12 @@ hands‑free viewing or listening experience.
 #### Examples
 
 - [`MediaPlayerActivity`](https://github.com/android/platform-samples/blob/main/samples/user-interface/windowmanager/src/main/java/com/example/platform/ui/windowmanager/MediaPlayerActivity.kt) app: See how to use [Media3
-  Exoplayer](https://developer.android.com/guide/topics/media/exoplayer) and [WindowManager](https://developer.android.com/jetpack/androidx/releases/window) to create a fold‑aware video
+  Exoplayer](https://developer.android.com/guide/topics/media/exoplayer) and [WindowManager](https://developer.android.com/jetpack/androidx/releases/window.md.txt) to create a fold‑aware video
   player.
+
+- [Scale media content across form factors](https://developer.android.com/media/media3/ui/compose-scaling.md.txt): Learn how to
+  handle window insets, dynamic window sizing, and content scaling in
+  Jetpack Compose with Media3.
 
 - [Optimize your camera app on foldable devices with Jetpack WindowManager](https://developer.android.com/codelabs/android-camera-foldables#5)
   codelab: Learn how to implement tabletop posture for photography apps. Show
@@ -150,21 +164,23 @@ ratio while taking pictures hands‑free.
 Implement book posture with the same techniques used for tabletop posture. Check
 that the folding feature orientation is vertical instead of horizontal:
 
-    @Composable
-    fun BookContent() {
-        val foldingFeatures by collectFoldingFeaturesAsState()
-        val foldFeature = foldingFeatures.firstOrNull()
+```kotlin
+@Composable
+fun BookContent() {
+    val foldingFeatures by collectFoldingFeaturesAsState()
+    val foldFeature = foldingFeatures.firstOrNull()
 
-        val isBookPosture = foldFeature != null &&
-            foldFeature.state == FoldingFeature.State.HALF_OPENED &&
-            foldFeature.orientation == FoldingFeature.Orientation.VERTICAL
+    val isBookPosture = foldFeature != null &&
+        foldFeature.state == FoldingFeature.State.HALF_OPENED &&
+        foldFeature.orientation == FoldingFeature.Orientation.VERTICAL
 
-        if (isBookPosture) {
-            // Book posture layout: two-page layout across the vertical fold.
-        } else {
-            // Standard single-page layout.
-        }
+    if (isBookPosture) {
+        // Book posture layout: two-page layout across the vertical fold.
+    } else {
+        // Standard single-page layout.
     }
+}
+```
 
 > [!NOTE]
 > **Note:** On foldable devices that have two screens separated by a hinge, use layouts designed for tabletop and book postures even if the `FoldingFeature.State` is `FLAT`. Don't place UI controls too close to a fold or hinge when `isSeparating` is true because the controls can be difficult to reach. Use `occlusionType` to decide whether to place content within the folding feature `bounds`.
@@ -176,36 +192,38 @@ for example, when the device is folded or unfolded, rotated, or resized in
 multi‑window mode.
 
 To retrieve the current window size class and adapt to size changes in Jetpack
-Compose, use the [`currentWindowAdaptiveInfoV2()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/currentWindowAdaptiveInfoV2.composable) composable function from
-the [Compose Material 3 Adaptive library](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive). `currentWindowAdaptiveInfoV2()`
-returns a [`WindowAdaptiveInfo`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo) instance that provides the
-[`WindowSizeClass`](https://developer.android.com/reference/kotlin/androidx/window/core/layout/WindowSizeClass) of the current window (with support for large and
+Compose, use the [`currentWindowAdaptiveInfoV2()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/currentWindowAdaptiveInfoV2.composable.md.txt) composable function from
+the [Compose Material 3 Adaptive library](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive.md.txt). `currentWindowAdaptiveInfoV2()`
+returns a [`WindowAdaptiveInfo`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo.md.txt) instance that provides the
+[`WindowSizeClass`](https://developer.android.com/reference/kotlin/androidx/window/core/layout/WindowSizeClass.md.txt) of the current window (with support for large and
 extra-large breakpoints by default), as well as the device's
-[`windowPosture`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo#windowPosture()):
+[`windowPosture`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo.md.txt#windowPosture()):
 
-    @Composable
-    fun AdaptiveApp() {
-        val adaptiveInfo = currentWindowAdaptiveInfoV2()
-        val windowSizeClass = adaptiveInfo.windowSizeClass
+```kotlin
+@Composable
+fun AdaptiveApp() {
+    val adaptiveInfo = currentWindowAdaptiveInfoV2()
+    val windowSizeClass = adaptiveInfo.windowSizeClass
 
-        when {
-            windowSizeClass.isWidthAtLeastBreakpoint(
-                WIDTH_DP_EXPANDED_LOWER_BOUND
-            ) -> {
-                // Expanded layout
-            }
-            windowSizeClass.isWidthAtLeastBreakpoint(
-                WIDTH_DP_MEDIUM_LOWER_BOUND
-            ) -> {
-                // Medium layout
-            }
-            else -> {
-                // Compact layout
-            }
+    when {
+        windowSizeClass.isWidthAtLeastBreakpoint(
+            WIDTH_DP_EXPANDED_LOWER_BOUND
+        ) -> {
+            // Expanded layout
+        }
+        windowSizeClass.isWidthAtLeastBreakpoint(
+            WIDTH_DP_MEDIUM_LOWER_BOUND
+        ) -> {
+            // Medium layout
+        }
+        else -> {
+            // Compact layout
         }
     }
+}
+```
 
-See [Use window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes).
+See [Use window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes.md.txt).
 
 ## Additional resources
 

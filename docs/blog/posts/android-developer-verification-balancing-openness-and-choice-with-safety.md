@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/android-developer-verification-bal
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Android developer verification: Balancing openness and choice with safety
 
-2 min read ![](https://developer.android.com/static/blog/assets/android_Verification2_b4044e9b89_ZkItcl.webp) 19 Mar 2026 [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe) [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) Director, Product Management Android proves you don't have to choose between an open ecosystem and a secure one. Since [announcing](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) updated verification requirements, we've [worked with the community](https://android-developers.googleblog.com/2025/11/android-developer-verification-early.html) to ensure these protections are robust yet respectful of platform freedom. We've heard from power users that they want to take educated risks to install software from unverified developers. Today, we're sharing details on a new advanced flow that provides this option.
+2 min read ![](https://developer.android.com/static/blog/assets/android_Verification2_b4044e9b89_ZkItcl.webp) 19 Mar 2026 [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) Director, Product Management, Android App Safety Android proves you don't have to choose between an open ecosystem and a secure one. Since [announcing](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) updated verification requirements, we've [worked with the community](https://android-developers.googleblog.com/2025/11/android-developer-verification-early.html) to ensure these protections are robust yet respectful of platform freedom. We've heard from power users that they want to take educated risks to install software from unverified developers. Today, we're sharing details on a new advanced flow that provides this option.
 ![large_slide_v3.png](https://developer.android.com/static/blog/assets/large_slide_v3_3465838df6_1t9i1B.webp)
 
 #### Advanced flow safeguards against coercion
@@ -39,38 +41,38 @@ In addition to the advanced flow we're building free, limited distribution accou
 Limited distribution accounts and advanced flow for users will be available in August before the new developer verification requirements take effect.
 
 Visit our [website](https://developer.android.com/developer-verification) for more details. We look forward to sharing more in the coming days and weeks.
-- [#Android](https://developer.android.com/blog/topics/android)
+- [#Android](https://developer.android.com/blog/topics/android.md.txt)
 Written by:
 
 -
 
-  ## [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe)
+  ## [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt)
 
   ###### Director, Product Management
 
   [read_more
   View profile](https://developer.android.com/blog/authors/matthew-forsythe) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
+  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](https://developer.android.com/blog/authors/roxanna-walker) 21 Oct 2026 21 Oct 2026 ![](https://developer.android.com/static/blog/assets/1009_ABL_142_A_more_reliable_way_to_add_and_edit_contacts_on_Android_Strapi_b510ec4fc0_ZXfljU.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 4 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](https://developer.android.com/blog/authors/roxanna-walker.md.txt) 21 Oct 2026 21 Oct 2026 ![](https://developer.android.com/static/blog/assets/1009_ABL_142_A_more_reliable_way_to_add_and_edit_contacts_on_Android_Strapi_b510ec4fc0_ZXfljU.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [A more reliable way to add and edit contacts on Android](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android)
+  ## [A more reliable way to add and edit contacts on Android](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android) Apps that target the upcoming Android release will no longer be able to directly write to contacts with the WRITE_CONTACTS permission.
-  [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker) • 6 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_KDejo.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android.md.txt) Apps that target the upcoming Android release will no longer be able to directly write to contacts with the WRITE_CONTACTS permission.
+  [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker.md.txt) • 6 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_KDejo.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
+  ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
-  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
+  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together.md.txt) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) • 2 min read
 Stay in the loop
 
 

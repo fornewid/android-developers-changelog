@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/navigation/use-graph/pass-data
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/navigation/llms.txt
+
 Navigation lets you attach data to a navigation operation by defining arguments
 for a destination. For example, a user profile destination might take a user ID
 argument to determine which user to display.
@@ -12,15 +14,15 @@ In general, you should strongly prefer passing only the minimal amount of data
 between destinations. For example, you should pass a key to retrieve an object
 rather than passing the object itself, as the total space for all saved states
 is limited on Android. If you need to pass large amounts of data, use
-a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) as described in
-[ViewModel overview](https://developer.android.com/topic/libraries/architecture/viewmodel#sharing).
+a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel.md.txt) as described in
+[ViewModel overview](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt#sharing).
 
 ## Define destination arguments
 
 To pass data between destinations, first define the argument by adding it to the
 destination that receives it by following these steps:
 
-1. In the [Navigation Editor](https://developer.android.com/guide/navigation/design/editor), click the destination that receives the argument.
+1. In the [Navigation Editor](https://developer.android.com/guide/navigation/design/editor.md.txt), click the destination that receives the argument.
 2. In the **Attributes** panel, click **Add** (**+**).
 3. In the **Add Argument Link** window that appears, enter the argument name, argument type, whether the argument is nullable, and a default value, if needed.
 4. Click **Add** . Notice that the argument now appears in the **Arguments** list in the **Attributes** panel.
@@ -29,12 +31,14 @@ destination that receives it by following these steps:
    to toggle to XML view, and notice that your argument was added to the
    destination that receives the argument. An example is shown in the following:
 
-        <fragment android:id="@+id/myFragment" >
-            <argument
-                android:name="myArg"
-                app:argType="integer"
-                android:defaultValue="0" />
-        </fragment>
+   ```xml
+    <fragment android:id="@+id/myFragment" >
+        <argument
+            android:name="myArg"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+   ```
 
 ### Supported argument types
 
@@ -72,7 +76,7 @@ lets you choose a class from your current project.
 You can choose **\<inferred type\>** to have the Navigation library
 determine the type based on the provided value.
 
-You can check **Array** to indicate that the argument should be an array of the
+You can select **Array** to indicate that the argument should be an array of the
 selected **Type** value. Note the following:
 
 - Arrays of enums and arrays of resource references are not supported.
@@ -93,13 +97,15 @@ declared in the destination.
 The following XML declares an action with an argument that overrides the
 destination-level argument from the preceding example:
 
-    <action android:id="@+id/startMyFragment"
-        app:destination="@+id/myFragment">
-        <argument
-            android:name="myArg"
-            app:argType="integer"
-            android:defaultValue="1" />
-    </action>
+```xml
+<action android:id="@+id/startMyFragment"
+    app:destination="@+id/myFragment">
+    <argument
+        android:name="myArg"
+        app:argType="integer"
+        android:defaultValue="1" />
+</action>
+```
 
 ## Use Safe Args to pass data with type safety
 
@@ -109,7 +115,7 @@ associated arguments. Safe Args is strongly recommended for navigating and
 passing data, because it ensures type safety.
 
 If you are not using Gradle, you can't use the Safe
-Args plugin. In these cases, you can [use Bundles](https://developer.android.com/guide/navigation/use-graph/pass-data#bundle) to directly
+Args plugin. In these cases, you can [use Bundles](https://developer.android.com/guide/navigation/use-graph/pass-data.md.txt#bundle) to directly
 pass data.
 
 To add [Safe Args](https://developer.android.com/topic/libraries/architecture/navigation/navigation-pass-data#Safe-args)
@@ -184,7 +190,7 @@ plugins {
 
 You must have `android.useAndroidX=true` in your
 [`gradle.properties` file](https://developer.android.com/studio/build#properties-files) as per
-[Migrating to AndroidX](https://developer.android.com/jetpack/androidx/migrate#migrate)).
+[Migrating to AndroidX](https://developer.android.com/jetpack/androidx/migrate.md.txt#migrate)).
 
 After you've enabled Safe Args, your generated code contains the following
 type safe classes and methods for each action as well as with each sending and
@@ -211,7 +217,7 @@ receiving destination.
   method to retrieve the arguments.
 
 The following example shows you how to use these methods to set an argument and
-pass it to the [`navigate()`](https://developer.android.com/reference/androidx/navigation/NavController#navigate(kotlin.Int))
+pass it to the [`navigate()`](https://developer.android.com/reference/androidx/navigation/NavController.md.txt#navigate(kotlin.Int))
 method:
 
 ### Kotlin
@@ -239,7 +245,7 @@ public void onClick(View view) {
 }
 ```
 
-In the code for the receiving destination, use the [`getArguments()`](https://developer.android.com/reference/androidx/fragment/app/Fragment#getArguments()) method
+In the code for the receiving destination, use the [`getArguments()`](https://developer.android.com/reference/androidx/fragment/app/Fragment.md.txt#getArguments()) method
 to retrieve the bundle and use its contents. When using the `-ktx` dependencies,
 Kotlin users can also use the `by navArgs()` property delegate to access
 arguments.
@@ -298,7 +304,7 @@ methods as described in the previous section.
 
 If you aren't using Gradle, you can still pass arguments between destinations by
 using `Bundle` objects. Create a `Bundle` object and pass it to the destination
-using [`navigate()`](https://developer.android.com/reference/androidx/navigation/NavController#navigate(kotlin.Int)), as in the following example:
+using [`navigate()`](https://developer.android.com/reference/androidx/navigation/NavController.md.txt#navigate(kotlin.Int)), as in the following example:
 
 ### Kotlin
 
@@ -315,7 +321,7 @@ bundle.putString("amount", amount);
 Navigation.findNavController(view).navigate(R.id.confirmationAction, bundle);
 ```
 
-In your receiving destination's code, use the [`getArguments()`](https://developer.android.com/reference/androidx/fragment/app/Fragment#getArguments()) method to
+In your receiving destination's code, use the [`getArguments()`](https://developer.android.com/reference/androidx/fragment/app/Fragment.md.txt#getArguments()) method to
 retrieve the `Bundle` and use its contents:
 
 ### Kotlin
@@ -335,17 +341,17 @@ tv.setText(getArguments().getString("amount"));
 ## Pass data to the start destination
 
 You can pass data to your app's start destination. First, you must explicitly
-construct a [`Bundle`](https://developer.android.com/reference/android/os/Bundle) that holds the data. Next, use one of the following
+construct a [`Bundle`](https://developer.android.com/reference/android/os/Bundle.md.txt) that holds the data. Next, use one of the following
 approaches to pass the `Bundle` to the start destination:
 
-- If you're creating your `NavHost` programmatically, call [`NavHostFragment.create(R.navigation.graph, args)`](https://developer.android.com/reference/androidx/navigation/fragment/NavHostFragment#create(kotlin.Int,android.os.Bundle)), where `args` is the `Bundle` that holds your data.
+- If you're creating your `NavHost` programmatically, call [`NavHostFragment.create(R.navigation.graph, args)`](https://developer.android.com/reference/androidx/navigation/fragment/NavHostFragment.md.txt#create(kotlin.Int,android.os.Bundle)), where `args` is the `Bundle` that holds your data.
 - Otherwise, you can set start destination arguments by calling one of the following overloads of `NavController.setGraph()`:
   - Use the ID of the graph: [`navController.setGraph(R.navigation.graph,
     args)`](https://developer.android.com/reference/androidx/navigation/NavController#setGraph(androidx.navigation.NavGraph))
-  - Use the graph itself: [`navController.setGraph(navGraph, args)`](https://developer.android.com/reference/androidx/navigation/NavController#setGraph(androidx.navigation.NavGraph))
+  - Use the graph itself: [`navController.setGraph(navGraph, args)`](https://developer.android.com/reference/androidx/navigation/NavController.md.txt#setGraph(androidx.navigation.NavGraph))
 
 To retrieve the data in your start destination, call
-[`Fragment.getArguments()`](https://developer.android.com/reference/androidx/fragment/app/Fragment#getArguments()).
+[`Fragment.getArguments()`](https://developer.android.com/reference/androidx/fragment/app/Fragment.md.txt#getArguments()).
 
 > [!NOTE]
 > **Note:** when manually calling `setGraph()` with arguments, you must **not** use the `app:navGraph` attribute when creating the `NavHostFragment` in XML as that internally calls `setGraph()` without any arguments, resulting in your graph and start destination being created twice.
@@ -363,7 +369,7 @@ The following subsections outline these approaches.
 
 ### Use @Keep annotations
 
-The following example adds [`@Keep`](https://developer.android.com/reference/kotlin/androidx/annotation/Keep) annotations to model class definitions:
+The following example adds [`@Keep`](https://developer.android.com/reference/kotlin/androidx/annotation/Keep.md.txt) annotations to model class definitions:
 
 ### Kotlin
 

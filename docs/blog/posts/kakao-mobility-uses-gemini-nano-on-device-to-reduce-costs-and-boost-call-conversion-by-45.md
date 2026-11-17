@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/kakao-mobility-uses-gemini-nano-on
 source: md.txt
 ---
 
-[Case Studies](https://developer.android.com/blog/categories/case-studies)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # Kakao Mobility uses Gemini Nano on-device to reduce costs and boost call conversion by 45%
 
-3 min read ![](https://developer.android.com/static/blog/assets/kakao_Mobility_fa49c20743_ciMAI.webp) 30 Oct 2025 3 Authors [Sa-ryong Kang,](https://developer.android.com/blog/authors/sa-ryong-kang) [Caren Chang,](https://developer.android.com/blog/authors/caren-chang) [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) [Kakao Mobility](https://www.kakaocorp.com/page/service/service/KakaoT?lang=en) is South Korea's leading mobility business, offering a range of transportation and delivery services, including taxi-hailing, navigation, bike and scooter-sharing, parking, and parcel delivery, through its [Kakao T](https://play.google.com/store/apps/details?id=com.kakao.taxi) app. The team at [Kakao Mobility utilized Gemini Nano](https://android-developers.googleblog.com/2025/10/ml-kit-genai-prompt-api-alpha-release.html) via [ML Kit's GenAI Prompt API](https://developers.google.com/ml-kit/genai) to offer parking assistance for its bike-sharing service and an improved address entry experience for its navigation and delivery services.
+3 min read ![](https://developer.android.com/static/blog/assets/kakao_Mobility_fa49c20743_ciMAI.webp) 30 Oct 2025 3 Authors [Sa-ryong Kang,](https://developer.android.com/blog/authors/sa-ryong-kang.md.txt) [Caren Chang,](https://developer.android.com/blog/authors/caren-chang.md.txt) [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) [Kakao Mobility](https://www.kakaocorp.com/page/service/service/KakaoT?lang=en) is South Korea's leading mobility business, offering a range of transportation and delivery services, including taxi-hailing, navigation, bike and scooter-sharing, parking, and parcel delivery, through its [Kakao T](https://play.google.com/store/apps/details?id=com.kakao.taxi) app. The team at [Kakao Mobility utilized Gemini Nano](https://android-developers.googleblog.com/2025/10/ml-kit-genai-prompt-api-alpha-release.html) via [ML Kit's GenAI Prompt API](https://developers.google.com/ml-kit/genai) to offer parking assistance for its bike-sharing service and an improved address entry experience for its navigation and delivery services.
 [Video](https://www.youtube.com/watch?v=PoqJh_60Wrw)
 
 The Kakao T app serves over 30 million total users, and its bike-sharing service is one of its most popular services. But unfortunately, many users were improperly parking the bikes or scooters when not in use. This behavior led to an influx of parking violations and safety concerns, resulting in public complaints, fines, and towing. These issues began to negatively affect public perception of both Kakao Mobility and its bike-sharing services.
@@ -59,7 +61,7 @@ Written by:
 
 -
 
-  ## [Sa-ryong Kang](https://developer.android.com/blog/authors/sa-ryong-kang)
+  ## [Sa-ryong Kang](https://developer.android.com/blog/authors/sa-ryong-kang.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -67,7 +69,7 @@ Written by:
   View profile](https://developer.android.com/blog/authors/sa-ryong-kang) ![View Sa-ryong Kang's profile](https://developer.android.com/static/blog/assets/Sa_ryong_Kang_34a2e9f899_Z1YhOMI.webp) ![View Sa-ryong Kang's profile](https://developer.android.com/static/blog/assets/Sa_ryong_Kang_34a2e9f899_Z1YhOMI.webp)
 -
 
-  ## [Caren Chang](https://developer.android.com/blog/authors/caren-chang)
+  ## [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -75,34 +77,34 @@ Written by:
   View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)
 -
 
-  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
+  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt)
 
   ###### Product Marketing Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
 Continue reading
-- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time)
+  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
+  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
-  - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys.md.txt) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt), [Mayank Jain](https://developer.android.com/blog/authors/blog-author.md.txt) • 8 min read
+  - [#Passkeys](https://developer.android.com/blog/topics/passkeys.md.txt)
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
+  ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+  [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer.md.txt) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 4 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
 Stay in the loop
 
 

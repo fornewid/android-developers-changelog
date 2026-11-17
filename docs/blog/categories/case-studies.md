@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/categories/case-studies
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/categories/case-studies/llms.txt
+
 ![](https://developer.android.com/static/blog/assets/case_studies_droid_5b46649590_c28b947247_ZyXn8A.webp)
 
 # Case Studies

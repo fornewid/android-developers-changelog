@@ -4,12 +4,13 @@ url: https://developer.android.com/games/agde/samples
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/agde/llms.txt
+
 The samples for the Android Game Development Extension demonstrate how to use key features
-of the extension. This topic describes the samples and the
+of the extension. This document describes the samples and the
 settings needed to run them.
 
-The following samples are available on the
-[downloads page](https://developer.android.com/games/agde#span-iddownloadsandroid-game-development-extension-downloadsspan):
+The following samples are available on the [downloads page](https://developer.android.com/games/agde#span-iddownloadsandroid-game-development-extension-downloadsspan):
 
 - HelloJNI: an introductory project.
 - Endless-Tunnel: an Android only project.
@@ -19,26 +20,26 @@ The following samples are available on the
 ## Before you start
 
 - Install the Android Game Development Extension and the samples. See the
-  [quickstart](https://developer.android.com/games/agde/quickstart) for details. The topic also describes how to build
-  and run a sample and uses the Android version of the [Teapot](https://developer.android.com/games/agde/samples#teapot) sample
+  [quickstart](https://developer.android.com/games/agde/quickstart.md.txt) for details. The topic also describes how to build
+  and run a sample and uses the Android version of the [Teapot](https://developer.android.com/games/agde/samples.md.txt#teapot) sample
   as an example.
 
-- The [project configuration](https://developer.android.com/games/agde/adapt-existing-project) guide describes how to
-  configure settings for a project that uses the extension, such as
-  adding an Android platform and APK.
+- The [project configuration](https://developer.android.com/games/agde/adapt-existing-project.md.txt) guide describes how to configure settings for a
+  project that uses the extension, such as adding an Android platform
+  and APK.
 
 ## HelloJNI
 
-The HelloJNI sample is a simple project that displays a "Hello From JNI" message
+The HelloJNI sample is a project that displays a "Hello From JNI" message
 in an app window. The project use a different set of source code for Windows and
 Android.
 
 - Android source code and gradle build scripts directory: **HelloJNI\\AndroidPackaging**
 - Windows source code and Visual Studio project directory: **HelloJNI**
 
-When you build the project, Visual Studio passes the following
-settings to the app-level `build.gradle` file. You can change these settings by
-[modifying your Gradle build scripts](https://developer.android.com/games/agde/adapt-existing-project#change-build-scripts).
+When you build the project, Visual Studio passes the following settings to the
+app-level `build.gradle` file. You can change these settings by [modifying your
+Gradle build scripts](https://developer.android.com/games/agde/adapt-existing-project#change-build-scripts).
 
 - `MSBUILD_NDK_VERSION`
 - `MSBUILD_MIN_SDK_VERSION`
@@ -50,19 +51,18 @@ To set up and run the sample:
 <button type="button" class="button-red button expand-control">Show / Hide Instructions</button>
 
 1. In Visual Studio, open and build the HelloJNI sample.
-2. Add an **Android arm64-v8a** platform. For more information, see [Adding an Android Platform](https://developer.android.com/games/agde/adapt-existing-project#add-android-platform).
-3. [Add an Android APK item](https://developer.android.com/games/agde/adapt-existing-project#add_an_android_apk_item) to the new platform.
+2. Add an **Android arm64-v8a** platform. For more information, see [Adding an Android Platform](https://developer.android.com/games/agde/adapt-existing-project.md.txt#add-android-platform).
+3. [Add an Android APK item](https://developer.android.com/games/agde/adapt-existing-project.md.txt#add_an_android_apk_item) to the new platform.
 4. Compile the project.
 5. Add the following Android platforms and then add an Android APK item to each of them: **Android-armeabi-v7a** , **Android-x86** , and **Android-x86_64**.
-6. [Build and run](https://developer.android.com/games/agde/quickstart#run-sample) the sample.
+6. [Build and run](https://developer.android.com/games/agde/quickstart.md.txt#run-sample) the sample.
 
 ## Endless-Tunnel
 
 The Endless-Tunnel sample is an Android game where the player collects white
 cubes while trying to reach the end of a tunnel. It was ported from an OpenGL
-sample in the
-[Android NDK repo on Github](https://github.com/android/ndk-samples/tree/main/endless-tunnel).
-The sample does not provide a Windows version of the game.
+sample in the [Android NDK repository on Github](https://github.com/android/ndk-samples/tree/main/endless-tunnel). The sample
+does not provide a Windows version of the game.
 
 The sample already has its settings and Android plaforms configured, so you can
 build and run the project in Visual Studio without any modifications. When you
@@ -70,7 +70,7 @@ open the solution, **Solution Explorer** displays these modules:
 
 - endless-tunnel: the application module that displays the game logic.
 - glm: a snapshot of the [OpenGL Math repo](https://github.com/g-truc/glm) that is built as a static library.
-- native_app_glue: an NDK wrapper that communicates with the [NativeActivity](https://developer.android.com/reference/android/app/NativeActivity) object.
+- native_app_glue: an NDK wrapper that communicates with the [`NativeActivity`](https://developer.android.com/reference/android/app/NativeActivity.md.txt) object.
 
 ## Teapot
 
@@ -79,7 +79,7 @@ ported to the Android Game Development Extension to demonstrate the following fe
 
 - Cross platform project development: you can build the Teapot sample for Windows and Android.
 - Custom Android packaging usage: the Gradle build scripts were moved to the sample's root directory, where the `Teapot.sln` file is located.
-- Custom Android configurations that demonstrate how to use [Address Sanitizer](https://developer.android.com/ndk/guides/asan) (ASan) and [Hardware Address Sanitizer](https://developer.android.com/ndk/guides/hwasan) (HWASan).
+- Custom Android configurations that demonstrate how to use [Address Sanitizer](https://developer.android.com/ndk/guides/asan.md.txt) (ASan) and [Hardware Address Sanitizer](https://developer.android.com/ndk/guides/hwasan.md.txt) (HWASan).
 
 The implementation of the Teapot sample is split into multiple parts, which is
 typical for large cross platform applications and games:
@@ -87,31 +87,31 @@ typical for large cross platform applications and games:
 - `GameApplication` module: defines user actions and application states, such as a user rotating the teapot or updating application statistics.
 - `GameEngine` module: implements the core rendering module.
 
-To set up the sample and run it on Android, see the [quickstart](https://developer.android.com/games/agde/quickstart). To
+To set up the sample and run it on Android, see the [quickstart](https://developer.android.com/games/agde/quickstart.md.txt). To
 set up the sample and run it on Windows:
 <button type="button" class="button-red button expand-control">Show / Hide Instructions</button>
 
 1. Install GLEW:
-   1. Download and unzip [GLEW](http://glew.sourceforge.net/index.html).
+   1. Download and extract [GLEW](http://glew.sourceforge.net/index.html).
    2. Copy the binary files from `$your-glew-directory\bin\Release\x64` to `%SystemRoot%\system32`.
 2. Install freeglut:
-   1. Download and unzip [freeglut](http://freeglut.sourceforge.net/index.php#download).
+   1. Download and extract [freeglut](http://freeglut.sourceforge.net/index.php#download).
    2. Copy `$your-freeglut-directory\bin\x86\freeglut.dll` to `%SystemRoot%\system32`.
 3. Add the freeglut project dependencies:
    1. Open `Teapot.sln` in Visual Studio.
    2. In the menu, click **Debug \> x64 \> Local Windows Debugger**.
-   3. In **Solution Explorer** , right click **GameApplication** and choose **Properties \> C/C++ \> General \> Additional Include Directories**.
+   3. In **Solution Explorer** , right-click **GameApplication** and choose **Properties \> C/C++ \> General \> Additional Include Directories**.
    4. Add `$your-freeglut-dir\include` to the path.  
-      ![Screenshot of the Additional Include Directories dialog.](https://developer.android.com/static/images/agde/agde-samples-teapot-include.png)
+      ![Visual Studio Additional Include Directories property page dialog.](https://developer.android.com/static/images/agde/agde-samples-teapot-include.png)
    5. Click **Ok**.
    6. Choose **Linker \> General \> Additional Library Directories**.
-   7. Add `$your-freeglut-dir\lib\x64` to the path. ![Screenshot of the Additional Library Directories dialog.](https://developer.android.com/static/images/agde/agde-samples-teapot-library.png)
+   7. Add `$your-freeglut-dir\lib\x64` to the path. ![Visual Studio Additional Library Directories property page dialog.](https://developer.android.com/static/images/agde/agde-samples-teapot-library.png)
    8. Click **Ok**.
    9. Choose **Linker \> General \> Additional Library Directories**.
    10. Add `freeglut.lib` to the path.
    11. Click **Ok**.
 4. Add the GLEW project dependencies:
-   1. In the **Solution Explorer** pane, right click **GameApplication** and choose **Properties \> C/C++ \> General \> Additional Include Directories**.
+   1. In the **Solution Explorer** pane, right-click **GameApplication** and choose **Properties \> C/C++ \> General \> Additional Include Directories**.
    2. Add `$your-glew-dir\include` to the path.
    3. Click **Ok**.
    4. Choose **Linker \> General \> Additional Library Directories**.
@@ -120,10 +120,14 @@ set up the sample and run it on Windows:
    7. Choose **Linker \> General \> Additional Library Directories**.
    8. Add `glew32.lib` to the path.
    9. Click **Ok**.
-5. Run the sample on Windows: **Note:** To improve build times, Android source files that aren't shared with Windows should be excluded when you build the sample for Windows. To exclude files, use the **Exclude from Build** command in the **Properties Pages** dialog for each file you want to exclude in **Solution Explorer**.
+5. Run the sample on Windows:
+
+   > [!NOTE]
+   > **Note:** To improve build times, Android source files that aren't shared with Windows should be excluded when you build the sample for Windows. To exclude files, use the **Exclude from Build** command in the **Properties Pages** dialog for each file you want to exclude in **Solution Explorer**.
+
    1. On the Visual Studio toolbar, click the **Local Windows Debugger** run button.
    2. The sample should look as follows:  
-      ![Screenshot of the Teapot sample running on Windows.](https://developer.android.com/static/images/agde/agde-samples-teapot-windows.png)
+      ![The Teapot sample application running in a Windows window.](https://developer.android.com/static/images/agde/agde-samples-teapot-windows.png)
 
 ## AssemblyCode-Link-Objects
 
@@ -143,7 +147,7 @@ To set up and build the sample:
 <button type="button" class="button-red button expand-control">Show / Hide Instructions</button>
 
 1. In Visual Studio, verify that custom build tools are configured for the assembly files:
-   1. In **Solution Explorer** , right click the assembly file and click **Properties** . This opens the **Properties Pages** dialog for the file.
+   1. In **Solution Explorer** , right-click the assembly file and click **Properties** . This opens the **Properties Pages** dialog for the file.
    2. Select the configuration and platform, such as **All configurations** for **Android-arm64-v8a**.
    3. Ensure that **General \> Exclude from Build** is set to **No**.
    4. Ensure that **General \> Item Type** is set to **Custom Build Tool**.
@@ -155,7 +159,7 @@ To set up and build the sample:
 
    For example, the **Android-arm64-v8a** settings should
    look similar to the following screenshot:
-   ![Screenshot of the Property Page for Custom Build Tools.](https://developer.android.com/static/images/agde/agde-samples-assembly-properties.png)
+   ![Visual Studio Property Pages dialog for Custom Build Tools.](https://developer.android.com/static/images/agde/agde-samples-assembly-properties.png)
 2. Build the project. This builds the `libAssmeblyCodeLinkObjects.so` file:
    1. Open the `AssemblyCode-Link-Objects.sln` file.
    2. In the menu, click **Build \> Build Solution**.

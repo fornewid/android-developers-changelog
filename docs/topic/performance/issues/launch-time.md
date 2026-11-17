@@ -4,6 +4,8 @@ url: https://developer.android.com/topic/performance/issues/launch-time
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/topic/performance/issues/llms.txt
+
 Users expect apps to load fast and be responsive. An app with a slow start time
 doesn't meet this expectation and can disappoint users. This sort of poor
 experience can cause a user to rate your app poorly on the Play store or even
@@ -15,7 +17,7 @@ startup performance, and some common start-time issues with tips on how to
 address them.
 
 > [!NOTE]
-> **Note:** For information on how Android Play Vitals tracks and reports this issue, see [App startup time in Android vitals](https://developer.android.com/google/play/vitals/launch-time).
+> **Note:** For information on how Android Play Vitals tracks and reports this issue, see [App startup time in Android vitals](https://developer.android.com/google/play/vitals/launch-time.md.txt).
 
 ## Understand the different app startup states
 
@@ -32,7 +34,7 @@ happening at the system and app levels and how they interact in each of these
 states.
 
 Two important metrics for determining app startup are [time to initial display
-(TTID)](https://developer.android.com/topic/performance/issues/launch-time#time-initial) and [time to full display (TTFD)](https://developer.android.com/topic/performance/issues/launch-time#time-full). TTID is the time it takes to
+(TTID)](https://developer.android.com/topic/performance/issues/launch-time#time-initial) and [time to full display (TTFD)](https://developer.android.com/topic/performance/issues/launch-time.md.txt#time-full). TTID is the time it takes to
 display the first frame, and TTFD is the time it takes for the app to become
 fully interactive. Both are equally important, because TTID lets the user know
 that the app is loading, and TTFD is when the app is actually usable. If either
@@ -52,7 +54,7 @@ At the beginning of a cold start, the system has the three following tasks:
 
 1. Load and launch the app.
 2. Display a blank starting window for the app immediately after launch.
-3. Create the app [process](https://developer.android.com/guide/components/processes-and-threads#Processes).
+3. Create the app [process](https://developer.android.com/guide/components/processes-and-threads.md.txt#Processes).
 
 As soon as the system creates the app process, the app process is responsible
 for the next stages:
@@ -68,7 +70,7 @@ displayed background window, replacing it with the main activity. At this point,
 the user can start using the app.
 
 For more information about layout phases in Compose, see
-[Jetpack Compose phases](https://developer.android.com/develop/ui/compose/phases).
+[Jetpack Compose phases](https://developer.android.com/develop/ui/compose/phases.md.txt).
 
 Performance issues can arise during creation of the app and creation of the
 host activity.
@@ -80,7 +82,7 @@ the system finishes drawing the app for the first time. At this point, the
 system process swaps the starting window for your app, letting the user interact
 with the app.
 
-If you override [`Application.onCreate`](https://developer.android.com/reference/kotlin/android/app/Application#onCreate()) in your own app, the system
+If you override [`Application.onCreate`](https://developer.android.com/reference/kotlin/android/app/Application.md.txt#onCreate()) in your own app, the system
 invokes the `onCreate` method on your app object. Afterwards, the app spawns
 the main thread, also known as the *UI thread*, and tasks it with creating your
 app's host activity.
@@ -95,11 +97,11 @@ operations:
 
 1. Initializes values.
 2. Calls constructors.
-3. Calls the callback method, such as [`Activity.onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity#onCreate%28android.os.Bundle%29), appropriate to the current lifecycle state of the activity.
+3. Calls the callback method, such as [`Activity.onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt#onCreate%28android.os.Bundle%29), appropriate to the current lifecycle state of the activity.
 
-Typically, the [`onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity#onCreate%28android.os.Bundle%29) method has the greatest impact on load time. In
+Typically, the [`onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt#onCreate%28android.os.Bundle%29) method has the greatest impact on load time. In
 a Jetpack Compose app, the `onCreate` method's overhead often comes from the
-initial composition. This happens when your app calls [`setContent`](https://developer.android.com/reference/kotlin/androidx/activity/compose/package-summary#(androidx.activity.ComponentActivity).setContent(androidx.compose.runtime.CompositionContext,kotlin.Function0)) and
+initial composition. This happens when your app calls [`setContent`](https://developer.android.com/reference/kotlin/androidx/activity/compose/package-summary.md.txt#(androidx.activity.ComponentActivity).setContent(androidx.compose.runtime.CompositionContext,kotlin.Function0)) and
 invokes your top-level composables. A deep or complex UI hierarchy, or
 composables that perform heavy calculations on the main thread, can increase
 this composition time.
@@ -127,7 +129,7 @@ app's UI is still resident in memory, then the app can avoid repeating object
 initialization, UI initialization, and rendering.
 
 However, if some memory is purged in response to memory trimming events, such as
-[`onTrimMemory`](https://developer.android.com/reference/kotlin/android/content/ComponentCallbacks2#ontrimmemory), then these objects need to be recreated in response to
+[`onTrimMemory`](https://developer.android.com/reference/kotlin/android/content/ComponentCallbacks2.md.txt#ontrimmemory), then these objects need to be recreated in response to
 the hot start event.
 
 A hot start displays the same on-screen behavior as a cold start scenario. The
@@ -158,7 +160,7 @@ in the app startup phase. To identify the entire app startup phase in
 3. Pin the Android App Startups row by clicking on the pin icon, which is
    visible when you hold the pointer over the row.
 
-4. Scroll to the row with the app in question and click the first cell to expand
+4. Go to the row with the app in question and click the first cell to expand
    the row.
 
 5. Zoom into the main thread, usually at the top, by pressing <kbd>w</kbd>
@@ -170,7 +172,7 @@ in the app startup phase. To identify the entire app startup phase in
    the app startup, so you can continue to debug in more detail.
 
 When analyzing a Jetpack Compose application, you can use
-[Composition tracing](https://developer.android.com/develop/ui/compose/tooling/tracing) to see granular details about your UI's performance.
+[Composition tracing](https://developer.android.com/develop/ui/compose/tooling/tracing.md.txt) to see granular details about your UI's performance.
 Pay special attention to trace sections within the main thread that start with
 `Choreographer#doFrame`. Look for slices like `Compose:recompose`,
 `Compose:layout`, and `Compose:draw`. These show you how much time your app
@@ -184,7 +186,7 @@ you that your app has a problem and helps you diagnose it.
 
 ### Benefits of utilizing startup metrics
 
-Android uses the [time to initial display (TTID)](https://developer.android.com/topic/performance/issues/launch-time#time-initial) and [time to full display
+Android uses the [time to initial display (TTID)](https://developer.android.com/topic/performance/issues/launch-time.md.txt#time-initial) and [time to full display
 (TTFD)](https://developer.android.com/topic/performance/issues/launch-time#time-full) metrics to optimize cold and warm app startups. Android Runtime (ART)
 uses the data from these metrics to efficiently precompile code for optimization
 of future startups.
@@ -202,7 +204,7 @@ creation during a cold or warm start, and displaying the first frame. Keeping
 your app's TTID low helps improve the user experience by letting users see your
 app launch quickly. TTID is reported automatically for every app by the Android
 Framework. When optimizing for app startup we recommend implementing
-[`reportFullyDrawn`](https://developer.android.com/reference/kotlin/android/app/Activity#reportFullyDrawn()) to get information up to [TTFD](https://developer.android.com/topic/performance/issues/launch-time#time-full).
+[`reportFullyDrawn`](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt#reportFullyDrawn()) to get information up to [TTFD](https://developer.android.com/topic/performance/issues/launch-time.md.txt#time-full).
 
 TTID is measured as a time value that represents the total elapsed time that
 includes the following sequence of events:
@@ -215,7 +217,7 @@ includes the following sequence of events:
 
 #### Retrieve TTID
 
-To find TTID, search in the [Logcat command-line tool](https://developer.android.com/tools/logcat) for an output line
+To find TTID, search in the [Logcat command-line tool](https://developer.android.com/tools/logcat.md.txt) for an output line
 containing a value called `Displayed`. This value is the TTID and looks similar
 to the following example, in which TTID is 3s534ms:
 
@@ -233,7 +235,7 @@ resources that aren't referenced in the initial composition (like asynchronously
 loaded data or images) or resources that the app creates as
 part of object initialization. It excludes these resources because loading them
 is an inline process and it doesn't block the app's initial display.
-For more information on resources, see [Resources in Compose](https://developer.android.com/develop/ui/compose/resources).
+For more information on resources, see [Resources in Compose](https://developer.android.com/develop/ui/compose/resources.md.txt).
 
 Sometimes the `Displayed` line in the Logcat output contains an additional field
 for total time, like in the following example:
@@ -266,8 +268,8 @@ window displays the following:
     WaitTime: 2054
     Complete
 
-The `-c` and `-a` arguments are optional and let you specify [`<category>`](https://developer.android.com/guide/topics/manifest/category-element)
-and [`<action>`](https://developer.android.com/guide/topics/manifest/action-element).
+The `-c` and `-a` arguments are optional and let you specify [`<category>`](https://developer.android.com/guide/topics/manifest/category-element.md.txt)
+and [`<action>`](https://developer.android.com/guide/topics/manifest/action-element.md.txt).
 
 ### Time to full display
 
@@ -289,7 +291,7 @@ system when it reaches the fully drawn state.
 #### Retrieve TTFD
 
 To find TTFD, signal the fully drawn state by calling the
-[`reportFullyDrawn`](https://developer.android.com/reference/kotlin/android/app/Activity#reportFullyDrawn()) method of the [`ComponentActivity`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity). The
+[`reportFullyDrawn`](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt#reportFullyDrawn()) method of the [`ComponentActivity`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.md.txt). The
 `reportFullyDrawn` method reports when the app is fully drawn and in a usable
 state. The TTFD is the time elapsed from when the system receives the app launch
 intent to when `reportFullyDrawn` is called. If you don't call
@@ -328,13 +330,13 @@ might want to delay calling `reportFullyDrawn` until after your app becomes
 usable so that you can include the list population as part of your benchmark
 timing.
 
-For example, if the UI contains a dynamic list, such as a [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable) or
-[`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable), this might be populated by a background task that completes
+For example, if the UI contains a dynamic list, such as a [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable.md.txt) or
+[`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable.md.txt), this might be populated by a background task that completes
 after the list is first drawn and, therefore, after the UI is marked as fully
 drawn. In such cases, the list population isn't included in the benchmarking.
 
 To include the list population as part of your benchmark timing, get the
-[`FullyDrawnReporter`](https://developer.android.com/reference/kotlin/androidx/activity/FullyDrawnReporter) by using [`fullyDrawnReporter`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity#fullyDrawnReporter()), and add a
+[`FullyDrawnReporter`](https://developer.android.com/reference/kotlin/androidx/activity/FullyDrawnReporter.md.txt) by using [`fullyDrawnReporter`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.md.txt#fullyDrawnReporter()), and add a
 reporter to it in your app code. Release the reporter after the background task
 finishes populating the list.
 
@@ -348,64 +350,66 @@ completed, regardless of the order.
 If your app uses Jetpack Compose, you can use the following APIs to indicate
 fully drawn state:
 
-- [`ReportDrawn`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawn.composable#ReportDrawn()): indicates that your composable is immediately ready for interaction.
-- [`ReportDrawnWhen`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawnWhen.composable#ReportDrawnWhen(kotlin.Function0)): takes a predicate, such as `list.count > 0`, to indicate when your composable is ready for interaction.
-- [`ReportDrawnAfter`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawnAfter.composable#ReportDrawnAfter(kotlin.coroutines.SuspendFunction0)): takes a suspending method that, once completed, indicates that your composable is ready for interaction.
+- [`ReportDrawn`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawn.composable.md.txt#ReportDrawn()): indicates that your composable is immediately ready for interaction.
+- [`ReportDrawnWhen`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawnWhen.composable.md.txt#ReportDrawnWhen(kotlin.Function0)): takes a predicate, such as `list.count > 0`, to indicate when your composable is ready for interaction.
+- [`ReportDrawnAfter`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawnAfter.composable.md.txt#ReportDrawnAfter(kotlin.coroutines.SuspendFunction0)): takes a suspending method that, once completed, indicates that your composable is ready for interaction.
 
 The following example shows how you can run multiple background tasks
 concurrently, with each registering its own reporter:
 
-    class MainActivity : ComponentActivity() {
+```kotlin
+class MainActivity : ComponentActivity() {
 
-        sealed interface ActivityState {
-            data object LOADING : ActivityState
-            data object LOADED : ActivityState
-        }
+    sealed interface ActivityState {
+        data object LOADING : ActivityState
+        data object LOADED : ActivityState
+    }
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-            setContent {
-                var activityState by remember {
-                    mutableStateOf(ActivityState.LOADING as ActivityState)
-                }
-                fullyDrawnReporter.addOnReportDrawnListener {
-                    activityState = ActivityState.LOADED
-                }
-                ReportFullyDrawnTheme {
-                    when(activityState) {
-                        is ActivityState.LOADING -> {
-                            // Display the loading UI.
-                        }
-                        is ActivityState.LOADED -> {
-                            // Display the full UI.
-                        }
+        setContent {
+            var activityState by remember {
+                mutableStateOf(ActivityState.LOADING as ActivityState)
+            }
+            fullyDrawnReporter.addOnReportDrawnListener {
+                activityState = ActivityState.LOADED
+            }
+            ReportFullyDrawnTheme {
+                when(activityState) {
+                    is ActivityState.LOADING -> {
+                        // Display the loading UI.
+                    }
+                    is ActivityState.LOADED -> {
+                        // Display the full UI.
                     }
                 }
-                SideEffect {
-                    fullyDrawnReporter.addReporter()
-                    lifecycleScope.launch(Dispatchers.IO) {
-                        // Perform the background operation.
-                        fullyDrawnReporter.removeReporter()
-                    }
-                    fullyDrawnReporter.addReporter()
-                    lifecycleScope.launch(Dispatchers.IO) {
-                        // Perform the background operation.
-                        fullyDrawnReporter.removeReporter()
-                    }
+            }
+            SideEffect {
+                fullyDrawnReporter.addReporter()
+                lifecycleScope.launch(Dispatchers.IO) {
+                    // Perform the background operation.
+                    fullyDrawnReporter.removeReporter()
+                }
+                fullyDrawnReporter.addReporter()
+                lifecycleScope.launch(Dispatchers.IO) {
+                    // Perform the background operation.
+                    fullyDrawnReporter.removeReporter()
                 }
             }
         }
     }
+}
+```
 
 ##### Identify bottlenecks
 
 To look for bottlenecks, you can use the Android Studio CPU Profiler. For more
-information, see [Inspect CPU activity with CPU Profiler](https://developer.android.com/studio/profile/cpu-profiler).
+information, see [Inspect CPU activity with CPU Profiler](https://developer.android.com/studio/profile/cpu-profiler.md.txt).
 
 You can also gain insight into potential bottlenecks through inline tracing
 inside of your apps' and activities' `onCreate` methods. To learn about inline
-tracing, see the documentation for the [`Trace`](https://developer.android.com/reference/kotlin/android/os/Trace) functions and the [overview
+tracing, see the documentation for the [`Trace`](https://developer.android.com/reference/kotlin/android/os/Trace.md.txt) functions and the [overview
 of system tracing](https://developer.android.com/topic/performance/tracing).
 
 ## Solve common issues
@@ -421,10 +425,9 @@ and executes heavy work or complex logic when initializing that object. Your app
 might waste time during startup if your `Application` subclasses perform
 initializations that don't need to be done yet.
 
-Some initializations might be completely unnecessary, such as when initializing
-state information for the main activity when the app is actually started up in
-response to an intent. With an intent, the app uses only a subset
-of the previously initialized state data.
+For example, initializing state for the main activity might be unnecessary when
+the app starts from an intent, because the app only uses a subset of that
+initialized state data.
 
 Other challenges during app initialization include garbage collection events
 that are impactful or numerous, or disk I/O happening concurrently with
@@ -439,7 +442,7 @@ You can use method tracing or inline tracing to try to diagnose the problem.
 
 ##### Method tracing
 
-Running the CPU Profiler reveals that the [`callApplicationOnCreate`](https://developer.android.com/reference/android/app/Instrumentation#callApplicationOnCreate(android.app.Application))
+Running the CPU Profiler reveals that the [`callApplicationOnCreate`](https://developer.android.com/reference/android/app/Instrumentation.md.txt#callApplicationOnCreate(android.app.Application))
 method eventually calls your `com.example.customApplication.onCreate` method. If
 the tool shows that these methods are taking a long time to finish executing,
 explore further to see what work is occurring there.
@@ -448,7 +451,7 @@ explore further to see what work is occurring there.
 
 Use inline tracing to investigate likely culprits, including the following:
 
-- Your app's initial [`onCreate`](https://developer.android.com/reference/kotlin/android/app/Application#onCreate()) function.
+- Your app's initial [`onCreate`](https://developer.android.com/reference/kotlin/android/app/Application.md.txt#onCreate()) function.
 - Any global singleton objects your app initializes.
 - Any disk I/O, deserialization, or tight loops that might be occurring during the bottleneck.
 
@@ -460,11 +463,11 @@ are immediately needed. Instead of creating global static objects, move to a
 singleton pattern where the app initializes objects only the first time it needs
 them.
 
-Also, consider using a dependency injection framework like [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) that
+Also, consider using a dependency injection framework like [Hilt](https://developer.android.com/training/dependency-injection/hilt-android.md.txt) that
 creates objects and dependencies when they are injected for the first time.
 
 If your app uses content providers to initialize app components at startup,
-consider using the [App Startup library](https://developer.android.com/topic/libraries/app-startup) instead.
+consider using the [App Startup library](https://developer.android.com/topic/libraries/app-startup.md.txt) instead.
 
 ### Heavy activity initialization
 
@@ -476,7 +479,7 @@ common issues include the following:
 - Heavy initialization in composables.
 - Blocking screen drawing on disk, or network I/O.
 - Loading and decoding bitmaps.
-- Rasterizing [`VectorDrawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/VectorDrawable) objects.
+- Rasterizing [`VectorDrawable`](https://developer.android.com/reference/kotlin/android/graphics/drawable/VectorDrawable.md.txt) objects.
 - Initialization of other subsystems of the app's host activity.
 
 #### Diagnose the problem
@@ -485,7 +488,7 @@ In this case, as well, both method tracing and inline tracing can be useful.
 
 ##### Method tracing
 
-When using the CPU Profiler, pay attention to your app's [`Application`](https://developer.android.com/reference/kotlin/android/app/Application)
+When using the CPU Profiler, pay attention to your app's [`Application`](https://developer.android.com/reference/kotlin/android/app/Application.md.txt)
 subclass constructors and `com.example.customApplication.onCreate` methods.
 
 If the tool shows that these methods are taking a long time to finish executing,
@@ -512,8 +515,8 @@ as follows:
   - Move all resource initialization so that the app can perform it lazily on a different thread.
   - Load and display your UI with placeholder data first, and then later update visual properties that are dependent on bitmaps and other resources.
 
-For more information on recomposition, see [Recomposition](https://developer.android.com/develop/ui/compose/mental-model#recomposition) and
-[Get recomposition counts](https://developer.android.com/develop/ui/compose/tooling/debug#recomposition-counts).
+For more information on recomposition, see [Recomposition](https://developer.android.com/develop/ui/compose/mental-model.md.txt#recomposition) and
+[Get recomposition counts](https://developer.android.com/develop/ui/compose/tooling/debug.md.txt#recomposition-counts).
 
 ### Custom splash screens
 
@@ -521,18 +524,18 @@ You might see extra time added during startup if you previously used one of
 the following methods to implement a custom splash screen in Android 11 (API
 level 30) or earlier:
 
-- Using the [`windowDisablePreview`](https://developer.android.com/reference/kotlin/android/R.attr#windowdisablepreview) theme attribute to turn off the initial blank screen drawn by the system during launch.
+- Using the [`windowDisablePreview`](https://developer.android.com/reference/kotlin/android/R.attr.md.txt#windowdisablepreview) theme attribute to turn off the initial blank screen drawn by the system during launch.
 - Using a dedicated `Activity`.
 
-Starting with Android 12, migrating to the [`SplashScreen`](https://developer.android.com/reference/kotlin/android/window/SplashScreen) API is required.
+Starting with Android 12, migrating to the [`SplashScreen`](https://developer.android.com/reference/kotlin/android/window/SplashScreen.md.txt) API is required.
 This API enables a faster startup time and lets you tweak your splash screen in
 the following ways:
 
 - [Set a theme](https://developer.android.com/guide/topics/ui/splash-screen#set-theme) to change the splash screen's appearance.
 - Control how long the splash screen is displayed with [`windowSplashScreenAnimationDuration`](https://developer.android.com/guide/topics/ui/splash-screen#suspend-drawing).
-- Customize the [splash screen animation](https://developer.android.com/develop/ui/views/launch/splash-screen#customize-animation), and gracefully handle the animation for dismissing the splash screen.
+- Customize the [splash screen animation](https://developer.android.com/develop/ui/views/launch/splash-screen.md.txt#customize-animation), and gracefully handle the animation for dismissing the splash screen.
 
-Furthermore, the compat library backports the [`SplashScreen` API](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen) to enable
+Furthermore, the compat library backports the [`SplashScreen` API](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen.md.txt) to enable
 backward-compatibility and to create a consistent look and feel for splash
 screen display across all Android versions.
 
@@ -541,6 +544,6 @@ See the [Splash screen migration guide](https://developer.android.com/guide/topi
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Slow rendering](https://developer.android.com/topic/performance/issues/render)
-- [Capture Macrobenchmark metrics](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics)
-- [Create Baseline Profiles{:#creating-profile-rules}](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile)
+- [Slow rendering](https://developer.android.com/topic/performance/issues/render.md.txt)
+- [Capture Macrobenchmark metrics](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics.md.txt)
+- [Create Baseline Profiles{:#creating-profile-rules}](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile.md.txt)

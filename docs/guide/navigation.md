@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/navigation
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/navigation/llms.txt
+
 [Video](https://www.youtube.com/watch?v=Y0Cs2MQxyIs)
 
 Navigation refers to the interactions that let users navigate across, into, and
@@ -25,10 +27,10 @@ navigation and the main types that you use to implement them.
 
 | Concept | Purpose | Type |
 |---|---|---|
-| Host | A UI element that contains the current navigation destination. That is, when a user navigates through an app, the app essentially swaps destinations in and out of the navigation host. | - **Compose** : [`NavHost`](https://developer.android.com/reference/kotlin/androidx/navigation/compose/package-summary#NavHost(androidx.navigation.NavHostController,androidx.navigation.NavGraph,androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1)) - **Fragments** : [`NavHostFragment`](https://developer.android.com/reference/androidx/navigation/fragment/NavHostFragment) |
-| Graph | A data structure that defines all the navigation destinations within the app and how they connect together. | [`NavGraph`](https://developer.android.com/reference/androidx/navigation/NavGraph) |
-| Controller | The central coordinator for managing navigation between destinations. The controller offers methods for navigating between destinations, handling deep links, managing the back stack, and more. | [`NavController`](https://developer.android.com/reference/androidx/navigation/NavController) |
-| Destination | A node in the navigation graph. When the user navigates to this node, the host displays its content. | [`NavDestination`](https://developer.android.com/reference/androidx/navigation/NavDestination) Typically created when constructing the navigation graph. |
+| Host | A UI element that contains the current navigation destination. That is, when a user navigates through an app, the app essentially swaps destinations in and out of the navigation host. | - **Compose** : [`NavHost`](https://developer.android.com/reference/kotlin/androidx/navigation/compose/package-summary.md.txt#NavHost(androidx.navigation.NavHostController,androidx.navigation.NavGraph,androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1)) - **Fragments** : [`NavHostFragment`](https://developer.android.com/reference/androidx/navigation/fragment/NavHostFragment.md.txt) |
+| Graph | A data structure that defines all the navigation destinations within the app and how they connect together. | [`NavGraph`](https://developer.android.com/reference/androidx/navigation/NavGraph.md.txt) |
+| Controller | The central coordinator for managing navigation between destinations. The controller offers methods for navigating between destinations, handling deep links, managing the back stack, and more. | [`NavController`](https://developer.android.com/reference/androidx/navigation/NavController.md.txt) |
+| Destination | A node in the navigation graph. When the user navigates to this node, the host displays its content. | [`NavDestination`](https://developer.android.com/reference/androidx/navigation/NavDestination.md.txt) Typically created when constructing the navigation graph. |
 | Route | Uniquely identifies a destination and any data required by it. You can navigate using routes. Routes take you to destinations. | Any serializable data type. |
 
 > [!IMPORTANT]
@@ -42,13 +44,13 @@ including the following:
 - **Animations and transitions:** Provides standardized resources for animations and transitions.
 - **Deep linking:** Implements and handles deep links that take the user directly to a destination.
 - **UI patterns:** Supports patterns such as navigation drawers and bottom navigation with minimal additional work.
-- **Type safety:** Includes support for passing data between destinations with [type safety](https://developer.android.com/guide/navigation/design/type-safety).
+- **Type safety:** Includes support for passing data between destinations with [type safety](https://developer.android.com/guide/navigation/design/type-safety.md.txt).
 - **ViewModel support:** Enables scoping a `ViewModel` to a navigation graph to share UI-related data between the graph's destinations.
 - **Fragment transactions:** Fully supports and handles fragment transactions.
 - **Back and up:** Handles back and up actions correctly by default.
 
 > [!NOTE]
-> **Note:** If you are using XML for your navigation graphs, use Android Studio's [Navigation Editor](https://developer.android.com/guide/navigation/design/editor) to view and edit your graphs.
+> **Note:** If you are using XML for your navigation graphs, use Android Studio's [Navigation Editor](https://developer.android.com/guide/navigation/design/editor.md.txt) to view and edit your graphs.
 
 > [!NOTE]
 > **Note:** Android 13 introduces predictive back navigation, which works with the Navigation component for Android devices. Implement predictive back navigation in your app as soon as possible. Otherwise, users might experience unexpected behavior in a future Android release.
@@ -130,7 +132,7 @@ dependencies {
 ```
 
 For information on adding other architecture components to your project, see
-[Add components to your project](https://developer.android.com/topic/libraries/architecture/adding-components#navigation).
+[Add components to your project](https://developer.android.com/topic/libraries/architecture/adding-components.md.txt#navigation).
 
 ## Next steps
 
@@ -143,9 +145,9 @@ For more information on how to implement a navigation host and `NavController`,
 as well as detail on how they interact with Compose and other UI frameworks, see
 the following guides:
 
-- [Create a navigation controller](https://developer.android.com/guide/navigation/navcontroller): Outlines how to create a `NavController`.
-- [Create your navigation graph](https://developer.android.com/guide/navigation/design): Details how to create a navigation host and a navigation graph.
-- [Navigate to a destination](https://developer.android.com/guide/navigation/use-graph/navigate): Demonstrates how to use a `NavController` to move between the destinations in your graph.
+- [Create a navigation controller](https://developer.android.com/guide/navigation/navcontroller.md.txt): Outlines how to create a `NavController`.
+- [Create your navigation graph](https://developer.android.com/guide/navigation/design.md.txt): Details how to create a navigation host and a navigation graph.
+- [Navigate to a destination](https://developer.android.com/guide/navigation/use-graph/navigate.md.txt): Demonstrates how to use a `NavController` to move between the destinations in your graph.
 
 ### Codelabs
 

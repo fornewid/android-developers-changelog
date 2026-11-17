@@ -4,42 +4,40 @@ url: https://developer.android.com/guide/navigation/navigation-swipe-view
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/navigation/llms.txt
+
 > [!CAUTION]
-> **Caution:** ViewPager has been deprecated and replaced with the [`ViewPager2`](https://developer.android.com/reference/kotlin/androidx/viewpager2/widget/ViewPager2) library. For more information, read the [ViewPager2 migration
-> guide](https://developer.android.com/training/animation/vp2-migration), then learn how to [create swipe views
-> with tabs using ViewPager2](https://developer.android.com/guide/navigation/navigation-swipe-view-2).
+> **Caution:** ViewPager has been deprecated and replaced with the [`ViewPager2`](https://developer.android.com/reference/kotlin/androidx/viewpager2/widget/ViewPager2.md.txt) library. For more information, read the [ViewPager2 migration guide](https://developer.android.com/training/animation/vp2-migration), then learn how to [create swipe views with tabs using ViewPager2](https://developer.android.com/guide/navigation/navigation-swipe-view-2.md.txt).
 
 Swipe views let you navigate between sibling screens, such as tabs, with a
 horizontal finger gesture, or *swipe* . This navigation pattern is also referred
-to as *horizontal paging*. This topic teaches you how to create a tab layout
+to as *horizontal paging*. This document teaches you how to create a tab layout
 with swipe views for switching between tabs, along with how to show a title
 strip instead of tabs.
 
 ## Implement swipe views
 
-You can create swipe views using AndroidX's
-[`ViewPager`](https://developer.android.com/reference/kotlin/androidx/viewpager/widget/ViewPager) widget.
-To use a `ViewPager` and tabs, you need to add dependencies for
-[`ViewPager`](https://developer.android.com/jetpack/androidx/releases/viewpager#androidx-deps) and
-[Material Components](https://material.io/develop/android/docs/getting-started/)
-to your project.
+You can create swipe views using AndroidX's [`ViewPager`](https://developer.android.com/reference/kotlin/androidx/viewpager/widget/ViewPager.md.txt) widget. To use a
+`ViewPager` and tabs, you need to add dependencies for [`ViewPager`](https://developer.android.com/jetpack/androidx/releases/viewpager.md.txt#androidx-deps) and
+[Material Components](https://material.io/develop/android/docs/getting-started/) to your project.
 
 To set up your layout with `ViewPager`, add the `<ViewPager>` element to your
 XML layout. For example, if each page in the swipe view uses the
 entire layout, then your layout looks like this:
 
-    <androidx.viewpager.widget.ViewPager
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+```xml
+<androidx.viewpager.widget.ViewPager
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+```
 
 To insert child views that represent each page, you need to hook this layout to
-a [`PagerAdapter`](https://developer.android.com/reference/androidx/viewpager/widget/PagerAdapter). You can
-choose between two kinds of built-in adapters:
+a [`PagerAdapter`](https://developer.android.com/reference/androidx/viewpager/widget/PagerAdapter.md.txt). You can choose between two kinds of built-in adapters:
 
-- [`FragmentPagerAdapter`](https://developer.android.com/reference/androidx/fragment/app/FragmentPagerAdapter): use this when navigating between a small, fixed number of sibling screens.
-- [`FragmentStatePagerAdapter`](https://developer.android.com/reference/androidx/fragment/app/FragmentStatePagerAdapter): use this when paging across an unknown number of pages. `FragmentStatePagerAdapter` optimizes memory usage by destroying fragments as the user navigates away.
+- [`FragmentPagerAdapter`](https://developer.android.com/reference/androidx/fragment/app/FragmentPagerAdapter.md.txt): use this when navigating between a small, fixed number of sibling screens.
+- [`FragmentStatePagerAdapter`](https://developer.android.com/reference/androidx/fragment/app/FragmentStatePagerAdapter.md.txt): use this when paging across an unknown number of pages. `FragmentStatePagerAdapter` optimizes memory usage by destroying fragments as the user navigates away.
 
 As an example, here is how you might use `FragmentStatePagerAdapter` to swipe
 across a collection of `Fragment` objects:
@@ -185,36 +183,32 @@ between pages.
 
 ## Add tabs using a TabLayout
 
-A [`TabLayout`](https://developer.android.com/reference/com/google/android/material/tabs/TabLayout) provides
-a way to display tabs horizontally. When used together with a `ViewPager`, a
-`TabLayout` provides a familiar interface for navigating between pages in a
-swipe view.
-
-![](https://developer.android.com/static/images/topic/libraries/architecture/navigation-tab-layout.png)
-
-**Figure 1.** A `TabLayout` with four tabs.
+A [`TabLayout`](https://developer.android.com/reference/com/google/android/material/tabs/TabLayout.md.txt) provides a way to display tabs horizontally. When used
+together with a `ViewPager`, a `TabLayout` provides a familiar interface for
+navigating between pages in a swipe view.
+![A TabLayout displaying four horizontal tabs with the third tab selected.](https://developer.android.com/static/images/topic/libraries/architecture/navigation-tab-layout.png) **Figure 1.** A `TabLayout` with four tabs.
 
 To include a `TabLayout` in a `ViewPager`, add a `<TabLayout>` element inside
 the `<ViewPager>` element, as shown below:
 
-    <androidx.viewpager.widget.ViewPager
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/pager"
+```xml
+<androidx.viewpager.widget.ViewPager
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content" />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+</androidx.viewpager.widget.ViewPager>
+```
 
-    </androidx.viewpager.widget.ViewPager>
-
-Next, use
-[`setupWithViewPager()`](https://developer.android.com/reference/com/google/android/material/tabs/TabLayout#setupWithViewPager(android.support.v4.view.ViewPager))
-to link the `TabLayout` to the `ViewPager`. The individual tabs in the
-`TabLayout` are automatically populated with the page titles from the
-`PagerAdapter`:
+Next, use [`setupWithViewPager`](https://developer.android.com/reference/com/google/android/material/tabs/TabLayout.md.txt#setupWithViewPager(android.support.v4.view.ViewPager)) to link the `TabLayout` to the
+`ViewPager`. The individual tabs in the `TabLayout` are automatically populated
+with the page titles from the `PagerAdapter`:
 
 ### Kotlin
 

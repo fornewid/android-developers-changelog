@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/adaptive-apps/guides/mediaquery
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/llms.txt
+
 > [!NOTE]
 > **Note:** The `mediaQuery` function and the related data types are experimental and subject to change. File any issues on the [issue tracker](https://issuetracker.google.com/issues?q=componentid:1876021).
 
@@ -150,6 +152,9 @@ when {
 <br />
 
 **Figure 1**. Layout is updated according to the window width.
+
+To apply these techniques to media playback, see
+[Scale media content across form factors](https://developer.android.com/media/media3/ui/compose-scaling.md.txt).
 
 ### Update layout according to the window posture
 

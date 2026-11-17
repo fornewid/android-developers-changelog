@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/navigation3
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # navigation3
 
 Navigation 3 is a new navigation library designed to work with Compose.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 04, 2026 | [1.2.1](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.1) | - | - | [1.3.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation3#1.3.0-alpha04) |
+| November 04, 2026 | [1.2.1](https://developer.android.com/jetpack/androidx/releases/navigation3.md.txt#1.2.1) | - | - | [1.3.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation3.md.txt#1.3.0-alpha04) |
 
 ## Declaring dependencies
 
@@ -90,11 +92,15 @@ September 23, 2026
 
 `androidx.navigation3:navigation3-*:1.3.0-alpha01` is released. Version 1.3.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/811e8c9c37f4955d520fe0cf7e39d96866066abc..b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f/navigation3).
 
-\*\* Bug Fixes \*\*
+**Bug Fixes**
 
 - Fixed predictive back animation handoff in `NavDisplay` by migrating to `DeferredAnimatedContent` and resolving transition handoff issues. [I145eaedd](https://android-review.googlesource.com/q/I145eaedd3e2074826b14164f19369002f1cde37a) [b/430807423](https://issuetracker.google.com/issues/430807423)
+  - `DeferredAnimatedContent` uses `DeferredTransition` to separate transitions into a deferred phase (via `defer`), which applies manual transformations during a swipe gesture, and an automatic phase (via `animateTo`), which runs the transition when the swipe is committed.
 
-There are no release notes for this artifact.
+**Known Issues**
+
+- Shared elements are rendered in the outgoing scene during transitions instead of the incoming scene. ([b/582354988](https://issuetracker.google.com/issues/582354988))
+- Shared elements don't seek during the deferred (gesture) phase.
 
 ## Navigation3 Version 1.2
 
@@ -274,28 +280,30 @@ Navigation 3 now supports deep links with `DeepLinkRequest` and `DeepLinkMatcher
 
 - `DeepLinkRequest` a requested deep link containing a `DeepLinkUri` and an optional mimeType or action(Android only). Along with the new class are companion functions to create an instance with either a `uri`, a `mimeType`, or an `action`. The android platform also has a helper to build a request from an Intent. ([Iaaac9](https://android-review.googlesource.com/#/q/Iaaac9c02bc9ae16b5127256ad4ef2910c93f84b5), [b/470282247](https://issuetracker.google.com/issues/470282247))
 
-      val uriOnlyRequest = DeepLinkRequest.fromUriString("https://sampledeeplink.com/home")
-      val uriAndMimeRequest = DeepLinkRequest.fromUriString(
-        "https://sampledeeplink.com/user/profile?id=123",
-        "image/png"
-      )
-
+  ```kotlin
+  val uriOnlyRequest = DeepLinkRequest.fromUriString("https://sampledeeplink.com/home")
+  val uriAndMimeRequest = DeepLinkRequest.fromUriString(
+    "https://sampledeeplink.com/user/profile?id=123",
+    "image/png"
+  )
+  ```
 - `DeepLinkMatcher` represents a deep link that can be matched with a `DeepLinkRequest`. Each matcher instance is associated with the navigation key that supports this deep link. A navigation key can be associated with multiple matchers. Calling `DeepLinkMatcher.match` will return a `MatchResult` that contains the associated navigation key if match succeeds. There are two default `DeepLinkMatcher` implementations: `UriDeepLinkMatcher` for matching deep links based on Uri, and `StaticKeyDeepLinkMatcher` for matching deep links with only `DeepLinkMatcher.Filter` that match by a `Boolean`. ([I3798e](https://android-review.googlesource.com/#/q/I3798e89108f17fcde2ff80be6bed9fc4e7a039ef), [b/470282247](https://issuetracker.google.com/issues/470282247))
 
 - `UriDeepLinkMatcher` an opinionated implementation of `DeepLinkMatcher` that handles deep link by matching `DeepLinkUri` to a Serializable navigation key. It supports deep link arguments of Primitive types or Collection of primitives such as Lists, Arrays, and Sets. ([I1520b](https://android-review.googlesource.com/#/q/I1520b129d23f79f51843501a0468c02dc453b566), [b/470282247](https://issuetracker.google.com/issues/470282247))
 
-      @Serializable
-      data class UserKey(val id: Int): NavKey
+  ```kotlin
+  @Serializable
+  data class UserKey(val id: Int): NavKey
 
-      // declare a deep link supported by UserKey
-      val userMatcher = UriDeepLinkMatcher(
-        uriPattern = "www.sampledeeplink.com/user?userId={id}",
-        serializer = serializer<UserKey>()
-      )
+  // declare a deep link supported by UserKey
+  val userMatcher = UriDeepLinkMatcher(
+    uriPattern = "www.sampledeeplink.com/user?userId={id}",
+    serializer = serializer<UserKey>()
+  )
 
-      // handle a requested deep link with fallback key
-      val key = userMatcher.match(deepLinkRequest)?.key ?: HomeKey
-
+  // handle a requested deep link with fallback key
+  val key = userMatcher.match(deepLinkRequest)?.key ?: HomeKey
+  ```
 - Added `DeepLinkUri` which is a kotlin-multiplatform version of `android.net.Uri` ([Id4725](https://android-review.googlesource.com/#/q/Id47259e21dafd72dd7ef127cc75713a886a93844), [b/470282247](https://issuetracker.google.com/issues/470282247))
 
 **Api Changes**
@@ -638,7 +646,7 @@ September 10, 2025
 
 **Dependency Changes**
 
-- Navigation3 now depends on [NavigationEvent Alpha08](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.0.0-alpha08).
+- Navigation3 now depends on [NavigationEvent Alpha08](https://developer.android.com/jetpack/androidx/releases/navigationevent.md.txt#1.0.0-alpha08).
 
 ### Version 1.0.0-alpha08
 
@@ -653,7 +661,7 @@ August 27, 2025
 
 **API Changes**
 
-- Added a new `NavBackStackSerializer` to be used in conjunction with `rememberNavBackStack` to perform state restoration. `rememberNavBackStack()` now also takes a [`SavedStateConfiguration`](https://developer.android.com/reference/androidx/savedstate/serialization/SavedStateConfiguration) that can be used to provide your own configuration. ([I2f4d2](https://android-review.googlesource.com/#/q/I2f4d2073eff82f88b476a9765a0e69729e77179e), [I4cd58](https://android-review.googlesource.com/#/q/I4cd58dca08625e7ecafac9f0a1e479e558604b7e), [b/420443609](https://issuetracker.google.com/issues/420443609))
+- Added a new `NavBackStackSerializer` to be used in conjunction with `rememberNavBackStack` to perform state restoration. `rememberNavBackStack()` now also takes a [`SavedStateConfiguration`](https://developer.android.com/reference/androidx/savedstate/serialization/SavedStateConfiguration.md.txt) that can be used to provide your own configuration. ([I2f4d2](https://android-review.googlesource.com/#/q/I2f4d2073eff82f88b476a9765a0e69729e77179e), [I4cd58](https://android-review.googlesource.com/#/q/I4cd58dca08625e7ecafac9f0a1e479e558604b7e), [b/420443609](https://issuetracker.google.com/issues/420443609))
 
 **Bug Fixes**
 
@@ -694,7 +702,7 @@ July 30, 2025
 
 **Dependency Update**
 
-- Navigation3 now depends on [Navigation Event `1.0.0-alpha05`](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.0.0-alpha05).
+- Navigation3 now depends on [Navigation Event `1.0.0-alpha05`](https://developer.android.com/jetpack/androidx/releases/navigationevent.md.txt#1.0.0-alpha05).
 
 ### Version 1.0.0-alpha05
 
@@ -750,23 +758,25 @@ May 20, 2025
 
 **New Features**
 
-[Navigation3](https://developer.android.com/guide/navigation/navigation-3) is a new navigation library built specifically to handle Jetpack Compose in-app navigation. The `androidx.navigation3.runtime` artifact provides the building blocks, while the `androidx.navigation3.ui` artifact provides the UI layer via the `NavDisplay` API. Developers can provide their own state directly to the `NavDisplay` composable function, which changes the content based on changes in the developer state.
+[Navigation3](https://developer.android.com/guide/navigation/navigation-3.md.txt) is a new navigation library built specifically to handle Jetpack Compose in-app navigation. The `androidx.navigation3.runtime` artifact provides the building blocks, while the `androidx.navigation3.ui` artifact provides the UI layer via the `NavDisplay` API. Developers can provide their own state directly to the `NavDisplay` composable function, which changes the content based on changes in the developer state.
 
-    @Serialiable object Home : NavKey
-    @Serialiable object Chat : NavKey
+```kotlin
+@Serialiable object Home : NavKey
+@Serialiable object Chat : NavKey
 
-    val backStack = rememberNavBackStack(Home)
+val backStack = rememberNavBackStack(Home)
 
-    NavDisplay(backStack, entryProvider = entryProvider {
-      entry<Home> {
-        Column {
-          Text("Home")
-          Button(onClick = { backStack.add(Chat) } ) {
-            Text("Go to Chat")
-          } 
-        }
-      }
-      entry<Chat> { /* My Composable Content */ }
-    })
+NavDisplay(backStack, entryProvider = entryProvider {
+  entry<Home> {
+    Column {
+      Text("Home")
+      Button(onClick = { backStack.add(Chat) } ) {
+        Text("Go to Chat")
+      } 
+    }
+  }
+  entry<Chat> { /* My Composable Content */ }
+})
+```
 
 For more information, see the [Navigation3 guide](http://goo.gle/nav3).

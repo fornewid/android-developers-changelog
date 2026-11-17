@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/tooling/debug
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/tooling/llms.txt
+
 Tools for debugging your Compose UI are available in Android Studio.
 
 ## Layout Inspector

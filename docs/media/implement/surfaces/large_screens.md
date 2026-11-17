@@ -92,7 +92,10 @@ Take advantage of the increased space of large screens without letterboxing
 (due to restricting orientation) or stretching. By optimizing your app's layout
 for media and social media, you expand your app's reach and create a better user
 experience across all large screen form factors---tablets, foldables, and
-ChromeOS devices---as well as support all phone sizes.
+ChromeOS devices---as well as support all phone sizes. For step-by-step guidance
+on implementing dynamic aspect ratio adaptation and scaling in Media3 with
+Jetpack Compose, see
+[Scale media content across form factors](https://developer.android.com/media/media3/ui/compose-scaling.md.txt).
 
 Navigation rail and drawer components provide out-of-the way navigation for UI
 convenience and control. The components also complement the canonical layouts

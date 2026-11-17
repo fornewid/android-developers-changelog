@@ -4,6 +4,8 @@ url: https://developer.android.com/games/pgs/console/cloud-platform
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/llms.txt
+
 There may be instances where you will want to view and edit your
 Play Games Services project directly in Google Cloud.
 
@@ -45,7 +47,7 @@ single server, that server might be erroneously tagged as a single spammy
 user. To prevent this, you can attach a `userIp=x.x.x.x` argument to your API
 endpoint requests.
 
-To learn more about setting per-user quotas, see [Capping API usage](https://cloud.google.com/apis/docs/capping-api-usage).
+To learn more about setting per-user quotas, see [Capping your API usage](https://cloud.google.com/apis/docs/capping-api-usage).
 
 In addition to a per-user limit, there is an application-wide
 per-day limit for the Google Play Games Services API. Typically, you
@@ -134,7 +136,7 @@ origins and redirect URLs for a web app, etc.):
 ### Migrate OAuth clients from an existing Cloud project
 
 To view your project in Google Cloud, follow the steps in
-[View your project](https://developer.android.com/games/pgs/console/cloud-platform#view-project).
+[View your project](https://developer.android.com/games/pgs/console/cloud-platform.md.txt#view-project).
 
 For setting up Play Games Services (PGS), a unique Google Cloud project is
 required. If multiple games share one Cloud project, you must migrate

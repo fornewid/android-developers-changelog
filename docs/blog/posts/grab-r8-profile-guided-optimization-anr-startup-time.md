@@ -4,17 +4,19 @@ url: https://developer.android.com/blog/posts/grab-r8-profile-guided-optimizatio
 source: md.txt
 ---
 
-[Case Studies](https://developer.android.com/blog/categories/case-studies)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization
 
-5 min read ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) 19 Oct 2026 3 Authors [Ajesh Pai,](https://developer.android.com/blog/authors/ajesh-pai) [Nguyen Van Minh,](https://developer.android.com/blog/authors/nguyen-van-minh) [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app. With a 10-year-old codebase containing over 10 million lines of code and hundreds of third-party libraries built using a hybrid Bazel and Gradle setup, the Grab team faced three growing challenges: high Application Not Responding (ANR) rates, an app size that kept growing as the superapp added new services, and a startup time that was slowly increasing year over year. By enabling R8 optimization, refining keep rules, and implementing Baseline Profiles and Startup Profiles, Grab reduced its user-perceived ANR rate by 32%, cut app download size by \~30%, and improved startup time by 35%.
+5 min read ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) 19 Oct 2026 3 Authors [Ajesh Pai,](https://developer.android.com/blog/authors/ajesh-pai.md.txt) [Nguyen Van Minh,](https://developer.android.com/blog/authors/nguyen-van-minh.md.txt) [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app. With a 10-year-old codebase containing over 10 million lines of code and hundreds of third-party libraries built using a hybrid Bazel and Gradle setup, the Grab team faced three growing challenges: high Application Not Responding (ANR) rates, an app size that kept growing as the superapp added new services, and a startup time that was slowly increasing year over year. By enabling R8 optimization, refining keep rules, and implementing Baseline Profiles and Startup Profiles, Grab reduced its user-perceived ANR rate by 32%, cut app download size by \~30%, and improved startup time by 35%.
 
 ## **Eliminating Post-Release ANR Spikes for a Smoother User Experience**
 
 Prior to optimizing its build process, Grab faced cold start delays and App Not Responding (ANR) spikes immediately following new updates, primarily driven by the overhead of reading many DEX files during app initialization.
 
-While [Google Play's Cloud Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview#cloud-profiles) provided optimization for standard flows across the overall user base, they don't optimize all the initialization paths required for Grab's critical user journeys---such as initializing Dagger dependency graphs during app launch. For code paths not covered in the initial distribution, devices relied on [JIT compilation](https://developer.android.com/about/versions/nougat/android-7.0#jit_aot) and local background optimization over subsequent days. Implementing a custom[Baseline Profile](https://developer.android.com/topic/performance/baselineprofiles/overview) resolved this by providing these critical user journeys directly into Google Play's Cloud Profiles, expanding their optimization coverage so that these key paths were compiled to machine code immediately at installation
+While [Google Play's Cloud Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt#cloud-profiles) provided optimization for standard flows across the overall user base, they don't optimize all the initialization paths required for Grab's critical user journeys---such as initializing Dagger dependency graphs during app launch. For code paths not covered in the initial distribution, devices relied on [JIT compilation](https://developer.android.com/about/versions/nougat/android-7.0.md.txt#jit_aot) and local background optimization over subsequent days. Implementing a custom[Baseline Profile](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt) resolved this by providing these critical user journeys directly into Google Play's Cloud Profiles, expanding their optimization coverage so that these key paths were compiled to machine code immediately at installation
 ![ANDDM_Grab_Inline_Quote_ALT.png](https://developer.android.com/static/blog/assets/ANDDM_Grab_Inline_Quote_ALT_c3acc32799_Z1obrOp.webp)
 
 "We consistently experienced ANR rate spikes with every weekly app release," explains Nguyen Van Minh, Lead Software Engineer on Grab's Passenger App Core team.
@@ -31,11 +33,11 @@ To maximize the impact of this phase, Grab released the R8 Compat mode enabled a
 
 ### **Phase 2: R8 Full Mode \& Migration (Shipped 2026)**
 
-Launched nine months after the first rollout, this phase shifted the app into [R8 Full Mode](https://developer.android.com/topic/performance/app-optimization/full-mode), which unlocked further optimizations. While standard libraries like Retrofit, Firebase, and Jetpack Compose worked seamlessly with R8 using their built-in rules, migrating the rest of the massive codebase was achieved by resolving specific reflection-heavy code paths:
+Launched nine months after the first rollout, this phase shifted the app into [R8 Full Mode](https://developer.android.com/topic/performance/app-optimization/full-mode.md.txt), which unlocked further optimizations. While standard libraries like Retrofit, Firebase, and Jetpack Compose worked seamlessly with R8 using their built-in rules, migrating the rest of the massive codebase was achieved by resolving specific reflection-heavy code paths:
 
-To migrate to R8 Full mode, the team adopted the [consumer keep rules from the latest Gson](https://developer.android.com/topic/performance/app-optimization/library-optimization) release to ensure seamless JSON parsing. They also addressed optimization challenges with Java dynamic proxies, which use reflection to generate interface implementations at runtime. Because R8 cannot detect this runtime usage during compilation, it strips or renames the necessary classes, causing the application to crash. Rather than applying broad exceptions that would bloat the app size, the team isolated the specific classes relying on reflection and implemented highly targeted keep rules, preserving both app stability and optimization efficiency
+To migrate to R8 Full mode, the team adopted the [consumer keep rules from the latest Gson](https://developer.android.com/topic/performance/app-optimization/library-optimization.md.txt) release to ensure seamless JSON parsing. They also addressed optimization challenges with Java dynamic proxies, which use reflection to generate interface implementations at runtime. Because R8 cannot detect this runtime usage during compilation, it strips or renames the necessary classes, causing the application to crash. Rather than applying broad exceptions that would bloat the app size, the team isolated the specific classes relying on reflection and implemented highly targeted keep rules, preserving both app stability and optimization efficiency
 
-Ultimately, R8 Full Mode delivered massive, compounding improvements, including an additional 14% reduction in app download size, an extra 10% improvement in startup time, and another 10% decrease in user-perceived ANRs. Following the migration to R8 Full Mode, Grab's codebase achieved these [R8 Optimization scores](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer#understand-report).
+Ultimately, R8 Full Mode delivered massive, compounding improvements, including an additional 14% reduction in app download size, an extra 10% improvement in startup time, and another 10% decrease in user-perceived ANRs. Following the migration to R8 Full Mode, Grab's codebase achieved these [R8 Optimization scores](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer.md.txt#understand-report).
 
 - Optimization Score: 72%
 - Shrinking Score: 73%
@@ -45,7 +47,7 @@ These scores provided feedback on the R8 configuration and the need for refining
 
 ### **Phase 3: Keep-Rule Refinement**
 
-In the final phase of their optimization journey, Grab is focusing toward establishing long-term codebase health, continuous performance monitoring, and strict compilation governance. To systematically measure rule hygiene and prevent configuration regressions across ongoing release cycles, the team is integrating the [R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer#understand-report) into their evaluation workflow. This tool provides deep visibility into how effectively Grab's keep rules allow R8 to optimize, shrink, and obfuscate the application.
+In the final phase of their optimization journey, Grab is focusing toward establishing long-term codebase health, continuous performance monitoring, and strict compilation governance. To systematically measure rule hygiene and prevent configuration regressions across ongoing release cycles, the team is integrating the [R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer.md.txt#understand-report) into their evaluation workflow. This tool provides deep visibility into how effectively Grab's keep rules allow R8 to optimize, shrink, and obfuscate the application.
 
 By building on the foundation of R8 Full Mode and methodically trimming legacy keep rules, Grab is unlocking substantial improvements across all three core dimensions evaluated by the analyzer:
 
@@ -96,13 +98,13 @@ Faced with the challenges of a massive, maturing codebase, Grab's Pax App Core t
 
 These optimizations delivered a faster, more stable superapp experience for millions of users across Southeast Asia, while giving Grab's engineers the tools to build features faster without the penalty of rapid download size bloat.
 
-To get started and learn more about R8, visit[](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization)- [d.android.com/r8](http://d.android.com/r8).
-- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+To get started and learn more about R8, visit[](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt)- [d.android.com/r8](http://d.android.com/r8).
+- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
 Written by:
 
 -
 
-  ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai)
+  ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -110,7 +112,7 @@ Written by:
   View profile](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp)
 -
 
-  ## [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh)
+  ## [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh.md.txt)
 
   ###### Software Engineer, Grab
 
@@ -118,34 +120,34 @@ Written by:
   View profile](https://developer.android.com/blog/authors/nguyen-van-minh) ![View Nguyen Van Minh's profile](https://developer.android.com/static/blog/assets/IMG_3245_8f08f1277f_ZMBB6P.webp) ![View Nguyen Van Minh's profile](https://developer.android.com/static/blog/assets/IMG_3245_8f08f1277f_ZMBB6P.webp)
 -
 
-  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
+  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt)
 
   ###### Product Marketing Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
 Continue reading
-- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
+  ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer.md.txt) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 4 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
+  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
-  - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_276PBK.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys.md.txt) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt), [Mayank Jain](https://developer.android.com/blog/authors/blog-author.md.txt) • 8 min read
+  - [#Passkeys](https://developer.android.com/blog/topics/passkeys.md.txt)
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan.md.txt)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_276PBK.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature)
+  ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature) Karrot is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 2 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
+  [arrow_forward](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature.md.txt) Karrot is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
+  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 2 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
 Stay in the loop
 
 

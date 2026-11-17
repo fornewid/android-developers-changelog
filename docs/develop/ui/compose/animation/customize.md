@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/animation/customize
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/llms.txt
+
 Many of the Animation APIs commonly accept parameters for customizing their
 behavior.
 
@@ -264,7 +266,15 @@ information about what Easing to use depending on your scenario.
 - `FastOutLinearInEasing`
 - `LinearEasing`
 - `CubicBezierEasing`
-- [See more](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary.md.txt#Ease())
+- `Ease`
+- `EaseIn`
+- `EaseOut`
+- `EaseInOut`
+
+Compose also provides `EaseIn*`, `EaseOut*`, and `EaseInOut*` presets for the
+sine, quad, cubic, quart, quint, expo, circ, back, elastic, and bounce curves.
+Examples are `EaseInSine`, `EaseOutBack`, and `EaseInOutBounce`. For the full
+list, see [`Ease` and related presets](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary.md.txt#Ease()) in the API reference.
 
 > [!NOTE]
 > **Note:** Easing objects work the same way as instances of `Interpolator` classes in the platform. Instead of the `getInterpolation()` method, it has the `transform()` method.

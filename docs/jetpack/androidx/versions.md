@@ -4,6 +4,8 @@ url: https://developer.android.com/jetpack/androidx/versions
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/versions/llms.txt
+
 *** ** * ** ***
 
 Jetpack libraries ship separately from the Android OS, so updates to the

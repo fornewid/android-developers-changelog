@@ -4,31 +4,28 @@ url: https://developer.android.com/develop/background-work/background-tasks/pers
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/background-work/background-tasks/persistent/threading/llms.txt
+
 In certain situations, you may need to provide a custom threading strategy. For
 example, you may need to handle a callback-based asynchronous operation.
-WorkManager supports this use case with
-[`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker).
-`ListenableWorker` is the most basic worker API;
-[`Worker`](https://developer.android.com/reference/androidx/work/Worker),
-[`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker), and
-[`RxWorker`](https://developer.android.com/reference/androidx/work/RxWorker) all derive from this class. A
+WorkManager supports this use case with [`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker.md.txt).
+`ListenableWorker` is the most basic worker API; [`Worker`](https://developer.android.com/reference/androidx/work/Worker.md.txt),
+[`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker.md.txt), and [`RxWorker`](https://developer.android.com/reference/androidx/work/RxWorker.md.txt) all derive from this class. A
 `ListenableWorker` only signals when the work should start and stop and leaves
 the threading entirely up to you. The start work signal is invoked on the main
 thread, so it is very important that you go to a background thread of your
 choice manually.
 
-The abstract method
-[`ListenableWorker.startWork()`](https://developer.android.com/reference/androidx/work/ListenableWorker#startWork())
-returns a `ListenableFuture` of the
-[`Result`](https://developer.android.com/reference/androidx/work/ListenableWorker.Result). A
-`ListenableFuture` is a lightweight interface: it is a `Future` that provides
-functionality for attaching listeners and propagating exceptions. In the
-`startWork` method, you are expected to return a `ListenableFuture`, which you
-will set with the `Result` of the operation once it's completed. You can create
-`ListenableFuture` instances in one of two ways:
+The abstract method [`ListenableWorker.startWork`](https://developer.android.com/reference/androidx/work/ListenableWorker.md.txt#startWork()) returns a
+`ListenableFuture` of the [`Result`](https://developer.android.com/reference/androidx/work/ListenableWorker.Result.md.txt). A `ListenableFuture` is a lightweight
+interface: it is a `Future` that provides functionality for attaching listeners
+and propagating exceptions. In the `startWork` method, you are expected to
+return a `ListenableFuture`, which you will set with the `Result` of the
+operation once it's completed. You can create `ListenableFuture` instances in
+one of two ways:
 
 1. If you use Guava, use `ListeningExecutorService`.
-2. Otherwise, include [`councurrent-futures`](https://developer.android.com/jetpack/androidx/releases/concurrent#declaring_dependencies) in your gradle file and use [`CallbackToFutureAdapter`](https://developer.android.com/reference/androidx/concurrent/futures/CallbackToFutureAdapter).
+2. Otherwise, include [`concurrent-futures`](https://developer.android.com/jetpack/androidx/releases/concurrent.md.txt#declaring_dependencies) in your Gradle file and use [`CallbackToFutureAdapter`](https://developer.android.com/reference/androidx/concurrent/futures/CallbackToFutureAdapter.md.txt).
 
 If you wanted to execute some work based on an asynchronous callback, you would
 do something like this:
@@ -106,11 +103,9 @@ public class CallbackWorker extends ListenableWorker {
 }
 ```
 
-What happens if your work is
-[stopped](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/managing-work#cancelling)?
-A `ListenableWorker`'s `ListenableFuture` is always cancelled when the work is
-expected to stop. Using a `CallbackToFutureAdapter`, you simply have to add a
-cancellation listener, as follows:
+What happens if your work is [stopped](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/managing-work#cancelling)? A `ListenableWorker`'s
+`ListenableFuture` is always canceled when the work is expected to stop. Using
+a `CallbackToFutureAdapter`, add a cancellation listener, as follows:
 
 ### Kotlin
 
@@ -136,7 +131,7 @@ class CallbackWorker(
                 }
             }
 
- completer.addCancellationListener(cancelDownloadsRunnable, executor)
+            completer.addCancellationListener(cancelDownloadsRunnable, executor)
 
             repeat(100) {
                 downloadAsynchronously("https://example.com", callback)
@@ -192,8 +187,7 @@ public class CallbackWorker extends ListenableWorker {
 ## Running a ListenableWorker in a different process
 
 You can also bind a worker to a specific process by using
-[`RemoteListenableWorker`](https://developer.android.com/reference/kotlin/androidx/work/multiprocess/RemoteListenableWorker),
-an implementation of `ListenableWorker`.
+[`RemoteListenableWorker`](https://developer.android.com/reference/kotlin/androidx/work/multiprocess/RemoteListenableWorker.md.txt), an implementation of `ListenableWorker`.
 
 `RemoteListenableWorker` binds to a specific process with two extra arguments
 that you provide as part of the input data when building the work request:

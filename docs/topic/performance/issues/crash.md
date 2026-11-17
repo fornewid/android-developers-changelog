@@ -4,10 +4,12 @@ url: https://developer.android.com/topic/performance/issues/crash
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/topic/performance/issues/llms.txt
+
 An Android app crashes whenever there's an unexpected exit caused by an
 unhandled exception or signal. An app that is written using Java or Kotlin
 crashes if it throws an unhandled exception, represented by the
-[`Throwable`](https://developer.android.com/reference/java/lang/Throwable) class. An app that is written using machine code or C++ crashes
+[`Throwable`](https://developer.android.com/reference/java/lang/Throwable.md.txt) class. An app that is written using machine code or C++ crashes
 if there's an unhandled signal, such as `SIGSEGV`, during its execution.
 
 When an app crashes, Android terminates the app's process and displays a dialog
@@ -23,7 +25,7 @@ If your app is experiencing crashes, you can use the guidance in this page to
 diagnose and fix the problem.
 
 > [!NOTE]
-> **Note:** For information on how Android Play Vitals tracks and reports this issue, see [Crashes in Android vitals](https://developer.android.com/google/play/vitals/crash).
+> **Note:** For information on how Android Play Vitals tracks and reports this issue, see [Crashes in Android vitals](https://developer.android.com/google/play/vitals/crash.md.txt).
 
 ## Diagnose the crashes
 
@@ -77,7 +79,7 @@ crash:
 - The section of code where the exception is thrown.
 
 The type of exception thrown is usually a very strong hint as to what went
-wrong. Look at whether it is an [`IOException`](https://developer.android.com/reference/java/io/IOException), an [`OutOfMemoryError`](https://developer.android.com/reference/java/lang/OutOfMemoryError),
+wrong. Look at whether it is an [`IOException`](https://developer.android.com/reference/java/io/IOException.md.txt), an [`OutOfMemoryError`](https://developer.android.com/reference/java/lang/OutOfMemoryError.md.txt),
 or something else, and find the documentation about the exception class.
 
 The class, method, file, and line number of the source file where the exception
@@ -119,7 +121,7 @@ Stack traces for apps with C and C++ code work much the same way.
       #03  pc 000000000001e4fd  /system/lib/libc.so (__start_thread)
 
 If you don't see class and function-level information in native stack traces,
-you may need to [generate a native debug symbols file](https://developer.android.com/build/include-native-symbols) and upload it to the
+you may need to [generate a native debug symbols file](https://developer.android.com/build/include-native-symbols.md.txt) and upload it to the
 Google Play Console. For more information, see
 [Deobfuscate crash stack traces](https://support.google.com/googleplay/android-developer/answer/9848633#generate_file). For general information on native crashes,
 see [Diagnosing native crashes](https://source.android.com/devices/tech/debug/native-crash).
@@ -135,7 +137,7 @@ version.
 
 #### Memory errors
 
-If you have an [`OutOfMemoryError`](https://developer.android.com/reference/java/lang/OutOfMemoryError), then you could create an emulator with
+If you have an [`OutOfMemoryError`](https://developer.android.com/reference/java/lang/OutOfMemoryError.md.txt), then you could create an emulator with
 low memory capacity to test with. Figure 2 shows the AVD manager settings where
 you can control the amount of memory on the device.
 ![Memory setting on AVD manager](https://developer.android.com/static/topic/performance/images/crash-avd-emulator-memory.png) **Figure 2.** Memory setting on AVD manager.
@@ -147,7 +149,7 @@ an application network exceptions usually shouldn't be treated as *errors*, but
 rather as normal operating conditions that happen unexpectedly.
 
 If you need to reproduce a network exception, such as an
-[`UnknownHostException`](https://developer.android.com/reference/java/net/UnknownHostException), then try turning on airplane mode while your
+[`UnknownHostException`](https://developer.android.com/reference/java/net/UnknownHostException.md.txt), then try turning on airplane mode while your
 application attempts to use the network.
 
 Another option is to reduce the quality of the network in the emulator by
@@ -161,7 +163,7 @@ command-line example:
 This example sets a delay of 20 seconds on all network requests and an upload
 and download speed of 14.4 Kbps. For more information on command-line options
 for the emulator, see
-[Start the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline).
+[Start the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline.md.txt).
 
 ### Reading with logcat
 
@@ -169,7 +171,7 @@ Once you are able to reproduce the crash, you can use a tool like [`logcat`](htt
 to get more information.
 
 The logcat output will show you what other log messages you have printed, along
-with others from the system. Don't forget to turn off any extra [`Log`](https://developer.android.com/reference/kotlin/android/util/Log)
+with others from the system. Don't forget to turn off any extra [`Log`](https://developer.android.com/reference/kotlin/android/util/Log.md.txt)
 statements that you have added because printing them wastes CPU and battery
 while your app is running.
 
@@ -198,11 +200,13 @@ In Kotlin, [nullability](https://kotlinlang.org/docs/reference/null-safety.html)
 is part of the type system. For example, a variable needs to be declared from
 the beginning as nullable or non-nullable. Nullable types are marked with a `?`:
 
-    // non-null
-    var s: String = "Hello"
+```kotlin
+// non-null
+var s: String = "Hello"
 
-    // null
-    var s: String? = "Hello"
+// null
+var s: String? = "Hello"
+```
 
 Non-nullable variables cannot be assigned a null value and nullable variables
 need to be checked for nullability before being used as non-null.
@@ -210,8 +214,10 @@ need to be checked for nullability before being used as non-null.
 If you don't want to check for null explicitly, you can use the `?.` safe call
 operator:
 
-    val length: Int? = string?.length  // length is a nullable int
-                                       // if string is null, then length is null
+```kotlin
+val length: Int? = string?.length  // length is a nullable int
+                                   // if string is null, then length is null
+```
 
 As a best practice, make sure you address the null case for a nullable object,
 or your app could get into unexpected states. If your application won't crash
@@ -221,7 +227,9 @@ The following are some ways to check for null:
 
 - `if` checks
 
-      val length = if(string != null) string.length else 0
+  ```kotlin
+  val length = if(string != null) string.length else 0
+  ```
 
   Due to smart-cast and the null check, the Kotlin compiler knows that the
   string value is non-null so it lets you use the reference directly,
@@ -231,7 +239,9 @@ The following are some ways to check for null:
   This operator lets you state "if the object is non-null, return the
   object; otherwise, return something else".
 
-      val length = string?.length ?: 0
+  ```kotlin
+  val length = string?.length ?: 0
+  ```
 
 You can still get a `NullPointerException` in Kotlin. The following are the most
 common situations:
@@ -249,10 +259,12 @@ Java. When you access a platform type reference, Kotlin does not create compile
 time errors but these references can lead to runtime errors. See the following
 example from the Kotlin documentation:
 
-    val list = ArrayList<String>() // non-null (constructor result) list.add("Item")
-    val size = list.size // non-null (primitive int) val item = list[0] // platform
-    type inferred (ordinary Java object) item.substring(1) // allowed, may throw an
-                                                           // exception if item == null
+```kotlin
+val list = ArrayList<String>() // non-null (constructor result) list.add("Item")
+val size = list.size // non-null (primitive int) val item = list[0] // platform
+type inferred (ordinary Java object) item.substring(1) // allowed, may throw an
+                                                       // exception if item == null
+```
 
 Kotlin relies on type inference when a platform value is assigned to a Kotlin
 variable, or you can define what type to expect. The best way to ensure the

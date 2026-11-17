@@ -4,6 +4,8 @@ url: https://developer.android.com/media/media3/exoplayer/supported-formats
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/media3/exoplayer/llms.txt
+
 When defining the formats that ExoPlayer supports, it's important to note that
 "media formats" are defined at multiple levels. From the lowest level to the
 highest, these are:
@@ -25,7 +27,7 @@ demuxed, meaning that video, audio, and text must be defined in distinct
 `AdaptationSet` elements in the DASH manifest (CEA-608 is an exception as
 described in the table below). The contained audio and video sample formats must
 also be supported (see the
-[sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats#sample-formats) section for details).
+[sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats.md.txt#sample-formats) section for details).
 
 | Feature | Supported | Comments |
 |---|---|---|
@@ -48,11 +50,11 @@ also be supported (see the
 | **Ad insertion** |   |   |
 | Multi-period playback | YES |   |
 | Server-guided ad insertion (xlinks) | NO |   |
-| IMA server-side and client-side ads | YES | [Ad insertion guide](https://developer.android.com/media/media3/exoplayer/ad-insertion) |
+| IMA server-side and client-side ads | YES | [Ad insertion guide](https://developer.android.com/media/media3/exoplayer/ad-insertion.md.txt) |
 | **Live playback** |   |   |
 | Regular live playback | YES |   |
 | Ultra low-latency CMAF live playback | YES |   |
-| **Common Media Client Data** **(CMCD)** | YES | [CMCD integration guide](https://developer.android.com/media/media3/exoplayer/cmcd) |
+| **Common Media Client Data** **(CMCD)** | YES | [CMCD integration guide](https://developer.android.com/media/media3/exoplayer/cmcd.md.txt) |
 
 ### SmoothStreaming
 
@@ -60,7 +62,7 @@ ExoPlayer supports SmoothStreaming with the FMP4 container format. Media streams
 must be demuxed, meaning that video, audio, and text must be defined in distinct
 StreamIndex elements in the SmoothStreaming manifest. The contained audio and
 video sample formats must also be supported (see the
-[sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats#sample-formats) section for details).
+[sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats.md.txt#sample-formats) section for details).
 
 | Feature | Supported | Comments |
 |---|---|---|
@@ -77,7 +79,7 @@ video sample formats must also be supported (see the
 ### HLS
 
 ExoPlayer supports HLS with multiple container formats. The contained audio and
-video sample formats must also be supported (see the [sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats#sample-formats)
+video sample formats must also be supported (see the [sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats.md.txt#sample-formats)
 section for details). We strongly encourage HLS content producers to generate
 high quality HLS streams, as described [in this blog post](https://medium.com/google-exoplayer/hls-playback-in-exoplayer-a33959a47be7).
 
@@ -106,20 +108,20 @@ high quality HLS streams, as described [in this blog post](https://medium.com/go
 | Blocking load of preload hints | YES | Except for byteranges with undefined lengths |
 | **Ad insertion** |   |   |
 | Server-guided ad insertion (Interstitials) | Partially | Only VOD with `X-ASSET-URI`. Live streams and `X-ASSET-LIST` will be added later. |
-| IMA server-side and client-side ads | YES | [Ad insertion guide](https://developer.android.com/media/media3/exoplayer/ad-insertion) |
+| IMA server-side and client-side ads | YES | [Ad insertion guide](https://developer.android.com/media/media3/exoplayer/ad-insertion.md.txt) |
 | **Live playback** |   |   |
 | Regular live playback | YES |   |
 | Low-latency HLS (Apple) | YES |   |
 | Low-latency HLS (Community) | NO |   |
-| **Common Media Client Data** **CMCD** | YES | [CMCD integration guide](https://developer.android.com/media/media3/exoplayer/cmcd) |
+| **Common Media Client Data** **CMCD** | YES | [CMCD integration guide](https://developer.android.com/media/media3/exoplayer/cmcd.md.txt) |
 
 ## Progressive container formats
 
 Streams in the following container formats can be played directly by ExoPlayer.
 The contained audio and video sample formats must also be supported (see the
-[Sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats#sample-formats) section for details).
+[Sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats.md.txt#sample-formats) section for details).
 For image container and format support, see
-[Images](https://developer.android.com/media/media3/exoplayer/images).
+[Images](https://developer.android.com/media/media3/exoplayer/images.md.txt).
 
 | Container format | Supported | Comments |
 |---|---|---|
@@ -147,7 +149,7 @@ enabling approximate seeking using a constant bitrate assumption. This
 functionality is not enabled by default. The simplest way to enable this
 functionality for all extractors that support it is to use
 `DefaultExtractorsFactory.setConstantBitrateSeekingEnabled`, as described
-[here](https://developer.android.com/media/media3/exoplayer/customization#enabling-constant-bitrate-seeking).
+[here](https://developer.android.com/media/media3/exoplayer/customization.md.txt#enabling-constant-bitrate-seeking).
 
 \*\*\* The [FLAC library](https://github.com/androidx/media/tree/release/libraries/decoder_flac) extractor outputs raw audio, which can be handled
 by the framework on all API levels. The [ExoPlayer library](https://github.com/androidx/media/tree/release/libraries/exoplayer) FLAC extractor outputs
@@ -179,14 +181,14 @@ network types are listed below.
 ## Sample formats
 
 By default ExoPlayer uses Android's platform decoders. Hence the supported
-sample formats depend on the underlying platform rather than on ExoPlayer.
-Refer to [Supported media formats](https://developer.android.com/guide/topics/media/media-formats#core) for
-documentation on sample formats supported by Android devices. Note that
-individual devices may support additional formats beyond those listed.
+sample formats depend on the underlying platform rather than on ExoPlayer. Refer
+to [Supported media formats](https://developer.android.com/media/platform/supported-formats.md.txt) for documentation on
+sample formats supported by Android devices. Note that individual devices may
+support additional formats beyond those listed.
 
 In addition to Android's platform decoders, ExoPlayer can also make use of
 software decoder extensions. These must be manually built and included in
-projects that wish to make use of them. We currently provide software decoder
+projects that want to make use of them. We currently provide software decoder
 libraries for [AV1](https://github.com/androidx/media/tree/release/libraries/decoder_av1), [VP9](https://github.com/androidx/media/tree/release/libraries/decoder_vp9), [FLAC](https://github.com/androidx/media/tree/release/libraries/decoder_flac), [Opus](https://github.com/androidx/media/tree/release/libraries/decoder_opus), [FFmpeg](https://github.com/androidx/media/tree/release/libraries/decoder_ffmpeg), [MIDI](https://github.com/androidx/media/tree/release/libraries/decoder_midi), [IAMF](https://github.com/androidx/media/tree/release/libraries/decoder_iamf) and
 [MPEG-H](https://github.com/androidx/media/tree/release/libraries/decoder_mpegh).
 
@@ -218,7 +220,7 @@ FFmpeg decoder name.
 ## Images
 
 ExoPlayer supports the following image formats. See
-[Image Loading Libraries](https://developer.android.com/media/media3/exoplayer/images#image-loading-libraries)
+[Image Loading Libraries](https://developer.android.com/media/media3/exoplayer/images.md.txt#image-loading-libraries)
 for how to integrate with external libraries that may provide support for a
 different set of formats.
 
@@ -252,10 +254,9 @@ files can be side-loaded as described on the [media items page](https://develope
 ExoPlayer handles extracting high dynamic range (HDR) video in various
 containers, including Dolby Vision in MP4 and HDR10+ in Matroska/WebM. Decoding
 and displaying HDR content depends on support from the Android platform and
-device. See
-[HDR Video Playback](https://source.android.com/devices/tech/display/hdr.html)
-to learn about checking for HDR decoding/display capabilities and limitations of
-HDR support across Android versions.
+device. See [HDR Video Playback](https://source.android.com/docs/core/display/hdr) to learn about checking for
+HDR decoding and display capabilities and limitations of HDR support across
+Android versions.
 
 When playing an HDR stream that requires support for a particular codec profile,
 ExoPlayer's default `MediaCodec` selector will pick a decoder that supports that

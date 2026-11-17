@@ -12,8 +12,8 @@ to such information; it is not an exhaustive discussion of how permissions
 work in the Android operating system.
 
 
-For a more general look at Android permissions, please see [Permissions overview](https://developer.android.com/guide/topics/permissions/requesting). For details on how to work with permissions in your code,
-see [Requesting app permissions](https://developer.android.com/training/permissions/requesting).
+For a more general look at Android permissions, see [Permissions overview](https://developer.android.com/guide/topics/permissions/requesting). For details on how to work with permissions in your code,
+see [Requesting app permissions](https://developer.android.com/training/permissions/requesting.md.txt).
 
 ## Permissions in Android 6.0+
 
@@ -29,10 +29,10 @@ is handled:
 
 Users are prompted at runtime, in the context of your app, for permission to
 access the functionality covered by those permission groups. Users are more
-sensitive to the context in which the permission is requested, and if there's a mismatch
-between what you are requesting and the purpose of your app, it's even
-more important to provide detailed explanation to the user as to why you're
-requesting the permission. Whenever possible, you should provide an
+sensitive to the context in which the permission is requested, and if there's
+a mismatch between what you are requesting and the purpose of your app, it's
+even more important to provide detailed explanation to the user as to why
+you're requesting the permission. Whenever possible, you should provide an
 explanation of your request both at the time of the request and in a
 follow-up dialog if the user denies the request.
 
@@ -93,9 +93,8 @@ using location-based targeting functionality.
 
 ## Limit background access to location
 
-When your app is running in the background, [access to
-location](https://developer.android.com/training/location/background) should be critical to the app's core
-functionality and show a clear benefit to users.
+When your app is running in the background, [access to location](https://developer.android.com/training/location/background) should be
+critical to the app's core functionality and show a clear benefit to users.
 
 ## Test for both permissions models
 
@@ -115,23 +114,22 @@ on devices running API level 23 or higher:
 
 - Identify your app's current permissions and the related code paths.
 - Test user flows across permission-protected services and data.
-- Test with various combinations of granted or revoked permissions. For example, a camera app might list `https://developer.android.com/reference/android/Manifest.permission#CAMERA`, `https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS`, and `https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION` in its manifest. You should test the app with each of these permissions turned on and off, to make sure the app can handle all permission configurations gracefully.
+- Test with various combinations of granted or revoked permissions. For example, a camera app might list [`CAMERA`](https://developer.android.com/reference/android/Manifest.permission.md.txt#CAMERA), [`READ_CONTACTS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_CONTACTS), and [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission.md.txt#ACCESS_FINE_LOCATION) in its manifest. You should test the app with each of these permissions turned on and off, to make sure the app can handle all permission configurations gracefully.
 - Use the [adb](https://developer.android.com/tools/help/adb) tool to manage permissions from the command line:
+
   - List permissions and status by group:
 
-    ```
-    $ adb shell pm list permissions -d -g
-    ```
+      $ adb shell pm list permissions -d -g
+
   - Grant or revoke one or more permissions:
 
-    ```
-    $ adb shell pm [grant|revoke] <permission-name> ...
-    ```
+      $ adb shell pm [grant|revoke] <permission-name> ...
+
 - Analyze your app for services that use permissions.
 
 ## Additional resources
 
 - [Material Design guidelines for Android permissions](https://material.io/design/platform-guidance/android-permissions.html#usage)
 - [Android Marshmallow 6.0: Asking For Permission](https://www.youtube.com/watch?v=iZqDdvhTZj0): This video explains the Android runtime permission model and the right way to ask users for permissions.
-- [Explain why the app needs permissions](https://developer.android.com/training/permissions/requesting#explain)
+- [Explain why the app needs permissions](https://developer.android.com/training/permissions/requesting.md.txt#explain)
 - [Best practices for unique identifiers](https://developer.android.com/training/articles/user-data-ids)

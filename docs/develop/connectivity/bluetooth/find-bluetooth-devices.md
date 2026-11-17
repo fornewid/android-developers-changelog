@@ -4,13 +4,13 @@ url: https://developer.android.com/develop/connectivity/bluetooth/find-bluetooth
 source: md.txt
 ---
 
-Using the [`BluetoothAdapter`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter),
-you can find remote Bluetooth devices either through device discovery or by
-querying the list of paired devices.
+> Documentation index: https://developer.android.com/develop/connectivity/bluetooth/llms.txt
 
-Make sure you have the appropriate [Bluetooth permissions](https://developer.android.com/develop/connectivity/bluetooth/bt-permissions)
-and [set up your app for Bluetooth](https://developer.android.com/develop/connectivity/bluetooth/setup)
-before attempting to find Bluetooth devices.
+Using the [`BluetoothAdapter`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt), you can find remote Bluetooth devices either
+through device discovery or by querying the list of paired devices.
+
+Make sure you have the appropriate [Bluetooth permissions](https://developer.android.com/develop/connectivity/bluetooth/bt-permissions.md.txt) and [set up your
+app for Bluetooth](https://developer.android.com/develop/connectivity/bluetooth/setup) before attempting to find Bluetooth devices.
 
 Device discovery is a scanning procedure that searches the local area for
 Bluetooth-enabled devices and requests some information about each one. This
@@ -25,17 +25,17 @@ to initiate a connection to the discovered device.
 Because discoverable devices might reveal information about the user's location,
 the device discovery process requires location access. If your app is being used
 on a device that runs Android 8.0 (API level 26) or higher, consider using the
-[Companion Device Manager
-API](https://developer.android.com/develop/connectivity/bluetooth/companion-device-pairing) instead. This API
-performs device discovery on your app's behalf, so your app doesn't need to
-[request location permissions](https://developer.android.com/training/location/permissions).
+[Companion Device Manager API](https://developer.android.com/develop/connectivity/bluetooth/companion-device-pairing.md.txt) instead. This API performs device discovery on
+your app's behalf, so your app doesn't need to [request location
+permissions](https://developer.android.com/training/location/permissions).
 
-Once a connection is made with a remote device for the first time, a pairing
-request is automatically presented to the user. When a device is paired, the
-basic information about that device---such as the device's name, class, and MAC
-address---is saved and can be read using the Bluetooth APIs. Using the known MAC
-address for a remote device, a connection can be initiated with it at any time
-without performing discovery, assuming the device is still within range.
+When you connect to a remote device for the first time, a pairing request
+automatically appears. Once paired, basic device information---such as the
+device's name, class, and MAC address---is saved and readable through the
+Bluetooth APIs.
+
+Using a paired device's known MAC address, you can initiate a connection at any
+time without performing discovery, assuming the device is still within range.
 
 Note that there is a difference between being paired and being connected:
 
@@ -46,16 +46,13 @@ The following sections describe how to find devices that have been paired and
 how to discover new devices using device discovery.
 
 > [!NOTE]
-> **Note:** Android-powered devices are not discoverable by default. A user can make the device discoverable for a limited time through the system settings, or an app can request that the user enable discoverability without leaving the app. For more information, see the [enable
-> discoverability](https://developer.android.com/develop/connectivity/bluetooth/find-bluetooth-devices#enable-discoverability) section on this page.
+> **Note:** Android-powered devices are not discoverable by default. A user can make the device discoverable for a limited time through the system settings, or an app can request that the user enable discoverability without leaving the app. For more information, see the [enable discoverability](https://developer.android.com/develop/connectivity/bluetooth/find-bluetooth-devices.md.txt#enable-discoverability) section on this page.
 
 ## Query paired devices
 
 Before performing device discovery, it's worth querying the set of paired
-devices to see if the desired device is already known. To do so, call
-[`getBondedDevices()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#getBondedDevices()).
-This returns a set of
-[`BluetoothDevice`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice) objects
+devices to see if the device you want is already known. To do so, call
+[`getBondedDevices()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt#getBondedDevices()). This returns a set of [`BluetoothDevice`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.md.txt) objects
 representing paired devices. For example, you can query all paired devices and
 get the name and MAC address of each device, as the following code snippet
 demonstrates:
@@ -86,32 +83,24 @@ if (pairedDevices.size() > 0) {
 
 To initiate a connection with a Bluetooth device, all that's needed from the
 associated `BluetoothDevice` object is the MAC address, which you retrieve by
-calling
-[`getAddress()`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice#getAddress()). You
-can learn more about creating a connection in [Connect Bluetooth
-devices](https://developer.android.com/develop/connectivity/bluetooth/connect-bluetooth-devices).
+calling [`getAddress()`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.md.txt#getAddress()). You can learn more about creating a connection in
+[Connect Bluetooth devices](https://developer.android.com/develop/connectivity/bluetooth/connect-bluetooth-devices.md.txt).
 
 ### Discover devices
 
-To start discovering devices, call
-[`startDiscovery()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#startDiscovery()).
-The process is asynchronous and returns a boolean value indicating whether
-discovery has successfully started. The discovery process usually involves an
-inquiry scan of about 12 seconds, followed by a page scan of each device found
-to retrieve its Bluetooth name.
+To start discovering devices, call [`startDiscovery()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt#startDiscovery()). The process is
+asynchronous and returns a boolean value indicating whether discovery has
+successfully started. The discovery process usually involves an inquiry scan of
+about 12 seconds, followed by a page scan of each device found to retrieve its
+Bluetooth name.
 
 To receive information about each device discovered, your app must register a
-[`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver)
-for the
-[`ACTION_FOUND`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice#ACTION_FOUND)
-intent. The system broadcasts this intent for each device. The intent contains
-the extra fields
-[`EXTRA_DEVICE`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice#EXTRA_DEVICE) and
-[`EXTRA_CLASS`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice#EXTRA_CLASS), which
-in turn contain a `BluetoothDevice` and a
-[`BluetoothClass`](https://developer.android.com/reference/android/bluetooth/BluetoothClass), respectively.
-The following code snippet shows how you can register to handle the broadcast
-when devices are discovered:
+[`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver.md.txt) for the [`ACTION_FOUND`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.md.txt#ACTION_FOUND) intent. The system
+broadcasts this intent for each device. The intent contains the extra fields
+[`EXTRA_DEVICE`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.md.txt#EXTRA_DEVICE) and [`EXTRA_CLASS`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.md.txt#EXTRA_CLASS), which in turn contain a
+`BluetoothDevice` and a [`BluetoothClass`](https://developer.android.com/reference/android/bluetooth/BluetoothClass.md.txt), respectively. The following code
+snippet shows how you can register to handle the broadcast when devices are
+discovered:
 
 ### Kotlin
 
@@ -196,15 +185,12 @@ To initiate a connection with a Bluetooth device, you call `getAddress()` on the
 #### Enable discoverability
 
 To make the local device discoverable to other devices, call
-[`startActivityForResult(Intent, int)`](https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent,%20int))
-with the
-[`ACTION_REQUEST_DISCOVERABLE`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#ACTION_REQUEST_DISCOVERABLE)
-intent. This issues a request to enable the system's discoverable mode without
-having to navigate to the Settings app, which would stop your own app. By
-default, the device becomes discoverable for two minutes. You can define a
-different duration, up to five minutes, by adding the
-[`EXTRA_DISCOVERABLE_DURATION`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#EXTRA_DISCOVERABLE_DURATION)
-extra.
+[`startActivityForResult(Intent, int)`](https://developer.android.com/reference/android/app/Activity.md.txt#startActivityForResult(android.content.Intent,%20int)) with the
+[`ACTION_REQUEST_DISCOVERABLE`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt#ACTION_REQUEST_DISCOVERABLE) intent. This issues a request to enable the
+system's discoverable mode without having to navigate to the Settings app, which
+would stop your own app. By default, the device becomes discoverable for two
+minutes. You can define a different duration, up to five minutes, by adding the
+[`EXTRA_DISCOVERABLE_DURATION`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt#EXTRA_DISCOVERABLE_DURATION) extra.
 
 > [!CAUTION]
 > **Caution:** If you set the `EXTRA_DISCOVERABLE_DURATION` extra's value to 0, the device is always discoverable. This configuration is insecure and therefore highly discouraged.
@@ -230,42 +216,33 @@ Intent discoverableIntent =
 discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
 startActivityForResult(discoverableIntent, requestCode);
 ```
-
-![](https://developer.android.com/static/images/develop/connectivity/bluetooth/enable-discoverability.png)   
-
-**Figure 2:** The enabling discoverability dialog.
+![System dialog asking permission to make the device discoverable](https://developer.android.com/static/images/develop/connectivity/bluetooth/enable-discoverability.png) **Figure 1.** The enabling discoverability dialog.
 
 A dialog is displayed, requesting the user's permission to make the device
-discoverable, as shown in figure 2. If the user responds "Allow," then the
+discoverable, as shown in figure 1. If the user responds "Allow," then the
 device becomes discoverable for the specified amount of time. Your activity then
-receives a call to the
-[`onActivityResult()`](https://developer.android.com/reference/android/app/Activity#onActivityResult(int,%20int,%20android.content.Intent))
-callback, with the result code equal to the duration that the device is
-discoverable. If the user responded "Deny", or if an error occurred, the result
-code is [`RESULT_CANCELED`](https://developer.android.com/reference/android/app/Activity#RESULT_CANCELED).
+receives a call to the [`onActivityResult()`](https://developer.android.com/reference/android/app/Activity.md.txt#onActivityResult(int,%20int,%20android.content.Intent)) callback, with the result code
+equal to the duration that the device is discoverable. If the user responded
+"Deny", or if an error occurred, the result code is [`RESULT_CANCELED`](https://developer.android.com/reference/android/app/Activity.md.txt#RESULT_CANCELED).
 
 > [!NOTE]
 > **Note:** If Bluetooth has not been enabled on the device, then making the device discoverable automatically enables Bluetooth.
 
 The device silently remains in discoverable mode for the allotted time. To be
 notified when the discoverable mode has changed, register a `BroadcastReceiver`
-for the
-[`ACTION_SCAN_MODE_CHANGED`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#ACTION_SCAN_MODE_CHANGED)
-intent. This intent contains the extra fields
-[`EXTRA_SCAN_MODE`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#EXTRA_SCAN_MODE)
-and
-[`EXTRA_PREVIOUS_SCAN_MODE`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#EXTRA_PREVIOUS_SCAN_MODE),
-which provide the new and old scan mode, respectively. Possible values for each
-extra are as follows:
+for the [`ACTION_SCAN_MODE_CHANGED`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt#ACTION_SCAN_MODE_CHANGED) intent. This intent contains the extra
+fields [`EXTRA_SCAN_MODE`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt#EXTRA_SCAN_MODE) and [`EXTRA_PREVIOUS_SCAN_MODE`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt#EXTRA_PREVIOUS_SCAN_MODE), which
+provide the new and old scan mode, respectively. Possible values for each extra
+are as follows:
 
-[`SCAN_MODE_CONNECTABLE_DISCOVERABLE`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#SCAN_MODE_CONNECTABLE_DISCOVERABLE)
+[`SCAN_MODE_CONNECTABLE_DISCOVERABLE`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt#SCAN_MODE_CONNECTABLE_DISCOVERABLE)
 :   The device is in discoverable mode.
 
-[`SCAN_MODE_CONNECTABLE`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#SCAN_MODE_CONNECTABLE)
+[`SCAN_MODE_CONNECTABLE`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt#SCAN_MODE_CONNECTABLE)
 :   The device isn't in discoverable mode but can still receive connections.
 
-[`SCAN_MODE_NONE`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#SCAN_MODE_NONE)
-:   The device isn't in discoverable mode and cannot receive connections.
+[`SCAN_MODE_NONE`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.md.txt#SCAN_MODE_NONE)
+:   The device isn't in discoverable mode and can't receive connections.
 
 If you are initiating the connection to a remote device, you don't need to
 enable device discoverability. Enabling discoverability is only necessary when

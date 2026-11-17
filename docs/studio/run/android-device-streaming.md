@@ -48,7 +48,7 @@ The following devices are now available from Android Device Streaming:
 
 To get started, follow these steps:
 
-1. If you haven't already done so, download and install the latest version of [Android Studio](https://developer.android.com/studio). If you'd like early access to unreleased features, download and install the [latest Canary release](https://developer.android.com/studio/preview).
+1. If you haven't already done so, download and install the latest version of [Android Studio](https://developer.android.com/studio.md.txt). If you'd like early access to unreleased features, download and install the [latest Canary release](https://developer.android.com/studio/preview.md.txt).
 2. Open an Android Studio project.
 3. Navigate to **View \> Tool Windows \> Device Manager** and click the Firebase button near the top of the window.
 4. If you're not already signed in to your developer account, click **Log in to

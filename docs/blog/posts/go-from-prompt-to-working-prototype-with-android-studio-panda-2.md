@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/posts/go-from-prompt-to-working-prototyp
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Go from prompt to working prototype with Android Studio Panda 2
@@ -81,7 +83,7 @@ We released Gemini 3.1 Pro preview, and it is even better than Gemini 3 Pro for 
 
 ## **Get started**
 
-Dive in and accelerate your development. [Download](https://developer.android.com/studio) Android Studio Panda 2 and start exploring these powerful new agentic features today.
+Dive in and accelerate your development. [Download](https://developer.android.com/studio.md.txt) Android Studio Panda 2 and start exploring these powerful new agentic features today.
 
 As always, your feedback is crucial to us. [Check known issues](https://developer.android.com/studio/known-issues.md.txt), [report bugs](https://developer.android.com/studio/report-bugs.md.txt), and be part of our vibrant community on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all), [Medium](https://medium.com/androiddevelopers), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), or [X](https://twitter.com/androidstudio). Happy coding!
 Written by:
@@ -108,12 +110,13 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3.md.txt) Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
   [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor.md.txt) • 3 min read
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
-- [![View Michelle Martin's profile](https://developer.android.com/static/blog/assets/unnamed_29_8358471ffe_MSkhy.webp)](https://developer.android.com/blog/authors/michelle-martin.md.txt) 10 Nov 2026 10 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_Sign_in_with_Google_Plugin_for_Unity_Gaming_DESIGN_Header_and_metadata_V01_26433b75fe_Z260GOa.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+- [![View Phalene Gowling's profile](https://developer.android.com/static/blog/assets/Phalene_Gowling_0adca8708d_Z1EF0vK.webp)](https://developer.android.com/blog/authors/phalene-gowling.md.txt)[![View Rejane França's profile](https://developer.android.com/static/blog/assets/unnamed_31_d80d832499_1LWl7t.webp)](https://developer.android.com/blog/authors/rejane-franca.md.txt) 16 Nov 2026 16 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_158_Beyond_the_App_A_bd07c85947_982bv.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt)
+  ## [Beyond the app: Expanding buyer reach across new surfaces with Google Play](https://developer.android.com/blog/posts/beyond-the-app-google-play-buyer-reach.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/open-source-google-sign-in-unity.md.txt) With Unity powering over half of all mobile titles worldwide, first impressions matter. For game developers, a smooth, reliable player onboarding experience is essential to driving day-one retention and long-term engagement.
-  [Michelle Martin](https://developer.android.com/blog/authors/michelle-martin.md.txt) • 1 min read
+  [arrow_forward](https://developer.android.com/blog/posts/beyond-the-app-google-play-buyer-reach.md.txt) Discover how Google Play's channel expansion tools in Play Console expand buyer reach across store, web, and external surfaces while protecting margins.
+  [Phalene Gowling](https://developer.android.com/blog/authors/phalene-gowling.md.txt), [Rejane França](https://developer.android.com/blog/authors/rejane-franca.md.txt) • 4 min read
+  - [#Monetization](https://developer.android.com/blog/topics/monetization.md.txt)
 Stay in the loop
 
 

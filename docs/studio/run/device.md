@@ -73,7 +73,7 @@ using a pairing code. To begin, complete the following steps:
 
 1. Ensure that your workstation and device are connected to the same wireless network.
 2. Ensure that your device is running Android 11 or higher. For more information, see [Check \& update your Android version](https://support.google.com/android/answer/7680439).
-3. Ensure that you have the latest version of Android Studio installed. [Download it here](https://developer.android.com/studio).
+3. Ensure that you have the latest version of Android Studio installed. [Download it here](https://developer.android.com/studio.md.txt).
 4. On your workstation, update to the latest version of the [SDK Platform
    Tools](https://developer.android.com/tools/releases/platform-tools).
 

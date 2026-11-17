@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/wff/effects
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/wff/llms.txt
+
 The `Group` and `Part*` elements also provide `tintColor, renderMode` and
 `blendMode` attributes which are powerful ways of adjusting the appearance of
 sections of your watch face.
@@ -80,7 +82,7 @@ source and mask respectively, `blendMode` provides general access to all
 [Android Graphics blend mode effects](https://developer.android.com/reference/android/graphics/BlendMode.md.txt), and applies effects in the order that
 elements appear in the scene graph.
 
-In normal operation, when a two `Part*` elements are placed in the scene, the
+In normal operation, when two `Part*` elements are placed in the scene, the
 top-most obscures or partially obscures the lower element because the default
 `blendMode` is `SRC_OVER`.
 

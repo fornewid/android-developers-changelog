@@ -4,7 +4,9 @@ url: https://developer.android.com/develop/sensors-and-location/location/maps-an
 source: md.txt
 ---
 
-![](https://developer.android.com/static/images/google/gps-maps.png)
+> Documentation index: https://developer.android.com/develop/sensors-and-location/location/llms.txt
+
+![3D city map with buildings, streets, and point-of-interest icons](https://developer.android.com/static/images/google/gps-maps.png) **Figure 1.** Example 3D map with point-of-interest icons.
 
 Allow your users to explore the world with rich maps provided by Google.
 Identify locations with custom markers, augment the map data with image

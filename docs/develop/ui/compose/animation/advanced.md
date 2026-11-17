@@ -4,19 +4,20 @@ url: https://developer.android.com/develop/ui/compose/animation/advanced
 source: md.txt
 ---
 
-There are several things we have to take into consideration when we are working
-with touch events and animations, compared to when we are working with
-animations alone. First of all, we might need to interrupt an ongoing animation
-when touch events begin as user interaction should have the highest priority.
+> Documentation index: https://developer.android.com/develop/ui/llms.txt
 
-In the following example, we use an `Animatable` to represent the offset
-position of a circle component. Touch events are processed with the
-[`pointerInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/package-summary.md.txt#(androidx.compose.ui.Modifier).pointerInput(kotlin.Any,%20kotlin.coroutines.SuspendFunction1)) modifier. When we detect a new tap event, we
-call `animateTo` to animate the
-offset value to the tap position. A tap event can happen during the animation
-too, and in that case, `animateTo` interrupts the ongoing animation and starts
-the animation to the new target position while maintaining the velocity of the
-interrupted animation.
+When you work with touch events and animations, you have more to consider than
+when you work with animations alone. First, you might need to interrupt an
+ongoing animation when touch events begin, because user interaction should have
+the highest priority.
+
+The following example uses an `Animatable` to represent the offset position of
+a circle component. Touch events are processed with the
+[`pointerInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/package-summary.md.txt#(androidx.compose.ui.Modifier).pointerInput(kotlin.Any,%20kotlin.coroutines.SuspendFunction1)) modifier. When the example detects a new tap
+event, it calls `animateTo` to animate the offset value to the tap position. A
+tap event can happen during the animation too, and in that case, `animateTo`
+interrupts the ongoing animation and starts the animation to the new target
+position while maintaining the velocity of the interrupted animation.
 
 
 ```kotlin
@@ -51,21 +52,21 @@ private fun Offset.toIntOffset() = IntOffset(x.roundToInt(), y.roundToInt())
 
 <br />
 
-Another frequent pattern is we need to synchronize animation values with values
-coming from touch events, such as drag. In the following example, we see "swipe
-to dismiss" implemented as a `Modifier` (rather than using the
-[`SwipeToDismiss`](https://developer.android.com/reference/kotlin/androidx/compose/material/SwipeToDismiss.composable.md.txt) composable). The horizontal offset of the
-element is represented as an `Animatable`. This API has a characteristic useful
-in gesture animation. Its value can be changed by touch events as well as the
-animation. When we receive a touch down event, we stop the `Animatable` by the
-`stop` method so that any ongoing animation is intercepted.
+Another frequent pattern is synchronizing animation values with values coming
+from touch events, such as drag. The following example implements "swipe to
+dismiss" as a modifier, rather than using the
+[`SwipeToDismissBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable.md.txt) composable. The horizontal offset
+of the element is represented as an `Animatable`. This API has a characteristic
+useful in gesture animation. Its value can be changed by touch events as well
+as the animation. On a touch down event, the modifier stops the `Animatable`
+with the `stop` method so that any ongoing animation is intercepted.
 
-During a drag event, we use `snapTo` to update the `Animatable` value with the
-value calculated from touch events. For fling, Compose provides
-`VelocityTracker` to record drag events and calculate velocity. The velocity can
-be fed directly to `animateDecay` for the fling animation. When we want to slide
-the offset value back to the original position, we specify the target offset
-value of `0f` with the `animateTo` method.
+During a drag event, the modifier uses `snapTo` to update the `Animatable`
+value with the value calculated from touch events. For fling, Compose provides
+`VelocityTracker` to record drag events and calculate velocity. The velocity
+can be fed directly to `animateDecay` for the fling animation. To slide the
+offset value back to the original position, the modifier specifies the target
+offset value of `0f` with the `animateTo` method.
 
 
 ```kotlin

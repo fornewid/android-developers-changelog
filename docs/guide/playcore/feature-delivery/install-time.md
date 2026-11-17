@@ -29,13 +29,13 @@ need to be [set up as removable](https://developer.android.com/guide/playcore/fe
 
 This section describes how to create a feature module for install-time
 delivery. Before you begin, make sure you're
-using [Android Studio 3.5](https://developer.android.com/studio) or higher and Android Gradle Plugin 3.5.0
+using [Android Studio 3.5](https://developer.android.com/studio.md.txt) or higher and Android Gradle Plugin 3.5.0
 or higher.
 
 ## Configure a new module for install-time delivery
 
 The easiest way to create a new feature module is by using
-[Android Studio 3.5](https://developer.android.com/studio) or higher.
+[Android Studio 3.5](https://developer.android.com/studio.md.txt) or higher.
 Because feature modules have an
 inherent dependency on the base app module, you can add them only to existing
 app projects.

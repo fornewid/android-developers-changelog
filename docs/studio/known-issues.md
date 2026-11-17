@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/known-issues
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/llms.txt
+
 This page tracks known issues with Android Studio and the Android Gradle
 plugin. If you experience an issue not already included here, please
 [report a bug](https://developer.android.com/studio/report-bugs.md.txt).

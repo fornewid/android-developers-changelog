@@ -4,22 +4,20 @@ url: https://developer.android.com/develop/connectivity/bluetooth/ble-audio/tele
 source: md.txt
 ---
 
-This guide covers how to route audio for Bluetooth devices using the
-[Telecom API](https://developer.android.com/develop/connectivity/telecom) and set the connection for
-VoIP calls. Read the
-[Build a calling app](https://developer.android.com/develop/connectivity/telecom/selfManaged) guide
-before continuing.
+> Documentation index: https://developer.android.com/develop/connectivity/bluetooth/llms.txt
 
-By using the [`ConnectionService`](https://developer.android.com/reference/android/telecom/ConnectionService)
-and [`Connection`](https://developer.android.com/reference/android/telecom/Connection) classes, you can access
-the audio state and a list of available Bluetooth devices, and can route
+This guide covers how to route audio for Bluetooth devices using the
+[Telecom API](https://developer.android.com/develop/connectivity/telecom.md.txt) and set the connection for VoIP calls. Read the
+[Build a calling app](https://developer.android.com/develop/connectivity/telecom/selfManaged) guide before continuing.
+
+By using the [`ConnectionService`](https://developer.android.com/reference/android/telecom/ConnectionService.md.txt) and [`Connection`](https://developer.android.com/reference/android/telecom/Connection.md.txt) classes, you can
+access the audio state and a list of available Bluetooth devices, and can route
 audio to a selected Bluetooth device.
 
 ## VoIP Connection and ConnectionService
 
-Create a `VoIPConnection` class that extends from
-[`Connection`](https://developer.android.com/reference/android/telecom/Connection). This class controls the state of the current call. As the
-[Build a calling app](https://developer.android.com/develop/connectivity/telecom/selfManaged) guide
+Create a `VoIPConnection` class that extends from [`Connection`](https://developer.android.com/reference/android/telecom/Connection.md.txt). This class
+controls the state of the current call. As the [Build a calling app](https://developer.android.com/develop/connectivity/telecom/selfManaged) guide
 states, make this a self-managed application and set the audio mode for a VoIP
 application.
 
@@ -45,8 +43,7 @@ public class VoIPConnection extends Connection {
 }
 ```
 
-Next, return an instance of this class in
-[`ConnectionService`](https://developer.android.com/reference/android/telecom/ConnectionService) when an
+Next, return an instance of this class in [`ConnectionService`](https://developer.android.com/reference/android/telecom/ConnectionService.md.txt) when an
 incoming or outgoing call occurs.
 
 ### Kotlin
@@ -75,32 +72,32 @@ public class VoIPConnectionService extends ConnectionService {
 
 Ensure the manifest correctly points to the `VoIPConnectionService` class.
 
-    <service android:name=".voip.TelegramConnectionService" android:permission="android.permission.BIND_TELECOM_CONNECTION_SERVICE">
-      <intent-filter>
-        <action android:name="android.telecom.ConnectionService"/>
-      </intent-filter>
-    </service>
+```xml
+<service android:name=".voip.TelegramConnectionService" android:permission="android.permission.BIND_TELECOM_CONNECTION_SERVICE">
+  <intent-filter>
+    <action android:name="android.telecom.ConnectionService"/>
+  </intent-filter>
+</service>
+```
 
-With these custom [`Connection`](https://developer.android.com/reference/android/telecom/Connection) and
-[`ConnectionService`](https://developer.android.com/reference/android/telecom/ConnectionService) classes, you
-can control which device and what type of audio routing you wish to use during a
-call.
+With these custom [`Connection`](https://developer.android.com/reference/android/telecom/Connection.md.txt) and [`ConnectionService`](https://developer.android.com/reference/android/telecom/ConnectionService.md.txt) classes, you
+can control which device and what type of audio routing you want to use during
+a call.
 
 ## Get the current audio state
 
-To get the current audio state, call
-[`getCallAudioState()`](https://developer.android.com/reference/android/telecom/Connection#getCallAudioState()).
-[`getCallAudioState()`](https://developer.android.com/reference/android/telecom/Connection#getCallAudioState())
-returns if the device is streaming using Bluetooth, Earpiece, Wired, or
-Speaker.
+To get the current audio state, call [`getCallAudioState`](https://developer.android.com/reference/android/telecom/Connection.md.txt#getCallAudioState()).
+[`getCallAudioState`](https://developer.android.com/reference/android/telecom/Connection.md.txt#getCallAudioState()) returns whether the device is streaming using
+Bluetooth, an earpiece, a wired headset, or a speaker.
 
-    mAudioState = connection.getCallAudioState()
+```java
+mAudioState = connection.getCallAudioState()
+```
 
-## On State Changed
+## On state changed
 
 Subscribe to changes in CallAudioState by overriding
-[`onCallAudioStateChanged()`](https://developer.android.com/reference/android/telecom/Connection#onCallAudioStateChanged(android.telecom.CallAudioState)).
-This alerts you of any changes to the state.
+[`onCallAudioStateChanged()`](https://developer.android.com/reference/android/telecom/Connection.md.txt#onCallAudioStateChanged(android.telecom.CallAudioState)). This alerts you of any changes to the state.
 
 ### Kotlin
 
@@ -122,8 +119,8 @@ public void onCallAudioStateChanged(CallAudioState audioState) {
 ## Get the current device
 
 Get the current active device using
-[`CallAudioState.getActiveBluetoothDevice()`](https://developer.android.com/reference/android/telecom/CallAudioState#getActiveBluetoothDevice()).
-This function returns the active Bluetooth device.
+[`CallAudioState.getActiveBluetoothDevice()`](https://developer.android.com/reference/android/telecom/CallAudioState.md.txt#getActiveBluetoothDevice()). This function returns the
+active Bluetooth device.
 
 > [!NOTE]
 > **Note:** This feature is only available in API level 28 and higher.
@@ -143,19 +140,19 @@ BluetoothDevice activeDevice = mAudioState.getActiveBluetoothDevice();
 ## Get Bluetooth devices
 
 Get a list of Bluetooth devices that are available for call audio routing using
-[`CallAudioState.getSupportedBluetoothDevices()`](https://developer.android.com/reference/android/telecom/CallAudioState#getSupportedBluetoothDevices()).
+[`CallAudioState.getSupportedBluetoothDevices()`](https://developer.android.com/reference/android/telecom/CallAudioState.md.txt#getSupportedBluetoothDevices()).
 
 ### Kotlin
 
 ```kotlin
-val availableBluetoothDevices: Collection =
+val availableBluetoothDevices: Collection<BluetoothDevice> =
   mAudioState.getSupportedBluetoothDevices()
 ```
 
 ### Java
 
 ```java
-Collection availableBluetoothDevices = mAudioState.getSupportedBluetoothDevices();
+Collection<BluetoothDevice> availableBluetoothDevices = mAudioState.getSupportedBluetoothDevices();
 ```
 
 ## Route the call audio
@@ -163,19 +160,21 @@ Collection availableBluetoothDevices = mAudioState.getSupportedBluetoothDevices(
 ### Using API level 28 and higher (recommended)
 
 Route the call audio to an available Bluetooth device using
-[`requestBluetoothAudio(BluetoothDevice)`](https://developer.android.com/reference/android/telecom/Connection#requestBluetoothAudio(android.bluetooth.BluetoothDevice)):
+[`requestBluetoothAudio(BluetoothDevice)`](https://developer.android.com/reference/android/telecom/Connection.md.txt#requestBluetoothAudio(android.bluetooth.BluetoothDevice)):
 
-    requestBluetoothAudio(availableBluetoothDevices[0]);
+```java
+requestBluetoothAudio(availableBluetoothDevices[0]);
+```
 
 ### Using API level 23 and higher
 
-Enable
-[`ROUTE_BLUETOOTH`](https://developer.android.com/reference/android/telecom/CallAudioState#ROUTE_BLUETOOTH)
-without specifying the device using
-[`setAudioRoute(int)`](https://developer.android.com/reference/android/telecom/Connection#setAudioRoute(int)).
-This defaults routing to current, active bluetooth devices on Android 9 and higher.
+Enable [`ROUTE_BLUETOOTH`](https://developer.android.com/reference/android/telecom/CallAudioState.md.txt#ROUTE_BLUETOOTH) without specifying the device using
+[`setAudioRoute(int)`](https://developer.android.com/reference/android/telecom/Connection.md.txt#setAudioRoute(int)). This defaults routing to current, active Bluetooth
+devices on Android 9 and higher.
 
-    setAudioRoute(CallAudioState.ROUTE_BLUETOOTH);
+```java
+setAudioRoute(CallAudioState.ROUTE_BLUETOOTH);
+```
 
 > [!NOTE]
 > **Note:** This step isn't required if the app already knows which Bluetooth device to route audio to.

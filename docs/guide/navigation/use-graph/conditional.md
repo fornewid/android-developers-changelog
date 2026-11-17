@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/navigation/use-graph/conditional
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/navigation/llms.txt
+
 When designing navigation for your app, you might want to navigate to one
 destination versus another based on conditional logic. For example, a user
 might follow a deep link to a destination that requires the user to be logged
@@ -23,41 +25,43 @@ navigation flow.](https://developer.android.com/static/images/guide/navigation/n
 To authenticate, the app must navigate to the `login_fragment`, where the user
 can enter a username and password to authenticate. If accepted, the user is
 sent back to the `profile_fragment` screen. If not accepted, the user is
-informed that their credentials are invalid using a
-[`Snackbar`](https://developer.android.com/reference/com/google/android/material/snackbar/Snackbar).
-If the user navigates back to the profile screen without logging in, they are
-sent to the `main_fragment` screen.
+informed that their credentials are invalid using a [`Snackbar`](https://developer.android.com/reference/com/google/android/material/snackbar/Snackbar.md.txt). If the
+user navigates back to the profile screen without logging in, they are sent to
+the `main_fragment` screen.
 
 > [!NOTE]
-> **Note:** The architecture of this app follows the pattern described in the [Guide to App Architecture](https://developer.android.com/jetpack/docs/guide). It uses a [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel) and [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata) and follows a single-activity structure. Be sure that you're familiar with these classes before proceeding.
+> **Note:** The architecture of this app follows the pattern described in the [Guide
+> to App Architecture](https://developer.android.com/jetpack/docs/guide). It uses a [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt) and [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata.md.txt) and follows a single-activity structure. Be sure that you're familiar with these classes before proceeding.
 
 Here's the navigation graph for this app:
 
-    <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/nav_graph"
-            app:startDestination="@id/main_fragment">
-        <fragment
-                android:id="@+id/main_fragment"
-                android:name="com.google.android.conditionalnav.MainFragment"
-                android:label="fragment_main"
-                tools:layout="@layout/fragment_main">
-            <action
-                    android:id="@+id/navigate_to_profile_fragment"
-                    app:destination="@id/profile_fragment"/>
-        </fragment>
-        <fragment
-                android:id="@+id/login_fragment"
-                android:name="com.google.android.conditionalnav.LoginFragment"
-                android:label="login_fragment"
-                tools:layout="@layout/login_fragment"/>
-        <fragment
-                android:id="@+id/profile_fragment"
-                android:name="com.google.android.conditionalnav.ProfileFragment"
-                android:label="fragment_profile"
-                tools:layout="@layout/fragment_profile"/>
-    </navigation>
+```xml
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_graph"
+        app:startDestination="@id/main_fragment">
+    <fragment
+            android:id="@+id/main_fragment"
+            android:name="com.google.android.conditionalnav.MainFragment"
+            android:label="fragment_main"
+            tools:layout="@layout/fragment_main">
+        <action
+                android:id="@+id/navigate_to_profile_fragment"
+                app:destination="@id/profile_fragment"/>
+    </fragment>
+    <fragment
+            android:id="@+id/login_fragment"
+            android:name="com.google.android.conditionalnav.LoginFragment"
+            android:label="login_fragment"
+            tools:layout="@layout/login_fragment"/>
+    <fragment
+            android:id="@+id/profile_fragment"
+            android:name="com.google.android.conditionalnav.ProfileFragment"
+            android:label="fragment_profile"
+            tools:layout="@layout/fragment_profile"/>
+</navigation>
+```
 
 `MainFragment` contains a button that the user can click to view their profile.
 If the user wants to see the profile screen, they must first authenticate. This
@@ -93,7 +97,7 @@ public class ProfileFragment extends Fragment {
 }
 ```
 
-The user data in `UserViewModel` is exposed via `LiveData`, so to decide where
+The user data in `UserViewModel` is exposed using `LiveData`, so to decide where
 to navigate, you should observe this data. Upon navigating to
 `ProfileFragment`, the app shows a welcome message if the user data is
 present. If the user data is `null`, you then navigate to `LoginFragment`,
@@ -153,16 +157,14 @@ public class ProfileFragment extends Fragment {
 If the user data is `null` when they reach the `ProfileFragment`, they are
 redirected to the `LoginFragment`.
 
-You can use
-[`NavController.getPreviousBackStackEntry()`](https://developer.android.com/reference/androidx/navigation/NavController#getPreviousBackStackEntry())
-to retrieve the [`NavBackStackEntry`](https://developer.android.com/reference/androidx/navigation/NavBackStackEntry)
-for the previous destination, which encapsulates the `NavController`-specific
-state for the destination. `LoginFragment` uses the
-[`SavedStateHandle`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle) of the
-previous `NavBackStackEntry` to set an initial value indicating whether the
-user has successfully logged in. This is the state we would want to return if
-the user were to immediately press the system back button. Setting this state
-using `SavedStateHandle` ensures that the state persists through process death.
+You can use [`NavController.getPreviousBackStackEntry`](https://developer.android.com/reference/androidx/navigation/NavController.md.txt#getPreviousBackStackEntry()) to retrieve the
+[`NavBackStackEntry`](https://developer.android.com/reference/androidx/navigation/NavBackStackEntry.md.txt) for the previous destination, which encapsulates the
+`NavController`-specific state for the destination. `LoginFragment` uses the
+[`SavedStateHandle`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle.md.txt) of the previous `NavBackStackEntry` to set an initial
+value indicating whether the user has successfully logged in. This is the state
+you want to return if the user immediately presses the system back button.
+Setting this state using `SavedStateHandle` ensures that the state persists
+through process death.
 
 ### Kotlin
 
@@ -303,16 +305,15 @@ Note that all logic pertaining to authentication is held within
 either `LoginFragment` or `ProfileFragment` to determine how users are
 authenticated. Encapsulating your logic in a `ViewModel` makes it not only
 easier to share but also easier to test. If your navigation logic is complex,
-you should especially verify this logic through testing. See the
-[Guide to app architecture](https://developer.android.com/jetpack/docs/guide) for more information on
-structuring your app's architecture around testable components.
+you should especially verify this logic through testing. For more information
+about structuring your app's architecture around testable components, see the
+[Guide to app architecture](https://developer.android.com/jetpack/docs/guide).
 
 Back in the `ProfileFragment`, the `LOGIN_SUCCESSFUL` value stored in the
-`SavedStateHandle` can be observed in the
-[`onCreate()`](https://developer.android.com/reference/androidx/fragment/app/Fragment#onCreate(android.os.Bundle))
-method. When the user returns to the `ProfileFragment`, the `LOGIN_SUCCESSFUL`
-value will be checked. If the value is `false`, the user can be redirected back
-to the `MainFragment`.
+`SavedStateHandle` can be observed in the [`onCreate()`](https://developer.android.com/reference/androidx/fragment/app/Fragment.md.txt#onCreate(android.os.Bundle)) method. When the
+user returns to the `ProfileFragment`, the `LOGIN_SUCCESSFUL` value will be
+checked. If the value is `false`, the user can be redirected back to the
+`MainFragment`.
 
 ### Kotlin
 
@@ -376,7 +377,7 @@ public class ProfileFragment extends Fragment {
 If the user successfully logged in, the `ProfileFragment` displays a
 welcome message.
 
-The technique used here of checking the result allows you to distinguish
+The technique used here of checking the result lets you distinguish
 between two different cases:
 
 - The initial case, where the user is not logged in and should be asked to login.

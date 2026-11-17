@@ -4,6 +4,8 @@ url: https://developer.android.com/latest-updates
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/latest-updates/llms.txt
+
 ![](http://developer.android.com/static/images/cluster-illustrations/android-basics-kotlin.svg)
 
 ### Latest updates
@@ -130,11 +132,11 @@ The latest updated popular libraries. [See all Jetpack library updates](https://
 
 ## ![](https://developer.android.com/static/images/logos/android-studio.svg) Android Studio
 
-Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio.md.txt) RC
+Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio.md.txt) Canary
 
-### [Rabbit 3 \| 2026.2.3 RC 1](https://developer.android.com/studio/preview.md.txt)
+### [Stingray 1 \| 2026.3.1 Canary 1](https://developer.android.com/studio/preview.md.txt)
 
-November 11, 2026 Stable
+November 16, 2026 Stable
 
 ### [Rabbit 2 \| 2026.2.2 Patch 1](https://developer.android.com/studio/releases.md.txt)
 

@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/tooling/previews
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/tooling/llms.txt
+
 A composable is defined by a function and annotated with `@Composable`:
 
 

@@ -4,6 +4,8 @@ url: https://developer.android.com/studio
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/llms.txt
+
 ![](http://developer.android.com/static/images/studio/studio-hero-image.png)
 
 ### Android Studio

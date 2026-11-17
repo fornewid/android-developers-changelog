@@ -4,11 +4,13 @@ url: https://developer.android.com/training/data-storage/sqlite
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/data-storage/llms.txt
+
 Saving data to a database is ideal for repeating or structured data,
 such as contact information. This page assumes that you are
 familiar with SQL databases in general and helps you get started with
 SQLite databases on Android. The APIs you'll need to use a database
-on Android are available in the `https://developer.android.com/reference/android/database/sqlite/package-summary` package.
+on Android are available in the `android.database.sqlite` package.
 **Caution:** Although these APIs are powerful, they are fairly low-level
 and require a great deal of time and effort to use:
 
@@ -29,7 +31,7 @@ create a companion class, known as a *contract* class, which explicitly specifie
 the layout of your schema in a systematic and self-documenting way.
 
 A contract class is a container for constants that define names for URIs,
-tables, and columns. The contract class allows you to use the same constants
+tables, and columns. The contract class lets you use the same constants
 across all the other classes in the same package. This lets you change a column
 name in one place and have it propagate throughout your code.
 
@@ -37,9 +39,9 @@ A good way to organize a contract class is to put definitions that are
 global to your whole database in the root level of the class. Then create an inner
 class for each table. Each inner class enumerates the corresponding table's columns.
 
-**Note:** By implementing the `https://developer.android.com/reference/android/provider/BaseColumns`
+**Note:** By implementing the `BaseColumns`
 interface, your inner class can inherit a primary
-key field called `_ID` that some Android classes such as `https://developer.android.com/reference/android/widget/CursorAdapter` expect it to have. It's not required, but this can help your database
+key field called `_ID` that some Android classes such as `CursorAdapter` expect it to have. It's not required, but this can help your database
 work harmoniously with the Android framework.
 
 For example, the following contract defines the table name and column names for a
@@ -75,7 +77,7 @@ public final class FeedReaderContract {
 }
 ```
 
-## Create a database using an SQL helper
+## Create a database using a SQL helper
 
 Once you have defined how your database looks, you should implement methods
 that create and maintain the database and tables. Here are some typical
@@ -111,28 +113,28 @@ storage](https://developer.android.com/guide/topics/data/data-storage#filesInter
 secure, because by default this area is not
 accessible to other apps or the user.
 
-The `https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper` class contains a useful
+The `SQLiteOpenHelper` class contains a useful
 set of APIs for managing your database.
 When you use this class to obtain references to your database, the system
 performs the potentially
 long-running operations of creating and updating the database only when
 needed and *not during app startup* . All you need to do is call
-`https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#getWritableDatabase()` or
-`https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#getReadableDatabase()`.
+`getWritableDatabase()` or
+`getReadableDatabase()`.
 
 **Note:** Because they can be long-running,
-be sure that you call `https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#getWritableDatabase()` or `https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#getReadableDatabase()` in a background thread.
+be sure that you call `getWritableDatabase()` or `getReadableDatabase()` in a background thread.
 See [Threading on Android](https://developer.android.com/training/multiple-threads) for more information.
 
-To use `https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper`, create a subclass that
-overrides the `https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#onCreate(android.database.sqlite.SQLiteDatabase)` and
-`https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#onUpgrade(android.database.sqlite.SQLiteDatabase, int, int)` callback methods. You may
+To use `SQLiteOpenHelper`, create a subclass that
+overrides the `onCreate()` and
+`onUpgrade()` callback methods. You may
 also want to implement the
-`https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#onDowngrade(android.database.sqlite.SQLiteDatabase, int, int)` or
-`https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#onOpen(android.database.sqlite.SQLiteDatabase)` methods,
+`onDowngrade()` or
+`onOpen()` methods,
 but they are not required.
 
-For example, here's an implementation of `https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper` that
+For example, here's an implementation of `SQLiteOpenHelper` that
 uses some of the commands shown above:
 
 ### Kotlin
@@ -186,7 +188,7 @@ public class FeedReaderDbHelper extends SQLiteOpenHelper {
 ```
 
 To access your database, instantiate your subclass of
-`https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper`:
+`SQLiteOpenHelper`:
 
 ### Kotlin
 
@@ -202,8 +204,8 @@ FeedReaderDbHelper dbHelper = new FeedReaderDbHelper(getContext());
 
 ## Put information into a database
 
-Insert data into the database by passing a `https://developer.android.com/reference/android/content/ContentValues`
-object to the `https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#insert(java.lang.String, java.lang.String, android.content.ContentValues)` method:
+Insert data into the database by passing a `ContentValues`
+object to the `insert()` method:
 
 ### Kotlin
 
@@ -236,28 +238,28 @@ values.put(FeedEntry.COLUMN_NAME_SUBTITLE, subtitle);
 long newRowId = db.insert(FeedEntry.TABLE_NAME, null, values);
 ```
 
-The first argument for `https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#insert(java.lang.String, java.lang.String, android.content.ContentValues)`
-is simply the table name.
+The first argument for `insert()`
+is the table name.
 
 The second argument tells the framework what to do in the event that the
-`https://developer.android.com/reference/android/content/ContentValues` is empty (i.e., you did not
-`https://developer.android.com/reference/android/content/ContentValues#put(java.lang.String, byte[])` any values).
+`ContentValues` is empty (i.e., you did not
+`put` any values).
 If you specify the name of a column, the framework inserts a row and sets
 the value of that column to null. If you specify `null`, like in this
 code sample, the framework does not insert a row when there are no values.
 
 
-The `https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#insert(java.lang.String, java.lang.String, android.content.ContentValues)` methods returns the ID for the
+The `insert()` methods returns the ID for the
 newly created row, or it will return -1 if there was an error inserting the data. This can happen
 if you have a conflict with pre-existing data in the database.
 
 ## Read information from a database
 
-To read from a database, use the `https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#query(java.lang.String, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String, java.lang.String, java.lang.String)` method, passing it your selection criteria and desired columns.
-The method combines elements of `https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#insert(java.lang.String, java.lang.String, android.content.ContentValues)`
-and `https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#update(java.lang.String, android.content.ContentValues, java.lang.String, java.lang.String[])`, except the column list
+To read from a database, use the `query()` method, passing it your selection criteria and the columns you want.
+The method combines elements of `insert()`
+and `update()`, except the column list
 defines the data you want to fetch (the "projection"), rather than the data to insert. The results
-of the query are returned to you in a `https://developer.android.com/reference/android/database/Cursor` object.
+of the query are returned to you in a `Cursor` object.
 
 ### Kotlin
 
@@ -322,18 +324,18 @@ The third and fourth arguments (`selection` and `selectionArgs`) are
 combined to create a WHERE clause. Because the arguments are provided separately from the selection
 query, they are escaped before being combined. This makes your selection statements immune to SQL
 injection. For more detail about all arguments, see the
-`https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#query(java.lang.String, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String, java.lang.String, java.lang.String)` reference.
+`query()` reference.
 
-To look at a row in the cursor, use one of the `https://developer.android.com/reference/android/database/Cursor` move
+To look at a row in the cursor, use one of the `Cursor` move
 methods, which you must always call before you begin reading values. Since the cursor starts at
-position -1, calling `https://developer.android.com/reference/android/database/Cursor#moveToNext()` places the "read position" on the
+position -1, calling `moveToNext()` places the "read position" on the
 first entry in the results and returns whether or not the cursor is already past the last entry in
 the result set. For each row, you can read a column's value by calling one of the
-`https://developer.android.com/reference/android/database/Cursor` get methods, such as `https://developer.android.com/reference/android/database/Cursor#getString(int)` or `https://developer.android.com/reference/android/database/Cursor#getLong(int)`. For each of the get methods,
-you must pass the index position of the column you desire, which you can get by calling
-`https://developer.android.com/reference/android/database/Cursor#getColumnIndex(java.lang.String)` or
-`https://developer.android.com/reference/android/database/Cursor#getColumnIndexOrThrow(java.lang.String)`. When finished
-iterating through results, call `https://developer.android.com/reference/android/database/Cursor#close()` on the cursor
+`Cursor` get methods, such as `getString()` or `getLong()`. For each of the get methods,
+you must pass the index position of the column you want, which you can get by calling
+`getColumnIndex()` or
+`getColumnIndexOrThrow()`. When finished
+iterating through results, call `close()` on the cursor
 to release its resources.
 For example, the following shows how to get all the item IDs stored in a cursor
 and add them to a list:
@@ -366,11 +368,11 @@ cursor.close();
 ## Delete information from a database
 
 To delete rows from a table, you need to provide selection criteria that
-identify the rows to the `https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#delete(java.lang.String, java.lang.String, java.lang.String[])` method. The
+identify the rows to the `delete()` method. The
 mechanism works the same as the selection arguments to the
-`https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#query(boolean, java.lang.String, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String, java.lang.String, java.lang.String, java.lang.String)` method. It divides the
+`query()` method. It divides the
 selection specification into a selection clause and selection arguments. The
-clause defines the columns to look at, and also allows you to combine column
+clause defines the columns to look at, and also lets you combine column
 tests. The arguments are values to test against that are bound into the clause.
 Because the result isn't handled the same as a regular SQL statement, it is
 immune to SQL injection.
@@ -398,17 +400,17 @@ int deletedRows = db.delete(FeedEntry.TABLE_NAME, selection, selectionArgs);
 ```
 
 
-The return value for the `https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#delete(java.lang.String, java.lang.String, java.lang.String[])` method
+The return value for the `delete()` method
 indicates the number of rows that were deleted from the database.
 
 ## Update a database
 
 When you need to modify a subset of your database values, use the
-`https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#update(java.lang.String, android.content.ContentValues, java.lang.String, java.lang.String[])` method.
+`update()` method.
 
-Updating the table combines the `https://developer.android.com/reference/android/content/ContentValues` syntax of
-`https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#insert(java.lang.String, java.lang.String, android.content.ContentValues)` with the `WHERE` syntax
-of `https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#delete(java.lang.String, java.lang.String, java.lang.String[])`.
+Updating the table combines the `ContentValues` syntax of
+`insert()` with the `WHERE` syntax
+of `delete()`.
 
 ### Kotlin
 
@@ -453,16 +455,16 @@ int count = db.update(
 ```
 
 
-The return value of the `https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#update(java.lang.String, android.content.ContentValues, java.lang.String, java.lang.String[])` method is
+The return value of the `update()` method is
 the number of rows affected in the database.
 
 ## Persisting database connection
 
-Since `https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#getWritableDatabase()`
-and `https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper#getReadableDatabase()` are
+Since `getWritableDatabase()`
+and `getReadableDatabase()` are
 expensive to call when the database is closed, you should leave your database connection
 open for as long as you possibly need to access it. Typically, it is optimal to close the database
-in the `https://developer.android.com/reference/android/app/Activity#onDestroy()` of the calling Activity.
+in the `onDestroy()` of the calling Activity.
 
 ### Kotlin
 
@@ -485,6 +487,6 @@ protected void onDestroy() {
 
 ## Debug your database
 
-The Android SDK includes a `sqlite3` shell tool that allows you to browse
+The Android SDK includes a `sqlite3` shell tool that lets you browse
 table contents, run SQL commands, and perform other useful functions on SQLite
-databases. For more information, see how to [how to issue shell commands](https://developer.android.com/studio/command-line/adb#shellcommands).
+databases. For more information, see [how to issue shell commands](https://developer.android.com/studio/command-line/adb#shellcommands).

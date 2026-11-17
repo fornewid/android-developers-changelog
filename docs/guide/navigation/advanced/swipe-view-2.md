@@ -4,38 +4,38 @@ url: https://developer.android.com/guide/navigation/advanced/swipe-view-2
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/navigation/llms.txt
+
 Swipe views allow you to navigate between sibling screens, such as tabs, with a
 horizontal finger gesture, or *swipe* . This navigation pattern is also referred
-to as *horizontal paging*. This topic teaches you how to create a tab layout
+to as *horizontal paging*. This document teaches you how to create a tab layout
 with swipe views for switching between tabs, along with how to show a title
 strip instead of tabs.
 
 > [!NOTE]
-> **Note:** If your app already uses [`ViewPager`](https://developer.android.com/reference/kotlin/androidx/viewpager/widget/ViewPager), see [Migrate
-> from ViewPager to ViewPager2](https://developer.android.com/training/animation/vp2-migration).
+> **Note:** If your app already uses [`ViewPager`](https://developer.android.com/reference/kotlin/androidx/viewpager/widget/ViewPager.md.txt), see [Migrate from ViewPager to ViewPager2](https://developer.android.com/training/animation/vp2-migration).
 
 ## Implement Swipe Views
 
-You can create swipe views using AndroidX's
-[`ViewPager2`](https://developer.android.com/reference/kotlin/androidx/viewpager2/widget/ViewPager2) widget.
-To use ViewPager2 and tabs, you need to add a dependency on
-[ViewPager2](https://developer.android.com/jetpack/androidx/releases/viewpager2#androidx-deps) and on
-[Material Components](https://material.io/develop/android/docs/getting-started/)
-to your project.
+You can create swipe views using AndroidX's [`ViewPager2`](https://developer.android.com/reference/kotlin/androidx/viewpager2/widget/ViewPager2.md.txt) widget. To use
+ViewPager2 and tabs, you need to add a dependency on [ViewPager2](https://developer.android.com/jetpack/androidx/releases/viewpager2.md.txt#androidx-deps) and on
+[Material Components](https://material.io/develop/android/docs/getting-started/) to your project.
 
 To set up your layout with `ViewPager2`, add the `<ViewPager2>` element to your
 XML layout. For example, if each page in the swipe view should consume the
 entire layout, then your layout should look like this:
 
-    <androidx.viewpager2.widget.ViewPager2
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+```xml
+<androidx.viewpager2.widget.ViewPager2
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+```
 
 To insert child views that represent each page, you need to hook this layout to
-a [`FragmentStateAdapter`](https://developer.android.com/reference/kotlin/androidx/viewpager2/adapter/FragmentStateAdapter).
-Here's how you might use it to swipe across a collection of `Fragment` objects:
+a [`FragmentStateAdapter`](https://developer.android.com/reference/kotlin/androidx/viewpager2/adapter/FragmentStateAdapter.md.txt). Here's how you might use it to swipe across a
+collection of `Fragment` objects:
 
 ### Kotlin
 
@@ -172,39 +172,36 @@ between pages.
 
 ## Add Tabs Using a TabLayout
 
-A [`TabLayout`](https://developer.android.com/reference/com/google/android/material/tabs/TabLayout) provides
-a way to display tabs horizontally. When used together with a `ViewPager2`, a
-`TabLayout` can provide a familiar interface for navigating between pages in a
-swipe view.
-
-![](https://developer.android.com/static/images/topic/libraries/architecture/navigation-tab-layout.png)
-
-**Figure 1:** A `TabLayout` with four tabs.
+A [`TabLayout`](https://developer.android.com/reference/com/google/android/material/tabs/TabLayout.md.txt) provides a way to display tabs horizontally. When used
+together with a `ViewPager2`, a `TabLayout` can provide a familiar interface for
+navigating between pages in a swipe view.
+![A TabLayout displaying four horizontal tabs with the third tab selected.](https://developer.android.com/static/images/topic/libraries/architecture/navigation-tab-layout.png) **Figure 1:** A `TabLayout` with four tabs.
 
 To include a `TabLayout` in a `ViewPager2`, add a `<TabLayout>` element above
 the `<ViewPager2>` element, as shown below:
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+```xml
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content" />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/pager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+</LinearLayout>
+```
 
-    </LinearLayout>
-
-Next, create a
-[`TabLayoutMediator`](https://developer.android.com/reference/com/google/android/material/tabs/TabLayoutMediator)
-to link the `TabLayout` to the `ViewPager2`, and attach it as follows:
+Next, create a [`TabLayoutMediator`](https://developer.android.com/reference/com/google/android/material/tabs/TabLayoutMediator.md.txt) to link the `TabLayout` to the
+`ViewPager2`, and attach it as follows:
 
 ### Kotlin
 

@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/wff/personalization/user-c
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/wff/personalization/llms.txt
+
 `UserConfigurations` let you create options that the user can choose
 between. You can adjust the appearance of watch face
 elements based on the chosen values.
@@ -35,7 +37,7 @@ defined as follows:
 
 <br />
 
-Boolean options can then be used in a two ways:
+Boolean options can then be used in two ways:
 
 1. Using the `BooleanConfiguration` structure within the watch face `Scene`:
 

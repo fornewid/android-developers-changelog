@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/connectivity/usb/accessory
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/connectivity/usb/llms.txt
+
 USB accessory mode allows users to connect
 USB host hardware specifically designed for Android-powered devices. The accessories must adhere
 to the Android accessory protocol outlined in the [Android Accessory Development Kit](http://accessories.android.com/demokit) documentation.
@@ -21,9 +23,19 @@ backported using an external library, there are two packages that you can import
 accessory mode. Depending on what Android-powered devices you want to support, you might have to
 use one over the other:
 
-- `com.android.future.usb`: To support USB accessory mode in Android 2.3.4, the [Google APIs add-on
-  library](https://developers.google.com/android/guides/overview) includes the backported USB accessory APIs and they are contained in this namespace. Android 3.1 also supports importing and calling the classes within this namespace to support applications written with the add-on library. This add-on library is a thin wrapper around the `https://developer.android.com/reference/android/hardware/usb/package-summary` accessory APIs and does not support USB host mode. If you want to support the widest range of devices that support USB accessory mode, use the add-on library and import this package. It is important to note that not all Android 2.3.4 devices are required to support the USB accessory feature. Each individual device manufacturer decides whether or not to support this capability, which is why you must declare it in your manifest file.
-- `https://developer.android.com/reference/android/hardware/usb/package-summary`: This namespace contains the classes that support USB accessory mode in Android 3.1. This package is included as part of the framework APIs, so Android 3.1 supports USB accessory mode without the use of an add-on library. Use this package if you only care about Android 3.1 or newer devices that have hardware support for USB accessory mode, which you can declare in your manifest file.
+- `com.android.future.usb`: To support USB accessory mode in Android 2.3.4, the
+  [Google APIs add-on
+  library](https://developers.google.com/android/guides/overview) includes the backported USB accessory APIs and they are contained in this
+  namespace. Android 3.1 also supports importing and calling the classes within this namespace to
+  support applications written with the add-on library. This add-on library is a thin wrapper
+  around the `android.hardware.usb` accessory APIs and does not support USB host mode.
+
+  If you want to support the widest range of devices that support USB accessory mode, use the
+  add-on library and import this package. It is important to note that not all Android 2.3.4
+  devices are required to support the USB accessory feature. Each individual device manufacturer
+  decides whether or not to support this capability, which is why you must declare it in your
+  manifest file.
+- `android.hardware.usb`: This namespace contains the classes that support USB accessory mode in Android 3.1. This package is included as part of the framework APIs, so Android 3.1 supports USB accessory mode without the use of an add-on library. Use this package if you only care about Android 3.1 or newer devices that have hardware support for USB accessory mode, which you can declare in your manifest file.
 
 ### Install the Google APIs add-on library
 
@@ -34,7 +46,7 @@ Add-on](http://code.google.com/android/add-ons/google-apis/installing.html) for 
 ## API overview
 
 Because the add-on library is a wrapper for the framework APIs, the classes that support the
-USB accessory feature are similar. You can use the reference documentation for the `https://developer.android.com/reference/android/hardware/usb/package-summary` even if you are using the add-on library.
+USB accessory feature are similar. You can use the reference documentation for the `android.hardware.usb` even if you are using the add-on library.
 
 **Note:** There is, however, a minor [usage
 difference](https://developer.android.com/develop/connectivity/usb/accessory#usage) between the add-on library and framework APIs that you should be aware of.
@@ -43,15 +55,15 @@ The following table describes the classes that support the USB accessory APIs:
 
 | Class | Description |
 |---|---|
-| `https://developer.android.com/reference/android/hardware/usb/UsbManager` | Allows you to enumerate and communicate with connected USB accessories. |
-| `https://developer.android.com/reference/android/hardware/usb/UsbAccessory` | Represents a USB accessory and contains methods to access its identifying information. |
+| `UsbManager` | Lets you enumerate and communicate with connected USB accessories. |
+| `UsbAccessory` | Represents a USB accessory and contains methods to access its identifying information. |
 
 ### Usage differences between the add-on library and platform APIs
 
 There are two usage differences between using the Google APIs add-on library and the platform
 APIs.
 
-If you are using the add-on library, you must obtain the `https://developer.android.com/reference/android/hardware/usb/UsbManager` object in the following manner:
+If you are using the add-on library, you must obtain the `UsbManager` object in the following manner:
 
 ### Kotlin
 
@@ -65,7 +77,7 @@ val manager = UsbManager.getInstance(this)
 UsbManager manager = UsbManager.getInstance(this);
 ```
 
-If you are not using the add-on library, you must obtain the `https://developer.android.com/reference/android/hardware/usb/UsbManager` object in the following manner:
+If you are not using the add-on library, you must obtain the `UsbManager` object in the following manner:
 
 ### Kotlin
 
@@ -79,8 +91,8 @@ val manager = getSystemService(Context.USB_SERVICE) as UsbManager
 UsbManager manager = (UsbManager) getSystemService(Context.USB_SERVICE);
 ```
 
-When you filter for a connected accessory with an intent filter, the `https://developer.android.com/reference/android/hardware/usb/UsbAccessory` object is contained inside the intent that is passed to your
-application. If you are using the add-on library, you must obtain the `https://developer.android.com/reference/android/hardware/usb/UsbAccessory` object in the following manner:
+When you filter for a connected accessory with an intent filter, the `UsbAccessory` object is contained inside the intent that is passed to your
+application. If you are using the add-on library, you must obtain the `UsbAccessory` object in the following manner:
 
 ### Kotlin
 
@@ -94,7 +106,7 @@ val accessory = UsbManager.getAccessory(intent)
 UsbAccessory accessory = UsbManager.getAccessory(intent);
 ```
 
-If you are not using the add-on library, you must obtain the `https://developer.android.com/reference/android/hardware/usb/UsbAccessory` object in the following manner:
+If you are not using the add-on library, you must obtain the `UsbAccessory` object in the following manner:
 
 ### Kotlin
 
@@ -116,7 +128,7 @@ examples](https://developer.android.com/develop/connectivity/usb/accessory#manif
 
 - Because not all Android-powered devices are guaranteed to support the USB accessory APIs, include a `<uses-feature>` element that declares that your application uses the `android.hardware.usb.accessory` feature.
 - If you are using the [add-on library](https://developers.google.com/android/guides/overview), add the `<uses-library>` element specifying `com.android.future.usb.accessory` for the library.
-- Set the minimum SDK of the application to API Level 10 if you are using the add-on library or 12 if you are using the `https://developer.android.com/reference/android/hardware/usb/package-summary` package.
+- Set the minimum SDK of the application to API Level 10 if you are using the add-on library or 12 if you are using the `android.hardware.usb` package.
 - If you want your application to be notified of an attached USB accessory, specify an
   `<intent-filter>` and `<meta-data>` element pair for the
   `android.hardware.usb.action.USB_ACCESSORY_ATTACHED` intent in your main activity.
@@ -137,10 +149,10 @@ examples](https://developer.android.com/develop/connectivity/usb/accessory#manif
   does not specify a version string, this causes a `NullPointerException` on
   earlier versions of Android. This issue is fixed in Android 12.
 
-  Save the resource file in the `res/xml/` directory. The resource file name
+  Save the resource file in the `res/xml/` directory. The resource filename
   (without the .xml extension) must be the same as the one you specified in the
-  `<meta-data>` element. The format for the XML resource file is also shown in
-  the [example](https://developer.android.com/develop/connectivity/usb/accessory#example) below.
+  `<meta-data>` element. The format for the XML resource file is also shown in the following
+  [example](https://developer.android.com/develop/connectivity/usb/accessory.md.txt#manifest-example).
 
 ### Manifest and resource file examples
 
@@ -184,7 +196,7 @@ attributes the Android-powered device:
 
 When users connect USB accessories to an Android-powered device, the Android system can
 determine whether your application is interested in the connected accessory. If so, you can set
-up communication with the accessory if desired. To do this, your application has to:
+up communication with the accessory if you want. To do this, your application has to:
 
 1. Discover connected accessories by using an intent filter that filters for accessory attached events or by enumerating connected accessories and finding the appropriate one.
 2. Ask the user for permission to communicate with the accessory, if not already obtained.
@@ -194,8 +206,8 @@ up communication with the accessory if desired. To do this, your application has
 
 Your application can discover accessories by either using an intent filter to be notified when
 the user connects an accessory or by enumerating accessories that are already connected. Using an
-intent filter is useful if you want to be able to have your application automatically detect a
-desired accessory. Enumerating connected accessories is useful if you want to get a list of all
+intent filter is useful if you want to be able to have your application automatically detect an
+accessory you want. Enumerating connected accessories is useful if you want to get a list of all
 connected accessories or if your application did not filter for an intent.
 
 #### Use an intent filter
@@ -230,7 +242,7 @@ USB accessories that you're interested in:
 </resources>
 ```
 
-In your activity, you can obtain the `https://developer.android.com/reference/android/hardware/usb/UsbAccessory` that represents
+In your activity, you can obtain the `UsbAccessory` that represents
 the attached accessory from the intent like this (with the add-on library):
 
 ### Kotlin
@@ -264,7 +276,7 @@ UsbAccessory accessory = (UsbAccessory)intent.getParcelableExtra(UsbManager.EXTR
 You can have your application enumerate accesories that have identified themselves while your
 application is running.
 
-Use the `https://developer.android.com/reference/android/hardware/usb/UsbManager#getAccessoryList()` method
+Use the `getAccessoryList()` method
 to get an array all the USB accessories that are connected:
 
 ### Kotlin
@@ -290,7 +302,7 @@ Before communicating with the USB accessory, your application must have permissi
 users.
 
 **Note:** If your application [uses an
-intent filter](https://developer.android.com/develop/connectivity/usb/accessory#using-intents) to discover accessories as they're connected, it automatically receives
+intent filter](https://developer.android.com/develop/connectivity/usb/accessory#discover-a-intent) to discover accessories as they're connected, it automatically receives
 permission if the user allows your application to handle the intent. If not, you must request
 permission explicitly in your application before connecting to the accessory.
 
@@ -301,7 +313,7 @@ If not, you will receive a runtime error if the user denied permission to access
 accessory.
 
 To explicitly obtain permission, first create a broadcast receiver. This receiver listens for
-the intent that gets broadcast when you call `https://developer.android.com/reference/android/hardware/usb/UsbManager#requestPermission(android.hardware.usb.UsbAccessory, android.app.PendingIntent)`. The call to `https://developer.android.com/reference/android/hardware/usb/UsbManager#requestPermission(android.hardware.usb.UsbAccessory, android.app.PendingIntent)` displays a dialog to the
+the intent that gets broadcast when you call `requestPermission()`. The call to `requestPermission()` displays a dialog to the
 user asking for permission to connect to the accessory. The following sample code shows how to
 create the broadcast receiver:
 
@@ -385,7 +397,7 @@ registerReceiver(usbReceiver, filter);
 ```
 
 To display the dialog that asks users for permission to connect to the accessory, call the
-`https://developer.android.com/reference/android/hardware/usb/UsbManager#requestPermission(android.hardware.usb.UsbAccessory, android.app.PendingIntent)` method:
+`requestPermission()` method:
 
 ### Kotlin
 
@@ -404,13 +416,13 @@ usbManager.requestPermission(accessory, permissionIntent);
 ```
 
 When users reply to the dialog, your broadcast receiver receives the intent that contains the
-`https://developer.android.com/reference/android/hardware/usb/UsbManager#EXTRA_PERMISSION_GRANTED` extra, which is a boolean
+`EXTRA_PERMISSION_GRANTED` extra, which is a boolean
 representing the answer. Check this extra for a value of true before connecting to the
 accessory.
 
 ### Communicate with an accessory
 
-You can communicate with the accessory by using the `https://developer.android.com/reference/android/hardware/usb/UsbManager` to
+You can communicate with the accessory by using the `UsbManager` to
 obtain a file descriptor that you can set up input and output streams to read and write data to
 descriptor. The streams represent the accessory's input and output bulk endpoints. You should set
 up the communication between the device and accessory in another thread, so you don't lock the
@@ -460,8 +472,8 @@ private void openAccessory() {
 ```
 
 In the thread's `run()` method, you can read and write to the accessory by using
-the `https://developer.android.com/reference/java/io/FileInputStream` or `https://developer.android.com/reference/java/io/FileOutputStream` objects. When reading
-data from an accessory with a `https://developer.android.com/reference/java/io/FileInputStream` object, ensure that the buffer that
+the `FileInputStream` or `FileOutputStream` objects. When reading
+data from an accessory with a `FileInputStream` object, ensure that the buffer that
 you use is big enough to store the USB packet data. The Android accessory protocol supports
 packet buffers up to 16384 bytes, so you can choose to always declare your buffer to be of this
 size for simplicity.
@@ -476,7 +488,7 @@ Threads](https://developer.android.com/guide/components/processes-and-threads#Th
 ### Terminate communication with an accessory
 
 When you are done communicating with an accessory or if the accessory was detached, close the
-file descriptor that you opened by calling `https://developer.android.com/reference/android/os/ParcelFileDescriptor#close()`.
+file descriptor that you opened by calling `close()`.
 To listen for detached events, create a broadcast receiver like below:
 
 ### Kotlin

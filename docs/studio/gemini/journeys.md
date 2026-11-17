@@ -4,25 +4,31 @@ url: https://developer.android.com/studio/gemini/journeys
 source: md.txt
 ---
 
-> [!WARNING]
-> **Preview:** Journeys for Android Studio is available as a Studio Labs feature starting from Android Studio Otter 3 Feature Drop \| 2025.2.3. To enable it, go to **Studio Labs** in the settings menu. To use Journeys with any agent from the command line, see [Android CLI support for Journeys](https://developer.android.com/tools/agents/android-cli/journeys).
+> Documentation index: https://developer.android.com/studio/llms.txt
 
-Journeys for Android Studio leverages the vision and reasoning capabilities of
-AI to navigate and test your app based on your natural language instructions.
-Your set of instructions, called a journey, are converted into actions that AI
-performs on your app. Additionally, you can write and describe more complex
-assertions, which AI evaluates based on what it sees on the device.
-![Journeys for Android Studio.](https://developer.android.com/static/studio/gemini/images/journey-animation.gif) Journeys for Android Studio.
+Journeys for Android Studio lets you describe end-to-end user flows in natural
+language and run them directly with the AI agent on a connected device or
+emulator. Your set of instructions, called a journey, is converted into actions
+that the agent performs on your app. Additionally, you can write and describe
+more complex assertions, which the agent evaluates based on what it sees on the
+device.
 
-And because the agent reasons about which actions to perform to satisfy the
-goals, journeys are more resilient to subtle changes to your app's layout or
-behavior, resulting in fewer flaky tests when running against different versions
-of your app and different device configurations.
+> [!NOTE]
+> **Note:** Running journeys with the AI agent is available starting with Android Studio Rabbit 3. In Android Studio Rabbit 2 and earlier, Journeys is a Studio Labs feature that runs journeys as Android Gradle Plugin (AGP) test suites. For more information, see [Run journeys as AGP test suites](https://developer.android.com/studio/gemini/journeys.md.txt#agp-test-suites).
 
-You can write and run journeys right from Android Studio or from the command
-line against any local or remote Android-powered device. The IDE provides a new
-editor experience for crafting journeys as well as rich results that help you
-better follow the agent's reasoning and execution of your journey.
+![A completed journey in Android Studio, with the journey open in the
+editor, the app on an emulator, and the agent's results in the Agent
+window.](https://developer.android.com/static/studio/gemini/images/journeys-agent-finished.png) Journeys for Android Studio.
+
+Because the agent reasons about which actions to perform to satisfy the goals,
+journeys are more resilient to subtle changes to your app's layout or behavior,
+resulting in fewer flaky tests when running against different versions of your
+app and different device configurations.
+
+You can write and run journeys right from Android Studio, or from the command
+line using any agent. When you run a journey, the agent steps through the flow,
+verifies the expected outcomes, and generates a report with screenshots that
+shows whether each step passed or failed.
 
 > [!NOTE]
 > **Note:** Before you get started, sign into your developer account and [configure
@@ -30,69 +36,31 @@ better follow the agent's reasoning and execution of your journey.
 
 ## Write a journey
 
-Android Studio provides a file template and new editor experience that makes
-creating and editing journeys easier. Journeys are written using the XML syntax
-to organize your journey description and steps.
+Journeys are written using XML to organize your journey description and steps.
+Journey files use the `.journey.xml` extension and are stored in the
+`src/journeysTest/` directory of your app module. Android Studio provides a
+visual editor that makes creating and editing journeys easier. You don't need to
+make any changes to your build files to use journeys.
 
-> [!NOTE]
-> **Note:** To run a journey, your project needs to use Android Gradle Plugin 9.0.0 or higher. If you're unable to upgrade your project, you can [run journeys against pre-installed apps](https://developer.android.com/studio/gemini/journeys#pre-installed-apk) on your test device.
+To create a journey, do one of the following:
 
-![The journey editor in Android Studio, showing an XML file with
-journey steps.](https://developer.android.com/static/studio/gemini/images/journey-editor.png) The journey editor in Android Studio, showing an XML file with journey steps.
+- From the **Project** panel in Android Studio, right-click on the app module for which you want to write a journey and select **New \> Journey File** . You can also select **File \> New \> Journey File** from the main menu.
+- In the **Agent** window, ask the agent to create a journey for a user flow in your app. For example, "Create a journey that searches for a product, adds it to the cart, and verifies that the cart shows one item."
 
-To create and start editing a journey, do the following:
+To edit a journey, open the journey file. You can use the **Code** view to edit
+the XML directly, the **Design** view for a simplified editing experience, or
+the **Split** view to see both. You can also ask the agent to update an existing
+journey file.
 
-1. From the **Project** panel in Android Studio, right-click on the app module for which you want to write a journey.
-2. Select **New \> Journey Test**.
-3. In the dialog that appears, provide the name and description of your journey.
-
-   ![A dialog in Android Studio you use to create a journey file.](https://developer.android.com/static/studio/gemini/images/journey-template.png) A dialog in Android Studio you use to create a journey file.
-
-   <br />
-
-   > [!NOTE]
-   > **Note:** If it's the first time you're adding journeys to your project, the template will also add support for Android Gradle Plugin Test Suites to your project, which is required to run journeys.
-
-4. Click **Finish** . Android Studio creates an XML file for your journey with
-   the name you chose. You can use either the **Code** view to edit the XML
-   directly, or the **Design** view for a simplified editing experience.
-
-5. When viewing your journey in the **Design** view, use the text field to
-   describe each step of your journey. Each step can include descriptive actions
-   you want the agent to perform or assertions that you want the agent to
-   evaluate.
-
-6. Press <kbd>Enter</kbd> on your keyboard to start a new step in the same
-   journey. You can repeat this as needed for each step of the journey you want
-   to define.
-
-### Configure build variants
-
-Journeys runs against specific build variants of your app. When you first create
-a journey using the wizard, the generated test suite is configured to run
-against the build variant that is active in Android Studio.
-
-However, if you later switch the active build variant in Android Studio (for
-example, to a different product flavor like `demoDebug`) without updating the
-configuration, running the journey will fail. To fix this, you must add the new
-variant to the `targetVariants` property in the `testSuites` block of your
-module-level `build.gradle.kts` (or `build.gradle`) file.
-
-For example, to configure the `journeysTest` suite for the `demoDebug` variant:
-
-    android {
-        // ...
-        testSuites {
-            create("journeysTest") {
-                // ...
-                targetVariants += listOf("demoDebug")
-            }
-        }
-    }
+In the **Design** view, each row is a step of your journey. Type an action that
+you want the agent to perform, or an assertion that you want the agent to
+check, and then press <kbd>Enter</kbd> to add the next step.
+![The journey editor in Android Studio, showing a journey's title,
+description, and steps.](https://developer.android.com/static/studio/gemini/images/journeys-agent-editor.png) The journey editor in Android Studio.
 
 ### Tips for writing journeys
 
-Although the AI is capable of understanding most steps written in supported
+Although the agent is capable of understanding most steps written in supported
 languages, following these tips for writing journeys can lead to more accurate
 and expected results:
 
@@ -113,105 +81,92 @@ and expected results:
 | "Go to the shopping cart" | "Tap on the shopping cart icon which will take you to the shopping cart page. Verify it contains zero items" |
 | "Click the first video" | "Click the first video and wait for it to fully load" |
 
-- **Refine your journey:** If your journey isn't executing as expected, you can [view the results](https://developer.android.com/studio/gemini/journeys#results) and inspect 'Action Taken' and corresponding 'Reasoning' to understand why the agent might not have executed the steps as you expected. Use this information to provide additional clarity to your instructions.
-- **Break down your journey into more specific steps:** Although the AI can interpret multi-action steps, sometimes more granular discrete steps may improve the accuracy and reproducibility of the journey.
-  - **"Error: Could not successfully complete the action in max allowed
-    attempt"**: If you encounter this error, try breaking up the failing steps into two or more smaller steps. That's because this error occurs if the AI is unable to complete the action after attempting a max number of interactions with your app.
+- **Refine your journey:** If your journey isn't executing as expected, [view the results](https://developer.android.com/studio/gemini/journeys.md.txt#results) to understand why the agent might not have executed the steps as you expected. Use this information to provide additional clarity to your instructions.
+- **Break down your journey into more specific steps:** Although the agent can interpret multi-action steps, sometimes more granular discrete steps may improve the accuracy and reproducibility of the journey.
 
-### Supported and unsupported capabilities
+### Supported capabilities and limitations
 
-Here's an overview of the supported and not yet fully supported
-capabilities when writing journeys. The following lists aren't exhaustive.
+Here's an overview of the supported capabilities when writing journeys, and the
+capabilities that aren't supported or may perform inconsistently. The following
+lists aren't exhaustive.
 
 The following actions are **supported** within journeys:
 
 - **Tap** on UI elements.
+- **Long-press** on UI elements.
 - **Type** to input text into text fields.
 - **Swipe/Scroll** in a certain direction to navigate the UI.
 
-The following capabilities are **not fully supported** at this time or may
-perform inconsistently:
+The following capabilities **aren't supported** at this time:
 
 - **Multi-finger gestures (for example, pinch to zoom)** - Interactions requiring two or more points of contact on the screen simultaneously, such as pinching to zoom in or out, or swiping with two-fingers.
-- **Long-press** - Pressing and holding a finger down for a duration longer than a standard tap.
-- **Double tap** - Quickly tapping the same location on the screen twice in rapid succession.
-- **Screen rotation/folding** - Handling changes in device orientation (for example, between portrait and landscape) or the physical state of foldable devices (for example, opening or closing).
-- **Memory** - Retaining and recalling specific information, context, or user inputs across prior interactions or steps.
+
+The following capabilities **may perform inconsistently**:
+
 - **Counting** - Accurately tracking quantities, frequencies, or progress.
-- **Conditional statements** - Executing actions based on whether other specified conditions are met.
 
 Features and capabilities are constantly improving. We suggest checking this
 page later to learn about additional features and capabilities. To help us
-improve Journeys, [share your feedback](https://developer.android.com/studio/report-bugs).
+improve Journeys, [share your feedback](https://developer.android.com/studio/report-bugs.md.txt).
 
 ## Run your journey
 
-You can run your journey on any available local or remote device, similar to any
-other instrumented test, and Android Studio generates rich results that help you
-understand the execution of your journey.
+You run journeys with the AI agent in the **Agent** window. When you run a
+journey, the agent builds and deploys your app to a device, performs each step
+of your journey, and reports whether the journey passed or failed.
+![A journey open in the editor while the agent runs it in the Agent
+window, with the app running on an emulator.](https://developer.android.com/static/studio/gemini/images/journeys-agent-run.png) A journey running in the Agent window.
 
-To test a journey, do the following:
+To run a journey, do one of the following:
 
-1. Select a target device from the main toolbar, like you would when running an instrumented test.
-2. Navigate to the journey XML file that you would like to test and open it in the editor.
-3. In the editor, do one of the following:
-   1. If you're in the **Design** view, click ![](https://developer.android.com/static/studio/gemini/images/run-journey-icon.png) **Run Journey**.
-   2. If you're in the **Code** view, click ![](https://developer.android.com/static/studio/gemini/images/run-test-icon.png) **Run 'test'** in the gutter next to where the name of the journey is defined in the XML.
+- Open the journey file and click **Run** ![](https://developer.android.com/static/studio/gemini/images/run-test-icon.png) in the editor toolbar.
+- In the **Code** or **Split** view, click **Run** ![](https://developer.android.com/static/studio/gemini/images/run-test-icon.png) in the gutter next to the `<journey>` tag.
+- In the **Project** panel, right-click a journey file and select **Run Journey
+  with Agent** . To run several journeys, select more than one journey file, or a folder that contains journey files, and select **Run Journeys with Agent**.
+- In the **Agent** window, ask the agent to run a journey.
 
-Android Studio creates a **Journeys Test** configuration for you and runs it on
-the target device. During execution, Android Studio builds and deploys your app,
-and connects to the agent to determine which actions to take for each step of
-your journey.
-![The journey test results panel in Android Studio, displaying step
-details and the agent's reasoning.](https://developer.android.com/static/studio/gemini/images/journey-results.png) The journey test results panel in Android Studio, displaying step details and the agent's reasoning.
+Android Studio starts a new conversation in the **Agent** window using the agent
+you last selected, including other agents that you've connected in **Settings \>
+Tools \> AI \> Agents**.
 
-#### Run journeys against any pre-installed app
-
-You can run a journey on a pre-installed app on your test device. This is useful
-if you want to test a production version of your app, or if you haven't yet
-updated your app to Android Gradle Plugin 9.0.0 or higher.
-
-1. Open or [create a new project](https://developer.android.com/studio/projects/create-project) that is updated to Android Gradle Plugin 9.0.0 or higher.
-2. [Write a journey](https://developer.android.com/studio/gemini/journeys#write).
-3. [Edit the run configuration](https://developer.android.com/studio/run/rundebugconfig#editing) for the journey and add the following environment variables. A run configuration is created automatically when you attempt to run a journey from Android Studio.
-   - Set `JOURNEYS_CUSTOM_APP_ID` to the target app's package ID.
-4. Run the journey that you edited. Android Studio should execute the steps of the journey on the target app you specified.
+The agent runs the journey on the device that's selected in the main toolbar.
+If no device is running, the agent can launch an emulator for you. If you run
+more than one journey, or select more than one device, the agent shows a
+summary of the results when the runs are complete.
 
 ### Run a journey from the command line
 
-To run Journeys from the command line, use [Android CLI](https://developer.android.com/tools/agents/android-cli/journeys).
+To run Journeys from the command line with any agent, use [Android CLI](https://developer.android.com/tools/agents/android-cli/journeys.md.txt).
 
 ## View results
 
-When Android Studio completes testing your journey, the test results panel
-appears automatically to show you the results.
-![The journey test results panel in Android Studio, displaying step
-details and the agent's reasoning.](https://developer.android.com/static/studio/gemini/images/journey-results.png) The journey test results panel in Android Studio, displaying step details and the agent's reasoning.
+When the agent completes a journey, it reports whether the journey passed or
+failed, including any failing step, in the **Agent** window. It also provides a
+link to a report for the journey. The report includes the following:
 
-Compared to other instrumented tests you might run in Android Studio,
-there are some differences in how results for journeys are displayed.
+- The overall result of the journey.
+- Whether each step passed or failed.
+- The commands that the agent ran on the device.
+- The agent's comments about each step.
+- Links to the screenshots that the agent captured.
 
-- The **Tests** panel breaks down the journey into the discrete steps. You can click each step to find out more information about how the agent executed it.
-- The **Results** panel shows rich information to help you understand how the agent understood and reasoned about your journey, and how it was executed.
-  - The screenshots that were sent to the agent are shown for visual aid at each action in the step.
-  - Each action taken and the agent's reasoning for why it took that action are described next to each screenshot.
-  - Each action in the step is numbered.
+![A journey report showing the result, commands, screenshot, and
+comment for each step, next to the agent's summary in the Agent
+window.](https://developer.android.com/static/studio/gemini/images/journeys-agent-report.png) A journey report, with the agent's summary in the Agent window.
 
-## Known issues
+## Run journeys as AGP test suites
 
-- **Gradle configuration cache issues:** Journeys might behave unexpectedly
-  when the Gradle configuration cache is enabled. For example, this can
-  cause the wrong journey file to be run when multiple journey files are
-  present. It can also cause authentication issues.
+In Android Studio Rabbit 2 and earlier, Journeys is available as a Studio Labs
+feature that runs journeys as Android Gradle Plugin (AGP) test suites. To use
+it, do the following:
 
-  To work around this, you can disable the configuration cache by setting
-  `org.gradle.configuration-cache=false` in your project's
-  `gradle.properties` file.
-- When testing a journey, all permissions for your app are granted by default.
+1. Go to **Studio Labs** in the settings menu and enable Journeys.
+2. Make sure that your project uses AGP 9.0.0 or higher.
+3. In the **Project** panel, right-click your app module and select **New \>
+   Journey Test**. If it's the first time you're adding journeys to your project, Android Studio also adds AGP test suite support to your project.
+4. Open the journey file and, in the **Design** view, click **Run Journey** . Android Studio creates a **Journeys Test** run configuration, runs it on the selected device, and shows the results in the test results panel.
 
-- When testing a journey on a device running Android 15 (API level 35), you
-  might see a warning on the device that says "**Unsafe App Blocked** " for
-  "**AndroidX Crawler** ". You can click **Install anyway** to bypass this
-  check. Alternatively, you can
-  [Configure on-device developer options](https://developer.android.com/studio/debug/dev-options) and disable the option
-  to **Verify apps over USB**.
+The test suite runs against the build variant that was active when you created
+the journey. If you switch to a different build variant, add it to the
+`targetVariants` property in the `testSuites` block of your module-level
+`build.gradle.kts` file.

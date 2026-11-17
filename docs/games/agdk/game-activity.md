@@ -4,18 +4,20 @@ url: https://developer.android.com/games/agdk/game-activity
 source: md.txt
 ---
 
-# GameActivity
-Part of [Android Game Development Kit](https://developer.android.com/games/agdk/overview).
+> Documentation index: https://developer.android.com/games/agdk/game-activity/llms.txt
 
-[`GameActivity`](https://developer.android.com/reference/games/game-activity) is a Jetpack library designed
+# GameActivity
+Part of [Android Game Development Kit](https://developer.android.com/games/agdk/overview.md.txt).
+
+[`GameActivity`](https://developer.android.com/reference/games/game-activity.md.txt) is a Jetpack library designed
 to assist Android games in processing app cycle commands, input events, and text
 input in the application's C/C++ code. `GameActivity` is a direct descendant of
-[`NativeActivity`](https://developer.android.com/reference/android/app/NativeActivity) and shares a similar
+[`NativeActivity`](https://developer.android.com/reference/android/app/NativeActivity.md.txt) and shares a similar
 architecture:
 
 ![alt_text](https://developer.android.com/static/games/agdk/game-activity/images/GameActivityArchitecture.png "GameActivity overview")
 
-As illustrated in the above diagram, `GameActivity` performs the following
+As illustrated in the preceding diagram, `GameActivity` performs the following
 functions:
 
 - Interacting with Android framework through the Java-side component.
@@ -31,9 +33,9 @@ spending excessive time dealing with the JNI code.
 If you are already familiar with `NativeActivity`, the major differences
 between `GameActivity` and `NativeActivity` are as follows:
 
-- `GameActivity` renders into a [`SurfaceView`](https://developer.android.com/reference/android/view/SurfaceView), making it much easier for games to interact with other UI components.
-- For touch and key input events, `GameActivity` has a completely new implementation with the [`android_input_buffer`](https://developer.android.com/reference/games/game-activity/structandroid/input-buffer) interface, separate from the [`InputQueue`](https://developer.android.com/reference/android/view/InputQueue) that `NativeActivity` uses.
-- `GameActivity` is a derived class of `AppCompatActivity`, which lets you seamlessly use other Jetpack components. [`ActionBar`](https://developer.android.com/reference/android/app/ActionBar), [`Fragment`](https://developer.android.com/guide/fragments), and others are all available.
+- `GameActivity` renders into a [`SurfaceView`](https://developer.android.com/reference/android/view/SurfaceView.md.txt), making it much easier for games to interact with other UI components.
+- For touch and key input events, `GameActivity` has a completely new implementation with the [`android_input_buffer`](https://developer.android.com/reference/games/game-activity/structandroid/input-buffer.md.txt) interface, separate from the [`InputQueue`](https://developer.android.com/reference/android/view/InputQueue.md.txt) that `NativeActivity` uses.
+- `GameActivity` is a derived class of `AppCompatActivity`, which lets you seamlessly use other Jetpack components. [`ActionBar`](https://developer.android.com/reference/android/app/ActionBar.md.txt), [`Fragment`](https://developer.android.com/guide/fragments.md.txt), and others are all available.
 - `GameActivity` adds text input functionality by integrating [the
   GameTextInput library](https://developer.android.com/games/agdk/add-support-for-text-input).
 - Apps derived from `GameActivity` are expected to build all three parts of C/C++ code into one library. On the other hand, `NativeActivity`'s JNI functions are a part of the framework (always loaded by OS). Hence, only the `native_app_glue` and application's C/C++ code are expected to be built into one library.
@@ -46,7 +48,7 @@ between `GameActivity` and `NativeActivity` are as follows:
 
 The `GameActivity` library is available in the following channels:
 
-- As a part of the [Android Jetpack library](https://developer.android.com/jetpack/androidx/releases/games) (recommended)
+- As a part of the [Android Jetpack library](https://developer.android.com/jetpack/androidx/releases/games.md.txt) (recommended)
 - As [AOSP](https://android.googlesource.com/platform/frameworks/opt/gamesdk/) source code
 
 The C/C++ code is provided as source code in all release channels, using the
@@ -77,7 +79,7 @@ the C/C++ source code by searching for `prefab/modules/game-activity/include`
 and picking up the location under your intended release version.
 
 For instructions on integrating using the Jetpack library, see
-[Get started with GameActivity](https://developer.android.com/games/agdk/game-activity/get-started).
+[Get started with GameActivity](https://developer.android.com/games/agdk/game-activity/get-started.md.txt).
 
 ### Content of AOSP source code
 
@@ -90,18 +92,18 @@ source code is saved in a file structure similar to the Jetpack library.
 
 Follow those guides to integrate `GameActivity` into your applications:
 
-- [Get started](https://developer.android.com/games/agdk/game-activity/get-started)
-- [Use game text input](https://developer.android.com/games/agdk/game-activity/use-text-input)
-- [NativeActivity migration guide](https://developer.android.com/games/agdk/game-activity/migrate-native-activity)
+- [Get started](https://developer.android.com/games/agdk/game-activity/get-started.md.txt)
+- [Use game text input](https://developer.android.com/games/agdk/game-activity/use-text-input.md.txt)
+- [NativeActivity migration guide](https://developer.android.com/games/agdk/game-activity/migrate-native-activity.md.txt)
 
 ## Additional resources
 
 To learn more about `GameActivity`, see the following:
 
 - [GameActivity and AGDK release notes](https://developer.android.com/games/agdk/release-notes).
-- [Use GameTextInput in GameActivity](https://developer.android.com/games/agdk/game-activity/use-text-input).
-- [NativeActivity migration guide](https://developer.android.com/games/agdk/game-activity/migrate-native-activity).
-- [GameActivity reference documentation](https://developer.android.com/reference/games/game-activity/group/game-activity).
+- [Use GameTextInput in GameActivity](https://developer.android.com/games/agdk/game-activity/use-text-input.md.txt).
+- [NativeActivity migration guide](https://developer.android.com/games/agdk/game-activity/migrate-native-activity.md.txt).
+- [GameActivity reference documentation](https://developer.android.com/reference/games/game-activity/group/game-activity.md.txt).
 - [GameActivity implementation](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/refs/heads/gamesdk-main/game-activity/).
 
 ## Feedback

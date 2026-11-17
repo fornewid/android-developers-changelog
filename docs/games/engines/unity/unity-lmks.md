@@ -4,7 +4,9 @@ url: https://developer.android.com/games/engines/unity/unity-lmks
 source: md.txt
 ---
 
-Solving [LMKs](https://developer.android.com/games/optimize/vitals/lmk) in your Unity game is a systematic process:
+> Documentation index: https://developer.android.com/games/llms.txt
+
+Solving [LMKs](https://developer.android.com/games/optimize/vitals/lmk.md.txt) in your Unity game is a systematic process:
 ![](https://developer.android.com/static/images/games/engines/unity/unity-lmk-flowchart.jpg) **Figure 1.** Steps to solve Low Memory Kills (LMKs) in Unity games.
 
 ## Obtain a memory snapshot
@@ -64,10 +66,10 @@ To learn more, refer to [Memory in Unity introduction](https://docs.unity3d.com/
 
 In addition, establishing a memory budget is crucial to keep your game running
 smoothly, and implementing a memory consumption analytics or reporting system
-ensures that each new release does not exceed the memory budget. Integrating [Play
-Mode tests](https://docs.unity3d.com/6000.2/Documentation/Manual/test-framework/edit-mode-vs-play-mode-tests.html) with your continuous integration (CI) to verify
-memory consumption in specific areas of the game is another strategy to gain
-better insight.
+ensures that each new release does not exceed the memory budget. Integrating
+[Play Mode tests](https://docs.unity3d.com/6000.2/Documentation/Manual/test-framework/edit-mode-vs-play-mode-tests.html) with your continuous integration (CI) to
+verify memory consumption in specific areas of the game is another strategy to
+gain better insight.
 
 ## Manage assets
 
@@ -87,10 +89,10 @@ tool, or the [Project Auditor](https://docs.unity3d.com/Packages/com.unity.proje
 
 ### Textures
 
-Analyze your game's device support and decide the correct [texture format](https://developer.android.com/guide/playcore/asset-delivery/texture-compression).
+Analyze your game's device support and decide the correct [texture format](https://developer.android.com/guide/playcore/asset-delivery/texture-compression.md.txt).
 You can split the texture bundles for high-end and low-end devices using [Play
 Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery/integrate-unity), [Addressable](https://docs.unity3d.com/Packages/com.unity.addressables.android@1.0/manual/index.html), or a more manual process
-with an [AssetBundle](https://developer.android.com/guide/playcore/asset-delivery/integrate-unity).
+with an [AssetBundle](https://developer.android.com/guide/playcore/asset-delivery/integrate-unity.md.txt).
 
 Follow the most well-known recommendations available in the
 [Optimize Your Mobile Game Performance](https://create.unity.com/optimize-mobile-game-eBook) and in the
@@ -166,7 +168,7 @@ the **Rig** or **Animation** tab.
   disable or remove [Legacy animation](https://docs.unity3d.com/Manual/Animations.html) components if you're
   using [Animator](https://docs.unity3d.com/Manual/AnimationOverview.html).
 
-- Avoid using the Animator if it's unnecessary. For simple VFX, use tweening
+- Avoid using the Animator if it's unnecessary. For basic VFX, use tweening
   libraries or implement the visual effect in a script. The animator system can
   be resource intensive, particularly on low-end mobile devices.
 
@@ -203,23 +205,24 @@ fragmentation.
   demands a collective effort from the team to implement the strategies.
   However, once these strategies are mastered, they significantly improve
   memory usage, reduce download size, and lower cloud costs. For more
-  information on asset management in Unity with, see [`Addressables`](https://docs.unity3d.com/Packages/com.unity.addressables@2.6/manual/index.html).
+  information on asset management in Unity with, see
+  [`Addressables`](https://docs.unity3d.com/Packages/com.unity.addressables@2.6/manual/index.html).
 
-- Centralized shared dependencies \&mdash: Group shared dependencies, such as shaders,
-  textures, and fonts, systematically into dedicated bundles or `Addressable`
-  groups. This reduces duplication and ensures that unnecessary assets are
-  unloaded efficiently.
+- Centralized shared dependencies \&mdash: Group shared dependencies, such as
+  shaders, textures, and fonts, systematically into dedicated bundles or
+  `Addressable` groups. This reduces duplication and ensures that unnecessary
+  assets are unloaded efficiently.
 
 - Use `Addressables` for dependency tracking - [Addressables](https://docs.unity3d.com/Packages/com.unity.addressables@2.6/manual/index.html)
   simplify loading and unloading can automatically unload dependencies that
-  are no longer referenced. Transitioning to `Addressables` for content management
-  and dependency resolution may be a viable solution, depending on the game's
-  specific case. Analyze dependency chains with the Analyze
+  are no longer referenced. Transitioning to `Addressables` for content
+  management and dependency resolution may be a viable solution, depending on
+  the game's specific case. Analyze dependency chains with the Analyze
   [tool](https://docs.unity3d.com/Packages/com.unity.addressables@2.5/manual/editor/tools/AnalyzeTool.html) to identify unnecessary duplicates or dependencies.
   Alternatively, refer to the Unity Data Tools if you're using AssetBundles.
 
 - `TypeTrees` - if your game's `Addressables` and `AssetBundles` are built
-  and deployed using the same version of Unity as the player and do not
+  and deployed using the same version of Unity as the player and don't
   require backward compatibility with other player builds, consider [disabling
   writing `TypeTree`](https://docs.unity3d.com/Packages/com.unity.addressables@2.3/manual/memory-assetbundles.html#typetrees), which should reduce bundle size and
   serialized file object memory footprint. Modify the build process in the
@@ -253,8 +256,8 @@ the frequency of managed heap allocations and to the
   - Dirty canvas --- When something on a canvas changes (for example, resizing, enabling and disabling elements, or modifying layout properties), the entire canvas or a portion of it may be marked as *dirty* and be rebuilt. This can trigger the creation of temporary data structures (for example, mesh data, vertex buffers, or layout calculations), which adds to garbage generation.
   - Comples or frequent updates --- If the canvas has a large number of elements or is updated frequently (for example, every frame), these rebuilds can lead to significant memory churn.
 - [Enable incremental GC](https://docs.unity3d.com/Manual/performance-incremental-garbage-collection.html) to reduce large collection spikes by
-  spreading allocation cleanups over multiple frames. Profile to verify whether this
-  option improves your game's performance and memory footprint.
+  spreading allocation cleanups over multiple frames. Profile to verify whether
+  this option improves your game's performance and memory footprint.
 
 - If your game requires a controlled approach, set the [garbage collection
   mode to manual](https://docs.unity3d.com/Manual/performance-disabling-garbage-collection.html#disable-incremental-garbage-collection). Then, on a level change or at another moment
@@ -263,7 +266,7 @@ the frequency of managed heap allocations and to the
 - Invoke manual garbage collection [GC.Collect()](https://discussions.unity.com/t/what-is-gc-collect-and-why-is-it-slowing-down-my-game/820494) calls for game
   state transitions (for example, level switching).
 
-- Optimize [arrays](https://docs.unity3d.com/Manual/performance-optimizing-arrays.html) starting from simple code practices and, if
+- Optimize [arrays](https://docs.unity3d.com/Manual/performance-optimizing-arrays.html) starting from basic code practices and, if
   necessary, by using native arrays or other native containers for large arrays.
 
 - Monitor managed objects using tools like the Unity Memory Profiler to track
@@ -290,7 +293,7 @@ Additionally, memory leaks can be caused by event subscriptions, lambdas and
 closures, string concatenations, and improper management of pooled objects:
 
 - To get started, see [Find memory leaks](https://docs.unity3d.com/Packages/com.unity.memoryprofiler@1.1/manual/find-memory-leaks.html) to compare Unity memory snapshots properly.
-- Check for event subscriptions and memory leaks. If objects subscribe to events (for example, by delegates or UnityEvents) but do not properly unsubscribe before being destroyed, the event manager or publisher may retain references to those objects. This prevents those objects from being garbage collected, leading to memory leaks.
+- Check for event subscriptions and memory leaks. If objects subscribe to events (for example, by delegates or UnityEvents) but don't properly unsubscribe before being destroyed, the event manager or publisher may retain references to those objects. This prevents those objects from being garbage collected, leading to memory leaks.
 - Monitor global or singleton class events that aren't unregistered on object destruction. For example, unsubscribe or unhook delegates in object destructors.
 - Ensure destruction of pooled objects fully nullifies references to [text mesh components](https://docs.unity3d.com/Packages/com.unity.ugui@3.0/manual/TextMeshPro/index.html), textures, and parent GameObjects.
 - Keep in mind that when comparing Unity Memory Profiler snapshots and observing a [difference in memory consumption without a clear reason](https://discussions.unity.com/t/unable-to-determine-cause-of-memory-leak-in-unity-when-using-addressables-can-anyone-give-suggestions-on-what-the-cause-might-be/1591429/3), the difference may be caused by the graphics driver or the operating system itself.
@@ -299,10 +302,10 @@ closures, string concatenations, and improper management of pooled objects:
 
 Memory fragmentation occurs when many small allocations are freed in a random
 order. Heap allocations are made sequentially, which means new memory chunks are
-created when the previous chunk runs out of space. Consequently, new objects do
-not fill the empty areas of old chunks, leading to fragmentation. Additionally,
-large temporary allocations can cause permanent fragmentation for the duration
-of a game's session.
+created when the previous chunk runs out of space. Consequently, new objects
+don't fill the empty areas of old chunks, leading to fragmentation.
+Additionally, large temporary allocations can cause permanent fragmentation for
+the duration of a game's session.
 
 This issue is particularly problematic when short-lived large allocations are
 made near long-lived ones.
@@ -312,13 +315,13 @@ should be made together, early in the application's lifecycle.
 
 #### Observers and event managers
 
-- In addition to the problem mentioned in the [Memory Leaks](https://developer.android.com/games/engines/unity/unity-lmks#memory-leaks) section, over time, memory leaks can contribute to fragmentation by leaving unused memory allocated to objects that are no longer in use.
+- In addition to the problem mentioned in the [Memory Leaks](https://developer.android.com/games/engines/unity/unity-lmks.md.txt#memory-leaks) section, over time, memory leaks can contribute to fragmentation by leaving unused memory allocated to objects that are no longer in use.
 - Ensure destruction of pooled objects fully nullifies references to [text mesh components](https://docs.unity3d.com/Packages/com.unity.ugui@3.0/manual/TextMeshPro/index.html), textures, and parent `GameObjects`.
 - Event managers often create and store lists or dictionaries to manage event subscriptions. If these grow and shrink dynamically during runtime, they can contribute to memory fragmentation due to frequent allocations and deallocations.
 
 #### Code
 
-- [Coroutines](https://docs.unity3d.com/6000.1/Documentation/ScriptReference/Coroutine.html) sometimes allocate memory, which can be easily avoided by caching the return statement of the [IEnumerator](https://discussions.unity.com/t/ienumerator/892998/2) instead of declaring a new one every time.
+- [Coroutines](https://docs.unity3d.com/6000.1/Documentation/ScriptReference/Coroutine.html) sometimes allocate memory, which can be avoided by caching the return statement of the [IEnumerator](https://discussions.unity.com/t/ienumerator/892998/2) instead of declaring a new one every time.
 - Continuously monitor the lifecycle states of pooled objects to avoid keeping `UnityEngine.Object` ghost references.
 
 #### Assets
@@ -338,8 +341,8 @@ Game executable and plugins also affect the memory usage.
 
 ### IL2CPP Metadata
 
-[IL2CPP](https://docs.unity3d.com/6000.1/Documentation/Manual/scripting-backends-il2cpp.html) generates metadata for every type (for example, classes, generics, and
-delegates) at build time, which is then used at runtime for reflection, type
+[IL2CPP](https://docs.unity3d.com/6000.1/Documentation/Manual/scripting-backends-il2cpp.html) generates metadata for every type (for example, classes, generics,
+and delegates) at build time, which is then used at runtime for reflection, type
 checking, and other runtime-specific operations. This metadata is stored in
 memory and can contribute significantly to the total memory footprint of the
 application. IL2CPP's metadata cache makes a significant contribution to
@@ -363,8 +366,8 @@ assemblies. The process works by defining root assemblies and then using static
 code analysis to determine what other managed code those root assemblies use.
 Any code that is not reachable is removed. For more information about Managed
 Code Stripping, see the [TTales from the optimization trenches: Better managed
-code stripping with Unity 2020 LTS](https://unity.com/blog/engine-platform/tales-from-the-optimization-trenches-better-managed-code-stripping-with-unity-2020) blog post and the [Managed code
-stripping](https://docs.unity3d.com/6000.0/Documentation/Manual/managed-code-stripping.html) documentation.
+code stripping with Unity 2020 LTS](https://unity.com/blog/engine-platform/tales-from-the-optimization-trenches-better-managed-code-stripping-with-unity-2020) blog post and the [Managed
+code stripping](https://docs.unity3d.com/6000.0/Documentation/Manual/managed-code-stripping.html) documentation.
 
 ### Native allocators
 
@@ -375,33 +378,38 @@ example](https://docs.unity3d.com/6000.0/Documentation/Manual/performance-dynami
 
 ## Manage native plugins and SDKs
 
-- Find the problematic plugin --- Remove each plugin and compare the game memory
-  snapshots. This involves disabling a lot of code functionality with [Scripting
-  Define Symbols](https://docs.unity3d.com/6000.1/Documentation/Manual/custom-scripting-symbols.html) and refactoring highly coupled classes with
-  interfaces. Check [Level up your code with game programming
+- Find the problematic plugin --- Remove each plugin and compare the game
+  memory snapshots. This involves disabling a lot of code functionality with
+  [Scripting Define Symbols](https://docs.unity3d.com/6000.1/Documentation/Manual/custom-scripting-symbols.html) and refactoring highly coupled
+  classes with interfaces. Check [Level up your code with game programming
   patterns](https://unity.com/resources/level-up-your-code-with-game-programming-patterns) to facilitate the process of disabling external
   dependencies without making your game unplayable.
 
-- Contact the plugin or SDK author --- Most of the plugins are not open source.
+- Contact the plugin or SDK author --- Most of the plugins are not open
+  source.
 
-- Reproduce the plugin memory usage --- You can write a simple plugin (use this
-  [Unity plugin](https://github.com/android/games-samples/tree/main/unity) as reference) that does memory allocations. Inspect the
-  memory snapshots using Android Studio (as Unity doesn't track these allocations)
-  or call the [`MemoryInfo`](https://developer.android.com/reference/android/app/ActivityManager.MemoryInfo) class and [`Runtime.totalMemory()`](https://developer.android.com/reference/java/lang/Runtime#totalMemory()) method in the same
-  project.
+- Reproduce the plugin memory usage --- You can write a small plugin (use
+  this [Unity plugin](https://github.com/android/games-samples/tree/main/unity) as reference) that does memory
+  allocations. Inspect the memory snapshots using Android Studio (as Unity
+  doesn't track these allocations) or call the [`MemoryInfo`](https://developer.android.com/reference/android/app/ActivityManager.MemoryInfo.md.txt) class and
+  [`Runtime.totalMemory()`](https://developer.android.com/reference/java/lang/Runtime.md.txt#totalMemory()) method in the same project.
 
 A Unity plugin allocates Java and native memory; here's how to do it:
 
 **Java**
 
-    byte[] largeObject = new byte[1024 * 1024 * megaBytes];
-    list.add(largeObject);
+```java
+byte[] largeObject = new byte[1024 * 1024 * megaBytes];
+list.add(largeObject);
+```
 
 **Native**
 
-    char* buffer = new char[megabytes * 1024 * 1024];
+```c++
+char* buffer = new char[megabytes * 1024 * 1024];
 
-    // Random data to fill the buffer
-    for (int i = 1; i < megabytes * 1024 * 1024; ++i) {
-       buffer[i] = 'A' + (i % 26); // Fill with letters A-Z
-    }
+// Random data to fill the buffer
+for (int i = 1; i < megabytes * 1024 * 1024; ++i) {
+   buffer[i] = 'A' + (i % 26); // Fill with letters A-Z
+}
+```

@@ -6,8 +6,7 @@ source: md.txt
 
 > [!NOTE]
 > **Note:** This page supplements the guidance on how to [provide information for
-> Google Play's Data safety
-> section](https://support.google.com/googleplay/android-developer/answer/10787469) when you publish an app to Google Play. It's recommended that you read the Help Center article before you review this page.
+> Google Play's Data safety section](https://support.google.com/googleplay/android-developer/answer/10787469) when you publish an app to Google Play. It's recommended that you read the Help Center article before you review this page.
 
 The Play Console includes a **Data safety** form on the **App content** page. In
 this form, you explain to users which types of user data your app collects and
@@ -36,8 +35,7 @@ may take appropriate action, including enforcement action.
 
 The details in this guidance are subject to change as we continue working with
 developers and to improve both developer and user experiences. For more
-information, read this [blog
-post](https://android-developers.googleblog.com/2021/10/launching-data-safety-in-play-console.html).
+information, read this [blog post](https://android-developers.googleblog.com/2021/10/launching-data-safety-in-play-console.html).
 
 > [!NOTE]
 > **Note:** Your app may include third-party SDKs and libraries that can access user data. If a third-party SDK or library in your app collects or shares user data, you must reflect this collection and sharing in the **Data safety** form.
@@ -50,12 +48,10 @@ collects or shares user data. These indicators include, but aren't limited to,
 the following:
 
 - UI components that hide text input, such as password entry fields.
-- Workflows that request the user to [authenticate using
-  biometrics](https://developer.android.com/training/sign-in/biometric-auth).
+- Workflows that request the user to [authenticate using biometrics](https://developer.android.com/training/sign-in/biometric-auth).
 - Forms and alerts that prompt the user to enter user data, confirm a submission, or make a choice.
 - Code that controls the behavior of a [`WebView`](https://developer.android.com/guide/webapps/webview) element in your app.
-- Support for the [autofill
-  framework](https://developer.android.com/guide/topics/text/autofill-optimize#hints).
+- Support for the [autofill framework](https://developer.android.com/guide/topics/text/autofill-optimize#hints).
 - Use of the [data access auditing](https://developer.android.com/guide/topics/data/audit-access) APIs.
 
 ## Location
@@ -65,15 +61,14 @@ access user data related to location. The following list provides several
 examples but isn't exhaustive:
 
 - Declares at least one of the following permissions:
-  - [`ACCESS_COARSE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
-  - [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
-  - [`ACCESS_MEDIA_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_MEDIA_LOCATION)
+  - [`ACCESS_COARSE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission.md.txt#ACCESS_COARSE_LOCATION)
+  - [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission.md.txt#ACCESS_FINE_LOCATION)
+  - [`ACCESS_MEDIA_LOCATION`](https://developer.android.com/reference/android/Manifest.permission.md.txt#ACCESS_MEDIA_LOCATION)
 - Derives location information from an IP address or access point name.
 
 > [!NOTE]
 > **Note:** On devices that run Android 14 and higher, details about your location data collection and sharing practices appear in the [runtime system permission
-> dialog](https://developer.android.com/training/permissions/requesting). Learn more about how [data safety
-> information is more visible](https://developer.android.com/about/versions/14/changes/data-safety) in Android 14.
+> dialog](https://developer.android.com/training/permissions/requesting). Learn more about how [data safety information is more visible](https://developer.android.com/about/versions/14/changes/data-safety.md.txt) in Android 14.
 
 ### Approximate location
 
@@ -93,9 +88,9 @@ access user data related to personal information. The following list provides
 several examples but isn't exhaustive:
 
 - Declares at least one of the following permissions:
-  - [`BIND_AUTOFILL_SERVICE`](https://developer.android.com/reference/android/Manifest.permission#BIND_AUTOFILL_SERVICE)
-  - [`GET_ACCOUNTS`](https://developer.android.com/reference/android/Manifest.permission#GET_ACCOUNTS)
-- Uses the [`AccountManager`](https://developer.android.com/reference/android/accounts/AccountManager) API.
+  - [`BIND_AUTOFILL_SERVICE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#BIND_AUTOFILL_SERVICE)
+  - [`GET_ACCOUNTS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#GET_ACCOUNTS)
+- Uses the [`AccountManager`](https://developer.android.com/reference/android/accounts/AccountManager.md.txt) API.
 
 ### Name
 
@@ -119,23 +114,20 @@ A user's address, such as a mailing or home address.
 A user's phone number.
 
 In addition to the broader suggestions listed at the [beginning of this
-section](https://developer.android.com/privacy-and-security/declare-data-use#personal-info), there may be more specific indicators that your app,
-or a library included in your app, collects or shares a user's phone number.
-These indicators include, but aren't limited to, the following:
+section](https://developer.android.com/privacy-and-security/declare-data-use#personal-info), there may be more specific indicators that your app, or a library
+included in your app, collects or shares a user's phone number. These indicators
+include, but aren't limited to, the following:
 
 - Declares at least one of the following permissions:
-  - [`READ_CALL_LOG`](https://developer.android.com/reference/android/Manifest.permission#READ_CALL_LOG)
-  - [`READ_PHONE_NUMBERS`](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_NUMBERS)
-  - [`READ_PHONE_STATE`](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_STATE), if your app targets Android 10 (API level 29) or lower
-  - [`READ_SMS`](https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
-- [Requests user
-  consent](https://developer.android.com/guide/topics/permissions/default-handlers#request-user-consent) to become the device's default dialer app or default SMS app.
-- [Has carrier
-  privileges](https://developer.android.com/reference/android/telephony/TelephonyManager#hasCarrierPrivileges()).
+  - [`READ_CALL_LOG`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_CALL_LOG)
+  - [`READ_PHONE_NUMBERS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_PHONE_NUMBERS)
+  - [`READ_PHONE_STATE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_PHONE_STATE), if your app targets Android 10 (API level 29) or lower
+  - [`READ_SMS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_SMS)
+- [Requests user consent](https://developer.android.com/guide/topics/permissions/default-handlers.md.txt#request-user-consent) to become the device's default dialer app or default SMS app.
+- [Has carrier privileges](https://developer.android.com/reference/android/telephony/TelephonyManager.md.txt#hasCarrierPrivileges()).
 
 > [!NOTE]
-> **Note:** Google Play restricts the use of certain call log permissions unless your app satisfies a particular set of requirements. Learn more about the policy regarding [use of SMS or call log permission
-> groups](https://support.google.com/googleplay/android-developer/answer/10208820).
+> **Note:** Google Play restricts the use of certain call log permissions unless your app satisfies a particular set of requirements. Learn more about the policy regarding [use of SMS or call log permission groups](https://support.google.com/googleplay/android-developer/answer/10208820).
 
 ### Race and ethnicity
 
@@ -160,9 +152,9 @@ There are different ways that your app, or a library included in your app, may
 access user data related to financial information. The following list provides
 several examples but isn't exhaustive:
 
-- Uses Google Play's [Billing Library](https://developer.android.com/google/play/billing).
+- Uses Google Play's [Billing Library](https://developer.android.com/google/play/billing.md.txt).
 - Uses the [Google Pay](https://developers.google.com/pay/api/android/overview) APIs.
-- Declares the [`BIND_AUTOFILL_SERVICE`](https://developer.android.com/reference/android/Manifest.permission#BIND_AUTOFILL_SERVICE) permission and uses the [autofill
+- Declares the [`BIND_AUTOFILL_SERVICE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#BIND_AUTOFILL_SERVICE) permission and uses the [autofill
   framework](https://developer.android.com/guide/topics/text/autofill-optimize#hints).
 
 ### User payment info
@@ -189,9 +181,9 @@ access user data related to health \& fitness. The following list provides
 several examples but isn't exhaustive:
 
 - Declares at least one of the following permissions:
-  - [`ACTIVITY_RECOGNITION`](https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
-  - [`BODY_SENSORS`](https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
-  - [`BODY_SENSORS_BACKGROUND`](https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS_BACKGROUND)
+  - [`ACTIVITY_RECOGNITION`](https://developer.android.com/reference/android/Manifest.permission.md.txt#ACTIVITY_RECOGNITION)
+  - [`BODY_SENSORS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#BODY_SENSORS)
+  - [`BODY_SENSORS_BACKGROUND`](https://developer.android.com/reference/android/Manifest.permission.md.txt#BODY_SENSORS_BACKGROUND)
 - Uses at least one of the following APIs:
   - [Health Connect](https://developer.android.com/health-and-fitness/guides/health-connect)
   - [Google Fit](https://developers.google.com/fit/android)
@@ -212,16 +204,15 @@ access user data related to messages. The following list provides several
 examples but isn't exhaustive:
 
 - Declares at least one of the following permissions:
-  - [`READ_SMS`](https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
-  - [`RECEIVE_MMS`](https://developer.android.com/reference/android/Manifest.permission#RECEIVE_MMS)
-  - [`RECEIVE_SMS`](https://developer.android.com/reference/android/Manifest.permission#RECEIVE_SMS)
-  - [`RECEIVE_WAP_PUSH`](https://developer.android.com/reference/android/Manifest.permission#RECEIVE_WAP_PUSH)
-  - [`SEND_SMS`](https://developer.android.com/reference/android/Manifest.permission#SEND_SMS)
+  - [`READ_SMS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_SMS)
+  - [`RECEIVE_MMS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#RECEIVE_MMS)
+  - [`RECEIVE_SMS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#RECEIVE_SMS)
+  - [`RECEIVE_WAP_PUSH`](https://developer.android.com/reference/android/Manifest.permission.md.txt#RECEIVE_WAP_PUSH)
+  - [`SEND_SMS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#SEND_SMS)
   - `WRITE_SMS` depending on developer usage
 
 > [!NOTE]
-> **Note:** Google Play restricts the use of certain SMS permissions unless your app satisfies a particular set of requirements. Learn more about the policy regarding [use of SMS or call log permission
-> groups](https://support.google.com/googleplay/android-developer/answer/10208820).
+> **Note:** Google Play restricts the use of certain SMS permissions unless your app satisfies a particular set of requirements. Learn more about the policy regarding [use of SMS or call log permission groups](https://support.google.com/googleplay/android-developer/answer/10208820).
 
 ### Emails
 
@@ -245,13 +236,12 @@ several examples but isn't exhaustive:
 
 - Uses the system [photo picker](https://developer.android.com/training/data-storage/shared/photopicker).
 - Declares at least one of the following permissions:
-  - [`READ_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE)
-  - [`READ_MEDIA_IMAGES`](https://developer.android.com/reference/android/Manifest.permission#READ_MEDIA_IMAGES)
-  - [`READ_MEDIA_VIDEO`](https://developer.android.com/reference/android/Manifest.permission#READ_MEDIA_VIDEO)
-  - [`READ_MEDIA_AUDIO`](https://developer.android.com/reference/android/Manifest.permission#READ_MEDIA_AUDIO)
-  - [`WRITE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE)
-- Provides a workflow for [handling media
-  files](https://developer.android.com/training/data-storage/use-cases#handle-media-files).
+  - [`READ_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_EXTERNAL_STORAGE)
+  - [`READ_MEDIA_IMAGES`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_MEDIA_IMAGES)
+  - [`READ_MEDIA_VIDEO`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_MEDIA_VIDEO)
+  - [`READ_MEDIA_AUDIO`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_MEDIA_AUDIO)
+  - [`WRITE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#WRITE_EXTERNAL_STORAGE)
+- Provides a workflow for [handling media files](https://developer.android.com/training/data-storage/use-cases.md.txt#handle-media-files).
 - Record [HDR video content](https://developer.android.com/training/camera2/hdr-video-capture).
 
 ### Photos
@@ -269,12 +259,11 @@ access user data related to audio files. The following list provides several
 examples but isn't exhaustive:
 
 - Declares at least one of the following permissions:
-  - [`CAPTURE_AUDIO_OUTPUT`](https://developer.android.com/reference/android/Manifest.permission#CAPTURE_AUDIO_OUTPUT)
-  - [`RECORD_AUDIO`](https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
-  - [`READ_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE)
-  - [`WRITE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE)
-- Provides a workflow for [handling media
-  files](https://developer.android.com/training/data-storage/use-cases#handle-media-files).
+  - [`CAPTURE_AUDIO_OUTPUT`](https://developer.android.com/reference/android/Manifest.permission.md.txt#CAPTURE_AUDIO_OUTPUT)
+  - [`RECORD_AUDIO`](https://developer.android.com/reference/android/Manifest.permission.md.txt#RECORD_AUDIO)
+  - [`READ_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_EXTERNAL_STORAGE)
+  - [`WRITE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#WRITE_EXTERNAL_STORAGE)
+- Provides a workflow for [handling media files](https://developer.android.com/training/data-storage/use-cases.md.txt#handle-media-files).
 
 ### Voice or sound recordings
 
@@ -295,15 +284,15 @@ access user data related to files and docs. The following list provides several
 examples but isn't exhaustive:
 
 - Declares at least one of the following permissions:
-  - [`READ_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE)
-  - [`WRITE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE)
-  - [`MANAGE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#MANAGE_EXTERNAL_STORAGE)
-- Provides a workflow for [data and file storage](https://developer.android.com/training/data-storage).
+  - [`READ_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_EXTERNAL_STORAGE)
+  - [`WRITE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#WRITE_EXTERNAL_STORAGE)
+  - [`MANAGE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#MANAGE_EXTERNAL_STORAGE)
+- Provides a workflow for [data and file storage](https://developer.android.com/training/data-storage.md.txt).
 - Provides a workflow for [data backup](https://developer.android.com/guide/topics/data/backup).
 
 > [!NOTE]
-> **Note:** Google Play restricts the use of the [`MANAGE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#MANAGE_EXTERNAL_STORAGE) permission unless your app satisfies a particular set of requirements. Learn more about the policy regarding [use of all files access (MANAGE_EXTERNAL_STORAGE)
-> permission](https://support.google.com/googleplay/android-developer/answer/10467955).
+> **Note:** Google Play restricts the use of the [`MANAGE_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#MANAGE_EXTERNAL_STORAGE) permission unless your app satisfies a particular set of requirements. Learn more about the policy regarding [use of all files access
+> (MANAGE_EXTERNAL_STORAGE) permission](https://support.google.com/googleplay/android-developer/answer/10467955).
 
 ## Calendar
 
@@ -311,8 +300,8 @@ There are different ways that your app, or a library included in your app, may
 access user data related to the user's calendar. The following list provides
 several examples but isn't exhaustive:
 
-- [`READ_CALENDAR`](https://developer.android.com/reference/android/Manifest.permission#READ_CALENDAR)
-- [`WRITE_CALENDAR`](https://developer.android.com/reference/android/Manifest.permission#WRITE_CALENDAR)
+- [`READ_CALENDAR`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_CALENDAR)
+- [`WRITE_CALENDAR`](https://developer.android.com/reference/android/Manifest.permission.md.txt#WRITE_CALENDAR)
 
 ## Contacts
 
@@ -321,21 +310,21 @@ access user data related to the user's contacts. The following list provides
 several examples but isn't exhaustive:
 
 - Declares at least one of the following permissions:
-  - [`ACCEPT_HANDOVER`](https://developer.android.com/reference/android/Manifest.permission#ACCEPT_HANDOVER)
-  - [`ADD_VOICEMAIL`](https://developer.android.com/reference/android/Manifest.permission#ADD_VOICEMAIL)
-  - [`ANSWER_PHONE_CALLS`](https://developer.android.com/reference/android/Manifest.permission#ANSWER_PHONE_CALLS)
-  - [`CALL_PHONE`](https://developer.android.com/reference/android/Manifest.permission#CALL_PHONE)
-  - [`PROCESS_OUTGOING_CALLS`](https://developer.android.com/reference/android/Manifest.permission#PROCESS_OUTGOING_CALLS)
-  - [`READ_CALL_LOG`](https://developer.android.com/reference/android/Manifest.permission#READ_CALL_LOG)
-  - [`READ_CONTACTS`](https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS)
-  - [`READ_PHONE_NUMBERS`](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_NUMBERS)
-  - [`READ_PHONE_STATE`](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_STATE)
-  - [`READ_SMS`](https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
-  - [`RECEIVE_MMS`](https://developer.android.com/reference/android/Manifest.permission#RECEIVE_MMS)
-  - [`RECEIVE_SMS`](https://developer.android.com/reference/android/Manifest.permission#RECEIVE_SMS)
-  - [`RECEIVE_WAP_PUSH`](https://developer.android.com/reference/android/Manifest.permission#RECEIVE_WAP_PUSH)
-  - [`SEND_SMS`](https://developer.android.com/reference/android/Manifest.permission#SEND_SMS)
-  - [`WRITE_CONTACTS`](https://developer.android.com/reference/android/Manifest.permission#WRITE_CONTACTS)
+  - [`ACCEPT_HANDOVER`](https://developer.android.com/reference/android/Manifest.permission.md.txt#ACCEPT_HANDOVER)
+  - [`ADD_VOICEMAIL`](https://developer.android.com/reference/android/Manifest.permission.md.txt#ADD_VOICEMAIL)
+  - [`ANSWER_PHONE_CALLS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#ANSWER_PHONE_CALLS)
+  - [`CALL_PHONE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#CALL_PHONE)
+  - [`PROCESS_OUTGOING_CALLS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#PROCESS_OUTGOING_CALLS)
+  - [`READ_CALL_LOG`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_CALL_LOG)
+  - [`READ_CONTACTS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_CONTACTS)
+  - [`READ_PHONE_NUMBERS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_PHONE_NUMBERS)
+  - [`READ_PHONE_STATE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_PHONE_STATE)
+  - [`READ_SMS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_SMS)
+  - [`RECEIVE_MMS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#RECEIVE_MMS)
+  - [`RECEIVE_SMS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#RECEIVE_SMS)
+  - [`RECEIVE_WAP_PUSH`](https://developer.android.com/reference/android/Manifest.permission.md.txt#RECEIVE_WAP_PUSH)
+  - [`SEND_SMS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#SEND_SMS)
+  - [`WRITE_CONTACTS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#WRITE_CONTACTS)
 
 ## App activity
 
@@ -343,21 +332,19 @@ There are different ways that your app, or a library included in your app, may
 access user data related to the user's app activity. The following list provides
 several examples but isn't exhaustive:
 
-- Binds to a system service, such as [`AccessibilityService`](https://developer.android.com/reference/android/accessibilityservice/AccessibilityService) or [`TextService`](https://developer.android.com/reference/android/service/textservice/package-summary).
-- Declares the [`QUERY_ALL_PACKAGES`](https://developer.android.com/reference/android/Manifest.permission#QUERY_ALL_PACKAGES) permission and calls [`getInstalledApplications()`](https://developer.android.com/reference/android/content/pm/PackageManager#getInstalledApplications(int)) or similar methods.
+- Binds to a system service, such as [`AccessibilityService`](https://developer.android.com/reference/android/accessibilityservice/AccessibilityService.md.txt) or [`TextService`](https://developer.android.com/reference/android/service/textservice/package-summary.md.txt).
+- Declares the [`QUERY_ALL_PACKAGES`](https://developer.android.com/reference/android/Manifest.permission.md.txt#QUERY_ALL_PACKAGES) permission and calls [`getInstalledApplications()`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#getInstalledApplications(int)) or similar methods.
 - Creates a search interface.
-- Supports the [Google Shortcuts Integration
-  Library](https://developer.android.com/guide/topics/ui/shortcuts/creating-shortcuts#gsi-library).
-- Uses the [`Instrumentation`](https://developer.android.com/reference/android/app/Instrumentation) API.
+- Supports the [Google Shortcuts Integration Library](https://developer.android.com/guide/topics/ui/shortcuts/creating-shortcuts#gsi-library).
+- Uses the [`Instrumentation`](https://developer.android.com/reference/android/app/Instrumentation.md.txt) API.
 
-**Note:** Google Play restricts the use of certain APIs and permissions
-unless your app satisfies a particular set of requirements. Learn more about
-these policies:
+### Google Play policy restrictions
 
-- [Use
-  of the AccessibilityService API](https://support.google.com/googleplay/android-developer/answer/10964491).
-- [Use
-  of the broad package (App) visibility (QUERY_ALL_PACKAGES)
+Google Play restricts the use of certain APIs and permissions unless your app
+satisfies a particular set of requirements. Learn more about these policies:
+
+- [Use of the AccessibilityService API](https://support.google.com/googleplay/android-developer/answer/10964491).
+- [Use of the broad package (App) visibility (QUERY_ALL_PACKAGES)
   permission](https://support.google.com/googleplay/android-developer/answer/10158779).
 
 ### App interactions
@@ -399,22 +386,22 @@ There are different ways that your app, or a library included in your app, may
 access user data related to app info and performance. The following list
 provides several examples but isn't exhaustive:
 
-- Declares the [`BATTERY_STATS`](https://developer.android.com/reference/android/Manifest.permission#BATTERY_STATS) permission.
+- Declares the [`BATTERY_STATS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#BATTERY_STATS) permission.
 - Uses APIs such as the following:
-  - [`ActivityManager`](https://developer.android.com/reference/android/app/ActivityManager)
-  - [`ApplicationErrorReport`](https://developer.android.com/reference/android/app/ApplicationErrorReport)
-  - [`ApplicationExitInfo`](https://developer.android.com/reference/android/app/ApplicationExitInfo)
-  - [\`ASurfaceControl](https://developer.android.com/ndk/reference/group/native-activity#asurfacecontrol)
-  - [`BatteryManager`](https://developer.android.com/reference/android/os/BatteryManager)
+  - [`ActivityManager`](https://developer.android.com/reference/android/app/ActivityManager.md.txt)
+  - [`ApplicationErrorReport`](https://developer.android.com/reference/android/app/ApplicationErrorReport.md.txt)
+  - [`ApplicationExitInfo`](https://developer.android.com/reference/android/app/ApplicationExitInfo.md.txt)
+  - [`ASurfaceControl`](https://developer.android.com/ndk/reference/group/native-activity.md.txt#asurfacecontrol)
+  - [`BatteryManager`](https://developer.android.com/reference/android/os/BatteryManager.md.txt)
   - [`Benchmark`](https://developer.android.com/studio/profile/benchmarking-overview)
-  - [`Choreographer`](https://developer.android.com/ndk/reference/group/choreographer)
-  - [`Debug`](https://developer.android.com/reference/android/os/Debug)
-  - [`HealthStats`](https://developer.android.com/reference/android/os/health/HealthStats)
+  - [`Choreographer`](https://developer.android.com/ndk/reference/group/choreographer.md.txt)
+  - [`Debug`](https://developer.android.com/reference/android/os/Debug.md.txt)
+  - [`HealthStats`](https://developer.android.com/reference/android/os/health/HealthStats.md.txt)
   - [`Macrobenchmark`](https://developer.android.com/studio/profile/macrobenchmark-intro)
-  - [`PowerManager`](https://developer.android.com/reference/android/os/PowerManager)
-  - [`StrictMode`](https://developer.android.com/reference/android/os/StrictMode)
+  - [`PowerManager`](https://developer.android.com/reference/android/os/PowerManager.md.txt)
+  - [`StrictMode`](https://developer.android.com/reference/android/os/StrictMode.md.txt)
 - Calls methods such as the following:
-  - [`getAudioDevicesForAttributes()`](https://developer.android.com/reference/android/media/AudioManager#getAudioDevicesForAttributes(android.media.AudioAttributes)) and [`getDirectProfilesForAttributes()`](https://developer.android.com/reference/android/media/AudioManager#getDirectProfilesForAttributes(android.media.AudioAttributes)) from the `AudioManager` API.
+  - [`getAudioDevicesForAttributes()`](https://developer.android.com/reference/android/media/AudioManager.md.txt#getAudioDevicesForAttributes(android.media.AudioAttributes)) and [`getDirectProfilesForAttributes()`](https://developer.android.com/reference/android/media/AudioManager.md.txt#getDirectProfilesForAttributes(android.media.AudioAttributes)) from the `AudioManager` API.
 
 ### Crash logs
 
@@ -432,13 +419,8 @@ Any other app performance data not listed here.
 
 ## Device or other IDs
 
-Examples of these IDs include: an [IMEI
-number](https://developer.android.com/reference/android/telephony/TelephonyManager#getImei(int)), [MAC
-address](https://developer.android.com/reference/android/net/wifi/WifiInfo#getMacAddress()), [Widevine Device
-ID](https://developers.google.com/widevine/drm/client/android/vendor-extensions#bytearray_properties),
-[Firebase installation
-ID](https://firebase.google.com/docs/projects/manage-installations#retrieve_client_identifers),
-or [advertising
+Examples of these IDs include: an [IMEI number](https://developer.android.com/reference/android/telephony/TelephonyManager.md.txt#getImei(int)), [MAC address](https://developer.android.com/reference/android/net/wifi/WifiInfo.md.txt#getMacAddress()),
+[Widevine Device ID](https://developers.google.com/widevine/drm/client/android/vendor-extensions#bytearray_properties), [Firebase installation ID](https://firebase.google.com/docs/projects/manage-installations#retrieve_client_identifers), or [advertising
 identifier](https://developers.google.com/android/reference/com/google/android/gms/ads/identifier/AdvertisingIdClient).
 
 There are different ways that your app, or a library included in your app, may
@@ -459,5 +441,5 @@ The following table provides a summary of changed content on this page:
 |---|---|
 | December 13 2022 | Updated the location, health and fitness, photos and videos, app info and performance, and device or other IDs categories to mention the capabilities introduced in Android 13. |
 | February 24, 2022 | Changed the name of the **Device or other identifiers** data type category to **Device or other IDs** . Changed the names and descriptions of several data types, including data types in the **Personal info** , **Financial info** , **Health and fitness** , **Messages** , and **App activity** categories. |
-| January 4, 2022 | Updated the "Sexual orientation and gender identity" data type. This [data type now refers to only sexual orientation](https://developer.android.com/privacy-and-security/declare-data-use#sexual-orientation). Gender identity is now an example of other personal information. |
+| January 4, 2022 | Updated the "Sexual orientation and gender identity" data type. This [data type now refers to only sexual orientation](https://developer.android.com/privacy-and-security/declare-data-use.md.txt#sexual-orientation). Gender identity is now an example of other personal information. |
 | October 18, 2021 | Initial version published. |

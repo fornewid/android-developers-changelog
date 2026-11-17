@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/releases/past-releases/as-electric-eel
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/releases/past-releases/llms.txt
+
 The following are new features in Android Studio Electric Eel.
 
 ## Updates to Logcat
@@ -13,7 +15,7 @@ The following are new features in Android Studio Electric Eel.
 In Android Studio Electric Eel, the new version of Logcat
 is enabled by default to make it easier to parse, query, and keep track of logs.
 This represents the most significant update to the tool since its introduction,
-so read [View logs with Logcat](https://developer.android.com/studio/debug/logcat) for more details on how to
+so read [View logs with Logcat](https://developer.android.com/studio/debug/logcat.md.txt) for more details on how to
 use the new functionality and query syntax.
 
 ## App Quality Insights from Firebase Crashlytics
@@ -26,7 +28,7 @@ and forth between your browser and the IDE. Development teams can benefit from
 key capabilities including the following:
 
 - See lines in your code highlighted when they have related Crashlytics event data.
-- See the stack trace for top crashes and click on the stack trace to jump to the relevant lines in your code.
+- See the stack trace for top crashes and click the stack trace to jump to the relevant lines in your code.
 - See summary statistics about top crash and non-fatal events, for example grouped by device manufacturer and Android version.
 - Filter events by severity, time, and app version.
 - Get a browser link that opens the Crashlytics dashboard page with more details about the event.
@@ -34,8 +36,8 @@ key capabilities including the following:
 With the Android Studio and Crashlytics integration, you can write code and
 address top crash issues all in the same spot. This enriched development
 experience helps you stay informed about your app's performance and minimize
-disruptions for your users. If you encounter any issues with this feature,
-[file a bug](https://issuetracker.google.com/issues/new?title=%5BAQI%5D+%3CTitle%3E&cc=adarshf@google.com,makuchaku@google.com,+jbakermalone@google.com&format=PLAIN&component=192708&type=BUG&priority=P1&severity=S2&hotlistIds=4012235&assignee=vkryachko@google.com&template=840533).
+disruptions for your users. If you encounter any issues with this feature, [file
+a bug](https://issuetracker.google.com/issues/new?title=%5BAQI%5D+%3CTitle%3E&cc=adarshf@google.com,makuchaku@google.com,+jbakermalone@google.com&format=PLAIN&component=192708&type=BUG&priority=P1&severity=S2&hotlistIds=4012235&assignee=vkryachko@google.com&template=840533).
 
 If you're not using Crashlytics yet and would like to learn more about its
 offerings, see
@@ -47,13 +49,13 @@ To see Crashlytics data in Android Studio, you need to set up Firebase and
 Crashlytics in your app project. Here's how: open the Firebase Assistant in
 Android Studio by going to **Tools \> Firebase** , click **Crashlytics** , and then
 follow the tutorial to add Firebase and Crashlytics to your project. You can
-read more about the Firebase Assistant workflow in
-[Firebase's getting started guide for Android](https://firebase.google.com/docs/android/setup#assistant).
+read more about the Firebase Assistant workflow in [Firebase's getting started
+guide for Android](https://firebase.google.com/docs/android/setup#assistant).
 
 If you've already added Firebase and Crashlytics to your app, sign in to your
 Developer account in the IDE by clicking on the avatar icon
 ![](https://developer.android.com/static/studio/images/studio-avatar.png).
-After you sign in, click on the **App Quality Insights** tool window. You should
+After you sign in, click the **App Quality Insights** tool window. You should
 see the **Issues** , **Sample Stack Trace** , and **Details** panels populate with
 reports from Crashlytics.
 
@@ -65,13 +67,13 @@ navigate to the sources of those events.
 
 ![App Quality Insights tool window](https://developer.android.com/static/studio/images/aqi-window.png)
 
-1. If your project includes multiple app modules, make sure the module you want to see event data for is selected from the module dropdown menu.
-2. Use the application ID dropdown menu to select the app ID you want to analyze. For example, while you might work on the debug version of your app in the IDE, you might want to see event data for your production version of your app that your users install.
+1. If your project includes multiple app modules, make sure the module you want to see event data for is selected from the module drop-down menu.
+2. Use the application ID drop-down menu to select the app ID you want to analyze. For example, while you might work on the debug version of your app in the IDE, you might want to see event data for your production version of your app that your users install.
 3. The **Issues** panel shows the top events that Crashlytics has data for, and is sorted by your most impactful crashes.
 4. The **Sample Stack Trace** panel shows details about the latest
-   occurrence of the event you click on in the **Issues** panel. You can see
-   the event's stack trace and click on the stack trace to jump to the relevant
-   lines in your code base.
+   occurrence of the event you click in the **Issues** panel. You can see
+   the event's stack trace and click the stack trace to jump to the relevant
+   lines in your codebase.
 
    There is also information about the device type affected, its Android
    version, and the time the event occurred, as well a link to the event in the
@@ -84,15 +86,15 @@ navigate to the sources of those events.
 
 In addition to being able to navigate from stack trace to code, you can also
 jump from code to stack trace: Android Studio now highlights lines of code that
-are related to crashes so you can easily spot and debug them.
+are related to crashes so you can spot and debug them.
 
 ![Crash-related code highlighted in the IDE](https://developer.android.com/static/studio/images/crashlytics-code-highlighted.png)
 
-When you hover over a highlighted line of code, a pop-up appears that shows the
+When you hover over a highlighted line of code, a dialog appears that shows the
 event involved, its frequency, and the number of devices affected. You can click
-on **Open in App Quality Insights** to jump to the event details in the
-**App Quality Insights** tool window. To learn more, See
-[Analyze issues from Firebase Crashlytics with App Quality Insights](https://developer.android.com/studio/debug/app-quality-insights).
+**Open in App Quality Insights** to jump to the event details in the **App
+Quality Insights** tool window. To learn more, see [Analyze issues from Firebase
+Crashlytics with App Quality Insights](https://developer.android.com/studio/debug/app-quality-insights).
 
 ## Live updates to your Compose Preview
 
@@ -107,7 +109,7 @@ previews](https://developer.android.com/develop/ui/compose/tooling/previews).
 
 In Android Studio Electric Eel, you can edit the `device` parameter of the
 Preview annotation to define configurations for your Composables in different
-devices. For more details, see [Use with different devices](https://developer.android.com/develop/ui/compose/tooling/previews#different-devices).
+devices. For more details, see [Use with different devices](https://developer.android.com/develop/ui/compose/tooling/previews.md.txt#different-devices).
 
 ![Sample Composable function](https://developer.android.com/static/studio/images/preview-devicespec-sample-function.png)
 
@@ -122,7 +124,7 @@ Layout Inspector, and gradually disappears so that you can get an idea of where
 in the UI the composable with the highest recompositions can be found. If one
 composable is recomposing at a higher rate than another composable, then the
 first composable receives a stronger gradient overlay color. For more details,
-see [Compose recomposition counts in Layout Inspector](https://developer.android.com/studio/debug/layout-inspector#recomposition-counts).
+see [Compose recomposition counts in Layout Inspector](https://developer.android.com/studio/debug/layout-inspector.md.txt#recomposition-counts).
 
 ![Recomposition rendering highlights](https://developer.android.com/static/studio/images/recomposition-rendering-highlights.gif)
 
@@ -147,7 +149,7 @@ To view the tool window, navigate to **View** \> **Tool Windows** \> **Problems*
 
 You can now test your app on multiple screen sizes and with a
 single resizable emulator. Testing on a single resizable emulator not only
-allows you to rapidly test changes across different interfaces, but also
+lets you rapidly test changes across different interfaces, but also
 promotes a smoother development experience by saving the compute resources and
 memory that would be required to maintain separate virtual devices.
 
@@ -155,22 +157,22 @@ To use the resizable emulator, you need Android Emulator version 31.1.3 or
 higher. To upgrade versions, go to **Tools \> SDK Manager**. To create a
 resizable Android Virtual Device (AVD), follow these steps:
 
-1. In the [create device flow](https://developer.android.com/studio/run/managing-avds#createavd), select the **Resizable (Experimental)** phone hardware profile.
+1. In the [create device flow](https://developer.android.com/studio/run/managing-avds.md.txt#createavd), select the **Resizable (Experimental)** phone hardware profile.
 2. Download the Android Tiramisu system image.
 3. Follow the prompts to create the AVD.
 
 When you deploy your app to the resizable emulator, use the **Display Mode**
-dropdown in the emulator toolbar to quickly toggle between a set of common
-device types. The emulator screen resizes so you can easily test your app
+drop-down in the emulator toolbar to quickly toggle between a set of common
+device types. The emulator screen resizes so you can test your app
 across a range of screen sizes and densities.
 
-![Resizable emulator Display Mode dropdown menu](https://developer.android.com/static/studio/images/resizable-emulator.png)
+![Resizable emulator Display Mode drop-down menu](https://developer.android.com/static/studio/images/resizable-emulator.png)
 
 ## Desktop Android Virtual Device now available
 
 You can now test how your app works on desktop devices such as Chromebooks
 by using a Desktop Android Virtual Device (AVD). Users often interact with apps
-differently on large screen devices, and the Desktop AVD enables you to see how
+differently on large screen devices, and the Desktop AVD lets you see how
 your app behaves in this environment. Here are some of the unique
 functionalities you can test:
 
@@ -179,9 +181,8 @@ functionalities you can test:
 - Notifications: check that the notifications render correctly when pulled up from the system tray on the desktop.
 
 To learn more about Desktop AVDs and how to incorporate them in your testing
-workflow, see
-[Desktop AVD in Android Studio](https://chromeos.dev/en/posts/desktop-avd-in-android-studio)
-on the ChromeOS developers blog.
+workflow, see [Desktop AVD in Android Studio](https://chromeos.dev/en/posts/desktop-avd-in-android-studio) on the ChromeOS developers
+blog.
 
 ![Apps on a Chromebook](https://developer.android.com/static/studio/images/desktop-avd.png)
 
@@ -206,10 +207,10 @@ View dependency insights from the new
 [Google Play SDK Index](https://developer.android.com/distribute/sdk-index), a public portal with information
 about popular dependencies, or SDKs. If a specific version of a library has
 been marked as *outdated* by its author, a corresponding Lint warning appears
-when viewing that dependency definition. This enables you to discover and
-update dependency issues during development instead of later when you go to
-publish your app on the Play Console. You can learn more about this new tool on
-the Android Developer's Blog post [here](https://goo.gle/play-sdk).
+when viewing that dependency definition. This lets you discover and update
+dependency issues during development instead of later when you go to publish
+your app on the Play Console. You can learn more about this new tool in the
+[Android Developers Blog post on Google Play SDK Index](https://goo.gle/play-sdk).
 
 ## Patch releases
 
@@ -233,11 +234,7 @@ This minor update includes the following bug fixes:
 
 <br />
 
-| Fixed Issues ||
-|---|---|
-| **Compose Preview** | |---| | [Issue #262773698](https://issuetracker.google.com/issues/262773698) Compose Preview broken when using HTML text with b-Tags | | [Issue #266054909](https://issuetracker.google.com/issues/266054909) Running Previews from library modules does not work | |
-| **Layout Editor** | |---| | [Issue #257280452](https://issuetracker.google.com/issues/257280452) Exception in Layout editor | |
-| **Shrinker (R8)** | |---| | [Issue #265905174](https://issuetracker.google.com/issues/265905174) AGP 7.4.0/7.3.1 - Attempt to enqueue an action in a non pushable enqueuer work list | | [Issue #250634405](https://issuetracker.google.com/issues/250634405) `:app:minifyVariantWithR8` throws a NullPointerException in AGP 7.4.0-beta02 | | [Issue #263934503](https://issuetracker.google.com/issues/263934503) R8: ClassNotFoundException when -allowaccessmodification | |
+Fixed Issues **Compose Preview** [Issue #262773698](https://issuetracker.google.com/issues/262773698) Compose Preview broken when using HTML text with b-Tags [Issue #266054909](https://issuetracker.google.com/issues/266054909) Running Previews from library modules does not work **Layout Editor** [Issue #257280452](https://issuetracker.google.com/issues/257280452) Exception in Layout editor **Shrinker (R8)** [Issue #265905174](https://issuetracker.google.com/issues/265905174) AGP 7.4.0/7.3.1 - Attempt to enqueue an action in a non pushable enqueuer work list [Issue #250634405](https://issuetracker.google.com/issues/250634405) `:app:minifyVariantWithR8` throws a NullPointerException in AGP 7.4.0-beta02 [Issue #263934503](https://issuetracker.google.com/issues/263934503) R8: ClassNotFoundException when -allowaccessmodification
 
 <br />
 
@@ -256,9 +253,6 @@ With the Patch 1 release, Android Studio Electric Eel now supports Kotlin
 
 <br />
 
-| Fixed Issues ||
-|---|---|
-| **Installer** | |---| | [Issue #265309504](https://issuetracker.google.com/issues/265309504) Android Studio Electric Eel \| 2022.1.1 can't open Windows 11 | |
-| **Logcat** | |---| | [Issue #263475910](https://issuetracker.google.com/issues/263475910) Cannot type @ (conflict from Logcat shortcut) | |
+Fixed Issues **Installer** [Issue #265309504](https://issuetracker.google.com/issues/265309504) Android Studio Electric Eel \| 2022.1.1 can't open Windows 11 **Logcat** [Issue #263475910](https://issuetracker.google.com/issues/263475910) Cannot type @ (conflict from Logcat shortcut)
 
 <br />

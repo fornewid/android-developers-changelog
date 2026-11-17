@@ -4,41 +4,50 @@ url: https://developer.android.com/develop/background-work/background-tasks/pers
 source: md.txt
 ---
 
-For Kotlin users, WorkManager provides first-class support for [coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html). To get
-started, include [`work-runtime-ktx` in your gradle file](https://developer.android.com/jetpack/androidx/releases/work#declaring_dependencies). Instead of extending [`Worker`](https://developer.android.com/reference/androidx/work/Worker), you should extend [`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker), which has a suspending
-version of `doWork()`. For example, if you wanted to build a simple `CoroutineWorker`
-to perform some network operations, you would do the following:
+> Documentation index: https://developer.android.com/develop/background-work/background-tasks/persistent/threading/llms.txt
 
-    class CoroutineDownloadWorker(
-        context: Context,
-        params: WorkerParameters
-    ) : CoroutineWorker(context, params) {
+For Kotlin users, WorkManager provides built-in support for [coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html). To
+get started, include [`work-runtime-ktx` in your Gradle file](https://developer.android.com/jetpack/androidx/releases/work.md.txt#declaring_dependencies). Instead of
+extending [`Worker`](https://developer.android.com/reference/androidx/work/Worker.md.txt), extend [`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker.md.txt), which has a suspending
+version of `doWork`. For example, to build a simple `CoroutineWorker` that
+performs network operations, do the following:
 
-        override suspend fun doWork(): Result {
+```kotlin
+class CoroutineDownloadWorker(
+    context: Context,
+    params: WorkerParameters
+) : CoroutineWorker(context, params) {
+
+    override suspend fun doWork(): Result {
+        val data = downloadSynchronously("https://www.google.com")
+        saveData(data)
+        return Result.success()
+    }
+}
+```
+
+Note that [`CoroutineWorker.doWork()`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker.md.txt#doWork()) is a *suspending* function. Unlike
+`Worker`, this code does *not* run on the `Executor` specified in your
+[`Configuration`](https://developer.android.com/reference/androidx/work/Configuration.md.txt). Instead, it defaults to `Dispatchers.Default`. You can
+customize this by providing your own `CoroutineContext`. In the preceding
+example, you would probably want to do this work on `Dispatchers.IO`, as
+follows:
+
+```kotlin
+class CoroutineDownloadWorker(
+    context: Context,
+    params: WorkerParameters
+) : CoroutineWorker(context, params) {
+
+    override suspend fun doWork(): Result {
+        withContext(Dispatchers.IO) {
             val data = downloadSynchronously("https://www.google.com")
             saveData(data)
             return Result.success()
         }
     }
-
-Note that [`CoroutineWorker.doWork()`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker#doWork()) is a *suspending*
-function. Unlike `Worker`, this code does *not* run on the `Executor` specified
-in your [`Configuration`](https://developer.android.com/reference/androidx/work/Configuration). Instead, it
-defaults to `Dispatchers.Default`. You can customize this by providing your own `CoroutineContext`. In the above example, you would probably want to do this work on `Dispatchers.IO`, as follows:
-
-    class CoroutineDownloadWorker(
-        context: Context,
-        params: WorkerParameters
-    ) : CoroutineWorker(context, params) {
-
-        override suspend fun doWork(): Result {
-            withContext(Dispatchers.IO) {
-                val data = downloadSynchronously("https://www.google.com")
-                saveData(data)
-                return Result.success()
-            }
-        }
-    }
+}
+```
 
 `CoroutineWorker` handles stoppages automatically by cancelling the coroutine
 and propagating the cancellation signals. You don't need to do anything special
@@ -47,8 +56,7 @@ to handle [work stoppages](https://developer.android.com/topic/libraries/archite
 ## Running a CoroutineWorker in a different process
 
 You can also bind a worker to a specific process by using
-[`RemoteCoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/multiprocess/RemoteCoroutineWorker),
-an implementation of `ListenableWorker`.
+[`RemoteCoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/multiprocess/RemoteCoroutineWorker.md.txt), an implementation of `ListenableWorker`.
 
 `RemoteCoroutineWorker` binds to a specific process with two extra arguments
 that you provide as part of the input data when building the work request:

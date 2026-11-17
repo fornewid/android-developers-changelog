@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/tooling/animation-preview
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/tooling/llms.txt
+
 Android Studio lets you inspect animations from Animation Preview. If an
 animation is described in a composable preview, you can inspect the exact value
 of each animated value at a given time, pause the animation, loop it,
@@ -39,8 +41,8 @@ pause, scrub, control speed, and coordinate.
 ![Pick precise values for animation previews](https://developer.android.com/static/studio/images/compose-animation-preview-picker.gif)
 
 Animation Preview supports the
-[`updateTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/updateTransition.composable#updateTransition(kotlin.Any,kotlin.String)),
-[`AnimatedVisibility`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibility.composable#AnimatedVisibility(androidx.compose.animation.core.MutableTransitionState,androidx.compose.ui.Modifier,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.String,kotlin.Function1)),
+[`updateTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/updateTransition.composable.md.txt#updateTransition(kotlin.Any,kotlin.String)),
+[`AnimatedVisibility`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibility.composable.md.txt#AnimatedVisibility(androidx.compose.animation.core.MutableTransitionState,androidx.compose.ui.Modifier,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.String,kotlin.Function1)),
 [`animate*AsState`](https://developer.android.com/develop/ui/compose/animation#animate-as-state),
 [`CrossFade`](https://developer.android.com/develop/ui/compose/animation#crossfade),
 [`rememberInfiniteTransition`](https://developer.android.com/develop/ui/compose/animation#rememberinfinitetransition),
@@ -52,5 +54,5 @@ Android Studio Rabbit 2 and `compose.animation` 1.12.1 and higher.
 
 - Note: link text is displayed when JavaScript is off
 - [Animations in Compose](https://developer.android.com/develop/ui/compose/animation/introduction)
-- [Animation tooling support {:#tooling}](https://developer.android.com/develop/ui/compose/animation/tooling)
-- [Value-based animations](https://developer.android.com/develop/ui/compose/animation/value-based)
+- [Animation tooling support {:#tooling}](https://developer.android.com/develop/ui/compose/animation/tooling.md.txt)
+- [Value-based animations](https://developer.android.com/develop/ui/compose/animation/value-based.md.txt)

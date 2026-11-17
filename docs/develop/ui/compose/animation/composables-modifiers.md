@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/animation/composables-modi
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/llms.txt
+
 Compose comes with built-in composables and modifiers for handling common animation use cases.
 
 ## Built-in animated composables
@@ -273,7 +275,7 @@ AnimatedContent(
 
 <br />
 
-![](https://developer.android.com/static/develop/ui/compose/images/animation-count.gif)
+![A counter composable animates its number changing with a fade and slide effect.](https://developer.android.com/static/develop/ui/compose/images/animation-count.gif) **Figure 2.** Animating a counter with a custom `ContentTransform`.
 
 `EnterTransition` defines how the target content should appear, and
 `ExitTransition` defines how the initial content should disappear. In addition
@@ -331,7 +333,14 @@ Surface(
 
 <br />
 
-![](https://developer.android.com/static/develop/ui/compose/images/animation-sizetransform.gif)
+![A composable animates its size transforming smoothly.](https://developer.android.com/static/develop/ui/compose/images/animation-sizetransform.gif) **Figure 3.** Animating content size changes with `SizeTransform`.
+
+By default, `AnimatedContent` draws the target content on top of the initial
+content. To change this draw order, set
+[`ContentTransform.targetContentZIndex`](https://developer.android.com/reference/kotlin/androidx/compose/animation/ContentTransform.md.txt#targetContentZIndex()). To keep the initial content until
+both the enter and exit transitions finish, use
+[`ExitTransition.KeepUntilTransitionsFinished`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedContentTransitionScope.md.txt#(androidx.compose.animation.ExitTransition.Companion).KeepUntilTransitionsFinished()) in `transitionSpec`, alone
+or combined with other exit transitions using the `+` operator.
 
 #### Animate child enter and exit transitions
 
@@ -373,9 +382,9 @@ composables.
 
 ### Animate composable size changes
 
-![Green composable animating its size change smoothly.](https://developer.android.com/static/develop/ui/compose/images/animations/animated_content_size.gif) **Figure 2.** Composable smoothly animating between a small and a larger size
+![Green composable animating its size change smoothly.](https://developer.android.com/static/develop/ui/compose/images/animations/animated_content_size.gif) **Figure 4.** Composable smoothly animating between a small and a larger size.
 
-The `animateContentSize` modifier animates a size change.
+The [`animateContentSize`](https://developer.android.com/reference/kotlin/androidx/compose/animation/animateContentSize.modifier#(androidx.compose.ui.Modifier).animateContentSize(androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Function2)) modifier animates a size change.
 
 > [!NOTE]
 > **Note:** The ordering of where `animateContentSize` is placed in your modifier chain matters. For smooth animations, place it *before* any size modifiers such as `size` or `defaultMinSize` to ensure that `animateContentSize` reports the animated value change to the layout.
@@ -389,6 +398,40 @@ Box(
         .animateContentSize()
         .height(if (expanded) 400.dp else 200.dp)
         .fillMaxWidth()
+        .clickable(
+            interactionSource = remember { MutableInteractionSource() },
+            indication = null
+        ) {
+            expanded = !expanded
+        }
+
+) {
+}
+```
+
+<br />
+
+`animateContentSize` accepts [optional `animationSpec`, `alignment`, and
+`finishedListener` parameters](https://developer.android.com/reference/kotlin/androidx/compose/animation/animateContentSize.modifier#(androidx.compose.ui.Modifier).animateContentSize(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.ui.Alignment,kotlin.Function2)). Use them to set the
+[`FiniteAnimationSpec`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/FiniteAnimationSpec.md.txt) for the size animation, set the alignment of the
+content during the animation, and receive the initial and target `IntSize` when
+the animation finishes. The following example passes a custom `spring` as
+`animationSpec`. This example reuses the `expanded` state from the preceding
+example:
+
+
+```kotlin
+Box(
+    modifier = Modifier
+        .background(colorBlue)
+        .animateContentSize(
+            spring(
+                stiffness = Spring.StiffnessLow,
+                dampingRatio = Spring.DampingRatioHighBouncy
+            )
+        )
+        .height(if (expanded) 300.dp else 200.dp)
+        .fillMaxSize()
         .clickable(
             interactionSource = remember { MutableInteractionSource() },
             indication = null

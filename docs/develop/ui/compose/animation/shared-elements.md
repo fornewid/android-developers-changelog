@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/animation/shared-elements
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/animation/shared-elements/llms.txt
+
 [Video](https://www.youtube.com/watch?v=PR6rz1QUkAM)
 
 Shared element transitions are a seamless way to transition between composables
@@ -18,7 +20,8 @@ snack are shared from the listing page, to the detail page.
 In Compose, there are a few high-level APIs that help you create shared
 elements:
 
-- [`SharedTransitionLayout`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionLayout.composable.md.txt#SharedTransitionLayout(androidx.compose.ui.Modifier,kotlin.Function1)): The outermost layout required to implement shared element transitions. It provides a `SharedTransitionScope`. Composables need to be in a `SharedTransitionScope` to use the shared element modifiers.
+- [`SharedTransitionLayout`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionLayout.composable.md.txt#SharedTransitionLayout(androidx.compose.ui.Modifier,kotlin.Function1)): A layout that wraps your content and provides a `SharedTransitionScope` for shared element transitions. Composables need to be in a `SharedTransitionScope` to use the shared element modifiers.
+- [`SharedTransitionScope`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope.composable.md.txt#SharedTransitionScope(kotlin.Function2)) composable: Provides a `SharedTransitionScope` without adding a layout between your content and its parent. Apply the `Modifier` that the `content` lambda receives to the first child layout. If that layout doesn't have the highest `zIndex`, use `SharedTransitionLayout` instead.
 - [`Modifier.sharedElement()`](https://developer.android.com/develop/ui/compose/animation/shared-elements.md.txt#basic-usage): The modifier that flags to the `SharedTransitionScope` the composable that should be matched with another composable.
 - [`Modifier.sharedBounds()`](https://developer.android.com/develop/ui/compose/animation/shared-elements.md.txt#shared-bounds): The modifier that flags to the `SharedTransitionScope` that this composable's bounds should be used as the container bounds for where the transition should take place. In contrast to `sharedElement()`, `sharedBounds()` is designed for visually different content.
 
@@ -241,9 +244,10 @@ private fun DetailsContent(
 ## Understand scopes
 
 To use `Modifier.sharedElement()`, the composable needs to be in a
-`SharedTransitionScope`. The `SharedTransitionLayout` composable provides the
-`SharedTransitionScope`. Make sure to place it at the same top-level point
-in your UI hierarchy that contains the elements you want to share.
+`SharedTransitionScope`. The [`SharedTransitionLayout`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionLayout.composable.md.txt#SharedTransitionLayout(androidx.compose.ui.Modifier,kotlin.Function1)) or
+[`SharedTransitionScope`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope.composable.md.txt#SharedTransitionScope(kotlin.Function2)) composable provides this scope. Make sure to
+place it at the same top-level point in your UI hierarchy that contains the
+elements you want to share.
 
 Generally, the composables should also be placed inside an
 `AnimatedVisibilityScope`. This is typically provided by using `AnimatedContent`

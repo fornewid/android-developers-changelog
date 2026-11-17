@@ -4,15 +4,17 @@ url: https://developer.android.com/training/wearables/tiles/debug
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/tiles/llms.txt
+
 Tiles are not apps, and so are deployed and launched using different mechanisms.
 When a device has [developer options](https://developer.android.com/studio/debug/dev-options.md.txt) enabled (emulators have these features
 enabled by default), additional features supporting tile development become
-available for use in both [Android Studio](https://developer.android.com/studio) and [`adb`](https://developer.android.com/tools/adb.md.txt).
+available for use in both [Android Studio](https://developer.android.com/studio.md.txt) and [`adb`](https://developer.android.com/tools/adb.md.txt).
 
 ## Deploy tiles
 
 To deploy your tile, you can install your app on a physical device or emulator
-using [Android Studio](https://developer.android.com/studio), as described in [Build and run your app](https://developer.android.com/studio/run.md.txt). Then,
+using [Android Studio](https://developer.android.com/studio.md.txt), as described in [Build and run your app](https://developer.android.com/studio/run.md.txt). Then,
 following the same steps as regular users, manually [add the tile to the tiles
 carousel](https://support.google.com/wearos/answer/9314375).
 

@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/connectivity/5g/enhance-with-5g
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/connectivity/5g/llms.txt
+
 Sometimes changes to an Android app are little steps, and sometimes they
 require you to completely change the way you think. 5G is not a little step.
 
@@ -18,16 +20,14 @@ require you to completely change the way you think. 5G is not a little step.
     the connection.
 
 5G is about more than just faster speeds and lower latency. It opens the door to
-new possibilities in your apps. This topic goes over some of the ways that you
-can transform your user experience.
+new possibilities in your apps. This document goes over some of the ways that
+you can transform your user experience.
 
 To jump right into adding 5G capabilities to your apps, see [Add 5G capabilities
 to your app](https://developer.android.com/about/versions/11/features/5g).
 
 To learn more about best practices for developing 5G-ready apps, see [Best
-Practices for 5G App
-Developers](https://www.gsma.com/get-involved/working-groups/gsma_resources/idg-15-v1-0-best-practices-for-5g-app-developers)
-from GSMA.
+Practices for 5G App Developers](https://www.gsma.com/get-involved/working-groups/gsma_resources/idg-15-v1-0-best-practices-for-5g-app-developers) from GSMA.
 
 ## Turn indoor use cases into outdoor use cases
 
@@ -36,10 +36,9 @@ or was okay with paying for the data costs of an expensive and low-quality
 stream. With unmetered 5G, you can just video call people and expect your call
 to always be accepted, no matter where people are.
 
-With 5G, your users can stop planning downloads ahead of a trip, instead
-downloading what they need, when they need it. You can encourage that mental
-shift by exposing a UI that encourages users to download entire albums or by
-showing playlists of every episode of a show.
+With 5G, users can download content on demand instead of planning ahead for
+trips. Encourage this shift with a UI for downloading entire albums or showing
+playlists of every episode in a show.
 
 5G also opens up opportunities to engage in real-time, multiplayer games when
 not tethered to Wi-Fi. No more requirement to ensure everyone has a strong
@@ -51,8 +50,7 @@ for gaming laptops or desktop computers, like in-game voice and video chat.
 
 Until 5G, most apps' visual experience was centered around photos or short
 video clips. With the addition of 5G capabilities, your app can shift the user
-experience to be more immersive by adding [augmented
-reality](https://developers.google.com/ar/develop/java/quickstart) capabilities
+experience to be more immersive by adding [augmented reality](https://developers.google.com/ar/develop/java/quickstart) capabilities
 to your app, such as when using maps to guide users.
 
 You can use the additional bandwidth to make the user experience more appealing
@@ -77,23 +75,19 @@ them opportunistically.
 Without 5G, few users streamed or consumed streams. With the introduction of 5G,
 this niche use case can become a mainstream use case. Android 11, specifically,
 adds support for low-latency video codecs. Apps can use the new APIs to
-[check](https://developer.android.com/reference/android/media/MediaCodecInfo.CodecCapabilities#isFeatureSupported(java.lang.String))
-and
-[configure](https://developer.android.com/reference/android/media/MediaCodec.html#PARAMETER_KEY_LOW_LATENCY)
-low-latency playback for a specific codec. This helps provide 5G devices with a
-compelling user experience.
+[check](https://developer.android.com/reference/android/media/MediaCodecInfo.CodecCapabilities.md.txt#isFeatureSupported(java.lang.String)) and [configure](https://developer.android.com/reference/android/media/MediaCodec.md.txt#PARAMETER_KEY_LOW_LATENCY) low-latency playback for a specific codec. This
+helps provide 5G devices with a compelling user experience.
 
 To learn about offering your users a use-case-specific performance boost, see
-\[Use network slicing(/develop/connectivity/5g/use-network-slicing).
+[Use network slicing](https://developer.android.com/develop/connectivity/5g/use-network-slicing.md.txt).
 
 ## Tell your users when they're on 5G
 
 On Android 11 and higher, apps with
-[`android.Manifest.permission.READ_PHONE_STATE`](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_STATE)
-permission can request telephony display information updates through
-[`PhoneStateListener.onDisplayInfoChanged()`](https://developer.android.com/reference/android/telephony/PhoneStateListener#onDisplayInfoChanged(android.telephony.TelephonyDisplayInfo)).
-This includes radio access technology information for marketing and branding
-purposes.
+[`android.Manifest.permission.READ_PHONE_STATE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_PHONE_STATE) permission can request
+telephony display information updates through
+[`PhoneStateListener.onDisplayInfoChanged()`](https://developer.android.com/reference/android/telephony/PhoneStateListener.md.txt#onDisplayInfoChanged(android.telephony.TelephonyDisplayInfo)). This includes radio access
+technology information for marketing and branding purposes.
 
 Various 5G icon display solutions for different carriers are provided by this
 new API. The supported technologies include the following:

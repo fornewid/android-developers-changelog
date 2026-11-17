@@ -4,15 +4,16 @@ url: https://developer.android.com/guide/navigation/integrations/ui
 source: md.txt
 ---
 
-The Navigation component includes a [`NavigationUI`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI)
-class. This class contains static methods that manage navigation with the top
-app bar, the navigation drawer, and bottom navigation.
+> Documentation index: https://developer.android.com/guide/navigation/llms.txt
+
+The Navigation component includes a [`NavigationUI`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI.md.txt) class. This class
+contains static methods that manage navigation with the top app bar, the
+navigation drawer, and bottom navigation.
 
 ## Top app bar
 
-The [top app bar](https://material.io/design/components/app-bars-top.html)
-provides a consistent place along the top of your app for displaying information
-and actions from the current screen.
+The [top app bar](https://material.io/design/components/app-bars-top.html) provides a consistent place along the top of your app for
+displaying information and actions from the current screen.
 ![screen displaying a top app bar](https://developer.android.com/static/topic/libraries/architecture/images/top-app-bar.png) **Figure 1.** A screen displaying a top app bar.
 
 `NavigationUI` contains methods that automatically update content in your top
@@ -36,9 +37,9 @@ label.
 
 `NavigationUI` provides support for the following top app bar types:
 
-- [`Toolbar`](https://developer.android.com/reference/android/widget/Toolbar)
-- [`CollapsingToolbarLayout`](https://developer.android.com/reference/com/google/android/material/appbar/CollapsingToolbarLayout)
-- [`ActionBar`](https://developer.android.com/reference/androidx/appcompat/app/ActionBar)
+- [`Toolbar`](https://developer.android.com/reference/android/widget/Toolbar.md.txt)
+- [`CollapsingToolbarLayout`](https://developer.android.com/reference/com/google/android/material/appbar/CollapsingToolbarLayout.md.txt)
+- [`ActionBar`](https://developer.android.com/reference/androidx/appcompat/app/ActionBar.md.txt)
 
 For more information on app bars, see [Set up the app bar](https://developer.android.com/training/appbar/setting-up).
 
@@ -48,24 +49,26 @@ For more information on app bars, see [Set up the app bar](https://developer.and
 
 ### AppBarConfiguration
 
-`NavigationUI` uses an [`AppBarConfiguration`](https://developer.android.com/reference/androidx/navigation/ui/AppBarConfiguration)
-object to manage the behavior of the Navigation button in the upper-left corner
-of your app's display area. The Navigation button's behavior changes depending
-on whether the user is at a *top-level destination*.
+`NavigationUI` uses an [`AppBarConfiguration`](https://developer.android.com/reference/androidx/navigation/ui/AppBarConfiguration.md.txt) object to manage the behavior
+of the Navigation button in the upper-left corner of your app's display area.
+The Navigation button's behavior changes depending on whether the user is at a
+*top-level destination*.
 
 A top-level destination is the root, or highest level destination, in a set of
-hierarchically-related destinations. Top-level destinations do not display an
-Up button in the top app bar because there is no higher level destination. By
+hierarchically-related destinations. Top-level destinations don't display an Up
+button in the top app bar because there is no higher level destination. By
 default, the start destination of your app is the only top-level destination.
 
 When the user is at a top-level destination, the Navigation button becomes a
 drawer icon
 ![](https://developer.android.com/static/images/guide/navigation/drawer-icon.png)
 if the destination uses a `DrawerLayout`. If the destination doesn't use a
-`DrawerLayout`, the Navigation button is hidden. When the user is on any other destination, the Navigation button appears as an Up button
+`DrawerLayout`, the Navigation button is hidden. When the user is on any other
+destination, the Navigation button appears as an Up button
 ![](https://developer.android.com/static/images/guide/navigation/up-button.png).
 To configure the Navigation button using only the start destination as the
-top-level destination, create an `AppBarConfiguration` object, and pass in the corresponding navigation graph, as shown below:
+top-level destination, create an `AppBarConfiguration` object, and pass in the
+corresponding navigation graph, as shown below:
 
 ### Kotlin
 
@@ -116,9 +119,8 @@ activity, as shown:
 </LinearLayout>
 ```
 
-Next, call [`setupWithNavController()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI#setupWithNavController(androidx.appcompat.widget.Toolbar,androidx.navigation.NavController,androidx.navigation.ui.AppBarConfiguration))
-from your main activity's `onCreate()` method, as shown in the following
-example:
+Next, call [`setupWithNavController()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI.md.txt#setupWithNavController(androidx.appcompat.widget.Toolbar,androidx.navigation.NavController,androidx.navigation.ui.AppBarConfiguration)) from your main activity's
+`onCreate()` method, as shown in the following example:
 
 ### Kotlin
 
@@ -154,7 +156,7 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 
 > [!NOTE]
-> **Note:** When using a `Toolbar`, Navigation automatically handles click events for the Navigation button, so you do not need to override [`onSupportNavigateUp()`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#onSupportNavigateUp()).
+> **Note:** When using a `Toolbar`, Navigation automatically handles click events for the Navigation button, so you don't need to override [`onSupportNavigateUp()`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity.md.txt#onSupportNavigateUp()).
 
 To configure the Navigation button to appear as an Up button for all
 destinations, pass an empty set of destination IDs for your top-level
@@ -162,10 +164,9 @@ destinations when building your `AppBarConfiguration`. This can be useful
 if, for example, you have a second activity that should display an Up button
 in the `Toolbar` on all destinations. This allows the user to navigate back
 to the parent activity when there are no other destinations on the back
-stack. You can use
-[`setFallbackOnNavigateUpListener()`](https://developer.android.com/reference/androidx/navigation/ui/AppBarConfiguration.Builder#setFallbackOnNavigateUpListener(androidx.navigation.ui.AppBarConfiguration.OnNavigateUpListener))
-to control the fallback behavior for when `navigateUp()` would otherwise
-do nothing, as shown in the following example:
+stack. You can use [`setFallbackOnNavigateUpListener()`](https://developer.android.com/reference/androidx/navigation/ui/AppBarConfiguration.Builder.md.txt#setFallbackOnNavigateUpListener(androidx.navigation.ui.AppBarConfiguration.OnNavigateUpListener)) to control the
+fallback behavior for when `navigateUp()` would otherwise do nothing, as shown
+in the following example:
 
 ### Kotlin
 
@@ -237,8 +238,8 @@ Toolbar and surrounding layout in your activity, as shown below:
 </LinearLayout>
 ```
 
-Next, call [`setupWithNavController()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI#setupWithNavController(androidx.appcompat.widget.Toolbar,%20androidx.navigation.NavController,%20androidx.navigation.ui.AppBarConfiguration))
-from your main activity's `onCreate` method, as shown below:
+Next, call [`setupWithNavController()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI.md.txt#setupWithNavController(androidx.appcompat.widget.Toolbar,%20androidx.navigation.NavController,%20androidx.navigation.ui.AppBarConfiguration)) from your main activity's `onCreate`
+method, as shown below:
 
 ### Kotlin
 
@@ -279,11 +280,11 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ### Action bar
 
-To add navigation support to the default action bar, call
-[`setupActionBarWithNavController()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI#setupActionBarWithNavController(androidx.appcompat.app.AppCompatActivity,%20androidx.navigation.NavController,%20androidx.navigation.ui.AppBarConfiguration))
-from your main activity's `onCreate()` method, as shown below. Note that you
-need to declare your `AppBarConfiguration` outside of `onCreate()`, since you
-also use it when overriding `onSupportNavigateUp()`:
+To add navigation support to the default app bar, call
+[`setupActionBarWithNavController()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI.md.txt#setupActionBarWithNavController(androidx.appcompat.app.AppCompatActivity,%20androidx.navigation.NavController,%20androidx.navigation.ui.AppBarConfiguration)) from your main activity's `onCreate()`
+method, as shown below. Note that you need to declare your `AppBarConfiguration`
+outside of `onCreate()`, since you also use it when overriding
+`onSupportNavigateUp()`:
 
 ### Kotlin
 
@@ -361,35 +362,38 @@ To implement this example within your destination fragments using
 `NavigationUI`, first define the app bar in each of your fragment layouts,
 beginning with the destination fragment that uses a standard toolbar:
 
-    <LinearLayout>
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            ... />
-        ...
-    </LinearLayout>
+```xml
+<LinearLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        ... />
+    ...
+</LinearLayout>
+```
 
 Next, define the destination fragment that uses an app bar with tabs:
 
-    <LinearLayout>
-        <com.google.android.material.appbar.AppBarLayout
+```xml
+<LinearLayout>
+    <com.google.android.material.appbar.AppBarLayout
+        ... />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             ... />
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                ... />
+        <com.google.android.material.tabs.TabLayout
+            ... />
 
-            <com.google.android.material.tabs.TabLayout
-                ... />
-
-        </com.google.android.material.appbar.AppBarLayout>
-        ...
-    </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+    ...
+</LinearLayout>
+```
 
 The navigation configuration logic is the same for both of these fragments,
-except that you should call
-[`setupWithNavController()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI#setupWithNavController(androidx.appcompat.widget.Toolbar,androidx.navigation.NavController,androidx.navigation.ui.AppBarConfiguration))
-from within each fragment's `onViewCreated()` method, instead of initializing
-them from the activity:
+except that you should call [`setupWithNavController()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI.md.txt#setupWithNavController(androidx.appcompat.widget.Toolbar,androidx.navigation.NavController,androidx.navigation.ui.AppBarConfiguration)) from within each
+fragment's `onViewCreated()` method, instead of initializing them from the
+activity:
 
 ### Kotlin
 
@@ -426,11 +430,10 @@ public void onViewCreated(@NonNull View view,
 
 `NavigationUI` also provides helpers for tying destinations to menu-driven UI
 components. `NavigationUI` contains a helper method,
-[`onNavDestinationSelected()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI#onnavdestinationselected),
-which takes a [`MenuItem`](https://developer.android.com/reference/android/view/MenuItem) along with the
-[`NavController`](https://developer.android.com/reference/androidx/navigation/NavController) that hosts the
-associated destination. If the `id` of the `MenuItem` matches the `id` of
-the destination, the `NavController` can then navigate to that destination.
+[`onNavDestinationSelected()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI.md.txt#onNavDestinationSelected(android.view.MenuItem,%20androidx.navigation.NavController)), which takes a [`MenuItem`](https://developer.android.com/reference/android/view/MenuItem.md.txt) along with
+the [`NavController`](https://developer.android.com/reference/androidx/navigation/NavController.md.txt) that hosts the associated destination. If the `id` of
+the `MenuItem` matches the `id` of the destination, the `NavController` can
+then navigate to that destination.
 
 As an example, the XML snippets below define a menu item and a destination with
 a common `id`, `details_page_fragment`:
@@ -462,10 +465,10 @@ a common `id`, `details_page_fragment`:
 </menu>
 ```
 
-If your menu was added via the Activity's `onCreateOptionsMenu()`, for example,
-you can associate the menu items with destinations by overriding the Activity's
-`onOptionsItemSelected()` to call `onNavDestinationSelected()`, as shown in
-the following example:
+If your menu was added using the Activity's `onCreateOptionsMenu()`, for
+example, you can associate the menu items with destinations by overriding the
+Activity's `onOptionsItemSelected()` to call `onNavDestinationSelected()`, as
+shown in the following example:
 
 ### Kotlin
 
@@ -499,51 +502,49 @@ in the app bar or when the user swipes a finger from the left edge of the
 screen.
 ![an open drawer displaying a navigation menu](https://developer.android.com/static/images/topic/libraries/architecture/navigation-drawer.png) **Figure 3.** An open drawer displaying a navigation menu.
 
-The drawer icon is displayed on all
-[*top-level destinations*](https://developer.android.com/guide/navigation/integrations/ui#appbarconfiguration) that use a `DrawerLayout`.
+The drawer icon is displayed on all [*top-level destinations*](https://developer.android.com/guide/navigation/integrations/ui.md.txt#appbarconfiguration) that use a
+`DrawerLayout`.
 
-To add a navigation drawer, first declare a
-[`DrawerLayout`](https://developer.android.com/reference/androidx/drawerlayout/widget/DrawerLayout) as the root
+To add a navigation drawer, first declare a [`DrawerLayout`](https://developer.android.com/reference/androidx/drawerlayout/widget/DrawerLayout.md.txt) as the root
 view. Inside the `DrawerLayout`, add a layout for the main UI content and
 another view that contains the contents of the navigation drawer.
 
 For example, the following layout uses a `DrawerLayout` with two child views: a
-[`NavHostFragment`](https://developer.android.com/reference/androidx/navigation/fragment/NavHostFragment) to
-contain the main content and a
-[`NavigationView`](https://developer.android.com/reference/com/google/android/material/navigation/NavigationView)
+[`NavHostFragment`](https://developer.android.com/reference/androidx/navigation/fragment/NavHostFragment.md.txt) to contain the main content and a [`NavigationView`](https://developer.android.com/reference/com/google/android/material/navigation/NavigationView.md.txt)
 for the contents of the navigation drawer.
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <!-- Use DrawerLayout as root container for activity -->
-    <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/drawer_layout"
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Use DrawerLayout as root container for activity -->
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
+    <androidx.fragment.app.FragmentContainerView
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:id="@+id/nav_host_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" />
 
-        <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
-        <androidx.fragment.app.FragmentContainerView
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:id="@+id/nav_host_fragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_graph" />
+    <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true" />
 
-        <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:fitsSystemWindows="true" />
+</androidx.drawerlayout.widget.DrawerLayout>
+```
 
-    </androidx.drawerlayout.widget.DrawerLayout>
-
-Next, connect the [`DrawerLayout`](https://developer.android.com/reference/androidx/drawerlayout/widget/DrawerLayout)
-to your navigation graph by passing it to `AppBarConfiguration`, as shown in
-the following example:
+Next, connect the [`DrawerLayout`](https://developer.android.com/reference/androidx/drawerlayout/widget/DrawerLayout.md.txt) to your navigation graph by passing it to
+`AppBarConfiguration`, as shown in the following example:
 
 ### Kotlin
 
@@ -561,11 +562,10 @@ AppBarConfiguration appBarConfiguration =
 ```
 
 > [!NOTE]
-> **Note:** When using `NavigationUI`, the [top app bar](https://developer.android.com/guide/navigation/integrations/ui#top-app-bar) helpers automatically transition between the drawer icon and the Up icon as the current destination changes. You don't need to use [`ActionBarDrawerToggle`](https://developer.android.com/reference/androidx/appcompat/app/ActionBarDrawerToggle).
+> **Note:** When using `NavigationUI`, the [top app bar](https://developer.android.com/guide/navigation/integrations/ui.md.txt#top_app_bar) helpers automatically transition between the drawer icon and the Up icon as the current destination changes. You don't need to use [`ActionBarDrawerToggle`](https://developer.android.com/reference/androidx/appcompat/app/ActionBarDrawerToggle.md.txt).
 
-Next, in your main activity class, call
-[`setupWithNavController()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI#setupWithNavController(com.google.android.material.navigation.NavigationView,%20androidx.navigation.NavController))
-from your main activity's `onCreate()` method, as shown below:
+Next, in your main activity class, call [`setupWithNavController()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI.md.txt#setupWithNavController(com.google.android.material.navigation.NavigationView,%20androidx.navigation.NavController)) from
+your main activity's `onCreate()` method, as shown below:
 
 ### Kotlin
 
@@ -600,20 +600,18 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 
 > [!NOTE]
-> **Note:** Setting up the navigation drawer requires that you also set up your navigation graph and menu xml as described in [Tie destinations to menu items](https://developer.android.com/guide/navigation/navigation-ui#Tie-navdrawer).
+> **Note:** Setting up the navigation drawer requires that you also set up your navigation graph and menu xml as described in [Tie destinations to menu
+> items](https://developer.android.com/guide/navigation/integrations/ui#Tie-navdrawer).
 
-Starting in
-[Navigation 2.4.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigation#2.4.0-alpha01),
-the state of each menu item is saved and restored when you use
-`setupWithNavController`.
+Starting in [Navigation 2.4.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.4.0-alpha01), the state of each menu item is
+saved and restored when you use `setupWithNavController`.
 
 ## Bottom navigation
 
 `NavigationUI` can also handle bottom navigation. When a user selects a menu
-item, the `NavController` calls
-[`onNavDestinationSelected()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI#onNavDestinationSelected(android.view.MenuItem,%20androidx.navigation.NavController))
-and automatically updates the selected item in the bottom navigation bar.
-![bottom navigation bar](https://developer.android.com/static/topic/libraries/architecture/images/bottom-navigation.png) **Figure 4.** A bottom navigation bar.
+item, the `NavController` calls [`onNavDestinationSelected()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI.md.txt#onNavDestinationSelected(android.view.MenuItem,%20androidx.navigation.NavController)) and
+automatically updates the selected item in the bottom navigation bar.
+![app screen displaying a bottom navigation bar](https://developer.android.com/static/topic/libraries/architecture/images/bottom-navigation.png) **Figure 4.** A bottom navigation bar.
 
 To create a bottom navigation bar in your app, first define the bar in your main
 activity, as shown below:
@@ -630,9 +628,8 @@ activity, as shown below:
 </LinearLayout>
 ```
 
-Next, in your main activity class, call
-[`setupWithNavController()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI#setupWithNavController(com.google.android.material.navigation.NavigationView,%20androidx.navigation.NavController))
-from your main activity's `onCreate()` method, as shown below:
+Next, in your main activity class, call [`setupWithNavController()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI.md.txt#setupWithNavController(com.google.android.material.navigation.NavigationView,%20androidx.navigation.NavController)) from
+your main activity's `onCreate()` method, as shown below:
 
 ### Kotlin
 
@@ -667,28 +664,27 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 
 > [!NOTE]
-> **Note:** Setting up bottom navigation requires that you also set up your navigation graph and menu xml as described in [Tie destinations to menu items](https://developer.android.com/guide/navigation/navigation-ui#Tie-navdrawer).
+> **Note:** Setting up bottom navigation requires that you also set up your navigation graph and menu xml as described in [Tie destinations to menu
+> items](https://developer.android.com/guide/navigation/integrations/ui#Tie-navdrawer).
 
-Starting in
-[Navigation 2.4.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigation#2.4.0-alpha01),
-the state of each menu item is saved and restored when you use
-`setupWithNavController`.
+Starting in [Navigation 2.4.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.4.0-alpha01), the state of each menu item is
+saved and restored when you use `setupWithNavController`.
 
 ## Listen for navigation events
 
-Interacting with the [`NavController`](https://developer.android.com/reference/androidx/navigation/NavController)
-is the primary method for navigating between destinations. The `NavController`
-is responsible for replacing the contents of the [`NavHost`](https://developer.android.com/reference/androidx/navigation/NavHost)
-with the new destination. In many cases, UI elements---such as a top app bar or
-other persistent navigation controls like a `BottomNavigationBar`---live outside
-of the `NavHost` and need to be updated as you navigate between destinations.
+Interacting with the [`NavController`](https://developer.android.com/reference/androidx/navigation/NavController.md.txt) is the primary method for navigating
+between destinations. The `NavController` is responsible for replacing the
+contents of the [`NavHost`](https://developer.android.com/reference/androidx/navigation/NavHost.md.txt) with the new destination. In many cases, UI
+elements---such as a top app bar or other persistent navigation controls like a
+`BottomNavigationBar`---live outside of the `NavHost` and need to be updated as
+you navigate between destinations.
 
 `NavController` offers an `OnDestinationChangedListener` interface that is
-called when the `NavController`'s [current destination](https://developer.android.com/reference/androidx/navigation/NavController#getCurrentDestination%28%29)
-or its arguments change. A new listener can be registered via the
-[`addOnDestinationChangedListener()`](https://developer.android.com/reference/androidx/navigation/NavController#addOnDestinationChangedListener%28androidx.navigation.NavController.OnDestinationChangedListener%29)
-method. Note that when calling `addOnDestinationChangedListener()`, if the
-current destination exists, it's immediately sent to your listener.
+called when the `NavController`'s [current destination](https://developer.android.com/reference/androidx/navigation/NavController.md.txt#getCurrentDestination%28%29) or its arguments
+change. A new listener can be registered using the
+[`addOnDestinationChangedListener()`](https://developer.android.com/reference/androidx/navigation/NavController.md.txt#addOnDestinationChangedListener%28androidx.navigation.NavController.OnDestinationChangedListener%29) method. Note that when calling
+`addOnDestinationChangedListener()`, if the current destination exists, it's
+immediately sent to your listener.
 
 `NavigationUI` uses `OnDestinationChangedListener` to make these common UI
 components navigation-aware. Note, however, that you can also use
@@ -765,11 +761,10 @@ example, we can create an argument in the `NavGraph`:
 </navigation>
 ```
 
-This argument isn't used when
-[navigating to the destination](https://developer.android.com/guide/navigation/navigation-navigate), but
-rather as a way to attach additional information to the destination by using
-the `defaultValue`. In this case, the value indicates whether the app bar
-should be shown when on this destination.
+This argument isn't used when [navigating to the destination](https://developer.android.com/guide/navigation/navigation-navigate), but rather as
+a way to attach additional information to the destination by using the
+`defaultValue`. In this case, the value indicates whether the app bar should be
+shown when on this destination.
 
 We can now add an `OnDestinationChangedListener` in the `Activity`:
 
@@ -806,24 +801,19 @@ navController.addOnDestinationChangedListener(
 );
 ```
 
-The [`NavController`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController)
-invokes this callback whenever the navigation destination changes. The
-`Activity` can now update the state or visibility of the UI components
-that it owns based upon the arguments received in the callback.
+The [`NavController`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController.md.txt) invokes this callback whenever the navigation
+destination changes. The `Activity` can now update the state or visibility of
+the UI components that it owns based upon the arguments received in the
+callback.
 
 One advantage of this approach is that the `Activity` sees only the
 arguments in the navigation graph and doesn't know individual `Fragment`
-roles and responsibilities. Similarly, the individual fragments do not know
+roles and responsibilities. Similarly, the individual fragments don't know
 about the containing `Activity` and the UI components that it owns.
 
 ## Additional resources
 
 To learn more about navigation, see the following additional resources.
-
-### Samples
-
-- [Android Architecture Components Basic Navigation Sample](https://github.com/android/architecture-components-samples/tree/main/NavigationBasicSample)
-- [Android Architecture Components Advanced Navigation Sample](https://github.com/android/architecture-components-samples/tree/main/NavigationAdvancedSample)
 
 ### Codelabs
 
@@ -831,10 +821,12 @@ To learn more about navigation, see the following additional resources.
 
 ### Blog posts
 
-- [LiveData with SnackBar, Navigation and other events (the SingleLiveEvent case)](https://medium.com/androiddevelopers/livedata-with-snackbar-navigation-and-other-events-the-singleliveevent-case-ac2622673150)
+- [LiveData with SnackBar, Navigation and other events (the SingleLiveEvent
+  case)](https://medium.com/androiddevelopers/livedata-with-snackbar-navigation-and-other-events-the-singleliveevent-case-ac2622673150)
 
 ### Videos
 
 - [10 Best Practices for Moving to a Single Activity](https://www.youtube.com/watch?v=9O1D_Ytk0xg)
 - [Single Activity: Why, When, and How (Android Dev Summit '18)](https://www.youtube.com/watch?v=2k8x8V77CrU)
-- [Android Jetpack: manage UI navigation with Navigation Controller (Google I/O '18)](https://www.youtube.com/watch?v=8GCXtCjtg40)
+- [Android Jetpack: manage UI navigation with Navigation Controller (Google I/O
+  '18)](https://www.youtube.com/watch?v=8GCXtCjtg40)

@@ -50,8 +50,8 @@ I have read and agree with the above terms and conditions <button class="button 
 
 1. Do either of the following:
 
-   - Install [Android Studio](https://developer.android.com/studio) version 4.0 or higher. Use the SDK Manager UI to install Android SDK Platform version 10.0 (API level 29).
-   - Install the [Android SDK command-line tools](https://developer.android.com/studio#command-tools) and use [`sdkmanager`](https://developer.android.com/studio/command-line/sdkmanager) to install Android SDK Platform version 10.0 (API level 29).
+   - Install [Android Studio](https://developer.android.com/studio.md.txt) version 4.0 or higher. Use the SDK Manager UI to install Android SDK Platform version 10.0 (API level 29).
+   - Install the [Android SDK command-line tools](https://developer.android.com/studio.md.txt#command-tools) and use [`sdkmanager`](https://developer.android.com/studio/command-line/sdkmanager) to install Android SDK Platform version 10.0 (API level 29).
 2. Prepare Android Studio for native development by using the
    [SDK Manager](https://developer.android.com/studio/intro/update.md.txt#sdk-manager) to install the latest
    CMake and Android Native Development Kit (NDK). For more information on

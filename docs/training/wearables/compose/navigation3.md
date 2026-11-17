@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/compose/navigation3
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/compose/llms.txt
+
 Navigation 3 is a navigation library designed from the ground up for Jetpack
 Compose. This guide explains how to implement Navigation 3 in Wear OS
 applications.

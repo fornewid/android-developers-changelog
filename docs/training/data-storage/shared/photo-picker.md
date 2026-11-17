@@ -6,7 +6,7 @@ source: md.txt
 
 > Documentation index: https://developer.android.com/training/data-storage/shared/photo-picker/llms.txt
 
-![Photo picker dialog appears with media files on your device. Select a photo to share with the app.](https://developer.android.com/static/images/training/data-storage/kotlin-picker.gif) **Figure 1.** The photo picker provides an intuitive UI for sharing photos with your app.
+![Picker dialog appears with media files on your device so you can select an item to share with the app.](https://developer.android.com/static/images/training/data-storage/kotlin-picker.gif) **Figure 1.** The photo picker provides an intuitive UI for sharing photos with your app.
 
 The photo picker provides a browsable interface that presents the
 user with their media library, sorted by date from newest to oldest. As shown in
@@ -243,12 +243,12 @@ The photo picker is available on devices that meet the following criteria:
 - Run Android 11 (API level 30) or higher
 - Receive changes to [Modular System Components](https://source.android.com/devices/architecture/modular-system) through [Google System Updates](https://support.google.com/product-documentation/answer/11412553)
 
-Older devices that run Android 4.4 (API level 19) through Android 10 (API level 29)
-and Android Go devices running Android 11 or 12 that support
-Google Play services can install a backported version of the photo picker. To
-enable the automatic installation of the backported photo picker module through
-Google Play services, add the following entry to the `<application>` tag in your
-app's manifest file:
+Older devices that run Android 4.4 (API level 19) through Android 10 (API level
+29) and Android Go devices running Android 11 or 12 that support Google Play
+services can install a backported version of the photo picker. To enable the
+automatic installation of the backported photo picker module through Google Play
+services, add the following entry to the `<application>` tag in your app's
+manifest file:
 
 ```xml
 <!-- Trigger Google Play services to install the backported photo picker module. -->

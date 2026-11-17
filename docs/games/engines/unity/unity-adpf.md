@@ -4,13 +4,15 @@ url: https://developer.android.com/games/engines/unity/unity-adpf
 source: md.txt
 ---
 
-[Unity Adaptive Performance](https://docs.unity3d.com/Packages/com.unity.adaptiveperformance@5.0/manual/installing-and-configuring.html)
-is a tool for game developers who want to optimize their games on mobile
-devices, particularly for the diverse Android ecosystem. Adaptive Performance
-enables your game to adapt to device performance and thermal characteristics in
-real time, ensuring a smooth and efficient gaming experience. The
-[Android provider](https://docs.unity3d.com/Packages/com.unity.adaptiveperformance.google.android@1.2/manual/index.html)
-implements Adaptive Performance on Android devices.
+> Documentation index: https://developer.android.com/games/llms.txt
+
+[Unity Adaptive Performance](https://docs.unity3d.com/Packages/com.unity.adaptiveperformance@5.0/manual/installing-and-configuring.html) is a tool for
+game developers who want to optimize their games on mobile devices, particularly
+for the diverse Android ecosystem. Adaptive Performance enables your game to
+adapt to device performance and thermal characteristics in real time, ensuring a
+smooth and efficient gaming experience. The [Android
+provider](https://docs.unity3d.com/Packages/com.unity.adaptiveperformance.google.android@1.2/manual/index.html) implements Adaptive Performance on
+Android devices.
 
 ## How to use Unity Adaptive Performance
 
@@ -71,5 +73,5 @@ Adaptive Performance:
 ## Additional resources
 
 See how
-[Kakao Games Ares used Unity Adaptive Performance](https://developer.android.com/stories/games/kakaogames-adaptability)
+[Kakao Games Ares used Unity Adaptive Performance](https://developer.android.com/stories/games/kakaogames-adaptability.md.txt)
 to increase FPS stability to 96%.

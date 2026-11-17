@@ -4,13 +4,15 @@ url: https://developer.android.com/blog/posts/android-developer-verification-rol
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Android developer verification: Rolling out to all developers on Play Console and Android Developer Console
 
-3 min read ![](https://developer.android.com/static/blog/assets/android_Verification2_40caaf2e67_Z10Vf7G.webp) 30 Mar 2026 [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe) [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) Director, Product Management **Sep 29, 2026:**
+3 min read ![](https://developer.android.com/static/blog/assets/android_Verification2_40caaf2e67_Z10Vf7G.webp) 30 Mar 2026 [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) Director, Product Management, Android App Safety **Sep 29, 2026:**
 
-**To clarify, rollout details have been updated since this post was published. On September 30, 2026, developer verification protections will begin rolling out to** [**participating stores**](https://developer.android.com/developer-verification/guides)**in select regions on certified Android devices. In 2027, we'll expand this globally.**
+**To clarify, rollout details have been updated since this post was published. On September 30, 2026, developer verification protections will begin rolling out to** [**participating stores**](https://developer.android.com/developer-verification/guides.md.txt)**in select regions on certified Android devices. In 2027, we'll expand this globally.**
 
 **Find the latest guidance and timeline at** [**developer.android.com/developer-verification**](https://developer.android.com/developer-verification)**.**
 
@@ -54,7 +56,7 @@ We're rolling this out carefully and working closely with developers, users, and
 - **April 2026:** Users will start to see Android Developer Verifier in their Google Systems services settings.
 - **June 2026:** Early access: Limited distribution accounts for students and hobbyists.
 - **August 2026:**
-  - [Limited distribution accounts](https://developer.android.com/developer-verification/guides/limited-distribution) launch globally.
+  - [Limited distribution accounts](https://developer.android.com/developer-verification/guides/limited-distribution.md.txt) launch globally.
   - [Advanced flow](https://android-developers.googleblog.com/2026/03/android-developer-verification.html) for power users launches globally.
 - **September 30, 2026:** Apps must be registered by verified developers in order to be installed and updated on certified Android devices in Brazil, Indonesia, Singapore, and Thailand. Unregistered apps can be sideloaded with ADB or advanced flow.
 - **2027 and beyond:** We will roll out this requirement globally.
@@ -64,32 +66,32 @@ Written by:
 
 -
 
-  ## [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe)
+  ## [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt)
 
   ###### Director, Product Management
 
   [read_more
   View profile](https://developer.android.com/blog/authors/matthew-forsythe) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)
 Continue reading
-- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_KDejo.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_KDejo.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
+  ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
-  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
-- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 19 Mar 2026 19 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Verification2_b4044e9b89_ZkItcl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together.md.txt) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) • 2 min read
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) 19 Mar 2026 19 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Verification2_b4044e9b89_ZkItcl.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android developer verification: Balancing openness and choice with safety](https://developer.android.com/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety)
+  ## [Android developer verification: Balancing openness and choice with safety](https://developer.android.com/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety) Android proves you don't have to choose between an open ecosystem and a secure one. Since announcing updated verification requirements, we've worked with the community to ensure these protections are robust yet respectful of platform freedom.
-  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe)[![View Ron Aquino's profile](https://developer.android.com/static/blog/assets/unnamed_18_8bd07de9bd_ZRiq2s.webp)](https://developer.android.com/blog/authors/ron-aquino) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/251210_Header_v01_de706a19ce_11Dc1K.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety.md.txt) Android proves you don't have to choose between an open ecosystem and a secure one. Since announcing updated verification requirements, we've worked with the community to ensure these protections are robust yet respectful of platform freedom.
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) • 2 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe.md.txt)[![View Ron Aquino's profile](https://developer.android.com/static/blog/assets/unnamed_18_8bd07de9bd_ZRiq2s.webp)](https://developer.android.com/blog/authors/ron-aquino.md.txt) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/251210_Header_v01_de706a19ce_11Dc1K.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Building a safer Android and Google Play, together](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together)
+  ## [Building a safer Android and Google Play, together](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together) Earlier this year, we reiterated our commitment to keeping Android and Google Play safe for everyone and maintaining a thriving environment where users can trust the apps they download and your business can flourish.
-  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe), [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino) • 3 min read
+  [arrow_forward](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together.md.txt) Earlier this year, we reiterated our commitment to keeping Android and Google Play safe for everyone and maintaining a thriving environment where users can trust the apps they download and your business can flourish.
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt), [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino.md.txt) • 3 min read
 Stay in the loop
 
 

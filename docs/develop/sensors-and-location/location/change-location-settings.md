@@ -4,12 +4,14 @@ url: https://developer.android.com/develop/sensors-and-location/location/change-
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/sensors-and-location/location/llms.txt
+
 If your app needs to request location or receive permission updates, the
 device needs to enable the appropriate system settings, such as GPS or Wi-Fi
 scanning. Rather than directly enabling services such as the device's GPS,
-your app specifies the required level of accuracy/power consumption and
-desired update interval, and the device automatically makes the appropriate
-changes to system settings. These settings are defined by the
+your app specifies the required level of accuracy and power consumption and
+the update interval you want, and the device automatically makes the
+appropriate changes to system settings. These settings are defined by the
 [`LocationRequest`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest)
 data object.
 
@@ -20,7 +22,7 @@ dialog for the user to update their settings with a single tap.
 
 ## Configure location services
 
-In order to use the location services provided by Google Play Services and
+In order to use the location services provided by Google Play services and
 the fused location provider, connect your app using the
 [Settings Client](https://developers.google.com/android/reference/com/google/android/gms/location/SettingsClient),
 then check the current location settings and prompt the user to enable the
@@ -97,7 +99,7 @@ code sample:
 The priority of
 [`PRIORITY_HIGH_ACCURACY`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_HIGH_ACCURACY),
 combined with the
-`https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION`
+`ACCESS_FINE_LOCATION`
 permission setting that you've defined in the app manifest, and a fast update
 interval of 5000 milliseconds (5 seconds), causes the fused location
 provider to return location updates that are accurate to within a few feet.
@@ -171,7 +173,7 @@ method.
 
 To determine whether the location settings are appropriate for the location
 request, add an [`OnFailureListener`](https://developers.google.com/android/reference/com/google/android/gms/tasks/OnFailureListener) to the [`Task`](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task) object that validates the location settings. Then, check
-if the [`Exception`](https://developer.android.com/reference/java/lang/Exception.html) object passed to the [`onFailure()`](https://developers.google.com/android/reference/com/google/android/gms/tasks/OnFailureListener.html#onFailure(java.lang.Exception)) method is an instance of the [`ResolvableApiException`](https://developers.google.com/android/reference/com/google/android/gms/common/api/ResolvableApiException) class, which indicates that the settings
+if the [`Exception`](https://developer.android.com/reference/java/lang/Exception.md.txt) object passed to the [`onFailure()`](https://developers.google.com/android/reference/com/google/android/gms/tasks/OnFailureListener.html#onFailure(java.lang.Exception)) method is an instance of the [`ResolvableApiException`](https://developers.google.com/android/reference/com/google/android/gms/common/api/ResolvableApiException) class, which indicates that the settings
 must be changed. Then, display a dialog that prompts the user for permission to
 modify the location settings by calling [`startResolutionForResult()`](https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#startResolutionForResult(android.app.Activity, int)).
 
@@ -237,5 +239,5 @@ task.addOnFailureListener(this, new OnFailureListener() {
 ```
 
 The next lesson,
-[Request Location Updates](https://developer.android.com/develop/sensors-and-location/location/request-updates), shows
+[Request Location Updates](https://developer.android.com/develop/sensors-and-location/location/request-updates.md.txt), shows
 you how to receive periodic location updates.
