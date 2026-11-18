@@ -1,0 +1,48 @@
+diff --git a/docs/ai/custom.md b/docs/ai/custom.md
+index 9a91a56c..ca93f20c 100644
+--- a/docs/ai/custom.md
++++ b/docs/ai/custom.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/ai/custom
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/ai/llms.txt
++
+ LiteRT on Android provides the essentials for deploying high-performance,
+ custom ML features into your Android app.
+ 
+@@ -39,7 +41,33 @@ runtime up to date without an app release. [Learn more](https://developers.googl
+ Use the LiteRT runtime skill with your coding agent, such as Agent Mode in
+ Android Studio, to add LiteRT to your app, run a model on the CPU or GPU, or
+ migrate an existing TensorFlow Lite app to LiteRT in Google Play services.
+-[Learn more](https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/skill)
++[Learn more](https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/skill.md.txt)
++
++
++## Android skills
++
++[View on GitHub](https://github.com/android/skills/tree/main/device-ai/litert/litert-runtime)
++
++### Run on-device models with LiteRT
++
++Use LiteRT in Google Play services [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to implement on-device model inference and enable GPU acceleration without runtime overhead. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
++
++    android skills add litert-runtime
++
++<br />
++
++
++## Android skills
++
++[View on GitHub](https://github.com/android/skills/tree/main/device-ai/litert/litert-lm)
++
++### Run on-device LLMs with LiteRT-LM
++
++Use the LiteRT-LM [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to build an Android app that runs an open text LLM on-device on CPU or GPU using the LiteRT-LM Kotlin API. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
++
++    android skills add litert-lm
++
++<br />
+ 
+ ## Code samples
+ 

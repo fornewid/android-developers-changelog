@@ -1,0 +1,81 @@
+diff --git a/docs/games/playgames/native-pc/publish/play-managed-installation.md b/docs/games/playgames/native-pc/publish/play-managed-installation.md
+index 33d6fb09..87d3226e 100644
+--- a/docs/games/playgames/native-pc/publish/play-managed-installation.md
++++ b/docs/games/playgames/native-pc/publish/play-managed-installation.md
+@@ -4,13 +4,17 @@ url: https://developer.android.com/games/playgames/native-pc/publish/play-manage
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/games/playgames/native-pc/llms.txt
++
+ This document shows you how to publish your game on Google Play Games on PC using Play Managed Installation.
+ 
+ With Play Managed Installation, Google Play manages the installation, update, and uninstallation of the game using the game files and metadata you provide in a Windows app bundle (WAB) file.
+ 
+ ## Before you begin
+ 
+-Integrate the [Google Play Games SDK](https://developer.android.com/games/playgames/native-pc/setup) into your game.
++Integrate the [Google Play Games SDK](https://developer.android.com/games/playgames/native-pc/setup.md.txt) into your game. To start onboarding,
++email[google-play-games-pc@google.com](mailto:google-play-games-pc@google.com) for assistance with
++the next steps.
+ 
+ ## Package your game as a WAB file
+ 
+@@ -221,7 +225,7 @@ To create a Play Managed Installation WAB file, follow these steps:
+    > interpretation of \\\\t and \\\\d as escape sequences,
+    > leading to unexpected behavior.
+    >
+-   > For more examples, see [How to use regular expressions](https://developer.android.com/games/playgames/native-pc/publish/play-managed-installation#regex-examples).
++   > For more examples, see [How to use regular expressions](https://developer.android.com/games/playgames/native-pc/publish/play-managed-installation.md.txt#regex-examples).
+ 
+    #### How to use regular expressions
+ 
+@@ -416,4 +420,45 @@ To create a Play Managed Installation WAB file, follow these steps:
+      ├── pmi_bundle.wab
+      ├── play_publishing_config.xml
+      ├── playpublishingtool.exe
+-   ```
+\ No newline at end of file
++   ```
++
++## Publish the game using Play Console
++
++After you create the WAB file for your game, upload it to
++Play Console and configure its settings and requirements. Open
++Play Console, select your app, and follow these steps:
++
++### Enable Windows native distribution
++
++1. In Play Console, go to **Test and release \> Advanced settings
++   \> Form factors and platforms**.
++2. In the **Windows** section, click **Add Windows**.
++
++> [!NOTE]
++> **Note:** If **Add Windows** is disabled because the Android **Google Play Games on PC** form factor is opted in, select **Opt out** for **Google Play Games on PC** on Android and then select **Remove** first. If the **Windows** option isn't visible under **Form factors and platforms** , your account needs to complete onboarding first. **Prepared to start onboarding?** Reach out by email to [google-play-games-pc@google.com](mailto:google-play-games-pc@google.com). The onboarding specialists will assist you with the next steps.
++
++### Configure PC requirements, store listing assets, and review policy
++
++1. Set PC hardware requirements (RAM, GPU, and storage) and upload **Google Play Games on PC** store listing assets (screenshots and an optional video).
++2. Return to **Test and release \> Advanced settings \> Form factors and
++   platforms** and click **Agree to review policy** to confirm compliance with the [Google Play Games on PC quality guidelines](https://support.google.com/googleplay/topic/13019131).
++
++### Test your game on the internal testing track
++
++1. Go to **Test and release \> Testing \> Internal testing** and select the **Google Play Games on PC** track.
++2. Select up to 100 testers (you can configure a separate tester list from Android), upload your Windows App Bundle (`.wab`), and click **Save and
++   publish**.
++3. Share both the Play Console opt-in web link (`https://play.google.com/apps/internaltest/...`) and the client deep link `googleplaygames://deeplink/details?id=PACKAGE_NAME` (replacing `PACKAGE_NAME` with your app's package name) with your testers. Testers must first open the opt-in web link and click **Accept invite** , and then paste `googleplaygames://deeplink/details?id=PACKAGE_NAME` into a Windows browser address bar or `Win+R` to open the game's details page in the Google Play Games on PC client and install the build.
++
++> [!NOTE]
++> **Note:** During internal testing, the **Install on Windows** button doesn't appear on the Google Play web store, so testers must use the `googleplaygames://deeplink/details?id=PACKAGE_NAME` deep link to install the build. Closed and open testing tracks are unavailable on Windows (only Internal testing is supported).
++
++### Publish to production
++
++1. Go to **Test and release \> Production** and select the **Google Play Games on PC** track.
++2. Select your target countries (which must match or be a subset of your Android country targeting).
++3. Create a new release or promote your internal test release, and submit your release for review. Reviews take up to seven days.
++4. Use **Managed publishing** on the **Publishing overview** page to control when your approved release goes live.
++
++> [!NOTE]
++> **Note:** A package serves either the emulated Android build or the native PC build on Windows, so publishing a native PC build replaces the emulated version for existing PC players.
+\ No newline at end of file

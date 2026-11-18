@@ -1,0 +1,38 @@
+diff --git a/docs/studio/preview/features.md b/docs/studio/preview/features.md
+index a2075242..b92c79cf 100644
+--- a/docs/studio/preview/features.md
++++ b/docs/studio/preview/features.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ This page lists the new features introduced in Android Studio preview releases.
+ The preview builds provide early access to the latest features and improvements
+-in Android Studio. [You can download these preview versions](https://developer.android.com/studio/preview.md.txt).
++in Android Studio. [You can download these preview versions](https://developer.android.com/studio/preview).
+ If you encounter any problems using a preview version of Android Studio, [let us
+ know](https://developer.android.com/studio/report-bugs). Your bug reports help to make Android Studio better.
+ 
+@@ -86,6 +86,15 @@ The following are new features in Android Studio Stingray 1.
+ To see what's been fixed in this version of Android Studio, see the [closed
+ issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.3.1).
+ 
++### Test suites in the Android Gradle plugin
++
++Group unit tests, instrumented tests, asset tests, or mixed combinations into
++named test suites using the AGP `testOptions` DSL. Each suite defines its own
++source sets, dependencies, JUnit Platform test engines, and target build
++variants. For more information, see [Test suites in the Android Gradle
++plugin](https://developer.android.com/studio/preview/test-suites), [Unit test suites](https://developer.android.com/studio/preview/unit-test-suites.md.txt), and [Instrumented
++test suites](https://developer.android.com/studio/preview/instrumented-test-suites).
++
+ ### Compose Preview Screenshot Testing tool
+ 
+ Use the Compose Preview Screenshot Testing tool to test your Compose UIs and
+@@ -101,7 +110,7 @@ model for complex reasoning tasks in Agent Mode, and a faster, lightweight model
+ for simpler, latency-sensitive tasks like commit message generation or next edit
+ prediction. This lets you balance quality, speed, and quota usage across
+ features.
+-![](https://developer.android.com/static/studio/preview/images/model-assignment.png)
++![](https://developer.android.com/static/studio/preview/images/model-assignment.png) Model Assignment settings in Android Studio.
+ 
+ To configure this, go to **File** (**Android Studio** on macOS) **\> Settings \> Tools \>
+ AI \> Model Providers** , select the **Model Assignment** tab, and use the dropdowns

@@ -1,0 +1,32 @@
+diff --git a/docs/blog.md b/docs/blog.md
+index e3e8a182..72ca182e 100644
+--- a/docs/blog.md
++++ b/docs/blog.md
+@@ -24,6 +24,13 @@ Tools and resources to help you build faster and easier.
+ 
+ ## The Latest
+ 
++- [![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_1PpSPG.webp)](https://developer.android.com/blog/authors/breana-tate.md.txt) 17 Nov 2026 17 Nov 2026 ![](https://developer.android.com/static/blog/assets/1109_ABL_160_Ship_smarter_keep_rules_How_library_providers_can_unblock_app_level_DEX_code_optimization_1_44aba4f3cd_1kr2I.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
++
++  ## [Ship smarter keep rules: How library providers can unblock app-level DEX code optimization](https://developer.android.com/blog/posts/ship-smarter-keep-rules-unblock-dex-optimization.md.txt)
++
++  As Android app and library developers, we all strive for the same goal: performant apps that provide a smooth user experience. A major part of that involves R8, Android's app optimizer. R8 improves app performance by removing unused code, and optimizing and obfuscating the rest.
++  [Breana Tate](https://developer.android.com/blog/authors/breana-tate.md.txt) • 6 min read
++  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+ - [![View Phalene Gowling's profile](https://developer.android.com/static/blog/assets/Phalene_Gowling_0adca8708d_Z1EF0vK.webp)](https://developer.android.com/blog/authors/phalene-gowling.md.txt)[![View Rejane França's profile](https://developer.android.com/static/blog/assets/unnamed_31_d80d832499_1LWl7t.webp)](https://developer.android.com/blog/authors/rejane-franca.md.txt) 16 Nov 2026 16 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_158_Beyond_the_App_A_bd07c85947_982bv.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+   ## [Beyond the app: Expanding buyer reach across new surfaces with Google Play](https://developer.android.com/blog/posts/beyond-the-app-google-play-buyer-reach.md.txt)
+@@ -62,13 +69,6 @@ Tools and resources to help you build faster and easier.
+   - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+   - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
+   - +2 ↩
+-- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge.md.txt) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
+-
+-  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates.md.txt)
+-
+-  The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
+-  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge.md.txt) • 3 min read
+-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
+ [arrow_forward
+ See all latest posts](https://developer.android.com/blog/latest) ![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1Ad42c.webp)
+ 

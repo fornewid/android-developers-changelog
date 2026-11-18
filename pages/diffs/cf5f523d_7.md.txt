@@ -1,0 +1,50 @@
+diff --git a/docs/blog/latest/7.md b/docs/blog/latest/7.md
+index 2f2fe4ee..7f6a0f8f 100644
+--- a/docs/blog/latest/7.md
++++ b/docs/blog/latest/7.md
+@@ -9,6 +9,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 25 Feb 2026 25 Feb 2026 ![](https://developer.android.com/static/blog/assets/intelligent_OS_215691a288_Z2cwx9U.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
++
++  ## [The Intelligent OS: Making AI agents more helpful for Android apps](https://developer.android.com/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps.md.txt) User expectations for AI on their devices are fundamentally shifting how they interact with their apps.
++  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 3 min read
+ - 17 Feb 2026 17 Feb 2026 ![](https://developer.android.com/static/blog/assets/O_SVD_DAC_Banner_1600x476_4x1_1_21e5678d22_Kv7SQ.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
+ 
+   ## [Get ready for Google I/O May 19-20](https://developer.android.com/blog/posts/get-ready-for-google-io-may.md.txt)
+@@ -128,12 +134,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/faster-compiles.md.txt) The Android Runtime (ART) team has reduced compile time by 18% without compromising the compiled code or any peak memory regressions. This improvement was part of our 2025 initiative to improve compile time without sacrificing memory usage or the quality of the compiled code.
+   [Santiago Aboy Solanes](https://developer.android.com/blog/authors/santiago-solanes.md.txt), [Vladimír Marko](https://developer.android.com/blog/authors/vladimir-marko.md.txt) • 8 min read
+-- [![View Bennet Manuel's profile](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_1rYOvj.webp)](https://developer.android.com/blog/authors/bennet-manuel.md.txt)[![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_Z2wbL3d.webp)](https://developer.android.com/blog/authors/robert-clifford.md.txt) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/a11y_rev_37216d57dc_Z1j9hnk.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+-
+-  ## [Enhancing Android security: Stop malware from snooping on your app data](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data.md.txt)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data.md.txt) Security is foundational to Android. We partner with you to keep the platform safe and protect user data by offering powerful security tools and features, like Credential Manager and FLAG_SECURE.
+-  [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel.md.txt), [Robert Clifford](https://developer.android.com/blog/authors/robert-clifford.md.txt) • 2 min read
+ [arrow_back](https://developer.android.com/blog/latest/6.md.txt)
+ 
+ #### Page 7
+@@ -148,10 +148,10 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
+ - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+ - [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
++- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+ - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+ - [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
+ - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
+-- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+ - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
+ - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
+ - [#Wear OS](https://developer.android.com/blog/topics/wear-os.md.txt)
+@@ -229,6 +229,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Window Size Classes](https://developer.android.com/blog/topics/blog-topic)
+ - [#usage-based billing GenAI apps](https://developer.android.com/blog/topics/usage-based-billing-gen-ai-apps)
+ - [#Remote Compose](https://developer.android.com/blog/topics/remote-compose)
++- [#Adaptive Games](https://developer.android.com/blog/topics/adaptive-games)
+ Stay in the loop
+ 
+ 

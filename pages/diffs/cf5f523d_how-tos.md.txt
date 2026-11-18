@@ -1,0 +1,38 @@
+diff --git a/docs/blog/categories/how-tos.md b/docs/blog/categories/how-tos.md
+index 0f1a1c8d..49edb75f 100644
+--- a/docs/blog/categories/how-tos.md
++++ b/docs/blog/categories/how-tos.md
+@@ -11,6 +11,13 @@ source: md.txt
+ # How-tos
+ 
+ From quick tips to deep-dive tutorials, these step-by-step guides are designed to help you work smarter and faster.
++- [![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_1PpSPG.webp)](https://developer.android.com/blog/authors/breana-tate.md.txt) 17 Nov 2026 17 Nov 2026 ![](https://developer.android.com/static/blog/assets/1109_ABL_160_Ship_smarter_keep_rules_How_library_providers_can_unblock_app_level_DEX_code_optimization_1_44aba4f3cd_1kr2I.webp)
++
++  ## [Ship smarter keep rules: How library providers can unblock app-level DEX code optimization](https://developer.android.com/blog/posts/ship-smarter-keep-rules-unblock-dex-optimization.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/ship-smarter-keep-rules-unblock-dex-optimization.md.txt) As Android app and library developers, we all strive for the same goal: performant apps that provide a smooth user experience. A major part of that involves R8, Android's app optimizer. R8 improves app performance by removing unused code, and optimizing and obfuscating the rest.
++  [Breana Tate](https://developer.android.com/blog/authors/breana-tate.md.txt) • 6 min read
++  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+ - [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp)
+ 
+   ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
+@@ -49,18 +56,11 @@ From quick tips to deep-dive tutorials, these step-by-step guides are designed t
+   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience.
+   [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan.md.txt), [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt), [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt) • 8 min read
+   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
+-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp)
+-
+-  ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker.md.txt)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker.md.txt) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
+-  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 4 min read
+-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
+ <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
+ 
+ #### Page 1
+ 
+-###### of 4
++###### of 5
+ 
+ [arrow_forward](https://developer.android.com/blog/categories/how-tos/2.md.txt) Stay in the loop
+ 

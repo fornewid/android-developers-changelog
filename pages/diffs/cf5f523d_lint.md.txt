@@ -1,0 +1,116 @@
+diff --git a/docs/studio/write/lint.md b/docs/studio/write/lint.md
+index 18aec6d2..d26304dd 100644
+--- a/docs/studio/write/lint.md
++++ b/docs/studio/write/lint.md
+@@ -4,7 +4,9 @@ url: https://developer.android.com/studio/write/lint
+ source: md.txt
+ ---
+ 
+-In addition to [building tests](https://developer.android.com/studio/test/test-in-android-studio)
++> Documentation index: https://developer.android.com/studio/write/llms.txt
++
++In addition to [building tests](https://developer.android.com/studio/test/test-in-android-studio.md.txt)
+ to make sure your app meets its functional requirements, it's
+ important that you also run the code through the lint tool to help ensure your
+ code has no structural problems. The lint tool helps find poorly structured
+@@ -19,7 +21,7 @@ versions, might lead to code failing to run correctly. Lint can help you clean
+ up these issues.
+ 
+ To improve linting performance, you can also
+-[add annotations to your code](https://developer.android.com/studio/write/annotations).
++[add annotations to your code](https://developer.android.com/studio/write/annotations.md.txt).
+ 
+ ## Android CLI
+ 
+@@ -29,7 +31,7 @@ To improve linting performance, you can also
+ 
+ Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
+ 
+-For example, use the [`android studio analyze-file`](https://developer.android.com/tools/agents/android-cli/commands/studio_analyze-file) command when you need to analyze your file for errors, warnings, and lint issues.
++For example, use the [`android studio analyze-file`](https://developer.android.com/tools/agents/android-cli/commands/studio_analyze-file.md.txt) command when you need to analyze your file for errors, warnings, and lint issues.
+ 
+     android studio analyze-file <path>
+ 
+@@ -48,8 +50,8 @@ The lint tool checks your Android project source files for potential bugs and
+ optimization improvements for correctness, security, performance, usability,
+ accessibility, and internationalization. When using Android Studio,
+ configured lint and IDE inspections run when you build your app. However,
+-you can [run inspections manually](https://developer.android.com/studio/write/lint#manuallyRunInspections) or
+-[run lint from the command line](https://developer.android.com/studio/write/lint#commandline), as described on
++you can [run inspections manually](https://developer.android.com/studio/write/lint.md.txt#manuallyRunInspections) or
++[run lint from the command line](https://developer.android.com/studio/write/lint.md.txt#commandline), as described on
+ this page.
+ 
+ The built-in lint tool checks your code while you're using
+@@ -85,7 +87,7 @@ Figure 1 shows how the lint tool processes app source files.
+ :   You can view the results from lint either in the console or the **Inspection Results**
+     window in Android Studio. If you run `lint` from the command line, the results are
+     written to the `build/` folder. For further details, see the section about
+-    [running inspections manually](https://developer.android.com/studio/write/lint#manuallyRunInspections).
++    [running inspections manually](https://developer.android.com/studio/write/lint.md.txt#manuallyRunInspections).
+ 
+ ## Run lint from the command line
+ 
+@@ -130,7 +132,7 @@ variant, you must capitalize the variant name and prefix it with `lint`.
+ 
+ **Note:** Lint isn't automatically run as part of your build. We strongly
+ recommend that you explicitly run lint as part of a
+-[continuous integration build](https://developer.android.com/training/testing/continuous-integration)
++[continuous integration build](https://developer.android.com/training/testing/continuous-integration.md.txt)
+ so that you see the latest lint checks when building your existing source code.
+ 
+ 
+@@ -245,7 +247,7 @@ set the severity attribute in the `<issue>` tag.
+ 
+ **Tip:** For a full list of lint-supported issues and their corresponding
+ issue IDs, run the `lint --list` command. The `--list` option must be run
+-from the [standalone lint tool](https://developer.android.com/studio/write/lint#standalone-lint).
++from the [standalone lint tool](https://developer.android.com/studio/write/lint.md.txt#standalone-lint).
+ 
+ #### Sample lint.xml file
+ 
+@@ -303,7 +305,7 @@ issue in a specific function. The lint tool continues to check for the
+ @SuppressLint("NewApi")
+ fun logNotificationChannelInfo() {
+     // Uses NotificationChannel (requires API 26+)
+-    ...
++    // ...
+ }
+ ```
+ 
+@@ -311,12 +313,11 @@ The same can be accomplished on any Composable. The following code snippet shows
+ off `NewApi` checks on any Composable.
+ 
+ ```kotlin
+-  @SuppressLint("NewApi")
+-  @Composable
+-  fun MyComposable{
+-    ...
+-  }
+-  
++@SuppressLint("NewApi")
++@Composable
++fun MyComposable() {
++    // ...
++}
+ ```
+ 
+ The following example shows how to turn off lint checking for the `ParserError`
+@@ -380,7 +381,7 @@ tools:ignore="all"
+ 
+ The Android Gradle plugin lets you configure certain lint options,
+ such as which checks to run or ignore, using the
+-[`lint{}`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/dsl/Lint) block in your module-level
++[`lint{}`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/dsl/Lint.md.txt) block in your module-level
+ `build.gradle` file.
+ 
+ The following code snippet shows some of
+@@ -447,7 +448,7 @@ android {
+ 
+ All lint methods that override the given severity level of an issue respect the
+ order of configuration. For example, setting an issue as fatal in
+-[`finalizeDsl()`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/extension/AndroidComponentsExtension#finalizedsl_1)
++[`finalizeDsl()`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/extension/AndroidComponentsExtension.md.txt#finalizedsl_1)
+ overrides disabling it in the main DSL.
+ 
+ ## Create a warnings baseline

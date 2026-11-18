@@ -1,0 +1,364 @@
+diff --git a/docs/topic/performance/memory/guide/service-bindings.md b/docs/topic/performance/memory/guide/service-bindings.md
+index bb6f11f1..d990715a 100644
+--- a/docs/topic/performance/memory/guide/service-bindings.md
++++ b/docs/topic/performance/memory/guide/service-bindings.md
+@@ -4,9 +4,11 @@ url: https://developer.android.com/topic/performance/memory/guide/service-bindin
+ source: md.txt
+ ---
+ 
+-App processes on Android do not exist in isolation. Applications often rely on
+-services provided by other applications or the system itself. When one process
+-connects to another via a **Service Binding**, it creates a dependency that has
++> Documentation index: https://developer.android.com/topic/performance/memory/guide/llms.txt
++
++App processes on Android don't exist in isolation. Apps often rely on
++services provided by other apps or the system itself. When one process
++connects to another using a service binding, it creates a dependency that has
+ a profound impact on how the Android framework manages memory.
+ 
+ ## Process states and OOM scores
+@@ -42,9 +44,7 @@ Android source code.
+ When a client process (e.g., an app in the `TOP` state) binds to a service in a
+ server process, the server process often **inherits** an elevated priority. This
+ ensures that the service remains available as long as the client needs it.
+-
+-![Diagram showing process A (TOP) calling bindService() via system_server,
+-elevating process B to BTOP](https://developer.android.com/static/topic/performance/memory/guide/images/service-bindings/binding-inheritance.png)
++![Process A binds to Process B, elevating Process B to BTOP.](https://developer.android.com/static/topic/performance/memory/guide/images/service-bindings/binding-inheritance.png) **Figure 1.** Priority inheritance across a service binding.
+ 
+ ### Controlling inheritance with BIND flags
+ 
+@@ -58,13 +58,13 @@ The following flags are most relevant when managing system-wide memory pressure:
+ 
+ - **`BIND_AUTO_CREATE`**: The most common flag. It ensures the service process is started and kept alive as long as the binding exists. By default, it also elevates the server process priority to match the client.
+ - **`BIND_NOT_FOREGROUND`** : Prevents the target service's process from being raised to the foreground **scheduling** priority (CPU priority). However, it **still allows** the memory priority (`oom_score_adj`) to be elevated. This is useful for background work that shouldn't compete with the UI for CPU cycles but should still be protected from being killed.
+-- **`BIND_WAIVE_PRIORITY`** : A very strong flag that instructs the system **not** to impact the scheduling or memory management priority of the target process. The service process will be managed as if it were a regular background process on the LRU list, making it eligible for OOM killing even while bound.
++- **`BIND_WAIVE_PRIORITY`**: A very strong flag that instructs the system not to affect the scheduling or memory management priority of the target process. The service process will be managed as if it were a regular background process on the LRU list, making it eligible for OOM killing even while bound.
+ - **`BIND_ABOVE_CLIENT`** : Indicates the service is more important than the client app itself. When the system needs to reclaim memory, it will prefer killing the client app before killing the bound service. This is "stronger" than `BIND_AUTO_CREATE` as it provides an extra layer of protection for the service at the expense of the client.
+ - **`BIND_NOT_PERCEPTIBLE`** : Lowers the target service's importance to below `PERCEPTIBLE` level, allowing the system to reclaim its memory to make room for more critical user-perceptible processes.
+ 
+ ## Hands-on: observing binding effects
+ 
+-We will use the **MemoryLab** application to demonstrate how a binding from a
++The following steps use the MemoryLab app to show how a binding from a
+ `TOP` app affects the state of a separate process.
+ 
+ ### 1. Launch MemoryLab
+@@ -72,21 +72,27 @@ We will use the **MemoryLab** application to demonstrate how a binding from a
+ The following command launches the app. After it opens, **ensure the app stays
+ in the foreground** (do not press Home or switch apps yet).
+ 
+-    adb shell am start -n com.android.memorylab/.MainActivity
++```bash
++adb shell am start -n com.android.memorylab/.MainActivity
++```
+ 
+ ### 2. Identify processes
+ 
+ Check the process states before binding. `MemoryLab` runs its main UI in one
+ process and has a `RemoteService` that runs in a `:remote` process.
+ 
+-    adb shell dumpsys activity processes com.android.memorylab
++```bash
++adb shell dumpsys activity processes com.android.memorylab
++```
+ 
+ Sample output snippet:
+ 
+-      Process OOM control (154 total, non-act at 7, non-svc at 7):
+-        Proc #0: fg       T/A/TOP  LCMNFUATI  t: 0 13470:com.android.memorylab/u0a417 (top-activity)
+-            oom: max=1001 curRaw=0 setRaw=0 cur=0 set=0
+-            state: cur=TOP  set=TOP   lastRss=0.00 lastCachedRss=0.00
++```text
++  Process OOM control (154 total, non-act at 7, non-svc at 7):
++    Proc #0: fg       T/A/TOP  LCMNFUATI  t: 0 13470:com.android.memorylab/u0a417 (top-activity)
++        oom: max=1001 curRaw=0 setRaw=0 cur=0 set=0
++        state: cur=TOP  set=TOP   lastRss=0.00 lastCachedRss=0.00
++```
+ 
+ You will see the main process `com.android.memorylab` in the `TOP` state. The
+ `:remote` process is not yet started.
+@@ -95,20 +101,26 @@ You will see the main process `com.android.memorylab` in the `TOP` state. The
+ 
+ Send a broadcast to the app to trigger the service binding:
+ 
+-    adb shell am broadcast -a com.android.memorylab.LEAK_BINDER
++```bash
++adb shell am broadcast -a com.android.memorylab.LEAK_BINDER
++```
+ 
+ ### 4. Observe elevated state
+ 
+ Check the process states again:
+ 
+-    adb shell dumpsys activity processes | grep -A 10 "com.android.memorylab"
++```bash
++adb shell dumpsys activity processes | grep -A 10 "com.android.memorylab"
++```
+ 
+ Sample output snippet:
+ 
+-      Proc #  1: vis      F/ /BTOP ---NFUATI  t: 0 13560:com.android.memorylab:remote/u0a417 (service)
+-        com.android.memorylab/.RemoteService<=Proc{13470:com.android.memorylab/u0a417}
+-        oom: max=1001 curRaw=100 setRaw=100 cur=100 set=100
+-        state: cur=BTOP set=BTOP  lastRss=0.00 lastCachedRss=0.00
++```text
++  Proc #  1: vis      F/ /BTOP ---NFUATI  t: 0 13560:com.android.memorylab:remote/u0a417 (service)
++    com.android.memorylab/.RemoteService<=Proc{13470:com.android.memorylab/u0a417}
++    oom: max=1001 curRaw=100 setRaw=100 cur=100 set=100
++    state: cur=BTOP set=BTOP  lastRss=0.00 lastCachedRss=0.00
++```
+ 
+ The `:remote` process is now running and in the **BTOP** (Bound TOP) state with
+ an **`oom_score_adj`** of **100** . This is significantly more protected than a
+@@ -119,17 +131,21 @@ typical background service (which would be at `500` or higher). The notation
+ 
+ Press the **HOME** button on the device. Check the states again:
+ 
+-    adb shell dumpsys activity processes | grep -A 10 "com.android.memorylab"
++```bash
++adb shell dumpsys activity processes | grep -A 10 "com.android.memorylab"
++```
+ 
+ Sample output snippet:
+ 
+-        Proc #  2: prev     b/ /LAST ---I  t: 0 13560:com.android.memorylab:remote/u0a417 (service)
+-            com.android.memorylab/.RemoteService<=Proc{13470:com.android.memorylab/u0a417}
+-            oom: max=1001 curRaw=700 setRaw=700 cur=700 set=700
+-            state: cur=LAST set=LAST  lastRss=0.00 lastCachedRss=0.00
+-        Proc #  1: prev     b/ /LAST ---I  t: 0 13470:com.android.memorylab/u0a417 (previous)
+-            oom: max=1001 curRaw=700 setRaw=700 cur=700 set=700
+-            state: cur=LAST set=LAST  lastRss=209MB lastCachedRss=0.00
++```text
++    Proc #  2: prev     b/ /LAST ---I  t: 0 13560:com.android.memorylab:remote/u0a417 (service)
++        com.android.memorylab/.RemoteService<=Proc{13470:com.android.memorylab/u0a417}
++        oom: max=1001 curRaw=700 setRaw=700 cur=700 set=700
++        state: cur=LAST set=LAST  lastRss=0.00 lastCachedRss=0.00
++    Proc #  1: prev     b/ /LAST ---I  t: 0 13470:com.android.memorylab/u0a417 (previous)
++        oom: max=1001 curRaw=700 setRaw=700 cur=700 set=700
++        state: cur=LAST set=LAST  lastRss=209MB lastCachedRss=0.00
++```
+ 
+ Now both processes have shifted to a lower priority state (**PREV** /
+ `oom_score_adj` **700** ), because the client process is no longer `TOP`. (Note:
+@@ -140,76 +156,87 @@ maps to `PREV` in high-level summaries).
+ 
+ The `procstats` tool provides a historical view of these states.
+ 
+-    # View stats for MemoryLab over the last hour
+-    adb shell dumpsys procstats --hours 1 com.android.memorylab
++```bash
++# View stats for MemoryLab over the last hour
++adb shell dumpsys procstats --hours 1 com.android.memorylab
++```
+ 
+ Sample output snippet:
+ 
+-      *   com.android.memorylab / u0a417 / v37:
+-          *   Prc com.android.memorylab / u0a417 / v37:
+-                 TOTAL: 0.89% (0.00-0.00-0.00/0.00-0.00-0.00/210MB-210MB-210MB over 1)
+-                   Top: 0.89% (0.00-0.00-0.00/0.00-0.00-0.00/210MB-210MB-210MB over 1)
+-          *   Prc com.android.memorylab:remote / u0a417 / v37:
+-                 TOTAL: 0.19%
+-               Bnd Top: 0.19%
++```text
++  *   com.android.memorylab / u0a417 / v37:
++      *   Prc com.android.memorylab / u0a417 / v37:
++             TOTAL: 0.89% (0.00-0.00-0.00/0.00-0.00-0.00/210MB-210MB-210MB over 1)
++               Top: 0.89% (0.00-0.00-0.00/0.00-0.00-0.00/210MB-210MB-210MB over 1)
++      *   Prc com.android.memorylab:remote / u0a417 / v37:
++             TOTAL: 0.19%
++           Bnd Top: 0.19%
++```
+ 
+ Here, **`Bnd Top`** indicates the percentage of time the remote process spent
+ being bound by an application in the `TOP` state.
+ 
+ ## Capturing and analyzing bindings with Perfetto
+ 
+-While `dumpsys` gives you a snapshot, Perfetto allows you to see the exact
++Although `dumpsys` gives you a snapshot, Perfetto lets you see the exact
+ moment a binding occurs and how the OOM score changes in real-time.
+ 
+ ### 1. Record a trace
+ 
+-Use a configuration that includes `linux.process_stats` and the `am` atrace category:
++Use a configuration that includes `linux.process_stats` and the `am` atrace
++category:
+ 
+-    adb shell perfetto -c - --txt -o /data/misc/perfetto-traces/service_bindings.perfetto-trace <<EOF
+-    buffers: { size_kb: 65536 }
+-    data_sources: {
+-        config {
+-            name: "linux.process_stats"
+-            process_stats_config { proc_stats_poll_ms: 100 }
+-        }
++```bash
++adb shell perfetto -c - --txt -o /data/misc/perfetto-traces/service_bindings.perfetto-trace <<EOF
++buffers: { size_kb: 65536 }
++data_sources: {
++    config {
++        name: "linux.process_stats"
++        process_stats_config { proc_stats_poll_ms: 100 }
+     }
+-    data_sources: {
+-        config {
+-            name: "linux.ftrace"
+-            ftrace_config { ftrace_events: "am/am_proc_bound" }
+-        }
++}
++data_sources: {
++    config {
++        name: "linux.ftrace"
++        ftrace_config { ftrace_events: "am/am_proc_bound" }
+     }
+-    duration_ms: 15000
+-    EOF
++}
++duration_ms: 15000
++EOF
++```
+ 
+ ### 2. Query OOM score transitions
+ 
+ Using PerfettoSQL, you can see how the OOM score of the remote process changed
+ relative to the UI process:
+ 
+-    SELECT ts, p.name, value AS oom_score_adj
+-    FROM counter c
+-    JOIN process_counter_track t ON c.track_id = t.id
+-    JOIN process p USING (upid)
+-    WHERE p.name LIKE 'com.android.memorylab%'
+-      AND t.name = 'oom_score_adj'
+-    ORDER BY ts;
++```sql
++SELECT ts, p.name, value AS oom_score_adj
++FROM counter c
++JOIN process_counter_track t ON c.track_id = t.id
++JOIN process p USING (upid)
++WHERE p.name LIKE 'com.android.memorylab%'
++  AND t.name = 'oom_score_adj'
++ORDER BY ts;
++```
+ 
+ ### 3. Identify binding events
+ 
+ To see exactly when a binding dependency was established and which process
+ initiated it, use this query:
+ 
+-    SELECT
+-        s.ts,
+-        p.name AS process_name,
+-        t.name AS thread_name,
+-        s.name AS slice_name
+-    FROM slice s
+-    JOIN thread_track tt ON s.track_id = tt.id
+-    JOIN thread t USING (utid)
+-    JOIN process p USING (upid)
+-    WHERE s.name LIKE 'bindService:{com.android.memorylab%';
++```sql
++SELECT
++    s.ts,
++    p.name AS process_name,
++    t.name AS thread_name,
++    s.name AS slice_name
++FROM slice s
++JOIN thread_track tt ON s.track_id = tt.id
++JOIN thread t USING (utid)
++JOIN process p USING (upid)
++WHERE s.name LIKE 'bindService:{com.android.memorylab%';
++```
+ 
+ ## System-to-app bindings
+ 
+@@ -223,7 +250,7 @@ background events.
+ 
+ Here are some real-world examples you can observe on a typical device:
+ 
+-### `VoiceInteractor`
++### VoiceInteractionService
+ 
+ Users expect a digital assistant to be embedded in their phone OS, to be able to
+ summon it instantaneously with a spoken hotword or a quick input gesture, and
+@@ -231,10 +258,9 @@ for the interaction to be smooth and seamless.
+ 
+ When an assistant trigger occurs (such as the "OK Google" hotword on Google
+ Pixel phones), the digital assistant needs to respond instantly. To ensure this,
+-`system_server` maintains a permanent binding to the [voice interaction
+-service](https://developer.android.com/reference/android/app/VoiceInteractor) that's selected by the user.
+-
+-![Diagram showing system_server binding to the Google App's interactor process](https://developer.android.com/static/topic/performance/memory/guide/images/service-bindings/voice-interaction.png)
++`system_server` maintains a permanent binding to the
++[`VoiceInteractionService`](https://developer.android.com/reference/android/service/voice/VoiceInteractionService.md.txt) selected by the user.
++![system_server binds permanently to the interactor process.](https://developer.android.com/static/topic/performance/memory/guide/images/service-bindings/voice-interaction.png) **Figure 2.** Permanent system binding to a voice interaction service.
+ 
+ If you check the process states (e.g., using `dumpsys activity processes`), you
+ might see a process like `com.google.android.googlequicksearchbox:interactor` in
+@@ -245,9 +271,9 @@ the `BFGS` (Bound Foreground Service) state, kept alive by a binding from
+ 
+ For some system-to-app bindings, the goal is not latency, but rather preventing
+ frequent cold starts.
+-[`NotificationListenerService`](https://developer.android.com/reference/android/service/notification/NotificationListenerService),
++[`NotificationListenerService`](https://developer.android.com/reference/android/service/notification/NotificationListenerService.md.txt),
+ a service that receives calls from the system when new notifications are posted
+-or removed, is a prime example. A typical smartphone user may receive hundreds
++or removed, is a prime example. A typical phone user might receive hundreds
+ of notifications throughout the day. If the system unbound from a notification
+ listener, that app's process would likely drop into the cached state and may be
+ killed by the LMK.
+@@ -255,7 +281,7 @@ killed by the LMK.
+ When the next notification arrives - potentially seconds later - the system
+ would be forced to cold start the app's process all over again just to deliver
+ the event. This constant cycle of killing and cold starting would consume far
+-more CPU and battery than simply keeping the process bound and alive in the
++more CPU and battery than keeping the process bound and alive in the
+ background.
+ 
+ ### The launcher's "-1 screen" (news feed)
+@@ -296,8 +322,8 @@ for these common anti-patterns when designing or auditing bound services.
+ ### Forgotten `unbindService()` in long-lived clients
+ 
+ Binding to a service from an `Application` singleton, a background manager, or
+-an `Activity` that calls `bindService()` in `onStart()` without a matching
+-`unbindService()` in `onStop()` leaks the `ServiceConnection`.
++an `Activity` that calls `bindService` in `onStart` without a matching
++`unbindService` in `onStop` leaks the `ServiceConnection`.
+ 
+ As long as that binding remains active, the target process inherits the
+ client's elevated priority. If the client is a persistent system component or a
+@@ -328,16 +354,16 @@ because the active service binding keeps the process elevated. This causes two
+ compounding problems:
+ 
+ - **No background memory compaction** : The system's `CachedAppOptimizer` only compacts processes after they enter the `CACHED` state.
+-- **No cached-LRU memory trim or LMK reclamation** : The system doesn't deliver background trim callbacks tied to the cached LRU list (`TRIM_MEMORY_BACKGROUND` and higher) while a service binding holds the process in an elevated state. If your app doesn't explicitly release UI resources on `TRIM_MEMORY_UI_HIDDEN` or `Activity.onStop()`, peak UI allocations stay pinned in RAM at a privileged OOM score where the LMK can't easily reclaim them.
+-
+-**Remedy** : Evict UI caches, decoded bitmaps, and view references explicitly
+-when your UI stops being visible, using `Activity.onStop()`,
+-`ComponentCallbacks2.onTrimMemory(TRIM_MEMORY_UI_HIDDEN)`,
+-[`Application.ActivityLifecycleCallbacks`](https://developer.android.com/reference/android/app/Application.ActivityLifecycleCallbacks), or
+-[`ProcessLifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/ProcessLifecycleOwner). Alternatively, move the
+-always-bound service into a separate, lightweight process using the
++- **No UI-hidden or cached-LRU memory trim** : When a service binding holds the process in `BFGS` or `PERC`, the system doesn't deliver `TRIM_MEMORY_UI_HIDDEN` or cached-LRU trim callbacks such as `TRIM_MEMORY_BACKGROUND`. If your app doesn't release UI resources when its UI stops being visible, peak UI allocations stay pinned in RAM at a privileged OOM score where the LMK can't reclaim them.
++
++**Remedy** : Evict UI caches, decoded bitmaps, and view references when your UI
++stops being visible by using [`Activity.onStop`](https://developer.android.com/reference/android/app/Activity.md.txt#onStop()),
++[`Application.ActivityLifecycleCallbacks`](https://developer.android.com/reference/android/app/Application.ActivityLifecycleCallbacks.md.txt), or
++[`ProcessLifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/ProcessLifecycleOwner.md.txt). Alternatively, move the
++always-bound service into a separate, lightweight process by using the
+ `android:process` manifest attribute so the system can move your main UI
+-process into the `CACHED` state to compact or reclaim its memory independently.
++process into the `CACHED` state to compact or reclaim its memory
++independently.
+ 
+ ### Omitting priority-waiving flags
+ 
+@@ -354,5 +380,5 @@ system can still manage the target process on the cached LRU list.
+ 
+ *** ** * ** ***
+ 
+-**[← Locality](https://developer.android.com/topic/performance/memory/guide/locality) \| [↑ Up](https://developer.android.com/topic/performance/memory/guide) \| [System-wide
+-→](https://developer.android.com/topic/performance/memory/guide/system-wide-memory)**
+\ No newline at end of file
++**[← Locality](https://developer.android.com/topic/performance/memory/guide/locality.md.txt) \| [↑ Up](https://developer.android.com/topic/performance/memory/guide.md.txt) \|
++[System-wide →](https://developer.android.com/topic/performance/memory/guide/system-wide-memory.md.txt)**
+\ No newline at end of file

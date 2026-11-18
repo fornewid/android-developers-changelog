@@ -1,0 +1,52 @@
+diff --git a/docs/blog/latest.md b/docs/blog/latest.md
+index 2b171610..b720e935 100644
+--- a/docs/blog/latest.md
++++ b/docs/blog/latest.md
+@@ -9,6 +9,13 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_1PpSPG.webp)](https://developer.android.com/blog/authors/breana-tate.md.txt) 17 Nov 2026 17 Nov 2026 ![](https://developer.android.com/static/blog/assets/1109_ABL_160_Ship_smarter_keep_rules_How_library_providers_can_unblock_app_level_DEX_code_optimization_1_44aba4f3cd_1kr2I.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
++
++  ## [Ship smarter keep rules: How library providers can unblock app-level DEX code optimization](https://developer.android.com/blog/posts/ship-smarter-keep-rules-unblock-dex-optimization.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/ship-smarter-keep-rules-unblock-dex-optimization.md.txt) As Android app and library developers, we all strive for the same goal: performant apps that provide a smooth user experience. A major part of that involves R8, Android's app optimizer. R8 improves app performance by removing unused code, and optimizing and obfuscating the rest.
++  [Breana Tate](https://developer.android.com/blog/authors/breana-tate.md.txt) • 6 min read
++  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+ - [![View Phalene Gowling's profile](https://developer.android.com/static/blog/assets/Phalene_Gowling_0adca8708d_Z1EF0vK.webp)](https://developer.android.com/blog/authors/phalene-gowling.md.txt)[![View Rejane França's profile](https://developer.android.com/static/blog/assets/unnamed_31_d80d832499_1LWl7t.webp)](https://developer.android.com/blog/authors/rejane-franca.md.txt) 16 Nov 2026 16 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_158_Beyond_the_App_A_bd07c85947_982bv.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+   ## [Beyond the app: Expanding buyer reach across new surfaces with Google Play](https://developer.android.com/blog/posts/beyond-the-app-google-play-buyer-reach.md.txt)
+@@ -145,13 +152,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
+   [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
+   - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
+-- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) 24 Sep 2026 24 Sep 2026 ![](https://developer.android.com/static/blog/assets/BYOA_Backup_Strapi_1_5c3f94f766_Z1WI1Mt.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+-
+-  ## [Build your way: Use any AI agent of your choice in Android Studio](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio.md.txt)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio.md.txt) Last year, Android Studio opened up to any AI model. Today, we're taking the next step by introducing support for your choice of coding agents.
+-  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt) • 3 min read
+-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
+ <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
+ 
+ #### Page 1
+@@ -166,10 +166,10 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
+ - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+ - [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
++- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+ - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+ - [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
+ - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
+-- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+ - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
+ - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
+ - [#Wear OS](https://developer.android.com/blog/topics/wear-os.md.txt)
+@@ -247,6 +247,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Window Size Classes](https://developer.android.com/blog/topics/blog-topic)
+ - [#usage-based billing GenAI apps](https://developer.android.com/blog/topics/usage-based-billing-gen-ai-apps)
+ - [#Remote Compose](https://developer.android.com/blog/topics/remote-compose)
++- [#Adaptive Games](https://developer.android.com/blog/topics/adaptive-games)
+ Stay in the loop
+ 
+ 

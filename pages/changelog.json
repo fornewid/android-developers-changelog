@@ -1,5 +1,598 @@
 [
   {
+    "date": "2026-11-18T15:10:10Z",
+    "commit_hash": "cf5f523d",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/play/play-billing-library-version-upgrade/references/migration-logic\" target=\"_blank\">Play Billing</a>",
+        "path": "agents/skills/play/play-billing-library-version-upgrade/references/migration-logic.md",
+        "summary": "Updated the Play Billing Library version 8+ migration logic documentation to reflect the correct lambda signature for `queryProductDetailsAsync`. The callback now correctly provides both `BillingResult` and `QueryProductDetailsResult` parameters, and introduces handling for `unfetchedProductList` to track products that failed to fetch.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_migration-logic.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/CanonicalLayoutActivity.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/CanonicalLayoutActivity.kt.rawcontent.md",
+        "summary": "Updated the implementation of clickable links in `CanonicalLayoutActivity.kt.rawcontent.md` by migrating from the deprecated `ClickableText` and string annotations API to the modern `LinkAnnotation.Url` and `withLink` APIs. This change also improves state management by including `linkColor` in the `remember` key and streamlines text rendering using a standard `Text` composable.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_CanonicalLayoutActivity.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/collections/data/FakeImageTextListDataRepository.kt.rawcontent\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/references/collections/data/FakeImageTextListDataRepository.kt.rawcontent.md",
+        "summary": "Replaced `runBlocking` with `coroutineScope` in `FakeImageTextListDataRepository.kt` to align with structured concurrency best practices and avoid blocking threads. This change prevents potential performance bottlenecks and thread starvation in coroutine-based data loading.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_FakeImageTextListDataRepository.kt.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/system/glance-canonical-layouts/skill\" target=\"_blank\">Glance canonical widget layout skill</a>",
+        "path": "agents/skills/system/glance-canonical-layouts/skill.md",
+        "summary": "Added a new dependency requirement for `androidx.appcompat:appcompat` when copying `FontUtils.kt`. This ensures that text auto-sizing functions correctly on Android versions below API level 27 by utilizing `AppCompatTextView`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/custom\" target=\"_blank\">Use LiteRT on Android</a>",
+        "path": "ai/custom.md",
+        "summary": "The documentation was updated to include a documentation index link and a new section dedicated to Android skills for LiteRT, specifically introducing the 'litert-lm' skill for running on-device LLMs and updating the 'litert-runtime' skill references. These additions help developers easily integrate on-device machine learning models and large language models using the Android CLI and coding agents.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_custom.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog\" target=\"_blank\">The Android Developers' Blog</a>",
+        "path": "blog.md",
+        "summary": "The Android developer blog has been updated to include a new post by Breana Tate titled \"Ship smarter keep rules: How library providers can unblock app-level DEX code optimization,\" focusing on improving app performance and R8 optimization. Additionally, an older post by Rebecca Gutteridge regarding Jetpack Compose updates from the Android Developer Summit was removed from the latest feed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_blog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/breana-tate\" target=\"_blank\">Breana Tate</a>",
+        "path": "blog/authors/breana-tate.md",
+        "summary": "Updated Breana Tate's author documentation to include a new post on optimizing app-level DEX code and R8 keep rules, increased the total post count to 3, and updated internal documentation links to include '.md.txt' extensions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_breana-tate.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/how-tos\" target=\"_blank\">How-tos</a>",
+        "path": "blog/categories/how-tos.md",
+        "summary": "Added a new guide titled 'Ship smarter keep rules: How library providers can unblock app-level DEX code optimization' by Breana Tate, removed an older guide on Jetpacker, and updated the total page count from 4 to 5 to reflect the updated content distribution.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_how-tos.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/how-tos/2\" target=\"_blank\">How-tos</a>",
+        "path": "blog/categories/how-tos/2.md",
+        "summary": "Added a new blog post entry about building intelligent Android apps with Jetpacker by Jolanda Verhoef, removed an older post regarding performance leveling by Alice Yuan, and updated the total page count from 4 to 5 to reflect the content changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/how-tos/3\" target=\"_blank\">How-tos</a>",
+        "path": "blog/categories/how-tos/3.md",
+        "summary": "Updated the how-tos blog category page by adding a new post on the 'Leveling Guide for your Performance Journey' by Alice Yuan, removing an older post about CameraX 1.5, and updating the total page count pagination indicator from 4 to 5 pages.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/how-tos/4\" target=\"_blank\">How-tos</a>",
+        "path": "blog/categories/how-tos/4.md",
+        "summary": "Added a new how-to guide for high-speed capture and slow-motion video using CameraX 1.5 by Leo Huang, removed an older article on Compose idling resources, and updated the pagination metadata to reflect an increase to 5 total pages.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/how-tos/5\" target=\"_blank\">How-tos</a>",
+        "path": "blog/categories/how-tos/5.md",
+        "summary": "This new documentation page introduces a how-to guide on using the waitUntil test APIs in Jetpack Compose as an alternative to Idling Resources. It helps developers write more efficient and reliable UI tests by waiting for specific conditions to be met.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest.md",
+        "summary": "The Android developer blog index was updated to feature a new how-to guide by Breana Tate on optimizing DEX code with proper keep rules, remove an older post about AI coding agents in Android Studio, and add the \"Adaptive Games\" category topic tag.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_latest.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/10\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/10.md",
+        "summary": "The latest documentation updates add an announcement for the Fall episode of The Android Show live from Droidcon London, remove an older post regarding Compose Adaptive Layouts 1.2 beta, and update the list of topics to include \"Adaptive Games\" and reorder \"Adaptive & Differentiated\".",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/11\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/11.md",
+        "summary": "Added a new blog post entry highlighting the release of Compose Adaptive Layouts 1.2 beta and its importance for multi-device form factors like foldables. Additionally, new topic tags such as 'Adaptive Games' and 'Adaptive & Differentiated' were updated to help developers easily discover relevant adaptive design resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/2\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/2.md",
+        "summary": "Updated the latest Android developer blog feed by adding a new announcement regarding support for custom coding and AI agents in Android Studio, removing an older post about Google Play age signals, and adding new topic tags like 'Adaptive Games' to keep the developer resource list current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/3\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/3.md",
+        "summary": "The Android blog updates page was updated to include a new post regarding safer, age-appropriate experiences on Google Play by Paul Feng, removed an older article about memory efficiency for Android 17, and added new topic tags like Adaptive Games to keep developers informed on the latest product news and platform updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/4\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/4.md",
+        "summary": "The Android blog index page (Page 4) has been updated with new content and tag adjustments. It now features a new post on \"Prioritizing Memory Efficiency: Essential Steps for Android 17\" by Alice Yuan, Ajesh Pai, and Fung Lam, while removing an older case study regarding the Gratitude app's widget retention. Additionally, minor reordering and additions were made to the topic tags, including the inclusion of \"Adaptive Games\".",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/5\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/5.md",
+        "summary": "Updated the latest Android blog post feed on page 5 by adding a new case study on the Gratitude app's widget retention success, removing an older post about the privacy-first contact picker, reordering topic tags, and adding the 'Adaptive Games' topic link. This keeps the developer blog index current with recent case studies and navigation metadata.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/6\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/6.md",
+        "summary": "Updated the latest blog list by adding an announcement for the privacy-first Contact Picker feature and removing an older post regarding AI agents in the OS. Additionally, new topic tags such as 'Adaptive Games' were included to keep the blog navigation and categories up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/7\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/7.md",
+        "summary": "The Android blog updates page was updated to include a new product news post by Matthew McCullough titled \"The Intelligent OS: Making AI agents more helpful for Android apps\", removed an older post regarding Android security, and added \"Adaptive Games\" to the topics list while reorganizing existing tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/8\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/8.md",
+        "summary": "Updated the latest blog index page to include a new product news post on enhancing Android security and stopping malware from snooping on app data, removed an outdated R8 optimizer post entry, and refreshed the topic tag list with additions like adaptive games.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/9\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/9.md",
+        "summary": "The Android blog index page has been updated to include a new post about leveraging R8 to shrink and optimize apps, remove an older event reminder for The Android Show, and reorder or add topic tags like 'Adaptive & Differentiated' and 'Adaptive Games' to improve content discoverability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-developer-verification-early-access-starts-now-as-we-continue-to-build-with-your-feedback\" target=\"_blank\">Android developer verification: Early access starts now as we continue to build with your feedback</a>",
+        "path": "blog/posts/android-developer-verification-early-access-starts-now-as-we-continue-to-build-with-your-feedback.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to add a new article regarding DEX code optimization and R8 keep rules while removing an older post about on-device inference.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_android-developer-verification-early-access-starts-now-as-we-continue-to-build-with-your-feedback.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/deeper-performance-considerations\" target=\"_blank\">Deeper Performance Considerations</a>",
+        "path": "blog/posts/deeper-performance-considerations.md",
+        "summary": "Updated the 'Continue reading' section of the blog post by adding a new recommended post regarding R8 keep rules and DEX code optimization by Breana Tate, while removing an older post on agentic workflows by Jolanda Verhoef. This keeps the related reading material current and relevant to app performance and optimization.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_deeper-performance-considerations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/explore-ai-on-android-with-our-sample-catalog-app\" target=\"_blank\">Explore AI on Android with Our Sample Catalog App</a>",
+        "path": "blog/posts/explore-ai-on-android-with-our-sample-catalog-app.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to replace an older Media3 1.11 update reference with a newer article on keeping rules for R8 DEX code optimization by Breana Tate. This helps maintain fresh and relevant recommendations for developers reading the AI catalog app documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_explore-ai-on-android-with-our-sample-catalog-app.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey\" target=\"_blank\">Leveling Guide for your Performance Journey</a>",
+        "path": "blog/posts/leveling-guide-for-your-performance-journey.md",
+        "summary": "Updated the suggested \"Continue reading\" related blog posts section at the end of the leveling guide. The reference was changed from an article on agentic workflows by Jolanda Verhoef to a new post by Breana Tate about optimizing app-level DEX code and R8 keep rules, ensuring readers are directed to relevant performance and build optimization content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_leveling-guide-for-your-performance-journey.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/ship-smarter-keep-rules-unblock-dex-optimization\" target=\"_blank\">Ship smarter keep rules: How library providers can unblock app-level DEX code optimization</a>",
+        "path": "blog/posts/ship-smarter-keep-rules-unblock-dex-optimization.md",
+        "summary": "This new documentation explains how library providers can write narrow, high-performance consumer keep rules for R8 to help consuming apps meet Google Play's DEX optimization requirements.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/adaptive-and-differentiated\" target=\"_blank\">#Adaptive \\& Differentiated</a>",
+        "path": "blog/topics/adaptive-and-differentiated.md",
+        "summary": "The documentation was updated to include a new blog post entry by Breana Tate titled 'Ship smarter keep rules: How library providers can unblock app-level DEX code optimization'. This addition highlights best practices for library providers using R8 to improve app performance, keeping developers informed on modern Android optimization techniques.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_adaptive-and-differentiated.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-9-6-0-release-notes\" target=\"_blank\">Android Gradle plugin 9.6.0</a>",
+        "path": "build/releases/agp-9-6-0-release-notes.md",
+        "summary": "AGP 9.6 introduces experimental support for Test suites under the `testOptions.customSuites` block, enabled via `android.experimental.testSuiteSupport=true`. This update brings capabilities such as running Robolectric tests on the JVM with merged Android resources, running `testApk` suites in library modules with device group targeting and test filtering, customizing Gradle Test tasks, collecting code coverage for various test suite types, and aligning test engine dependency versions with AGP.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_agp-9-6-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/mobile/guides/layout-and-content/custom-layouts\" target=\"_blank\">Relative and custom layouts</a>",
+        "path": "design/ui/mobile/guides/layout-and-content/custom-layouts.md",
+        "summary": "Added a documentation index link for LLMs and updated the Layout Editor link to point to the correct views-specific documentation path. This ensures developers and automated tools have accurate navigation links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_custom-layouts.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/wear/guides/m2-5/components/lists\" target=\"_blank\">Lists</a>",
+        "path": "design/ui/wear/guides/m2-5/components/lists.md",
+        "summary": "Updated references and documentation links for Wear OS Compose components, specifically migrating `ScalingLazyColumn` and related API links from the `androidx.wear.compose.material` package to the `androidx.wear.compose.foundation` package to reflect the latest library structure and best practices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_lists.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/design/ui/wear/guides/m2-5/components/pickers\" target=\"_blank\">Pickers</a>",
+        "path": "design/ui/wear/guides/m2-5/components/pickers.md",
+        "summary": "The documentation updates include a new LLM documentation index link, a refreshed API reference URL for the Picker composable to reflect signature updates, and a corrected reference path for the PickerGroup component. These changes ensure developers are directed to the most up-to-date API endpoints and resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_pickers.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/adaptive-apps/quality-guidelines/tv-app-quality\" target=\"_blank\">TV app quality</a>",
+        "path": "develop/adaptive-apps/quality-guidelines/tv-app-quality.md",
+        "summary": "The TV app quality guidelines were updated to tighten advertising restrictions. Criterion TV-AA was updated to strictly prohibit clickable ads from linking to other applications, initiating cross-package navigation, or triggering app installations. Additionally, a new criterion (TV-AN) was added to ensure all ads prevent navigation disruption by either staying in-context or utilizing off-screen conversion mechanisms like QR codes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_tv-app-quality.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/network-ops/xml\" target=\"_blank\">Parse XML data</a>",
+        "path": "develop/connectivity/network-ops/xml.md",
+        "summary": "Cleaned up link URLs in the documentation to use standard short-form class names and local anchors instead of fully-qualified developer.android.com reference URLs, and added an LLM documentation index pointer.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_xml.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/wifi/wifi-direct\" target=\"_blank\">Create P2P connections with Wi-Fi Direct</a>",
+        "path": "develop/connectivity/wifi/wifi-direct.md",
+        "summary": "Simplified the documentation by replacing long external API reference URLs with clean, short class and method names. Additionally, added a documentation index link at the top of the file.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_wifi-direct.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-entities\" target=\"_blank\">Create, control, and manage entities</a>",
+        "path": "develop/xr/jetpack-xr-sdk/work-with-entities.md",
+        "summary": "Updated API reference links and method signatures for Jetpack XR SDK entities, components, and input events. This includes updates to `SpatialPanel`, `Orbiter`, `setScale()`, component creation methods, subspace modifier links, and input action/source constants to match the latest API changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_work-with-entities.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/tv-app-quality\" target=\"_blank\">TV app quality</a>",
+        "path": "docs/quality-guidelines/tv-app-quality.md",
+        "summary": "Updated the TV app quality guidelines for January 2027 by revising criterion TV-AA to strictly prohibit apps from linking to other applications, initiating cross-package navigation, or triggering app installations via ads. Additionally, introduced a new criterion, TV-AN, requiring all ads to prevent navigation disruption by staying in-context or using off-screen conversion mechanisms like QR codes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_tv-app-quality.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/large-screen/build-large-screen-games\" target=\"_blank\">Large screen quality guidelines for games</a>",
+        "path": "games/large-screen/build-large-screen-games.md",
+        "summary": "This new documentation page outlines guidelines and quality tiers (Ready, Optimized, and Differentiated) for developing and testing Android games on large screens, tablets, and foldables. It matters because meeting these criteria ensures better user experiences across diverse form factors and improves visibility on Google Play.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/large-screen/foldables\" target=\"_blank\">Foldables</a>",
+        "path": "games/large-screen/foldables.md",
+        "summary": "Added Tier 1 quality guidelines and verification tests for Android games on foldable devices, focusing on sustained performance, thermal management, UI ergonomics, and seamless display transitions.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/large-screen/tier-1\" target=\"_blank\">Tier 1 — Large screen differentiated</a>",
+        "path": "games/large-screen/tier-1.md",
+        "summary": "This new documentation page introduces the Tier 1 quality guidelines for games on large screens and foldables, focusing on premium user experiences tailored to specific device form factors.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/large-screen/tier-2\" target=\"_blank\">Tier 2 — Large screen optimized</a>",
+        "path": "games/large-screen/tier-2.md",
+        "summary": "Added Tier 2 large-screen game optimization documentation outlining requirements for high-resolution graphics, proportional UI scaling, styled letterboxing, and full peripheral support.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/large-screen/tier-3\" target=\"_blank\">Tier 3 — Large screen ready</a>",
+        "path": "games/large-screen/tier-3.md",
+        "summary": "This new documentation page defines the Tier 3 (Ready) quality guidelines for Android games on large screens and foldables. It establishes requirements for full-screen rendering across various aspect ratios, smooth handling of dynamic configuration changes, multi-window continuity, and proper insets and cutout handling.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/checklist\" target=\"_blank\">Launch checklist</a>",
+        "path": "games/playgames/native-pc/checklist.md",
+        "summary": "Updated the Google Play Games on PC publishing and onboarding documentation in checklist.md to reflect new Play Console workflows, support email contacts, testing tracks, and Play Managed Publishing processes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_checklist.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/faq\" target=\"_blank\">Frequently asked questions</a>",
+        "path": "games/playgames/native-pc/faq.md",
+        "summary": "Updated the FAQ documentation for Google Play Games on PC to clarify publishing instructions, internal testing workflows, and native PC SDK behaviors. The changes detail how to upload and test `.wab` packages directly via the Google Play Console's internal testing track, outline self-service tester management instead of manual partner onboarding, clarify update mechanisms depending on the publishing model used, and update various internal link paths to `.md.txt` formats.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_faq.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/publish/developer-installed\" target=\"_blank\">Installer Publishing</a>",
+        "path": "games/playgames/native-pc/publish/developer-installed.md",
+        "summary": "Updated the Developer Installed publishing documentation for Google Play Games on PC to reflect recent Play Console UI changes. The revision streamlines the setup workflow, details the new 'Form factors and platforms' and Windows-specific distribution steps, clarifies onboarding and allowlisting requirements via email, and adds precise instructions for internal testing using deep links and production releases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_developer-installed.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/publish/play-managed-installation\" target=\"_blank\">Play Managed Publishing</a>",
+        "path": "games/playgames/native-pc/publish/play-managed-installation.md",
+        "summary": "Added a complete new section detailing how to publish games on Google Play Games on PC using the Play Console, including enabling Windows native distribution, configuring requirements and store listings, setting up internal testing with deep links, and publishing to production. Also updated onboarding instructions and link formats in the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_play-managed-installation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/setup/unity-setup\" target=\"_blank\">Add Unity C# SDK to a Unity Game</a>",
+        "path": "games/playgames/native-pc/setup/unity-setup.md",
+        "summary": "Updated the Unity SDK download link to point directly to the correct .tgz artifact URL and fixed a broken hyperlink pointing to the setup instructions. Additionally, added a documentation index reference link at the beginning of the file to improve LLM and developer navigation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_unity-setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/services/management/api/scores/reset\" target=\"_blank\">Scores: reset</a>",
+        "path": "games/services/management/api/scores/reset.md",
+        "summary": "The documentation for the scores reset API was updated to include a link to the llms.txt index, fix an internal authorization link reference, update the OAuth2 documentation URL to the correct Google Identity domain, and clean up the response body code block syntax.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_reset.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/outside-gpb-backend\" target=\"_blank\">Backend integration guidance for monetization outside of Google Play Billing</a>",
+        "path": "google/play/billing/outside-gpb-backend.md",
+        "summary": "Added a new 'Configure Play Console permissions' section detailing the required 'Manage orders and subscriptions' permission for service accounts when using the external transactions API. Internal documentation links were also updated to include `.md.txt` extensions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_outside-gpb-backend.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/test\" target=\"_blank\">Test your Google Play Billing Library integration</a>",
+        "path": "google/play/billing/test.md",
+        "summary": "Updated documentation for testing out-of-app purchases in Google Play Billing. It adds new context about out-of-app promotions (such as on app details pages and Gemini), includes support for testing agentic commerce via Gemini, refines instructions for configuring test parameters in Play Billing Lab, and updates internal documentation links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_test.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/requirements/screenshots-android-cli\" target=\"_blank\">Portrait</a>",
+        "path": "google/play/requirements/screenshots-android-cli.md",
+        "summary": "This new guide explains how to use the Android CLI and Android Emulator to capture raw, dimensionally accurate Google Play Store screenshots across phone, foldable, tablet, and desktop form factors.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/engage/tv/recommendations/rest\" target=\"_blank\">Integrate recommendations using REST API</a>",
+        "path": "guide/playcore/engage/tv/recommendations/rest.md",
+        "summary": "Introduces the Google TV Video Discovery REST API documentation, enabling partners to send non-personalized media recommendation candidates directly from backend servers to Google TV and Android TV devices.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/passkeys/architecture\" target=\"_blank\">Choose the right passkey implementation for your Android app</a>",
+        "path": "identity/passkeys/architecture.md",
+        "summary": "This new documentation page provides a comprehensive guide on choosing the right passkey architecture for Android apps among three approaches: Credential Manager, Auth Tab, and WebView.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/sign-in/credential-manager-webview\" target=\"_blank\">Authenticate users with WebView</a>",
+        "path": "identity/sign-in/credential-manager-webview.md",
+        "summary": "The Credential Manager WebView documentation was updated to fix code block formatting, add a documentation index link, and include a tip for choosing the right passkey implementation architecture.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_credential-manager-webview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack\" target=\"_blank\">Android Jetpack Dev Resources - Android Developers</a>",
+        "path": "jetpack.md",
+        "summary": "Updated the description for the Jetpack Tracing library (`androidx.tracing`) to include support for capturing low-overhead in-process traces, reflecting new capabilities added to the library.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_jetpack.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/explorer\" target=\"_blank\">Explore the Jetpack libraries by type</a>",
+        "path": "jetpack/androidx/explorer.md",
+        "summary": "Updated the description for the 'tracing' Jetpack library in the AndroidX explorer to include capturing low-overhead in-process traces. This matters because it provides developers with a more accurate and comprehensive overview of the tracing library's expanded capabilities directly in the documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_explorer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/tracing\" target=\"_blank\">Tracing</a>",
+        "path": "jetpack/androidx/releases/tracing.md",
+        "summary": "Added a 'Declaring dependencies' section to the Tracing documentation, providing Groovy and Kotlin code snippets for integrating `androidx.tracing`, `tracing-wire`, and `tracing-ktx`. Additionally, standard documentation links throughout the file were updated to point to `.md.txt` formats and a documentation index link was included.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_tracing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/cast\" target=\"_blank\">Media3 Cast overview</a>",
+        "path": "media/media3/cast.md",
+        "summary": "The Media3 Cast documentation was updated to include a reference to the new LLM documentation index and added a dedicated 'Android skills' section. This new section provides instructions for installing the Media3 Cast integration skill using the Android CLI, helping developers implement Google Cast support more efficiently.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_cast.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/cast/create-castplayer\" target=\"_blank\">Getting started with CastPlayer</a>",
+        "path": "media/media3/cast/create-castplayer.md",
+        "summary": "Added a documentation index link and a new 'Android skills' section providing instructions on how to install the Media3 Cast integration skill using the Android CLI.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_create-castplayer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "Updated the Android Studio nightly build documentation to reference the latest version from November 18, 2026 (Stingray 1 | 2026.3.1 Nightly 2026-11-18). This update ensures that download links and file references point users to the newest nightly build binaries for Windows, macOS, and Linux.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/features\" target=\"_blank\">Release notes for Android Studio preview</a>",
+        "path": "studio/preview/features.md",
+        "summary": "Documentation updates for Android Studio preview releases include a new section detailing test suites in the Android Gradle plugin (AGP) for grouping unit, instrumented, and asset tests using the `testOptions` DSL. Additionally, minor updates include fixing a download link URL and adding alt text to an AI Model Assignment settings image.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/instrumented-test-suites\" target=\"_blank\">Run on connected adb devices.</a>",
+        "path": "studio/preview/instrumented-test-suites.md",
+        "summary": "This new documentation page explains how to configure and run isolated instrumented test suites using the Android Gradle Plugin DSL, enabling separate packaging of device tests with dedicated dependencies and targets.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/test-suites\" target=\"_blank\">Test suites in the Android Gradle plugin</a>",
+        "path": "studio/preview/test-suites.md",
+        "summary": "This document introduces the experimental test suites feature in the Android Gradle Plugin, which decouples test organization from default source sets to allow dedicated directories, isolated dependencies, and targeted execution.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/unit-test-suites\" target=\"_blank\">Unit test suites</a>",
+        "path": "studio/preview/unit-test-suites.md",
+        "summary": "Added a new documentation page explaining how to use experimental unit test suites to run isolated local JVM tests via the Android Gradle Plugin DSL. It covers requirements, configuration for JUnit 5, JUnit 4, and Robolectric, task customization, and execution instructions.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/profile\" target=\"_blank\">Profile your app performance</a>",
+        "path": "studio/profile.md",
+        "summary": "The changes in this documentation update internal link references to append '.md.txt' and include a reference to an LLM documentation index, which helps maintain correct navigation and context for machine-readable documentation formats.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_profile.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/write/annotations\" target=\"_blank\">Improve code inspection with annotations</a>",
+        "path": "studio/write/annotations.md",
+        "summary": "Updated the annotations documentation to clean up references, removing Java code examples and long URL paths in favor of concise Kotlin snippets and standard annotation names.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_annotations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/write/app-link-indexing\" target=\"_blank\">Add Android App Links</a>",
+        "path": "studio/write/app-link-indexing.md",
+        "summary": "The documentation for the App Links Assistant was updated to remove Java code examples, consolidating the guide to feature only Kotlin code snippets and standardizing placeholder comments.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_app-link-indexing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/write/lint\" target=\"_blank\">Improve your code with lint checks</a>",
+        "path": "studio/write/lint.md",
+        "summary": "Updated internal links across the lint documentation to point to Markdown (`.md.txt`) files, added an LLM documentation index link, and fixed a syntax formatting issue in a Kotlin code snippet.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_lint.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/build\" target=\"_blank\">android build</a>",
+        "path": "tools/agents/android-cli/commands/build.md",
+        "summary": "The build command documentation was updated to include a documentation index link, and code blocks for usage and examples were formatted using proper Markdown syntax (bash code fences) instead of plain indented text. Additionally, formatting for the positional argument reference pattern was corrected using backticks for improved readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_build.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/input_scroll\" target=\"_blank\">android input scroll</a>",
+        "path": "tools/agents/android-cli/commands/input_scroll.md",
+        "summary": "The documentation for the `input_scroll` command was updated to add Markdown code formatting to regular expression examples and correct escaping syntax. This improves readability and ensures users copy-paste accurate syntax for CLI selectors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_input_scroll.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/agents/android-cli/commands/input_text\" target=\"_blank\">android input text</a>",
+        "path": "tools/agents/android-cli/commands/input_text.md",
+        "summary": "The documentation for the `android input text` command was updated to improve readability by formatting usage blocks as code snippets and adding proper markdown code styling to regular expression examples. Additionally, a link to the documentation index was added at the top of the file.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_input_text.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory/guide/service-bindings\" target=\"_blank\">View stats for MemoryLab over the last hour</a>",
+        "path": "topic/performance/memory/guide/service-bindings.md",
+        "summary": "Updated the service bindings performance guide to improve code snippet formatting (using proper markdown code blocks for bash, text, and SQL commands), corrected documentation links for system classes like VoiceInteractionService and NotificationListenerService, and enhanced figure captions for better clarity.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_service-bindings.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/playback/leanback/migrate-to-compose\" target=\"_blank\">Migrate to Compose for TV</a>",
+        "path": "training/tv/playback/leanback/migrate-to-compose.md",
+        "summary": "Added references and instructions for the new Leanback to Compose for TV Android skill, along with updates to internal documentation links to include file extensions like .md.txt.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_migrate-to-compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/notifications/bridger\" target=\"_blank\">Bridging options for notifications</a>",
+        "path": "training/wearables/notifications/bridger.md",
+        "summary": "Updated the documentation to include a documentation index link and added an exception for Live Updates to the list of ongoing notifications that are not bridged by the system. This matters because it clarifies how newer Wear OS features like Live Updates handle notification bridging compared to standard ongoing notifications.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/cf5f523d_bridger.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-17T15:09:57Z",
     "commit_hash": "acb6d044",
     "entries": [

@@ -1,0 +1,126 @@
+diff --git a/docs/games/playgames/native-pc/publish/developer-installed.md b/docs/games/playgames/native-pc/publish/developer-installed.md
+index a7043541..f77e2757 100644
+--- a/docs/games/playgames/native-pc/publish/developer-installed.md
++++ b/docs/games/playgames/native-pc/publish/developer-installed.md
+@@ -12,7 +12,13 @@ With the Developer Installed flow, the game installer you provide must manage th
+ 
+ ## Before you begin
+ 
+-Integrate the [Google Play Games SDK](https://developer.android.com/games/playgames/native-pc/setup.md.txt) into your game.
++Integrate the [Google Play Games SDK](https://developer.android.com/games/playgames/native-pc/setup.md.txt) into your game. **Prepared to start
++onboarding?** Reach out by email to
++[google-play-games-pc@google.com](mailto:google-play-games-pc@google.com). The onboarding specialists
++will assist you with the next steps.
++
++> [!NOTE]
++> **Note:** Most games should use [Play Managed Publishing](https://developer.android.com/games/playgames/native-pc/publish/play-managed-installation.md.txt). Installer Publishing is available by exception for games that need their own installer, and access is granted per package. Request access before your first upload by emailing [google-play-games-pc@google.com](mailto:google-play-games-pc@google.com). You can't switch between Installer Publishing and Play Managed Publishing after a Windows app bundle has been uploaded.
+ 
+ ## Package your game as a WAB file
+ 
+@@ -366,78 +372,41 @@ Google Play Console as a Windows app bundle (WAB) file. To create a WAB file,
+ 
+ ## Publish the game using Play Console
+ 
+-After you successfully create the WAB for your game, upload it to
+-Play Console and manage its settings and requirements. Follow the
+-steps to publish your game:
+-
+-> [!NOTE]
+-> **Note:** For all the steps, open the [Play Console](https://play.google.com/console) and select your app first. Then proceed with the mentioned steps for that particular app.
+-
+-### Add the Google Play Games on PC form factor
+-
+-This step is only required the first time you publish a game.
+-
+-1. In the Play Console on the left menu, select **Test and
+-   release \> Setup \> Advanced settings** ([direct link](https://play.google.com/console/u/0/developers/app/advanced-distribution)).
+-2. Go to the **Form factors** tab and add `Google Play Games on PC` from the
+-   **+ Add form factor** drop-down.
+-
+-   > [!NOTE]
+-   > **Note:** If you cannot access the Google Play Games on PC in the form factors tab, you can reach out to our Play partners to allowlist your account.
+-
+-3. Click the **Manage** button corresponding to the **Google Play Games on PC**
+-   form factor on the right-hand side.
++After you create the WAB file for your game, upload it to
++Play Console and configure its settings and requirements. Open
++Play Console, select your app, and follow these steps:
+ 
+-4. Select the option **Use a dedicated track for your Windows app bundle game**.
++### Enable Windows native distribution
+ 
+-5. Click **Save** and then **Save** again on the confirmation dialog.
++1. In Play Console, go to **Test and release \> Advanced settings
++   \> Form factors and platforms**.
++2. In the **Windows** section, click **Add Windows**.
+ 
+-### Turn on Managed Publishing
+-
+-To turn on Managed publishing, follow these steps.
+-
+-1. On the **Publishing Overview** page, in the **Managed Publishing** section, click **Turn on Managed Publishing**.
+-2. A dialog will appear. Switch to **Managed publishing on** for the track.
+-3. Click **Save**.
+-
+-### Upload the WAB file
+-
+-To upload the WAB file, follow these steps:
+-
+-1. In the Play Console on the left menu, select **Test and release \> Advanced settings** ([direct link](https://play.google.com/console/u/0/developers/app/advanced-distribution)).
+-2. In the **Advanced settings** page, click **Form factors** tab.
+-3. In the **Form factors** tab, click **+ Add form factor** and select **Google Play Games on PC** to add.
+-4. In the **Google Play Games on PC** section, click **Manage**.
+-5. Select **Use a dedicated track for your Windows app bundle game**.
+-6. Click **Save**.
+-7. In the Play Console on the left menu, select **Test and release \> Production** ([direct link](https://play.google.com/console/u/0/developers/app/tracks/production)).
+-8. In the **Production** page, select **Google Play Games on PC (Windows) only** from the form factor drop-down.
+-9. In the **Windows app bundle** tab, click **Edit** and upload the WAB file.
++> [!NOTE]
++> **Note:** If **Add Windows** is disabled because the Android **Google Play Games on PC** form factor is opted in, select **Opt out** for **Google Play Games on PC** on Android and then select **Remove** first. If the **Windows** option isn't visible under **Form factors and platforms** , your account needs to complete onboarding first. **Prepared to start onboarding?** Reach out by email to [google-play-games-pc@google.com](mailto:google-play-games-pc@google.com). The onboarding specialists will assist you with the next steps.
+ 
+-### Configure the Windows PC requirements
++### Configure PC requirements, store listing assets, and review policy
+ 
+-To configure the Windows PC requirements:
++1. Set PC hardware requirements (RAM, GPU, and storage) and upload **Google Play Games on PC** store listing assets (screenshots and an optional video).
++2. Return to **Test and release \> Advanced settings \> Form factors and
++   platforms** and click **Agree to review policy** to confirm compliance with the [Google Play Games on PC quality guidelines](https://support.google.com/googleplay/topic/13019131).
+ 
+-1. In the Play Console on the left menu, select **Grow users \> Store presence \> Store settings** ([direct link](https://play.google.com/console/u/0/developers/app/store-s)).
+-2. In the **PC requirements** section, click the **Edit** button on the right-hand side.
+-3. Update the fields and click **Save**.
++### Test your game on the internal testing track
+ 
+-### Configure the in-app purchase graphic
++1. Go to **Test and release \> Testing \> Internal testing** and select the **Google Play Games on PC** track.
++2. Select up to 100 testers (you can configure a separate tester list from Android), upload your Windows App Bundle (`.wab`), and click **Save and
++   publish**.
++3. Share both the Play Console opt-in web link (`https://play.google.com/apps/internaltest/...`) and the client deep link `googleplaygames://deeplink/details?id=PACKAGE_NAME` (replacing `PACKAGE_NAME` with your app's package name) with your testers. Testers must first open the opt-in web link and click **Accept invite** , and then paste `googleplaygames://deeplink/details?id=PACKAGE_NAME` into a Windows browser address bar or `Win+R` to open the game's details page in the Google Play Games on PC client and install the build.
+ 
+-This is an optional step. To configure the in-app purchase graphic:
++> [!NOTE]
++> **Note:** During internal testing, the **Install on Windows** button doesn't appear on the Google Play web store, so testers must use the `googleplaygames://deeplink/details?id=PACKAGE_NAME` deep link to install the build. Closed and open testing tracks are unavailable on Windows (only Internal testing is supported).
+ 
+-1. In the Play Console on the left menu, select **Grow users \> Store presence \> Store listings** ([direct link](https://play.google.com/console/u/0/developers/app/main-store-listing)).
+-2. In the **Default store listing** section in the **Listings** tab, click the **-\>** (arrow) button on the right-hand side. This will take you to the **Default store listing** page.
+-3. Navigate to the **Google Play Games on PC** section and upload the image at **Google Play Games on PC (Windows) in-app purchase graphic**.
+-4. Click **Save**.
++### Publish to production
+ 
+-### Send changes for review
++1. Go to **Test and release \> Production** and select the **Google Play Games on PC** track.
++2. Select your target countries (which must match or be a subset of your Android country targeting).
++3. Create a new release or promote your internal test release, and submit your release for review. Reviews take up to 7 days.
++4. Use **Managed publishing** on the **Publishing overview** page to control when your approved release goes live.
+ 
+ > [!NOTE]
+-> **Note:** You can use **Managed publishing** to have more control over when your changes are published. Managed publishing is switched off by default, which means your changes will be published as soon as they are approved. To turn on Managed publishing, go to the [Publishing overview](https://play.google.com/console/u/0/developers/app/publishing) page and click the **Turn on managed publishing** button on the right-hand side.
+-
+-1. In the Play Console on the left menu, select **Publishing overview**.
+-2. In the **Changes not yet sent for review** section, click **Send changes for review**.
+-
+-When the Review team has approved your changes, your game will be discoverable on
+-Google Play.
+\ No newline at end of file
++> **Note:** A package serves either the emulated Android build or the native PC build on Windows, so publishing a native PC build replaces the emulated version for existing PC players.
+\ No newline at end of file

@@ -1,0 +1,18 @@
+diff --git a/docs/blog/topics/adaptive-and-differentiated.md b/docs/blog/topics/adaptive-and-differentiated.md
+index bc96fa34..dd69896b 100644
+--- a/docs/blog/topics/adaptive-and-differentiated.md
++++ b/docs/blog/topics/adaptive-and-differentiated.md
+@@ -8,6 +8,13 @@ source: md.txt
+ 
+ # #Adaptive \& Differentiated
+ 
++- [![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_1PpSPG.webp)](https://developer.android.com/blog/authors/breana-tate.md.txt) 17 Nov 2026 17 Nov 2026 ![](https://developer.android.com/static/blog/assets/1109_ABL_160_Ship_smarter_keep_rules_How_library_providers_can_unblock_app_level_DEX_code_optimization_1_44aba4f3cd_1kr2I.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
++
++  ## [Ship smarter keep rules: How library providers can unblock app-level DEX code optimization](https://developer.android.com/blog/posts/ship-smarter-keep-rules-unblock-dex-optimization.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/ship-smarter-keep-rules-unblock-dex-optimization.md.txt) As Android app and library developers, we all strive for the same goal: performant apps that provide a smooth user experience. A major part of that involves R8, Android's app optimizer. R8 improves app performance by removing unused code, and optimizing and obfuscating the rest.
++  [Breana Tate](https://developer.android.com/blog/authors/breana-tate.md.txt) • 6 min read
++  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+ - 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
+ 
+   ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt)

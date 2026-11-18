@@ -1,0 +1,26 @@
+diff --git a/docs/design/ui/wear/guides/m2-5/components/pickers.md b/docs/design/ui/wear/guides/m2-5/components/pickers.md
+index 25441293..8f7f1329 100644
+--- a/docs/design/ui/wear/guides/m2-5/components/pickers.md
++++ b/docs/design/ui/wear/guides/m2-5/components/pickers.md
+@@ -4,9 +4,11 @@ url: https://developer.android.com/design/ui/wear/guides/m2-5/components/pickers
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/design/ui/wear/llms.txt
++
+ ![](https://developer.android.com/static/wear/images/pickers/picker-hero.png)
+ 
+-The [Picker](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/Picker.composable#Picker(androidx.wear.compose.material.PickerState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function1,androidx.wear.compose.material.ScalingParams,androidx.compose.ui.unit.Dp,kotlin.Float,androidx.compose.ui.graphics.Color,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Function2)) helps users select and set specific data.
++The [Picker](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/Picker.composable#Picker(androidx.wear.compose.material.PickerState,kotlin.String,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function1,kotlin.Function0,androidx.wear.compose.foundation.lazy.ScalingParams,androidx.compose.ui.unit.Dp,kotlin.Float,androidx.compose.ui.graphics.Color,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.wear.compose.foundation.rotary.RotaryScrollableBehavior,kotlin.Function2)) helps users select and set specific data.
+ ![](https://developer.android.com/static/wear/images/pickers/picker-single-column.png) **Picker**
+ 
+ Pickers should be used to let users choose amongst a finite number of items.  
+@@ -58,7 +60,7 @@ See the following examples of Date and Time Pickers
+ For a prebuilt date and time picker implementation, check out the [Horologist Library](https://github.com/google/horologist#-composables) on GitHub.   
+ 
+ 
+-If you want to create a similar experience, where users choose a multi-part value across multiple pickers, use the built-in [PickerGroup](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/PickerGroup.composable#PickerGroup(kotlin.Array,androidx.compose.ui.Modifier,androidx.wear.compose.material.PickerGroupState,kotlin.Function1,kotlin.Boolean,kotlin.Boolean,androidx.wear.compose.material.TouchExplorationStateProvider,kotlin.Function1)) component. This object uses a focus coordinator object to assign focus to the correct Picker element.
++If you want to create a similar experience, where users choose a multi-part value across multiple pickers, use the built-in [PickerGroup](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/PickerGroup.composable.md.txt#PickerGroup(kotlin.Array,androidx.compose.ui.Modifier,androidx.wear.compose.material.PickerGroupState,kotlin.Function1,kotlin.Boolean,kotlin.Boolean,androidx.wear.compose.material.TouchExplorationStateProvider,kotlin.Function1)) component. This object uses a focus coordinator object to assign focus to the correct Picker element.
+ 
+ ## Adaptive layouts
+ 

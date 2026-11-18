@@ -1,0 +1,71 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/work-with-entities.md b/docs/develop/xr/jetpack-xr-sdk/work-with-entities.md
+index c7d35110..f2231d6c 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/work-with-entities.md
++++ b/docs/develop/xr/jetpack-xr-sdk/work-with-entities.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-entities
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/develop/xr/jetpack-xr-sdk/llms.txt
++
+ <br />
+ 
+ 
+@@ -27,8 +29,8 @@ the user's real world and lets you organize 3D entities such as panels and 3D
+ models into a hierarchical structure, and hold the state of those entities.
+ 
+ Once you've gained access to the scene graph, you can use the APIs in Jetpack
+-Compose for XR to create spatial UI (for example, [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable.md.txt#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,androidx.xr.compose.subspace.layout.InteractionPolicy,kotlin.Function0)) and
+-[`Orbiter`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Orbiter.composable.md.txt#Orbiter(androidx.xr.compose.spatial.ContentEdge.Horizontal,androidx.compose.ui.unit.Dp,androidx.xr.compose.spatial.OrbiterOffsetType,androidx.compose.ui.Alignment.Horizontal,androidx.xr.compose.subspace.layout.SpatialShape,androidx.compose.ui.unit.Dp,kotlin.Boolean,kotlin.Function0)) instances) within the scene graph. For 3D content such as 3D
++Compose for XR to create spatial UI (for example, [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable.md.txt#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.layout.InteractionPolicy,kotlin.Function0)) and
++[`Orbiter`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Orbiter.composable.md.txt#Orbiter(androidx.xr.compose.spatial.OrbiterPosition,androidx.xr.compose.subspace.layout.SpatialShape,kotlin.Function0)) instances) within the scene graph. For 3D content such as 3D
+ models, you can access the Session directly. To learn more, see [About the
+ ActivitySpace](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-entities#activityspace) on this page.
+ 
+@@ -109,7 +111,7 @@ entity.setEnabled(false)
+ 
+ <br />
+ 
+-To resize an `Entity` while keeping its overall shape, use [`setScale()`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/Entity.md.txt#setScale(kotlin.Float)).
++To resize an `Entity` while keeping its overall shape, use [`setScale()`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/Entity.md.txt#setScale(kotlin.Float,androidx.xr.scenecore.Space)).
+ 
+ 
+ ```kotlin
+@@ -132,7 +134,7 @@ You can use the following components to add common behavior to entities:
+ 
+ Instantiating components must be done through the appropriate creation method in
+ the `Session` class. For example, to create a `ResizableComponent`, call
+-[`ResizableComponent.create()`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ResizableComponent.md.txt#create).
++[`ResizableComponent.create()`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ResizableComponent.md.txt#create(androidx.xr.runtime.Session,androidx.xr.runtime.math.FloatSize3d,androidx.xr.runtime.math.FloatSize3d,java.util.concurrent.Executor,java.util.function.Consumer)).
+ 
+ > [!WARNING]
+ > **Preview:** Currently, not all components can be used in all types of entities. Refer to the documentation of the specific component to see which entities are supported.
+@@ -190,7 +192,7 @@ entity.addComponent(movableComponent)
+ <br />
+ 
+ > [!NOTE]
+-> **Note:** If you are creating your spatialized UI with [Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose.md.txt), you may choose to use the [`movable`](https://developer.android.com/develop/xr/jetpack-xr-sdk/subspacemodifiers#movable) subspace modifier to enable movement of your panels.
++> **Note:** If you are creating your spatialized UI with [Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose.md.txt), you may choose to use the [`movable`](https://developer.android.com/develop/xr/jetpack-xr-sdk/subspace-modifiers.md.txt#move-elements) subspace modifier to enable movement of your panels.
+ 
+ #### Use `ResizableComponent` to make an Entity user-resizable
+ 
+@@ -225,7 +227,7 @@ surfaceEntity.addComponent(resizableComponent)
+ <br />
+ 
+ > [!NOTE]
+-> **Note:** If you are creating your spatialized UI with [Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose.md.txt), you may choose to use the [`resizable`](https://developer.android.com/develop/xr/jetpack-xr-sdk/subspacemodifiers#resizable) subspace modifier to enable resizing of your panels.
++> **Note:** If you are creating your spatialized UI with [Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose.md.txt), you may choose to use the [`resizable`](https://developer.android.com/develop/xr/jetpack-xr-sdk/subspace-modifiers.md.txt#resize-elements) subspace modifier to enable resizing of your panels.
+ 
+ #### Use `InteractableComponent` to capture user input events
+ 
+@@ -235,8 +237,8 @@ such as when the user engages or hovers over an `Entity`. When creating an
+ When the user performs any input action, the listener will be called with the
+ input information provided in the [`InputEvent`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/InputEvent.md.txt) parameter.
+ 
+-- [`InputEvent.action`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/InputEvent.md.txt#action()) specifies the type of input such as [hovering](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/InputEvent.Action.md.txt#ACTION_HOVER_ENTER()) or [tapping](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/InputEvent.Action.md.txt#ACTION_DOWN()) on an entity
+-- [`InputEvent.source`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/InputEvent.md.txt#source()) specifies where the input came from such as [hand](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/InputEvent.Source.md.txt#SOURCE_HANDS()) or [controller](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/InputEvent.Source.md.txt#SOURCE_CONTROLLER()) input
++- [`InputEvent.action`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/InputEvent.md.txt#action()) specifies the type of input such as [hovering](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/InputEvent.Action.md.txt#HOVER_ENTER()) or [tapping](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/InputEvent.Action.md.txt#DOWN()) on an entity
++- [`InputEvent.source`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/InputEvent.md.txt#source()) specifies where the input came from such as [hand](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/InputEvent.Source.md.txt#HANDS()) or [controller](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/InputEvent.Source.md.txt#CONTROLLER()) input
+ - [`InputEvent.pointerType`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/InputEvent.md.txt#pointerType()) specifies whether the input came from the right hand or left hand
+ 
+ For a full list of all the `InputEvent` constants, see the [reference
