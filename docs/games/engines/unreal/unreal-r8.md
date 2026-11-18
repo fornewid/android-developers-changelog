@@ -4,18 +4,20 @@ url: https://developer.android.com/games/engines/unreal/unreal-r8
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/llms.txt
+
 Although your core game logic in Unreal Engine is written in C++ or Blueprints,
 Android packaging compiles Java and Kotlin bytecode (`classes.dex`) to handle
 `GameActivity` lifecycle events, Google Play services, billing, audio, and
 analytics plugins.
 
-[R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization), the default code shrinker and optimizer in the Android Gradle Plugin
+[R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt), the default code shrinker and optimizer in the Android Gradle Plugin
 (AGP), removes unused classes and methods and optimizes bytecode. This not only
 decreases your package download size, but also reduces the runtime memory
 footprint of memory-mapped (`mmap`) DEX pages and baseline Java process
-overhead, mitigating physical memory pressure and [low memory killer (LMK)](https://developer.android.com/games/optimize/vitals/lmk)
+overhead, mitigating physical memory pressure and [low memory killer (LMK)](https://developer.android.com/games/optimize/vitals/lmk.md.txt)
 terminations. Google Play also monitors your game's DEX optimization levels
-through the [DEX code optimization](https://developer.android.com/google/play/vitals/code-optimization) metric in Android vitals.
+through the [DEX code optimization](https://developer.android.com/google/play/vitals/code-optimization.md.txt) metric in Android vitals.
 
 ## Default behavior and Unreal Engine version support
 
@@ -39,17 +41,19 @@ setup.
 UnrealBuildTool (`UEDeployAndroid.cs`) configures the generated
 `buildAdditions.gradle` file differently for Release and Debug builds:
 
-    buildTypes {
-        release {
-            signingConfig signingConfigs.release
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            debuggable true
-            signingConfig signingConfigs.debug
-        }
+```groovy
+buildTypes {
+    release {
+        signingConfig signingConfigs.release
+        minifyEnabled true
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
+    debug {
+        debuggable true
+        signingConfig signingConfigs.debug
+    }
+}
+```
 
 - **Release (Shipping or Distribution)** : Sets `minifyEnabled true` and applies `proguard-rules.pro` by default, running R8 code shrinking and obfuscation.
 - **Debug (Development)** : Enables `debuggable true` and omits `minifyEnabled` (defaulting to `false`) to preserve fast build iteration and symbol debugging.
@@ -68,15 +72,17 @@ Use the `<proguardAdditions>` tag in an [Unreal Plugin Language
 `proguard-rules.pro` during packaging. Add the following block to your project
 or plugin `*_UPL.xml` file:
 
-    <root xmlns:android="http://schemas.android.com/apk/res/android">
-        <proguardAdditions>
-            <insert>
-                -keep class com.epicgames.unreal.** { *; }
-                -keep class com.example.plugin.** { public *; }
-                -dontwarn com.example.plugin.**
-            </insert>
-        </proguardAdditions>
-    </root>
+```xml
+<root xmlns:android="http://schemas.android.com/apk/res/android">
+    <proguardAdditions>
+        <insert>
+            -keep class com.epicgames.unreal.** { *; }
+            -keep class com.example.plugin.** { public *; }
+            -dontwarn com.example.plugin.**
+        </insert>
+    </proguardAdditions>
+</root>
+```
 
 ## Troubleshoot common issues
 
@@ -89,15 +95,17 @@ To isolate whether a Release-only crash is caused by R8 stripping required
 classes, insert `DISABLE_MINIFY=1` under `<gradleProperties>` in your UPL file.
 When present, `UEDeployAndroid.cs` generates `minifyEnabled false`:
 
-    <gradleProperties>
-        <insert>
-            DISABLE_MINIFY=1
-        </insert>
-    </gradleProperties>
+```xml
+<gradleProperties>
+    <insert>
+        DISABLE_MINIFY=1
+    </insert>
+</gradleProperties>
+```
 
 > [!CAUTION]
 > **Caution:** Use `DISABLE_MINIFY=1` only for debugging. For production Release builds, remove this property and add the required `-keep` rules to `<proguardAdditions>` so your game retains R8 memory and size optimizations. For more information about writing keep rules, see [Customize which code to
-> keep](https://developer.android.com/topic/performance/app-optimization/keep-code).
+> keep](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview).
 
 ### `Missing classes detected while running R8` packaging errors
 
@@ -110,14 +118,16 @@ and add the missing library dependencies or required rules to
 
 ### R8 full mode compatibility with third-party SDKs
 
-In UE 5.8 and higher (AGP 8.13.0+), [R8 full mode](https://developer.android.com/topic/performance/app-optimization/full-mode) is enabled by default to
+In UE 5.8 and higher (AGP 8.13.0+), [R8 full mode](https://developer.android.com/topic/performance/app-optimization/full-mode.md.txt) is enabled by default to
 perform more aggressive optimizations. If a legacy third-party Android SDK fails
 at runtime due to reflection issues, update the plugin's ProGuard rules or
 revert R8 to compatibility mode by adding the following property to your UPL
 file:
 
-    <gradleProperties>
-        <insert>
-            android.enableR8.fullMode=false
-        </insert>
-    </gradleProperties>
+```xml
+<gradleProperties>
+    <insert>
+        android.enableR8.fullMode=false
+    </insert>
+</gradleProperties>
+```

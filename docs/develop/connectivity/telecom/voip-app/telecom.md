@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/connectivity/telecom/voip-app/telecom
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/connectivity/telecom/voip-app/llms.txt
+
 The `Core-Telecom` library streamlines the process of integrating your calling
 application with the Android platform by providing a robust and consistent set
 of APIs
@@ -20,13 +22,17 @@ applications on GitHub:
 Add the `androidx.core:core-telecom` dependency to your app's `build.gradle`
 file:
 
-    dependencies {
-        implementation ("androidx.core:core-telecom:1.0.0")
-    }
+```xml
+dependencies {
+    implementation ("androidx.core:core-telecom:1.0.0")
+}
+```
 
 Declare the `MANAGE_OWN_CALLS` permission in your `AndroidManifest.xml`:
 
-    <uses-permission android:name="android.permission.MANAGE_OWN_CALLS" />
+```xml
+<uses-permission android:name="android.permission.MANAGE_OWN_CALLS" />
+```
 
 ## Register your app
 
@@ -34,13 +40,18 @@ Register your calling app with Android using `CallsManager` to begin adding
 calls to the system. When registering, specify your app's capabilities (for
 example, audio, video support):
 
-    val callsManager = CallsManager(context)
 
-    val capabilities: @CallsManager.Companion.Capability Int =
-        (CallsManager.CAPABILITY_BASELINE or
-              CallsManager.CAPABILITY_SUPPORTS_VIDEO_CALLING)
+```kotlin
+val callsManager = CallsManager(context)
 
-    callsManager.registerAppWithTelecom(capabilities)
+val capabilities: @CallsManager.Companion.Capability Int =
+    (CallsManager.CAPABILITY_BASELINE or
+          CallsManager.CAPABILITY_SUPPORTS_VIDEO_CALLING)
+
+callsManager.registerAppWithTelecom(capabilities)
+```
+
+<br />
 
 ## Call Management
 
@@ -59,24 +70,29 @@ which can have the following characteristics:
 
 Here's an example of how to create an incoming call:
 
-    fun createIncomingCallAttributes(
-        callerName: String,
-        callerNumber: String,
-        isVideoCall: Boolean): CallAttributesCompat {
-        val addressUri = Uri.parse("YourAppScheme:$callerNumber")
 
-        return CallAttributesCompat(
-            displayName = callerName,
-            address = addressUri,
-            direction = CallAttributesCompat.DIRECTION_INCOMING,
-            callType = if (isVideoCall) {
-                CallAttributesCompat.CALL_TYPE_VIDEO_CALL
-            } else {
-                CallAttributesCompat.CALL_TYPE_AUDIO_CALL
-            },
-            callCapabilities = CallAttributesCompat.SUPPORTS_SET_INACTIVE
-        )
-    }
+```kotlin
+fun createIncomingCallAttributes(
+    callerName: String,
+    callerNumber: String,
+    isVideoCall: Boolean): CallAttributesCompat {
+    val addressUri = Uri.parse("YourAppScheme:$callerNumber")
+
+    return CallAttributesCompat(
+        displayName = callerName,
+        address = addressUri,
+        direction = CallAttributesCompat.DIRECTION_INCOMING,
+        callType = if (isVideoCall) {
+            CallAttributesCompat.CALL_TYPE_VIDEO_CALL
+        } else {
+            CallAttributesCompat.CALL_TYPE_AUDIO_CALL
+        },
+        callCapabilities = CallAttributesCompat.SUPPORTS_SET_INACTIVE
+    )
+}
+```
+
+<br />
 
 ### Add a call
 
@@ -85,21 +101,26 @@ new call to the system and manage remote surface updates. The `callControlScope`
 within the `addCall` block primarily allows your app to transition the call
 state and receive audio updates:
 
-    try {
-        callsManager.addCall(
-            INCOMING_CALL_ATTRIBUTES,
-            onAnswerCall, // Watch needs to know if it can answer the call.
-            onSetCallDisconnected,
-            onSetCallActive,
-            onSetCallInactive
-        ) {
-            // The call was successfully added once this scope runs.
-            callControlScope = this
-        }
+
+```kotlin
+try {
+    callsManager.addCall(
+        INCOMING_CALL_ATTRIBUTES,
+        onAnswerCall, // Watch needs to know if it can answer the call.
+        onSetCallDisconnected,
+        onSetCallActive,
+        onSetCallInactive
+    ) {
+        // The call was successfully added once this scope runs.
+        callControlScope = this
     }
-    catch(addCallException: Exception){
-       // Handle the addCall failure.
-    }
+}
+catch(addCallException: Exception){
+   // Handle the addCall failure.
+}
+```
+
+<br />
 
 > [!NOTE]
 > **Note:** Once you add a call and the `CallControlScope` block is run, this doesn't mean your call is active, but rather that the platform is able to add a call and your call is now either `DIALING` or `RINGING`.
@@ -108,41 +129,66 @@ state and receive audio updates:
 
 Answer an incoming call within the `CallControlScope`:
 
-    when (val result = answer(CallAttributesCompat.CALL_TYPE_AUDIO_CALL)) {
-        is CallControlResult.Success -> { /* Call answered */ }
-        is CallControlResult.Error -> { /* Handle error */ }
-    }
+
+```kotlin
+when (val result = answer(CallAttributesCompat.CALL_TYPE_AUDIO_CALL)) {
+    is CallControlResult.Success -> { /* Call answered */ }
+    is CallControlResult.Error -> { /* Handle error */ }
+}
+```
+
+<br />
 
 ### Reject a call
 
 Reject a call using `disconnect()` with `DisconnectCause.REJECTED` within the
 `CallControlScope`:
 
-    disconnect(DisconnectCause(DisconnectCause.REJECTED))
+
+```kotlin
+disconnect(DisconnectCause(DisconnectCause.REJECTED))
+```
+
+<br />
 
 ### Make an outgoing call active
 
 Set an outgoing call to active once the remote party answers:
 
-    when (val result = setActive()) {
-        is CallControlResult.Success -> { /* Call active */ }
-        is CallControlResult.Error -> { /* Handle error */ }
-    }
+
+```kotlin
+when (val result = setActive()) {
+    is CallControlResult.Success -> { /* Call active */ }
+    is CallControlResult.Error -> { /* Handle error */ }
+}
+```
+
+<br />
 
 ### Place a call on hold
 
 Use `setInactive()` to put a call on hold:
 
-    when (val result = setInactive()) {
-        is CallControlResult.Success -> { /* Call on hold */ }
-        is CallControlResult.Error -> { /* Handle error */ }
-    }
+
+```kotlin
+when (val result = setInactive()) {
+    is CallControlResult.Success -> { /* Call on hold */ }
+    is CallControlResult.Error -> { /* Handle error */ }
+}
+```
+
+<br />
 
 ### Disconnect a call
 
 Disconnect a call using `disconnect()` with a `DisconnectCause`:
 
-    disconnect(DisconnectCause(DisconnectCause.LOCAL))
+
+```kotlin
+disconnect(DisconnectCause(DisconnectCause.LOCAL))
+```
+
+<br />
 
 ## Manage call audio endpoints
 
@@ -152,53 +198,70 @@ use the `AudioManager#setCommunicationDevice` or
 `AudioManager#startBluetoothSco` APIs to manage audio routes when using Telecom;
 doing so will cause audio issues in your call.
 
-    fun observeAudioStateChanges(callControlScope: CallControlScope) {
-        with(callControlScope) {
-            launch { currentCallEndpoint.collect { /* Update UI */ } }
-            launch { availableEndpoints.collect { /* Update UI */ } }
-            launch { isMuted.collect { /* Handle mute state */ } }
-        }
+
+```kotlin
+fun observeAudioStateChanges(callControlScope: CallControlScope) {
+    with(callControlScope) {
+        launch { currentCallEndpoint.collect { /* Update UI */ } }
+        launch { availableEndpoints.collect { /* Update UI */ } }
+        launch { isMuted.collect { /* Handle mute state */ } }
     }
+}
+```
+
+<br />
 
 Change the active audio device using `requestEndpointChange()`:
 
-    coroutineScope.launch {
-         callControlScope.requestEndpointChange(callEndpoint)
-    }
+
+```kotlin
+coroutineScope.launch {
+     callControlScope.requestEndpointChange(callEndpoint)
+}
+```
+
+<br />
 
 > [!NOTE]
-> **Note:** Ensure media stream uses [AudioManager.STREAM_VOICE_CALL](https://developer.android.com/reference/android/media/AudioManager#STREAM_VOICE_CALL).
+> **Note:** Ensure media stream uses [AudioManager.STREAM_VOICE_CALL](https://developer.android.com/reference/android/media/AudioManager.md.txt#STREAM_VOICE_CALL).
 
 ## Foreground support
 
 The library uses `ConnectionService` on Android 13 (API level 33) and lower, or
-[foreground service types](https://developer.android.com/about/versions/14/changes/fgs-types-required) on Android 14 (API level 34) and higher, for
+[foreground service types](https://developer.android.com/about/versions/14/changes/fgs-types-required.md.txt) on Android 14 (API level 34) and higher, for
 foreground support.
 
 To keep calls active when your app is in the background, host `CallsManager`
 inside a foreground `Service` (such as `LifecycleService`) and declare the
 `phoneCall` foreground service type in your `AndroidManifest.xml`:
 
-    <service
-        android:name=".TelecomVoipService"
-        android:foregroundServiceType="phoneCall" />
+```xml
+<service
+    android:name=".TelecomVoipService"
+    android:foregroundServiceType="phoneCall" />
+```
 
 As part of the foreground requirements, your app must post a
-[`NotificationCompat.CallStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.CallStyle) notification so users know that a call is
+[`NotificationCompat.CallStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.CallStyle.md.txt) notification so users know that a call is
 active in the foreground. To ensure that your app gets foreground execution
 priority, promote your service to the foreground using `startForeground` once
 you add the call with the platform:
 
-    startForeground(
-        notificationId,
-        notification,
-        ServiceInfo.FOREGROUND_SERVICE_TYPE_PHONE_CALL
-    )
+
+```kotlin
+startForeground(
+    notificationId,
+    notification,
+    ServiceInfo.FOREGROUND_SERVICE_TYPE_PHONE_CALL
+)
+```
+
+<br />
 
 > [!NOTE]
 > **Note:** You must post a call notification within 5 seconds of adding the call to the platform. If your app supports multiple simultaneous calls, re-post the notifications for any other active calls after calling `startForeground`.
 
-[Learn more about foreground services](https://developer.android.com/develop/background-work/services/fgs).
+[Learn more about foreground services](https://developer.android.com/develop/background-work/services/fgs.md.txt).
 
 ## Remote Surface support
 
@@ -236,34 +299,39 @@ will be also be available on remote devices for users to interact with.
 #### Create a Call with Extensions
 
 When creating a call, instead of using `CallsManager.addCall` to create the
-call, you can use [`CallsManager.addCallWithExtensions`](https://developer.android.com/reference/kotlin/androidx/core/telecom/CallsManager#addCallWithExtensions(androidx.core.telecom.CallAttributesCompat,kotlin.coroutines.SuspendFunction1,kotlin.coroutines.SuspendFunction1,kotlin.coroutines.SuspendFunction0,kotlin.coroutines.SuspendFunction0,kotlin.coroutines.SuspendFunction1)), which gives the
+call, you can use [`CallsManager.addCallWithExtensions`](https://developer.android.com/reference/kotlin/androidx/core/telecom/CallsManager.md.txt#addCallWithExtensions(androidx.core.telecom.CallAttributesCompat,kotlin.coroutines.SuspendFunction1,kotlin.coroutines.SuspendFunction1,kotlin.coroutines.SuspendFunction0,kotlin.coroutines.SuspendFunction0,kotlin.coroutines.SuspendFunction1)), which gives the
 app access to a different scope called `ExtensionInitializationScope`. This
 scope allows the application to initialize the set of optional extensions that
 it supports. Additionally, this scope provides an extra method, `onCall`,
 which provides a `CallControlScope` back to the app after extension capability
 exchange and initialization completes.
 
-    scope.launch {
-        mCallsManager.addCallWithExtensions(
-            attributes,
-            onAnswer,
-            onDisconnect,
-            onSetActive,
-            onSetInactive
-        ) {
-            // Initialize extension-specific code...
 
-            // After the call has been initialized, perform in-call actions
-            onCall {
-                // Example: process call state updates
-                callStateFlow.onEach { newState ->
-                    // handle call state updates and notify telecom
-                }.launchIn(this)
+```kotlin
+scope.launch {
+    mCallsManager.addCallWithExtensions(
+        attributes,
+        onAnswer,
+        onDisconnect,
+        onSetActive,
+        onSetInactive
+    ) {
+        // Initialize extension-specific code...
 
-                // Use initialized extensions...
-            }
+        // After the call has been initialized, perform in-call actions
+        onCall {
+            // Example: process call state updates
+            callStateFlow.onEach { newState ->
+                // handle call state updates and notify telecom
+            }.launchIn(this)
+
+            // Use initialized extensions...
         }
     }
+}
+```
+
+<br />
 
 #### Support Call Participants
 
@@ -271,26 +339,30 @@ If your app supports call participants for meetings or group calls, use
 `addParticipantExtension` to declare support for this extension and
 use the related APIs to update remote surfaces when the participants change.
 
-    mCallsManager.addCallWithExtensions(...) {
-            // Initialize extensions...
+<br />
 
-            // Notifies Jetpack that this app supports the participant
-            // extension and provides the initial participants state in the call.
-            val participantExtension = addParticipantExtension(
-                initialParticipants,
-                initialActiveParticipant
-            )
+```kotlin
+mCallsManager.addCallWithExtensions(...) {
+        // Initialize extensions...
 
-            // After the call has been initialized, perform in-call control actions
-            onCall {
-                // other in-call control and extension actions...
+        // Notifies Jetpack that this app supports the participant
+        // extension and provides the initial participants state in the call.
+        val participantExtension = addParticipantExtension(
+            initialParticipants,
+            initialActiveParticipant
+        )
 
-                // Example: update remote surfaces when the call participants change
-                participantsFlow.onEach { newParticipants ->
-                    participantExtension.updateParticipants(newParticipants)
-                }.launchIn(this)
-            }
+        // After the call has been initialized, perform in-call control actions
+        onCall {
+            // other in-call control and extension actions...
+
+            // Example: update remote surfaces when the call participants change
+            participantsFlow.onEach { newParticipants ->
+                participantExtension.updateParticipants(newParticipants)
+            }.launchIn(this)
         }
+    }
+```
 
 Along with notifying remote surfaces of what participants are in the call,
 the active participant can also be updated using
@@ -301,36 +373,40 @@ The app can use `ParticipantExtension#addRaiseHandSupport` to support the
 notion of participants raising their hand in the call and see which other
 participants also have their hands raised.
 
-    mCallsManager.addCallWithExtensions(...) {
-            // Initialize extensions...
+<br />
 
-            // Notifies Jetpack that this app supports the participant
-            // extension and provides the initial list of participants in the call.
-            val participantExtension = addParticipantExtension(initialParticipants)
-            // Notifies Jetpack that this app supports the notion of participants
-            // being able to raise and lower their hands.
-            val raiseHandState = participantExtension.addRaiseHandSupport(
-                    initialRaisedHands
-                ) { onHandRaisedStateChanged ->
-                    // handle this user's raised hand state changed updates from
-                    // remote surfaces.
-                }
+```kotlin
+mCallsManager.addCallWithExtensions(...) {
+        // Initialize extensions...
 
-            // After the call has been initialized, perform in-call control actions
-            onCall {
-                // other in-call control and extension actions...
-
-                // Example: update remote surfaces when the call participants change
-                participantsFlow.onEach { newParticipants ->
-                    participantExtension.updateParticipants(newParticipants)
-                }.launchIn(this)
-                // notify remote surfaces of which of the participants have their
-                // hands raised
-                raisedHandsFlow.onEach { newRaisedHands ->
-                    raiseHandState.updateRaisedHands(newRaisedHands)
-                }.launchIn(this)
+        // Notifies Jetpack that this app supports the participant
+        // extension and provides the initial list of participants in the call.
+        val participantExtension = addParticipantExtension(initialParticipants)
+        // Notifies Jetpack that this app supports the notion of participants
+        // being able to raise and lower their hands.
+        val raiseHandState = participantExtension.addRaiseHandSupport(
+                initialRaisedHands
+            ) { onHandRaisedStateChanged ->
+                // handle this user's raised hand state changed updates from
+                // remote surfaces.
             }
+
+        // After the call has been initialized, perform in-call control actions
+        onCall {
+            // other in-call control and extension actions...
+
+            // Example: update remote surfaces when the call participants change
+            participantsFlow.onEach { newParticipants ->
+                participantExtension.updateParticipants(newParticipants)
+            }.launchIn(this)
+            // notify remote surfaces of which of the participants have their
+            // hands raised
+            raisedHandsFlow.onEach { newRaisedHands ->
+                raiseHandState.updateRaisedHands(newRaisedHands)
+            }.launchIn(this)
         }
+    }
+```
 
 #### Support Call Silence
 
@@ -342,30 +418,34 @@ silencing outgoing audio less error prone in multi-call scenarios while also
 allowing for helpful features such as "are you speaking" indications when the
 user is speaking while not realizing that call silence is enabled.
 
-    mCallsManager.addCallWithExtensions(...) {
-            // Initialize extensions...
+<br />
 
-            // Add support for locally silencing the call's outgoing audio and
-            // register a handler for when the user changes the call silence state
-            // from a remote surface.
-            val callSilenceExtension = addLocalCallSilenceExtension(
-                initialCallSilenceState = false
-            ) { newCallSilenceStateRequest ->
-                // handle the user's request to enable/disable call silence from
-                // a remote surface
-            }
+```kotlin
+mCallsManager.addCallWithExtensions(...) {
+        // Initialize extensions...
 
-            // After the call has been initialized, perform in-call control actions
-            onCall {
-                // other in-call control and extension actions...
-
-                // When the call's call silence state changes, update remote
-                // surfaces of the new state.
-                callSilenceState.onEach { isSilenced ->
-                    callSilenceExtension.updateIsLocallySilenced(isSilenced)
-                }.launchIn(this)
-            }
+        // Add support for locally silencing the call's outgoing audio and
+        // register a handler for when the user changes the call silence state
+        // from a remote surface.
+        val callSilenceExtension = addLocalCallSilenceExtension(
+            initialCallSilenceState = false
+        ) { newCallSilenceStateRequest ->
+            // handle the user's request to enable/disable call silence from
+            // a remote surface
         }
+
+        // After the call has been initialized, perform in-call control actions
+        onCall {
+            // other in-call control and extension actions...
+
+            // When the call's call silence state changes, update remote
+            // surfaces of the new state.
+            callSilenceState.onEach { isSilenced ->
+                callSilenceExtension.updateIsLocallySilenced(isSilenced)
+            }.launchIn(this)
+        }
+    }
+```
 
 #### Support Call Icons
 
@@ -374,31 +454,35 @@ displayed on remote surfaces during the call. This icon can also be updated over
 the lifetime of the call.
 
 > [!NOTE]
-> **Note:** Content URIs are not accessible to other apps unless an app explicitly grants another app permission to use that URI. Use a `FileProvider` to generate the `content://` URIs that are shared with remote surfaces. See the [`CallIconExtension`](https://developer.android.com/reference/kotlin/androidx/core/telecom/extensions/CallIconExtension) docs for more details on how to set up call icon support for remote surfaces in your app.
+> **Note:** Content URIs are not accessible to other apps unless an app explicitly grants another app permission to use that URI. Use a `FileProvider` to generate the `content://` URIs that are shared with remote surfaces. See the [`CallIconExtension`](https://developer.android.com/reference/kotlin/androidx/core/telecom/extensions/CallIconExtension.md.txt) docs for more details on how to set up call icon support for remote surfaces in your app.
 
-    mCallsManager.addCallWithExtensions(...) {
-            // Initialize extensions...
+<br />
 
-            // Add support for a custom call icon to be displayed during the
-            // lifetime of the call.
-            val callIconExtension = addCallIconExtension(
-                initialCallIconUri = initialUri
-            )
+```kotlin
+mCallsManager.addCallWithExtensions(...) {
+        // Initialize extensions...
 
-            // After the call has been initialized, perform in-call control actions
-            onCall {
-                // other in-call control and extension actions...
+        // Add support for a custom call icon to be displayed during the
+        // lifetime of the call.
+        val callIconExtension = addCallIconExtension(
+            initialCallIconUri = initialUri
+        )
 
-                // When the call's icon changes, update remote surfaces by providing
-                // the new URI.
-                callIconUri.onEach { newIconUri ->
-                    callIconExtension.updateCallIconUri(newIconUri)
-                }.launchIn(this)
-            }
+        // After the call has been initialized, perform in-call control actions
+        onCall {
+            // other in-call control and extension actions...
+
+            // When the call's icon changes, update remote surfaces by providing
+            // the new URI.
+            callIconUri.onEach { newIconUri ->
+                callIconExtension.updateCallIconUri(newIconUri)
+            }.launchIn(this)
         }
+    }
+```
 
 ## Add to the system call log
 
 You can add your app's VoIP calls to the system call log, so they appear
 in the system dialer and users can call back from there. For details, see
-[Unified call history](https://developer.android.com/develop/connectivity/telecom/call-log-integration).
+[Unified call history](https://developer.android.com/develop/connectivity/telecom/call-log-integration.md.txt).

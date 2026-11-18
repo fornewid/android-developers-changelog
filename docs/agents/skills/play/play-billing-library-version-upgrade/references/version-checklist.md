@@ -35,7 +35,7 @@ Use this checklist to verify that every technical requirement between your
 ## PBL v7.x Series
 
 - \[ \] **SDK Compliance** : `compileSdk` is set to 34 or higher.
-- \[ \] **Pending Purchases** : Replace parameterless `enablePendingPurchases()` with `enablePendingPurchases(PendingPurchaseParams)`.
+- \[ \] **Pending Purchases** : Replace parameterless `enablePendingPurchases()` with `enablePendingPurchases(PendingPurchasesParams)`.
 - \[ \] **API Cleanup** : Replace `setOldSkuPurchaseToken()` with `setOldPurchaseToken()`.
 
 ## PBL v8.x Series
@@ -56,5 +56,5 @@ Use this checklist to verify that every technical requirement between your
 
 ## Future Versions (PBL 10.0.0+)
 
-- \[ \] **Dynamic Checklist Generation** : For any version \>=10.0.0, you **MUST** synthesize a new checklist for each new version header found in the [Release Notes](https://developer.android.com/google/play/billing/release-notes).
+- \[ \] **Dynamic Checklist Generation** : For any version \>=10.0.0, you **MUST** synthesize a new checklist for each new version header found in the [Release Notes](https://developer.android.com/google/play/billing/release-notes.md.txt).
 - \[ \] **Identify Version Delta** : Review "Breaking Changes" and "Removed APIs" for the new version and create a list of terms to `grep`.

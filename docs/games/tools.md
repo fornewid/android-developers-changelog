@@ -4,6 +4,8 @@ url: https://developer.android.com/games/tools
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/llms.txt
+
 To prepare your environment for debugging and optimizing Android games, get
 access to the following tools that help you analyze CPU usage and graphics
 calls.
@@ -12,14 +14,14 @@ calls.
 
 Use the following tools to evaluate and improve your game's CPU performance:
 
-- **Systrace:** Records CPU and disk activity over a short period of time. [Access this tool from the command line](https://developer.android.com/topic/performance/tracing/command-line), or [use the on-device tool](https://developer.android.com/topic/performance/tracing/on-device) that's available when running Android 9 (API level 28) or higher. Also see the [overview of system tracing](https://developer.android.com/topic/performance/tracing).
-- **CPU Profiler:** Inspect your game's CPU usage and thread activity, either in real time or from recorded traces. See documentation on [how to access and use the CPU Profiler](https://developer.android.com/studio/profile) within Android Studio. A [standalone version of this profiler](https://developer.android.com/studio/profile#standalone-profilers) that doesn't require a Gradle project at launch is installed with both [Android Studio](https://developer.android.com/studio) and the [Android Game Development Extension](https://developer.android.com/games/agde).
+- **Systrace:** Records CPU and disk activity over a short period of time. [Access this tool from the command line](https://developer.android.com/topic/performance/tracing/command-line.md.txt), or [use the on-device tool](https://developer.android.com/topic/performance/tracing/on-device.md.txt) that's available when running Android 9 (API level 28) or higher. Also see the [overview of system tracing](https://developer.android.com/topic/performance/tracing.md.txt).
+- **CPU Profiler:** Inspect your game's CPU usage and thread activity, either in real time or from recorded traces. See documentation on [how to access and use the CPU Profiler](https://developer.android.com/studio/profile.md.txt) within Android Studio.
 
 ## Memory
 
-- **Meminfo:** Collects memory statistics to show how much [PSS memory](https://developer.android.com/topic/performance/memory-management#calculating_memory_footprint) was allocated and the categories for which it was used. Use the command `adb shell dumpsys meminfo package-name` or the [`MemoryInfo`](https://developer.android.com/reference/android/os/Debug.MemoryInfo) call.
-- **Perfetto:** Collects performance and memory information on a device and displays it in a web-based UI. [Perfetto](https://docs.perfetto.dev) supports arbitrarily long traces so you can view how RSS changes over time. Enable long traces from the [System Tracing app](https://developer.android.com/topic/performance/tracing/on-device).
-- **bugreport:** Shows if your game crashed because it ran out of memory or if it was killed by the [LMK](https://developer.android.com/topic/performance/memory-management#low-memory_killer). Use the command `adb bugreport bugreport-name` or go to **Developer Options \> Bug report**.
+- **Meminfo:** Collects memory statistics to show how much [PSS memory](https://developer.android.com/topic/performance/memory-management.md.txt#calculating_memory_footprint) was allocated and the categories for which it was used. Use the command `adb shell dumpsys meminfo package-name` or the [`MemoryInfo`](https://developer.android.com/reference/android/os/Debug.MemoryInfo.md.txt) call.
+- **Perfetto:** Collects performance and memory information on a device and displays it in a web-based UI. [Perfetto](https://docs.perfetto.dev) supports arbitrarily long traces so you can view how RSS changes over time. Enable long traces from the [System Tracing app](https://developer.android.com/topic/performance/tracing/on-device.md.txt).
+- **bugreport:** Shows if your game crashed because it ran out of memory or if it was killed by the [LMK](https://developer.android.com/topic/performance/memory-management.md.txt#low-memory_killer). Use the command `adb bugreport bugreport-name` or go to **Developer Options \> Bug report**.
 
 ## Graphics
 
@@ -31,5 +33,5 @@ Use the following tools to evaluate and improve your game's display pipeline:
 
 ## Additional resources
 
-- [Improve your game's performance](https://developer.android.com/games/optimize)
+- [Improve your game's performance](https://developer.android.com/games/optimize.md.txt)
 - [GAPID](https://gapid.dev)

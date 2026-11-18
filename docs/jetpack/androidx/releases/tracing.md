@@ -4,13 +4,56 @@ url: https://developer.android.com/jetpack/androidx/releases/tracing
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Tracing
 
-Write trace events to the system trace buffer.
+[User Guide](https://developer.android.com/topic/performance/tracing/in-process-tracing.md.txt) Write trace events to the system trace buffer or capture low-overhead in-process traces.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | [2.0.5](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.5) | - | - | - |
+| October 21, 2026 | [2.0.5](https://developer.android.com/jetpack/androidx/releases/tracing.md.txt#2.0.5) | - | - | - |
+
+## Declaring dependencies
+
+To add a dependency on Tracing, you must add the Google Maven repository to your
+project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven) for more information.
+
+Add the dependencies for the artifacts you need in the `build.gradle` file for
+your app or module:
+
+### Groovy
+
+```groovy
+dependencies {
+    def tracing_version = "2.0.5"
+
+    // Core tracing API (for libraries and apps to emit trace events)
+    implementation "androidx.tracing:tracing:$tracing_version"
+    // In-process tracing backend and Perfetto sink (for apps)
+    implementation "androidx.tracing:tracing-wire:$tracing_version"
+    // Optional - Kotlin extensions for system tracing (only needed before 1.3.0; included in `tracing` since 1.3.0)
+    implementation "androidx.tracing:tracing-ktx:$tracing_version"
+}
+```
+
+### Kotlin
+
+```kotlin
+dependencies {
+    val tracing_version = "2.0.5"
+
+    // Core tracing API (for libraries and apps to emit trace events)
+    implementation("androidx.tracing:tracing:$tracing_version")
+    // In-process tracing backend and Perfetto sink (for apps)
+    implementation("androidx.tracing:tracing-wire:$tracing_version")
+    // Optional - Kotlin extensions for system tracing (only needed before 1.3.0; included in `tracing` since 1.3.0)
+    implementation("androidx.tracing:tracing-ktx:$tracing_version")
+}
+```
+
+For more information about dependencies, see
+[Add build dependencies](https://developer.android.com/studio/build/dependencies).
 
 ## Feedback
 
@@ -75,16 +118,16 @@ August 12, 2026
 
 **Major features of 2.0.0:**
 
-New [in-process API](https://developer.android.com/topic/performance/tracing/in-process-tracing) enables:
+New [in-process API](https://developer.android.com/topic/performance/tracing/in-process-tracing.md.txt) enables:
 
 - Record trace content in-process, in the field
 - Perfetto flows (arrows from one slice to another)
 - Perfetto annotations (key/value slice metadata)
-- [`traceCoroutine() {}`](https://developer.android.com/reference/kotlin/androidx/tracing/Tracer#traceCoroutine(kotlin.String,kotlin.String,androidx.tracing.PropagationToken,kotlin.Boolean,kotlin.Function1,kotlin.coroutines.SuspendFunction0)) - Coroutine Tracing API which traces thread switches
+- [`traceCoroutine() {}`](https://developer.android.com/reference/kotlin/androidx/tracing/Tracer.md.txt#traceCoroutine(kotlin.String,kotlin.String,androidx.tracing.PropagationToken,kotlin.Boolean,kotlin.Function1,kotlin.coroutines.SuspendFunction0)) - Coroutine Tracing API which traces thread switches
 - Category filtering
 - Significantly lower overhead than existing `android.os.Trace` API and `trace() {}` wrapper
 - KMP tracing - can be used on libraries without Android dependency, and on host JVM projects
-- After the fact [merging with System trace recording](https://developer.android.com/topic/performance/tracing/in-process-tracing#combine-with-system-traces) (implemented by default in AndroidX Benchmark 1.5)
+- After the fact [merging with System trace recording](https://developer.android.com/topic/performance/tracing/in-process-tracing.md.txt#combine-with-system-traces) (implemented by default in AndroidX Benchmark 1.5)
 
 Note that the new tracing APIs record to a process-controlled buffer which is not yet captured by Studio system trace recording. This will be addressed in the Studio Profilers in an upcoming release.
 
@@ -424,7 +467,7 @@ May 11, 2022
 
 **Important changes since 1.0.0**
 
-- Added `Trace.forceEnableAppTracing()` an API to force-enable app trace section capture (i.e. android.os.Trace / androidx.tracing APIs) on non-debuggable builds. Call this at the beginning of startup to enable non-debuggable accurate system tracing before the introduction of the [profileable manifest tag](https://developer.android.com/guide/topics/manifest/profileable-element) in API 29. ([I3a309](https://android-review.googlesource.com/#/q/I3a30949580d8db6777302a759b041f9480e04e72))
+- Added `Trace.forceEnableAppTracing()` an API to force-enable app trace section capture (i.e. android.os.Trace / androidx.tracing APIs) on non-debuggable builds. Call this at the beginning of startup to enable non-debuggable accurate system tracing before the introduction of the [profileable manifest tag](https://developer.android.com/guide/topics/manifest/profileable-element.md.txt) in API 29. ([I3a309](https://android-review.googlesource.com/#/q/I3a30949580d8db6777302a759b041f9480e04e72))
 - Avoid class verification errors when Trace.java is loaded for the first time ([05f6b4](https://android.googlesource.com/platform/frameworks/support/+/b19fac01b2a7f4d55ca777397c5719892905f6b4) and [cb101f](https://android.googlesource.com/platform/frameworks/support/+/4474e187d25886eca264463b7c834c5353cb101f))
 
 #### Version 1.1.0-rc01
@@ -495,7 +538,7 @@ June 10, 2020
 
 **New Features**
 
-androidx.tracing is a library which helps write trace events to the system trace buffer. This can be visualized using tools like Systrace and Perfetto. This library replaces the deprecated [androidx.core.os.TraceCompat](https://developer.android.com/reference/kotlin/androidx/core/os/TraceCompat) class. This initial release is 1.0.0-alpha01.
+androidx.tracing is a library which helps write trace events to the system trace buffer. This can be visualized using tools like Systrace and Perfetto. This library replaces the deprecated [androidx.core.os.TraceCompat](https://developer.android.com/reference/kotlin/androidx/core/os/TraceCompat.md.txt) class. This initial release is 1.0.0-alpha01.
 
 ## Tracing Perfetto
 

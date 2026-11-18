@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/debug
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/debug/llms.txt
+
 Android Studio provides a debugger that lets you do the following and more:
 
 - Select a device to debug your app on.

@@ -4,6 +4,8 @@ url: https://developer.android.com/design/ui/mobile/guides/layout-and-content/cu
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/design/ui/mobile/llms.txt
+
 Inputs, content, or other actions may appear relative to each other or
 constrained to a parent container. Layouts can be more custom, but make sure to
 follow consistent grouping, columns, and spacing.
@@ -30,7 +32,7 @@ If you're working with Views instead of Compose, you can use
 sibling views and the parent layout, allowing for large and complex layouts.
 `ConstraintLayout` lets you build entirely by dragging and dropping instead of
 editing the XML using the layout editor. Learn more about [building a UI with
-Layout Editor](https://developer.android.com/studio/write/layout-editor).
+Layout Editor](https://developer.android.com/studio/views/layout-editor).
 
 Learn more about [Compose layout basics](https://developer.android.com/develop/ui/compose/layouts/basics.md.txt) and what makes up a composable.
 

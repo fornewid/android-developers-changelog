@@ -305,13 +305,13 @@ Continue reading
 
   [arrow_forward](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases.md.txt) In recognition that excessive battery drain is top of mind for Android users, Google has been taking significant steps to help developers build more power-efficient apps.
   [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt) • 8 min read
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+- [![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_1PpSPG.webp)](https://developer.android.com/blog/authors/breana-tate.md.txt) 17 Nov 2026 17 Nov 2026 ![](https://developer.android.com/static/blog/assets/1109_ABL_160_Ship_smarter_keep_rules_How_library_providers_can_unblock_app_level_DEX_code_optimization_1_44aba4f3cd_1kr2I.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
+  ## [Ship smarter keep rules: How library providers can unblock app-level DEX code optimization](https://developer.android.com/blog/posts/ship-smarter-keep-rules-unblock-dex-optimization.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
-  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
-  - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
+  [arrow_forward](https://developer.android.com/blog/posts/ship-smarter-keep-rules-unblock-dex-optimization.md.txt) As Android app and library developers, we all strive for the same goal: performant apps that provide a smooth user experience. A major part of that involves R8, Android's app optimizer. R8 improves app performance by removing unused code, and optimizing and obfuscating the rest.
+  [Breana Tate](https://developer.android.com/blog/authors/breana-tate.md.txt) • 6 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
 Stay in the loop
 
 

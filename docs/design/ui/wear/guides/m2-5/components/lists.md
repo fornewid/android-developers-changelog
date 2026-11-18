@@ -4,9 +4,11 @@ url: https://developer.android.com/design/ui/wear/guides/m2-5/components/lists
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/design/ui/wear/llms.txt
+
 ![](https://developer.android.com/static/wear/images/lists/lists-hero.png)
 
-Lists are continuous, vertical indexes of elements. Use [ScalingLazyColumn](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/ScalingLazyColumn.composable#ScalingLazyColumn(androidx.compose.ui.Modifier,androidx.wear.compose.material.ScalingLazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.wear.compose.material.ScalingParams,androidx.wear.compose.material.ScalingLazyListAnchorType,androidx.wear.compose.material.AutoCenteringParams,kotlin.Function1)) to create lists on Wear OS.
+Lists are continuous, vertical indexes of elements. Use [ScalingLazyColumn](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/lazy/ScalingLazyColumn.composable.md.txt#ScalingLazyColumn(androidx.compose.ui.Modifier,androidx.wear.compose.foundation.lazy.ScalingLazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.wear.compose.foundation.lazy.ScalingParams,androidx.wear.compose.foundation.lazy.ScalingLazyListAnchorType,androidx.wear.compose.foundation.lazy.AutoCenteringParams,androidx.wear.compose.foundation.rotary.RotaryScrollableBehavior,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)) to create lists on Wear OS.
 ![](https://developer.android.com/static/wear/images/lists/lists-ScalingLazyColumn.png) `ScalingLazyColumn` is a customization of `LazyColumn` that's built specifically for Wear OS. Lists offer scaling and transparency, which allows content to shrink and fade at the top and bottom of the screen to help users see what to focus on. Lists are anchored on the center of the screen, which gives additional emphasis to the items in the middle of the list.  
 
 
@@ -63,7 +65,7 @@ Padding between elements within a group should be set to 4 dp.
 
 To give emphasis to a list item when scrolling, use snapping. Use snapping when items are tall but not taller than the screen.
 
-Snapping behavior comes in two forms. `ItemCenter` uses the center of the item as a reference point. `ItemStart` uses the edge of the item as a reference point. Use the first to center one item on the screen, use the second to center two items on the screen. Set this behavior using the [anchorType](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/ScalingLazyListAnchorType) parameter.
+Snapping behavior comes in two forms. `ItemCenter` uses the center of the item as a reference point. `ItemStart` uses the edge of the item as a reference point. Use the first to center one item on the screen, use the second to center two items on the screen. Set this behavior using the [anchorType](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/lazy/ScalingLazyListAnchorType.md.txt) parameter.
 
 For further control over the snapping behavior in a list, set
 `flingBehavior` to `ScalingLazyColumnDefaults.snapFlingBehavior`
@@ -82,7 +84,7 @@ See the following examples of how to use lists on watches.
 ## Adaptive layouts
 
 The following images show several examples of adaptive layouts. For
-implementation guidance, visit the [develop for different screen sizes](https://developer.android.com/training/wearables/compose/screen-size) page.
+implementation guidance, visit the [develop for different screen sizes](https://developer.android.com/training/wearables/compose/screen-size.md.txt) page.
 
 ![](https://developer.android.com/static/wear/images/lists/lists-adaptive-layouts-usage.png)
 ![](https://developer.android.com/static/wear/images/lists/lists-anatomy-large-screens.png) **Responsive behavior**

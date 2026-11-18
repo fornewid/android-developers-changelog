@@ -4,13 +4,15 @@ url: https://developer.android.com/topic/performance/tracing/in-process-tracing
 source: md.txt
 ---
 
-The [`androidx.tracing:tracing:2.0.2`](https://developer.android.com/jetpack/androidx/releases/tracing) library is a low-overhead Kotlin API
-that lets you capture in-process trace events. These events can capture time
-slices and their context. The library also supports context propagation for
-Kotlin coroutines.
+> Documentation index: https://developer.android.com/topic/performance/tracing/llms.txt
+
+Starting with Tracing 2.0, the [`androidx.tracing`](https://developer.android.com/jetpack/androidx/releases/tracing.md.txt) library provides a
+low-overhead Kotlin API that lets you capture in-process trace events. These
+events can capture time slices and their context. The library also supports
+context propagation for Kotlin coroutines.
 
 The library uses the same [Perfetto](https://perfetto.dev) trace packet format that Android
-developers are familiar with. Also, Tracing `2.0` (unlike the `1.0.0-*` APIs)
+developers are familiar with. Also, Tracing 2.0 (unlike the `1.0.0-*` APIs)
 supports the notion of **pluggable tracing backends** and **sinks** , so other
 tracing libraries can **customize** the output tracing format, and how context
 propagation works in their implementation.
@@ -26,41 +28,45 @@ Libraries that only need to emit trace events should depend on the lightweight
 `androidx.tracing:tracing` API. Apps that configure the tracing backend should
 also depend on `androidx.tracing:tracing-wire`.
 
-    kotlin {
-      sourceSets {
-        commonMain {
-          dependencies {
-            // API definition
-            implementation("androidx.tracing:tracing:2.0.2")
-          }
-        }
-        androidMain {
-          dependencies {
-            // Android implementation (includes the Perfetto Sink and automatic initialization)
-            implementation("androidx.tracing:tracing-wire:2.0.2")
-          }
-        }
-        jvmMain {
-          dependencies {
-            // JVM implementation
-            implementation("androidx.tracing:tracing-wire:2.0.2")
-          }
-        }
+```kotlin
+kotlin {
+  sourceSets {
+    commonMain {
+      dependencies {
+        // API definition
+        implementation("androidx.tracing:tracing:2.0.5")
       }
     }
+    androidMain {
+      dependencies {
+        // Android implementation (includes the Perfetto Sink and automatic initialization)
+        implementation("androidx.tracing:tracing-wire:2.0.5")
+      }
+    }
+    jvmMain {
+      dependencies {
+        // JVM implementation
+        implementation("androidx.tracing:tracing-wire:2.0.5")
+      }
+    }
+  }
+}
+```
 
 ### Android-only projects
 
 If you're targeting Android only, add the following to your application or
 library's `build.gradle.kts` file:
 
-    dependencies {
-        // For libraries and applications to emit events
-        implementation("androidx.tracing:tracing:2.0.2")
+```kotlin
+dependencies {
+    // For libraries and applications to emit events
+    implementation("androidx.tracing:tracing:2.0.5")
 
-        // For applications to configure the tracing backend
-        implementation("androidx.tracing:tracing-wire:2.0.2")
-    }
+    // For applications to configure the tracing backend
+    implementation("androidx.tracing:tracing-wire:2.0.5")
+}
+```
 
 > [!NOTE]
 > **Note:** The JVM dependency requires JDK 11 or higher.
@@ -93,23 +99,25 @@ files are saved or to use a custom `TraceSink`, you can provide your own
 To customize the configuration, make your `Application` class implement
 `AbstractTraceDriver.Factory`:
 
-    import android.app.Application
-    import androidx.tracing.AbstractTraceDriver
-    import androidx.tracing.wire.TraceDriver
-    import androidx.tracing.wire.TraceSink
-    import java.io.File
+```kotlin
+import android.app.Application
+import androidx.tracing.AbstractTraceDriver
+import androidx.tracing.wire.TraceDriver
+import androidx.tracing.wire.TraceSink
+import java.io.File
 
-    class App : Application(), AbstractTraceDriver.Factory {
-        override fun create(): AbstractTraceDriver {
-            val sink = TraceSink(
-                context = this,
-                fileProvider = { File(noBackupFilesDir, "traces") },
-            )
-            // Return the custom TraceDriver
-            // You can also fully customize the instance of Tracer
-            return TraceDriver(context = this, sink = sink)
-        }
+class App : Application(), AbstractTraceDriver.Factory {
+    override fun create(): AbstractTraceDriver {
+        val sink = TraceSink(
+            context = this,
+            fileProvider = { File(noBackupFilesDir, "traces") },
+        )
+        // Return the custom TraceDriver
+        // You can also fully customize the instance of Tracer
+        return TraceDriver(context = this, sink = sink)
     }
+}
+```
 
 The automatic initializer detects that your `Application` subclass implements
 `Factory` and uses your custom driver factory.
@@ -125,31 +133,33 @@ To register the tracer, call `Tracer.setGlobalTracer()`.
 > [!WARNING]
 > **Warning:** The `setGlobalTracer` method is annotated with `@DelicateTracingApi`. It should only be called once per process lifecycle, typically by the application entry point, and never by libraries.
 
-    import androidx.tracing.Tracer
-    import androidx.tracing.DelicateTracingApi
-    import androidx.tracing.wire.TraceDriver
-    import androidx.tracing.wire.TraceSink
-    import java.io.File
+```kotlin
+import androidx.tracing.Tracer
+import androidx.tracing.DelicateTracingApi
+import androidx.tracing.wire.TraceDriver
+import androidx.tracing.wire.TraceSink
+import java.io.File
 
-    fun main() {
-        // Create the TraceSink, and the `TraceDriver`
-        val outputDirectory = File("/tmp/perfetto")
-        val sink = TraceSink(directory = outputDirectory)
-        val driver = TraceDriver(sink = sink, isEnabled = true)
+fun main() {
+    // Create the TraceSink, and the `TraceDriver`
+    val outputDirectory = File("/tmp/perfetto")
+    val sink = TraceSink(directory = outputDirectory)
+    val driver = TraceDriver(sink = sink, isEnabled = true)
 
-        // Register the tracer
-        @OptIn(DelicateTracingApi::class)
-        Tracer.setGlobalTracer(driver.tracer)
+    // Register the tracer
+    @OptIn(DelicateTracingApi::class)
+    Tracer.setGlobalTracer(driver.tracer)
 
-        // Call driver.close() as a result of the process shutdown hook.
-        Runtime.getRuntime().addShutdownHook(Thread {
-            driver.close()
-        })
-    }
+    // Call driver.close() as a result of the process shutdown hook.
+    Runtime.getRuntime().addShutdownHook(Thread {
+        driver.close()
+    })
+}
+```
 
 ## Basic usage
 
-A `TraceSink` defines how trace packets are serialized. Tracing 2.0.0 comes with
+A `TraceSink` defines how trace packets are serialized. Tracing 2.0 comes with
 an implementation of a Sink that uses the `Perfetto` trace packet format. A
 `TraceDriver` provides a handle to the `Tracer` and can be used to finalize a
 trace.
@@ -163,51 +173,55 @@ can optionally enable trace points for a given `category` by providing an
 implementation for `isCategoryEnabled` when creating an instance of
 `TraceDriver`.
 
-    val driver = TraceDriver(
-        sink = sink,
-        isCategoryEnabled = { category ->
-            // Only enable trace points in the "com.example" package
-            category.startsWith("com.example")
-        }
-    )
+```kotlin
+val driver = TraceDriver(
+    sink = sink,
+    isCategoryEnabled = { category ->
+        // Only enable trace points in the "com.example" package
+        category.startsWith("com.example")
+    }
+)
+```
 
 Here's a basic example of emitting a trace event using `Tracer.global` on the
 JVM, including manual setup:
 
-    import androidx.tracing.Tracer
-    import androidx.tracing.DelicateTracingApi
-    import androidx.tracing.wire.TraceDriver
-    import androidx.tracing.wire.TraceSink
-    import java.io.File
+```kotlin
+import androidx.tracing.Tracer
+import androidx.tracing.DelicateTracingApi
+import androidx.tracing.wire.TraceDriver
+import androidx.tracing.wire.TraceSink
+import java.io.File
 
-    // Category names should also follow the same convention used for package names
-    // on Android and Java. This makes them easier to identify and filter.
-    internal const val CATEGORY_MAIN = "com.example"
+// Category names should also follow the same convention used for package names
+// on Android and Java. This makes them easier to identify and filter.
+internal const val CATEGORY_MAIN = "com.example"
 
-    fun createSink(): TraceSink {
-        val outputDirectory = File("/tmp/perfetto")
-        if (!outputDirectory.exists()) {
-            outputDirectory.mkdirs()
+fun createSink(): TraceSink {
+    val outputDirectory = File("/tmp/perfetto")
+    if (!outputDirectory.exists()) {
+        outputDirectory.mkdirs()
+    }
+    return TraceSink(directory = outputDirectory)
+}
+
+fun createTraceDriver(): TraceDriver {
+    return TraceDriver(sink = createSink(), isCategoryEnabled = {true})
+}
+
+fun main() {
+    val driver = createTraceDriver()
+    @OptIn(DelicateTracingApi::class)
+    Tracer.setGlobalTracer(driver.tracer)
+
+    driver.use {
+        Tracer.global.trace(category = CATEGORY_MAIN, name = "basic") {
+            // The block of code that needs to be traced.
+            Thread.sleep(100L)
         }
-        return TraceSink(directory = outputDirectory)
     }
-
-    fun createTraceDriver(): TraceDriver {
-        return TraceDriver(sink = createSink(), isCategoryEnabled = {true})
-    }
-
-    fun main() {
-        val driver = createTraceDriver()
-        @OptIn(DelicateTracingApi::class)
-        Tracer.setGlobalTracer(driver.tracer)
-
-        driver.use {
-            Tracer.global.trace(category = CATEGORY_MAIN, name = "basic") {
-                // The block of code that needs to be traced.
-                Thread.sleep(100L)
-            }
-        }
-    }
+}
+```
 
 This generates the following trace.
 ![Screen capture of a basic Perfetto trace](https://developer.android.com/static/topic/performance/images/in-process-tracing/basic.png)
@@ -220,37 +234,39 @@ they produced a single trace section `basic`, which ran for 100 ms.
 Trace sections (or slices) can be nested on the same track to represent
 overlapping events. Here is an example.
 
-    fun main() {
-        val driver = createTraceDriver()
-        @OptIn(DelicateTracingApi::class)
-        Tracer.setGlobalTracer(driver.tracer)
+```kotlin
+fun main() {
+    val driver = createTraceDriver()
+    @OptIn(DelicateTracingApi::class)
+    Tracer.setGlobalTracer(driver.tracer)
 
-        driver.use {
-            Tracer.global.trace(
-                category = CATEGORY_MAIN,
-                name = "processImage",
-            ) {
-                // Load the data first, then apply the sharpen filter
-                sharpen(output = loadImage())
-            }
+    driver.use {
+        Tracer.global.trace(
+            category = CATEGORY_MAIN,
+            name = "processImage",
+        ) {
+            // Load the data first, then apply the sharpen filter
+            sharpen(output = loadImage())
         }
     }
+}
 
-    internal fun loadImage(): ByteArray {
-        return Tracer.global.trace(CATEGORY_MAIN, "loadImage") {
-            // Loads an image
-            // ...
-            // A placeholder
-            ByteArray(0)
-        }
-    }
-
-    internal fun sharpen(output: ByteArray) {
+internal fun loadImage(): ByteArray {
+    return Tracer.global.trace(CATEGORY_MAIN, "loadImage") {
+        // Loads an image
         // ...
-        Tracer.global.trace(CATEGORY_MAIN, "sharpen") {
-            // ...
-        }
+        // A placeholder
+        ByteArray(0)
     }
+}
+
+internal fun sharpen(output: ByteArray) {
+    // ...
+    Tracer.global.trace(CATEGORY_MAIN, "sharpen") {
+        // ...
+    }
+}
+```
 
 This generates the following trace.
 ![Screen capture of a basic Perfetto trace with nested sections](https://developer.android.com/static/topic/performance/images/in-process-tracing/basic_nested.png)
@@ -268,26 +284,28 @@ slice, to get more details. Some examples of such metadata could include the
 `nav destination` that the user is on, or `input arguments` that might end up
 determining how long a function takes.
 
-    fun main() {
-        val driver = createTraceDriver()
-        @OptIn(DelicateTracingApi::class)
-        Tracer.setGlobalTracer(driver.tracer)
+```kotlin
+fun main() {
+    val driver = createTraceDriver()
+    @OptIn(DelicateTracingApi::class)
+    Tracer.setGlobalTracer(driver.tracer)
 
-        driver.use {
-            Tracer.global.trace(
-                category = CATEGORY_MAIN,
-                name = "basicWithContext",
-                // Add additional metadata
-                metadataBlock = {
-                    // Add key value pairs.
-                    addMetadataEntry("key", "value")
-                    addMetadataEntry("count", 1L)
-                }
-            ) {
-                Thread.sleep(100L)
+    driver.use {
+        Tracer.global.trace(
+            category = CATEGORY_MAIN,
+            name = "basicWithContext",
+            // Add additional metadata
+            metadataBlock = {
+                // Add key value pairs.
+                addMetadataEntry("key", "value")
+                addMetadataEntry("count", 1L)
             }
+        ) {
+            Thread.sleep(100L)
         }
     }
+}
+```
 
 This produces the following result. Note the `Arguments` section contains key
 value pairs added when producing the `slice`.
@@ -301,32 +319,34 @@ When using Kotlin coroutines, or other similar frameworks that help with
 concurrent workloads, Tracing 2.0 supports the notion of context propagation.
 This is best explained by an example.
 
-    suspend fun taskOne() {
-        Tracer.global.traceCoroutine(category = CATEGORY_MAIN, "taskOne") {
-            delay(timeMillis = 100L)
-        }
+```kotlin
+suspend fun taskOne() {
+    Tracer.global.traceCoroutine(category = CATEGORY_MAIN, "taskOne") {
+        delay(timeMillis = 100L)
     }
+}
 
-    suspend fun taskTwo() {
-        Tracer.global.traceCoroutine(category = CATEGORY_MAIN, "taskTwo") {
-            delay(timeMillis = 50L)
-        }
+suspend fun taskTwo() {
+    Tracer.global.traceCoroutine(category = CATEGORY_MAIN, "taskTwo") {
+        delay(timeMillis = 50L)
     }
+}
 
-    fun main() = runBlocking(context = Dispatchers.Default) {
-        val driver = createTraceDriver()
-        @OptIn(DelicateTracingApi::class)
-        Tracer.setGlobalTracer(driver.tracer)
+fun main() = runBlocking(context = Dispatchers.Default) {
+    val driver = createTraceDriver()
+    @OptIn(DelicateTracingApi::class)
+    Tracer.setGlobalTracer(driver.tracer)
 
-        driver.use {
-            Tracer.global.traceCoroutine(category = CATEGORY_MAIN, name = "main") {
-                  taskOne()
-                  taskTwo()
-                }
+    driver.use {
+        Tracer.global.traceCoroutine(category = CATEGORY_MAIN, name = "main") {
+              taskOne()
+              taskTwo()
             }
-            println("All done")
         }
+        println("All done")
     }
+}
+```
 
 This produces the following result.
 ![Screen capture of a Perfetto trace with context propagation](https://developer.android.com/static/topic/performance/images/in-process-tracing/context_propagation.png)
@@ -346,7 +366,7 @@ to the use of `delay`.
 > implementation of context propagation** if you choose.
 
 > [!NOTE]
-> **Note:** In `2.0.2`, context propagation uses Perfetto flows to represent the flow of execution. This is an imperfect representation, as it presents you with a thread-centric view. The `Tracer` therefore keeps track of when coroutines are suspended and resumed. This is also why you might see multiple slices that correspond to a single `suspend` function, as it suspends and resumes.
+> **Note:** In Tracing 2.0, context propagation uses Perfetto flows to represent the flow of execution. This is an imperfect representation, as it presents you with a thread-centric view. The `Tracer` therefore keeps track of when coroutines are suspended and resumed. This is also why you might see multiple slices that correspond to a single `suspend` function, as it suspends and resumes.
 
 > [!NOTE]
 > **Note:** We are improving how context propagation can be visualized in Perfetto UI, to better represent fan-outs for example.
@@ -357,48 +377,50 @@ Sometimes, when you're mixing concurrent workloads using Kotlin coroutines with
 instances of Java `Executor` it might be useful to propagate the context from
 one to the other. Here is an example:
 
-    fun executorTask(
-        token: PropagationToken,
-        executor: Executor,
-        callback: () -> Unit
-    ) {
-        executor.execute {
-            Tracer.global.trace(
-                category = CATEGORY_MAIN,
-                name = "executeTask",
-                token = token,
-            ) {
-                // Do something
-                Thread.sleep(100)
-                callback()
-            }
+```kotlin
+fun executorTask(
+    token: PropagationToken,
+    executor: Executor,
+    callback: () -> Unit
+) {
+    executor.execute {
+        Tracer.global.trace(
+            category = CATEGORY_MAIN,
+            name = "executeTask",
+            token = token,
+        ) {
+            // Do something
+            Thread.sleep(100)
+            callback()
         }
     }
+}
 
-    fun main() = runBlocking(context = Dispatchers.Default) {
-        val driver = createTraceDriver()
-        @OptIn(DelicateTracingApi::class)
-        Tracer.setGlobalTracer(driver.tracer)
+fun main() = runBlocking(context = Dispatchers.Default) {
+    val driver = createTraceDriver()
+    @OptIn(DelicateTracingApi::class)
+    Tracer.setGlobalTracer(driver.tracer)
 
-        val executor = Executors.newSingleThreadExecutor()
-        driver.use {
-            Tracer.global.traceCoroutine(category = CATEGORY_MAIN, name = "main") {
-                coroutineScope {
-                    val deferred = CompletableDeferred<Unit>()
-                    executorTask(
-                        // Obtain the propagation token from the CoroutineContext
-                        token = Tracer.global.tokenFromCoroutineContext(),
-                        executor = executor,
-                        callback = {
-                            deferred.complete(Unit)
-                        }
-                    )
-                    deferred.await()
-                }
+    val executor = Executors.newSingleThreadExecutor()
+    driver.use {
+        Tracer.global.traceCoroutine(category = CATEGORY_MAIN, name = "main") {
+            coroutineScope {
+                val deferred = CompletableDeferred<Unit>()
+                executorTask(
+                    // Obtain the propagation token from the CoroutineContext
+                    token = Tracer.global.tokenFromCoroutineContext(),
+                    executor = executor,
+                    callback = {
+                        deferred.complete(Unit)
+                    }
+                )
+                deferred.await()
             }
-            executor.shutdownNow()
         }
+        executor.shutdownNow()
     }
+}
+```
 
 This produces the following result.
 ![Screen capture of a Perfetto trace with manual context propagation](https://developer.android.com/static/topic/performance/images/in-process-tracing/manual_context_propagation.png)
@@ -426,7 +448,7 @@ supports visualizing multiple trace files from a device on a unified timeline.
 To do this, you can start a system tracing session using `Perfetto UI` by
 following [instructions here](https://perfetto.dev/docs/getting-started/system-tracing#recording-your-first-system-trace).
 
-You can also record in-process trace events using the `Tracing 2.0` API, while
+You can also record in-process trace events using the Tracing 2.0 API, while
 system tracing is turned on. Once you have **both** trace files you can use the
 `Open Multiple Trace Files` option in Perfetto.
 ![Opening multiple trace files in Perfetto UI](https://developer.android.com/static/topic/performance/images/in-process-tracing/multiple_trace_files.png)
@@ -451,39 +473,41 @@ action or a system event. For example to attribute all the slices that
 correspond to some background work as part of a notification, you could do
 something like:
 
-    fun main() {
-        val driver = createTraceDriver()
-        @OptIn(DelicateTracingApi::class)
-        Tracer.setGlobalTracer(driver.tracer)
+```kotlin
+fun main() {
+    val driver = createTraceDriver()
+    @OptIn(DelicateTracingApi::class)
+    Tracer.setGlobalTracer(driver.tracer)
 
-        driver.use {
-            onEvent(eventId = EVENT_ID)
+    driver.use {
+        onEvent(eventId = EVENT_ID)
+    }
+}
+
+fun onEvent(eventId: Long) {
+    Tracer.global.trace(
+        category = CATEGORY_MAIN,
+        name = "step-1",
+        metadataBlock = {
+            addCorrelationId(eventId)
         }
+    ) {
+        Thread.sleep(100L)
     }
 
-    fun onEvent(eventId: Long) {
-        Tracer.global.trace(
-            category = CATEGORY_MAIN,
-            name = "step-1",
-            metadataBlock = {
-                addCorrelationId(eventId)
-            }
-        ) {
-            Thread.sleep(100L)
-        }
+    Thread.sleep(20)
 
-        Thread.sleep(20)
-
-        Tracer.global.trace(
-            category = CATEGORY_MAIN,
-            name = "step-2",
-            metadataBlock = {
-                addCorrelationId(eventId)
-            }
-        ) {
-            Thread.sleep(180)
+    Tracer.global.trace(
+        category = CATEGORY_MAIN,
+        name = "step-2",
+        metadataBlock = {
+            addCorrelationId(eventId)
         }
+    ) {
+        Thread.sleep(180)
     }
+}
+```
 
 This produces the following result.
 ![Screen capture of a Perfetto trace with correlated slices](https://developer.android.com/static/topic/performance/images/in-process-tracing/correlating_slices.png)
@@ -500,27 +524,29 @@ choose to embed call stack information into a trace, to make it convenient to
 locate the file, class, or method responsible for producing a trace section in a
 trace.
 
-    fun main() {
-        val driver = createTraceDriver()
-        @OptIn(DelicateTracingApi::class)
-        Tracer.setGlobalTracer(driver.tracer)
+```kotlin
+fun main() {
+    val driver = createTraceDriver()
+    @OptIn(DelicateTracingApi::class)
+    Tracer.setGlobalTracer(driver.tracer)
 
-        driver.use {
-            Tracer.global.trace(
-                category = CATEGORY_MAIN,
-                name = "callStackEntry",
-                metadataBlock = {
-                    addCallStackEntry(
-                        name = "main",
-                        lineNumber = 14,
-                        sourceFile = "Basic.kt"
-                    )
-                }
-            ) {
-                Thread.sleep(100L)
+    driver.use {
+        Tracer.global.trace(
+            category = CATEGORY_MAIN,
+            name = "callStackEntry",
+            metadataBlock = {
+                addCallStackEntry(
+                    name = "main",
+                    lineNumber = 14,
+                    sourceFile = "Basic.kt"
+                )
             }
+        ) {
+            Thread.sleep(100L)
         }
     }
+}
+```
 
 This produces the following result.
 ![Screen capture of a Perfetto trace with call stack information](https://developer.android.com/static/topic/performance/images/in-process-tracing/call_stack_entry.png)

@@ -87,32 +87,15 @@ you created:
 
 The App Links Assistant adds code to your activity, similar to the following:
 
-### Kotlin
-
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    ...
+    // ...
     // ATTENTION: This was auto-generated to handle app links.
     val appLinkIntent: Intent = intent
     val appLinkAction: String? = appLinkIntent.action
     val appLinkData: Uri? = appLinkIntent.data
-    ...
-}
-```
-
-### Java
-
-```java
-@Override
-void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    ...
-    // ATTENTION: This was auto-generated to handle app links.
-    Intent appLinkIntent = getIntent();
-    String appLinkAction = appLinkIntent.getAction();
-    Uri appLinkData = appLinkIntent.getData();
-    ...
+    // ...
 }
 ```
 
@@ -120,12 +103,10 @@ This code isn't complete on its own. You must now take an action based on the UR
 `appLinkData`, such as displaying the corresponding content. For example, for the
 recipe-sharing app, your code might look like the following sample:
 
-### Kotlin
-
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    ...
+    // ...
     handleIntent(intent)
 }
 
@@ -140,38 +121,12 @@ private fun handleIntent(intent: Intent) {
     if (Intent.ACTION_VIEW == appLinkAction) {
         appLinkData?.lastPathSegment?.also { recipeId ->
             Uri.parse("content://com.recipe_app/recipe/")
-                    .buildUpon()
-                    .appendPath(recipeId)
-                    .build().also { appData ->
-                        showRecipe(appData)
-                    }
+                .buildUpon()
+                .appendPath(recipeId)
+                .build().also { appData ->
+                    showRecipe(appData)
+                }
         }
-    }
-}
-```
-
-### Java
-
-```java
-protected void onCreate(Bundle savedInstanceState) {
-  super.onCreate(savedInstanceState);
-  ...
-  handleIntent(getIntent());
-}
-
-protected void onNewIntent(Intent intent) {
-  super.onNewIntent(intent);
-  handleIntent(intent);
-}
-
-private void handleIntent(Intent intent) {
-    String appLinkAction = intent.getAction();
-    Uri appLinkData = intent.getData();
-    if (Intent.ACTION_VIEW.equals(appLinkAction) && appLinkData != null){
-        String recipeId = appLinkData.getLastPathSegment();
-        Uri appData = Uri.parse("content://com.recipe_app/recipe/").buildUpon()
-            .appendPath(recipeId).build();
-        showRecipe(appData);
     }
 }
 ```

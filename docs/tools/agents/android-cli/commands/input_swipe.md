@@ -63,9 +63,10 @@ selector txt=var would match "var", "Variable", and "There was significant
 variance". The selector txt=\* matches any non-empty value. Spaces around a value
 are ignored, except inside a regular expression.
 Wrap a value in slashes to use a regular expression instead. Regular expressions
-are case-sensitive and can match any part of the value. For example, txt=/\^Var$/
-matches only "Var". Add the i flag for a case-insensitive match, for example
-txt=/\^var$/i. Escape a "/" inside a regular expression as "\\/", for example
-id=/:id\\/submit$/. Commas and spaces inside a regular expression are part of it,
-for example txt=/\^Item \[0-9\]{1,2}$/. A value that starts with "/" is always a
-regular expression, so use txt=/\^\\/help/ to match text that starts with "/help"
+are case-sensitive and can match any part of the value. For example,
+`txt=/^Var$/` matches only "Var". Add the i flag for a case-insensitive match,
+for example `txt=/^var$/i`. Escape a "/" inside a regular expression as "\\/",
+for example `id=/:id\/submit$/`. Commas and spaces inside a regular expression
+are part of it, for example `txt=/^Item [0-9]{1,2}$/`. A value that starts with
+"/" is always a regular expression, so use `txt=/^\/help/` to match text that
+starts with "/help"

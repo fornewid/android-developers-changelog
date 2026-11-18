@@ -51,6 +51,12 @@ If copying sample data repositories that load bitmaps with Coil (such as
 such as `io.coil-kt:coil` (e.g., `implementation("io.coil-kt:coil:2.7.0")`) if
 one doesn't already exist.
 
+If copying `FontUtils.kt` (for long text, full-bleed image, or text with image
+layouts), also add `androidx.appcompat:appcompat`. For example, add
+`implementation("androidx.appcompat:appcompat:1.8.0")` if it
+doesn't already exist. `FontUtils.kt` uses `AppCompatTextView` so text
+auto-sizing also works below API level 27.
+
 ## Canonical layout reference files
 
 #### Action list layout (`action_list`)

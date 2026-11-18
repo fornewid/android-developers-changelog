@@ -4,11 +4,15 @@ url: https://developer.android.com/tools/agents/android-cli/commands/build
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
+
 Build android artifacts.
 
 ## Usage
 
-    android build [-h] [<reference>] [-- <build_args>]
+```bash
+android build [-h] [<reference>] [-- <build_args>]
+```
 
 ## Options
 
@@ -22,7 +26,7 @@ Build android artifacts.
 
 ## Positional arguments
 
-- `<reference>` - Build reference (\[system://\]\[path\]?\[target\]).
+- `<reference>` - Build reference (`[system://][path]?[target]`).
 - `-- <build_args>` - Arguments passed verbatim to the build system. Use -- to separate from other arguments.
 
 ## Description
@@ -53,17 +57,25 @@ Arguments after `--` are passed verbatim to the underlying build system.
 
 Build the default target in the current workspace:
 
-    android build
+```bash
+android build
+```
 
 Build `:app` in the current Gradle workspace:
 
-    android build :app
+```bash
+android build :app
+```
 
 Build the `debug` variant of `:app` (`:app@debug`) from the Gradle workspace at
 `$HOME/my-app`, passing extra arguments to Gradle:
 
-    android build $HOME/my-app?:app@debug -- --offline
+```bash
+android build $HOME/my-app?:app@debug -- --offline
+```
 
 Build a Bazel target, forcing the Bazel build system:
 
-    android build bazel://?//app:app
+```bash
+android build bazel://?//app:app
+```

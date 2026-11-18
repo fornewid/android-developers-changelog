@@ -4,18 +4,20 @@ url: https://developer.android.com/games/engines/unity/unity-r8
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/llms.txt
+
 Although your core game logic in Unity is written in C# (compiled with IL2CPP),
 Android builds include substantial Java and Kotlin bytecode (`classes.dex`) to
 handle `UnityPlayerActivity` lifecycle events, Google Play services, billing,
 ads, and social SDKs.
 
-Enabling [R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization), the default code shrinker and optimizer in the Android Gradle
+Enabling [R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt), the default code shrinker and optimizer in the Android Gradle
 Plugin (AGP), removes unused classes and methods and optimizes bytecode. This
 not only decreases your app download size, but also reduces the runtime memory
 footprint of memory-mapped (`mmap`) DEX pages and baseline Java process
-overhead, mitigating physical memory pressure and [low memory killer (LMK)](https://developer.android.com/games/optimize/vitals/lmk)
+overhead, mitigating physical memory pressure and [low memory killer (LMK)](https://developer.android.com/games/optimize/vitals/lmk.md.txt)
 terminations. Google Play also monitors your game's DEX optimization levels
-through the [DEX code optimization](https://developer.android.com/google/play/vitals/code-optimization) metric in Android vitals.
+through the [DEX code optimization](https://developer.android.com/google/play/vitals/code-optimization.md.txt) metric in Android vitals.
 
 ## Default behavior and Unity version support
 
@@ -51,21 +53,23 @@ To enable R8 code shrinking and optimization for Release builds:
 If you automate builds using C# Editor scripts, configure these properties
 through `PlayerSettings.Android`:
 
-    using UnityEditor;
+```c#
+using UnityEditor;
 
-    public static class AndroidBuildConfig
+public static class AndroidBuildConfig
+{
+    public static void EnableR8ForRelease()
     {
-        public static void EnableR8ForRelease()
-        {
-            PlayerSettings.Android.minifyRelease = true;
+        PlayerSettings.Android.minifyRelease = true;
 
-            // Required only in Unity 2020.1.0f1 to 2021.3.40f1 and 2022.1 or earlier
-            // (In Unity 2021.3.41f1+ and 2022.2+, R8 is always used when minification is enabled)
-    #if !UNITY_2022_2_OR_NEWER
-            PlayerSettings.Android.minifyWithR8 = true;
-    #endif
-        }
+        // Required only in Unity 2020.1.0f1 to 2021.3.40f1 and 2022.1 or earlier
+        // (In Unity 2021.3.41f1+ and 2022.2+, R8 is always used when minification is enabled)
+#if !UNITY_2022_2_OR_NEWER
+        PlayerSettings.Android.minifyWithR8 = true;
+#endif
     }
+}
+```
 
 ## Add keep rules for JNI and reflection
 
@@ -99,11 +103,11 @@ the generated `missing_rules.txt` file in your build output directory (under
 `Library/Bee/Android/Prj/.../build/outputs/mapping/release/missing_rules.txt` or
 `Temp/gradleOut/...`) and add the required dependencies or rules to
 `proguard-user.txt`. For more information about writing keep rules, see
-[Customize which code to keep](https://developer.android.com/topic/performance/app-optimization/keep-code).
+[Customize which code to keep](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview.md.txt).
 
 ### R8 full mode compatibility with third-party plugins
 
-In AGP 8.0 and higher (Unity 6+), [R8 full mode](https://developer.android.com/topic/performance/app-optimization/full-mode) is enabled by default to
+In AGP 8.0 and higher (Unity 6+), [R8 full mode](https://developer.android.com/topic/performance/app-optimization/full-mode.md.txt) is enabled by default to
 perform more aggressive optimizations. If a legacy Android plugin fails at
 runtime due to reflection issues, update the plugin's ProGuard rules or revert
 R8 to compatibility mode:
@@ -112,4 +116,6 @@ R8 to compatibility mode:
    Template**.
 2. Open `Assets/Plugins/Android/gradleTemplate.properties` and add the following property:
 
-    android.enableR8.fullMode=false
+```properties
+android.enableR8.fullMode=false
+```

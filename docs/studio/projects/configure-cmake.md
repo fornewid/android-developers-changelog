@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/projects/configure-cmake
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/projects/llms.txt
+
 A CMake build script is a plain text file that you must name
 `CMakeLists.txt` and includes commands CMake uses to build your
 C/C++ libraries. If your native sources don't already have a CMake build
@@ -17,16 +19,16 @@ script in order to tell CMake which sources to use when creating your native
 library. To learn more, read the official documentation about [CMake commands](https://cmake.org/cmake/help/latest/manual/cmake-commands.7.html).
 
 After you configure a new CMake build script, you need to
-[configure Gradle](https://developer.android.com/studio/projects/gradle-external-native-builds)
+[configure Gradle](https://developer.android.com/studio/projects/gradle-external-native-builds.md.txt)
 to include your CMake project as a build dependency, so that Gradle builds and
 packages your native library with your app's APK.
 
 
 **Note:** If your project uses ndk-build, you don't need to
 create a CMake build script. You can simply
-[configure Gradle](https://developer.android.com/studio/projects/gradle-external-native-builds)
+[configure Gradle](https://developer.android.com/studio/projects/gradle-external-native-builds.md.txt)
 to include your existing native library project by providing a path to your
-[`Android.mk`](https://developer.android.com/ndk/guides/android_mk) file.
+[`Android.mk`](https://developer.android.com/ndk/guides/android_mk.md.txt) file.
 
 ## Create a CMake build script
 
@@ -103,23 +105,16 @@ in the build script, CMake creates a file named
 `libnative-lib.so`. However, when loading this library in your
 Java or Kotlin code, use the name you specified in the CMake build script:
 
-### Kotlin
 
 ```kotlin
 companion object {
     init {
-        System.loadLibrary("native-lib");
+        System.loadLibrary("native-lib")
     }
 }
 ```
 
-### Java
-
-```java
-static {
-    System.loadLibrary("native-lib");
-}
-```
+<br />
 
 
 **Note:** If you rename or remove a library in your CMake build
@@ -137,7 +132,7 @@ libraries for CMake to build from other source files.
 
 
 The Android NDK provides a set of native APIs and libraries that you may find
-useful. You can use any of these APIs by including [the NDK libraries](https://developer.android.com/ndk/guides/stable_apis) in your project's
+useful. You can use any of these APIs by including [the NDK libraries](https://developer.android.com/ndk/guides/stable_apis.md.txt) in your project's
 `CMakeLists.txt` script file.
 
 
@@ -152,7 +147,7 @@ against your own native library.
 Add the [`find_library()`](https://cmake.org/cmake/help/latest/command/find_library.html) command to your CMake build
 script to locate an NDK library and store its path as a variable. You use
 this variable to refer to the NDK library in other parts of the build script.
-The following sample locates the [Android-specific log support library](https://developer.android.com/ndk/guides/stable_apis#a3)
+The following sample locates the [Android-specific log support library](https://developer.android.com/ndk/guides/stable_apis.md.txt#a3)
 and stores its path in `log-lib`:
 
 ```
@@ -191,7 +186,7 @@ defines for you.
 
 
 The following command tells CMake to build
-`android_native_app_glue.c`, which manages [`NativeActivity`](https://developer.android.com/reference/android/app/NativeActivity)
+`android_native_app_glue.c`, which manages [`NativeActivity`](https://developer.android.com/reference/android/app/NativeActivity.md.txt)
 lifecycle events and touch input, into a static library and links it to
 `native-lib`:
 
@@ -225,15 +220,15 @@ shown below.
 
 
 Some libraries provide separate packages for specific CPU architectures, or
-[Application Binary Interfaces (ABI)](https://developer.android.com/ndk/guides/abis), and
+[Application Binary Interfaces (ABI)](https://developer.android.com/ndk/guides/abis.md.txt), and
 organize them into separate directories. This approach helps libraries take
 advantage of certain CPU architectures while allowing you to use only the
 versions of the library you want. To add multiple ABI versions of a library
 to your CMake build script, without having to write multiple commands for
 each version of the library, you can use the `ANDROID_ABI` path
-variable. This variable uses a list of the default [ABIs that the NDK supports](https://developer.android.com/ndk/guides/abis#sa), or a filtered list
+variable. This variable uses a list of the default [ABIs that the NDK supports](https://developer.android.com/ndk/guides/abis.md.txt#sa), or a filtered list
 of ABIs you
-[manually configure Gradle](https://developer.android.com/studio/projects/gradle-external-native-builds#specify-abi) to use. For example:
+[manually configure Gradle](https://developer.android.com/studio/projects/gradle-external-native-builds.md.txt#specify-abi) to use. For example:
 
 ```
 add_library(...)
@@ -272,10 +267,10 @@ target_link_libraries( native-lib imported-lib app-glue ${log-lib} )
 
 
 To package the prebuilt library into your APK, you need to
-[manually configure Gradle](https://developer.android.com/studio/projects/gradle-external-native-builds#configure-gradle) with the `sourceSets` block to
+[manually configure Gradle](https://developer.android.com/studio/projects/gradle-external-native-builds.md.txt#configure-gradle) with the `sourceSets` block to
 include the path to your `.so` file. After building your APK, you
 can verify which libraries Gradle packages into your APK by using the
-[APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer).
+[APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer.md.txt).
 
 ## Include other CMake projects
 

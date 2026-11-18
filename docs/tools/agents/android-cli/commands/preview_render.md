@@ -4,12 +4,16 @@ url: https://developer.android.com/tools/agents/android-cli/commands/preview_ren
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
+
 Builds a target and renders its Jetpack Compose @Preview functions to PNG images
 and optional component tree JSON files.
 
 ## Usage
 
-    android preview render [-h] [--component-tree] [--daemon] [--format=PARAM] [--fqn=PARAM] [--no-image] [--output=PARAM] [<reference>] [-- <build_args>]
+```bash
+android preview render [-h] [--component-tree] [--daemon] [--format=PARAM] [--fqn=PARAM] [--no-image] [--output=PARAM] [<reference>] [-- <build_args>]
+```
 
 ## Options
 
@@ -19,7 +23,7 @@ and optional component tree JSON files.
 - `--fqn=PARAM` - Fully qualified name of a preview to render. Can be specified multiple times.
 - `-h,--help` - Shows the help message for the specified command.
 - `--no-image` - Skip rendering the preview image (requires --component-tree).
-- `-o,--output=PARAM` - Directory or file path to write rendered preview outputs (defaults to a temporary directory).
+- `-o,--output=PARAM` - Directory or path to write rendered preview outputs (defaults to a temporary directory).
 
 `android` options:
 
@@ -29,7 +33,7 @@ and optional component tree JSON files.
 
 ## Positional arguments
 
-- `<reference>` - Build reference (\[system://\]\[path\]?\[target\]).
+- `<reference>` - Build reference (`[system://][path]?[target]`).
 - `-- <build_args>` - Arguments passed verbatim to the build system. Use -- to separate from other arguments.
 
 ## Description
@@ -45,8 +49,8 @@ current workspace.
 
 ### Filter and configure preview output
 
-- `--fqn`: Specifies the fully qualified name of a `@Preview` function to render (for example, `com.example.app.HomeScreenKt.HomeScreenPreview`). At least one `--fqn` is required; repeat `--fqn` to render multiple previews in a single build, or run [`android preview list`](https://developer.android.com/tools/agents/android-cli/commands/preview_list) to discover available previews.
-- `-o, --output`: Directory or file path (`.png` or `.json`) where rendered preview outputs are written (defaults to a temporary directory).
+- `--fqn`: Specifies the fully qualified name of a `@Preview` function to render (for example, `com.example.app.HomeScreenKt.HomeScreenPreview`). At least one `--fqn` is required; repeat `--fqn` to render multiple previews in a single build, or run [`android preview list`](https://developer.android.com/tools/agents/android-cli/commands/preview_list.md.txt) to discover available previews.
+- `-o, --output`: Directory or path (`.png` or `.json`) where rendered preview outputs are written (defaults to a temporary directory).
 - `--daemon`: Keeps the preview renderer running as a background daemon that shuts down after 10 minutes of inactivity, speeding up subsequent renders.
 - `--component-tree`: Writes a companion JSON file containing the rendered component hierarchy, bounds, source locations, semantics, parameters, and modifiers.
 - `--no-image`: Skips PNG image generation when only the `--component-tree` JSON output is needed.
@@ -56,13 +60,17 @@ current workspace.
 
 Render a specific `@Preview` function in `:app` in the current Gradle workspace:
 
-    android preview render :app --fqn=com.example.app.HomeScreenKt.HomeScreenPreview
+```bash
+android preview render :app --fqn=com.example.app.HomeScreenKt.HomeScreenPreview
+```
 
 Render multiple `@Preview` functions using the background daemon and export
 their component trees:
 
-    android preview render :app \
-      --daemon \
-      --component-tree \
-      --fqn=com.example.app.HomeScreenKt.HomeScreenPreview \
-      --fqn=com.example.app.SettingsScreenKt.SettingsPreview
+```bash
+android preview render :app \
+  --daemon \
+  --component-tree \
+  --fqn=com.example.app.HomeScreenKt.HomeScreenPreview \
+  --fqn=com.example.app.SettingsScreenKt.SettingsPreview
+```

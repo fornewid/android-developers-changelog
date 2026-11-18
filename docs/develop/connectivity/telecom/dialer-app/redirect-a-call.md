@@ -4,11 +4,13 @@ url: https://developer.android.com/develop/connectivity/telecom/dialer-app/redir
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/connectivity/telecom/dialer-app/llms.txt
+
 Devices that run Android 10 or higher manage call intents differently than
 devices that run Android 9 or lower. On Android 10 and higher, the
-[`ACTION_NEW_OUTGOING_CALL`](https://developer.android.com/reference/android/content/Intent#ACTION_NEW_OUTGOING_CALL)
+[`ACTION_NEW_OUTGOING_CALL`](https://developer.android.com/reference/android/content/Intent.md.txt#ACTION_NEW_OUTGOING_CALL)
 broadcast is deprecated and replaced with the
-[`CallRedirectionService`](https://developer.android.com/reference/android/telecom/CallRedirectionService)
+[`CallRedirectionService`](https://developer.android.com/reference/android/telecom/CallRedirectionService.md.txt)
 API. The `CallRedirectionService` provides interfaces for you to use to
 modify outgoing calls made by the Android platform. For example, third-party
 apps might cancel calls and reroute them over VoIP.
@@ -72,23 +74,25 @@ class RedirectionService extends CallRedirectionService {
 You must register this service in the manifest so the system can start it
 correctly.
 
-    <service
-        android:name=".RedirectionService"
-        android:permission="android.permission.BIND_CALL_REDIRECTION_SERVICE">
-        <intent-filter>
-            <action android:name="android.telecom.CallRedirectionService"/>
-        </intent-filter>
-    </service>
+```xml
+<service
+    android:name=".RedirectionService"
+    android:permission="android.permission.BIND_CALL_REDIRECTION_SERVICE">
+    <intent-filter>
+        <action android:name="android.telecom.CallRedirectionService"/>
+    </intent-filter>
+</service>
+```
 
 To use a redirection service, your app must request the call redirection role
-from the [`RoleManager`](https://developer.android.com/reference/android/app/role/RoleManager). This will ask
+from the [`RoleManager`](https://developer.android.com/reference/android/app/role/RoleManager.md.txt). This will ask
 the user if they want to allow your app to handle call redirects. If your app
 isn't granted this role, your redirection service isn't used.
 
 You should check if your app has this role when the user launches your app so
 you can request it as needed. You launch an intent created by the `RoleManager`,
 so ensure you override the
-[`onActivityResult()`](https://developer.android.com/reference/android/app/Activity#onActivityResult(int,%20int,%20android.content.Intent))
+[`onActivityResult()`](https://developer.android.com/reference/android/app/Activity.md.txt#onActivityResult(int,%20int,%20android.content.Intent))
 function to handle the user's selection.
 
 ### Kotlin

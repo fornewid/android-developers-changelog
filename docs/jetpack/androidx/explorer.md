@@ -144,7 +144,7 @@ Select a category:
 | [test.uiautomator](https://developer.android.com/jetpack/androidx/releases/test-uiautomator.md.txt) | Framework for cross app functional UI testing |
 | [text-vertical](https://developer.android.com/jetpack/androidx/releases/text-vertical.md.txt) | -- |
 | [textclassifier](https://developer.android.com/jetpack/androidx/releases/textclassifier.md.txt) | Identifies conversations, links, selections, and other similar constructs in text. |
-| [tracing](https://developer.android.com/jetpack/androidx/releases/tracing.md.txt) | Write trace events to the system trace buffer. |
+| [tracing](https://developer.android.com/jetpack/androidx/releases/tracing.md.txt) | Write trace events to the system trace buffer or capture low-overhead in-process traces. |
 | [transition](https://developer.android.com/jetpack/androidx/releases/transition.md.txt) | Animate motion in the UI with starting and ending layouts. |
 | [tv](https://developer.android.com/jetpack/androidx/releases/tv.md.txt) | Provides developers with Compose and Material design functionalities in order to write applications for TV |
 | [tvprovider](https://developer.android.com/jetpack/androidx/releases/tvprovider.md.txt) | Provide Android TV channels. |

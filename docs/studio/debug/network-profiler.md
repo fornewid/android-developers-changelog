@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/debug/network-profiler
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/debug/llms.txt
+
 The Network Inspector displays real-time network activity on a timeline, showing
 data sent and received. The Network Inspector lets you examine how and when your
 app transfers data and optimize the underlying code appropriately.
@@ -59,7 +61,7 @@ display formatted text. Click the **View Source** link to display raw text.
 ![Toggle between raw text and formatted text](https://developer.android.com/static/studio/images/profile/network-profiler-text_2X.png) **Figure 4.** Toggle between raw text and formatted text by clicking the corresponding link.
 
 In addition to showing network requests for
-[`HttpsURLConnection`](https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection), Network
+[`HttpsURLConnection`](https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection.md.txt), Network
 Inspector also supports [`OkHttp`](http://square.github.io/okhttp).
 Some third-party network libraries, such as
 [Retrofit](https://square.github.io/retrofit/), use `OkHttp`
@@ -72,28 +74,19 @@ If you are using the
 `HttpsURLConnection` API,
 you only see headers in the **Request** tab that you include in your code using
 the
-[`setRequestProperty`](https://developer.android.com/reference/java/net/URLConnection#setRequestProperty(java.lang.String,%20java.lang.String))
+[`setRequestProperty`](https://developer.android.com/reference/java/net/URLConnection.md.txt#setRequestProperty(java.lang.String,%20java.lang.String))
 method, as shown in the following sample:
 
-### Kotlin
 
 ```kotlin
 val url = URL(MY_URL_EN)
 val urlConnection: HttpsURLConnection = url.openConnection() as HttpsURLConnection
-...
+// ...
 // Sets acceptable encodings in the request header.
 urlConnection.setRequestProperty("Accept-Encoding", "identity")
 ```
 
-### Java
-
-```java
-URL url = new URL(MY_URL_EN);
-HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
-//...
-// Sets acceptable encodings in the request header.
-urlConnection.setRequestProperty("Accept-Encoding", "identity");
-```
+<br />
 
 ## Troubleshoot network connection
 
@@ -104,12 +97,12 @@ supported network requests, you receive the following error message:
       network traffic you've selected.
 
 Currently, the Network Inspector supports only the
-[`HttpsURLConnection`](https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection)
+[`HttpsURLConnection`](https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection.md.txt)
 and [`OkHttp`](http://square.github.io/okhttp) libraries for network
 connections. If your app uses another network connection library, you might not
 be able to view your network activity in the Network Inspector. If you have
 received this error message but your app does use `HttpsURLConnection`
-or `OkHttp`, [report a bug](https://developer.android.com/studio/report-bugs) or
+or `OkHttp`, [report a bug](https://developer.android.com/studio/report-bugs.md.txt) or
 [search the issue
 tracker](https://issuetracker.google.com/issues?q=componentid:317727%2B)
 to include your feedback in an existing report related to your issue. You

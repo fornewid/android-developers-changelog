@@ -4,6 +4,8 @@ url: https://developer.android.com/security/fraud-prevention/authentication
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/security/fraud-prevention/llms.txt
+
 To protect your authentication system in Android, consider moving away from a
 password-based model, especially for sensitive accounts like your users' bank
 and email accounts. Remember that some apps your users install may not have the
@@ -38,7 +40,7 @@ the attacker knowing or not the LSKF, as they will need to probe that they are
 the owner of the device.
 
 For additional levels of security, we recommend app developers request Class 3
-Biometric Authentication and utilize [`CryptoObject`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt.CryptoObject) for banking and
+Biometric Authentication and utilize [`CryptoObject`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt.CryptoObject.md.txt) for banking and
 financial transactions.
 
 ### Implementation
@@ -193,7 +195,7 @@ passwords. Since passkeys are standardized, a single implementation enables a
 passwordless experience across all of the users' devices, browsers, and
 operating systems.
 
-On Android, passkeys are supported using the [Credential Manager](https://developer.android.com/jetpack/androidx/releases/credentials) Jetpack
+On Android, passkeys are supported using the [Credential Manager](https://developer.android.com/jetpack/androidx/releases/credentials.md.txt) Jetpack
 library that unifies the major authentication methods, including passkeys,
 passwords, and federated sign in (such as Sign in with Google).
 
@@ -206,9 +208,11 @@ A passkey's core component is a cryptographic private key. Typically, this
 private key resides solely on your devices, such as laptops or mobile phones,
 and is synchronized across them by credential providers (also known as password
 managers), such as Google Password Manager. Only the corresponding public key is
-saved by the online service when a passkey is created. During login, the service
-uses the private key to sign a challenge from the public key. This can only
-originate from one of your devices. Additionally, for this to occur, you must
+saved by the online service when a passkey is created. During login, the online
+service issues a challenge, which the credential provider signs using the stored
+private key after user approval. The service then verifies this signed assertion
+using the registered public key. This signed response can only originate from
+one of your devices. Additionally, for this to occur, you must
 unlock your device or credential store, which prevents unauthorized sign-ins
 (for example, from a stolen phone).
 
@@ -219,8 +223,9 @@ because the previous user had been logged in. Instead, the credentials should
 expire at regular intervals (such as, every 15 minutes), and users should be
 required to verify their identity through screen lock reauthentication.
 
-If your phone is stolen, passkeys protect you because thieves can't steal your
-passwords to use on other devices -- passkeys are device-specific. If you use
+If your phone is stolen, passkeys protect you because thieves can't easily
+steal your credentials to use on other devices. While some passkeys are strictly
+device-bound, others can be synced by a credential provider. If you use
 Google Password Manager and your phone gets stolen, you can log into your Google
 Account from another device (like a computer) and remotely log out from the
 stolen phone. This makes the Google Password Manager on the stolen phone
@@ -243,7 +248,7 @@ Passwords and Sign in with Google are supported starting with Android 4.4. To
 get started with passkeys, follow these steps:
 
 1. Follow the [Credential Manager codelab](https://codelabs.developers.google.com/credential-manager-api-for-android#0) to get an initial understanding of how to implement passkeys.
-2. Review the [passkeys user experience design guidelines](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys). This document shows you what flows are recommended for your use case.
+2. Review the [passkeys user experience design guidelines](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys.md.txt). This document shows you what flows are recommended for your use case.
 3. Study the Credential Manager by following the [guide](https://developer.android.com/training/sign-in/passkeys).
 4. Plan your Credential Manager and passkeys implementation for your app. Plan adding support for [Digital Asset Links](https://developer.android.com/training/sign-in/passkeys#add-support-dal).
 

@@ -4,11 +4,15 @@ url: https://developer.android.com/tools/agents/android-cli/commands/input
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
+
 Interact with Android apps by performing gestures and key events on UI elements.
 
 ## Usage
 
-    android input [-h] [--device=PARAM]
+```bash
+android input [-h] [--device=PARAM]
+```
 
 ## Options
 
@@ -23,20 +27,20 @@ Interact with Android apps by performing gestures and key events on UI elements.
 
 ## Subcommands
 
-- **[`key`](https://developer.android.com/tools/agents/android-cli/commands/input_key)** - Press a hardware button, navigation key, or Android keycode.
-- **[`scroll`](https://developer.android.com/tools/agents/android-cli/commands/input_scroll)** - Scroll a container element, optionally until a target element appears.
-- **[`swipe`](https://developer.android.com/tools/agents/android-cli/commands/input_swipe)** - Swipe from a UI element matching a selector in a given direction.
-- **[`tap`](https://developer.android.com/tools/agents/android-cli/commands/input_tap)** - Tap on a UI element matching a selector.
-- **[`text`](https://developer.android.com/tools/agents/android-cli/commands/input_text)** - Type text into a UI element matching a selector.
+- **[`key`](https://developer.android.com/tools/agents/android-cli/commands/input_key.md.txt)** - Press a hardware button, navigation key, or Android keycode.
+- **[`scroll`](https://developer.android.com/tools/agents/android-cli/commands/input_scroll.md.txt)** - Scroll a container element, optionally until a target element appears.
+- **[`swipe`](https://developer.android.com/tools/agents/android-cli/commands/input_swipe.md.txt)** - Swipe from a UI element matching a selector in a given direction.
+- **[`tap`](https://developer.android.com/tools/agents/android-cli/commands/input_tap.md.txt)** - Tap on a UI element matching a selector.
+- **[`text`](https://developer.android.com/tools/agents/android-cli/commands/input_text.md.txt)** - Type text into a UI element matching a selector.
 
 ## Description
 
 `android input` performs user interactions and hardware inputs on a connected
-Android device or emulator.
+Android-powered device or emulator.
 
 AI agents and test scripts can use `android input` in combination with
-\[`android layout`\]\[layout\] or \[`android screen`\]\[screen\] to discover UI elements
-and interact with them via gestures or keystrokes.
+[`android layout`](https://developer.android.com/tools/agents/android-cli/commands/layout.md.txt) or [`android screen`](https://developer.android.com/tools/agents/android-cli/commands/screen.md.txt) to discover UI elements
+and interact with them using gestures or keystrokes.
 
 ### UI element selectors
 
@@ -88,28 +92,42 @@ If multiple devices or emulators are connected, pass `--device=<serial-number>`
 
 Tap a button by its visible text:
 
-    android input tap 'text=Submit'
+```bash
+android input tap 'text=Submit'
+```
 
 Tap an element matching multiple properties:
 
-    android input tap 'id=submit_btn,class=Button,clickable=true'
+```bash
+android input tap 'id=submit_btn,class=Button,clickable=true'
+```
 
 Tap the first matching element when multiple matches exist:
 
-    android input tap --match=first 'class=android.widget.TextView'
+```bash
+android input tap --match=first 'class=android.widget.TextView'
+```
 
 Type text into an input field and submit:
 
-    android input text 'user@example.com' 'id=email_input' --submit
+```bash
+android input text 'user@example.com' 'id=email_input' --submit
+```
 
 Scroll a container down until an item appears:
 
-    android input scroll 'id=recycler_view' --dir=down --until='text=Settings'
+```bash
+android input scroll 'id=recycler_view' --dir=down --until='text=Settings'
+```
 
 Swipe left on a card element:
 
-    android input swipe 'id=card_view' --dir=left
+```bash
+android input swipe 'id=card_view' --dir=left
+```
 
 Press the device Back button:
 
-    android input key back
+```bash
+android input key back
+```

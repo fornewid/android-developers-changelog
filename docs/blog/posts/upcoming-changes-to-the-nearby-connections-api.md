@@ -45,6 +45,13 @@ Continue reading
   [Rob Orgiu](https://developer.android.com/blog/authors/rob-orgiu.md.txt) • 2 min read
   - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps.md.txt)
   - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+- [![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_1PpSPG.webp)](https://developer.android.com/blog/authors/breana-tate.md.txt) 17 Nov 2026 17 Nov 2026 ![](https://developer.android.com/static/blog/assets/1109_ABL_160_Ship_smarter_keep_rules_How_library_providers_can_unblock_app_level_DEX_code_optimization_1_44aba4f3cd_1kr2I.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+
+  ## [Ship smarter keep rules: How library providers can unblock app-level DEX code optimization](https://developer.android.com/blog/posts/ship-smarter-keep-rules-unblock-dex-optimization.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/ship-smarter-keep-rules-unblock-dex-optimization.md.txt) As Android app and library developers, we all strive for the same goal: performant apps that provide a smooth user experience. A major part of that involves R8, Android's app optimizer. R8 improves app performance by removing unused code, and optimizing and obfuscating the rest.
+  [Breana Tate](https://developer.android.com/blog/authors/breana-tate.md.txt) • 6 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
 - [![View Phalene Gowling's profile](https://developer.android.com/static/blog/assets/Phalene_Gowling_0adca8708d_Z1EF0vK.webp)](https://developer.android.com/blog/authors/phalene-gowling.md.txt)[![View Rejane França's profile](https://developer.android.com/static/blog/assets/unnamed_31_d80d832499_1LWl7t.webp)](https://developer.android.com/blog/authors/rejane-franca.md.txt) 16 Nov 2026 16 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_158_Beyond_the_App_A_bd07c85947_982bv.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
   ## [Beyond the app: Expanding buyer reach across new surfaces with Google Play](https://developer.android.com/blog/posts/beyond-the-app-google-play-buyer-reach.md.txt)
@@ -52,13 +59,6 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/beyond-the-app-google-play-buyer-reach.md.txt) Discover how Google Play's channel expansion tools in Play Console expand buyer reach across store, web, and external surfaces while protecting margins.
   [Phalene Gowling](https://developer.android.com/blog/authors/phalene-gowling.md.txt), [Rejane França](https://developer.android.com/blog/authors/rejane-franca.md.txt) • 4 min read
   - [#Monetization](https://developer.android.com/blog/topics/monetization.md.txt)
-- [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) 11 Nov 2026 11 Nov 2026 ![](https://developer.android.com/static/blog/assets/1007_ABL_134_How_Smile_ID_Scaled_Identity_Verification_with_Camera_X_Strapi_788bf73f23_1N5Hb5.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
-
-  ## [How SmileID Scaled Identity Verification to 18,000+ Android Device Types with CameraX](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt)
-
-  [arrow_forward](https://developer.android.com/blog/posts/smileid-camerax-android-identity-verification.md.txt) Identity verification apps for banking and SIM registration require clear, high-resolution face captures to detect spoofing and deepfakes. Capturing frames sharp enough for liveness and anti-spoofing checks, without crashing low-memory devices, is a common challenge for Android camera develope
-  [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) • 4 min read
-  - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
 Stay in the loop
 
 

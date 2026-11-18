@@ -4,13 +4,17 @@ url: https://developer.android.com/tools/agents/android-cli/commands/install
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
+
 Installs an Android app (one or more APKs) on a connected device or emulator
 without activating any components, using incremental optimizations for faster
 deployment than `adb`.
 
 ## Usage
 
-    android install [-h] [--apks=PARAM] [--device=PARAM] [--install-options=PARAM] [--use-delta-install] [<apks_or_reference>] [-- <build_args>]
+```bash
+android install [-h] [--apks=PARAM] [--device=PARAM] [--install-options=PARAM] [--use-delta-install] [<apks_or_reference>] [-- <build_args>]
+```
 
 ## Options
 
@@ -28,19 +32,19 @@ deployment than `adb`.
 
 ## Positional arguments
 
-- `<apks_or_reference>` - APK file path(s) or a build reference (\[system://\]\[path\]?\[target\]).
+- `<apks_or_reference>` - APK file path(s) or a build reference (`[system://][path]?[target]`).
 - `-- <build_args>` - Arguments passed verbatim to the build system. Use -- to separate from other arguments.
 
 ## Description
 
-`android install` deploys one or more APK files to a connected Android device or
-emulator without launching any activities or services.
+`android install` deploys one or more APK files to a connected Android-powered
+device or emulator without launching any activities or services.
 
 Pass a build reference (`[system://][path]?[target]`) to build and deploy from
-source, or pass pre-built APK file paths (in `<apks_or_reference>` or with
+source, or pass prebuilt APK file paths (in `<apks_or_reference>` or with
 `--apks`).
 
-Unlike [`android run`](https://developer.android.com/tools/agents/android-cli/commands/run), `android install` only performs the package
+Unlike [`android run`](https://developer.android.com/tools/agents/android-cli/commands/run.md.txt), `android install` only performs the package
 installation step. By default, it uses incremental delta installation to push
 only the bytes that changed since the previous deployment, making iterative
 updates faster than `adb install`.
@@ -61,17 +65,25 @@ device.
 Build and install the default debug variant of `:app` in the current Gradle
 workspace:
 
-    android install :app
+```bash
+android install :app
+```
 
 Build and install the `debug` variant of `:app` (`:app@debug`) from the Gradle
 workspace at `$HOME/my-app`, passing extra arguments to Gradle:
 
-    android install $HOME/my-app?:app@debug -- --offline
+```bash
+android install $HOME/my-app?:app@debug -- --offline
+```
 
 Install a single debug APK onto the connected device:
 
-    android install --apks=app/build/outputs/apk/debug/app-debug.apk
+```bash
+android install --apks=app/build/outputs/apk/debug/app-debug.apk
+```
 
 Install multiple split APKs onto a specific emulator without delta patching:
 
-    android install --use-delta-install=false --device=emulator-5554 --apks=base.apk,config.hdpi.apk
+```bash
+android install --use-delta-install=false --device=emulator-5554 --apks=base.apk,config.hdpi.apk
+```

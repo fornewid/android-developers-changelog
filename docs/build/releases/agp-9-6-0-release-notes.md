@@ -56,6 +56,24 @@ AGP adds the coverage agent library, `com.android.tools.test:coverage-agent`,
 with the same version as AGP. For more information, see [View code coverage
 reports (with on-device agent)](https://developer.android.com/studio/test/on-device-code-coverage).
 
+## Test suites
+
+> [!WARNING]
+> **Experimental:** Test suites are in active development. To enable them, set the `android.experimental.testSuiteSupport=true` property in your `gradle.properties` file.
+
+AGP 9.6 adds the following updates for the `testOptions.customSuites` block:
+
+- Access merged Android resources and run Robolectric tests on the JVM by setting the [`enableAndroidResources`](https://developer.android.com/reference/tools/gradle-api/9.6/com/android/build/api/dsl/TestSuiteHostJarSpec.md.txt#enableAndroidResources()) property in the `hostJar` block.
+- Run `testApk` suites in `com.android.library` modules, target build-managed device groups in the [`targetDevices`](https://developer.android.com/reference/tools/gradle-api/9.6/com/android/build/api/dsl/AgpTestSuiteTarget.md.txt#targetDevices()) property, filter tests with the `--tests` option, and use automatic manifest runner configuration.
+- Customize Gradle `Test` tasks per target with the [`AgpTestSuiteTarget.configureTestTasks`](https://developer.android.com/reference/tools/gradle-api/9.6/com/android/build/api/dsl/AgpTestSuiteTarget.md.txt#configureTestTasks(kotlin.Function2)) method.
+- Collect code coverage with the [`codeCoverage`](https://developer.android.com/reference/tools/gradle-api/9.6/com/android/build/api/dsl/AgpTestSuite.md.txt#codeCoverage()) property for Compose screenshot suites through the `testOptions.customSuites` block and for instrumented and mixed suites with the [on-device coverage
+  agent](https://developer.android.com/build/releases/agp-9-6-0-release-notes#on-device-coverage).
+- Match the `com.android.tools.androidtest:android-test-engine` and `android-test-engine-result-listener` dependency versions directly to the AGP version.
+
+For more information, see [Test suites in the Android Gradle
+plugin](https://developer.android.com/studio/preview/test-suites), [Unit test suites](https://developer.android.com/studio/preview/unit-test-suites.md.txt), and [Instrumented
+test suites](https://developer.android.com/studio/preview/instrumented-test-suites).
+
 ## Fixed issues
 
 

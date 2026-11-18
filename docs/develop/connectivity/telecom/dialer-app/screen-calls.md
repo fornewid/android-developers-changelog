@@ -4,25 +4,27 @@ url: https://developer.android.com/develop/connectivity/telecom/dialer-app/scree
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/connectivity/telecom/dialer-app/llms.txt
+
 Devices that run Android 10 (API level 29) or higher allow your app to identify
 calls from numbers that aren't in the user's address book as potential spam
 calls. Users can choose to have spam calls silently rejected. To provide greater
 transparency to users when they miss calls, information about these blocked
 calls is logged in the call log. Using the Android 10 API eliminates the
 requirement to obtain the
-[`READ_CALL_LOG`](https://developer.android.com/reference/android/Manifest.permission#READ_CALL_LOG)
+[`READ_CALL_LOG`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_CALL_LOG)
 permission from the user in order to provide call screening and caller ID
 functionality.
 
 You use a
-[`CallScreeningService`](https://developer.android.com/reference/android/telecom/CallScreeningService)
+[`CallScreeningService`](https://developer.android.com/reference/android/telecom/CallScreeningService.md.txt)
 implementation to screen calls. Call the
-[`onScreenCall()`](https://developer.android.com/reference/android/telecom/CallScreeningService#onScreenCall(android.telecom.Call.Details))
+[`onScreenCall()`](https://developer.android.com/reference/android/telecom/CallScreeningService.md.txt#onScreenCall(android.telecom.Call.Details))
 function for any new incoming or outgoing calls when the number is not in the
 user's contact list. You can check the
-[`Call.Details`](https://developer.android.com/reference/android/telecom/Call.Details) object for information
+[`Call.Details`](https://developer.android.com/reference/android/telecom/Call.Details.md.txt) object for information
 about the call. Specifically, the
-[`getCallerNumberVerificationStatus()`](https://developer.android.com/reference/android/telecom/Call.Details#getCallerNumberVerificationStatus())
+[`getCallerNumberVerificationStatus()`](https://developer.android.com/reference/android/telecom/Call.Details.md.txt#getCallerNumberVerificationStatus())
 function includes information from the network provider about the other number.
 If the verification status failed, this is a good indication that the call is
 from an invalid number or a potential spam call.
@@ -87,9 +89,9 @@ class ScreeningService extends CallScreeningService {
 ```
 
 Set the `onScreenCall()` function to call
-[`respondToCall()`](https://developer.android.com/reference/android/telecom/CallScreeningService#respondToCall(android.telecom.Call.Details,%20android.telecom.CallScreeningService.CallResponse))
+[`respondToCall()`](https://developer.android.com/reference/android/telecom/CallScreeningService.md.txt#respondToCall(android.telecom.Call.Details,%20android.telecom.CallScreeningService.CallResponse))
 to tell the system how to respond to the new call. This function takes a
-[`CallResponse`](https://developer.android.com/reference/android/telecom/CallScreeningService.CallResponse)
+[`CallResponse`](https://developer.android.com/reference/android/telecom/CallScreeningService.CallResponse.md.txt)
 parameter that you can use to tell the system to block the call, reject it as if
 the user did, or silence it. You can also tell the system to skip adding this
 call to the device's call log altogether.
@@ -141,10 +143,12 @@ You must register the `CallScreeningService` implementation in the manifest
 file with the appropriate intent filter and permission so the system can trigger
 it correctly.
 
-    <service
-        android:name=".ScreeningService"
-        android:permission="android.permission.BIND_SCREENING_SERVICE">
-        <intent-filter>
-            <action android:name="android.telecom.CallScreeningService" />
-        </intent-filter>
-    </service>
+```xml
+<service
+    android:name=".ScreeningService"
+    android:permission="android.permission.BIND_SCREENING_SERVICE">
+    <intent-filter>
+        <action android:name="android.telecom.CallScreeningService" />
+    </intent-filter>
+</service>
+```

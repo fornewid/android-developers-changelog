@@ -4,6 +4,8 @@ url: https://developer.android.com/games/playgames/native-pc/faq
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/playgames/native-pc/llms.txt
+
 <br />
 
 This document answers common questions about SDKs and publishing for Google Play Games on PC.
@@ -23,7 +25,7 @@ This document answers common questions about SDKs and publishing for Google Play
 
    From a security perspective, Google recommends using a backend server.
 
-   For more information, see [Process without a backend server](https://developer.android.com/games/playgames/native-pc/billing#process-no-backend).
+   For more information, see [Process without a backend server](https://developer.android.com/games/playgames/native-pc/billing.md.txt#process-no-backend).
 
    > [!NOTE]
    > **Note:** To process purchases without a backend server, you need special permissions. If your game requires these permissions, contact your Google partner.
@@ -43,7 +45,7 @@ This document answers common questions about SDKs and publishing for Google Play
    use cases for us to add into our future roadmap.
 6. What is the Billing Error in my purchase calls?
 
-   [BillingError](https://developer.android.com/games/playgames/native-pc/reference/namespace/google/play/billing#billingerror) is the response of the payment result. LaunchPurchaseFlow
+   [BillingError](https://developer.android.com/games/playgames/native-pc/reference/namespace/google/play/billing.md.txt#billingerror) is the response of the payment result. LaunchPurchaseFlow
    will return immediately without blocking but you must listen to the callback
    in order to know when it has finished and to capture the result.
 7. How can I use client-side purchase verification?
@@ -51,11 +53,11 @@ This document answers common questions about SDKs and publishing for Google Play
    We recommend using server-side purchase and its verification process.
    Processing purchases from your client app requires your game to be on an
    allowlist. Please contact your Google Partner if your game requires access.
-   For more information, see [Process without a backend server](https://developer.android.com/games/playgames/native-pc/billing#process-no-backend).
+   For more information, see [Process without a backend server](https://developer.android.com/games/playgames/native-pc/billing.md.txt#process-no-backend).
 8. What are the API limits for querying product details?
 
    The maximum number of products that can be queried in a single call to the
-   [`QueryProductDetails`](https://developer.android.com/games/playgames/native-pc/reference/class/google/play/billing/billing-client#queryproductdetails) API is 50. If you exceed this limit, you must
+   [`QueryProductDetails`](https://developer.android.com/games/playgames/native-pc/reference/class/google/play/billing/billing-client.md.txt#queryproductdetails) API is 50. If you exceed this limit, you must
    split the request into multiple calls.
 9. Why do product queries or purchase flows fail with internal errors when
    loading many product SKUs?
@@ -73,7 +75,7 @@ This document answers common questions about SDKs and publishing for Google Play
 
    To prevent these errors when loading your catalog, follow these practices:
    - **Follow the supported number of products per call:** Query no more than 50 products in a single `QueryProductDetails` or `QueryProductDetailsAsync` call, and cache the returned `ProductDetails` in memory instead of re-querying the full catalog repeatedly. For more information about supported batch limits and querying product details, see the preceding API limits question, [Show products available to
-     buy](https://developer.android.com/games/playgames/native-pc/billing#show-products) for C++, and [Query product details](https://developer.android.com/games/playgames/native-pc/unity/billing#query-details) for Unity.
+     buy](https://developer.android.com/games/playgames/native-pc/billing#show-products) for C++, and [Query product details](https://developer.android.com/games/playgames/native-pc/unity/billing.md.txt#query-details) for Unity.
    - **Avoid calling the APIs consecutively too many times in a short
      period:** Don't dispatch multiple product query batches simultaneously or back-to-back without pacing. Reuse a single `BillingClient` instance, serialize requests or limit concurrency to two or three in-flight calls at a time, and add a brief delay between consecutive batches.
    - **Update to the latest SDK:** Update your integration to the latest Google Play Games on PC SDK release, version 26.9.261.0 for C++ or 26.9.261.0 for Unity, from the [Play Games PC SDK downloads](https://developer.android.com/games/playgames/native-pc/downloads) page to ensure your client includes the latest billing and IPC stability improvements.
@@ -107,7 +109,7 @@ This document answers common questions about SDKs and publishing for Google Play
     store the metadata on your backend server prior to launching the purchase
     dialog and associate it with your user's account ID, the SKU being
     purchased, and the current timestamp. For more information, see
-    [Associate a purchase with internal data](https://developer.android.com/google/play/billing/developer-payload#associate).
+    [Associate a purchase with internal data](https://developer.android.com/google/play/billing/developer-payload.md.txt#associate).
 12. What are the prerequisites for switching from Google billing with OAuth to
     the DLL-based Google billing?
 
@@ -157,18 +159,28 @@ This document answers common questions about SDKs and publishing for Google Play
    holding state. This happens because there is no existing baseline to update.
    To fully release the WAB and make the game available for installation, you
    must navigate to the Google Play Console and manually execute the
-   [required publish action](https://developer.android.com/games/playgames/native-pc/publish/developer-installed#send-review) (for example, click "Publish changes").
+   [required publish action](https://developer.android.com/games/playgames/native-pc/publish/play-managed-installation.md.txt#send-review) (for example, click "Publish changes").
 4. How do I upload the WAB for internal testing?
 
-   Share the allowlist accounts with Google so Google can enable them for
-   internal testing. After Google has the list, Google makes sure they are
-   included in the onboarding process.
+   In Google Play Console, go to **Test and release \> Testing \> Internal
+   testing** , select the **Google Play Games on PC** track, configure up to
+   100 testers, upload your `.wab` file, and click **Save and publish** .
+   Testers must open the Play Console opt-in web link to
+   accept the invite, and then install the build using
+   `googleplaygames://deeplink/details?id=PACKAGE_NAME`, where `PACKAGE_NAME`
+   is your app's package name.
+
+   If your account hasn't been onboarded yet, email
+   [google-play-games-pc@google.com](mailto:google-play-games-pc@google.com) for assistance with the
+   next steps.
 5. Where should the WAB package be uploaded?
 
-   You can upload the WAB package at the location mentioned in the first
-   question. However, you cannot publish it manually. You must provide the
-   Google backend staff with a precise UTC time (down to the hour). Google then
-   configures the release schedule and ensures it is published on time.
+   Upload the `.wab` package in Google Play Console on the
+   **Google Play Games on PC** track under **Test and release \> Testing \>
+   Internal testing** (for QA) or **Test and release \> Production** (for
+   release). Use **Managed publishing** on the **Publishing overview** page to
+   control when your approved release goes live. For step-by-step instructions,
+   see [Play Managed Publishing](https://developer.android.com/games/playgames/native-pc/publish/play-managed-installation.md.txt#send-review).
 
 ## PC SDK
 
@@ -182,7 +194,7 @@ This document answers common questions about SDKs and publishing for Google Play
    directly using the game launcher, without going through Google Play Games on PC?
 
    Your game must be launched through the Google Play Games on PC client. For
-   more details, refer to this [developer document](https://developer.android.com/games/playgames/native-pc/setup#step-4).
+   more details, refer to this [developer document](https://developer.android.com/games/playgames/native-pc/setup.md.txt#step-4).
 3. Does the PC SDK support multibyte characters in the PEM certification
    file?
 
@@ -197,7 +209,7 @@ This document answers common questions about SDKs and publishing for Google Play
 5. Does the Play Install Referrer integration work with the PC SDK?
 
    The PC SDK (25.5.409.0 and higher) supports the Play Install Referrer API.
-   For more information, see [Play Install Referrer API](https://developer.android.com/games/playgames/native-pc/install_referrer).
+   For more information, see [Play Install Referrer API](https://developer.android.com/games/playgames/native-pc/install_referrer.md.txt).
 
 ## Launcher
 
@@ -219,14 +231,15 @@ This document answers common questions about SDKs and publishing for Google Play
    `kActionRequiredShutdownClientProcess`), all processes including the
    launcher must be terminated so Google Play Games can attempt to recover and
    relaunch the game automatically. For more details, see
-   [Step 5 in the setup guide](https://developer.android.com/games/playgames/native-pc/setup#step-5).
+   [Step 5 in the setup guide](https://developer.android.com/games/playgames/native-pc/setup.md.txt#step-5).
 3. How can I handle updates and maintenance to my game and launcher after it is
    in production?
 
-   Subsequent updates and maintenance must be implemented through your
-   launcher. The Google Play Games client does not support update functions, so
-   the launcher must be capable of updating both the game and the launcher
-   itself.
+   If you use [Play Managed Publishing](https://developer.android.com/games/playgames/native-pc/publish/play-managed-installation.md.txt), Google Play Games on PC
+   automatically manages game updates when you publish a new `.wab` release.
+   If you use [Installer Publishing](https://developer.android.com/games/playgames/native-pc/publish/developer-installed.md.txt), subsequent updates and maintenance
+   must be implemented through your launcher, which must be capable of updating
+   both the game and the launcher itself.
 4. How does the installer receive the GPG session token for Auto-Play?
 
    GPG passes the session token using the `--g_session_token=<token>`
@@ -282,14 +295,17 @@ This document answers common questions about SDKs and publishing for Google Play
 1. Are there any open testing or closed testing environments similar to the
    mobile?
 
-   While a dedicated end-to-end sandbox isn't available, we recognize the need
-   for a production-like testing environment for developers. A more robust
-   solution will be offered soon.
+   Google Play Console supports the **Internal testing** track (up to 100
+   testers) for Windows on the **Google Play Games on PC** track, while closed
+   and open testing tracks aren't supported on Windows.
 2. How can I add new testers?
 
-   Your Google point of contact creates an email group for each PC project,
-   where the testers' Google Accounts must be added. Only members of this email
-   group are authorized to download the test packages within Google Play Games.
+   Add and manage tester email lists directly on the
+   **Google Play Games on PC** **Internal testing** track in
+   Google Play Console (**Test and release \> Testing \> Internal testing** ).
+   You can configure up to 100 testers separately from your Android testers.
+   Testers accept the opt-in web link and install the build using
+   `googleplaygames://deeplink/details?id=PACKAGE_NAME`.
 
 ## Miscellaneous
 
@@ -303,13 +319,13 @@ This document answers common questions about SDKs and publishing for Google Play
    manual.
 
    After the TUN mode is enabled, [install](https://play.google.com/googleplaygames/?e=WebskySupportFCCInFCP::Arm_Launch) the Google Play Games on PC and
-   the [emulator](https://developer.android.com/games/playgames/emulator) for testing purposes.
+   the [emulator](https://developer.android.com/games/playgames/emulator.md.txt) for testing purposes.
 2. How can I start developing for Google Play Games on PC in Unity or UE
    Editor?
 
-   - Enable the [developer Mode](https://developer.android.com/games/playgames/native-pc/setup/developer_mode) and proceed with testing.
-   - Add the `manifest.xml` and `.dll` files. For more information, see [developer document](https://developer.android.com/games/playgames/native-pc/setup#prerequisites).
-   - Register an [early access partner GUID](https://developer.android.com/games/playgames/native-pc/setup/developer_mode#step-2) for testing purposes.
+   - Enable the [developer Mode](https://developer.android.com/games/playgames/native-pc/setup/developer_mode.md.txt) and proceed with testing.
+   - Add the `manifest.xml` and `.dll` files. For more information, see [developer document](https://developer.android.com/games/playgames/native-pc/setup.md.txt#prerequisites).
+   - Register an [early access partner GUID](https://developer.android.com/games/playgames/native-pc/setup/developer_mode.md.txt#step-2) for testing purposes.
 3. How can I use registry keys correctly?
 
    You should create registry keys based on the root hive. You can set the root

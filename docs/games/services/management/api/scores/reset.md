@@ -4,7 +4,9 @@ url: https://developer.android.com/games/services/management/api/scores/reset
 source: md.txt
 ---
 
-**Requires [authorization](https://developer.android.com/games/services/management/api/scores/reset#auth)**
+> Documentation index: https://developer.android.com/games/services/management/api/scores/llms.txt
+
+**Requires [authorization](https://developer.android.com/games/services/management/api/scores/reset.md.txt#auth)**
 
 Resets scores for the leaderboard with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application.
 
@@ -25,7 +27,7 @@ POST https://www.googleapis.com/games/v1management/leaderboards/leaderboardId/sc
 
 ### Authorization
 
-This request requires authorization with the following scope ([read more about authentication and authorization](https://developer.android.com/accounts/docs/OAuth2)).
+This request requires authorization with the following scope ([read more about authentication and authorization](https://developers.google.com/identity/protocols/oauth2)).
 
 | Scope |
 |---|
@@ -39,7 +41,7 @@ Do not supply a request body with this method.
 
 If successful, this method returns a response body with the following structure:
 
-```text
+```
 {
   "kind": "gamesManagement#playerScoreResetResponse",
   "definitionId": string,

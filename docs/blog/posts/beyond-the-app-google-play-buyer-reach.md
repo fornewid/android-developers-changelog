@@ -44,7 +44,7 @@ The Google Play Store connects you with over 2.5 billion active monthly users. F
 
 - **Cart abandonment reminders:** Automatically re-engage high-intent shoppers who added a digital item or subscription to their cart but left before completing checkout. Timely, native reminders bring users back to complete their purchase, recovering high-value transactions.
 
-![Cart abandonment reminder card in Google Play](https://developer.android.com/static/blog/assets/image_a218e2be00_Z1dnsLr.webp) Screen simulated. Features and availability may vary.
+![Cart abandonment reminder card in Google Play](https://developer.android.com/static/blog/assets/03_play_store_cart_abandonment_reminder_574x250_40280b5442_Z1HUThz.webp) Screen simulated. Features and availability may vary.
 
 - **Google Play Web Store \& Play Points:** Merchandise your catalog across desktop and mobile browsers via the Google Play Web Store, fully integrated with Google Play Points to reward repeat purchases.
 
@@ -66,7 +66,7 @@ Through early access pilots, developers can surface digital goods---from game bo
 Scaling catalog reach across new surfaces should never compromise your core margins or user trust. We have engineered platform-level governance directly into Google Play's billing architecture:
 
 - **Purchase quantity limits:** Help prevent grey-market resale and promotional stockpiling by capping how many times an individual account can claim a specific product or offer.
-- **Target audiences for one-time products and offers: Limit your products to the right types of buyers to make your product more appealing for that specific audience. For example, you could tailor your offer differently between a lapsed buyer, a new buyer, or someone who has never purchased.**
+- **Target audiences for one-time products and offers:** Limit your products to the right types of buyers to make your product more appealing for that specific audience. For example, you could tailor your offer differently between a lapsed buyer, a new buyer, or someone who has never purchased.
 - **Verified cross-platform account linking:**Securely connect purchases made on web stores or external surfaces back to the user's in-app account using Play Billing account identifiers and server-side verification.
 - **Exclusion groups:** Safeguard your gross margins by setting intelligent eligibility rules. You can automatically exclude active subscribers, recent purchasers, or high-tier spenders from seeing entry-level acquisition discounts, ensuring promotional pricing is reserved for truly incremental buyers.
 - **Channel-level sales visibility:** Track [performance across each expansion surface](https://android-developers.googleblog.com/2026/01/accelerating-your-insights-with-faster.html) in Play Console financial CSV reports to understand how out-of-app channels contribute to incremental buyer acquisition and revenue alongside your core in-app storefront.

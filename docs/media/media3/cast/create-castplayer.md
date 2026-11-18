@@ -4,6 +4,8 @@ url: https://developer.android.com/media/media3/cast/create-castplayer
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/media3/cast/llms.txt
+
 The [`CastPlayer`](https://developer.android.com/reference/androidx/media3/cast/CastPlayer.md.txt) is a Jetpack Media3 [Player](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.md.txt) implementation that supports
 both local playback and casting to a remote Cast-enabled device. [`CastPlayer`](https://developer.android.com/reference/androidx/media3/cast/CastPlayer.md.txt)
 simplifies adding cast functionality to your app and provides rich features to
@@ -11,6 +13,19 @@ seamlessly switch between local and remote playback. This guide shows you how to
 integrate [`CastPlayer`](https://developer.android.com/reference/androidx/media3/cast/CastPlayer.md.txt) into your media app.
 
 To integrate Cast with other platforms, see the [Cast SDK](https://developers.google.com/cast/docs/developers).
+
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/media/media3-cast-integration)
+
+### Integrate Media3 Cast
+
+Use the Media3 Cast [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to implement Google Cast support in your app. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
+
+    android skills add media3-cast-integration
+
+<br />
 
 ## Get a Cast-enabled device
 

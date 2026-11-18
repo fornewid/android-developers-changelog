@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/connectivity/bluetooth/connect-blueto
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/connectivity/bluetooth/llms.txt
+
 To create a connection between two devices, you must implement both the
 server-side and client-side mechanisms because one device must open a server
 socket, and the other one must initiate the connection using the server device's
@@ -32,10 +34,7 @@ so that each device has a server socket open and listening for connections. In
 this case, either device can initiate a connection with the other and become the
 client. Alternatively, one device can explicitly host the connection and open a
 server socket on demand, and the other device initiates the connection.
-
-![](https://developer.android.com/static/images/develop/connectivity/bluetooth/bluetooth-pairing.png)   
-
-**Figure 1.** The Bluetooth pairing dialog.
+![The Bluetooth pairing dialog prompting the user to pair with a device.](https://developer.android.com/static/images/develop/connectivity/bluetooth/bluetooth-pairing.png) **Figure 1.** The Bluetooth pairing dialog.
 
 > [!NOTE]
 > **Note:** If the two devices have not been previously paired, then the Android framework automatically shows a pairing request notification or dialog to the user during the connection procedure, as shown in figure 1. Therefore, when your app attempts to connect devices, it doesn't need to be concerned about whether or not the devices are paired. Your RFCOMM connection attempt gets blocked until the user has successfully paired the two devices, and the attempt fails if the user rejects pairing, or if the pairing process fails or times out.

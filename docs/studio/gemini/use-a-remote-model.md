@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/gemini/use-a-remote-model
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/llms.txt
+
 Many developers use a variety of large language models like ChatGPT, Claude, and
 GitHub Copilot. By integrating remote models in Android Studio, you can use the
 model
@@ -42,7 +44,7 @@ Add a new remote model provider to Android Studio as follows:
 
 6. Select models to use.
 
-   ![Settings dialog showing remote provide information, including
+   ![Settings dialog showing remote provider information, including
    a list of available models.](https://developer.android.com/static/studio/gemini/images/available-remote-models.png) **Figure 3.** Select from a list of available models. By selecting multiple models, you can choose which model to use when you send a prompt.
 
    <br />

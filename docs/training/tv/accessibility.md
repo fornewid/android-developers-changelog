@@ -4,6 +4,8 @@ url: https://developer.android.com/training/tv/accessibility
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/tv/accessibility/llms.txt
+
 This guide provides best practices for accessibility on Android TV and provides
 recommendations for both native and non-native apps.
 
@@ -35,7 +37,7 @@ resources](https://developer.android.com/guide/topics/ui/accessibility).
 ## Text scaling
 
 Android TV apps should respect the user's preference for text scaling by
-[supporting different pixel densities](https://developer.android.com/training/multiscreen/screendensities#TaskUseDP).
+[supporting different pixel densities](https://developer.android.com/training/multiscreen/screendensities.md.txt#TaskUseDP).
 
 Take special care to:
 
@@ -45,9 +47,14 @@ Take special care to:
 - Don't use sp text size units for components that are not flexible.
 - Check the value of `FONT_SCALE` for adjustment in custom views:
 
-      // Checking font scale with Context
-      val scale = resources.configuration.fontScale
-      Log.d(TAG, "Text scale is: " + scale)
+
+  ```kotlin
+  // Checking font scale with Context.
+  val scale = resources.configuration.fontScale
+  Log.d(TAG, "Text scale is: " + scale)
+  ```
+
+  <br />
 
 The text scale can be changed with the following command:
 
@@ -59,9 +66,9 @@ settings.
 ## Keyboard layouts
 
 In Android 13 (API level 33) and higher, you can use
-[`getKeyCodeForKeyLocation()`](https://developer.android.com/reference/android/view/InputDevice#getKeyCodeForKeyLocation(int))
+[`getKeyCodeForKeyLocation()`](https://developer.android.com/reference/android/view/InputDevice.md.txt#getKeyCodeForKeyLocation(int))
 to
-[look up the keycodes](https://developer.android.com/training/tv/games#keyboard-layouts) for
+[look up the keycodes](https://developer.android.com/training/tv/games.md.txt#keyboard-layouts) for
 expected key locations.
 This might be necessary if the user has re-mapped some key locations or if they
 are using a keyboard that does not have a typical layout.
@@ -71,71 +78,45 @@ are using a keyboard that does not have a typical layout.
 In Android 13 (API level 33) and higher, a new system-wide accessibility
 preference lets users enable audio descriptions across all apps. Android TV apps
 can check the user's preference by querying it with
-[`isAudioDescriptionRequested()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager#isAudioDescriptionRequested()).
+[`isAudioDescriptionRequested()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager.md.txt#isAudioDescriptionRequested()).
 
-### Kotlin
 
-    private lateinit var accessibilityManager: AccessibilityManager
+```kotlin
+private lateinit var accessibilityManager: AccessibilityManager
 
     // In onCreate():
     accessibilityManager = getSystemService(AccessibilityManager::class.java)
 
-    // Where your media player is initialized
-    if (am.isAudioDescriptionRequested) {
-        // User has requested to enable audio descriptions
+    // Where your media player is initialized.
+    if (accessibilityManager.isAudioDescriptionRequested) {
+        // User has requested to enable audio descriptions.
     }
+```
 
-### Java
-
-    private AccessibilityManager accessibilityManager;
-
-    // In onCreate():
-    accessibilityManager = getSystemService(AccessibilityManager.class);
-
-    // Where your media player is initialized
-    if(accessibilityManager.isAudioDescriptionRequested()) {
-        // User has requested to enable audio descriptions
-    }
+<br />
 
 Android TV apps can monitor when a user's preference changes by
 adding a listener to
-[`AccessibilityManager`](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager):
+[`AccessibilityManager`](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager.md.txt):
 
-### Kotlin
 
-    private val listener =
-        AccessibilityManager.AudioDescriptionRequestedChangeListener { enabled ->
-            // Preference changed; reflect its state in your media player
-        }
-
-    override fun onStart() {
-        super.onStart()
-
-        accessibilityManager.addAudioDescriptionRequestedChangeListener(mainExecutor, listener)
+```kotlin
+private val listener =
+    AccessibilityManager.AudioDescriptionRequestedChangeListener { enabled ->
+        // Preference changed; reflect its state in your media player.
     }
 
-    override fun onStop() {
-        super.onStop()
+override fun onStart() {
+    super.onStart()
 
-        accessibilityManager.removeAudioDescriptionRequestedChangeListener(listener)
-    }
+    accessibilityManager.addAudioDescriptionRequestedChangeListener(mainExecutor, listener)
+}
 
-### Java
+override fun onStop() {
+    super.onStop()
 
-    private AccessibilityManager.AudioDescriptionRequestedChangeListener listener = enabled -> {
-        // Preference changed; reflect its state in your media player
-    };
+    accessibilityManager.removeAudioDescriptionRequestedChangeListener(listener)
+}
+```
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        accessibilityManager.addAudioDescriptionRequestedChangeListener(getMainExecutor(), listener);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-        accessibilityManager.removeAudioDescriptionRequestedChangeListener(listener);
-    }
+<br />

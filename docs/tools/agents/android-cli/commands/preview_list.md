@@ -4,11 +4,15 @@ url: https://developer.android.com/tools/agents/android-cli/commands/preview_lis
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/tools/agents/android-cli/commands/llms.txt
+
 Lists available Jetpack Compose @Preview functions in a target.
 
 ## Usage
 
-    android preview list [-h] [--all] [--format=PARAM] [<reference>] [-- <build_args>]
+```bash
+android preview list [-h] [--all] [--format=PARAM] [<reference>] [-- <build_args>]
+```
 
 ## Options
 
@@ -24,7 +28,7 @@ Lists available Jetpack Compose @Preview functions in a target.
 
 ## Positional arguments
 
-- `<reference>` - Build reference (\[system://\]\[path\]?\[target\]).
+- `<reference>` - Build reference (`[system://][path]?[target]`).
 - `-- <build_args>` - Arguments passed verbatim to the build system. Use -- to separate from other arguments.
 
 ## Description
@@ -46,9 +50,13 @@ current workspace.
 
 List `@Preview` functions in `:app` in the current Gradle workspace:
 
-    android preview list :app
+```bash
+android preview list :app
+```
 
 List `@Preview` functions across `:app` and its workspace dependencies in JSON
 format:
 
-    android preview list :app --all --format=json
+```bash
+android preview list :app --all --format=json
+```

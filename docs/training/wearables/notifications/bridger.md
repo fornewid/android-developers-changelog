@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/notifications/bridger
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/notifications/llms.txt
+
 By default, the system *bridges*, or shares, notifications from a phone app to
 any paired watches. If you build a watch app and your app also exists on a
 paired phone, users might receive duplicate notifications---one that the phone app
@@ -152,7 +154,7 @@ phone and the notification indicates that the download is complete.
 The system doesn't bridge the following types of notifications:
 
 - Local-only notifications set using [`Notification.Builder.setLocalOnly(boolean)`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setLocalOnly(boolean)).
-- Ongoing notifications set using [`Notification.Builder.setOngoing(boolean)`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setOngoing(boolean)) or [`Notification.FLAG_ONGOING_EVENT`](https://developer.android.com/reference/android/app/Notification.md.txt#FLAG_ONGOING_EVENT).
+- Ongoing notifications set using [`Notification.Builder.setOngoing(boolean)`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setOngoing(boolean)) or [`Notification.FLAG_ONGOING_EVENT`](https://developer.android.com/reference/android/app/Notification.md.txt#FLAG_ONGOING_EVENT), except for [Live Updates](https://developer.android.com/training/wearables/notifications/live-updates.md.txt). Although Live Updates are ongoing notifications, the system might still bridge them depending on the Wear OS version and device manufacturer.
 - Non-clearable notifications set using [`Notification.FLAG_NO_CLEAR`](https://developer.android.com/reference/android/app/Notification.md.txt#FLAG_NO_CLEAR).
 - Notifications where the counterpart wearable app has [disabled notification
   bridging](https://developer.android.com/training/wearables/notifications/bridger#disable-bridging).

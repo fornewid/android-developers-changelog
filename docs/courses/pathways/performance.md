@@ -4,6 +4,8 @@ url: https://developer.android.com/courses/pathways/performance
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/courses/llms.txt
+
 # Android Performance
 
 

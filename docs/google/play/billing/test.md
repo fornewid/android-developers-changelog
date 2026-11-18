@@ -4,6 +4,8 @@ url: https://developer.android.com/google/play/billing/test
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/billing/llms.txt
+
 You should be testing your integration throughout development. To test during
 the development phase, we recommend leveraging *license testers* and [*Play
 Billing Lab*](https://play.google.com/store/apps/details?id=com.google.android.apps.play.billingtestcompanion) to run through the scenarios described in this section.
@@ -17,7 +19,7 @@ Using license testers provide the following benefits:
 
 - Ordinarily, the Google Play Billing Library is blocked for apps that aren't signed and uploaded to Google Play. License testers can bypass this check, meaning you can sideload apps for testing, even for apps using debug builds with debug signatures without the need to upload to the new version of your app. Note that the package name must match that of the app that is configured for Google Play, and the Google Account must be a license tester for the Google Play Console account.
 - License testers have access to test payment methods that avoid charging the testers real money for purchases. You can also use test payment methods to simulate certain situations, such as when a payment is declined. Figure 1 shows these test forms of payment as they appear within the purchase flow.
-- License testers can [rapidly test subscription features](https://developer.android.com/google/play/billing/test#subs).
+- License testers can [rapidly test subscription features](https://developer.android.com/google/play/billing/test.md.txt#subs).
 
 ![license testers have access to test payment methods](https://developer.android.com/static/images/google/play/billing/test-payment-methods.png) **Figure 1.** License testers have access to test payment methods.
 
@@ -41,7 +43,7 @@ from Google Play. Regular users can make real purchases using
 standard payment methods.
 
 > [!NOTE]
-> **Note:** Users incur actual charges for their test track purchases unless the user is a license tester. Draft apps and internal test track releases are subject to [spend limits](https://developer.android.com/google/play/billing/test#spend-limits).
+> **Note:** Users incur actual charges for their test track purchases unless the user is a license tester. Draft apps and internal test track releases are subject to [spend limits](https://developer.android.com/google/play/billing/test.md.txt#spend-limits).
 
 To test your Google Play Billing Library integration using test tracks, do
 the following:
@@ -72,11 +74,11 @@ Play Billing Lab lets you to do the following in your testing:
 
 - Change [Play Country](https://support.google.com/googleplay/answer/7431675) from within Play Billing Lab and apply the settings to your test. This enables [testing custom user-experiences in different
   countries/regions](https://developer.android.com/google/play/billing/test#regions) regardless of where the tester is physically testing
-- [Test trial or introductory offers](https://developer.android.com/google/play/billing/test#trial-offers) repeatedly with the same account
-- [Test subscription price changes](https://developer.android.com/google/play/billing/test#price-changes) without affecting other active subscribers
-- [Accelerate subscription state transition](https://developer.android.com/google/play/billing/test#subscription-state-transition) to accelerate subscription renewals, or move your test subscription into grace period or account hold state with one click to speed up your testing
-- [Test with real payment methods](https://developer.android.com/google/play/billing/test#real-fop-testing) to bypass certain purchase flow risk signals
-- [Test out-of-app purchases](https://developer.android.com/google/play/billing/test#out-of-app) to make sure that your backend can handle them
+- [Test trial or introductory offers](https://developer.android.com/google/play/billing/test.md.txt#trial-offers) repeatedly with the same account
+- [Test subscription price changes](https://developer.android.com/google/play/billing/test.md.txt#price-changes) without affecting other active subscribers
+- [Accelerate subscription state transition](https://developer.android.com/google/play/billing/test.md.txt#subscription-state-transition) to accelerate subscription renewals, or move your test subscription into grace period or account hold state with one click to speed up your testing
+- [Test with real payment methods](https://developer.android.com/google/play/billing/test.md.txt#real-fop-testing) to bypass certain purchase flow risk signals
+- [Test out-of-app purchases](https://developer.android.com/google/play/billing/test.md.txt#out-of-app) to make sure that your backend can handle them
 
 ![Play Billing Lab Dashboard](https://developer.android.com/static/images/google/play/billing/play-billing-lab-dashboard.png) **Figure 2.** Play Billing Lab Dashboard.
 
@@ -137,7 +139,7 @@ after a couple of minutes.
 
    <br />
 
-You can find more information at [Handling pending transactions](https://developer.android.com/google/play/billing/integrate#pending).
+You can find more information at [Handling pending transactions](https://developer.android.com/google/play/billing/integrate.md.txt#pending).
 
 ### Test user-initiated chargebacks
 
@@ -147,7 +149,7 @@ user-initiated chargeback.
 1. Make a purchase with the test instrument **Test card, approves then charges
    back** , as shown in figure 5. Soon afterwards, your system should be made
    aware of the test purchase being delivered and charged back through
-   applicable surfaces. For example, you should receive a [PendingRefundReviewNotification](https://developer.android.com/google/play/billing/rtdn-reference#pending-refund-review) moments after making the purchase.
+   applicable surfaces. For example, you should receive a [PendingRefundReviewNotification](https://developer.android.com/google/play/billing/rtdn-reference.md.txt#pending-refund-review) moments after making the purchase.
 
    ![test user-initiated chargebacks](https://developer.android.com/static/images/google/play/billing/charge-then-charge-back-test-instrument.png) **Figure 5.** Test a purchase with a test card that approves then charges back.
 
@@ -165,7 +167,7 @@ scenario.
 > **Caution:** The resubscribe and pause features are always enabled in license tester accounts even if they're disabled in the Play Console. Test these features in license testers, confirm that they work, and then enable them in the console for all users. To test your app's behavior when these features are disabled, you must use a non-license-tester account.
 
 Similar to one-time products, verify that purchases are properly acknowledged as
-described in [processing purchases](https://developer.android.com/google/play/billing/integrate#process). For purchases from license testers, a
+described in [processing purchases](https://developer.android.com/google/play/billing/integrate.md.txt#process). For purchases from license testers, a
 purchase is refunded after 3 minutes if your app does not acknowledge the
 purchase, and you receive an email about the cancellation. You can also check
 the **Orders** tab in Google Play Console to see if an order was
@@ -510,7 +512,7 @@ is notified.
 ## Test the purchase experience in different regions
 
 You can test the purchase experience in different regions with the
-[Play Billing Lab](https://developer.android.com/google/play/billing/test#play-billing-lab) app. To use the Play Billing Lab, you must be a
+[Play Billing Lab](https://developer.android.com/google/play/billing/test.md.txt#play-billing-lab) app. To use the Play Billing Lab, you must be a
 license tester. Use the following steps to test:
 
 1. Register the app billing user as a license tester.
@@ -520,7 +522,7 @@ license tester. Use the following steps to test:
 
    ![test purchase experience in different regions](https://developer.android.com/static/images/google/play/billing/play-billing-lab-country.png) **Figure 11.** Test purchase experience in different regions.
 
-[Play Billing Lab](https://developer.android.com/google/play/billing/test#play-billing-lab) lets you test offer regional eligibility and the user
+[Play Billing Lab](https://developer.android.com/google/play/billing/test.md.txt#play-billing-lab) lets you test offer regional eligibility and the user
 experience in any region, regardless of where you are physically testing.
 
 > [!NOTE]
@@ -565,9 +567,17 @@ an error message in the purchase cart, and the transaction will be blocked.
 
 ## Test out-of-app purchases
 
-You can use the [Play Billing Lab](https://developer.android.com/google/play/billing/test#play-billing-lab) app to test the end-to-end experience for
-entitlements acquired outside of your app. To use
-Play Billing Lab, you must be a [license tester](https://developer.android.com/google/play/billing/test#license-testers) for the app you are testing.
+Google Play can promote your one-time products and subscriptions on surfaces
+outside of your app, such as your app's details page in the Play Store and
+Gemini. You manage these promotions on the [Merchandising and
+optimization](https://support.google.com/googleplay/android-developer/answer/16973687) page in Google Play Console. Because users can
+purchase these products without opening your app, your app and backend must be
+able to detect and deliver out-of-app purchases.
+
+You can use the [Play Billing Lab](https://developer.android.com/google/play/billing/test.md.txt#play-billing-lab) app to test the end-to-end experience for
+entitlements acquired outside of your app. You don't need to configure
+merchandising and optimization settings before you test. To use
+Play Billing Lab, you must be a [license tester](https://developer.android.com/google/play/billing/test.md.txt#license-testers) for the app you are testing.
 
 **Step 1 - Configure test**
 
@@ -577,18 +587,20 @@ Play Billing Lab, you must be a [license tester](https://developer.android.com/g
 4. Select the **Out-of-app purchases** test card.
 5. Optional: Select your test country and apply the change in Play Billing Lab.
    1. If you don't select a country, Play Billing Lab uses the Play Country for your licensed test account.
-6. Enter the app and product (SKU) information that you want to test.
-7. Select the particular purchase option, base plan, or offer that you want to test.
+6. Enter the app's package name, select the product type (**One-time product** or **Subscription**), and enter the product ID (SKU) that you want to test.
+7. Select the particular purchase option, base plan, or offer that you want to test. Play Billing Lab only shows the offers that your licensed tester account is currently eligible for.
 8. Click **Start test**.
 
 > [!NOTE]
-> **Note:** The test remains active for two hours. After this time, you must reconfigure the test.
+> **Note:** The test remains active for two hours. After this time, you must reconfigure the test. To change or stop an active test, see [Change or stop an active
+> test](https://developer.android.com/google/play/billing/test#change-active-test).
 
 **Step 2 - Acquire the out-of-app product**
 
-- [Featured products](https://developer.android.com/google/play/billing/test#featured-products)
-- [Purchase recommendations](https://developer.android.com/google/play/billing/test#purchase-recommendations) (after abandoning a purchase)
-- [Play Games Rewards](https://developer.android.com/google/play/billing/test#play-games-rewards)
+- [Featured products](https://developer.android.com/google/play/billing/test.md.txt#featured-products)
+- [Purchase recommendations](https://developer.android.com/google/play/billing/test.md.txt#purchase-recommendations) (after abandoning a purchase)
+- [Play Games Rewards](https://developer.android.com/google/play/billing/test.md.txt#play-games-rewards)
+- [Agentic commerce](https://developer.android.com/google/play/billing/test.md.txt#agentic-commerce) (Gemini)
 
 > [!NOTE]
 > **Note:** This test requires that the user is eligible to purchase the item. For non-consumable items, you must not currently own the product. For consumable items, you must consume any existing purchases before you test.
@@ -596,7 +608,9 @@ Play Billing Lab, you must be a [license tester](https://developer.android.com/g
 **Step 3 - Handle and deliver the entitlement**
 
 Your app should detect the out-of-app purchase, and then deliver the item to the
-respective user. For the full process, see [processing purchases](https://developer.android.com/google/play/billing/integrate#process).
+respective user. Make sure that your backend receives
+[Real-time developer notifications](https://developer.android.com/google/play/billing/getting-ready.md.txt#configure-rtdn) (RTDN) and acknowledges the
+purchase. For the full process, see [processing purchases](https://developer.android.com/google/play/billing/integrate.md.txt#process).
 
 ### Featured products
 
@@ -640,12 +654,64 @@ purchase being processed. The fifth screen shows purchase success.](https://deve
 ### Play Games Rewards
 
 > [!NOTE]
-> **Note:** [Play Games Rewards](https://developer.android.com/games/rewards) are supported only for one-time products.
+> **Note:** [Play Games Rewards](https://developer.android.com/games/rewards.md.txt) are supported only for one-time products.
 
 Click **Grant Reward** to simulate Play granting the reward to the user. Existing
-rewards must be [processed](https://developer.android.com/google/play/billing/integrate#process) before additional rewards can be granted.
+rewards must be [processed](https://developer.android.com/google/play/billing/integrate.md.txt#process) before additional rewards can be granted.
 ![Three screens showing the Play Games Rewards testing flow. On the
 first screen the user can selects to grant the reward. The second screen
 shows the reward being successfully granted by Play, then the user
 clicks for the reward to be granted again. The third screen shows an
 error state since the first reward hasn't been properly processed.](https://developer.android.com/static/images/google/play/billing/play-billing-lab-games-rewards-testing.png) **Figure 14.** Play Games Rewards testing flow.
+
+### Agentic commerce
+
+> [!NOTE]
+> **Note:** Agentic commerce in Gemini supports both one-time products and subscriptions.
+
+Users can discover and purchase in-app products directly from Gemini responses.
+While an out-of-app purchase test is active, Gemini surfaces the product and
+offer that you configured in Play Billing Lab at the highest priority for your
+licensed tester account.
+
+1. Open the Gemini app and sign in with the same licensed tester account that you used to configure the test in Play Billing Lab and to sign in to the Play Store.
+2. Enter a prompt that includes `@Google Play` and shows a clear intent to purchase an in-app item, such as `@Google Play buy <product name> for <app
+   name>`.
+   1. While the test is active, the product name and app name in the prompt don't affect which product Gemini shows. However, we recommend using valid product and app names.
+3. Verify that Gemini shows a card with the product and offer that you configured in Play Billing Lab.
+4. Tap the card to open the Google Play purchase bottom sheet in Gemini.
+5. Review the price, payment method, and offer details, and then complete the purchase.
+
+![Three screens showing the agentic commerce purchase flow in Gemini.
+The first screen shows the user entering a prompt that starts with
+@Google Play and asks to buy the configured product for the app. The
+second screen shows Gemini's response with a Google Play card for the
+product and its price. The third screen shows the Google Play purchase
+bottom sheet with the product, price, and test payment method, and a
+button to complete the purchase.](https://developer.android.com/static/images/google/play/billing/play-billing-lab-agentic-commerce.png) **Figure 15.** Agentic commerce purchase flow in Gemini.
+
+If Gemini doesn't show the product that you configured, check the following:
+
+- Your prompt includes `@Google Play`. Without it, Gemini might not use Google Play to answer your prompt.
+- Your prompt includes a purchase keyword, such as *buy* , *purchase* , *get* , or *order* . Informational prompts, such as `what is <app name>`, don't surface products.
+- You're signed in to Gemini, the Play Store, and Play Billing Lab with the exact same licensed tester account.
+- Your test hasn't expired. In Play Billing Lab, check whether the test status has changed from **Active**. If the test has expired, start a new test.
+
+### Change or stop an active test
+
+While an out-of-app purchase test is active, you can't change the package name,
+product ID, offer, or test country. To change any of these settings, you must
+first stop the active test:
+
+1. In Play Billing Lab, tap **View** on the active **Out-of-app purchases** card.
+2. Tap **Edit** next to the setting that you want to change.
+3. When prompted, tap **Stop test**. Play Billing Lab stops the test and clears the related test inputs.
+4. Enter your new settings, and then tap **Start test**.
+
+If you try to edit the test country from the **Configuration settings** card
+while an out-of-app purchase test is active, Play Billing Lab also prompts you
+to stop the test first.
+
+To stop the test without changing any settings, tap **Clear test** on the
+**Out-of-app purchase** page. Play Billing Lab removes the test configuration,
+and Google Play returns to its original behavior.

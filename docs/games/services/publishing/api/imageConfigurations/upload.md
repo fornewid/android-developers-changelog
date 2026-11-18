@@ -4,11 +4,13 @@ url: https://developer.android.com/games/services/publishing/api/imageConfigurat
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/services/publishing/api/imageConfigurations/llms.txt
+
 > [!WARNING]
 > **Deprecated:** This API is deprecated and is being removed, so you shouldn't use it. Attempting to use this API causes errors.
 
 
-**Requires [authorization](https://developer.android.com/games/services/publishing/api/imageConfigurations/upload#auth)**
+**Requires [authorization](https://developer.android.com/games/services/publishing/api/imageConfigurations/upload.md.txt#auth)**
 
 Uploads an image for a resource with the given ID and image type.
 
@@ -33,11 +35,11 @@ POST https://www.googleapis.com/upload/games/v1configuration/images/resourceId/i
 | `imageType` | `string` | Selects which image in a resource for this method. <br /> <br /> Acceptable values are: - "`ACHIEVEMENT_ICON`": The icon image for an achievement resource. - "`LEADERBOARD_ICON`": The icon image for a leaderboard resource. |
 | `resourceId` | `string` | The ID of the resource used by this method. |
 | **Required query parameters** |||
-| `uploadType` | `string` | The type of upload request to the **/upload** URI. Acceptable values are: - `media` - [Simple upload](https://developer.android.com/games/services/publishing/upload#simple). Upload the media data. - `resumable` - [Resumable upload](https://developer.android.com/games/services/publishing/upload#resumable). Upload the file in a resumable fashion, using a series of at least two requests. |
+| `uploadType` | `string` | The type of upload request to the **/upload** URI. Acceptable values are: - `media` - [Simple upload](https://developers.google.com/android-publisher/upload#simple). Upload the media data. - `resumable` - [Resumable upload](https://developers.google.com/android-publisher/upload#resumable). Upload the file in a resumable fashion, using a series of at least two requests. |
 
 ### Authorization
 
-This request requires authorization with the following scope ([read more about authentication and authorization](https://developer.android.com/accounts/docs/OAuth2)).
+This request requires authorization with the following scope ([read more about authentication and authorization](https://developers.google.com/identity/protocols/oauth2)).
 
 | Scope |
 |---|
@@ -53,10 +55,11 @@ If successful, this method returns a response body with the following structure:
 
 ```
 {
-  "kind": "gamesConfiguration#imageConfiguration&quot;,
-  "url&quot;: string,
-  "resource}Id": string,
+  "kind": "gamesConfiguration#imageConfiguration",
+  "url": string,
+  "resourceId": string,
   "imageType": string
+}
 ```
 
 | Property name | Value | Description | Notes |

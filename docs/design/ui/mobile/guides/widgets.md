@@ -4,6 +4,8 @@ url: https://developer.android.com/design/ui/mobile/guides/widgets
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/design/ui/mobile/guides/widgets/llms.txt
+
 Widgets are customizable home screen elements that display a clear and
 actionable view of an app's content or actions. This content can periodically
 refresh.
@@ -18,23 +20,23 @@ When creating your widget, complete the following steps:
 
 1. Choose a single primary use case to highlight in your widget.
 2. Check out the [Widget template examples](https://www.figma.com/community/file/1237551184114564748/android-ui-kit) on Figma.
-3. Design the UI within the [sizing](https://developer.android.com/design/ui/mobile/guides/widgets/sizing) guidelines.
+3. Design the UI within the [sizing](https://developer.android.com/design/ui/mobile/guides/widgets/sizing.md.txt) guidelines.
 4. Test for multiple screen sizes.
-5. Test your widget on multiple form factors, such as [Android Auto](https://developer.android.com/design/ui/cars/guides/flows/widgets).
-6. Ensure your widget meets the [Widget quality guides](https://developer.android.com/docs/quality-guidelines/widget-quality).
+5. Test that your widget [adapts to multiple form factors](https://developer.android.com/design/ui/mobile/guides/widgets/adapt.md.txt), such as Android Auto.
+6. Ensure your widget meets the [Widget quality guides](https://developer.android.com/docs/quality-guidelines/widget-quality.md.txt).
 
 ### Canonical widget layouts
 
-Layouts dictate how information and interactive elements are organized within your widget. Learn more about prebuilt layouts for text, list \& grid-type widgets. [Learn more](https://developer.android.com/design/ui/mobile/guides/widgets/layouts)
+Layouts dictate how information and interactive elements are organized within your widget. Learn more about prebuilt layouts for text, list \& grid-type widgets. [Learn more](https://developer.android.com/design/ui/mobile/guides/widgets/layouts.md.txt)
 
 ### Sizing
 
-Learn more about designing widgets that scale seamlessly to multiple sizes. See the default widget sizes and learn how to fully use the grid space given. [Learn more](https://developer.android.com/design/ui/mobile/guides/widgets/sizing)
+Learn more about designing widgets that scale seamlessly to multiple sizes. See the default widget sizes and learn how to fully use the grid space given. [Learn more](https://developer.android.com/design/ui/mobile/guides/widgets/sizing.md.txt)
 
 ### Style
 
-Learn how to style your widget to enhance your widget's visual impact and to fit with the user's device theme. [Learn more](https://developer.android.com/design/ui/mobile/guides/widgets/style)
+Learn how to style your widget to enhance your widget's visual impact and to fit with the user's device theme. [Learn more](https://developer.android.com/design/ui/mobile/guides/widgets/style.md.txt)
 
 ### Discovery and promotion
 
-Learn to promote your widget on the widget picker through appropriate sizing and information shown. [Learn more](https://developer.android.com/design/ui/mobile/guides/widgets/discovery-promotion)
+Learn to promote your widget on the widget picker through appropriate sizing and information shown. [Learn more](https://developer.android.com/design/ui/mobile/guides/widgets/discovery-promotion.md.txt)

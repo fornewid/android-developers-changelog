@@ -376,6 +376,7 @@ through content descriptions.
 
 Use the `painterResource` API to provide XML vector assets to the composable:
 
+
 ```kotlin
 Icon(
     painter = painterResource(id = R.drawable.ic_speedometer),
@@ -384,14 +385,19 @@ Icon(
 )
 ```
 
+<br />
+
 For complex and multicolor vectors, use the `Image` composable:
+
 
 ```kotlin
 Image(
-     painter = painterResource(id = R.drawable.ic_complex_vector),
-     contentDescription = null // Decorative element
+    painter = painterResource(id = R.drawable.ic_complex_vector),
+    contentDescription = null // Decorative element
 )
 ```
+
+<br />
 
 For other complex scenarios, such as customizing an image or optimizing
 performance, see [Working with images](https://developer.android.com/develop/ui/compose/graphics/images.md.txt).
@@ -515,20 +521,23 @@ Not supported:
   `android:fillType="evenOdd"` on the shape in the vector drawable. For
   example:
 
-  ```xml
-  <vector xmlns:android="https://schemas.android.com/apk/res/android"
-    android:viewportHeight="168"
-    android:height="24dp"
-    android:viewportWidth="209"
-    android:width="24dp">
 
-    <path
-        android:fillAlpha="1.0"
-        android:fillColor="#000000"
-        android:fillType="evenOdd"
-        android:pathData="M24,58 L24,167 L114,167 L114,66 M64,1 L64,96 L208,96 L208,8 M1,97 L146,139 L172,47"/>
+  ```xml
+  <vector xmlns:android="http://schemas.android.com/apk/res/android"
+      android:viewportHeight="168"
+      android:height="24dp"
+      android:viewportWidth="209"
+      android:width="24dp">
+
+      <path
+          android:fillAlpha="1.0"
+          android:fillColor="#000000"
+          android:fillType="evenOdd"
+          android:pathData="M24,58 L24,167 L114,167 L114,66 M64,1 L64,96 L208,96 L208,8 M1,97 L146,139 L172,47"/>
   </vector>
   ```
+
+  <br />
 
 #### Strokes and fills
 
