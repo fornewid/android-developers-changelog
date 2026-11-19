@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-intr
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Updates to the Android XR SDK: Introducing Developer Preview 2
 
-4 min read ![](https://developer.android.com/static/blog/assets/IO_25_Blog_Hero_Template_Art_Long_01_126026f6a9_ZPukDs.webp) 20 May 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Since launching the [Android XR SDK Developer Preview](https://android-developers.googleblog.com/2024/12/introducing-android-xr-sdk-developer-preview.html) alongside Samsung, Qualcomm, and Unity last year, we've been blown away by all of the excitement we've been hearing from the broader Android community. Whether it's through [coding live-streams](https://www.youtube.com/watch?v=AkKjMtBYwDA&t=116s) or local [Google Developer Group talks](https://www.youtube.com/watch?v=RsFL8wvZFK8), it's been an outstanding experience participating in the community to build the future of XR together, and we're just getting started.
+4 min read ![](https://developer.android.com/static/blog/assets/IO_25_Blog_Hero_Template_Art_Long_01_126026f6a9_ZPukDs.webp) 20 May 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) Vice President, Product Management, Android Developer Since launching the [Android XR SDK Developer Preview](https://android-developers.googleblog.com/2024/12/introducing-android-xr-sdk-developer-preview.html) alongside Samsung, Qualcomm, and Unity last year, we've been blown away by all of the excitement we've been hearing from the broader Android community. Whether it's through [coding live-streams](https://www.youtube.com/watch?v=AkKjMtBYwDA&t=116s) or local [Google Developer Group talks](https://www.youtube.com/watch?v=RsFL8wvZFK8), it's been an outstanding experience participating in the community to build the future of XR together, and we're just getting started.
 
 Today we're excited to share an update to the [Android XR SDK](http://developer.android.com/xr): Developer Preview 2, packed with new features and improvements to help you develop helpful and delightful immersive experiences with familiar Android APIs, tools and open standards created for XR.
 
@@ -23,9 +25,9 @@ Since the release of [Developer Preview 1](https://developers.googleblog.com/en/
 
 With the **Jetpack XR SDK** , you can now play back 180° and 360° videos, which can be stereoscopic by encoding with the MV-HEVC specification or by encoding view-frames adjacently. The MV-HEVC standard is optimized and designed for stereoscopic video, allowing your app to efficiently play back immersive videos at great quality. Apps built with Jetpack Compose for XR can use the [SpatialExternalSurface](https://developer.android.com/develop/xr/jetpack-xr-sdk/develop-ui#add-surface) composable to render media, including stereoscopic videos.
 
-Using **Jetpack Compose for XR** , you can now also define layouts that adapt to different XR display configurations. For example, use a [SubspaceModifier](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#%28androidx.xr.compose.subspace.layout.SubspaceModifier%29.fillMaxSize%28kotlin.Float%29) to specify the size of a [Subspace](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-subspace) as a percentage of the device's recommended viewing size, so a panel effortlessly fills the space it's positioned in.
+Using **Jetpack Compose for XR** , you can now also define layouts that adapt to different XR display configurations. For example, use a [SubspaceModifier](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier.md.txt#%28androidx.xr.compose.subspace.layout.SubspaceModifier%29.fillMaxSize%28kotlin.Float%29) to specify the size of a [Subspace](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-subspace.md.txt) as a percentage of the device's recommended viewing size, so a panel effortlessly fills the space it's positioned in.
 
-**Material Design for XR** now supports more component overrides for [TopAppBar](https://developer.android.com/develop/ui/compose/components/app-bars), [AlertDialog](https://developer.android.com/develop/ui/compose/components/dialog#alert), and [ListDetailPaneScaffold](https://developer.android.com/develop/ui/compose/layouts/adaptive/list-detail), helping your large-screen enabled apps that use Material Design effortlessly adapt to the new world of XR.
+**Material Design for XR** now supports more component overrides for [TopAppBar](https://developer.android.com/develop/ui/compose/components/app-bars.md.txt), [AlertDialog](https://developer.android.com/develop/ui/compose/components/dialog.md.txt#alert), and [ListDetailPaneScaffold](https://developer.android.com/develop/ui/compose/layouts/adaptive/list-detail.md.txt), helping your large-screen enabled apps that use Material Design effortlessly adapt to the new world of XR.
 ![app-adapts-android-xr-material-design-google-io.png](https://developer.android.com/static/blog/assets/app_adapts_android_xr_material_design_google_io_2e56168f39_2iYRH8.webp)
 
 *An app adapts to XR using Material Design for XR with the new component overrides*  
@@ -62,52 +64,57 @@ Android XR will be available first on Samsung's Project Moohan, launching later 
 
 *XREAL's Project Aura*  
 
-The Google Play Store is also getting ready for Android XR. It will list [supported 2D Android apps](https://developer.android.com/develop/xr/get-started#app_manifest_compatibility_considerations_for_mobile_and_large_screen_apps) on the Android XR Play Store when it launches later this year. If you are working on an [Android XR differentiated app](https://developer.android.com/docs/quality-guidelines/android-xr#android-xr-differentiated), you can get it ready for the big launch and be one of the first differentiated apps on the Android XR Play Store:
+The Google Play Store is also getting ready for Android XR. It will list [supported 2D Android apps](https://developer.android.com/develop/xr/get-started.md.txt#app_manifest_compatibility_considerations_for_mobile_and_large_screen_apps) on the Android XR Play Store when it launches later this year. If you are working on an [Android XR differentiated app](https://developer.android.com/docs/quality-guidelines/android-xr.md.txt#android-xr-differentiated), you can get it ready for the big launch and be one of the first differentiated apps on the Android XR Play Store:
 
 - Install and test your existing app in the [Android XR Emulator](https://developer.android.com/develop/xr/jetpack-xr-sdk/studio-tools)
-- Learn how to [package and distribute apps for Android XR](https://developer.android.com/develop/xr/package-and-distribute)
+- Learn how to [package and distribute apps for Android XR](https://developer.android.com/develop/xr/package-and-distribute.md.txt)
 - New! [Make your XR app stand out](https://support.google.com/googleplay/android-developer/answer/9866151?ref_topic=3450987&sjid=1442238423744171917-NA) from others on Play Store with preview assets such as stereoscopic 180° or 360° videos, as well as screenshots, app description, and non-spatial video.
 
 And we know many of you are excited for the future of Android XR on [glasses](https://blog.google/products/android/android-xr-gemini-glasses-headsets/). We are shaping the developer experience now and will share more details on how you can participate later this year.
 
 To get started creating and developing for Android XR, check out [developer.android.com/develop/xr](https://developer.android.com/develop/xr) where you will find all of the tools, libraries, and resources you need to work with the Android XR SDK. In particular, try out our [samples](https://developer.android.com/develop/xr/samples) and [codelabs](https://developer.android.com/codelabs/xr-fundamentals-part-1#0).
 
-We welcome your [feedback, suggestions, and ideas](https://developer.android.com/develop/xr/support) as you're helping shape Android XR. Your passion, expertise, and bold ideas are vital as we continue to develop Android XR together. We look forward to seeing your XR-differentiated apps when Android XR devices launch later this year!
+We welcome your [feedback, suggestions, and ideas](https://developer.android.com/develop/xr/support.md.txt) as you're helping shape Android XR. Your passion, expertise, and bold ideas are vital as we continue to develop Android XR together. We look forward to seeing your XR-differentiated apps when Android XR devices launch later this year!
 
 Explore this announcement and all Google I/O 2025 updates on [io.google](https://io.google/2025/?utm_source=blogpost&utm_medium=pr&utm_campaign=event&utm_content) starting May 22.
-- [#Android](https://developer.android.com/blog/topics/android)
+- [#Android](https://developer.android.com/blog/topics/android.md.txt)
 Written by:
 
 -
 
-  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough)
+  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt)
 
   ###### Vice President, Product Management, Android Developer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
+  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_DKPLL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 4 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_DKPLL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Building for the Intelligence System on Android](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android)
+  ## [Building for the Intelligence System on Android](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android) Announced today during The Android Show, Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](https://developer.android.com/blog/authors/roxanna-walker) 21 Oct 2026 21 Oct 2026 ![](https://developer.android.com/static/blog/assets/1009_ABL_142_A_more_reliable_way_to_add_and_edit_contacts_on_Android_Strapi_b510ec4fc0_ZXfljU.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android.md.txt) Announced today during The Android Show, Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 4 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Aurash Mahbod's profile](https://developer.android.com/static/blog/assets/image3_98854eb3dd_Z2kItkm.webp)](https://developer.android.com/blog/authors/aurash-mahbod.md.txt) 18 Nov 2026 18 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_162_2000x1000_1_ce7dba8d2a_72W03.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [A more reliable way to add and edit contacts on Android](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android)
+  ## [Elevating games: New large screens and foldables quality standards on Google Play](https://developer.android.com/blog/posts/elevating-game-quality-foldables-large-screens-google-play.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android) Apps that target the upcoming Android release will no longer be able to directly write to contacts with the WRITE_CONTACTS permission.
-  [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker) • 6 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
+  [arrow_forward](https://developer.android.com/blog/posts/elevating-game-quality-foldables-large-screens-google-play.md.txt) To give these experiences to players and ensure your games shine across every screen size, Google Play is introducing new large screen quality requirements for games
+  [Aurash Mahbod](https://developer.android.com/blog/authors/aurash-mahbod.md.txt) • 4 min read
+  - [#Google Play](https://developer.android.com/blog/topics/google-play.md.txt)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Adaptive Games](https://developer.android.com/blog/topics/adaptive-games.md.txt)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+  - [#Large Screens](https://developer.android.com/blog/topics/large-screens.md.txt)
+  - +3 ↩
 Stay in the loop
 
 

@@ -4,6 +4,8 @@ url: https://developer.android.com/media/platform/hdr-image-format
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/platform/llms.txt
+
 ## Introduction
 
 This document defines the behavior of a new file format that encodes a
@@ -167,7 +169,9 @@ SDR displays. The gain map provides a mechanism to store data sufficient to
 recover the original, higher dynamic range luminance data.
 
 The following calculations in this section assume floating point arithmetic.
-| **Note:** To illustrate the following formulas, this document assumes that you are using a single-channel gain map. If this isn't the case, then formulas relating to these properties can be extrapolated to each color channel. You skip converting from `SDR(x, y)` and `HDR(x, y)` to `Ysdr(x, y)` and `Yhdr(x, y)` respectively and instead define `pixel_gain(x, y)` as a vector function relative to `SDR(x, y)` and `HDR(x, y)`. You also utilize per-channel metadata values, as required. Use a single-channel gain map whenever possible.
+
+> [!NOTE]
+> **Note:** To illustrate the following formulas, this document assumes that you are using a single-channel gain map. If this isn't the case, then formulas relating to these properties can be extrapolated to each color channel. You skip converting from `SDR(x, y)` and `HDR(x, y)` to `Ysdr(x, y)` and `Yhdr(x, y)` respectively and instead define `pixel_gain(x, y)` as a vector function relative to `SDR(x, y)` and `HDR(x, y)`. You also utilize per-channel metadata values, as required. Use a single-channel gain map whenever possible.
 
 The following functions describe the SDR image:
 
@@ -175,7 +179,7 @@ The following functions describe the SDR image:
 - `SDR(x, y)` is the linear version of the three-channel primary image, obtained by transforming to a linear version of the primary image color space. For example, from a color space with a sRGB transfer function to a linear color space that preserves sRGB color primaries.
 
 The `Ysdr(x, y)` function is defined on the range of 0.0 to 1.0 and is the
-standard dynamic range primary image linear luminance:  
+standard dynamic range primary image linear luminance:
 
     Ysdr(x, y) = primary_color_profile_to_luminance(SDR(x, y))
 
@@ -184,7 +188,7 @@ Similar definitions exist for the HDR image.
 - `HDR'(x, y)` is the three-channel non-linear, that is, a PQ or HLG encoded image.
 - `HDR(x, y)` is the three-channel linear HDR image.
 
-`Yhdr(x, y)` is the luminance at a given point of the HDR image:  
+`Yhdr(x, y)` is the luminance at a given point of the HDR image:
 
     Yhdr(x, y) = primary_color_profile_to_luminance(HDR(x, y))
 
@@ -201,7 +205,7 @@ The gain map is computed from two linear images containing the wanted HDR image
 luminance, `Yhdr(x, y)`, and the standard range luminance image, `Ysdr(x, y)`.
 
 The `pixel_gain(x, y)` function is defined as the ratio between the `Yhdr(x, y)`
-function and the `Ysdr(x, y)` function:  
+function and the `Ysdr(x, y)` function:
 
     pixel_gain(x, y) = (Yhdr(x, y) + offset_hdr) / (Ysdr(x, y) + offset_sdr)
 
@@ -213,10 +217,12 @@ For example, implementations can handle the case where `Ysdr(x, y)` and
 implementations also avoid this scenario by utilizing a non-zero `offset_sdr`.
 
 The implementation might choose the values of `offset_sdr` and `offset_hdr`.
-| **Tip:** Use a value of 0.015625 (1/64) for `offset_sdr` and `offset_hdr`. The purpose of these values is to balance the ability to raise near blacks with the ability to precisely encode smaller gain values. Increasing these offset values increases the ability to recover near blacks, while maintaining a reasonable value for `map_max_log2`. Increasing the values too high can reduce precision of the map.
+
+> [!TIP]
+> **Tip:** Use a value of 0.015625 (1/64) for `offset_sdr` and `offset_hdr`. The purpose of these values is to balance the ability to raise near blacks with the ability to precisely encode smaller gain values. Increasing these offset values increases the ability to recover near blacks, while maintaining a reasonable value for `map_max_log2`. Increasing the values too high can reduce precision of the map.
 
 The gain map is a scalar function that encodes `pixel_gain(x, y)` in a
-logarithmic space, relative to max content boost and min content boost:  
+logarithmic space, relative to max content boost and min content boost:
 
     map_min_log2 = log2(min_content_boost)
     map_max_log2 = log2(max_content_boost)
@@ -228,24 +234,32 @@ logarithmic space, relative to max content boost and min content boost:
 
 The `recovery(x, y)` function behavior where `pixel_gain(x, y)` is zero is
 implementation defined, because `log2(0)` is undefined.
-| **Tip:** Define `recovery(x, y)` as 0.0 where `pixel_gain(x, y)` is zero. This is because `recovery(x, y)` of 0.0 represents the largest possible attenuation that can be stored in the gain map.
+
+> [!TIP]
+> **Tip:** Define `recovery(x, y)` as 0.0 where `pixel_gain(x, y)` is zero. This is because `recovery(x, y)` of 0.0 represents the largest possible attenuation that can be stored in the gain map.
 
 `map_gamma` is a floating point number that must be greater than 0.0 and is
 chosen by the implementation.
-| **Tip:** Use a `map_gamma` of 1.0. You can use a different value if your gain map has a very uneven distribution of `log_recovery(x, y)` values. For example, this might apply if a gain map has a lot of detail just above SDR range (represented as small `log_recovery(x, y)` values), and a very large `map_max_log2` for the top end of the HDR rendition's desired brightness (represented by large `log_recovery(x, y)` values). In this case, you can use a `map_gamma` higher than 1.0 so that `recovery(x, y)` can precisely encode the detail in both the low end and high end of `log_recovery(x, y)`.
+
+> [!TIP]
+> **Tip:** Use a `map_gamma` of 1.0. You can use a different value if your gain map has a very uneven distribution of `log_recovery(x, y)` values. For example, this might apply if a gain map has a lot of detail just above SDR range (represented as small `log_recovery(x, y)` values), and a very large `map_max_log2` for the top end of the HDR rendition's desired brightness (represented by large `log_recovery(x, y)` values). In this case, you can use a `map_gamma` higher than 1.0 so that `recovery(x, y)` can precisely encode the detail in both the low end and high end of `log_recovery(x, y)`.
 
 The values of max content boost and min content boost are
 implementation-defined, and can be arbitrarily decided by the content creator.
 Max content boost must be greater than or equal to 1.0. Min content boost must
 be in the range (0.0, 1.0\].
-| **Note:** For example, say the image comes from a camera, and the camera's image-processing pipeline generates the SDR image by performing range compression on a higher dynamic range input. Then, max content boost and min content boost might be a function of the amount of range compression performed and what regions of luminance it affected.  
-|
-| Such pipelines might choose a min content boost of 1.0 if they don't want to encode any attenuation of the HDR image relative to the SDR image. Alternatively, if generating the gain map based on the SDR and HDR renditions themselves, max content boost and min content boost can be determined based on the maximum and minimum gain needed to convert between the two renditions.  
-|
-| Content creators or editors can also adjust max content boost to control the maximum allowable difference between SDR and HDR luminance when the image is displayed.
+
+> [!NOTE]
+> **Note:** For example, say the image comes from a camera, and the camera's image-processing pipeline generates the SDR image by performing range compression on a higher dynamic range input. Then, max content boost and min content boost might be a function of the amount of range compression performed and what regions of luminance it affected.  
+>
+> Such pipelines might choose a min content boost of 1.0 if they don't want to encode any attenuation of the HDR image relative to the SDR image. Alternatively, if generating the gain map based on the SDR and HDR renditions themselves, max content boost and min content boost can be determined based on the maximum and minimum gain needed to convert between the two renditions.  
+>
+> Content creators or editors can also adjust max content boost to control the maximum allowable difference between SDR and HDR luminance when the image is displayed.
 
 Values in `recovery(x, y)` are limited to the range \[0.0, 1.0\].
-| **Note:** The brightest areas of the image typically have `recovery(x, y)` values close to 1.0, while darker areas of the image have values around 0.0.
+
+> [!NOTE]
+> **Note:** The brightest areas of the image typically have `recovery(x, y)` values close to 1.0, while darker areas of the image have values around 0.0.
 
 The gain map is stored in a secondary image JPEG, and therefore must be encoded
 using 8-bit, unsigned integer values, thus in the range \[0, 255\]. Each value
@@ -253,7 +267,7 @@ represents a `recovery(x, y)` value and is stored in one pixel of the secondary
 image.
 
 For 8-bit unsigned integer storage, the encoded value is defined as the
-following:  
+following:
 
     encoded_recovery(x, y) = floor(recovery(x, y) * 255.0 + 0.5)
 
@@ -264,7 +278,9 @@ This encoding results in an 8-bit unsigned integer representation of
 `recovery(x, y)` values, from 0.0 to 1.0. The encoded gain map must be stored in
 a secondary image item as a JPEG. The implementation chooses the amount of
 compression to use during JPEG encoding.
-| **Tip:** Start with an implementation defined JPEG algorithm quality parameter of 85 to 90 out of 100, or similar, for most JPEG encoding implementations.
+
+> [!TIP]
+> **Tip:** Start with an implementation defined JPEG algorithm quality parameter of 85 to 90 out of 100, or similar, for most JPEG encoding implementations.
 
 After the gain map is stored in a secondary image, it is appended to a primary
 image with MPF and GContainer XMP metadata. The primary image GContainer
@@ -274,7 +290,9 @@ The resolution of the stored gain map is implementation-defined and can be
 different from the resolution from the primary image. In the case that the Gain
 Map is scaled to a different resolution from the primary image for storage, the
 sampling method must be bilinear or better, and is implementation defined.
-| **Tip:** Have the gain map downsampled to ¹⁄₁₆ of the size (¼ on each dimension) of the primary image before storage, such as a 480x270 gain map for a 1920x1080 primary image. The gain map needs a similar aspect ratio to the primary image.
+
+> [!TIP]
+> **Tip:** Have the gain map downsampled to ¹⁄₁₆ of the size (¼ on each dimension) of the primary image before storage, such as a 480x270 gain map for a 1920x1080 primary image. The gain map needs a similar aspect ratio to the primary image.
 
 The orientation of the gain map must match that of the primary image. If
 present, any orientation metadata in the stored gain map image, as in EXIF,
@@ -288,7 +306,9 @@ If present, the gain map's color profile isn't used.
 
 The color profile of the image must be indicated via an ICC Profile for the
 primary image.
-| **Tip:** Use a Display-P3 color profile.
+
+> [!TIP]
+> **Tip:** Use a Display-P3 color profile.
 
 #### XMP attributes
 
@@ -297,7 +317,7 @@ semantic information for the HDR gain map format.
 
 The following subsections contain details specific to this format. Additional
 information regarding general conformance to GContainer is specified in the
-[GContainer details](https://developer.android.com/media/platform/hdr-image-format#GContainer_details) section.
+[GContainer details](https://developer.android.com/media/platform/hdr-image-format.md.txt#GContainer_details) section.
 
 Attribute values described in the following tables are stored as XMP simple
 values of the specified XMP basic value types.
@@ -336,12 +356,13 @@ properties must appear in the gain map image XMP's `rdf:Description`:
 | hdrgm:HDRCapacityMin | Real | Stores the value of `hdr_capacity_min`. This is `log2` of the minimum display boost value for which the map is applied at all. This value also affects how much to apply the gain map based on the display boost. Must be 0.0 or greater. *Optional; default value is 0.0.* |
 | hdrgm:HDRCapacityMax | Real | Stores the value of `hdr_capacity_max`. This is `log2` of the maximum display boost value for which the map is applied completely. This value also affects how much to apply the gain map based on the display boost. Must be greater than `hdrgm:HDRCapacityMin`. *Required*. |
 
-| **Tip:** Whenever possible, use only a single Real value for each preceding property that permits one value or an array of values, with one for each color channel. Set `HDRCapacityMax` equal to `GainMapMax` and `HDRCapacityMin` to the greater of `GainMapMin` or 0.0. The rest of this document assumes that you are using a single Real value for all properties which may have an array of Real values. Formulas about these properties can be extrapolated to each color channel when this isn't the case in practice.
+> [!TIP]
+> **Tip:** Whenever possible, use only a single Real value for each preceding property that permits one value or an array of values, with one for each color channel. Set `HDRCapacityMax` equal to `GainMapMax` and `HDRCapacityMin` to the greater of `GainMapMin` or 0.0. The rest of this document assumes that you are using a single Real value for all properties which may have an array of Real values. Formulas about these properties can be extrapolated to each color channel when this isn't the case in practice.
 
 #### Example gain map XMP
 
 The following example of a valid gain map XMP packet contains metadata taken
-from the example file illustrated in the [Introduction](https://developer.android.com/media/platform/hdr-image-format#introduction) section.  
+from the example file illustrated in the [Introduction](https://developer.android.com/media/platform/hdr-image-format.md.txt#introduction) section.
 
 ```xml
 <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="XMP Core 5.5.0">
@@ -365,7 +386,7 @@ from the example file illustrated in the [Introduction](https://developer.androi
 
 The gain map image must be stored as an additional image as defined in [CIPA
 DC-x 007-2009 Multi-Picture Format](https://www.cipa.jp/std/documents/e/DC-X007-KEY_E.pdf "White Paper of CIPA DC-x 007-2009 Multi-Picture Format"), as referenced in the
-[Dependencies](https://developer.android.com/media/platform/hdr-image-format#dependencies) section.
+[Dependencies](https://developer.android.com/media/platform/hdr-image-format.md.txt#dependencies) section.
 
 ## Decode
 
@@ -416,7 +437,7 @@ implementation defined.
 `map_gamma` is determined by the `hdrgm:Gamma` metadata field.
 
 `log_recovery(x, y)` is the normalized floating point pixel gain in a
-logarithmic space:  
+logarithmic space:
 
     recovery(x, y) = encoded_recovery(x, y) / 255.0
     log_recovery(x, y) = pow(recovery(x, y), 1.0 / map_gamma)
@@ -429,13 +450,13 @@ value is provided by the display system and can change over time.
 `hdr_capacity_min` is determined by the `hdrgm:HDRCapacityMin` metadata field.
 
 `weight_factor` is determined as follows when `hdrgm:BaseRenditionIsHDR` is
-"False":  
+"False":
 
     unclamped_weight_factor = (log2(max_display_boost) - hdr_capacity_min)
                             / (hdr_capacity_max - hdr_capacity_min)
     weight_factor = clamp(unclamped_weight_factor, 0.0, 1.0)
 
-When `hdrgm:BaseRenditionIsHDR` is "True", the second equation is instead:  
+When `hdrgm:BaseRenditionIsHDR` is "True", the second equation is instead:
 
     weight_factor = 1.0 - clamp(unclamped_weight_factor, 0.0, 1.0)
 
@@ -444,7 +465,7 @@ When `hdrgm:BaseRenditionIsHDR` is "True", the second equation is instead:
 `offset_sdr` is determined by the `hdrgm:OffsetSDR` metadata field. `offset_hdr`
 is determined by the `hdrgm:OffsetHDR` metadata field.
 
-The linear adapted HDR rendition can be computed as follows:  
+The linear adapted HDR rendition can be computed as follows:
 
     log_boost(x, y) = gain_map_min * (1.0f - log_recovery(x, y))
                     + gain_map_max * log_recovery(x, y)
@@ -454,11 +475,13 @@ The linear adapted HDR rendition can be computed as follows:
 If needed, the implementation might apply a transform to `HDR(x, y)`, to put the
 data in the space expected by the display. Any such transformations must be
 colorimetrically correct.
-| **Note:** The gain map must be applied as shown earlier (using exponentiation) to properly produce the needed relative tonal relationships (between areas of different brightness in the image) at any wanted display boost. If the Gain Map is applied any other way, such as via simple linear interpolation, then the relative tonal relationships within the image are correct only at max content boost, and are compromised at other boost factors.  
-|
-| The described method for recovering the adapted HDR rendition means that display results transition seamlessly as max display boost changes. This method always produces a display result that matches the content creator's intention as closely as possible, and that meets all of the image quality requirements enumerated in the [Motivation](https://developer.android.com/media/platform/hdr-image-format#motivation) section.  
-|
-| The amount of attenuation applied in cases where min content boost is less than 1.0 also scales based on the relationship between max display boost and max content boost. For example, if max content boost is 4.0, min content boost is 0.5, and Max display boost is 2.0, then the maximum attenuation of the displayed image is 0.7071, rather than 0.5 if max display boost is 4.0 or higher.
+
+> [!NOTE]
+> **Note:** The gain map must be applied as shown earlier (using exponentiation) to properly produce the needed relative tonal relationships (between areas of different brightness in the image) at any wanted display boost. If the Gain Map is applied any other way, such as via simple linear interpolation, then the relative tonal relationships within the image are correct only at max content boost, and are compromised at other boost factors.  
+>
+> The described method for recovering the adapted HDR rendition means that display results transition seamlessly as max display boost changes. This method always produces a display result that matches the content creator's intention as closely as possible, and that meets all of the image quality requirements enumerated in the [Motivation](https://developer.android.com/media/platform/hdr-image-format.md.txt#motivation) section.  
+>
+> The amount of attenuation applied in cases where min content boost is less than 1.0 also scales based on the relationship between max display boost and max content boost. For example, if max content boost is 4.0, min content boost is 0.5, and Max display boost is 2.0, then the maximum attenuation of the displayed image is 0.7071, rather than 0.5 if max display boost is 4.0 or higher.
 
 ## GContainer details
 
@@ -511,7 +534,7 @@ is `Item`.
 
 The first media item must be the primary image. It must specify `Item:Semantic
 = "Primary"` and an `Item:Mime` listed in
-[Item MIME type values](https://developer.android.com/media/platform/hdr-image-format#item_mime_type_values).
+[Item MIME type values](https://developer.android.com/media/platform/hdr-image-format.md.txt#item_mime_type_values).
 
 The length of the primary image item is determined by parsing the primary
 image based on its MIME type starting at the beginning of the file container.
@@ -558,7 +581,7 @@ data.
 ### Example GContainer XMP
 
 The following example of a valid GContainer XMP packet has metadata taken from
-the example file illustrated in the [Introduction](https://developer.android.com/media/platform/hdr-image-format#introduction) section.  
+the example file illustrated in the [Introduction](https://developer.android.com/media/platform/hdr-image-format.md.txt#introduction) section.
 
 ```xml
 <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.1.2">
@@ -608,7 +631,9 @@ metadata. During an encode operation, the implementation or app should encode
 both metadata formats. If both types of metadata are present during a decode
 operation, the implementation or app should prefer using the ISO 21496-1
 metadata.
-| **Note:** Android supports ISO 21496-1 encoding from and decoding to [`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap "Android Bitmap class") for JPEG starting on Android 15 (API level 35). Android 15 encodes both Ultra HDR v1 metadata and ISO 21496-1 metadata when encoding Ultra HDR JPEG files from `Bitmap` objects. In addition, the [libultrahdr](https://github.com/google/libultrahdr "libultrahdr on GitHub") library in AOSP supports ISO 21496-1 encoding when the appropriate [flag](https://github.com/google/libultrahdr/blob/46f1337fbc63eee76d4554375269b95fd5f3ff58/lib/src/jpegr.cpp#L56 "libultrahdr ISO 21406-1 encoding flag") is enabled.
+
+> [!NOTE]
+> **Note:** Android supports ISO 21496-1 encoding from and decoding to [`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap.md.txt "Android Bitmap class") for JPEG starting on Android 15 (API level 35). Android 15 encodes both Ultra HDR v1 metadata and ISO 21496-1 metadata when encoding Ultra HDR JPEG files from `Bitmap` objects. In addition, the [libultrahdr](https://github.com/google/libultrahdr "libultrahdr on GitHub") library in AOSP supports ISO 21496-1 encoding when the appropriate [flag](https://github.com/google/libultrahdr/blob/46f1337fbc63eee76d4554375269b95fd5f3ff58/lib/src/jpegr.cpp#L56 "libultrahdr ISO 21406-1 encoding flag") is enabled.
 
 ## Change Log
 
@@ -620,7 +645,7 @@ specification.
 All changes in this version of the Ultra HDR specification are informational and
 about ISO 21496-1 compatibility. There are no changes to the actual file format.
 
-- Add [ISO 21496-1 Compatibility](https://developer.android.com/media/platform/hdr-image-format#iso_21496_1_compatibility) section.
+- Add [ISO 21496-1 Compatibility](https://developer.android.com/media/platform/hdr-image-format.md.txt#iso_21496_1_compatibility) section.
 
 ### v1.0
 

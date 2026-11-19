@@ -7,7 +7,7 @@ source: md.txt
 > Documentation index: https://developer.android.com/topic/libraries/architecture/paging/llms.txt
 
 # Paging 2 library overview
-Part of [Android Jetpack](https://developer.android.com/jetpack).
+Part of [Android Jetpack](https://developer.android.com/jetpack.md.txt).
 
 The Paging Library helps you load and display small chunks of data at a time.
 Loading partial data on demand reduces usage of network bandwidth and system

@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/room3
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Room 3.0
 
 The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | [3.0.3](https://developer.android.com/jetpack/androidx/releases/room3#3.0.3) | - | - | [3.1.0-alpha03](https://developer.android.com/jetpack/androidx/releases/room3#3.1.0-alpha03) |
+| November 18, 2026 | [3.0.3](https://developer.android.com/jetpack/androidx/releases/room3.md.txt#3.0.3) | - | - | [3.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/room3.md.txt#3.1.0-alpha04) |
 
 ## Declaring dependencies
 
@@ -122,6 +124,25 @@ for more information.
 
 ## Version 3.1
 
+### Version 3.1.0-alpha04
+
+November 18, 2026
+
+`androidx.room3:room3-*:3.1.0-alpha04` is released. Version 3.1.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3566803898b060d7136357220affc9ece8236019..3e55c1ad889c6c0087b0bf6720b1a970b6e8ea3b/room3).
+
+**API Changes**
+
+- Support `@DaoReturnTypeConverters` on individual DAO functions and `@Query` getter properties. ([Ieff22](https://android-review.googlesource.com/#/q/Ieff227e3a2910038892a918a30c9d8f5c230353b), [b/578894940](https://issuetracker.google.com/issues/578894940))
+- Removed the `watchosArm32` target, which Kotlin 2.5 no longer supports. ([Ic048d](https://android-review.googlesource.com/#/q/Ic048d3ac5dc60b7e62f0d1d7f683431f67f6209f))
+
+**Bug Fixes**
+
+- Fixed an issue where collection query parameters with a custom `@ColumnTypeConverter` were expanded into multiple parameters instead of converted as a single value inside `COALESCE` expressions. ([I58968](https://android-review.googlesource.com/#/q/I589685fc951b302eb410e42fcef6bc18da540a01))
+- `@Dao`-scoped `@DaoReturnTypeConverters` now take priority over `@Database`-scoped converters. ([I30cb9](https://android-review.googlesource.com/#/q/I30cb9eab9b19e554fbd49e864f9a7b7028824449), [b/578894940](https://issuetracker.google.com/issues/578894940))
+- Fixed an issue in KSP where non-constant annotation arguments (such as `@ColumnInfo.defaultValue`) were silently ignored, which exported incomplete schemas and caused misleading auto-migration errors. ([I50746](https://android-review.googlesource.com/#/q/I507461b5b47192ab8bf207d211e3e681b8a745a0), [b/558464759](https://issuetracker.google.com/issues/558464759))
+- Fixed an issue where using Kotlin value classes with `@MapColumn` in multimap queries could emit false `equals()`/`hashCode()` warnings or fail to map the specified column. ([I91d6b](https://android-review.googlesource.com/#/q/I91d6b0b4e020b3933cca789d2a9e19084e2cfda5), [b/535696696](https://issuetracker.google.com/issues/535696696))
+- Support an optional `Map<String, Any?>` parameter in read `@DaoReturnTypeConverter` functions to access DAO query arguments. ([I05586](https://android-review.googlesource.com/#/q/I0558603b445c5c83c97b6c310bcc7bb97b96674c), [b/492164283](https://issuetracker.google.com/issues/492164283))
+
 ### Version 3.1.0-alpha03
 
 October 21, 2026
@@ -137,7 +158,7 @@ October 21, 2026
 
 **Bug Fixes**
 
-- Fixed fully expanded transitive type aliases in KSP by recursively resolving type aliases and properly resetting type arguments. ([I8228d0](https://android-review.googlesource.com/q/I8228d08da4789d516715f6c7687f9b48595cb614), [b/561698196](https://buganizer.corp.google.com/issues/561698196))
+- Fixed fully expanded transitive type aliases in KSP by recursively resolving type aliases and properly resetting type arguments. ([I8228d0](https://android-review.googlesource.com/q/I8228d08da4789d516715f6c7687f9b48595cb614), [b/561698196](https://issuetracker.google.com/issues/561698196))
 
 ### Version 3.1.0-alpha01
 
@@ -261,19 +282,23 @@ have been removed. A `SQLiteDriver` is now *required* to build a
 For example, APIs for direct database operations are replaced by driver
 equivalents:
 
-    // Room 2.x
-    roomDatabase.runInTransaction { ... }
+```kotlin
+// Room 2.x
+roomDatabase.runInTransaction { ... }
 
-    // Room 3.x
-    roomDatabase.withWriteTransaction { ... }
+// Room 3.x
+roomDatabase.withWriteTransaction { ... }
+```
 
-    // Room 2.x
-    roomDatabase.query("SELECT * FROM Song").use { cursor -> ... }
+```kotlin
+// Room 2.x
+roomDatabase.query("SELECT * FROM Song").use { cursor -> ... }
 
-    // Room 3.x
-    roomDatabase.useReaderConnection { connection ->
-      connection.usePrepared("SELECT * FROM Song") { stmt -> ... }
-    }
+// Room 3.x
+roomDatabase.useReaderConnection { connection ->
+  connection.usePrepared("SELECT * FROM Song") { stmt -> ... }
+}
+```
 
 Callback APIs that had as argument a `SupportSQLiteDatabase` have also been
 replaced by their equivalent API that has a `SQLiteConnection` as argument.
@@ -324,13 +349,15 @@ is through Coroutine Flows that can be created via the `createFlow()` API in the
 
 Example usage:
 
-    fun getArtistTours(from: Date, to: Date): Flow<Map<Artist, TourState>> {
-        return db.invalidationTracker.createFlow("Artist").map { _ ->
-            val artists = artistsDao.getAllArtists()
-            val tours = tourService.fetchStates(artists.map { it.id })
-            associateTours(artists, tours, from, to)
-        }
+```kotlin
+fun getArtistTours(from: Date, to: Date): Flow<Map<Artist, TourState>> {
+    return db.invalidationTracker.createFlow("Artist").map { _ ->
+        val artists = artistsDao.getAllArtists()
+        val tours = tourService.fetchStates(artists.map { it.id })
+        associateTours(artists, tours, from, to)
     }
+}
+```
 
 **Web Support**
 
@@ -362,19 +389,21 @@ supported platforms.
 
 Example usage:
 
-    import androidx.sqlite.executeSQL
-    import androidx.sqlite.step
+```kotlin
+import androidx.sqlite.executeSQL
+import androidx.sqlite.step
 
-    roomDatabase.useWriterConnection { connection ->
-        val deletedSongs = connection.usePrepared(
-            "SELECT count(*) FROM Song"
-        ) { stmt ->
-            stmt.step()
-            stmt.getLong(0)
-        }
-        connection.executeSQL("DELETE FROM Song")
-        deletedSongs
+roomDatabase.useWriterConnection { connection ->
+    val deletedSongs = connection.usePrepared(
+        "SELECT count(*) FROM Song"
+    ) { stmt ->
+        stmt.step()
+        stmt.getLong(0)
     }
+    connection.executeSQL("DELETE FROM Song")
+    deletedSongs
+}
+```
 
 The `WebWorkerSQLiteDriver` is an implementation of a `SQLiteDriver` that
 communicates with a [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
@@ -400,14 +429,16 @@ demonstrating the usage of a local web worker for Room.
 Once a worker is set up in the project, then configuring Room for the Web is
 similar to other platforms:
 
-    fun createDatabase(): MusicDatabase {
-        return Room.databaseBuilder<MusicDatabase>("music.db")
-            .setDriver(WebWorkerSQLiteDriver(createWorker()))
-            .build()
-    }
+```kotlin
+fun createDatabase(): MusicDatabase {
+    return Room.databaseBuilder<MusicDatabase>("music.db")
+        .setDriver(WebWorkerSQLiteDriver(createWorker()))
+        .build()
+}
 
-    fun createWorker() =
-        Worker(js("""new URL("sqlite-web-worker/worker.js", import.meta.url)"""))
+fun createWorker() =
+    Worker(js("""new URL("sqlite-web-worker/worker.js", import.meta.url)"""))
+```
 
 A future version of the Web driver might contain a default worker published
 in NPM, making the web setup simpler.
@@ -427,12 +458,14 @@ declarations.
 For example, to have a DAO query return a `PagingSource`, the converter class
 located in `androidx.room3:room3-paging` must now be registered:
 
-    @Dao
-    @DaoReturnTypeConverters(PagingSourceDaoReturnTypeConverter::class)
-    interface MusicDao {
-        @Query("SELECT * FROM Song)
-        fun getSongsPaginated(): PagingSource<Int, Song>
-    }
+```kotlin
+@Dao
+@DaoReturnTypeConverters(PagingSourceDaoReturnTypeConverter::class)
+interface MusicDao {
+    @Query("SELECT * FROM Song)
+    fun getSongsPaginated(): PagingSource<Int, Song>
+}
+```
 
 Existing integrations have been moved to DAO return type converters:
 
@@ -449,24 +482,28 @@ Like column type converters, DAO return type converters can be defined by
 the application. For example, an application could declare a
 `@DaoReturnTypeConverter` for the web type `kotlin.js.Promise`.
 
-    object PromiseDaoReturnTypeConverter {
-        @DaoReturnTypeConverter([OperationType.READ, OperationType.WRITE])
-        fun <T> convert(
-            db: RoomDatabase,
-            executeAndConvert: suspend () -> T
-        ): Promise<T> {
-            return db.getCoroutineScope().promise { executeAndConvert() }
-        }
+```kotlin
+object PromiseDaoReturnTypeConverter {
+    @DaoReturnTypeConverter([OperationType.READ, OperationType.WRITE])
+    fun <T> convert(
+        db: RoomDatabase,
+        executeAndConvert: suspend () -> T
+    ): Promise<T> {
+        return db.getCoroutineScope().promise { executeAndConvert() }
     }
+}
+```
 
 The above converter then allows DAO query functions to return `Promise`:
 
-    @Dao
-    @DaoReturnTypeConverters(PromiseDaoReturnTypeConverter::class)
-    interface MusicDao {
-        @Query("SELECT * FROM Song")
-        fun getAllSongs(): Promise<List<Song>>
-    }
+```kotlin
+@Dao
+@DaoReturnTypeConverters(PromiseDaoReturnTypeConverter::class)
+interface MusicDao {
+    @Query("SELECT * FROM Song")
+    fun getAllSongs(): Promise<List<Song>>
+}
+```
 
 A `@DaoReturnTypeConverter` function has a few requirements in the amount of
 parameter it must have and its types. The possible parameters are:
@@ -629,19 +666,23 @@ have been removed. A `SQLiteDriver` is now *required* to build a
 For example, APIs for direct database operations are replaced by driver
 equivalents:
 
-    // Room 2.x
-    roomDatabase.runInTransaction { ... }
+```kotlin
+// Room 2.x
+roomDatabase.runInTransaction { ... }
 
-    // Room 3.x
-    roomDatabase.withWriteTransaction { ... }
+// Room 3.x
+roomDatabase.withWriteTransaction { ... }
+```
 
-    // Room 2.x
-    roomDatabase.query("SELECT * FROM Song").use { cursor -> ... }
+```kotlin
+// Room 2.x
+roomDatabase.query("SELECT * FROM Song").use { cursor -> ... }
 
-    // Room 3.x
-    roomDatabase.useReaderConnection { connection ->
-      connection.usePrepared("SELECT * FROM Song") { stmt -> ... }
-    }
+// Room 3.x
+roomDatabase.useReaderConnection { connection ->
+  connection.usePrepared("SELECT * FROM Song") { stmt -> ... }
+}
+```
 
 Callback APIs that had as argument a `SupportSQLiteDatabase` have also been
 replaced by their equivalent API that has a `SQLiteConnection` as argument.
@@ -692,13 +733,15 @@ is through Coroutine Flows that can be created via the `createFlow()` API in the
 
 Example usage:
 
-    fun getArtistTours(from: Date, to: Date): Flow<Map<Artist, TourState>> {
-        return db.invalidationTracker.createFlow("Artist").map { _ ->
-            val artists = artistsDao.getAllArtists()
-            val tours = tourService.fetchStates(artists.map { it.id })
-            associateTours(artists, tours, from, to)
-        }
+```kotlin
+fun getArtistTours(from: Date, to: Date): Flow<Map<Artist, TourState>> {
+    return db.invalidationTracker.createFlow("Artist").map { _ ->
+        val artists = artistsDao.getAllArtists()
+        val tours = tourService.fetchStates(artists.map { it.id })
+        associateTours(artists, tours, from, to)
     }
+}
+```
 
 **Web Support**
 
@@ -730,19 +773,21 @@ supported platforms.
 
 Example usage:
 
-    import androidx.sqlite.executeSQL
-    import androidx.sqlite.step
+```kotlin
+import androidx.sqlite.executeSQL
+import androidx.sqlite.step
 
-    roomDatabase.useWriterConnection { connection ->
-        val deletedSongs = connection.usePrepared(
-            "SELECT count(*) FROM Song"
-        ) { stmt ->
-            stmt.step()
-            stmt.getLong(0)
-        }
-        connection.executeSQL("DELETE FROM Song")
-        deletedSongs
+roomDatabase.useWriterConnection { connection ->
+    val deletedSongs = connection.usePrepared(
+        "SELECT count(*) FROM Song"
+    ) { stmt ->
+        stmt.step()
+        stmt.getLong(0)
     }
+    connection.executeSQL("DELETE FROM Song")
+    deletedSongs
+}
+```
 
 The `WebWorkerSQLiteDriver` is an implementation of a `SQLiteDriver` that
 communicates with a [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
@@ -768,14 +813,16 @@ demonstrating the usage of a local web worker for Room.
 Once a worker is set up in the project, then configuring Room for the Web is
 similar to other platforms:
 
-    fun createDatabase(): MusicDatabase {
-        return Room.databaseBuilder<MusicDatabase>("music.db")
-            .setDriver(WebWorkerSQLiteDriver(createWorker()))
-            .build()
-    }
+```kotlin
+fun createDatabase(): MusicDatabase {
+    return Room.databaseBuilder<MusicDatabase>("music.db")
+        .setDriver(WebWorkerSQLiteDriver(createWorker()))
+        .build()
+}
 
-    fun createWorker() =
-        Worker(js("""new URL("sqlite-web-worker/worker.js", import.meta.url)"""))
+fun createWorker() =
+    Worker(js("""new URL("sqlite-web-worker/worker.js", import.meta.url)"""))
+```
 
 A future version of the Web driver might contain a default worker published
 in NPM, making the web setup simpler.
@@ -795,12 +842,14 @@ declarations.
 For example, to have a DAO query return a `PagingSource`, the converter class
 located in `androidx.room3:room3-paging` must now be registered:
 
-    @Dao
-    @DaoReturnTypeConverters(PagingSourceDaoReturnTypeConverter::class)
-    interface MusicDao {
-        @Query("SELECT * FROM Song)
-        fun getSongsPaginated(): PagingSource<Int, Song>
-    }
+```kotlin
+@Dao
+@DaoReturnTypeConverters(PagingSourceDaoReturnTypeConverter::class)
+interface MusicDao {
+    @Query("SELECT * FROM Song)
+    fun getSongsPaginated(): PagingSource<Int, Song>
+}
+```
 
 Existing integrations have been moved to DAO return type converters:
 
@@ -817,24 +866,28 @@ Like column type converters, DAO return type converters can be defined by
 the application. For example, an application could declare a
 `@DaoReturnTypeConverter` for the web type `kotlin.js.Promise`.
 
-    object PromiseDaoReturnTypeConverter {
-        @DaoReturnTypeConverter([OperationType.READ, OperationType.WRITE])
-        fun <T> convert(
-            db: RoomDatabase,
-            executeAndConvert: suspend () -> T
-        ): Promise<T> {
-            return db.getCoroutineScope().promise { executeAndConvert() }
-        }
+```kotlin
+object PromiseDaoReturnTypeConverter {
+    @DaoReturnTypeConverter([OperationType.READ, OperationType.WRITE])
+    fun <T> convert(
+        db: RoomDatabase,
+        executeAndConvert: suspend () -> T
+    ): Promise<T> {
+        return db.getCoroutineScope().promise { executeAndConvert() }
     }
+}
+```
 
 The above converter then allows DAO query functions to return `Promise`:
 
-    @Dao
-    @DaoReturnTypeConverters(PromiseDaoReturnTypeConverter::class)
-    interface MusicDao {
-        @Query("SELECT * FROM Song")
-        fun getAllSongs(): Promise<List<Song>>
-    }
+```kotlin
+@Dao
+@DaoReturnTypeConverters(PromiseDaoReturnTypeConverter::class)
+interface MusicDao {
+    @Query("SELECT * FROM Song")
+    fun getAllSongs(): Promise<List<Song>>
+}
+```
 
 A `@DaoReturnTypeConverter` function has a few requirements in the amount of
 parameter it must have and its types. The possible parameters are:

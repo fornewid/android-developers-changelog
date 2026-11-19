@@ -4,6 +4,8 @@ url: https://developer.android.com/distribute/aep/aep-req-form-factor-support
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/distribute/aep/llms.txt
+
 Implement high-quality experiences across multiple form factors to reduce
 fragmentation and meet user expectations for a seamless multidevice ecosystem.
 Expanding your app's reach across form factors like tablets, foldables,
@@ -30,13 +32,13 @@ standard per app use case.
 
 | Form factors | Minimum quality standards to be met by the app | Required for: |
 |---|---|---|
-| Phone, Tablet, Foldable | [Tier 2 - Adaptive Optimized](https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-2) | All apps |
-| XR | [Tier 2 - Adaptive Optimized](https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-2) or [XR differentiated](https://developer.android.com/docs/quality-guidelines/android-xr#android-xr-differentiated) | All apps |
-| GoogleBook | [Tier 2 - Adaptive Optimized](https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-2) | All apps (Enforced by March 1, 2027) |
-| Auto (Non-Driving) | [Tier 2 - Adaptive Optimized](https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-2) or [Tier 2 - Car Optimized](https://developer.android.com/docs/quality-guidelines/car-app-quality#tier_2_-_car_optimized) | Apps that support: - Streaming video (TV, movies, live sports, live news, transactional video) |
-| Auto (Driving) | [Tier 2 - Car Optimized](https://developer.android.com/docs/quality-guidelines/car-app-quality#tier_2_-_car_optimized) | Apps that support any of: - Streaming music, podcasts, live radio, or audiobooks - Weather forecasts and reports - Maps, driving navigation, and finding points of interest such as parking spots, charging stations, and gas stations |
-| Wear | [Wear App Guidelines](https://developer.android.com/docs/quality-guidelines/wear-app-quality) | Apps that support any of: - Streaming music, podcasts, live radio, or audiobooks - Instant messaging |
-| TV | [TV App Guidelines](https://developer.android.com/docs/quality-guidelines/tv-app-quality) | Apps that support any of: - Streaming video (TV, movies, live sports, live news, transactional video) - Streaming music and audio |
+| Phone, Tablet, Foldable | [Tier 2 - Adaptive Optimized](https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-2.md.txt) | All apps |
+| XR | [Tier 2 - Adaptive Optimized](https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-2.md.txt) or [XR differentiated](https://developer.android.com/docs/quality-guidelines/android-xr.md.txt#android-xr-differentiated) | All apps |
+| GoogleBook | [Tier 2 - Adaptive Optimized](https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-2.md.txt) | All apps (Enforced by March 1, 2027) |
+| Auto (Non-Driving) | [Tier 2 - Adaptive Optimized](https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-2.md.txt) or [Tier 2 - Car Optimized](https://developer.android.com/docs/quality-guidelines/car-app-quality.md.txt#tier_2_-_car_optimized) | Apps that support: - Streaming video (TV, movies, live sports, live news, transactional video) |
+| Auto (Driving) | [Tier 2 - Car Optimized](https://developer.android.com/docs/quality-guidelines/car-app-quality.md.txt#tier_2_-_car_optimized) | Apps that support any of: - Streaming music, podcasts, live radio, or audiobooks - Weather forecasts and reports - Maps, driving navigation, and finding points of interest such as parking spots, charging stations, and gas stations |
+| Wear | [Wear App Guidelines](https://developer.android.com/docs/quality-guidelines/wear-app-quality.md.txt) | Apps that support any of: - Streaming music, podcasts, live radio, or audiobooks - Instant messaging |
+| TV | [TV App Guidelines](https://developer.android.com/docs/quality-guidelines/tv-app-quality.md.txt) | Apps that support any of: - Streaming video (TV, movies, live sports, live news, transactional video) - Streaming music and audio |
 
 Form Factor quality guidelines are updated periodically, generally once or twice
 per year. Apps must comply with the latest version available at the time of
@@ -64,9 +66,9 @@ don't contain additional program requirements.
 
 - [Build adaptive apps](https://developer.android.com/adaptive-apps)
 - [Getting started with Wear OS](https://developer.android.com/training/wearables)
-- [Adaptive App Quality Guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-2)
-- [XR App Quality Guidelines](https://developer.android.com/docs/quality-guidelines/android-xr)
-- [Wear OS App Quality Guidelines](https://developer.android.com/docs/quality-guidelines/wear-app-quality)
-- [Car App Quality Guidelines](https://developer.android.com/docs/quality-guidelines/car-app-quality#tier_2_-_car_optimized)
-- [TV App Quality Guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-2)
+- [Adaptive App Quality Guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-2.md.txt)
+- [XR App Quality Guidelines](https://developer.android.com/docs/quality-guidelines/android-xr.md.txt)
+- [Wear OS App Quality Guidelines](https://developer.android.com/docs/quality-guidelines/wear-app-quality.md.txt)
+- [Car App Quality Guidelines](https://developer.android.com/docs/quality-guidelines/car-app-quality.md.txt#tier_2_-_car_optimized)
+- [TV App Quality Guidelines](https://developer.android.com/docs/quality-guidelines/tv-app-quality.md.txt)
 - [Desktop App Quality Guidelines](https://developer.android.com/design/ui/desktop) (recommended for Googlebook, but not required)

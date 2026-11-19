@@ -17,12 +17,12 @@ policies.
 
 The following steps describe how the Play Age Signals API (beta) can be used:
 
-1. Request access to the Play Age Signals API.
+1. (Optional) Check if any age feature is applicable for the user.
 2. Request the age signals from the API.
 3. Receive a response from the Play Age Signals API.
 4. Use the information provided in the response in accordance with the terms and guidelines provided in this documentation.
 
-For more information, see [Request age signals](https://developer.android.com/google/play/age-signals/request-age-signals).
+For more information, see [Request age signals](https://developer.android.com/google/play/age-signals/request-age-signals.md.txt).
 
 ## Terms and data safety
 

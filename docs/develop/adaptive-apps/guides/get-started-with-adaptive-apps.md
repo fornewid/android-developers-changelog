@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/adaptive-apps/guides/get-started-with
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/llms.txt
+
 Google Play Large Screen Badge
 
 Get your app noticed on Google Play by users looking for premium app experiences on tablets,
@@ -58,16 +60,18 @@ base of diverse possibilities.
 ### Google Play
 
 Google Play provides tablet- and foldable-specific app collections and
-recommendations, which enable users to discover high-quality apps.
+recommendations to help users discover high-quality apps. To showcase your app
+on foldables, provide store listing screenshots for both square (1:1) and
+wide (4:3) unfolded inner displays as well as folded outer displays.
 
-Play ranks apps and games optimized for large screens higher than unoptimized
-apps. Play bases the ranking on the [large screen app quality guidelines](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality).
-Higher ranking increases discoverability by enabling multi‑device users
-to see large screen--specific ratings and reviews on their phones.
+Play prominently lists apps and games optimized for large screens, ensuring
+multidevice users can easily see large-screen-specific ratings and reviews on
+their phones.
 
-Apps that don't meet the Play Store's large screen quality standards display a
-warning on the app details page. The warning advises users that the app might
-not perform well on their large screen devices.
+Apps that don't meet baseline adaptive quality standards ([Tier 3 ---
+Adaptive ready](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-3)) might run in compatibility mode and display a warning on the
+app details page advising users that the app might not perform well on their
+devices.
 ![Google Play store listing for an app with a warning that says 'May not be optimized for your device'.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/build-adaptive-apps/app_with_Play_warning_message.png) **Figure 2.** Technical quality warning on app details page.
 
 Build adaptive apps to broaden discoverability on Google Play and maximize the
@@ -245,13 +249,12 @@ Use host‑side screenshots and Compose previews to check your app layouts.
 Run your app on Android Studio emulators and remote Android devices hosted in
 Google data centers.
 
-### Large screen app quality guidelines
+### Adaptive app quality guidelines
 
-The [large screen app quality guidelines](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality) help you verify that your adaptive
+The [adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality.md.txt) help you verify that your adaptive
 app works well on tablets, foldables, and ChromeOS devices. The guidelines
 include tests that enable you to verify app functionality for critical user
-journeys. Although the guidelines focus on large screens, they're compatible
-with all screen sizes.
+journeys across all screen sizes and device configurations.
 
 ### Multiple configurations
 
@@ -291,7 +294,10 @@ For more information, see [Preview your UI with composable previews](https://dev
 Android Studio offers a variety of emulators for testing different layout sizes:
 
 - Resizable emulator: Emulates a phone, tablet, or foldable device and lets you switch between them on the fly
-- Pixel Fold emulator: Emulates the Pixel Fold large screen foldable phone
+- Foldable emulators:
+  - Square inner display: Pixel Pro Fold series and Foldable (1:1 inner display) emulators
+  - Wide inner display: Pixel Fold and Foldable (4:3 inner display) emulators
+- Medium Phone emulator: Emulates a standard phone display
 - Pixel Tablet emulator: Emulates the Pixel Tablet large screen device
 - Desktop emulator: Lets you test free-form windowing, mouse hover, and keyboard shortcuts
 

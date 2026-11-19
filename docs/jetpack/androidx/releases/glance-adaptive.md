@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/glance-adaptive
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Glance Adaptive
 
 TODO
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 04, 2026 | - | - | - | [1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/glance_adaptive#1.0.0-alpha04) |
+| November 18, 2026 | - | - | - | [1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/glance_adaptive#1.0.0-alpha05) |
 
 ## Declaring dependencies
 
@@ -25,9 +27,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha04"
-    implementation "androidx.glance.adaptive:adaptive-core:1.0.0-alpha04"
-    implementation "androidx.glance.adaptive:adaptive-wear:1.0.0-alpha04"
+    implementation "androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha05"
+    implementation "androidx.glance.adaptive:adaptive-core:1.0.0-alpha05"
+    implementation "androidx.glance.adaptive:adaptive-wear:1.0.0-alpha05"
 }
 ```
 
@@ -35,9 +37,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha04")
-    implementation("androidx.glance.adaptive:adaptive-core:1.0.0-alpha04")
-    implementation("androidx.glance.adaptive:adaptive-wear:1.0.0-alpha04")
+    implementation("androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha05")
+    implementation("androidx.glance.adaptive:adaptive-core:1.0.0-alpha05")
+    implementation("androidx.glance.adaptive:adaptive-wear:1.0.0-alpha05")
 }
 ```
 
@@ -57,6 +59,18 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha05
+
+November 18, 2026
+
+`androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha05`, `androidx.glance.adaptive:adaptive-core:1.0.0-alpha05`, and `androidx.glance.adaptive:adaptive-wear:1.0.0-alpha05` are released. Version 1.0.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a021adf44194ae86e596ae25ca43d5e4e18f6926..e683ad6020f7629bdd6fc05d123693449e741ecd/glance/adaptive).
+
+**API Changes**
+
+- Added `GlanceAdaptiveWidgetManager.setConfigurationResult` to glance-adaptive-appwidget. ([Id3751](https://android-review.googlesource.com/#/q/Id375169e224c1faea0bd6306317b40b47c230979))
+- Added `GlanceAdaptiveWidgetManager` to glance-adaptive as an entry point for managing Glance Adaptive widgets. ([I9d4f2](https://android-review.googlesource.com/#/q/I9d4f2c5e8b0316a7f2345b9c0d1e2f3a4b5c6d7e))
+- Added `GlanceSurface`, `AppWidgetSurface`, `WidgetInstanceInfo`, and `GlanceAdaptiveTemplate` interface to glance-adaptive. ([I8c3e1](https://android-review.googlesource.com/#/q/I8c3e1b4d7a9205f6e1234a8b9c0d1e2f3a4b5c6d))
 
 ### Version 1.0.0-alpha04
 

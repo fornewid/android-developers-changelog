@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/xr-compose-material
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Material Design for XR
 
-[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design) Build with Material components and layouts that adapt for XR
+[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design.md.txt) Build with Material components and layouts that adapt for XR
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | - | - | - | [1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#1.0.0-alpha17) |
+| November 18, 2026 | - | - | - | [1.0.0-alpha18](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3.md.txt#1.0.0-alpha18) |
 
 ## Declaring dependencies
 
@@ -26,7 +28,7 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement XR Compose Material3
-    implementation "androidx.xr.compose.material3:material3:1.0.0-alpha17"
+    implementation "androidx.xr.compose.material3:material3:1.0.0-alpha18"
 }
 ```
 
@@ -35,7 +37,7 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement XR Compose Material3
-   implementation("androidx.xr.compose.material3:material3:1.0.0-alpha17")
+   implementation("androidx.xr.compose.material3:material3:1.0.0-alpha18")
 }
 ```
 
@@ -55,6 +57,34 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha18
+
+November 18, 2026
+
+`androidx.xr.compose.material3:material3:1.0.0-alpha18` is released. Version 1.0.0-alpha18 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/92a04f7c6f34453321c5cf56381648170950a0c5..091d76ac871fdd07fb106d973634cfa739fede9c/xr/compose/material3/material3).
+
+**API Changes**
+
+- Renamed `OrbiterAlignment` to `OrbiterPosition` and added support for configuring independent horizontal and vertical edge alignments on Orbiter corner alignment subclasses. Deprecated `OrbiterEdgeOffsetType` in favor of `EdgeAlignment`. ([Ib2fbc](https://android-review.googlesource.com/#/q/Ib2fbcee3b36dcfa3a59b27b20cc3a25479918f33))
+- Prefix Material XR components with `Spatial` ([I0e645](https://android-review.googlesource.com/#/q/I0e6453e8afe0e61ded532ef55159065a6a6a6964))
+- Remove `EnableXrComponentOverrides` ([I09652](https://android-review.googlesource.com/#/q/I09652fa9a53a22ef5a72b98ecee37e1a6a6a6964))
+- Remove Component Override APIs for `NavigationSuiteScaffold` ([Ie6340](https://android-review.googlesource.com/#/q/Ie63405700ba969d573139c24f43f8c126a6a6964))
+- Remove Component Override APIs for `ThreePaneScaffold` ([I9ceb5](https://android-review.googlesource.com/#/q/I9ceb51e5f53c4c33f6db261a4688df856a6a6964))
+- Remove `AnimatedSpatialVisibility` and associated usages ([I1dffa](https://android-review.googlesource.com/#/q/I1dffa919595e92cd9e27f082d0ef39bb3c4aec22))
+- Deprecated `FloatingToolbarScrollBehavior.floatingScrollBehavior` extension function in favor of `val floatingScrollBehaviorModifier: Modifier` property. ([Ifbbec](https://android-review.googlesource.com/#/q/Ifbbec5cd2487b263216b51d7fb156cc0839791a9))
+- Update Material to use new Orbiter API and `OrbiterEdgeOffsetType` API ([Ifa085](https://android-review.googlesource.com/#/q/Ifa08514c979918c24f5a798a0af8b7244b032feb))
+- Remove `ComponentOverride` APIs ([I3784b](https://android-review.googlesource.com/#/q/I3784b34708b1721a9b866f7ae808431a6a6a6964))
+- Introduced a new Orbiter API variant using `SpatialAlignment`, `DpVolumeOffset`, and `OrbiterOffsetType` for true 3D spatial placement using continuous layout biases. The previous `OrbiterAnchorPoint`-based variant has been deprecated ([Ibdcb5](https://android-review.googlesource.com/#/q/Ibdcb56123b766f273fee0e79c05a31687b3d7c95))
+- Make Animation/Transition Apis experimental ([I07d98](https://android-review.googlesource.com/#/q/I07d9835a5451c1be31f931d1d4f54656a131ba8b))
+- Update resizable modifier to use a `ResizePolicy` instead of two modifiers ([I7fb0f](https://android-review.googlesource.com/#/q/I7fb0fff7c7abe5ab3cffe2a118fec42cf61f4684))
+- Added movable overload with `movePolicy` param and deprecate `transformingMovable` and `movable` ([Ic88c1](https://android-review.googlesource.com/#/q/Ic88c1d6acf919b741f6f50bca3f61da958caab70))
+- Deprecated `ResizePolicy` and the old resizable modifier, replacing it with a new `SubspaceModifier.resizable` overload and `SubspaceModifier.transformingResizable`. ([I9e4bc](https://android-review.googlesource.com/#/q/I9e4bc9d09bfe3403584598201b1ca06169553660))
+
+**Bug Fixes**
+
+- Updated Compose dependencies in Material 3 to 1.13.0-alpha03. ([I6f41b](https://android-review.googlesource.com/#/q/I6f41b016b8759c3388c93453d784f8b83535d171))
+- `compileSdk` for Compose libraries updated to 37.1. This will require transitively updating `compileSdk` for all apps and libraries using Compose. ([I05b0f](https://android-review.googlesource.com/#/q/I05b0f9385d2b99ddcc4041b2ce2d96aea3bd391e))
 
 ### Version 1.0.0-alpha17
 
@@ -240,13 +270,13 @@ December 12, 2024
 
 **Features of Initial Release**
 
-Initial developer release of Material Design for XR. Using the existing Material 3 library, components and adaptive layouts are enhanced with spatial UI behaviors. You can build directly with M3 XR components, or adapt your current implementation by adding the `EnableXrComponentOverrides` wrapper. Learn more in this [developer guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design).
+Initial developer release of Material Design for XR. Using the existing Material 3 library, components and adaptive layouts are enhanced with spatial UI behaviors. You can build directly with M3 XR components, or adapt your current implementation by adding the `EnableXrComponentOverrides` wrapper. Learn more in this [developer guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design.md.txt).
 
 Supported XR adaptations:
 
-- Navigation rail in any Compose layout, including [`NavigationSuiteScaffold`](https://developer.android.com/develop/ui/compose/layouts/adaptive/build-adaptive-navigation) will automatically adapt to XR Orbiter. For more information, read [Material Design guidelines](https://m3.material.io/components/navigation-rail/xr).
+- Navigation rail in any Compose layout, including [`NavigationSuiteScaffold`](https://developer.android.com/develop/ui/compose/layouts/adaptive/build-adaptive-navigation.md.txt) will automatically adapt to XR Orbiter. For more information, read [Material Design guidelines](https://m3.material.io/components/navigation-rail/xr).
 
-- Navigation bar in any Compose layout, including [`NavigationSuiteScaffold`](https://developer.android.com/develop/ui/compose/layouts/adaptive/build-adaptive-navigation) will automatically adapt to XR Orbiter. For more information, read [Material Design guidelines](https://m3.material.io/components/navigation-bar/xr).
+- Navigation bar in any Compose layout, including [`NavigationSuiteScaffold`](https://developer.android.com/develop/ui/compose/layouts/adaptive/build-adaptive-navigation.md.txt) will automatically adapt to XR Orbiter. For more information, read [Material Design guidelines](https://m3.material.io/components/navigation-bar/xr).
 
 **Known Issues**
 

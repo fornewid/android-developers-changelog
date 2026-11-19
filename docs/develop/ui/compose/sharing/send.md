@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/sharing/send
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/sharing/llms.txt
+
 Android provides two ways for users to share data between apps:
 
 - The Android Sharesheet is primarily designed for sending content outside your app or directly to another user. For example, sharing a URL with a friend.

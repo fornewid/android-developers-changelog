@@ -4,8 +4,10 @@ url: https://developer.android.com/develop/ui/compose/layouts/constraintlayout
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/layouts/llms.txt
+
 > [!WARNING]
-> **Warning:** It is recommended to use other layouts to achieve the same concepts. In each area below, there is a recommendation for the equivalent in Compose that does not use ConstraintLayout.
+> **Warning:** `ConstraintLayout` and `MotionLayout` in Compose (`androidx.constraintlayout:constraintlayout-compose`) are deprecated. Use Compose layouts such as [`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable.md.txt#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)), [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable.md.txt#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)), [`Box`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Box.composable#Box(androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,kotlin.Boolean,kotlin.Function1)), [`FlexBox`](https://developer.android.com/develop/adaptive-apps/guides/flexbox.md.txt), [`Grid`](https://developer.android.com/develop/adaptive-apps/guides/grid.md.txt), and [custom layouts](https://developer.android.com/develop/ui/compose/layouts/custom.md.txt), along with [shared element transitions](https://developer.android.com/develop/ui/compose/animation/shared-elements.md.txt) and [Compose animations](https://developer.android.com/develop/ui/compose/animation/introduction) instead.
 
 [`ConstraintLayout`](https://developer.android.com/reference/kotlin/androidx/constraintlayout/compose/ConstraintLayout.composable.md.txt#ConstraintLayout(androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.animation.core.AnimationSpec,kotlin.Function0,kotlin.Function1)) is a layout that lets you place composables relative to
 other composables on the screen. It is an alternative to using multiple nested

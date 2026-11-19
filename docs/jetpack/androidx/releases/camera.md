@@ -4,6 +4,8 @@ url: https://developer.android.com/jetpack/androidx/releases/camera
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # CameraX
 
 [User Guide](https://developer.android.com/training/camerax) [Code Sample](https://github.com/android/camera-samples) CameraX is an addition to Jetpack that makes it easier to add camera capabilities to your app. The library provides a number of compatibility fixes and workarounds to help make the developer experience consistent across many devices.
@@ -13,20 +15,20 @@ This table lists all the artifacts in the `androidx.camera` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| camera-camera2 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
-| camera-core | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
-| camera-compose | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
-| camera-effects | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
-| camera-extensions | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
-| camera-feature-combination-query | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
-| camera-feature-combination-query-play-services | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
-| camera-lifecycle | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
-| camera-mlkit-vision | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
-| camera-view | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
-| camera-viewfinder | - | - | [1.3.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.3.0-beta02) | [1.4.0-alpha07](https://developer.android.com/jetpack/androidx/releases/camera#1.4.0-alpha07) |
-| camera-video | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-rc02) | - | - |
+| camera-camera2 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#1.7.0) | - | - | - |
+| camera-core | [1.7.0](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#1.7.0) | - | - | - |
+| camera-compose | [1.7.0](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#1.7.0) | - | - | - |
+| camera-effects | [1.7.0](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#1.7.0) | - | - | - |
+| camera-extensions | [1.7.0](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#1.7.0) | - | - | - |
+| camera-feature-combination-query | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#1.5.0-alpha06) |
+| camera-feature-combination-query-play-services | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#1.5.0-alpha06) |
+| camera-lifecycle | [1.7.0](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#1.7.0) | - | - | - |
+| camera-mlkit-vision | [1.7.0](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#1.7.0) | - | - | - |
+| camera-view | [1.7.0](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#1.7.0) | - | - | - |
+| camera-viewfinder | - | - | [1.3.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#1.3.0-beta02) | [1.4.0-alpha07](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#1.4.0-alpha07) |
+| camera-video | [1.7.0](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#1.7.0) | - | - | - |
 
-This library was last updated on: November 04, 2026
+This library was last updated on: November 18, 2026
 
 ## Device testing
 
@@ -49,7 +51,7 @@ your app or module:
 ```groovy
 dependencies {
   // CameraX core library using the camera2 implementation
-  def camerax_version = "1.7.0-rc02"
+  def camerax_version = "1.7.0"
   // The following line is optional, as the core library is included indirectly by camera-camera2
   implementation "androidx.camera:camera-core:${camerax_version}"
   implementation "androidx.camera:camera-camera2:${camerax_version}"
@@ -71,7 +73,7 @@ dependencies {
 ```kotlin
 dependencies {
     // CameraX core library using the camera2 implementation
-    val camerax_version = "1.7.0-rc02"
+    val camerax_version = "1.7.0"
     // The following line is optional, as the core library is included indirectly by camera-camera2
     implementation("androidx.camera:camera-core:${camerax_version}")
     implementation("androidx.camera:camera-camera2:${camerax_version}")
@@ -139,6 +141,58 @@ May 14, 2024
 - Added `ZoomGestureDetector.ZoomEvent` to encapsulates the states of a zoom gesture. ([I84cdf](https://android-review.googlesource.com/#/q/I84cdfd505443171f9910fb0b3fd40fdaf307796b))
 
 ## Version 1.7
+
+### Version 1.7.0
+
+November 18, 2026
+
+`androidx.camera:camera-*:1.7.0` is released. Version 1.7.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9046f07948c1e7a89aaec581463730f4d666611b..f10325d8016188131590e7b71ef776064836791f/camera).
+
+**Important changes since 1.6.0:**
+
+**1. Stabilized Camera2Interop (V2) \& Kotlin DSL Builders**
+
+- **Camera2Interop V2 (Stable, No Opt-In Required)** : Redesigned [`Camera2Interop`](https://developer.android.com/reference/androidx/camera/camera2/interop/Camera2Interop.md.txt) and removed the `@ExperimentalCamera2Interop` requirement on the new V2 APIs, providing type-safe, scope-specific configurator factory methods (`Camera2Interop.forUseCase()`, `forImageCapture()`, `forSessionConfig()`, and `forCameraControl()`) paired with `setInterop()` on `Preview.Builder`, `ImageCapture.Builder`, `ImageAnalysis.Builder`, `VideoCapture.Builder`, and `SessionConfig.Builder`, plus `CameraControl.applyInteropAsync()`.
+  - Added Kotlin DSL `camera2Interop { ... }` extension blocks for `preview`, `imageCapture`, `imageAnalysis`, `videoCapture`, and `SessionConfig.Builder` / `sessionConfig`, as well as `CameraControl.applyCamera2Interop()` (suspend) and `CameraControl.applyCamera2InteropAsync()`.
+  - Exposed granular interop scopes (`UseCaseCamera2Interop`, `ImageCaptureCamera2Interop`, `SessionConfigCamera2Interop`, and `CameraControlCamera2Interop`) providing structured access to `OutputConfiguration` settings (`streamUseCase`, `mirrorMode`, `dynamicRangeProfile`, `physicalCameraId`, `sensorPixelModesUsed`, `surfaceGroupId`, `timestampBase`), `SessionConfiguration` settings (`sessionType`, `colorSpace`, `sessionParameter`, `sessionStateCallback`), still capture options, and `CameraCaptureSession` / `CameraDevice` state callbacks.
+  - Added helper methods and Kotlin extensions to retrieve Camera2 metadata and selectors directly: `Camera2Interop.getCameraId(CameraInfo)` (`CameraInfo.cameraId`), `Camera2Interop.getCameraCharacteristics(CameraInfo)` (`CameraInfo.cameraCharacteristics`), `Camera2Interop.getCameraSelectorFromCameraId(String)` (`String.toCameraSelector()`), and `Camera2Interop.getCameraFilterFromCameraId(String)`.
+  - Deprecated legacy Camera2Interop V1 classes (`Camera2Interop.Extender`, `Camera2CameraControl`, `Camera2CameraInfo`, and `CaptureRequestOptions`).
+- **CameraX Kotlin DSL Builders** : Added top-level Kotlin DSL factory functions for creating use cases and session configurations: `preview { ... }`, `imageCapture { ... }`, `imageAnalysis { ... }`, `videoCapture(videoOutput) { ... }`, `sessionConfig(useCases) { ... }`, `highSpeedVideoSessionConfig(videoCapture) { ... }`, and `extensionSessionConfig(mode, extensionsManager) { ... }`.
+
+**2. Compose Viewfinder Gesture, Screen Flash \& Transformation Enhancements**
+
+- **Built-in Gestures, Screen Flash \& Stream State in `CameraXViewfinder`** : [`CameraXViewfinder`](https://developer.android.com/reference/kotlin/androidx/camera/compose/package-summary.md.txt#CameraXViewfinder(androidx.camera.core.SurfaceRequest,androidx.compose.ui.Modifier,androidx.camera.viewfinder.core.ImplementationMode,androidx.camera.viewfinder.compose.MutableCoordinateTransformer,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale,kotlin.Function1,kotlin.Boolean,kotlin.Function2,kotlin.Long,kotlin.Boolean,kotlin.Function1,kotlin.Function1,kotlin.Function0)) in `camera-compose` now provides out-of-the-box support for pinch-to-zoom (`isPinchToZoomEnabled`, `onZoomRatioChanged`), tap-to-focus (`isTapToFocusEnabled`, `onTapToFocus`, `autoCancelDurationMillis`), screen flash (`onScreenFlashReady`), stream state monitoring (`onStreamStateChanged` with newly public `Preview.STREAM_STATE_IDLE` and `Preview.STREAM_STATE_STREAMING`), and surface release callbacks (`onRelease`).
+- **`FocusState` \& `TransformationMode`** : Exposed [`FocusState`](https://developer.android.com/reference/kotlin/androidx/camera/viewfinder/core/FocusState.md.txt) (`INACTIVE`, `STARTED`, `FOCUSED`, `NOT_FOCUSED`, `FAILED`) in `viewfinder-core` to monitor tap-to-focus results, and added `TransformationMode` (`DEFERRED`, `PRE_APPLIED`) to `TransformationInfo` to ensure accurate viewfinder transformations in `EMBEDDED` mode when CameraX's OpenGL pipeline is active.
+
+**3. Video Capture \& Audio Recording Enhancements**
+
+- **QHD (2K) Video Recording** : Added [`Quality.QHD`](https://developer.android.com/reference/androidx/camera/video/Quality.md.txt#QHD) (2560×1440) and [`GroupableFeatures.QHD_RECORDING`](https://developer.android.com/reference/kotlin/androidx/camera/video/GroupableFeatures.md.txt#QHD_RECORDING()) for 2K video capture and Feature Group queries.
+- **Video \& Audio Codec (MIME Type) Control** : Introduced APIs for granular control over encoding formats:
+  - Discover device-supported formats via experimental (`@ExperimentalMimeTypeApi`) `Recorder.getSupportedVideoMimeTypes()` and `Recorder.getSupportedAudioMimeTypes()`.
+  - Configure and inspect preferred formats via stable `Recorder.Builder.setVideoMimeType(String)`, `Recorder.Builder.setAudioMimeType(String)`, `Recorder.getVideoMimeType()`, and `Recorder.getAudioMimeType()`.
+  - Query codec-specific camera capabilities (such as supported qualities and dynamic ranges) via stable `Recorder.getVideoCapabilities(CameraInfo, String)`.
+- **Audio Channel Count \& Bitrate Configuration** : Added `Recorder.Builder.setTargetAudioChannelCount(int)` and `Recorder.Builder.setTargetAudioEncodingBitRate(int)` (along with `Recorder.getTargetAudioChannelCount()` and `Recorder.getTargetAudioEncodingBitRate()`) for explicit control over audio recording channels and bitrate.
+- **Stabilized \& Dynamic Mirror Mode** : Stabilized `Preview.Builder.setMirrorMode(int)` (removing `@ExperimentalMirrorMode`) and added `Preview.setMirrorMode(int)`, `Preview.getMirrorMode()`, and `VideoCapture.setMirrorMode(int)` to allow updating mirror mode dynamically.
+
+**4. Dynamic Concurrent Camera Composition \& Visual Styling**
+
+- **Dynamic Composition Updates \& Z-Order** : Added [`ConcurrentCamera.setCompositionSettings(List<CompositionSettings>)`](https://developer.android.com/reference/androidx/camera/core/ConcurrentCamera.md.txt#setCompositionSettings(java.util.List)) to dynamically update Picture-in-Picture or split-screen layouts after binding to a lifecycle, and added `CompositionSettings.Builder.setZOrder(int)` and `CompositionSettings.getZOrder()` to control the rendering layer order of overlapping camera streams.
+- **Frame Borders \& Rounded Corners** : Added `setRoundedCornerRatio(float)`, `setBorderWidthRatio(float)`, and `setBorderColor(int)` on [`CompositionSettings.Builder`](https://developer.android.com/reference/androidx/camera/core/CompositionSettings.Builder.md.txt) (along with `getRoundedCornerRatio()`, `getBorderWidthRatio()`, and `getBorderColor()` on `CompositionSettings`) to style concurrent camera frames with normalized rounded corners and colored borders.
+
+**5. GPU-Accelerated `ImageAnalysis` \& Common Image Abstractions**
+
+- **`PRIVATE` Format \& `HardwareBuffer` Access** : Exposed [`ImageAnalysis.OUTPUT_IMAGE_FORMAT_PRIVATE`](https://developer.android.com/reference/androidx/camera/core/ImageAnalysis.md.txt#OUTPUT_IMAGE_FORMAT_PRIVATE), `ImageAnalysis.getImageAnalysisCapabilities(CameraInfo).isOutputFormatSupported(int)`, and [`ImageProxy.getHardwareBuffer()`](https://developer.android.com/reference/androidx/camera/core/ImageProxy.md.txt#getHardwareBuffer()) as public APIs, enabling zero-copy GPU-based `ImageAnalysis` pipelines.
+- **`ImageWrapper` \& `camera-common` Abstractions** : Introduced `androidx.camera:camera-common` and `androidx.camera:camera-common-testing`, providing common wrappers (`ImageWrapper`, `ImagePlane` with non-nullable `ByteBuffer` `buffer`, `CameraCharacteristicsWrapper`, `CaptureRequestWrapper`, `CaptureResultWrapper`) and test fakes (`FakeImage`, `FakeCameraCharacteristics`, etc.). `ImageProxy` and `ImageProxy.PlaneProxy` now implement `ImageWrapper` and `ImagePlane`.
+
+**6. Scene Detection, 3A Control, Physical Camera Binding \& Auto-Rotation**
+
+- **Night Mode Indicator** : Added `CameraInfo.isNightModeIndicatorSupported()`, `CameraInfo.getNightModeIndicator()`, and [`NightModeIndicator`](https://developer.android.com/reference/androidx/camera/core/NightModeIndicator.md.txt) (`UNKNOWN`, `NOT_RECOMMENDED`, `RECOMMENDED`) to detect low-light scene conditions during standard capture sessions.
+- **3A Locking Mode in `FocusMeteringAction`** : Added `FocusMeteringAction.Builder.setLockingMode(int)` and `FocusMeteringAction.getLockingMode()` to support locking AE/AWB (`FLAG_AE`, `FLAG_AWB`) or updating 3A metering regions without locking focus (`FLAG_AF`), allowing the camera to remain in continuous autofocus (`CAF`) mode while updating the focus area.
+- **Physical Camera Selection \& Binding** : Added support for obtaining a `CameraSelector` for physical cameras from `CameraInfo.getPhysicalCameraInfos()` and binding `UseCases` directly to physical cameras. Querying `CameraProvider.getCameraInfo()` with a physical `CameraSelector` now returns the physical `CameraInfo` rather than the logical `CameraInfo`.
+- **Automatic Sensor-Based Rotation (`isAutoRotationEnabled`)** : Added `setAutoRotationEnabled(boolean)` / `isAutoRotationEnabled` to `SessionConfig.Builder`, `HighSpeedVideoSessionConfig.Builder`, `ExtensionSessionConfig.Builder`, and `CameraController` to automatically update target output rotation from device sensors or disable the built-in rotation listener when needed.
+- **Low Light Boost \& Torch/Flash Interoperability** : Low Light Boost and Torch now follow a "last setting wins" policy where enabling one automatically disables the other instead of rejecting the request. In addition, flash can now fire during `ImageCapture` while Low Light Boost is active.
+- **Custom `SessionConfig` in `CameraController`** : Exposed `CameraController.setSessionConfig(SessionConfig, CameraSelector)` to support binding custom `SessionConfig` instances with `CameraController`.
+- **Extensions API Deprecation** : Deprecated `ExtensionsManager.getExtensionEnabledCameraSelector()` in favor of [`ExtensionSessionConfig`](https://developer.android.com/reference/androidx/camera/extensions/ExtensionSessionConfig.md.txt).
 
 ### Version 1.7.0-rc02
 
@@ -286,21 +340,21 @@ March 25, 2026
 
 **2. Media3 Muxer Integration**
 
-- CameraX now integrates the Media3 Muxer by default within the [VideoCapture](https://developer.android.com/media/camera/camerax/video-capture#videocapture-api-overview) API. This migration provides several benefits:
+- CameraX now integrates the Media3 Muxer by default within the [VideoCapture](https://developer.android.com/media/camera/camerax/video-capture.md.txt#videocapture-api-overview) API. This migration provides several benefits:
   - **Enhanced Performance:** More efficient video processing and muxing.
   - **Crash Resilience:** Improved protection against video file corruption, ensuring that data is preserved even if the application crashes during recording.
 
 **3. Feature Group improvement**
 
-- [Feature Group](https://developer.android.com/reference/androidx/camera/core/SessionConfig.Builder#setPreferredFeatureGroup(kotlin.Array)) API now supports Video Stabilization and 4K recording. [`GroupableFeatures`](https://developer.android.com/reference/kotlin/androidx/camera/video/GroupableFeatures?hl=en) includes [`VIDEO_STABILIZATION`](https://developer.android.com/reference/kotlin/androidx/camera/video/GroupableFeatures?hl=en#VIDEO_STABILIZATION()), [`UHD_RECORDING`](https://developer.android.com/reference/kotlin/androidx/camera/video/GroupableFeatures?hl=en#UHD_RECORDING()) to allow apps to enable them together with other features. [`CameraEffect`](https://developer.android.com/reference/androidx/camera/core/CameraEffect) and [`ImageAnalysis`](https://developer.android.com/reference/androidx/camera/core/ImageAnalysis) in [`SessionConfig`](https://developer.android.com/reference/androidx/camera/core/SessionConfig) is supported when the feature group is enabled.
+- [Feature Group](https://developer.android.com/reference/androidx/camera/core/SessionConfig.Builder.md.txt#setPreferredFeatureGroup(kotlin.Array)) API now supports Video Stabilization and 4K recording. [`GroupableFeatures`](https://developer.android.com/reference/kotlin/androidx/camera/video/GroupableFeatures.md.txt?hl=en) includes [`VIDEO_STABILIZATION`](https://developer.android.com/reference/kotlin/androidx/camera/video/GroupableFeatures.md.txt?hl=en#VIDEO_STABILIZATION()), [`UHD_RECORDING`](https://developer.android.com/reference/kotlin/androidx/camera/video/GroupableFeatures.md.txt?hl=en#UHD_RECORDING()) to allow apps to enable them together with other features. [`CameraEffect`](https://developer.android.com/reference/androidx/camera/core/CameraEffect.md.txt) and [`ImageAnalysis`](https://developer.android.com/reference/androidx/camera/core/ImageAnalysis.md.txt) in [`SessionConfig`](https://developer.android.com/reference/androidx/camera/core/SessionConfig.md.txt) is supported when the feature group is enabled.
 
 **4. Stabilized SessionConfig API**
 
-- [`SessionConfig`](https://developer.android.com/reference/androidx/camera/core/SessionConfig) has graduated from experimental to a fully stable public API including [`SessionConfig`](https://developer.android.com/reference/androidx/camera/core/SessionConfig) and [`HighSpeedVideoSessionConfig`](https://developer.android.com/reference/androidx/camera/video/HighSpeedVideoSessionConfig). CameraX Extensions can now be implemented with a new [`ExtensionSessionConfig`](https://developer.android.com/reference/androidx/camera/extensions/ExtensionSessionConfig) AP. A new [`isSessionConfigSupported`](https://developer.android.com/reference/androidx/camera/core/CameraInfo?hl=en#isSessionConfigSupported(androidx.camera.core.SessionConfig)) API is introduced, allowing developers to query whether a specific combination of use cases and features (such as HDR, stabilization, specific resolutions, CameraX Extensions or slow motion) is supported by the device before binding to the lifecycle.
+- [`SessionConfig`](https://developer.android.com/reference/androidx/camera/core/SessionConfig.md.txt) has graduated from experimental to a fully stable public API including [`SessionConfig`](https://developer.android.com/reference/androidx/camera/core/SessionConfig.md.txt) and [`HighSpeedVideoSessionConfig`](https://developer.android.com/reference/androidx/camera/video/HighSpeedVideoSessionConfig.md.txt). CameraX Extensions can now be implemented with a new [`ExtensionSessionConfig`](https://developer.android.com/reference/androidx/camera/extensions/ExtensionSessionConfig.md.txt) AP. A new [`isSessionConfigSupported`](https://developer.android.com/reference/androidx/camera/core/CameraInfo.md.txt?hl=en#isSessionConfigSupported(androidx.camera.core.SessionConfig)) API is introduced, allowing developers to query whether a specific combination of use cases and features (such as HDR, stabilization, specific resolutions, CameraX Extensions or slow motion) is supported by the device before binding to the lifecycle.
 
 **Bug Fixes**
 
-- Fixed a crash that occurs on certain Android 17 (API 37) devices or higher. When these devices expose new dynamic range profiles (e.g., [STANDARD_SMPTE_2094_50(ID 8192)](https://developer.android.com/reference/android/hardware/camera2/params/DynamicRangeProfiles#STANDARD_SMPTE_2094_50)) that were unknown to CameraX version 1.5.1 and earlier, the library previously failed to handle these IDs appropriately, resulting in a `NullPointerException` or `IllegalArgumentException` during `ProcessCameraProvider.bindToLifecycle()`. This fix allows CameraX to gracefully ignore unrecognized dynamic range profiles, preventing the crash and maintaining forward compatibility. **Please update your CameraX dependency to version 1.5.2 or 1.6.0 (or higher) to avoid this issue on devices exposing these new profiles** . For more details, see [issue 519796838](https://issuetracker.google.com/519796838#comment2). ([Ibd7b5](https://android-review.googlesource.com/#/q/Ibd7b5f532f7af0f43415aaef09cc9ce5f26763f6))
+- Fixed a crash that occurs on certain Android 17 (API 37) devices or higher. When these devices expose new dynamic range profiles (e.g., [STANDARD_SMPTE_2094_50(ID 8192)](https://developer.android.com/reference/android/hardware/camera2/params/DynamicRangeProfiles.md.txt#STANDARD_SMPTE_2094_50)) that were unknown to CameraX version 1.5.1 and earlier, the library previously failed to handle these IDs appropriately, resulting in a `NullPointerException` or `IllegalArgumentException` during `ProcessCameraProvider.bindToLifecycle()`. This fix allows CameraX to gracefully ignore unrecognized dynamic range profiles, preventing the crash and maintaining forward compatibility. **Please update your CameraX dependency to version 1.5.2 or 1.6.0 (or higher) to avoid this issue on devices exposing these new profiles** . For more details, see [issue 519796838](https://issuetracker.google.com/519796838#comment2). ([Ibd7b5](https://android-review.googlesource.com/#/q/Ibd7b5f532f7af0f43415aaef09cc9ce5f26763f6))
 - The feature group API now provides consistent results when `PREVIEW_STABILIZATION` is used with `VideoCapture`. This corrects a bug that caused inconsistent results when a Preview use case was not also active. ([Ifed82](https://android-review.googlesource.com/#/q/Ifed82d0d9ce2cfdb407523535d9e4c8c4a51f46d), [b/449913903](https://issuetracker.google.com/issues/449913903))
 - Fixed an issue where unsupported preferred features were incorrectly made available. Features are now correctly filtered when their required use cases are not met. ([I38db8](https://android-review.googlesource.com/#/q/I38db88ca0ae9c2cd87b49ceffddd7980b3178576), [b/449532342](https://issuetracker.google.com/issues/449532342))
 - Fixed glitchy video result on Samsung Galaxy S6. ([I612d9](https://android-review.googlesource.com/#/q/I612d902c2aa36dfd5b77a53a59a5646cadf96272), [b/235127608](https://issuetracker.google.com/issues/235127608))
@@ -336,7 +390,7 @@ January 28, 2026
 **Bug Fixes**
 
 - Fixed `CameraExtensionsInfo` current type issue in CameraX 1.6.0-alpha that the LiveData object can't receive the updated type data. ([I2c7a5](https://android-review.googlesource.com/#/q/I2c7a5eb65d820bbf99fec7b4bec0175455e11063))
-- Updated the [ExifInterface](https://developer.android.com/reference/android/media/ExifInterface) dependency to include a fix for parsing JPEGs with 0xFF padding, which resolves image capture failures on devices where the JPEG encoder adds fill bytes before markers. ([I0eb49](https://android-review.googlesource.com/#/q/I0eb49797f167c36511bc5a2ea5c31a920f598b6d))
+- Updated the [ExifInterface](https://developer.android.com/reference/android/media/ExifInterface.md.txt) dependency to include a fix for parsing JPEGs with 0xFF padding, which resolves image capture failures on devices where the JPEG encoder adds fill bytes before markers. ([I0eb49](https://android-review.googlesource.com/#/q/I0eb49797f167c36511bc5a2ea5c31a920f598b6d))
 
 ### Version 1.6.0-alpha02
 
@@ -401,7 +455,7 @@ January 28, 2026
 
 **Bug Fixes**
 
-- Updated the [ExifInterface](https://developer.android.com/reference/android/media/ExifInterface) dependency to 1.4.2. This fixes an image capture failure that occurs on devices producing JPEGs with additional (and permitted) 0xFF bytes before a marker. ([I16df4](https://android-review.googlesource.com/#/q/I16df449e55031529e48c806d48a0658c9b41c711))
+- Updated the [ExifInterface](https://developer.android.com/reference/android/media/ExifInterface.md.txt) dependency to 1.4.2. This fixes an image capture failure that occurs on devices producing JPEGs with additional (and permitted) 0xFF bytes before a marker. ([I16df4](https://android-review.googlesource.com/#/q/I16df449e55031529e48c806d48a0658c9b41c711))
 
 ### Version 1.5.2
 
@@ -862,7 +916,7 @@ December 13, 2023
 
 **Bug Fixes**
 
-- From [Camera `1.3.1`](https://developer.android.com/jetpack/androidx/releases/camera#1.3.1): Improved the `ProcessCameraProvider#bindToLifecycle()` performance. The major change is to optimize the process of identifying the most suitable size combinations for `UseCases`. The optimal results vary based on the specific `UseCase` combinations and the number of supported output sizes for the target devices. ([I454f2](https://android-review.googlesource.com/#/q/I454f2ca19be1d77ed737a651676834f6e431e0b7))
+- From [Camera `1.3.1`](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#1.3.1): Improved the `ProcessCameraProvider#bindToLifecycle()` performance. The major change is to optimize the process of identifying the most suitable size combinations for `UseCases`. The optimal results vary based on the specific `UseCase` combinations and the number of supported output sizes for the target devices. ([I454f2](https://android-review.googlesource.com/#/q/I454f2ca19be1d77ed737a651676834f6e431e0b7))
 - Allow the use of `VideoCapture` when Extensions are enabled. ([I91f32](https://android-review.googlesource.com/#/q/I91f32ebab5ba3d39b851d2c151e823775bdf18b5))
 - Fixed large captured JPEG image issue on Samsung A71 and M51 series devices. The captured JPEG images contain redundant 0's padding data in the JFIF compressed data segment. It causes the captured images to have extreme file size. Those redundant 0's padding data will be removed to make the captured images have normal image file sizes. ([I01afc](https://android-review.googlesource.com/#/q/I01afc7e5001f42788a66388f5a66e0858e4dcfd5), [b/288828159](https://issuetracker.google.com/issues/288828159))
 - Disable `ImageAnalysis` support on Pixels to avoid the bug on Pixel that returns the non-empty `ImageAnalysis` supported sizes accidentally. ([I7ec31](https://android-review.googlesource.com/#/q/I7ec313868a7d71a50faad6ca5297850a3cc291e6))
@@ -974,12 +1028,12 @@ October 18, 2023
 
 **Important changes since 1.2.0**
 
-- Video features including [10-bit HDR](https://developer.android.com/reference/androidx/camera/video/VideoCapture.Builder#setDynamicRange%28androidx.camera.core.DynamicRange%29), [cropping](https://developer.android.com/reference/androidx/camera/core/ViewPort.Builder#Builder%28android.util.Rational,int%29), [mirror/non-mirror](https://developer.android.com/reference/androidx/camera/video/VideoCapture.Builder#setMirrorMode%28int%29), [mute/unmute](https://developer.android.com/reference/androidx/camera/video/Recording#mute%28boolean%29), [set framerate](https://developer.android.com/reference/androidx/camera/video/VideoCapture.Builder#setTargetFrameRate%28android.util.Range%3Cjava.lang.Integer%3E%29), and more.
-- [Dual Concurrent Camera](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider#getAvailableConcurrentCameraInfos%28%29)
-- [Effect library](https://developer.android.com/reference/androidx/camera/core/CameraEffect)
-- [Resolution Selector](https://developer.android.com/reference/androidx/camera/core/resolutionselector/ResolutionSelector)
-- [Ultra-Wide \& Telescopic camera selection](https://developer.android.com/reference/androidx/camera/core/CameraInfo#getIntrinsicZoomRatio%28%29)
-- [Camera switching during video recording](https://developer.android.com/reference/androidx/camera/video/PendingRecording#asPersistentRecording%28%29) (experimental feature)
+- Video features including [10-bit HDR](https://developer.android.com/reference/androidx/camera/video/VideoCapture.Builder.md.txt#setDynamicRange%28androidx.camera.core.DynamicRange%29), [cropping](https://developer.android.com/reference/androidx/camera/core/ViewPort.Builder.md.txt#Builder%28android.util.Rational,int%29), [mirror/non-mirror](https://developer.android.com/reference/androidx/camera/video/VideoCapture.Builder.md.txt#setMirrorMode%28int%29), [mute/unmute](https://developer.android.com/reference/androidx/camera/video/Recording.md.txt#mute%28boolean%29), [set framerate](https://developer.android.com/reference/androidx/camera/video/VideoCapture.Builder.md.txt#setTargetFrameRate%28android.util.Range%3Cjava.lang.Integer%3E%29), and more.
+- [Dual Concurrent Camera](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider.md.txt#getAvailableConcurrentCameraInfos%28%29)
+- [Effect library](https://developer.android.com/reference/androidx/camera/core/CameraEffect.md.txt)
+- [Resolution Selector](https://developer.android.com/reference/androidx/camera/core/resolutionselector/ResolutionSelector.md.txt)
+- [Ultra-Wide \& Telescopic camera selection](https://developer.android.com/reference/androidx/camera/core/CameraInfo.md.txt#getIntrinsicZoomRatio%28%29)
+- [Camera switching during video recording](https://developer.android.com/reference/androidx/camera/video/PendingRecording.md.txt#asPersistentRecording%28%29) (experimental feature)
 
 ### Version 1.3.0-rc02
 
@@ -1078,7 +1132,7 @@ April 19, 2023
 
 **New Features**
 
-- Concurrent camera is a new feature introduced from Android 11, which supports simultaneous streaming of camera devices, for example, it allows a device to have both the front and back cameras operating at the same time. CameraX currently only supports dual concurrent cameras, which allows two cameras operating at the same time, with at most two {@link UseCase}s bound for each. The max resolution is 720p or 1440p, more details in the following link, see [CameraManager#getConcurrentCameraIds()](https://developer.android.com/reference/android/hardware/camera2/CameraManager#getConcurrentCameraIds())
+- Concurrent camera is a new feature introduced from Android 11, which supports simultaneous streaming of camera devices, for example, it allows a device to have both the front and back cameras operating at the same time. CameraX currently only supports dual concurrent cameras, which allows two cameras operating at the same time, with at most two {@link UseCase}s bound for each. The max resolution is 720p or 1440p, more details in the following link, see [CameraManager#getConcurrentCameraIds()](https://developer.android.com/reference/android/hardware/camera2/CameraManager.md.txt#getConcurrentCameraIds())
 - Introducing the new `ResolutionSelector` API which covers the following features:
   - Applications can specify aspect ratio and resolution strategies to select the best resolution for their needs.
   - All sizes and aspect ratio parameters are expressed in the coordinates of the camera device sensor.
@@ -1124,7 +1178,7 @@ March 22, 2023
 
 **Bug Fixes**
 
-- From [Camera `1.2.2`](https://developer.android.com/jetpack/androidx/releases/camera#1.2.2): Fixed the issue where CameraX Extensions don't work properly when proguard is enabled on some devices such as Pixel ([I90aa2](https://android-review.googlesource.com/#/q/I90aa210540cc985c49816d8ae74bda526cccbbbe))
+- From [Camera `1.2.2`](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#1.2.2): Fixed the issue where CameraX Extensions don't work properly when proguard is enabled on some devices such as Pixel ([I90aa2](https://android-review.googlesource.com/#/q/I90aa210540cc985c49816d8ae74bda526cccbbbe))
 - Fixed a `PreviewView` bug that if the app handles screen orientation itself. the preview might become distorted upon rotation. This only happens on certain devices. It can be reproduced on Pixel a4, Pixel 5, and Pixel 6a. ([I14340](https://android-review.googlesource.com/#/q/I14340cc9790f22c70717217f8f1d9fdfe338dfeb), [b/223488673](https://issuetracker.google.com/issues/223488673))
 
 ### Version 1.3.0-alpha04
@@ -1308,7 +1362,7 @@ August 24, 2022
 **New Features**
 
 - New library `camera-mlkit-vision`. Easily integrate CameraX with many MLKit features, including barcode scanning, face detection, text detection, etc. Please find the sample code [here](https://github.com/androidx/androidx/blob/androidx-main/camera/integration-tests/viewtestapp/src/main/java/androidx/camera/integration/view/MlKitFragment.kt).
-- New experimental [Zero-Shutter Lag API](https://developer.android.com/reference/androidx/camera/core/ImageCapture#CAPTURE_MODE_ZERO_SHUTTER_LAG). Optimizes capture pipeline to have better latency while keeping good image quality. When the capture mode is set to CAPTURE_MODE_ZERO_SHUTTER_LAG, the latency between the shutter button is clicked and the picture is taken is expected to be minimized, compared with other capture modes. On devices that don't support ZERO_SHUTTER_LAG, it'll fallback to CAPTURE_MODE_MINIMIZE_LATENCY.
+- New experimental [Zero-Shutter Lag API](https://developer.android.com/reference/androidx/camera/core/ImageCapture.md.txt#CAPTURE_MODE_ZERO_SHUTTER_LAG). Optimizes capture pipeline to have better latency while keeping good image quality. When the capture mode is set to CAPTURE_MODE_ZERO_SHUTTER_LAG, the latency between the shutter button is clicked and the picture is taken is expected to be minimized, compared with other capture modes. On devices that don't support ZERO_SHUTTER_LAG, it'll fallback to CAPTURE_MODE_MINIMIZE_LATENCY.
 - Made `ImageAnalysis.Analyzer` and `MLKitAnalyzer` as official APIs.
 - Exposed API for setting location metadata to the saved video.
 - Rename `ImageAnalysis.Analyzer#getTargetResolutionOverride()` to `ImageAnalysis.Analyzer#getDefaultTargetResolution()`.
@@ -1919,7 +1973,7 @@ September 23, 2020
 
 **Bug Fixes**
 
-- Release to support [Camera-Core 1.0.0-beta10](https://developer.android.com/jetpack/androidx/releases/camera#camera-core-1.0.0-beta10)
+- Release to support [Camera-Core 1.0.0-beta10](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#camera-core-1.0.0-beta10)
 
 ### Camera-Camera2 Version 1.0.0-beta09
 
@@ -1928,7 +1982,7 @@ September 16, 2020
 `androidx.camera:camera-camera2:1.0.0-beta09` is released. [Version 1.0.0-beta09 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/96eb302ee1740ba656c90c9fb27df3723a1a89c1..9ebe09b1cb65d62b65b01054fd9ecd055d653a22/camera/camera-camera2)
 
 > [!CAUTION]
-> **Caution:** Please do not use **Camera-Core Version 1.0.0-beta09** as there is a Known Issue around image capture. Please do not use this version in your applications. Instead use [`Camera-Core Version 1.0.0-beta10`](https://developer.android.com/jetpack/androidx/releases/camera#camera-core-1.0.0-beta10) and above.
+> **Caution:** Please do not use **Camera-Core Version 1.0.0-beta09** as there is a Known Issue around image capture. Please do not use this version in your applications. Instead use [`Camera-Core Version 1.0.0-beta10`](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#camera-core-1.0.0-beta10) and above.
 
 **API Changes**
 
@@ -2228,9 +2282,11 @@ January 22, 2020
   the camera ID from `CameraInfo` using `Camera2CameraInfo.extractCameraId()`.
   The following code sample shows how to use this:
 
-      Camera camera = provider.bindToLifecycle(...);
-      String cameraId =
-          Camera2CameraInfo.extractCameraId(camera.getCameraInfo());
+  ```java
+  Camera camera = provider.bindToLifecycle(...);
+  String cameraId =
+      Camera2CameraInfo.extractCameraId(camera.getCameraInfo());
+  ```
 
   The `Camera2CameraInfo` class requires the `ExperimentalCamera2Interop`
   markerClass.
@@ -2302,7 +2358,7 @@ December 4, 2019
 
 `androidx.camera:camera-camera2:1.0.0-alpha07` is released. [Version 1.0.0-alpha07 of camera-camera2 contains these commits](https://android.googlesource.com/platform/frameworks/support/+log/b46de96e17b1ea1b0f2a729c86cd5a8413d19c5c..4cb7a5cbd2e20d3bf45cae63fea8436818576256/camera/camera-camera2)
 
-- `Camera2Config` is now available for use with initializing and configuring a Camera2-based implementation for CameraX. More details on how to use this in initialization are in the [camera-core section](https://developer.android.com/jetpack/androidx/releases/camera#camera2-core-1.0.0-alpha07) of the release notes.
+- `Camera2Config` is now available for use with initializing and configuring a Camera2-based implementation for CameraX. More details on how to use this in initialization are in the [camera-core section](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#camera2-core-1.0.0-alpha07) of the release notes.
 - The camera2 interop functionally is now marked as experimental and moved to a separate package, `androidx.camera.camera2.interop.`
 
 ### Camera-Core Version 1.0.0-alpha07
@@ -2317,56 +2373,63 @@ December 4, 2019
 
 - ***Important*** : CameraX initialization has changed. Applications should implement `CameraXConfig.Provider`, and use the default `Camera2Config` provided by `androidx.camera.camera2`. A typical usage is:
 
-      import androidx.camera.camera2.Camera2Config
-      import androidx.camera.core.CameraXConfig
+  ```kotlin
+  import androidx.camera.camera2.Camera2Config
+  import androidx.camera.core.CameraXConfig
 
-      public class MyCameraXApplication : Application(),  CameraXConfig.Provider {
-          override fun getCameraXConfig(): CameraXConfig {
-                  return Camera2Config.defaultConfig(this)
-          }
+  public class MyCameraXApplication : Application(),  CameraXConfig.Provider {
+      override fun getCameraXConfig(): CameraXConfig {
+              return Camera2Config.defaultConfig(this)
       }
-
+  }
+  ```
 - The CameraX class has been removed. The `bindToLifecycle()`, `unbind()`, `unbindAll()`, `isBound()`, and `hasCamera()` previously provided by the CameraX class call are now available via the `ProcessCameraProvider`.
 
 - A per-process instance of `ProcessCameraProvider` is obtained asynchronously using the static method `ProcessCameraProvider.getInstance()`, which returns a listenable future, which provides the `ProcessCameraProvider` on completion.
   Here it is shown in `onCreate()` for a typical usage. You can place calls to `getInstance()` later in the activity's lifecycle to defer initialization latency to a later time (such as when a user action opens a camera UI).
 
-      import androidx.camera.lifecycle.ProcessCameraProvider
-      import com.google.common.util.concurrent.ListenableFuture
+  ```kotlin
+  import androidx.camera.lifecycle.ProcessCameraProvider
+  import com.google.common.util.concurrent.ListenableFuture
 
-      class MainActivity : AppCompatActivity() {
-         private lateinit var cameraProviderFuture : ListenableFuture<ProcessCameraProvider>
-         override fun onCreate(savedInstanceState: Bundle?) {
-             cameraProviderFuture = ProcessCameraProvider.getInstance(this);
-        }
-
+  class MainActivity : AppCompatActivity() {
+     private lateinit var cameraProviderFuture : ListenableFuture<ProcessCameraProvider>
+     override fun onCreate(savedInstanceState: Bundle?) {
+         cameraProviderFuture = ProcessCameraProvider.getInstance(this);
+    }
+  ```
 - A listener can be added to the `ListenableFuture` returned by `getInstance()`. This ensures the camera provider can be retrieved from the `Future` without blocking on `Future.get()`
 
-      cameraProviderFuture.addListener(Runnable {
-        val cameraProvider = cameraProviderFuture.get()
-        cameraProvider.bindToLifecycle(...)
-      }, ContextCompat.getMainExecutor(this))
-
+  ```kotlin
+  cameraProviderFuture.addListener(Runnable {
+    val cameraProvider = cameraProviderFuture.get()
+    cameraProvider.bindToLifecycle(...)
+  }, ContextCompat.getMainExecutor(this))
+  ```
 - Camera selection is now done by a camera selector, instead of per-use case
 
-      val cameraSelector = CameraSelector.Builder().requireLensFacing(LensFacing.BACK).build()
-
+  ```kotlin
+  val cameraSelector = CameraSelector.Builder().requireLensFacing(LensFacing.BACK).build()
+  ```
 - `CameraProvider.bindToLifecycle` is given the lifecycle owner, the camera selector, and use cases, which are then bound to the given lifecycle owner and run for the selected camera.
 
-      cameraProvider.bindToLifecycle(this as LifecycleOwner,
-             cameraSelector, preview, imageAnalysis)
-
+  ```kotlin
+  cameraProvider.bindToLifecycle(this as LifecycleOwner,
+         cameraSelector, preview, imageAnalysis)
+  ```
 - Use case "Config" classes are removed. Instead, build use cases directly, setting options on each use case builder. For example:
 
-      preview = Preview.Builder().setTargetAspectRatio(AspectRatio.RATIO_16_9).build()
-
+  ```kotlin
+  preview = Preview.Builder().setTargetAspectRatio(AspectRatio.RATIO_16_9).build()
+  ```
 - The Preview use case has been updated to accept a surface created and managed by the application to ensure Android best practices. It is highly recommended to use the `PreviewView` view class provided in the camera-view package.
 
-      preview.setPreviewSurfaceProvider(previewView.previewSurfaceProvider)
-
+  ```kotlin
+  preview.setPreviewSurfaceProvider(previewView.previewSurfaceProvider)
+  ```
 - See documentation for attaching an app-managed surface. In these cases the app manages the lifecycle of the surface.
 
-- ***Important*** : **The `ImageAnalysis` Analyzer method implementation must call `image.close()` on received images when finished using them. Otherwise, new images may not be received or the camera may stall, depending on back pressure setting. Refer to the [reference docs](https://developer.android.com/reference/kotlin/androidx/camera/core/ImageAnalysis) for details.**
+- ***Important*** : **The `ImageAnalysis` Analyzer method implementation must call `image.close()` on received images when finished using them. Otherwise, new images may not be received or the camera may stall, depending on back pressure setting. Refer to the [reference docs](https://developer.android.com/reference/kotlin/androidx/camera/core/ImageAnalysis.md.txt) for details.**
 
 - `ImageAnalysis ImageReaderMode` is now changed to a backpressure strategy `intdef`.
 
@@ -2392,7 +2455,7 @@ December 4, 2019
   - `CameraInfo.getZoomRatio()`
 - `CameraInfo.hasFlashUnit()` is added to determine if flash/torch hardware is present.
 
-- `CameraInfo.isFlashAvailable()` has been removed. Torch overrides flash functionality. More detail is included in the [reference documentation](https://developer.android.com/reference/androidx/camera/core/Preview#public-methods_1).
+- `CameraInfo.isFlashAvailable()` has been removed. Torch overrides flash functionality. More detail is included in the [reference documentation](https://developer.android.com/reference/androidx/camera/core/Preview.md.txt#public-methods_1).
 
 - `ImageCapture.Metadata` fields are replaced by get/set/is accessors.
 
@@ -2439,15 +2502,16 @@ CameraInfo added with check Flash Available and Sensor Rotation APIs
 
 - Added `CameraInfo` and a `getCameraInfo` method, which allows apps to check if a lens facing CameraInfo is available and if a flash is available on that camera. For example:
 
-      try {
-          CameraInfo cameraInfo = CameraX.getCameraInfo(currentCameraLensFacing);
-          LiveData<Boolean> isFlashAvailable = cameraInfo.isFlashAvailable();
-          flashToggle.setVisibility(isFlashAvailable.getValue() ? View.VISIBLE : View.INVISIBLE);
-      } catch (CameraInfoUnavailableException e) {
-          Log.w(TAG, "Cannot get flash available information", e);
-          flashToggle.setVisibility(View.VISIBLE);
-      }
-
+  ```java
+  try {
+      CameraInfo cameraInfo = CameraX.getCameraInfo(currentCameraLensFacing);
+      LiveData<Boolean> isFlashAvailable = cameraInfo.isFlashAvailable();
+      flashToggle.setVisibility(isFlashAvailable.getValue() ? View.VISIBLE : View.INVISIBLE);
+  } catch (CameraInfoUnavailableException e) {
+      Log.w(TAG, "Cannot get flash available information", e);
+      flashToggle.setVisibility(View.VISIBLE);
+  }
+  ```
 - `CameraInfo.getSensorRotationDegrees()` was added. It provides the camera sensor orientation relative to the device's natural orientation, or for convenience, relative to an orientation described by a Surface rotation (which describes an orientation relative to natural orientation).
 
 **API changes and bug fixes**
@@ -2482,19 +2546,20 @@ September 5, 2019
     `CameraX.getCameraControl(LensFacing lensFacing)`
   - Added `MeteringPointFactory`, `MeteringPoint`, `MeteringMode`, and `FocusMeteringAction` to run Tap-to-Focus:
 
-        MeteringPointFactory factory = new SensorOrientedMeteringPointFactory(width, height);
-        MeteringPoint point = factory.createPoint(x, y);
-        FocusMeteringAction action = FocusMeteringAction.Builder.from(point,
-                                         MeteringMode.AF_ONLY)
-            .addPoint(point2, MeteringMode.AE_ONLY) // could have many
-            .setAutoFocusCallback(new OnAutoFocusListener(){
-                public void onFocusCompleted(boolean isSuccess) {
-                }
-            })
-            // auto calling cancelFocusAndMetering in 5 sec.
-            .setAutoCancelDuration(5, TimeUnit.Second)
-            .build();
-
+    ```java
+    MeteringPointFactory factory = new SensorOrientedMeteringPointFactory(width, height);
+    MeteringPoint point = factory.createPoint(x, y);
+    FocusMeteringAction action = FocusMeteringAction.Builder.from(point,
+                                     MeteringMode.AF_ONLY)
+        .addPoint(point2, MeteringMode.AE_ONLY) // could have many
+        .setAutoFocusCallback(new OnAutoFocusListener(){
+            public void onFocusCompleted(boolean isSuccess) {
+            }
+        })
+        // auto calling cancelFocusAndMetering in 5 sec.
+        .setAutoCancelDuration(5, TimeUnit.Second)
+        .build();
+    ```
   - Added API for `CameraControl` to start and cancel focus metering:
 
     `getCameraControl(lensFacing).startFocusAndMetering(action);`
@@ -2537,7 +2602,7 @@ August 7, 2019
 `androidx.camera:camera-camera2:1.0.0-alpha04` and `androidx.camera:camera-core:1.0.0-alpha04` are released. [Version 1.0.0-alpha04 contains these commits](https://android.googlesource.com/platform/frameworks/support/+log/da18b8e358a305e4ae90edc548eb48927f037696..6bc5fc2e82861585a6f28128dee9abbbe2e18591/camera).
 
 > [!NOTE]
-> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt) to learn how to use it in your project.
 
 **New Features**
 
@@ -2548,7 +2613,7 @@ CameraX's goal is to successfully initialize a camera session. This means Camera
 - Devices not supporting the requested resolution
 - Compatibility issues such as on LEGACY devices where certain resolutions must be used to operate correctly
 - On some devices, certain formats are only available at certain aspect ratios
-- A preference for a "nearest mod16" for JPEG or video encoding. See [`CameraCharacteristics#SCALER_STREAM_CONFIGURATION_MAP`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#SCALER_STREAM_CONFIGURATION_MAP)
+- A preference for a "nearest mod16" for JPEG or video encoding. See [`CameraCharacteristics#SCALER_STREAM_CONFIGURATION_MAP`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics.md.txt#SCALER_STREAM_CONFIGURATION_MAP)
 
 Although CameraX creates and manages the session, you should always check
 the returned image sizes on the use case output in your code and adjust
@@ -2585,7 +2650,7 @@ July 2, 2019
 `androidx.camera:camera-core:1.0.0-alpha03` and `androidx.camera:camera-camera2:1.0.0-alpha03` are released. [Version 1.0.0-alpha03 contains these commits](https://android.googlesource.com/platform/frameworks/support/+log/57ec1f21171cea40e93847ce2776a6604ea47872..da18b8e358a305e4ae90edc548eb48927f037696/camera).
 
 > [!NOTE]
-> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt) to learn how to use it in your project.
 
 **API Changes**
 
@@ -2649,7 +2714,7 @@ September 23, 2020
 
 **Bug Fixes**
 
-- Release to support [Camera-Core 1.0.0-beta10](https://developer.android.com/jetpack/androidx/releases/camera#camera-core-1.0.0-beta10)
+- Release to support [Camera-Core 1.0.0-beta10](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#camera-core-1.0.0-beta10)
 
 ### Camera-Lifecycle Version 1.0.0-beta09
 
@@ -2770,7 +2835,7 @@ December 4, 2019
 
 - The camera-lifecycle artifact is added, providing `LifeCycleCameraProvider` interface, and an implementation called `ProcessCameraProvider` which provides many of the functions of the previous CameraX class in core and is obtained via a `getInstance()` method.
 - Apps should include the camera-lifecycle library to use CameraX.
-- See notes in the [camera-core](https://developer.android.com/jetpack/androidx/releases/camera#camera2-core-1.0.0-alpha07) section for how to perform initialization of CameraX using a `ProcessCameraProvider`.
+- See notes in the [camera-core](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#camera2-core-1.0.0-alpha07) section for how to perform initialization of CameraX using a `ProcessCameraProvider`.
 
 ## Camera-Extensions and Camera-View Version 1.0.0
 
@@ -2995,7 +3060,7 @@ September 23, 2020
 
 **Bug Fixes**
 
-- Release to support [Camera-Core 1.0.0-beta10](https://developer.android.com/jetpack/androidx/releases/camera#camera-core-1.0.0-beta10)
+- Release to support [Camera-Core 1.0.0-beta10](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#camera-core-1.0.0-beta10)
 
 ### Camera-View Version 1.0.0-alpha17
 
@@ -3005,7 +3070,7 @@ September 23, 2020
 
 **Bug Fixes**
 
-- Release to support [Camera-Core 1.0.0-beta10](https://developer.android.com/jetpack/androidx/releases/camera#camera-core-1.0.0-beta10)
+- Release to support [Camera-Core 1.0.0-beta10](https://developer.android.com/jetpack/androidx/releases/camera.md.txt#camera-core-1.0.0-beta10)
 
 ### Camera-Extensions Version 1.0.0-alpha16
 
@@ -3204,15 +3269,18 @@ April 1, 2020
 - Replaced `PreviewView.getSurfaceProvider()` by `PreviewView.createSurfaceProvider(CameraInfo)`, which takes a nullable `CameraInfo` instance used to optimize preview by using `ImplementationMode.SURFACE_VIEW` whenever possible. If a null instance is passed, or if you set the preferred implementation mode to `ImplementationMode.TEXTURE_VIEW`, `ImplementationMode.TEXTURE_VIEW` is used internally.
 - The following code sample shows how a preview use case used to previously be used with PreviewView.
 
-      preview.setSurfaceProvider(previewView.previewSurfaceProvider)
-      cameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, preview)
+  ```kotlin
+  preview.setSurfaceProvider(previewView.previewSurfaceProvider)
+  cameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, preview)
+  ```
 
   Right now, you can write the following:
 
-      val camera = cameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, preview)
-      previewView.preferredImplementationMode = ImplementationMode.TEXTURE_VIEW
-      preview.setSurfaceProvider(previewView.createSurfaceProvider(camera.cameraInfo))
-
+  ```kotlin
+  val camera = cameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, preview)
+  previewView.preferredImplementationMode = ImplementationMode.TEXTURE_VIEW
+  preview.setSurfaceProvider(previewView.createSurfaceProvider(camera.cameraInfo))
+  ```
 - The `@UiThread` annotation has been added to `PreviewView.getSurfaceProvider()`, meaning it must be called from the main thread. ([I192f3](https://android-review.googlesource.com/#/q/I192f3e4f57c2ddf64c2d56302b19dd3b8c9aa34d))
 
 - Added `PreviewView.setScaleType()` which allows to set the scale type of the preview. It accepts one of the values in `PreviewView.ScaleType`, and defaults to `PreviewView.ScaleType.FILL_CENTER`.
@@ -3328,30 +3396,33 @@ December 4, 2019
 
 - Checking for the availability and enabling of an extension now takes in a `CameraSelector` as an input parameter. This needs to be the same `CameraSelector` that is used for binding the use case.
 
-      val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-      val builder = ImageCapture.Builder()
-      val bokehImageCaptureExtender = BokehImageCaptureExtender.create(builder)
-      if (bokehImageCaptureExtender.isExtensionAvailable(cameraSelector)) {
-          bokehImageCaptureExtender.enableExtension(cameraSelector)
-      }
-      val imageCapture = builder.build()
-      mCameraProvider?.bindToLifecycle(this, cameraSelector, imageCapture)
-
+  ```kotlin
+  val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+  val builder = ImageCapture.Builder()
+  val bokehImageCaptureExtender = BokehImageCaptureExtender.create(builder)
+  if (bokehImageCaptureExtender.isExtensionAvailable(cameraSelector)) {
+      bokehImageCaptureExtender.enableExtension(cameraSelector)
+  }
+  val imageCapture = builder.build()
+  mCameraProvider?.bindToLifecycle(this, cameraSelector, imageCapture)
+  ```
 - You must initialize extensions before using the extension library.
 
-      val availability = ExtensionsManager.init()
-      Futures.addCallback<ExtensionsManager.ExtensionsAvailability>(
-         availability,
-         object : FutureCallback<ExtensionsManager.ExtensionsAvailability> {
-             override fun onSuccess(availability: ExtensionsManager.ExtensionsAvailability?) {
-                 // Ready to make extensions calls
-             }
-             override fun onFailure(throwable: Throwable) {
-                 // Extensions could not be initialized
-             }
-         },
-         Executors.newSingleThreadExecutor()
-      )
+  ```kotlin
+  val availability = ExtensionsManager.init()
+  Futures.addCallback<ExtensionsManager.ExtensionsAvailability>(
+     availability,
+     object : FutureCallback<ExtensionsManager.ExtensionsAvailability> {
+         override fun onSuccess(availability: ExtensionsManager.ExtensionsAvailability?) {
+             // Ready to make extensions calls
+         }
+         override fun onFailure(throwable: Throwable) {
+             // Extensions could not be initialized
+         }
+     },
+     Executors.newSingleThreadExecutor()
+  )
+  ```
 
 ### Camera-View Version 1.0.0-alpha04
 
@@ -3364,14 +3435,16 @@ December 4, 2019
 - A `PreviewView` class is provided for easily displaying the output from the Preview use case in an application.
 - `PreviewView` can be included in the layout:
 
-      <androidx.camera.view.PreviewView
-        android:id="@+id/preview_view"
-        ... />
-
+  ```xml
+  <androidx.camera.view.PreviewView
+    android:id="@+id/preview_view"
+    ... />
+  ```
 - `PreviewView` provides a `PreviewSurfaceProvider` to easily connect a Preview use case
 
-      preview.setPreviewSurfaceProvider(previewView.previewSurfaceProvider)
-
+  ```kotlin
+  preview.setPreviewSurfaceProvider(previewView.previewSurfaceProvider)
+  ```
 - "`ZoomLevel`" is now "`ZoomRatio`" in API-naming
 
 - Some method parameters have changed nullability

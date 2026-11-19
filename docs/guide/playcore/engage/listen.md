@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/playcore/engage/listen
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/playcore/engage/llms.txt
+
 Boost app engagement by reaching your users where they are. Integrate Engage SDK
 to deliver personalized recommendations and continuation content directly to
 users across multiple on-device surfaces, like
@@ -34,7 +36,7 @@ following table to determine your eligibility for specific surfaces:
 
 ### Integrate Engage SDK
 
-Use the Engage SDK [Android skill](https://developer.android.com/tools/agents/android-skills) to integrate, debug, and resolve implementation issues. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the Engage SDK [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to integrate, debug, and resolve implementation issues. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add engage-sdk-integration
 
@@ -84,10 +86,12 @@ Minimum API level: 19
 
 Add the `com.google.android.engage:engage-core` library to your app:
 
-    dependencies {
-        // Make sure you also include that repository in your project's build.gradle file.
-        implementation 'com.google.android.engage:engage-core:1.6.0'
-    }
+```groovy
+dependencies {
+    // Make sure you also include that repository in your project's build.gradle file.
+    implementation 'com.google.android.engage:engage-core:1.6.0'
+}
+```
 
 ### Summary
 
@@ -129,10 +133,10 @@ by Taylor Swift).
 | Attribute | Requirement | Notes |
 |---|---|---|
 | Name | **Required** | The title of the music album. |
-| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen#image-specs) for guidance. |
-| Info page uri | **Required** | The deep link to the provider app for details about the music album. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
+| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen.md.txt#image-specs) for guidance. |
+| Info page uri | **Required** | The deep link to the provider app for details about the music album. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
 | Artists | **Required** | List of artists in the music album. |
-| Playback uri | Optional | A deep link that starts playing the album in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
+| Playback uri | Optional | A deep link that starts playing the album in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
 | Description | Optional | Must be within 200 characters if provided. |
 | Songs count | Optional | The number of songs in the music album. |
 | Genres | Optional | List of genres in the music album. |
@@ -152,9 +156,9 @@ The `MusicArtistEntity` object represents a music arist (for example, Adele).
 | Attribute | Requirement | Notes |
 |---|---|---|
 | Name | **Required** | Name of the music artist. |
-| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen#image-specs) for guidance. |
-| Info page uri | **Required** | The deep link to the provider app for details about the music artist. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
-| Playback uri | Optional | The deep link which starts playing the artist's songs in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
+| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen.md.txt#image-specs) for guidance. |
+| Info page uri | **Required** | The deep link to the provider app for details about the music artist. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
+| Playback uri | Optional | The deep link which starts playing the artist's songs in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
 | Description | Optional | Must be within 200 characters if provided. |
 | Last engagement time | Optional | Recommended for items in the Continuation Cluster. May be used for ranking. In epoch milliseconds |
 
@@ -166,10 +170,10 @@ Coldplay).
 | Attribute | Requirement | Notes |
 |---|---|---|
 | Name | **Required** | Title of the music track. |
-| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen#image-specs) for guidance. |
-| Playback uri | **Required** | A deep link that starts playing the music track in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
+| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen.md.txt#image-specs) for guidance. |
+| Playback uri | **Required** | A deep link that starts playing the music track in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
 | Artists | **Required** | List of artists for the music track. |
-| Info page uri | Optional | A deep link to the provider app for details about the music track. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
+| Info page uri | Optional | A deep link to the provider app for details about the music track. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
 | Description | Optional | Must be within 200 characters if provided. |
 | Duration | Optional | The duration of the track in milliseconds. |
 | Album | Optional | The name of the album to which the song belongs. |
@@ -186,9 +190,9 @@ The `MusicVideoEntity` object represents a music video (for example,
 | Attribute | Requirement | Notes |
 |---|---|---|
 | Name | **Required** | Title of the music video. |
-| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen#image-specs) for guidance. |
-| Playback uri | **Required** | A deep link that starts playing the music video in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
-| Info page uri | Optional | A deep link to the provider app for details about the music video. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
+| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen.md.txt#image-specs) for guidance. |
+| Playback uri | **Required** | A deep link that starts playing the music video in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
+| Info page uri | Optional | A deep link to the provider app for details about the music video. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
 | Duration | Optional | The duration of the video in milliseconds. |
 | View count | Optional | The number of views on the video in free text format. |
 | Artists | Optional | List of artists of the music video. |
@@ -207,9 +211,9 @@ The `PlaylistEntity` object represents a music playlist (for example, the US Top
 | Attribute | Requirement | Notes |
 |---|---|---|
 | Name | **Required** | Title of the playlist. |
-| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen#image-specs) for guidance. |
-| Playback uri | **Required** | A deep link that starts playing the music playlist in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
-| Info page uri | Optional | A deep link to the provider app for details about the music playlist. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
+| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen.md.txt#image-specs) for guidance. |
+| Playback uri | **Required** | A deep link that starts playing the music playlist in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
+| Info page uri | Optional | A deep link to the provider app for details about the music playlist. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
 | Duration | Optional | The duration of the playlist in milliseconds. |
 | Songs count | Optional | The number of songs in the music playlist. |
 | Description | Optional | Must be within 200 characters if provided. |
@@ -226,9 +230,9 @@ American Life*).
 | Attribute | Requirement | Notes |
 |---|---|---|
 | Name | **Required** | Title of the podcast series. |
-| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen#image-specs) for guidance. |
-| Info page uri | **Required** | A deep link to the provider app for details about the podcast series. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
-| Playback uri | Optional | A deep link that starts playing the podcast series in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
+| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen.md.txt#image-specs) for guidance. |
+| Info page uri | **Required** | A deep link to the provider app for details about the podcast series. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
+| Playback uri | Optional | A deep link that starts playing the podcast series in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
 | Episode count | Optional | The number of episodes in the podcast series. |
 | Production name | Optional | The name of the production of the podcast series. |
 | Hosts | Optional | List of hosts of the podcast series. |
@@ -246,12 +250,12 @@ The `PodcastEpisodeEntity` object represents a podcast series (for example,
 | Attribute | Requirement | Notes |
 |---|---|---|
 | Name | **Required** | Title of the podcast episode. |
-| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen#image-specs) for guidance. |
-| Playback uri | **Required** | A deep link that starts playing the podcast episode in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
+| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen.md.txt#image-specs) for guidance. |
+| Playback uri | **Required** | A deep link that starts playing the podcast episode in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
 | Podcast series title | **Required** | The name of the podcast series to which the episode belongs. |
 | Duration | **Required** | The duration of the podcast episode in milliseconds. |
 | Publish Date | **Required** | Publish date of the podcast (in epoch milliseconds) |
-| Info page uri | Optional | A deep link to the provider app for details about the podcast episode. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
+| Info page uri | Optional | A deep link to the provider app for details about the podcast episode. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
 | Production name | Optional | The name of the production of the podcast series. |
 | Episode index | Optional | The index of the episode in the series (first index is 1). |
 | Hosts | Optional | List of hosts of the podcast episode. |
@@ -272,9 +276,9 @@ example, 98.1 The Breeze).
 | Attribute | Requirement | Notes |
 |---|---|---|
 | Name | **Required** | Title of the live radio station. |
-| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen#image-specs) for guidance. |
-| Playback uri | **Required** | A deep link that starts playing the radio station in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
-| Info page uri | Optional | A deep link to the provider app for details about the radio station. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
+| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen.md.txt#image-specs) for guidance. |
+| Playback uri | **Required** | A deep link that starts playing the radio station in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
+| Info page uri | Optional | A deep link to the provider app for details about the radio station. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
 | Frequency | Optional | The frequency at which the radio station is broadcasted (for example, "98.1 FM"). |
 | Show title | Optional | The current show that is playing on the radio station. |
 | Hosts | Optional | List of hosts of the radio station. |
@@ -289,9 +293,9 @@ of *Becoming* by Michelle Obama).
 | Attribute | Requirement | Notes |
 |---|---|---|
 | Name | **Required** |   |
-| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen#image-specs) for guidance. |
+| Poster images | **Required** | At least one image must be provided. See [Image Specifications](https://developer.android.com/guide/playcore/engage/listen.md.txt#image-specs) for guidance. |
 | Author | **Required** | At least one author name must be provided. |
-| Action link uri | **Required** | The deep link to the provider app for the audiobook. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
+| Action link uri | **Required** | The deep link to the provider app for the audiobook. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
 | Narrator | Optional | At least one narrator's name must be provided. |
 | Publish date | Optional | In epoch milliseconds if provided. |
 | Description | Optional | Must be within 200 characters if provided. |
@@ -311,11 +315,11 @@ of *Becoming* by Michelle Obama).
 
 The following table lists the required specifications for image assets:
 
-| Aspect ratio | Requirement | Minimum pixels | Recommended pixels |
+| Aspect ratio | Supported cluster(s) | Minimum pixels | Recommended pixels |
 |---|---|---|---|
-| Square (1x1) | **Required** | 300x300 | 1200x1200 |
-| Landscape (1.91x1) | Optional | 600x314 | 1200x628 |
-| Portrait (4x5) | Optional | 480x600 | 960x1200 |
+| Square (1x1) | All clusters (preferred for non-featured clusters) | 300x300 | 1200x1200 |
+| Landscape (16:9, 1.91x1) | Featured and continuation (16:9 preferred for featured clusters) | 640x360 (16:9) / 600x314 (1.91x1) | 1264x712 (16:9) / 1200x628 (1.91x1) |
+| Portrait (4x5) | Recommendation | 480x600 | 960x1200 |
 
 *File formats*
 
@@ -331,43 +335,47 @@ PNG, JPG, static GIF, WebP
 
 #### Examples
 
-    MusicAlbumEntity musicAlbumEntity =
-            new MusicAlbumEntity.Builder()
-                .setName(NAME)
-                 .addPosterImage(new Image.Builder()
-                      .setImageUri(Uri.parse("http://www.x.com/image.png"))
-                      .setImageHeightInPixel(960)
-                      .setImageWidthInPixel(408)
-                      .build())
-                .setPlayBackUri(Uri.parse("https://play.google/album/play"))
-                .setInfoPageUri(Uri.parse("https://play.google/album/info"))
-                .setDescription("A description of this album.")
-                .addArtist("Artist")
-                .addGenre("Genre")
-                .addMusicLabel("Label")
-                .setSongsCount(960)
-                .setReleaseDateEpochMillis(1633032895L)
-                .setDurationMillis(1633L)
-                .build();
+```java
+MusicAlbumEntity musicAlbumEntity =
+        new MusicAlbumEntity.Builder()
+            .setName(NAME)
+             .addPosterImage(new Image.Builder()
+                  .setImageUri(Uri.parse("http://www.x.com/image.png"))
+                  .setImageHeightInPixel(960)
+                  .setImageWidthInPixel(408)
+                  .build())
+            .setPlayBackUri(Uri.parse("https://play.google/album/play"))
+            .setInfoPageUri(Uri.parse("https://play.google/album/info"))
+            .setDescription("A description of this album.")
+            .addArtist("Artist")
+            .addGenre("Genre")
+            .addMusicLabel("Label")
+            .setSongsCount(960)
+            .setReleaseDateEpochMillis(1633032895L)
+            .setDurationMillis(1633L)
+            .build();
+```
 
-    AudiobookEntity audiobookEntity =
-            new AudiobookEntity.Builder()
-                .setName("Becoming")
-                .addPosterImage(new Image.Builder()
-                     .setImageUri(Uri.parse("http://www.x.com/image.png"))
-                     .setImageHeightInPixel(960)
-                     .setImageWidthInPixel(408)
-                      .build())
-                .addAuthor("Michelle Obama")
-                .addNarrator("Michelle Obama")
-                .setActionLinkUri(
-                   Uri.parse("https://play.google/audiobooks/1"))
-                .setDurationMillis(16335L)
-                .setPublishDateEpochMillis(1633032895L)
-                .setDescription("An intimate, powerful, and inspiring memoir")
-                .setPrice("$16.95")
-                .addGenre("biography")
-                .build();
+```java
+AudiobookEntity audiobookEntity =
+        new AudiobookEntity.Builder()
+            .setName("Becoming")
+            .addPosterImage(new Image.Builder()
+                 .setImageUri(Uri.parse("http://www.x.com/image.png"))
+                 .setImageHeightInPixel(960)
+                 .setImageWidthInPixel(408)
+                  .build())
+            .addAuthor("Michelle Obama")
+            .addNarrator("Michelle Obama")
+            .setActionLinkUri(
+               Uri.parse("https://play.google/audiobooks/1"))
+            .setDurationMillis(16335L)
+            .setPublishDateEpochMillis(1633032895L)
+            .setDescription("An intimate, powerful, and inspiring memoir")
+            .setPrice("$16.95")
+            .addGenre("biography")
+            .build();
+```
 
 ### Step 2: Provide Cluster data
 
@@ -405,7 +413,7 @@ whether the content can be presented on the device.
 
 ### Engage SDK integration
 
-To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add engage-sdk-integration
 
@@ -432,48 +440,52 @@ required for `ServiceAvailabilityRequest` from the following table.
 
 ### Kotlin
 
-    val request = ServiceAvailabilityRequest.Builder()
-        .addIntendedClusterType(ClusterType.TYPE_CONTINUATION)
-        .addIntendedClusterType(ClusterType.TYPE_RECOMMENDATION)
-        .build()
+```kotlin
+val request = ServiceAvailabilityRequest.Builder()
+    .addIntendedClusterType(ClusterType.TYPE_CONTINUATION)
+    .addIntendedClusterType(ClusterType.TYPE_RECOMMENDATION)
+    .build()
 
-    client.isServiceAvailable(request).addOnCompleteListener { task ->
-        if (task.isSuccessful) {
-            val availabilityMap = task.result
-            if (availabilityMap[ClusterType.TYPE_CONTINUATION] == true) {
-                // Proceed with publishing continuation content
-            }
-            if (availabilityMap[ClusterType.TYPE_RECOMMENDATION] == true) {
-                // Proceed with publishing recommendation content
-            }
-        } else {
-            // The IPC call itself fails, proceed with error handling logic here,
-            // such as retry.
+client.isServiceAvailable(request).addOnCompleteListener { task ->
+    if (task.isSuccessful) {
+        val availabilityMap = task.result
+        if (availabilityMap[ClusterType.TYPE_CONTINUATION] == true) {
+            // Proceed with publishing continuation content
         }
+        if (availabilityMap[ClusterType.TYPE_RECOMMENDATION] == true) {
+            // Proceed with publishing recommendation content
+        }
+    } else {
+        // The IPC call itself fails, proceed with error handling logic here,
+        // such as retry.
     }
+}
+```
 
 ### Java
 
-    ServiceAvailabilityRequest request =
-        new ServiceAvailabilityRequest.Builder()
-            .addIntendedClusterType(ClusterType.TYPE_CONTINUATION)
-            .addIntendedClusterType(ClusterType.TYPE_RECOMMENDATION)
-            .build();
+```java
+ServiceAvailabilityRequest request =
+    new ServiceAvailabilityRequest.Builder()
+        .addIntendedClusterType(ClusterType.TYPE_CONTINUATION)
+        .addIntendedClusterType(ClusterType.TYPE_RECOMMENDATION)
+        .build();
 
-    client.isServiceAvailable(request).addOnCompleteListener(task -> {
-        if (task.isSuccessful()) {
-            Map<Integer, Boolean> availabilityMap = task.getResult();
-            if (Boolean.TRUE.equals(availabilityMap.get(ClusterType.TYPE_CONTINUATION))) {
-                // Proceed with publishing continuation content
-            }
-            if (Boolean.TRUE.equals(availabilityMap.get(ClusterType.TYPE_RECOMMENDATION))) {
-                // Proceed with publishing recommendation content
-            }
-        } else {
-            // The IPC call itself fails, proceed with error handling logic here,
-            // such as retry.
+client.isServiceAvailable(request).addOnCompleteListener(task -> {
+    if (task.isSuccessful()) {
+        Map<Integer, Boolean> availabilityMap = task.getResult();
+        if (Boolean.TRUE.equals(availabilityMap.get(ClusterType.TYPE_CONTINUATION))) {
+            // Proceed with publishing continuation content
         }
-    });
+        if (Boolean.TRUE.equals(availabilityMap.get(ClusterType.TYPE_RECOMMENDATION))) {
+            // Proceed with publishing recommendation content
+        }
+    } else {
+        // The IPC call itself fails, proceed with error handling logic here,
+        // such as retry.
+    }
+});
+```
 
 ###### Conditional Service Availability Feature
 
@@ -495,37 +507,41 @@ engage-developers@google.com.
 
 ### Kotlin
 
-    client.isServiceAvailable.addOnCompleteListener { task ->
-        if (task.isSuccessful) {
-            // Handle IPC call success
-            if(task.result) {
-              // Service is available on the device, proceed with content publish
-              // calls.
-            } else {
-              // Service is not available, no further action is needed.
-            }
+```kotlin
+client.isServiceAvailable.addOnCompleteListener { task ->
+    if (task.isSuccessful) {
+        // Handle IPC call success
+        if(task.result) {
+          // Service is available on the device, proceed with content publish
+          // calls.
         } else {
-          // The IPC call itself fails, proceed with error handling logic here,
-          // such as retry.
+          // Service is not available, no further action is needed.
         }
+    } else {
+      // The IPC call itself fails, proceed with error handling logic here,
+      // such as retry.
     }
+}
+```
 
 ### Java
 
-    client.isServiceAvailable().addOnCompleteListener(task - > {
-        if (task.isSuccessful()) {
-            // Handle success
-            if(task.getResult()) {
-              // Service is available on the device, proceed with content publish
-              // calls.
-            } else {
-              // Service is not available, no further action is needed.
-            }
+```java
+client.isServiceAvailable().addOnCompleteListener(task - > {
+    if (task.isSuccessful()) {
+        // Handle success
+        if(task.getResult()) {
+          // Service is available on the device, proceed with content publish
+          // calls.
         } else {
-          // The IPC call itself fails, proceed with error handling logic here,
-          // such as retry.
+          // Service is not available, no further action is needed.
         }
-    });
+    } else {
+      // The IPC call itself fails, proceed with error handling logic here,
+      // such as retry.
+    }
+});
+```
 
 > [!NOTE]
 > **Note:** We highly recommend keeping a periodic job running to check if the service becomes available at a later point in time. The availability of the service may change with Android version upgrades, app upgrades, installs, and uninstalls. By ensuring periodic job checks at a certain time interval, data can be published once the service becomes available.
@@ -539,27 +555,31 @@ This API is used to publish a list of `RecommendationCluster` objects.
 
 ### Kotlin
 
-    client.publishRecommendationClusters(
-                PublishRecommendationClustersRequest.Builder()
-                    .addRecommendationCluster(
-                        RecommendationCluster.Builder()
-                            .addEntity(entity1)
-                            .addEntity(entity2)
-                            .setTitle("Trending music")
-                            .build())
-                    .build())
+```kotlin
+client.publishRecommendationClusters(
+            PublishRecommendationClustersRequest.Builder()
+                .addRecommendationCluster(
+                    RecommendationCluster.Builder()
+                        .addEntity(entity1)
+                        .addEntity(entity2)
+                        .setTitle("Trending music")
+                        .build())
+                .build())
+```
 
 ### Java
 
-    client.publishRecommendationClusters(
-                new PublishRecommendationClustersRequest.Builder()
-                    .addRecommendationCluster(
-                        new RecommendationCluster.Builder()
-                            .addEntity(entity1)
-                            .addEntity(entity2)
-                            .setTitle("Trending music")
-                            .build())
-                    .build());
+```java
+client.publishRecommendationClusters(
+            new PublishRecommendationClustersRequest.Builder()
+                .addRecommendationCluster(
+                    new RecommendationCluster.Builder()
+                        .addEntity(entity1)
+                        .addEntity(entity2)
+                        .setTitle("Trending music")
+                        .build())
+                .build());
+```
 
 When the service receives the request, the following actions take place within
 one transaction:
@@ -579,23 +599,27 @@ This API is used to publish a list of `FeaturedCluster` objects.
 
 ### Kotlin
 
-    client.publishFeaturedCluster(
-                PublishFeaturedClusterRequest.Builder()
-                    .setFeaturedCluster(
-                        FeaturedCluster.Builder()
-                            ...
-                            .build())
-                    .build())
+```kotlin
+client.publishFeaturedCluster(
+            PublishFeaturedClusterRequest.Builder()
+                .setFeaturedCluster(
+                    FeaturedCluster.Builder()
+                        ...
+                        .build())
+                .build())
+```
 
 ### Java
 
-    client.publishFeaturedCluster(
-                new PublishFeaturedClusterRequest.Builder()
-                    .setFeaturedCluster(
-                        new FeaturedCluster.Builder()
-                            ...
-                            .build())
-                    .build());
+```java
+client.publishFeaturedCluster(
+            new PublishFeaturedClusterRequest.Builder()
+                .setFeaturedCluster(
+                    new FeaturedCluster.Builder()
+                        ...
+                        .build())
+                .build());
+```
 
 When the service receives the request, the following actions take place within
 one transaction:
@@ -615,25 +639,29 @@ This API is used to publish a `ContinuationCluster` object.
 
 ### Kotlin
 
-    client.publishContinuationCluster(
-                PublishContinuationClusterRequest.Builder()
-                    .setContinuationCluster(
-                        ContinuationCluster.Builder()
-                            .addEntity(entity1)
-                            .addEntity(entity2)
-                            .build())
-                    .build())
+```kotlin
+client.publishContinuationCluster(
+            PublishContinuationClusterRequest.Builder()
+                .setContinuationCluster(
+                    ContinuationCluster.Builder()
+                        .addEntity(entity1)
+                        .addEntity(entity2)
+                        .build())
+                .build())
+```
 
 ### Java
 
-    client.publishContinuationCluster(
-                PublishContinuationClusterRequest.Builder()
-                    .setContinuationCluster(
-                        ContinuationCluster.Builder()
-                            .addEntity(entity1)
-                            .addEntity(entity2)
-                            .build())
-                    .build())
+```java
+client.publishContinuationCluster(
+            PublishContinuationClusterRequest.Builder()
+                .setContinuationCluster(
+                    ContinuationCluster.Builder()
+                        .addEntity(entity1)
+                        .addEntity(entity2)
+                        .build())
+                .build())
+```
 
 When the service receives the request, the following actions take place within
 one transaction:
@@ -665,41 +693,45 @@ The following metadata is part of the Sign In Card -
 
 ### Kotlin
 
-    var SIGN_IN_CARD_ENTITY =
-          SignInCardEntity.Builder()
-              .addPosterImage(
-                  Image.Builder()
-                      .setImageUri(Uri.parse("http://www.x.com/image.png"))
-                      .setImageHeightInPixel(500)
-                      .setImageWidthInPixel(500)
-                      .build())
-              .setActionText("Sign In")
-              .setActionUri(Uri.parse("http://xx.com/signin"))
-              .build()
+```kotlin
+var SIGN_IN_CARD_ENTITY =
+      SignInCardEntity.Builder()
+          .addPosterImage(
+              Image.Builder()
+                  .setImageUri(Uri.parse("http://www.x.com/image.png"))
+                  .setImageHeightInPixel(500)
+                  .setImageWidthInPixel(500)
+                  .build())
+          .setActionText("Sign In")
+          .setActionUri(Uri.parse("http://xx.com/signin"))
+          .build()
 
-    client.publishUserAccountManagementRequest(
-                PublishUserAccountManagementRequest.Builder()
-                    .setSignInCardEntity(SIGN_IN_CARD_ENTITY)
-                    .build());
+client.publishUserAccountManagementRequest(
+            PublishUserAccountManagementRequest.Builder()
+                .setSignInCardEntity(SIGN_IN_CARD_ENTITY)
+                .build());
+```
 
 ### Java
 
-    SignInCardEntity SIGN_IN_CARD_ENTITY =
-          new SignInCardEntity.Builder()
-              .addPosterImage(
-                  new Image.Builder()
-                      .setImageUri(Uri.parse("http://www.x.com/image.png"))
-                      .setImageHeightInPixel(500)
-                      .setImageWidthInPixel(500)
-                      .build())
-              .setActionText("Sign In")
-              .setActionUri(Uri.parse("http://xx.com/signin"))
-              .build();
+```java
+SignInCardEntity SIGN_IN_CARD_ENTITY =
+      new SignInCardEntity.Builder()
+          .addPosterImage(
+              new Image.Builder()
+                  .setImageUri(Uri.parse("http://www.x.com/image.png"))
+                  .setImageHeightInPixel(500)
+                  .setImageWidthInPixel(500)
+                  .build())
+          .setActionText("Sign In")
+          .setActionUri(Uri.parse("http://xx.com/signin"))
+          .build();
 
-    client.publishUserAccountManagementRequest(
-                new PublishUserAccountManagementRequest.Builder()
-                    .setSignInCardEntity(SIGN_IN_CARD_ENTITY)
-                    .build());
+client.publishUserAccountManagementRequest(
+            new PublishUserAccountManagementRequest.Builder()
+                .setSignInCardEntity(SIGN_IN_CARD_ENTITY)
+                .build());
+```
 
 When the service receives the request, the following actions take place within
 one transaction:
@@ -763,17 +795,21 @@ with the status code **NOT_PUBLISHED_REQUIRES_SIGN_IN**
 
 ### Kotlin
 
-    client.updatePublishStatus(
-       PublishStatusRequest.Builder()
-         .setStatusCode(AppEngagePublishStatusCode.NOT_PUBLISHED_REQUIRES_SIGN_IN)
-         .build())
+```kotlin
+client.updatePublishStatus(
+   PublishStatusRequest.Builder()
+     .setStatusCode(AppEngagePublishStatusCode.NOT_PUBLISHED_REQUIRES_SIGN_IN)
+     .build())
+```
 
 ### Java
 
-    client.updatePublishStatus(
-        new PublishStatusRequest.Builder()
-            .setStatusCode(AppEngagePublishStatusCode.NOT_PUBLISHED_REQUIRES_SIGN_IN)
-            .build());
+```java
+client.updatePublishStatus(
+    new PublishStatusRequest.Builder()
+        .setStatusCode(AppEngagePublishStatusCode.NOT_PUBLISHED_REQUIRES_SIGN_IN)
+        .build());
+```
 
 #### `deleteRecommendationsClusters`
 
@@ -784,11 +820,15 @@ This API is used to delete the content of Recommendation Clusters.
 
 ### Kotlin
 
-    client.deleteRecommendationsClusters()
+```kotlin
+client.deleteRecommendationsClusters()
+```
 
 ### Java
 
-    client.deleteRecommendationsClusters();
+```java
+client.deleteRecommendationsClusters();
+```
 
 When the service receives the request, it removes the existing data from the
 Recommendation Clusters. In case of an error, the entire request is rejected
@@ -806,11 +846,15 @@ This API is used to delete the content of Featured Cluster.
 
 ### Kotlin
 
-    client.deleteFeaturedCluster()
+```kotlin
+client.deleteFeaturedCluster()
+```
 
 ### Java
 
-    client.deleteFeaturedCluster();
+```java
+client.deleteFeaturedCluster();
+```
 
 When the service receives the request, it removes the existing data from the
 Featured Cluster. In case of an error, the entire request is rejected
@@ -828,11 +872,15 @@ This API is used to delete the content of Continuation Cluster.
 
 ### Kotlin
 
-    client.deleteContinuationCluster()
+```kotlin
+client.deleteContinuationCluster()
+```
 
 ### Java
 
-    client.deleteContinuationCluster();
+```java
+client.deleteContinuationCluster();
+```
 
 When the service receives the request, it removes the existing data from the
 Continuation Cluster. In case of an error, the entire request is rejected
@@ -850,11 +898,15 @@ This API is used to delete the content of UserAccountManagement Cluster.
 
 ### Kotlin
 
-    client.deleteUserManagementCluster()
+```kotlin
+client.deleteUserManagementCluster()
+```
 
 ### Java
 
-    client.deleteUserManagementCluster();
+```java
+client.deleteUserManagementCluster();
+```
 
 When the service receives the request, it removes the existing data from the
 UserAccountManagement Cluster. In case of an error, the entire request is
@@ -872,21 +924,25 @@ This API is used to delete the content of a given cluster type.
 
 ### Kotlin
 
-    client.deleteClusters(
-        DeleteClustersRequest.Builder()
-          .addClusterType(ClusterType.TYPE_FEATURED)
-          .addClusterType(ClusterType.TYPE_RECOMMENDATION)
-          ...
-          .build())
+```kotlin
+client.deleteClusters(
+    DeleteClustersRequest.Builder()
+      .addClusterType(ClusterType.TYPE_FEATURED)
+      .addClusterType(ClusterType.TYPE_RECOMMENDATION)
+      ...
+      .build())
+```
 
 ### Java
 
-    client.deleteClusters(
-                new DeleteClustersRequest.Builder()
-                    .addClusterType(ClusterType.TYPE_FEATURED)
-                    .addClusterType(ClusterType.TYPE_RECOMMENDATION)
-                    ...
-                    .build());
+```java
+client.deleteClusters(
+            new DeleteClustersRequest.Builder()
+                .addClusterType(ClusterType.TYPE_FEATURED)
+                .addClusterType(ClusterType.TYPE_RECOMMENDATION)
+                ...
+                .build());
+```
 
 When the service receives the request, it removes the existing data from all
 clusters matching the specified cluster types. Clients can choose to pass one or
@@ -898,25 +954,27 @@ existing state is maintained.
 It is highly recommended to listen to the task result from the publish APIs such
 that a follow-up action can be taken to recover and resubmit an successful task.
 
-    client.publishRecommendationClusters(
-                  new PublishRecommendationClustersRequest.Builder()
-                      .addRecommendationCluster(...)
-                      .build())
-              .addOnCompleteListener(
-                  task -> {
-                    if (task.isSuccessful()) {
+```java
+client.publishRecommendationClusters(
+              new PublishRecommendationClustersRequest.Builder()
+                  .addRecommendationCluster(...)
+                  .build())
+          .addOnCompleteListener(
+              task -> {
+                if (task.isSuccessful()) {
+                  // do something
+                } else {
+                  Exception exception = task.getException();
+                  if (exception instanceof AppEngageException) {
+                    @AppEngageErrorCode
+                    int errorCode = ((AppEngageException) exception).getErrorCode();
+                    if (errorCode == AppEngageErrorCode.SERVICE_NOT_FOUND) {
                       // do something
-                    } else {
-                      Exception exception = task.getException();
-                      if (exception instanceof AppEngageException) {
-                        @AppEngageErrorCode
-                        int errorCode = ((AppEngageException) exception).getErrorCode();
-                        if (errorCode == AppEngageErrorCode.SERVICE_NOT_FOUND) {
-                          // do something
-                        }
-                      }
                     }
-                  });
+                  }
+                }
+              });
+```
 
 The error is returned as an `AppEngageException` with the cause included as an
 error code.
@@ -935,7 +993,7 @@ error code.
 
 In addition to making publish content API calls through a job, it is also
 required to set up a
-[`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) to receive
+[`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver.md.txt) to receive
 the request for a content publish.
 
 The goal of broadcast intents is mainly for app reactivation and forcing data
@@ -953,97 +1011,103 @@ The `BroadcastReceiver` must be set up in the following two ways:
 
 ### Kotlin
 
-    class AppEngageBroadcastReceiver : BroadcastReceiver(){
-      // Trigger recommendation cluster publish when PUBLISH_RECOMMENDATION broadcast
-      // is received
-      // Trigger featured cluster publish when PUBLISH_FEATURED broadcast is received
-      // Trigger continuation cluster publish when PUBLISH_CONTINUATION broadcast is
-      // received
-    }
+```kotlin
+class AppEngageBroadcastReceiver : BroadcastReceiver(){
+  // Trigger recommendation cluster publish when PUBLISH_RECOMMENDATION broadcast
+  // is received
+  // Trigger featured cluster publish when PUBLISH_FEATURED broadcast is received
+  // Trigger continuation cluster publish when PUBLISH_CONTINUATION broadcast is
+  // received
+}
 
-    fun registerBroadcastReceivers(context: Context){
-      var  context = context
-      context = context.applicationContext
+fun registerBroadcastReceivers(context: Context){
+  var  context = context
+  context = context.applicationContext
 
-    // Register Recommendation Cluster Publish Intent
-      context.registerReceiver(AppEngageBroadcastReceiver(),
-                               IntentFilter(Intents.ACTION_PUBLISH_RECOMMENDATION),
-                               com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
-                               /*scheduler=*/null)
+// Register Recommendation Cluster Publish Intent
+  context.registerReceiver(AppEngageBroadcastReceiver(),
+                           IntentFilter(Intents.ACTION_PUBLISH_RECOMMENDATION),
+                           com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
+                           /*scheduler=*/null)
 
-    // Register Featured Cluster Publish Intent
-      context.registerReceiver(AppEngageBroadcastReceiver(),
-                               IntentFilter(Intents.ACTION_PUBLISH_FEATURED),
-                               com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
-                               /*scheduler=*/null)
+// Register Featured Cluster Publish Intent
+  context.registerReceiver(AppEngageBroadcastReceiver(),
+                           IntentFilter(Intents.ACTION_PUBLISH_FEATURED),
+                           com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
+                           /*scheduler=*/null)
 
-    // Register Continuation Cluster Publish Intent
-      context.registerReceiver(AppEngageBroadcastReceiver(),
-                               IntentFilter(Intents.ACTION_PUBLISH_CONTINUATION),
-                               com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
-                               /*scheduler=*/null)
-    }
+// Register Continuation Cluster Publish Intent
+  context.registerReceiver(AppEngageBroadcastReceiver(),
+                           IntentFilter(Intents.ACTION_PUBLISH_CONTINUATION),
+                           com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
+                           /*scheduler=*/null)
+}
+```
 
 ### Java
 
-    class AppEngageBroadcastReceiver extends BroadcastReceiver {
-    // Trigger recommendation cluster publish when PUBLISH_RECOMMENDATION broadcast
-    // is received
+```java
+class AppEngageBroadcastReceiver extends BroadcastReceiver {
+// Trigger recommendation cluster publish when PUBLISH_RECOMMENDATION broadcast
+// is received
 
-    // Trigger featured cluster publish when PUBLISH_FEATURED broadcast is received
+// Trigger featured cluster publish when PUBLISH_FEATURED broadcast is received
 
-    // Trigger continuation cluster publish when PUBLISH_CONTINUATION broadcast is
-    // received
-    }
+// Trigger continuation cluster publish when PUBLISH_CONTINUATION broadcast is
+// received
+}
 
-    public static void registerBroadcastReceivers(Context context) {
+public static void registerBroadcastReceivers(Context context) {
 
-    context = context.getApplicationContext();
+context = context.getApplicationContext();
 
-    // Register Recommendation Cluster Publish Intent
-    context.registerReceiver(new AppEngageBroadcastReceiver(),
-                             new IntentFilter(com.google.android.engage.service.Intents.ACTION_PUBLISH_RECOMMENDATION),
-                             com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
-                             /*scheduler=*/null);
+// Register Recommendation Cluster Publish Intent
+context.registerReceiver(new AppEngageBroadcastReceiver(),
+                         new IntentFilter(com.google.android.engage.service.Intents.ACTION_PUBLISH_RECOMMENDATION),
+                         com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
+                         /*scheduler=*/null);
 
-    // Register Featured Cluster Publish Intent
-    context.registerReceiver(new AppEngageBroadcastReceiver(),
-                             new IntentFilter(com.google.android.engage.service.Intents.ACTION_PUBLISH_FEATURED),
-                             com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
-                             /*scheduler=*/null);
+// Register Featured Cluster Publish Intent
+context.registerReceiver(new AppEngageBroadcastReceiver(),
+                         new IntentFilter(com.google.android.engage.service.Intents.ACTION_PUBLISH_FEATURED),
+                         com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
+                         /*scheduler=*/null);
 
-    // Register Continuation Cluster Publish Intent
-    context.registerReceiver(new AppEngageBroadcastReceiver(),
-                             new IntentFilter(com.google.android.engage.service.Intents.ACTION_PUBLISH_CONTINUATION),
-                             com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
-                             /*scheduler=*/null);
+// Register Continuation Cluster Publish Intent
+context.registerReceiver(new AppEngageBroadcastReceiver(),
+                         new IntentFilter(com.google.android.engage.service.Intents.ACTION_PUBLISH_CONTINUATION),
+                         com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
+                         /*scheduler=*/null);
 
-    }
+}
+```
 
 - Statically declare an implementation with the `<receiver>` tag in your
   `AndroidManifest.xml` file. This allows the application to receive broadcast
   intents when it is not running, and also allows the application to publish
   the content.
 
-    <application>
-       <receiver
-          android:name=".AppEngageBroadcastReceiver"
-          android:permission="com.google.android.engage.REQUEST_ENGAGE_DATA"
-          android:exported="true"
-          android:enabled="true">
-          <intent-filter>
-             <action android:name="com.google.android.engage.action.PUBLISH_RECOMMENDATION" />
-          </intent-filter>
-          <intent-filter>
-             <action android:name="com.google.android.engage.action.PUBLISH_FEATURED" />
-          </intent-filter>
-          <intent-filter>
-             <action android:name="com.google.android.engage.action.PUBLISH_CONTINUATION" />
-          </intent-filter>
-       </receiver>
-    </application>
+```xml
+<application>
+   <receiver
+      android:name=".AppEngageBroadcastReceiver"
+      android:permission="com.google.android.engage.REQUEST_ENGAGE_DATA"
+      android:exported="true"
+      android:enabled="true">
+      <intent-filter>
+         <action android:name="com.google.android.engage.action.PUBLISH_RECOMMENDATION" />
+      </intent-filter>
+      <intent-filter>
+         <action android:name="com.google.android.engage.action.PUBLISH_FEATURED" />
+      </intent-filter>
+      <intent-filter>
+         <action android:name="com.google.android.engage.action.PUBLISH_CONTINUATION" />
+      </intent-filter>
+   </receiver>
+</application>
+```
 
-The following [intents](https://developer.android.com/reference/android/content/Intent) will be sent by the
+The following [intents](https://developer.android.com/reference/android/content/Intent.md.txt) will be sent by the
 service:
 
 - `com.google.android.engage.action.PUBLISH_RECOMMENDATION` It is recommended to start a `publishRecommendationClusters` call when receiving this intent.
@@ -1053,11 +1117,11 @@ service:
 ## Integration workflow
 
 For a step-by-step guide on verifying your integration after it is complete, see
-[Engage developer integration workflow](https://developer.android.com/guide/playcore/engage/workflow).
+[Engage developer integration workflow](https://developer.android.com/guide/playcore/engage/workflow.md.txt).
 
 ## FAQs
 
-See [Engage SDK Frequently Asked Questions](https://developer.android.com/guide/playcore/engage/faq) for
+See [Engage SDK Frequently Asked Questions](https://developer.android.com/guide/playcore/engage/faq.md.txt) for
 FAQs.
 
 ## Contact

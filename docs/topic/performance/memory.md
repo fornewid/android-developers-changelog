@@ -4,54 +4,60 @@ url: https://developer.android.com/topic/performance/memory
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/topic/performance/memory/llms.txt
+
 The following pages provide information about improving your app's use of
 memory.
 
 ## General memory guidance
 
-[Memory overview](https://developer.android.com/topic/performance/memory-overview)
+[Memory overview](https://developer.android.com/topic/performance/memory-overview.md.txt)
 :   Explains core Android memory architecture, RAM
     constraints, and how the operating system balances processes using the Low
     Memory Killer (LMK).
 
-[Memory management](https://developer.android.com/topic/performance/memory/manage-app-memory)
+[Memory metrics overview](https://developer.android.com/topic/performance/memory/metrics.md.txt)
+:   Overview of some key memory metrics that you can use to analyze and improve
+    your app's memory performance.
+
+[Memory management](https://developer.android.com/topic/performance/memory/manage-app-memory.md.txt)
 :   Outlines developer best practices for releasing
     resources across component lifecycles, avoiding leaks, and managing memory
     when transitioning between process states.
 
-[Understanding and troubleshooting Android memory](https://developer.android.com/topic/performance/memory/guide)
+[Understanding and troubleshooting Android memory](https://developer.android.com/topic/performance/memory/guide.md.txt)
 :   Provides a comprehensive
     overview of Android memory architecture, the tools available for analysis,
     and practical exercises to help you identify and resolve memory-related
     issues.
 
-[Set app memory budgets](https://developer.android.com/topic/performance/memory/app-memory-budgets)
+[Set app memory budgets](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt)
 :   Explains how to declare and manage application memory budgets to trim memory
     usage down to your app's active working set.
 
 ## Area-specific optimizations
 
-[Games memory overview](https://developer.android.com/games/optimize/memory-overview)
+[Games memory overview](https://developer.android.com/games/optimize/memory-overview.md.txt)
 :   Details memory budgeting, native allocation
     handling, and graphic asset management guidance tailored specifically for
     apps using game engines.
 
-[Optimizing bitmap images](https://developer.android.com/develop/ui/compose/graphics/images/optimization)
+[Optimizing bitmap images](https://developer.android.com/develop/ui/compose/graphics/images/optimization.md.txt)
 :   Demonstrates how to size, decode, and cache
     bitmap assets efficiently within image libraries.
 
-[Manage and diagnose WebView memory](https://developer.android.com/develop/ui/views/layout/webapps/manage-webview-memory)
+[Manage and diagnose WebView memory](https://developer.android.com/develop/ui/views/layout/webapps/manage-webview-memory.md.txt)
 :   Explains the WebView multi-process
     memory model, describes how to properly manage its lifecycle to prevent
     leaks, and provides practical workflows for diagnosing memory issues.
 
-[R8 code optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization)
+[R8 code optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt)
 :   Explains how to use R8 to reduce APK size,
     metadata overhead, and runtime memory consumption.
 
 ## Local memory debug tools
 
-[Android Studio tools](https://developer.android.com/studio/profile)
+[Android Studio tools](https://developer.android.com/studio/profile.md.txt)
 :   Provides real-time heap inspection, memory
     allocation tracking, and leak detection workflows directly inside the IDE.
 
@@ -59,7 +65,7 @@ memory.
 :   Offers deep visual analysis of native and Java or Kotlin heap dumps to isolate
     retained object trees and anonymous memory allocations.
 
-[Capture a system trace on device](https://developer.android.com/topic/performance/tracing/on-device)
+[Capture a system trace on device](https://developer.android.com/topic/performance/tracing/on-device.md.txt)
 :   Shows how to record on-device system-level
     traces to address performance-related bugs in your app.
 
@@ -70,16 +76,16 @@ memory.
 
 ## Production-level memory tools
 
-[Android vitals: Memory usage (anonymous RSS + swap)](https://developer.android.com/google/play/vitals/memory-usage)
+[Android vitals: Memory usage (anonymous RSS + swap)](https://developer.android.com/google/play/vitals/memory-usage.md.txt)
 :   Android vitals
     shares your app's production memory usage broken down by the process states
     foreground, foreground service, and background service.
 
-[Android vitals: Bitmap memory usage](https://developer.android.com/google/play/vitals/bitmap-memory-usage)
+[Android vitals: Bitmap memory usage](https://developer.android.com/google/play/vitals/bitmap-memory-usage.md.txt)
 :   Android vitals provides metrics on
     an app's bitmap memory footprint by aggregating data from Android devices.
 
-[Android vitals: DEX code optimization](https://developer.android.com/google/play/vitals/code-optimization)
+[Android vitals: DEX code optimization](https://developer.android.com/google/play/vitals/code-optimization.md.txt)
 :   Android vitals can alert you when your app's DEX code optimization levels are
     low. This includes obfuscation, shrinking, and optimization for apps and
     games that use R8.
@@ -89,7 +95,7 @@ memory.
     memory limiter kills with diagnostic context to prioritize and fix field
     crashes.
 
-[ProfilingManager](https://developer.android.com/topic/performance/tracing/profiling-manager/overview)
+[ProfilingManager](https://developer.android.com/topic/performance/tracing/profiling-manager/overview.md.txt)
 :   Advanced API that lets apps programmatically
     collect and upload production heap dumps and heap profiles from live user
     sessions.

@@ -4,15 +4,17 @@ url: https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-conta
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # A more reliable way to add and edit contacts on Android
 
-6 min read ![](https://developer.android.com/static/blog/assets/1009_ABL_142_A_more_reliable_way_to_add_and_edit_contacts_on_Android_Strapi_b510ec4fc0_ZXfljU.webp) 21 Oct 2026 [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](https://developer.android.com/blog/authors/roxanna-walker) [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker) Product Manager, Android
+6 min read ![](https://developer.android.com/static/blog/assets/1009_ABL_142_A_more_reliable_way_to_add_and_edit_contacts_on_Android_Strapi_b510ec4fc0_ZXfljU.webp) 21 Oct 2026 [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)](https://developer.android.com/blog/authors/roxanna-walker.md.txt) [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker.md.txt) Product Manager, Android
 
 ## **What's changing**
 
-Apps that target the upcoming Android release will no longer be able to directly write to contacts with the `WRITE_CONTACTS` permission. Instead, you can use the standard contact intents ([ACTION_INSERT](https://developer.android.com/reference/android/content/Intent#ACTION_INSERT), [ACTION_EDIT](https://developer.android.com/reference/android/content/Intent#ACTION_EDIT), and [ACTION_INSERT_OR_EDIT](https://developer.android.com/reference/android/content/Intent#ACTION_INSERT_OR_EDIT)). For a complete reference implementation, see the developer guide on how to [modify contacts using intents](https://developer.android.com/identity/providers/contacts-provider/modify-data).
+Apps that target the upcoming Android release will no longer be able to directly write to contacts with the `WRITE_CONTACTS` permission. Instead, you can use the standard contact intents ([ACTION_INSERT](https://developer.android.com/reference/android/content/Intent.md.txt#ACTION_INSERT), [ACTION_EDIT](https://developer.android.com/reference/android/content/Intent.md.txt#ACTION_EDIT), and [ACTION_INSERT_OR_EDIT](https://developer.android.com/reference/android/content/Intent.md.txt#ACTION_INSERT_OR_EDIT)). For a complete reference implementation, see the developer guide on how to [modify contacts using intents](https://developer.android.com/identity/providers/contacts-provider/modify-data.md.txt).
 
 On devices running the upcoming Android release, these three contact intents will behave consistently and need no permission at all. If your app targets the upcoming Android release or later and attempts to write to contacts directly, those writes will be rejected and result in a `SecurityException` or permission denial. For the small set of apps which require broad access to create and modify contacts, a new special app access permission, `MANAGE_CONTACTS`, arrives in Android 17 QPR2 (Q4 2026). Google Play is publishing updated guidelines for contact access, including `MANAGE_CONTACTS`, today.
 
@@ -156,11 +158,11 @@ fun editKnownContact(context: Context, contactUri: Uri, phone: String) {
 
 #### **Pick a contact: use the Contact Picker**
 
-If you only need to read contacts the user chooses, use the [Contact Picker](https://developer.android.com/about/versions/17/features/contact-picker), available since Android 17. It needs no permission.
+If you only need to read contacts the user chooses, use the [Contact Picker](https://developer.android.com/about/versions/17/features/contact-picker.md.txt), available since Android 17. It needs no permission.
 
 #### **Calling and messaging apps: use People Directory**
 
-Some apps add "Call with..." or "Message with..." actions to contacts so people can start a call or chat from the Phone or Contacts app. If your app does this today by writing extra entries into the user's contacts, move to [**People Directory**](https://developer.android.com/reference/android/provider/PeopleContract#implementing-a-people-directory), arriving in Android QPR2 (Q4 2026). It's a new system directory where your app publishes how people can reach each other in your app, without editing the user's contacts.
+Some apps add "Call with..." or "Message with..." actions to contacts so people can start a call or chat from the Phone or Contacts app. If your app does this today by writing extra entries into the user's contacts, move to [**People Directory**](https://developer.android.com/reference/android/provider/PeopleContract.md.txt#implementing-a-people-directory), arriving in Android QPR2 (Q4 2026). It's a new system directory where your app publishes how people can reach each other in your app, without editing the user's contacts.
 
 #### **Examples of how apps can migrate**
 
@@ -189,7 +191,7 @@ Probably not. If your app saves or edits contacts because a user asked it to, th
 | **Your app...** | **Need** `MANAGE_CONTACTS`**?** |
 | Saves a contact from a chat, business card, or order. | **No,** use `ACTION_INSERT` |
 | Adds a number or email to an existing contact. | **No,** use `ACTION_INSERT_OR_EDIT` or `ACTION_EDIT` |
-| Lets users pick contacts to invite, share with, or pay. | **No,** use the [Contact Picker](https://developer.android.com/about/versions/17/features/contact-picker) |
+| Lets users pick contacts to invite, share with, or pay. | **No,** use the [Contact Picker](https://developer.android.com/about/versions/17/features/contact-picker.md.txt) |
 | Adds call or message actions to contacts. | **No,** use People Directory |
 | Has its own branded contact editing screen. | **No,** a custom interface alone doesn't qualify |
 | Is a dedicated contact manager or dialer replacement app. | **Likely yes** |
@@ -241,46 +243,47 @@ context.startActivity(intent)
   - `MANAGE_CONTACTS` includes read access so you don't need to request both, but many apps qualify for `READ_CONTACTS` that do not need to modify contacts at all. These apps may continue to request `READ_CONTACTS`.
 - **What about my users on older Android versions?**
   - The contact intents work on older versions too, handled by the device's contacts app. Most apps will work well on all devices using these intents. If your app is affected by a specific consistency issue only solved in the latest versions, you can keep the `WRITE_CONTACTS` permission in your manifest scoped with an appropriate maxSdkVersion.
-- [#Android](https://developer.android.com/blog/topics/android)
+- [#Android](https://developer.android.com/blog/topics/android.md.txt)
 Written by:
 
 -
 
-  ## [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker)
+  ## [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker.md.txt)
 
   ###### Product Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/roxanna-walker) ![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp) ![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_1Q1ceg.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Aurash Mahbod's profile](https://developer.android.com/static/blog/assets/image3_98854eb3dd_Z2kItkm.webp)](https://developer.android.com/blog/authors/aurash-mahbod.md.txt) 18 Nov 2026 18 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_162_2000x1000_1_ce7dba8d2a_72W03.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
+  ## [Elevating games: New large screens and foldables quality standards on Google Play](https://developer.android.com/blog/posts/elevating-game-quality-foldables-large-screens-google-play.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_Zj9dt4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/elevating-game-quality-foldables-large-screens-google-play.md.txt) To give these experiences to players and ensure your games shine across every screen size, Google Play is introducing new large screen quality requirements for games
+  [Aurash Mahbod](https://developer.android.com/blog/authors/aurash-mahbod.md.txt) • 4 min read
+  - [#Google Play](https://developer.android.com/blog/topics/google-play.md.txt)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Adaptive Games](https://developer.android.com/blog/topics/adaptive-games.md.txt)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+  - [#Large Screens](https://developer.android.com/blog/topics/large-screens.md.txt)
+  - +3 ↩
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26)
+  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26) At Google I/O 2026, we introduced Android's shift from an operating system to an intelligence system. We also demonstrated how you can build intelligent experiences natively with the system and bring the power of Google's AI into your apps.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 2 min read
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
-  - [#On-device](https://developer.android.com/blog/topics/on-device)
-  - +2 ↩
-- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 4 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_Zj9dt4.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
+  ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
-  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 8 min read
-  - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  [arrow_forward](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md.txt) At Google I/O 2026, we introduced Android's shift from an operating system to an intelligence system. We also demonstrated how you can build intelligent experiences natively with the system and bring the power of Google's AI into your apps.
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) • 2 min read
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#AppFunctions](https://developer.android.com/blog/topics/app-functions.md.txt)
+  - [#On-device](https://developer.android.com/blog/topics/on-device.md.txt)
   - +2 ↩
 Stay in the loop
 

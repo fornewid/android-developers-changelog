@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/concurrent
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Concurrent
 
 Move tasks off the main thread with coroutines and take advantage of ListenableFuture.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 29, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/concurrent#1.3.0) | - | - | [1.4.0-alpha01](https://developer.android.com/jetpack/androidx/releases/concurrent#1.4.0-alpha01) |
+| November 18, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/concurrent.md.txt#1.3.0) | - | [1.4.0-beta01](https://developer.android.com/jetpack/androidx/releases/concurrent.md.txt#1.4.0-beta01) | - |
 
 ## Declaring dependencies
 
@@ -59,6 +61,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.4
+
+### Version 1.4.0-beta01
+
+November 18, 2026
+
+`androidx.concurrent:concurrent:1.4.0-beta01`, `androidx.concurrent:concurrent-futures:1.4.0-beta01`, and `androidx.concurrent:concurrent-futures-ktx:1.4.0-beta01` are released. Version 1.4.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/61ee8cd421d0c0252d8db0253b739de537999371..3e55c1ad889c6c0087b0bf6720b1a970b6e8ea3b/concurrent).
+
+API Changes
+
+- Add a utility method to get serial executors.
 
 ### Version 1.4.0-alpha01
 
@@ -114,7 +126,7 @@ June 12, 2024
 
 **Important changes since 1.1.0**
 
-- Added [`SuspendToFutureAdapter`](https://developer.android.com/reference/kotlin/androidx/concurrent/futures/SuspendToFutureAdapter) for translating a call to a suspending API into a `ListenableFuture`.
+- Added [`SuspendToFutureAdapter`](https://developer.android.com/reference/kotlin/androidx/concurrent/futures/SuspendToFutureAdapter.md.txt) for translating a call to a suspending API into a `ListenableFuture`.
 
 ### Version 1.2.0-rc01
 

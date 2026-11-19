@@ -4,6 +4,8 @@ url: https://developer.android.com/media/platform/transcoding
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/platform/llms.txt
+
 On Android 12 (API level 31) and higher, the system can automatically convert
 videos recorded in formats such as HEVC (H.265) to AVC (H.264) when the videos
 are opened by an app that does not support HEVC. This feature allows video
@@ -45,7 +47,6 @@ or in a resource.
 You can declare media capabilities in code by constructing an instance of an
 `ApplicationMediaCapabilities` object using a builder:
 
-### Kotlin
 
 ```kotlin
 val mediaCapabilities = ApplicationMediaCapabilities.Builder()
@@ -55,20 +56,11 @@ val mediaCapabilities = ApplicationMediaCapabilities.Builder()
     .build()
 ```
 
-### Java
-
-```java
-ApplicationMediaCapabilities mediaCapabilities = new ApplicationMediaCapabilities.Builder()
-        .addSupportedVideoMimeType(MediaFormat.MIMETYPE_VIDEO_HEVC)
-        .addUnsupportedHdrType(MediaFeature.HdrType.HDR10)
-        .addUnsupportedHdrType(MediaFeature.HdrType.HDR10_PLUS)
-        .build();
-```
+<br />
 
 Use this object when accessing media content via methods such as
 `ContentResolver#openTypedAssetFileDescriptor()`:
 
-### Kotlin
 
 ```kotlin
 val providerOptions = Bundle().apply {
@@ -81,16 +73,7 @@ contentResolver.openTypedAssetFileDescriptor(mediaUri, mediaMimeType, providerOp
     }
 ```
 
-### Java
-
-```java
-Bundle providerOptions = new Bundle();
-providerOptions.putParcelable(MediaStore.EXTRA_MEDIA_CAPABILITIES, mediaCapabilities);
-try (AssetFileDescriptor fileDescriptor =  contentResolver.openTypedAssetFileDescriptor(mediaUri, mediaMimeType, providerOptions)) {
-    // Content will be transcoded based on values defined in the
-    // ApplicationMediaCapabilities provided.
-}
-```
+<br />
 
 This method allows granular control for particular code paths, such
 as invoking transcoding only when transferring a video file off-device. It takes precedence over the method described below.
@@ -129,16 +112,15 @@ capabilities file. Add these properties to your `AndroidManifest.xml` file:
 If your app shares a video file with another app, the video file might need to
 be transcoded before the receiving app can open it.
 
-You can handle this case by opening a video file using [`openTypedAssetFileDescriptor`](https://developer.android.com/reference/android/content/ContentResolver#openTypedAssetFileDescriptor(android.net.Uri,%20java.lang.String,%20android.os.Bundle))
-and specifying the UID of the receiving app, which can be obtained using [`Binder.getCallingUid`](https://developer.android.com/reference/android/os/Binder#getCallingUid()).
+You can handle this case by opening a video file using [`openTypedAssetFileDescriptor`](https://developer.android.com/reference/android/content/ContentResolver.md.txt#openTypedAssetFileDescriptor(android.net.Uri,%20java.lang.String,%20android.os.Bundle))
+and specifying the UID of the receiving app, which can be obtained using [`Binder.getCallingUid`](https://developer.android.com/reference/android/os/Binder.md.txt#getCallingUid()).
 The platform then uses the receiving app's media capabilities to determine
 whether the video file should be transcoded.
 
-### Kotlin
 
 ```kotlin
 val providerOptions = Bundle().apply {
-    putParcelable(MediaStore.EXTRA_MEDIA_CAPABILITIES_UID, Binder.getCallingUid())
+    putInt(MediaStore.EXTRA_MEDIA_CAPABILITIES_UID, Binder.getCallingUid())
 }
 contentResolver.openTypedAssetFileDescriptor(mediaUri, mediaMimeType, providerOptions)
     .use { fileDescriptor ->
@@ -147,16 +129,7 @@ contentResolver.openTypedAssetFileDescriptor(mediaUri, mediaMimeType, providerOp
     }
 ```
 
-### Java
-
-```java
-Bundle providerOptions = new Bundle();
-providerOptions.putParcelable(MediaStore.EXTRA_MEDIA_CAPABILITIES_UID, Binder.getCallingUid());
-try (AssetFileDescriptor fileDescriptor =  contentResolver.openTypedAssetFileDescriptor(mediaUri, mediaMimeType, providerOptions)) {
-    // Content will be transcoded based on the media capabilities of the
-    // calling app.
-}
-```
+<br />
 
 ## Example scenarios
 
@@ -167,13 +140,13 @@ support HEVC.
 ![Example 1](https://developer.android.com/static/images/guide/topics/media-apps/video-app/media-transcode-ex1.svg)
 The video sharing app declares that it does not support HEVC in its media
 capabilities resource file. It then requests a video from the video capture app. The video capture
-app handles the request and opens the file using [`openTypedAssetFileDescriptor`](https://developer.android.com/reference/android/content/ContentResolver#openTypedAssetFileDescriptor(android.net.Uri,%20java.lang.String,%20android.os.Bundle)), specifying the sharing app's UID. This initiates the transcoding process.
+app handles the request and opens the file using [`openTypedAssetFileDescriptor`](https://developer.android.com/reference/android/content/ContentResolver.md.txt#openTypedAssetFileDescriptor(android.net.Uri,%20java.lang.String,%20android.os.Bundle)), specifying the sharing app's UID. This initiates the transcoding process.
 When the transcoded video is received it is supplied to the sharing app, which uploads it to a server in the cloud.
 
 **Example 2.** Transcoding is initiated by video sharing app.
 ![Example 2](https://developer.android.com/static/images/guide/topics/media-apps/video-app/media-transcode-ex2.svg)
 The video capture app shares a video with the video sharing app using a
-`MediaStore` URI. The video sharing app opens the video file using [`openTypedAssetFileDescriptor`](https://developer.android.com/reference/android/content/ContentResolver#openTypedAssetFileDescriptor(android.net.Uri,%20java.lang.String,%20android.os.Bundle)), specifying that it does not support HEVC in its media capabilities. This
+`MediaStore` URI. The video sharing app opens the video file using [`openTypedAssetFileDescriptor`](https://developer.android.com/reference/android/content/ContentResolver.md.txt#openTypedAssetFileDescriptor(android.net.Uri,%20java.lang.String,%20android.os.Bundle)), specifying that it does not support HEVC in its media capabilities. This
 initiates the transcoding process, and once complete, the file is uploaded to
 a server in the cloud.
 

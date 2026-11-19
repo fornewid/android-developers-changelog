@@ -8,7 +8,11 @@ source: md.txt
 
 ## Changelog
 
-Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. **November 11th, 2026**
+Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. **November 18th, 2026**
+
+- New agent results • Nov 18th   
+  **claude-code results now available** ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Fable 5.2
+**November 11th, 2026**
 
 - New agent results • Nov 11th   
   **claude-code results now available** ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Haiku 5.5

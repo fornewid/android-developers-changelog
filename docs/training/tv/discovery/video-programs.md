@@ -4,88 +4,83 @@ url: https://developer.android.com/training/tv/discovery/video-programs
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/tv/discovery/llms.txt
+
 A video program's attributes depend on the type of its content. The program type
 tells the system what metadata to expect so that the UI can be filled in
 appropriately.
 
 Video programs can be one of the following types:
 
-- [`TYPE_MOVIE`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_MOVIE)
-- [`TYPE_TV_SERIES`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_TV_SERIES)
-- [`TYPE_TV_SEASON`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_TV_SEASON)
-- [`TYPE_TV_EPISODE`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_TV_EPISODE)
-- [`TYPE_CLIP`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_CLIP)
-- [`TYPE_EVENT`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_EVENT)
-- [`TYPE_CHANNEL`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_CHANNEL)
+- [`TYPE_MOVIE`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms.md.txt#TYPE_MOVIE)
+- [`TYPE_TV_SERIES`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms.md.txt#TYPE_TV_SERIES)
+- [`TYPE_TV_SEASON`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms.md.txt#TYPE_TV_SEASON)
+- [`TYPE_TV_EPISODE`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms.md.txt#TYPE_TV_EPISODE)
+- [`TYPE_CLIP`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms.md.txt#TYPE_CLIP)
+- [`TYPE_EVENT`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms.md.txt#TYPE_EVENT)
+- [`TYPE_CHANNEL`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms.md.txt#TYPE_CHANNEL)
 
-Use [`PreviewProgram.Builder`](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder) to build a program. You can read more about
+Use [`PreviewProgram.Builder`](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt) to build a program. You can read more about
 possible values for each field in the reference docs for each setter on the
 builder.
 
-### Kotlin
 
-    val program = PreviewProgram.Builder()
-            .setChannelId(channelId)
-            .setTitle(clip.getTitle())
-            .setDescription(clip.getDescription())
-            .setType(TvContractCompat.PreviewPrograms.TYPE_MOVIE)
-            // Set required attributes
-            .build()
+```kotlin
+val program = PreviewProgram.Builder()
+    .setChannelId(channelId)
+    .setTitle(clip.getTitle())
+    .setDescription(clip.getDescription())
+    .setType(TvContractCompat.PreviewPrograms.TYPE_MOVIE)
+    // Set required attributes.
+    .build()
+```
 
-### Java
-
-    PreviewProgram program = new PreviewProgram.Builder()
-            .setChannelId(channelId)
-            .setTitle(clip.getTitle())
-            .setDescription(clip.getDescription())
-            .setType(TvContractCompat.PreviewPrograms.TYPE_MOVIE)
-            // Set required attributes
-            .build();
+<br />
 
 
 The following table shows the attributes that can be assigned to each type of
 video program. Each attribute links to the corresponding setter in
-[`PreviewProgram.Builder`](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder).
+[`PreviewProgram.Builder`](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt).
 Attributes marked ✔ are required; those marked (✔) are optional.
 
 | Attribute | Movie | TV Series | TV Season | TV Episode | Clip | Event | Channel |
 |---|---|---|---|---|---|---|---|
-| [Author](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setAuthor(java.lang.String)) |   |   |   |   | (✔) |   |   |
-| [Availability](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setAvailability(int)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
-| [Canonical Genres](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setCanonicalGenres(java.lang.String[])) | (✔) | (✔) | (✔) | (✔) |   |   |   |
-| [Channel ID](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setChannelId(long)) | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| [Content ID](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setContentId(java.lang.String)) |   |   |   |   | (✔) |   |   |
-| [Content Ratings](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setContentRatings(android.media.tv.TvContentRating[])) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
-| [DurationMillis](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setDurationMillis(int)) | ✔ |   |   | ✔ | ✔ | (✔) |   |
-| [Episode Number](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setEpisodeNumber(int)) |   |   |   | ✔ |   |   |   |
-| [Episode Title](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setEpisodeTitle(java.lang.String)) |   |   |   | (✔) |   |   |   |
-| [Genre](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setGenre(java.lang.String)) | (✔) | (✔) | (✔) | (✔) |   |   |   |
-| [Intent URI](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setIntentUri(android.net.Uri)) | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| [Interaction Count](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setInteractionCount(long)) |   |   |   |   | (✔) | (✔) |   |
-| [Interaction Type](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setInteractionType(int)) |   |   |   |   | (✔) | (✔) |   |
-| [Internal Provider ID](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setInternalProviderId(java.lang.String)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
-| [Item Count](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setItemCount(int)) |   | (✔) | (✔) |   |   |   |   |
-| [Live](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setLive(boolean)) | (✔) |   |   | (✔) | (✔) | (✔) | (✔) |
-| [Logo URI (\*)](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setLogoUri(android.net.Uri)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
-| [Logo Content Description (\*)](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setLogoContentDescription(java.lang.String)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
-| [Offer Price](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setOfferPrice(java.lang.String)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
-| [Poster Art Aspect Ratio](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setPosterArtAspectRatio(int)) | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| [Poster Art URI](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setPosterArtUri(android.net.Uri)) | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| [Preview Video URI](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setPreviewVideoUri(android.net.Uri)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
-| [Release Date](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setReleaseDate(java.lang.String)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |   |
-| [Review Rating](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setReviewRating(java.lang.String)) | (✔) | (✔) | (✔) | (✔) |   |   | (✔) |
-| [Review Rating Style](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setReviewRatingStyle(int)) | (✔) | (✔) | (✔) | (✔) |   |   | (✔) |
-| [Season Display Number](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setSeasonNumber(int)) |   |   | ✔ | ✔ |   |   |   |
-| [Short Description](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setDescription(java.lang.String)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
-| [Start Time UTC Millis (\*)](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setStartTimeUtcMillis(long)) | ✔ |   |   | ✔ | ✔ | ✔ |   |
-| [End Time UTC Millis (\*)](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setEndTimeUtcMillis(long)) | ✔ |   |   | ✔ | ✔ | ✔ |   |
-| [Starting Price](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setStartingPrice(java.lang.String)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
-| [Thumbnail Aspect Ratio](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setThumbnailAspectRatio(int)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
-| [Thumbnail URI](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setThumbnailUri(android.net.Uri)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
-| [Title](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setTitle(java.lang.String)) | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| [Video Height](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setVideoHeight(int)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
-| [Video Width](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setVideoWidth(int)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
-| [Weight](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setWeight(int)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
+| [Author](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setAuthor(java.lang.String)) |   |   |   |   | (✔) |   |   |
+| [Availability](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setAvailability(int)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
+| [Canonical Genres](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setCanonicalGenres(java.lang.String[])) | (✔) | (✔) | (✔) | (✔) |   |   |   |
+| [Channel ID](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setChannelId(long)) | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [Content ID](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setContentId(java.lang.String)) |   |   |   |   | (✔) |   |   |
+| [Content Ratings](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setContentRatings(android.media.tv.TvContentRating[])) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
+| [DurationMillis](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setDurationMillis(int)) | ✔ |   |   | ✔ | ✔ | (✔) |   |
+| [Episode Number](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setEpisodeNumber(int)) |   |   |   | ✔ |   |   |   |
+| [Episode Title](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setEpisodeTitle(java.lang.String)) |   |   |   | (✔) |   |   |   |
+| [Genre](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setGenre(java.lang.String)) | (✔) | (✔) | (✔) | (✔) |   |   |   |
+| [Intent URI](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setIntentUri(android.net.Uri)) | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [Interaction Count](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setInteractionCount(long)) |   |   |   |   | (✔) | (✔) |   |
+| [Interaction Type](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setInteractionType(int)) |   |   |   |   | (✔) | (✔) |   |
+| [Internal Provider ID](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setInternalProviderId(java.lang.String)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
+| [Item Count](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setItemCount(int)) |   | (✔) | (✔) |   |   |   |   |
+| [Live](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setLive(boolean)) | (✔) |   |   | (✔) | (✔) | (✔) | (✔) |
+| [Logo URI (\*)](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setLogoUri(android.net.Uri)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
+| [Logo Content Description (\*)](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setLogoContentDescription(java.lang.String)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
+| [Offer Price](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setOfferPrice(java.lang.String)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
+| [Poster Art Aspect Ratio](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setPosterArtAspectRatio(int)) | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [Poster Art URI](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setPosterArtUri(android.net.Uri)) | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [Preview Video URI](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setPreviewVideoUri(android.net.Uri)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
+| [Release Date](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setReleaseDate(java.lang.String)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |   |
+| [Review Rating](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setReviewRating(java.lang.String)) | (✔) | (✔) | (✔) | (✔) |   |   | (✔) |
+| [Review Rating Style](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setReviewRatingStyle(int)) | (✔) | (✔) | (✔) | (✔) |   |   | (✔) |
+| [Season Display Number](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setSeasonNumber(int)) |   |   | ✔ | ✔ |   |   |   |
+| [Short Description](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setDescription(java.lang.String)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
+| [Start Time UTC Millis (\*)](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setStartTimeUtcMillis(long)) | ✔ |   |   | ✔ | ✔ | ✔ |   |
+| [End Time UTC Millis (\*)](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setEndTimeUtcMillis(long)) | ✔ |   |   | ✔ | ✔ | ✔ |   |
+| [Starting Price](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setStartingPrice(java.lang.String)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
+| [Thumbnail Aspect Ratio](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setThumbnailAspectRatio(int)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
+| [Thumbnail URI](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setThumbnailUri(android.net.Uri)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
+| [Title](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setTitle(java.lang.String)) | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [Video Height](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setVideoHeight(int)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
+| [Video Width](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setVideoWidth(int)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
+| [Weight](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder.md.txt#setWeight(int)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
 
 > [!NOTE]
 > **Note:** (\*) `LOGO_CONTENT_DESCRIPTION` is required when `LOGO_URI` is used. `START` and `END` times only appear on the screen when the `LIVE` attribute is `true`.

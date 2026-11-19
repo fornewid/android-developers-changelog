@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/heifwriter
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Heifwriter
 
 Encode an image or image collection in HEIF format using the available codecs on the Android device.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 04, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/heifwriter#1.1.0) | [1.2.0-rc02](https://developer.android.com/jetpack/androidx/releases/heifwriter#1.2.0-rc02) | - | - |
+| November 18, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/heifwriter.md.txt#1.2.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -25,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.heifwriter:heifwriter:1.2.0-rc02"
+    implementation "androidx.heifwriter:heifwriter:1.2.0"
 }
 ```
 
@@ -33,7 +35,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.heifwriter:heifwriter:1.2.0-rc02")
+    implementation("androidx.heifwriter:heifwriter:1.2.0")
 }
 ```
 
@@ -51,6 +53,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.2
+
+### Version 1.2.0
+
+November 18, 2026
+
+`androidx.heifwriter:heifwriter:1.2.0` is released. Version 1.2.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/db5d2549d20116296d94d445a129a8b5dab5380b..0860262691356c5e8e7dda2c7d1ac2ff3fca6464/heifwriter/heifwriter).
 
 ### Version 1.2.0-rc02
 

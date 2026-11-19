@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/xr-projected
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # XR Projected
 
 Build experiences that leverage the unique capabilities of connected XR devices.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha14) |
+| November 18, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-projected.md.txt#1.0.0-alpha15) |
 
 ## Declaring dependencies
 
@@ -26,7 +28,7 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement xr projecteds
-    implementation "androidx.xr.projected:projected:1.0.0-alpha14"
+    implementation "androidx.xr.projected:projected:1.0.0-alpha15"
 }
 ```
 
@@ -35,20 +37,20 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement xr projecteds
-    implementation("androidx.xr.projected:projected:1.0.0-alpha14")
+    implementation("androidx.xr.projected:projected:1.0.0-alpha15")
 
     // Use to implement xr projected complications
-    implementation "androidx.xr.projected:projected-complications-data-source:1.0.0-alpha14"
+    implementation "androidx.xr.projected:projected-complications-data-source:1.0.0-alpha15"
     // (Kotlin-specific extensions)
-    implementation "androidx.xr.projected:projected-complications-data-source-ktx:1.0.0-alpha14"
+    implementation "androidx.xr.projected:projected-complications-data-source-ktx:1.0.0-alpha15"
 
     // Use to implement a projected style and complication editor
-    implementation("androidx.xr.projected:projected-editor:1.0.0-alpha14")
+    implementation("androidx.xr.projected:projected-editor:1.0.0-alpha15")
 
     // Can use to render complications.
     // This library is optional and projecteds may have custom implementation for rendering
     // complications.
-    implementation "androidx.xr.projected:projected-complications-rendering:1.0.0-alpha14"
+    implementation "androidx.xr.projected:projected-complications-rendering:1.0.0-alpha15"
 }
 ```
 
@@ -68,6 +70,17 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha15
+
+November 18, 2026
+
+`androidx.xr.projected:projected:1.0.0-alpha15`, `androidx.xr.projected:projected-binding:1.0.0-alpha15`, and `androidx.xr.projected:projected-testing:1.0.0-alpha15` are released. Version 1.0.0-alpha15 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9f20ae7f616b35211519055147abb6764f5f07df..80754c2dae3e8c65a9b7579c45e56f0e47e38640/xr/projected).
+
+**Bug Fixes**
+
+- Prioritized active and most recent `VirtualDevice` objects in `ProjectedContext.getProjectedDeviceId()` to prevent selecting stale device entries. ([I6ca071](https://android-review.googlesource.com/q/I6ca07123e4c9b6b086765ae535951885bb1a91a6))
+- Caught `IllegalArgumentException` in `ProjectedContext.createProjectedDeviceContext()` and wrapped it in an `IllegalStateException` to better handle scenarios where the projected device is no longer valid. ([I4e451b](https://android-review.googlesource.com/q/I4e451b621721bea349d8f4e9f81a869c86dfa6fe))
 
 ### Version 1.0.0-alpha14
 

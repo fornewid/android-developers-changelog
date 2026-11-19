@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/build-intelligent-android-apps-int
 source: md.txt
 ---
 
-[How-tos](https://developer.android.com/blog/categories/how-tos)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
 # Build intelligent Android apps: Integrate into Android's intelligence system using AppFunctions
 
-6 min read ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZRbYap.webp) 21 Jul 2026 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) Developer Relations Engineer Welcome back to the blog post series "[Build intelligent Android apps](http://android-developers.googleblog.com/2026/07/build-intelligent-android-apps-introduction-jetpack.html)" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our [previous post](http://android-developers.googleblog.com/2026/07/build-intelligent-android-apps-cloud-hybrid-inference.html), we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
+6 min read ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZRbYap.webp) 21 Jul 2026 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss.md.txt) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt) Developer Relations Engineer Welcome back to the blog post series "[Build intelligent Android apps](http://android-developers.googleblog.com/2026/07/build-intelligent-android-apps-introduction-jetpack.html)" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our [previous post](http://android-developers.googleblog.com/2026/07/build-intelligent-android-apps-cloud-hybrid-inference.html), we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
 
 Traditional mobile UIs excel at focused, hands-on tasks, and the Android intelligence system is introducing complementary features to make complex, multi-step actions even easier. By supplementing traditional user interfaces, AppFunctions provide a powerful new entry point: A privileged agent on the device can access app features in the background. This can be particularly helpful when users are driving, walking or otherwise multitasking.
 
@@ -28,7 +30,7 @@ Finally, we focused on hands-free note capturing. Typing out reminders or notes 
 
 This entire experience is built on Android MCP. Under this design, the app acts as a local MCP server. Rather than remote APIs, you provide your app features directly to the on-device intelligence system.  
 
-[Android AppFunctions](https://developer.android.com/ai/appfunctions) is the API that brings this concept to life. It reads annotated Kotlin functions and compiles them into type-safe, sandboxed tool definitions that the privileged agent can discover and invoke locally on the device.
+[Android AppFunctions](https://developer.android.com/ai/appfunctions.md.txt) is the API that brings this concept to life. It reads annotated Kotlin functions and compiles them into type-safe, sandboxed tool definitions that the privileged agent can discover and invoke locally on the device.
 ![Android MCP diagram.png](https://developer.android.com/static/blog/assets/Android_MCP_diagram_4d09483a18_12sfEQ.webp) Diagram highlighting our apps, the android platform, and system agents coordinate AppFunctions.
 
 Under the Android MCP model, your app acts as a local MCP server that exposes structured tools, while the Android platform serves as the central tool registry. On the MCP client side, agent apps are registered with the intelligence system after being granted system-privileged permissions to access the registry.
@@ -142,10 +144,10 @@ Contributing app features through AppFunctions makes your application ready for 
 ## Learn more
 
 Check out the other parts of this blog post series:  
-[**Part 1:**](http://android-developers.googleblog.com/2026/07/build-intelligent-android-apps-introduction-jetpack.html) Introduction of the app and a high-level overview.  
-[**Part 2:**](http://android-developers.googleblog.com/2026/07/android-on-device-inference.html) On-device intelligence. Deep-dive into ML Kit's GenAI APIs and Gemini Nano to build privacy-first features like itinerary summarization, receipt parsing, and local audio processing.  
-[**Part 3:**](http://android-developers.googleblog.com/2026/07/build-intelligent-android-apps-cloud-hybrid-inference.html) Hybrid and cloud reasoning. Explore how to use Firebase AI Logic to ground LLM answers in real-world data like Google Maps and web context.  
-[**Part 4 (this post!):**](http://android-developers.googleblog.com/2026/07/build-intelligent-android-apps-appfunctions.html) System integration. Integrating with the Android intelligence system using AppFunctions.  
+[**Part 1:**](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker.md.txt) Introduction of the app and a high-level overview.  
+[**Part 2:**](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference.md.txt) On-device intelligence. Deep-dive into ML Kit's GenAI APIs and Gemini Nano to build privacy-first features like itinerary summarization, receipt parsing, and local audio processing.  
+[**Part 3:**](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference.md.txt) Hybrid and cloud reasoning. Explore how to use Firebase AI Logic to ground LLM answers in real-world data like Google Maps and web context.  
+[**Part 4 (this post!):**](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions.md.txt) System integration. Integrating with the Android intelligence system using AppFunctions.  
 Part 5 (coming soon): In-app agentic workflows. Extend the app with an end-to-end booking assistant powered by A2UI and ADK.
 
 Interested in more on Android Development? Follow Android Developers on [YouTube](https://www.youtube.com/@AndroidDevelopers) or [LinkedIn](https://www.linkedin.com/showcase/androiddev/)!
@@ -156,39 +158,39 @@ All code snippets in this blog post follow the following copyright notice:
 Copyright 2026 Google LLC.
 SPDX-License-Identifier: Apache-2.0
 ```
-- [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+- [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
 Written by:
 
 -
 
-  ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss)
+  ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)
 Continue reading
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
+  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
-  [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
+- 3 Authors 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_28oUwB.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
+  ## [Build intelligent Android apps: Cloud and hybrid inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
-  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- 3 Authors 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_28oUwB.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience.
+  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan.md.txt), [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt), [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt) • 8 min read
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
+- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang.md.txt) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Build intelligent Android apps: Cloud and hybrid inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference)
+  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience.
-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 8 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
+  [Caren Chang](https://developer.android.com/blog/authors/caren-chang.md.txt) • 6 min read
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
 Stay in the loop
 
 

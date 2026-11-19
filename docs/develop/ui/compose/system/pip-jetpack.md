@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/system/pip-jetpack
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/llms.txt
+
 The [Picture-in-Picture (PiP) Jetpack Library](https://developer.android.com/jetpack/androidx/releases/core.md.txt#core-pip-1.0.0-alpha) offers a streamlined and
 robust solution for Android app developers to implement PiP functionality,
 particularly for media playback, video communication, and navigation apps. By
@@ -52,9 +54,9 @@ Add the required dependencies to `build.gradle`:
 
 ```xml
 dependencies {
-implementation("androidx.core:core:1.18.0")
+implementation("androidx.core:core:1.19.1")
 implementation("androidx.activity:activity:1.13.0")
-implementation("androidx.core:core-pip:1.0.0-alpha02") }
+implementation("androidx.core:core-pip:1.0.0-alpha04") }
 ```
 
 Use the latest AndroidX libraries for the dependencies and refer to the

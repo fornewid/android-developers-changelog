@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/enterprise
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Enterprise
 
 [User Guide](https://developer.android.com/work/overview) [Code Sample](https://github.com/android/enterprise-samples) Create enterprise-ready applications.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 04, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/enterprise#1.1.0) | - | - | [1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/enterprise#1.2.0-alpha01) |
+| November 18, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/enterprise.md.txt#1.1.0) | - | [1.2.0-beta01](https://developer.android.com/jetpack/androidx/releases/enterprise.md.txt#1.2.0-beta01) | - |
 
 ## Declaring dependencies
 
@@ -61,6 +63,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.2
+
+### Version 1.2.0-beta01
+
+November 18, 2026
+
+`androidx.enterprise:enterprise-feedback:1.2.0-beta01` and `androidx.enterprise:enterprise-feedback-testing:1.2.0-beta01` are released. Version 1.2.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9c8961185ed7c431b9e78870acb3393f8f27cd1e..3e55c1ad889c6c0087b0bf6720b1a970b6e8ea3b/enterprise).
 
 ### Version 1.2.0-alpha01
 
@@ -165,7 +173,7 @@ September 18, 2019
 `androidx.enterprise:enterprise-feedback:1.0.0-beta01` and `androidx.enterprise:enterprise-feedback-testing:1.0.0-beta01` are released with no changes since `1.0.0-alpha03`. [Version 1.0.0-beta01 contains these commits](https://android.googlesource.com/platform/frameworks/support/+log/254b8b88f073fddd0c1e30b0f9e9893cbf27f4b5..64f11e5722d8a574ccb72bfb042fa89f51129c68/enterprise).
 
 > [!NOTE]
-> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt) to learn how to use it in your project.
 
 ### Version 1.0.0-alpha03
 
@@ -174,7 +182,7 @@ August 7, 2019
 `androidx.enterprise:enterprise-feedback:1.0.0-alpha03` and `androidx.enterprise:enterprise-feedback-testing:1.0.0-alpha03` are released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/9af0336e86be3d32abf5194cd7208e6bcc8ad693..254b8b88f073fddd0c1e30b0f9e9893cbf27f4b5/enterprise).
 
 > [!NOTE]
-> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt) to learn how to use it in your project.
 
 **API changes**
 

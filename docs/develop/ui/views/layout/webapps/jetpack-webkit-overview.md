@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/views/layout/webapps/jetpack-webki
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/views/layout/webapps/llms.txt
+
 This guide describes the benefits of the Jetpack Webkit library, explains how it
 works, and how you can implement it in your projects.
 
@@ -29,21 +31,21 @@ functionality:
 - **Enables modern authentication** : WebView can seamlessly handle modern web
   authentication standards like [WebAuthn](https://webauthn.guide), enabling passkey-based sign-ins.
   The `androidx.webkit` library gives you full control over this integration
-  using the [`WebSettingsCompat.setWebAuthenticationSupport`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#setWebAuthenticationSupport(android.webkit.WebSettings,int)) method, which
+  using the [`WebSettingsCompat.setWebAuthenticationSupport`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat.md.txt#setWebAuthenticationSupport(android.webkit.WebSettings,int)) method, which
   you can use to configure the level of support your app requires.
 
 - **Improves performance** : Fine-tune WebView's performance using APIs such
-  as [`setBackForwardCacheEnabled`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#setBackForwardCacheEnabled(android.webkit.WebSettings,boolean)), or reduce navigation latency using
-  speculative loading APIs such as [`prefetchUrlAsync`](https://developer.android.com/reference/androidx/webkit/Profile#prefetchUrlAsync(java.lang.String,android.os.CancellationSignal,java.util.concurrent.Executor,androidx.core.os.OutcomeReceiverCompat%3Cjava.lang.Void,androidx.webkit.PrefetchException%3E)) and
-  [`prerenderUrlAsync`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#prerenderUrlAsync(android.webkit.WebView,java.lang.String,android.os.CancellationSignal,java.util.concurrent.Executor,androidx.webkit.PrerenderOperationCallback)). For more information, see [Speculative loading in
+  as [`setBackForwardCacheEnabled`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat.md.txt#setBackForwardCacheEnabled(android.webkit.WebSettings,boolean)), or reduce navigation latency using
+  speculative loading APIs such as [`prefetchUrlAsync`](https://developer.android.com/reference/androidx/webkit/Profile.md.txt#prefetchUrlAsync(java.lang.String,android.os.CancellationSignal,java.util.concurrent.Executor,androidx.core.os.OutcomeReceiverCompat%3Cjava.lang.Void,androidx.webkit.PrefetchException%3E)) and
+  [`prerenderUrlAsync`](https://developer.android.com/reference/androidx/webkit/WebViewCompat.md.txt#prerenderUrlAsync(android.webkit.WebView,java.lang.String,android.os.CancellationSignal,java.util.concurrent.Executor,androidx.webkit.PrerenderOperationCallback)). For more information, see [Speculative loading in
   WebView](https://developer.android.com/develop/ui/views/layout/webapps/speculative-loading).
 
 - **Increases stability** : Recover stalled or unresponsive renderer processes
   without crashing. For more information, see
-  [`WebViewRenderProcess#terminate`](https://developer.android.com/reference/androidx/webkit/WebViewRenderProcess#terminate()).
+  [`WebViewRenderProcess#terminate`](https://developer.android.com/reference/androidx/webkit/WebViewRenderProcess.md.txt#terminate()).
 
 - **Offers granular control over browsing data** : To delete browsing data stored
-  by WebView for specific origins, use the [`WebStorageCompat`](https://developer.android.com/reference/kotlin/androidx/webkit/WebStorageCompat) class.
+  by WebView for specific origins, use the [`WebStorageCompat`](https://developer.android.com/reference/kotlin/androidx/webkit/WebStorageCompat.md.txt) class.
 
 - **Provides enhanced page navigation** : Replace `WebView.loadUrl` with
   `WebViewCompat.navigate` for fine-grained navigation control, history entry
@@ -53,7 +55,7 @@ functionality:
 
 - **Optimizes state management** : Protect against `TransactionTooLargeException`
   by setting maximum byte limits during state serialization. For more
-  information, see [Manage WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state).
+  information, see [Manage WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state.md.txt).
 
 ## Understand the components
 
@@ -70,7 +72,7 @@ the following components:
   the APIs that were available when that version was released. So, it can't use
   new features added to the WebView APK in more recent updates. For example, to
   get a handle on an unresponsive renderer with
-  [`WebView#getWebViewRenderProcess()`](https://developer.android.com/reference/android/webkit/WebView#getWebViewRenderProcess()), you can only call this on Android 10
+  [`WebView#getWebViewRenderProcess()`](https://developer.android.com/reference/android/webkit/WebView.md.txt#getWebViewRenderProcess()), you can only call this on Android 10
   and higher.
 
 - **Jetpack Webkit Library (`androidx.webkit`)** : This is a small library
@@ -79,7 +81,7 @@ the following components:
   platform, which has a fixed OS version. This way, even when an application is
   installed on a device running an older OS version like Android 10, the
   application can use the latest WebView features. For example,
-  [`WebViewCompat.getWebViewRenderProcess()`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#getWebViewRenderProcess(android.webkit.WebView)) works similar to the Framework
+  [`WebViewCompat.getWebViewRenderProcess()`](https://developer.android.com/reference/androidx/webkit/WebViewCompat.md.txt#getWebViewRenderProcess(android.webkit.WebView)) works similar to the Framework
   API, except this can also be called on all OS versions before Android 10.
 
 If an API is available in both the framework and Jetpack Webkit, we recommend
@@ -104,7 +106,7 @@ into APIs that that particular version of the WebView APK doesn't support.
 
 Jetpack Webkit also abstracts away the need to check WebView versions manually.
 To determine if a feature is available, check for its feature constant. For
-example, [`WebViewFeature.WEB_AUTHENTICATION`](https://developer.android.com/reference/androidx/webkit/WebViewFeature#WEB_AUTHENTICATION()).
+example, [`WebViewFeature.WEB_AUTHENTICATION`](https://developer.android.com/reference/androidx/webkit/WebViewFeature.md.txt#WEB_AUTHENTICATION()).
 
 ## How they work together
 
@@ -133,12 +135,14 @@ Not possible through framework APIs.
 
 Leverages `WebViewFeature.WEB_AUTHENTICATION` for compatibility checks.
 
-    if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_AUTHENTICATION)) {
-      WebSettingsCompat.setWebAuthenticationSupport(
-          webView.settings,
-          WebSettingsCompat.WEB_AUTHENTICATION_SUPPORT_FOR_APP
-      )
-    }
+```kotlin
+if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_AUTHENTICATION)) {
+  WebSettingsCompat.setWebAuthenticationSupport(
+      webView.settings,
+      WebSettingsCompat.WEB_AUTHENTICATION_SUPPORT_FOR_APP
+  )
+}
+```
 
 ### Delete data for an origin (site-specific storage)
 
@@ -151,11 +155,15 @@ No direct API to clear specific origin data. Often requires clearing all data.
 Uses compatibility APIs for precise data deletion. You can use either of the
 following options:
 
-    WebStorageCompat.getInstance().deleteBrowsingData()
+```kotlin
+WebStorageCompat.getInstance().deleteBrowsingData()
+```
 
 Or
 
-    WebStorageCompat.getInstance().deleteBrowsingDataForSite()
+```kotlin
+WebStorageCompat.getInstance().deleteBrowsingDataForSite()
+```
 
 ### Get WebView version
 
@@ -163,13 +171,17 @@ Or
 
 Uses the standard framework class.
 
-    val webViewPackage = WebView.getCurrentWebViewPackage()
+```kotlin
+val webViewPackage = WebView.getCurrentWebViewPackage()
+```
 
 **With Jetpack WebKit**
 
 Uses the compatibility layer for safer retrieval.
 
-    val webViewPackage = WebViewCompat.getCurrentWebViewPackage()
+```kotlin
+val webViewPackage = WebViewCompat.getCurrentWebViewPackage()
+```
 
 ### Handle unresponsive renderer (renderer client)
 
@@ -177,15 +189,19 @@ Uses the compatibility layer for safer retrieval.
 
 Uses the standard framework method.
 
-    webView.setWebViewRenderProcessClient(myClient)
+```kotlin
+webView.setWebViewRenderProcessClient(myClient)
+```
 
 **With Jetpack WebKit**
 
 Uses `WebViewCompat` and a feature check for setting the client.
 
-    if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE)) {
-      WebViewCompat.setWebViewRenderProcessClient(webView, myClient)
-    }
+```kotlin
+if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE)) {
+  WebViewCompat.setWebViewRenderProcessClient(webView, myClient)
+}
+```
 
 For guidance about implementing crash recovery strategies, see [Handle WebView
 termination](https://developer.android.com/develop/ui/views/layout/webapps/handle-termination). For API details, see [`androidx.webkit`
@@ -203,16 +219,20 @@ Uses the standard framework method, which serializes the entire navigation
 stack without size limits and can trigger `TransactionTooLargeException` if the
 payload exceeds Android's 1MB transaction limit.
 
-    webView.saveState(outState)
+```kotlin
+webView.saveState(outState)
+```
 
 **With Jetpack WebKit**
 
 Uses `WebViewCompat` to enforce a maximum byte limit or drop forward navigation
 entries, protecting against transaction overflows.
 
-    WebViewCompat.saveState(webView, outState, maxSizeBytes)
+```kotlin
+WebViewCompat.saveState(webView, outState, maxSizeBytes)
+```
 
-For more information, see [Manage WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state).
+For more information, see [Manage WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state.md.txt).
 
 ### Navigate pages and track lifecycle
 
@@ -225,31 +245,35 @@ instead of `WebView.loadUrl`.
 Uses `WebView.loadUrl`, which doesn't support history entry replacement or
 correlated lifecycle callback tracking.
 
-    webView.loadUrl("https://www.example.com")
+```kotlin
+webView.loadUrl("https://www.example.com")
+```
 
 **With Jetpack WebKit**
 
 Uses `WebViewCompat.navigate` with `NavigationParameters` to replace history
 entries, preserve custom headers in saved state, and track navigation states.
 
-    if (WebViewFeature.isFeatureSupported(WebViewFeature.WEBVIEW_NAVIGATE_EXPERIMENTAL_V1)) {
-      val params = NavigationParameters.Builder()
-          .setShouldReplaceCurrentEntry(true)
-          .build()
-      val navigation = WebViewCompat.navigate(webView, "https://www.example.com", params)
-    } else {
-      webView.loadUrl("https://www.example.com")
-    }
+```kotlin
+if (WebViewFeature.isFeatureSupported(WebViewFeature.WEBVIEW_NAVIGATE_EXPERIMENTAL_V1)) {
+  val params = NavigationParameters.Builder()
+      .setShouldReplaceCurrentEntry(true)
+      .build()
+  val navigation = WebViewCompat.navigate(webView, "https://www.example.com", params)
+} else {
+  webView.loadUrl("https://www.example.com")
+}
+```
 
 For more information about navigation tracking and parameter configuration, see
-[Enhanced page navigation with WebViewCompat.navigate](https://developer.android.com/develop/ui/views/layout/webapps/navigate).
+[Enhanced page navigation with WebViewCompat.navigate](https://developer.android.com/develop/ui/views/layout/webapps/navigate.md.txt).
 
 ## Integrate Jetpack Webkit into your code
 
 Using Jetpack Webkit augments the capabilities of the standard WebView class,
 but it doesn't entirely replace the original WebView class.
 
-You can continue to use the [`android.webkit.WebView`](https://developer.android.com/reference/android/webkit/WebView) class. You can add
+You can continue to use the [`android.webkit.WebView`](https://developer.android.com/reference/android/webkit/WebView.md.txt) class. You can add
 it to your XML layouts, and get a reference to the instance in your code. To
 access standard framework features, you can still call methods directly on the
 WebView instance or its settings object.
@@ -260,31 +284,35 @@ pass your existing WebView instance to these methods.
 
 ### Kotlin
 
-    import android.webkit.WebView
-    import androidx.webkit.WebSettingsCompat
-    import androidx.webkit.WebViewFeature
+```kotlin
+import android.webkit.WebView
+import androidx.webkit.WebSettingsCompat
+import androidx.webkit.WebViewFeature
 
-    // You still get your WebView instance the standard way.
-    val webView: WebView = findViewById(R.id.my_webview)
+// You still get your WebView instance the standard way.
+val webView: WebView = findViewById(R.id.my_webview)
 
-    // To enable a modern feature, you pass that instance to a Jetpack Webkit helper.
-    if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
-        WebSettingsCompat.setForceDark(webView.settings, WebSettingsCompat.FORCE_DARK_ON)
-    }
+// To enable a modern feature, you pass that instance to a Jetpack Webkit helper.
+if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+    WebSettingsCompat.setForceDark(webView.settings, WebSettingsCompat.FORCE_DARK_ON)
+}
+```
 
 ### Java
 
-    import android.webkit.WebView;
-    import androidx.webkit.WebSettingsCompat;
-    import androidx.webkit.WebViewFeature;
+```java
+import android.webkit.WebView;
+import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewFeature;
 
-    // You still get your WebView instance the standard way.
-    WebView webView = findViewById(R.id.my_webview);
+// You still get your WebView instance the standard way.
+WebView webView = findViewById(R.id.my_webview);
 
-    // To enable a modern feature, you pass that instance to a Jetpack Webkit helper.
-    if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
-        WebSettingsCompat.setForceDark(webView.settings, WebSettingsCompat.FORCE_DARK_ON);
-    }
+// To enable a modern feature, you pass that instance to a Jetpack Webkit helper.
+if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+    WebSettingsCompat.setForceDark(webView.settings, WebSettingsCompat.FORCE_DARK_ON);
+}
+```
 
 ## Implement Jetpack Webkit
 
@@ -324,37 +352,41 @@ We recommend the following pattern for using a modern WebView API:
 
 ### Kotlin
 
-    import android.webkit.WebView
-    import androidx.webkit.WebSettingsCompat
-    import androidx.webkit.WebViewFeature
+```kotlin
+import android.webkit.WebView
+import androidx.webkit.WebSettingsCompat
+import androidx.webkit.WebViewFeature
 
-    val webView: WebView = findViewById(R.id.my_webview)
+val webView: WebView = findViewById(R.id.my_webview)
 
-    // Before you use a modern API, first check if it is supported.
-    if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
-        // If the check passes, it is safe to call the API.
-        WebSettingsCompat.setForceDark(webView.settings, WebSettingsCompat.FORCE_DARK_ON)
-    } else {
-        // Optionally, provide a fallback for older WebView versions.
-    }
+// Before you use a modern API, first check if it is supported.
+if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+    // If the check passes, it is safe to call the API.
+    WebSettingsCompat.setForceDark(webView.settings, WebSettingsCompat.FORCE_DARK_ON)
+} else {
+    // Optionally, provide a fallback for older WebView versions.
+}
+```
 
 ### Java
 
-    import android.webkit.WebView;
-    import androidx.webkit.WebSettingsCompat;
-    import androidx.webkit.WebViewFeature;
+```java
+import android.webkit.WebView;
+import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewFeature;
 
-    WebView webView = findViewById(R.id.my_webview);
+WebView webView = findViewById(R.id.my_webview);
 
-    // Before you use a modern API, first check if it is supported.
-    if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
-        // If the check passes, it is safe to call the API.
-        WebSettingsCompat.setForceDark(webView.getSettings(), WebSettingsCompat.FORCE_DARK_ON);
-    } else {
-        // Optionally, provide a fallback for older WebView versions.
-    }
+// Before you use a modern API, first check if it is supported.
+if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+    // If the check passes, it is safe to call the API.
+    WebSettingsCompat.setForceDark(webView.getSettings(), WebSettingsCompat.FORCE_DARK_ON);
+} else {
+    // Optionally, provide a fallback for older WebView versions.
+}
+```
 
 This pattern helps ensure the application is robust. Because the feature check
 runs first, the application doesn't crash if the feature isn't available. The
-performance overhead of the [`WebViewFeature#isFeatureSupported`](https://developer.android.com/reference/androidx/webkit/WebViewFeature#isFeatureSupported(java.lang.String)) check is
+performance overhead of the [`WebViewFeature#isFeatureSupported`](https://developer.android.com/reference/androidx/webkit/WebViewFeature.md.txt#isFeatureSupported(java.lang.String)) check is
 negligible.

@@ -4,6 +4,8 @@ url: https://developer.android.com/kotlin/multiplatform/sqlite
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/kotlin/multiplatform/llms.txt
+
 The `androidx.sqlite` library contains abstract interfaces along with basic
 implementations which can be used to build your own libraries that access
 SQLite. You might want to consider using the [Room](https://developer.android.com/kotlin/multiplatform/room.md.txt) library, which provides

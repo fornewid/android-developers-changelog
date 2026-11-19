@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/glance-wear
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Glance Wear
 
 Glance Wear is a library for building Widgets for Wear OS
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 04, 2026 | - | - | - | [1.0.0-alpha22](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha22) |
+| November 18, 2026 | - | - | - | [1.0.0-alpha23](https://developer.android.com/jetpack/androidx/releases/glance-wear.md.txt#1.0.0-alpha23) |
 
 ## Declaring dependencies
 
@@ -25,9 +27,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.glance.wear:wear:1.0.0-alpha22"
+    implementation "androidx.glance.wear:wear:1.0.0-alpha23"
 
-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha22"
+    implementation "androidx.glance.wear:wear-core:1.0.0-alpha23"
 }
 ```
 
@@ -35,9 +37,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.glance.wear:wear:1.0.0-alpha22")
+    implementation("androidx.glance.wear:wear:1.0.0-alpha23")
 
-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha22")
+    implementation("androidx.glance.wear:wear-core:1.0.0-alpha23")
 }
 ```
 
@@ -57,6 +59,20 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Glance Wear Version 1.0
+
+### Version 1.0.0-alpha23
+
+November 18, 2026
+
+`androidx.glance.wear:wear:1.0.0-alpha23`, `androidx.glance.wear:wear-core:1.0.0-alpha23`, and `androidx.glance.wear:wear-tooling-preview:1.0.0-alpha23` are released. Version 1.0.0-alpha23 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a021adf44194ae86e596ae25ca43d5e4e18f6926..fada7ec3895a502f299e1c8e230423bcc9b37f16/glance/wear).
+
+**Additional changes**
+
+- Updated the default squircle widget preview container specs ([I4bef6](https://android-review.googlesource.com/#/q/I4bef61b36630db52d6178e0783be9ee6d1612555)):
+  - Height updated to 64dp (small) and 124dp (large)
+  - Corner Radius updated to 32dp
+  - Safe inner padding updated to 10dp
+- Added Lint check to ensure Wear widget configuration activities include the required `PROVIDER_CONFIG` category in their `<intent-filter>`. ([Id30a6](https://android-review.googlesource.com/#/q/Id30a61c2df3d8d332407cefe0ae86adad9550dad))
 
 ### Version 1.0.0-alpha22
 

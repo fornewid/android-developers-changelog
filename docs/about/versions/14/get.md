@@ -4,13 +4,15 @@ url: https://developer.android.com/about/versions/14/get
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/about/versions/14/llms.txt
+
 ![](https://developer.android.com/static/images/lockups/android-stacked.svg)
 
 You can get Android 14 in any of the following ways:
 
-- [Get Android 14 on a Google Pixel device](https://developer.android.com/about/versions/14/get#on_pixel)
-- [Set up the Android Emulator](https://developer.android.com/about/versions/14/get#on_emulator)
-- [Get a generic system image (GSI)](https://developer.android.com/about/versions/14/get#on_gsi)
+- [Get Android 14 on a Google Pixel device](https://developer.android.com/about/versions/14/get.md.txt#on_pixel)
+- [Set up the Android Emulator](https://developer.android.com/about/versions/14/get.md.txt#on_emulator)
+- [Get a generic system image (GSI)](https://developer.android.com/about/versions/14/get.md.txt#on_gsi)
 
 ## Get Android 14 on a Google Pixel device
 
@@ -57,8 +59,8 @@ sizes and device characteristics.
 Depending on the type of testing you need to do, consider setting up a variety
 of virtual devices from these device categories:
 
-- [Phone](https://developer.android.com/about/versions/14/get#phone-avd)
-- [Tablet or large-screen device](https://developer.android.com/about/versions/14/get#large-screen-avd)
+- [Phone](https://developer.android.com/about/versions/14/get.md.txt#phone-avd)
+- [Tablet or large-screen device](https://developer.android.com/about/versions/14/get.md.txt#large-screen-avd)
 
 ### Set up a virtual device (phone)
 
@@ -70,7 +72,7 @@ To set up a virtual device to emulate a typical phone, follow these steps:
 4. In Android Studio, click **Tools \> AVD Manager**, and follow the
    instructions to create a new Android Virtual Device (AVD).
 
-   Be sure to select a device definition for a [supported Pixel device](https://developer.android.com/about/versions/14/get#on_pixel) and
+   Be sure to select a device definition for a [supported Pixel device](https://developer.android.com/about/versions/14/get.md.txt#on_pixel) and
    a 64-bit Android 14 emulator system image. If you don't already have an
    Android 14 system image installed that matches your device definition, click
    **Download** next to the **Release Name** to get it.
@@ -88,7 +90,8 @@ follow these steps:
 4. In Android Studio, click **Tools \> Device Manager** , then click **Create
    device** in the **Device Manager** panel.
 
-   ![](https://developer.android.com/static/images/about/versions/14/14-create-avd.png)
+   ![Create an Android Virtual Device in Android
+   Studio](https://developer.android.com/static/images/about/versions/14/14-create-avd.png)
 5. Select a device definition with a large screen, such as the **Pixel C** in
    the **Tablet** category or the **7.6" Fold-in with outer display** in the
    **Phone** category, then click **Next**.
@@ -101,7 +104,8 @@ follow these steps:
 
 8. After returning to the list of virtual devices in the Device Manager, find
    your Android 14 virtual device and click **Launch**
-   ![](https://developer.android.com/static/images/about/versions/14/14-launch-avd-icon.png) to
+   ![Launch button
+   icon](https://developer.android.com/static/images/about/versions/14/14-launch-avd-icon.png) to
    start it.
 
 Repeat these steps to create large screen device definitions that you can use to
@@ -126,14 +130,14 @@ category.
 
 ## Get a generic system image (GSI)
 
-Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image) binaries are available to developers
+Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image.md.txt) binaries are available to developers
 for app testing and validation purposes on supported Treble-compliant devices.
 You can use these images to address any compatibility issues as well as discover
 and report OS and framework issues.
 
-See the [GSI documentation](https://developer.android.com/topic/generic-system-image) for device requirements, flashing instructions,
+See the [GSI documentation](https://developer.android.com/topic/generic-system-image.md.txt) for device requirements, flashing instructions,
 and information on choosing the right image type for your device. Once you're
-ready to download a GSI binary, see the [Downloads section](https://developer.android.com/topic/generic-system-image/releases#android-gsi-14) on the GSI
+ready to download a GSI binary, see the [Downloads section](https://developer.android.com/topic/generic-system-image/releases.md.txt#android-gsi-14) on the GSI
 binaries page.
 
 
@@ -142,8 +146,8 @@ binaries page.
 To learn about which changes might affect you, and to learn how to test these
 changes in your app, read the following topics:
 
-- [Behavior changes that affect all apps](https://developer.android.com/about/versions/14/behavior-changes-all)
-- [Behavior changes that affect only apps that target Android 14](https://developer.android.com/about/versions/14/behavior-changes-14)
+- [Behavior changes that affect all apps](https://developer.android.com/about/versions/14/behavior-changes-all.md.txt)
+- [Behavior changes that affect only apps that target Android 14](https://developer.android.com/about/versions/14/behavior-changes-14.md.txt)
 
 To learn more about new APIs and features available in Android 14, read [Android
 14 features](https://developer.android.com/about/versions/14/features).

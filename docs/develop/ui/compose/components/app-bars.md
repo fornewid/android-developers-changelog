@@ -4,7 +4,9 @@ url: https://developer.android.com/develop/ui/compose/components/app-bars
 source: md.txt
 ---
 
-App bars are containers that provide the user access to key features and
+> Documentation index: https://developer.android.com/develop/ui/compose/components/llms.txt
+
+[App bars](https://m3.material.io/components/app-bars/guidelines#6423b736-55a9-42ba-85f1-b842329f1d54) are containers that provide the user access to key features and
 navigation items. There are two types of app bars, top app bars and bottom app
 bars. Their respective appearance and purpose are as follows:
 
@@ -287,12 +289,235 @@ fun LargeTopAppBarExample() {
 This implementation appears as follows:
 ![A large top app bar with a back arrow and a menu icon, and the title 'Large Top App Bar' below them, above a list of items.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_largetopappbar.png) **Figure 5.** An example implementation of a large top app bar.
 
+### M3 Expressive update
+
+The new **medium flexible** and **large flexible** app bars come with
+significant improvements, like flexible heights, multi-line support, and
+centered text. They can also contain a wider variety of elements, such as
+images. The medium flexible and large flexible app bars are recommended over
+the [medium](https://developer.android.com/develop/ui/compose/components/app-bars.md.txt#medium) and [large](https://developer.android.com/develop/ui/compose/components/app-bars.md.txt#large) app bars.
+The [small](https://developer.android.com/develop/ui/compose/components/app-bars.md.txt#small) app bar has been updated with the same flexible
+improvements.
+![Top app bars with expressive styles.](https://developer.android.com/static/develop/ui/compose/images/components/top_app_bar_expressive_update.png) **Figure 6.** M3 Expressive top app bar variations.
+
+For more information about the M3 Expressive updates for app bars, see the
+[Material Design 3 App bars guidelines](https://m3.material.io/components/app-bars/guidelines#6423b736-55a9-42ba-85f1-b842329f1d54).
+
+#### Center and left alignment
+
+| Small | ![Light theme center-aligned top app bar with subtitle](https://developer.android.com/static/develop/ui/compose/images/components/centerAlignedAppBar_withSubtitle_lightTheme.png) |
+| Small |
+|---|---|
+| ![Dark theme top app bar](https://developer.android.com/static/develop/ui/compose/images/components/smallAppBar_darkTheme.png) |
+| ![Dark theme medium top app bar](https://developer.android.com/static/develop/ui/compose/images/components/mediumAppBar_darkTheme.png) |
+| ![Dark theme large top app bar](https://developer.android.com/static/develop/ui/compose/images/components/largeAppBar_darkTheme.png) |
+
+Small, medium flexible, and large flexible headlines can be aligned to the
+leading edge or centered.
+
+The following snippet demonstrates how to implement a center-aligned top app bar
+with a subtitle:
+
+
+```kotlin
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SimpleCenterAlignedTopAppBarWithSubtitle() {
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
+    Scaffold(
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        topBar = {
+            TopAppBar(
+                title = { Text("Simple TopAppBar", maxLines = 1, overflow = TextOverflow.Ellipsis) },
+                subtitle = { Text("Subtitle", maxLines = 1, overflow = TextOverflow.Ellipsis) },
+                titleHorizontalAlignment = Alignment.CenterHorizontally,
+                navigationIcon = {
+                    IconButton(onClick = { /* onBackClick() */ }) {
+                        Icon(
+                            painter = rememberVectorPainter(AppIcons.ArrowBack),
+                            contentDescription = "Localized description",
+                        )
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { /* doSomething() */ }) {
+                        Icon(painter = rememberVectorPainter(AppIcons.Favorite), contentDescription = "Localized description")
+                    }
+                },
+                scrollBehavior = scrollBehavior,
+            )
+        },
+        content = { innerPadding ->
+            // ...
+        },
+    )
+}
+```
+![A center-aligned top app bar with a back arrow, the title 'Simple TopAppBar', the subtitle 'Subtitle', and a favorite icon, above a list of items.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_expressive_components_centeralignedtopappbarwithsubtitle.png) An example implementation of a center-aligned top app bar with a subtitle.
+
+<br />
+
+#### Scroll behavior
+
+### Enter always
+
+When the user scrolls down through the content (pulling the content up), the
+app bar collapses immediately. When the user scrolls back up (pulling the
+content down), the app bar expands immediately, regardless of where the user
+is in the scrollable content list.
+
+The following snippet demonstrates how to implement a top app bar with
+enter-always scroll behavior:
+
+
+```kotlin
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun EnterAlwaysTopAppBar() {
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    Scaffold(
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        topBar = {
+            TopAppBar(
+                title = { Text("TopAppBar", maxLines = 1, overflow = TextOverflow.Ellipsis) },
+                subtitle = { Text("Subtitle", maxLines = 1, overflow = TextOverflow.Ellipsis) },
+                navigationIcon = {
+                    IconButton(onClick = { /* onBackClick() */ }) {
+                        Icon(
+                            painter = rememberVectorPainter(AppIcons.ArrowBack),
+                            contentDescription = "Localized description",
+                        )
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { /* doSomething() */ }) {
+                        Icon(painter = rememberVectorPainter(AppIcons.Favorite), contentDescription = "Localized description")
+                    }
+                },
+                scrollBehavior = scrollBehavior,
+            )
+        },
+        content = { innerPadding ->
+            // ...
+        },
+    )
+}
+```
+![A top app bar with a back arrow, the title 'TopAppBar', the subtitle 'Subtitle', and a favorite icon, above a list of items.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_expressive_components_alwaysentertopappbar.png)
+
+<br />
+
+The following video shows the result of the preceding snippet:
+**Figure 7.** A top app bar with enter-always scroll behavior that collapses as the user scrolls down and expands as the user scrolls up.
+
+### Exit until collapsed
+
+When the user scrolls down through the content (pulling the content up),
+medium and large flexible app bars collapse until only the collapsed app bar
+remains visible. When the user scrolls back up (pulling the content down),
+the app bar remains collapsed until the user reaches the top of the content,
+at which point the app bar expands back to its full height, centered with
+its subtitle.
+
+**Medium flexible**
+
+The following snippet demonstrates how to implement a medium flexible top
+app bar with exit-until-collapsed scroll behavior:
+
+
+```kotlin
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ExitUntilCollapsedCenterAlignedMediumFlexibleTopAppBar() {
+    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
+    Scaffold(
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        topBar = {
+            MediumFlexibleTopAppBar(
+                title = { Text("Medium TopAppBar", maxLines = 1, overflow = TextOverflow.Ellipsis) },
+                subtitle = { Text("Subtitle", maxLines = 1, overflow = TextOverflow.Ellipsis) },
+                titleHorizontalAlignment = Alignment.CenterHorizontally,
+                navigationIcon = {
+                    IconButton(onClick = { /* onBackClick() */ }) {
+                        Icon(
+                            painter = rememberVectorPainter(AppIcons.ArrowBack),
+                            contentDescription = "Localized description",
+                        )
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { /* doSomething() */ }) {
+                        Icon(painter = rememberVectorPainter(AppIcons.Favorite), contentDescription = "Localized description")
+                    }
+                },
+                scrollBehavior = scrollBehavior,
+            )
+        },
+        content = { innerPadding ->
+            // ...
+        },
+    )
+}
+```
+![A medium flexible top app bar with a back arrow, a favorite icon, and the centered title 'Medium TopAppBar' and subtitle 'Subtitle' below them, above a list of items.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_expressive_components_exituntilcollapsedtopappbar.png)
+
+<br />
+
+The following video shows the result of the preceding snippet:
+**Figure 8.** A medium-sized, center-aligned top app bar that collapses as the user scrolls down.
+
+**Large flexible**
+
+The following snippet demonstrates how to implement a large flexible top app
+bar with exit-until-collapsed scroll behavior:
+
+
+```kotlin
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ExitUntilCollapsedCenterAlignedLargeFlexibleTopAppBar() {
+    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
+    Scaffold(
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        topBar = {
+            LargeFlexibleTopAppBar(
+                title = { Text("Large TopAppBar", maxLines = 1, overflow = TextOverflow.Ellipsis) },
+                subtitle = { Text("Subtitle", maxLines = 1, overflow = TextOverflow.Ellipsis) },
+                titleHorizontalAlignment = Alignment.CenterHorizontally,
+                navigationIcon = {
+                    IconButton(onClick = { /* onBackClick() */ }) {
+                        Icon(
+                            painter = rememberVectorPainter(AppIcons.ArrowBack),
+                            contentDescription = "Localized description",
+                        )
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { /* doSomething() */ }) {
+                        Icon(painter = rememberVectorPainter(AppIcons.Favorite), contentDescription = "Localized description")
+                    }
+                },
+                scrollBehavior = scrollBehavior,
+            )
+        },
+        content = { innerPadding ->
+            // ...
+        },
+    )
+}
+```
+![A large flexible top app bar with a back arrow, a favorite icon, and the centered title 'Large TopAppBar' and subtitle 'Subtitle' below them, above a list of items.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_expressive_components_exituntilcollapsedlargetopappbar.png)
+
+<br />
+
+The following video shows the result of the preceding snippet:
+**Figure 9.** A large, center-aligned top app bar that collapses as the user scrolls down.
+
 ## Bottom app bar
 
 To create a bottom app bar, use the `BottomAppBar` composable. Using this
-composable is quite similar to the top app bar composables described in the
-preceding sections of this page. You pass composables for the following key
-parameters:
+composable is similar to the top app bar composables described in the preceding
+sections of this page. You pass composables for the following key parameters:
 
 - `actions`: A series of icons that appear on the left side of the bar. These are commonly either key actions for the given screen, or navigation items.
 - `floatingActionButton`: The floating action button that appears on the right side of the bar.
@@ -350,10 +575,76 @@ fun BottomAppBarExample() {
 <br />
 
 This implementation appears as follows:
-![A scaffold with the text 'Example of a scaffold with a bottom app bar.' and a bottom app bar with check, edit, microphone and image icon buttons and a floating action button with an 'add' icon.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_bottomappbar.png) **Figure 6.** An example implementation of a bottom app bar.
+![A scaffold with the text 'Example of a scaffold with a bottom app bar.' and a bottom app bar with check, edit, microphone and image icon buttons and a floating action button with an 'add' icon.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_bottomappbar.png) **Figure 10.** An example implementation of a bottom app bar.
 
 > [!NOTE]
 > **Note:** You can also use `BottomAppBar` without passing a value for `actions` and `floatingActionButton`. In that case, you can create a custom bottom app bar by filling `BottomAppBar` with content as you would other containers.
+
+### M3 Expressive update
+
+For Material 3 Expressive, use the [docked toolbar](https://m3.material.io/components/toolbars/overview#24034b14-732c-46ba-b3cd-3ef473fa275f)
+([`FlexibleBottomAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FlexibleBottomAppBar.composable.md.txt)) instead of the standard bottom app bar for a
+shorter height and more flexible horizontal item arrangement.
+
+The following snippet implements a `FlexibleBottomAppBar` with an `AppBarRow`
+that moves extra action items into an overflow menu when space is limited:
+
+
+```kotlin
+@Composable
+fun FlexibleBottomAppBarSample() {
+    val icons =
+        listOf(
+            AppIcons.ArrowBack,
+            AppIcons.ArrowForward,
+            AppIcons.Add,
+            AppIcons.Check,
+            AppIcons.Edit,
+            AppIcons.Favorite,
+        )
+    val items = listOf("Back", "Forward", "Add", "Check", "Edit", "Favorite")
+
+    FlexibleBottomAppBar(
+        contentPadding = PaddingValues(horizontal = 96.dp),
+        horizontalArrangement = BottomAppBarDefaults.FlexibleFixedHorizontalArrangement,
+    ) {
+        AppBarRow(
+            overflowIndicator = { menuState ->
+                IconButton(
+                    onClick = {
+                        if (menuState.isShowing) {
+                            menuState.dismiss()
+                        } else {
+                            menuState.show()
+                        }
+                    }
+                ) {
+                    Icon(
+                        painter = rememberVectorPainter(AppIcons.MoreVert),
+                        contentDescription = "Overflow",
+                    )
+                }
+            }
+        ) {
+            items.forEachIndexed { index, item ->
+                clickableItem(
+                    onClick = { /* doSomething() */ },
+                    icon = {
+                        Icon(
+                            painter = rememberVectorPainter(icons[index]),
+                            contentDescription = item,
+                        )
+                    },
+                    label = item,
+                )
+            }
+        }
+    }
+}
+```
+![A flexible bottom app bar with back, forward, add, check, edit, and favorite icon buttons.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_expressive_components_flexiblebottomappbar.png) A flexible bottom app bar with action items.
+
+<br />
 
 ## Additional resources
 

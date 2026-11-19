@@ -7,7 +7,7 @@ source: md.txt
 [Video](https://www.youtube.com/watch?v=WWdDzXgrkmg)
 
 Baseline Profiles improve code execution speed by about 30% from the first
-launch by avoiding interpretation and [just-in-time (JIT)](https://developer.android.com/about/versions/nougat/android-7.0#jit_aot) compilation steps
+launch by avoiding interpretation and [just-in-time (JIT)](https://developer.android.com/about/versions/nougat/android-7.0.md.txt#jit_aot) compilation steps
 for included code paths.
 
 By shipping a Baseline Profile in an app or library, [Android Runtime (ART)](https://source.android.com/docs/core/runtime)
@@ -18,8 +18,8 @@ jank, and improve overall runtime performance for users from the first launch.
 
 These performance enhancements directly result in improved business metrics such
 as user retention, transactions, and ratings. You can read more about how
-performance impacts business metrics in stories from [Josh](https://developer.android.com/stories/apps/josh), [Lyft](https://developer.android.com/stories/apps/lyft),
-[TikTok](https://developer.android.com/stories/apps/tiktok), and [Zomato](https://developer.android.com/stories/apps/zomato).
+performance impacts business metrics in stories from [Josh](https://developer.android.com/stories/apps/josh.md.txt), [Lyft](https://developer.android.com/stories/apps/lyft.md.txt),
+[TikTok](https://developer.android.com/stories/apps/tiktok.md.txt), and [Zomato](https://developer.android.com/stories/apps/zomato.md.txt).
 
 ## Benefits of Baseline Profiles
 
@@ -34,7 +34,7 @@ user interactions that improve app runtime from the first launch. Guided AOT
 compilation doesn't rely on user devices and can be done once per release on a
 development machine instead of a mobile device. By shipping releases with a
 Baseline Profile, app optimizations become available much faster than by relying
-on [Cloud Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview#cloud-profiles) alone.
+on [Cloud Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt#cloud-profiles) alone.
 
 When not using a Baseline Profile, all app code is either JIT-compiled in memory
 after being interpreted, or written to an `odex` file in the background when the
@@ -47,7 +47,7 @@ Many apps measure performance boosts of about 30% after optimizing.
 Startup profiles are similar to Baseline Profiles, but they are used at compile
 time to optimize DEX layout for faster startup times, rather than for on-device
 optimization. To learn more about how startup profiles differ from Baseline
-Profiles, see [Compare Baseline Profiles and Startup Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview#compare-baseline-startup).
+Profiles, see [Compare Baseline Profiles and Startup Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt#compare-baseline-startup).
 For more on DEX layout optimization, see [DEX layout optimizations and startup
 profiles](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations).
 
@@ -76,7 +76,7 @@ release build variant, which has obfuscation and optimization enabled. You
 achieve this by setting `isMinifyEnabled = false` for the profile generation
 build variant. If you aren't using the Baseline Profile Gradle plugin, you
 should also make sure that `-dontobfuscate` and `-dontoptimize` are applied. The
-[Baseline Profile Gradle Plugin](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile) automatically handles this configuration
+[Baseline Profile Gradle Plugin](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile.md.txt) automatically handles this configuration
 for you.
 
 You can verify that your app wasn't obfuscated during profile generation by
@@ -123,8 +123,8 @@ of AGP:
 | AGP version | Features |
 |---|---|
 | 9.1 | **Full source set directory support (library modules):** In addition to variant-aware directories, you can declare multiple Baseline Profile source files with an arbitrary name, such as `src/free/generated/baselineProfiles/baseline-prof1.txt`, for library modules as well as app modules. |
-| 8.4 | Local app installations of non-debuggable builds using the [Gradle wrapper command line tool](https://developer.android.com/build/building-cmdline) or Android Studio install Baseline Profiles, so the performance of your local release build more closely matches production. This update doesn't affect production performance of Baseline Profiles. |
-| 8.3 | - **Partial source set directory support (library modules):** Declare variant-aware Baseline Profile files, such as `src/free/generated/baselineProfiles/baseline-prof.txt`, for library modules. - Baseline Profiles include [desugared classes](https://developer.android.com/studio/write/java8-support#library-desugaring). |
+| 8.4 | Local app installations of non-debuggable builds using the [Gradle wrapper command line tool](https://developer.android.com/build/building-cmdline.md.txt) or Android Studio install Baseline Profiles, so the performance of your local release build more closely matches production. This update doesn't affect production performance of Baseline Profiles. |
+| 8.3 | - **Partial source set directory support (library modules):** Declare variant-aware Baseline Profile files, such as `src/free/generated/baselineProfiles/baseline-prof.txt`, for library modules. - Baseline Profiles include [desugared classes](https://developer.android.com/studio/write/java8-support.md.txt#library-desugaring). |
 | 8.2 | - **R8 rewriting of rules:** D8 and R8 can transform the human-readable Baseline and Startup Profile rules to fully capture all the rules you need to optimize app performance. This lets you generate profiles from an unminified build and apply them to a minified release build. Increases Baseline Profile coverage of methods by \~30% and increases app performance by \~15%. - [**Startup Profiles:**](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations) generate this type of Baseline Profile to inform layout of code within DEX. Increases startup performance by an additional \~15%, or significantly more for large apps. |
 | 8.0 | **Minimum recommended version:** use the Baseline Profile Gradle plugin to generate Baseline Profiles with a single Gradle task. - **Full source set directory support (app modules):** declare multiple Baseline Profile source files, and use variant-aware directories, such as `src/free/generated/baselineProfiles/baseline-prof1.txt`. |
 | 7.4 | **Minimum supported version:** apps can consume Baseline Profiles from libraries, and provide their own Baseline Profile in the `src/main/baseline-prof.txt` file. - Baseline Profiles are correctly packaged when building the APK from an app bundle ([issue #230361284](https://issuetracker.google.com/issues/230361284)). - For apps with more than one `.dex` file, Baseline Profiles are correctly packaged for the primary `.dex` file. - D8 and R8 support generating startup profiles from a build where `isMinifyEnabled` is set to `false`. |
@@ -146,34 +146,36 @@ or library binary.
 
 The following is an example class to create a Baseline Profile for app startup,
 as well as several navigation and scroll events using the recommended
-[Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview)
+[Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview.md.txt)
 library:
 
-    class BaselineProfileGenerator {
-        @get:Rule
-        val baselineProfileRule = BaselineProfileRule()
+```kotlin
+class BaselineProfileGenerator {
+    @get:Rule
+    val baselineProfileRule = BaselineProfileRule()
 
-        @Test
-        fun appStartupAndUserJourneys() {
-            baselineProfileRule.collect(packageName = PACKAGE_NAME) {
-                uiAutomator {
-                    // App startup journey.
-                    startApp(PACKAGE_NAME)
+    @Test
+    fun appStartupAndUserJourneys() {
+        baselineProfileRule.collect(packageName = PACKAGE_NAME) {
+            uiAutomator {
+                // App startup journey.
+                startApp(PACKAGE_NAME)
 
-                    // Find and click elements using the new DSL
-                    onElement { textAsString() == "COMPOSE LAZYLIST" }.click()
-                    onElement { viewIdResourceName == "myLazyColumn" }.also {
-                        it.fling(Direction.DOWN)
-                        it.fling(Direction.UP)
-                    }
-                    pressBack()
+                // Find and click elements using the new DSL
+                onElement { textAsString() == "COMPOSE LAZYLIST" }.click()
+                onElement { viewIdResourceName == "myLazyColumn" }.also {
+                    it.fling(Direction.DOWN)
+                    it.fling(Direction.UP)
                 }
+                pressBack()
             }
         }
     }
+}
+```
 
 For more information about using the UI Automator library to automate user
-journeys, see [Write automated tests with UI Automator](https://developer.android.com/about/versions/nougat/android-7.0#jit_aot).
+journeys, see [Write automated tests with UI Automator](https://developer.android.com/about/versions/nougat/android-7.0.md.txt#jit_aot).
 
 You can see this code in full context and more detail as part of our
 [performance samples on GitHub](https://github.com/android/performance-samples).
@@ -329,6 +331,6 @@ ongoing developments for workarounds:
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Create Baseline Profiles {:#creating-profile-rules}](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile)
-- [Create and measure Baseline Profiles without Macrobenchmark](https://developer.android.com/topic/performance/baselineprofiles/manually-create-measure)
+- [Create Baseline Profiles {:#creating-profile-rules}](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile.md.txt)
+- [Create and measure Baseline Profiles without Macrobenchmark](https://developer.android.com/topic/performance/baselineprofiles/manually-create-measure.md.txt)
 - [DEX layout optimizations and startup profiles](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations)

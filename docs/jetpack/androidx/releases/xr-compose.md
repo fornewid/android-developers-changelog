@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/xr-compose
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Jetpack Compose for XR
 
-[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose) [Code Sample](https://github.com/android/xr-samples) [Codelab](https://github.com/android/xr-codelabs) Declaratively build spatial UI layouts that take advantage of Android XR's spatial capabilities.
+[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose.md.txt) [Code Sample](https://github.com/android/xr-samples) [Codelab](https://github.com/android/xr-codelabs) Declaratively build spatial UI layouts that take advantage of Android XR's spatial capabilities.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | - | - | [1.0.0-beta02](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-beta02) | - |
+| November 18, 2026 | - | [1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/xr-compose.md.txt#1.0.0-rc01) | - | - |
 
 ## Declaring dependencies
 
@@ -25,10 +27,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.compose:compose:1.0.0-beta02"
+    implementation "androidx.xr.compose:compose:1.0.0-rc01"
 
     // Use to write unit tests
-    testImplementation "androidx.xr.compose:compose-testing:1.0.0-beta02"
+    testImplementation "androidx.xr.compose:compose-testing:1.0.0-rc01"
 }
 ```
 
@@ -36,10 +38,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.compose:compose:1.0.0-beta02")
+    implementation("androidx.xr.compose:compose:1.0.0-rc01")
 
     // Use to write unit tests
-    testImplementation("androidx.xr.compose:compose-testing:1.0.0-beta02")
+    testImplementation("androidx.xr.compose:compose-testing:1.0.0-rc01")
 }
 ```
 
@@ -59,6 +61,28 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-rc01
+
+November 18, 2026
+
+`androidx.xr.compose:compose:1.0.0-rc01` and `androidx.xr.compose:compose-testing:1.0.0-rc01` are released. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3bf7f734b4bf81dd1c118beb6b7fff8c7675ecb..cf06e612b15d86e7be32990aecfc6a110c6e6b1d/xr/compose).
+
+**API Changes**
+
+- Remove deprecated Orbiter APIs, use the Orbiter API accepting an `OrbiterPosition` instead. ([Ib5043](https://android-review.googlesource.com/#/q/Ib5043c4bb20d5d597b78e93698b40096dc17bb22))
+
+**Bug Fixes**
+
+- Restore original scale when `SubspaceModifier.scale` is removed ([I55b74](https://android-review.googlesource.com/#/q/I55b7411c387339a91d76b495d032f81095f6eb3d))
+- Reset a composable with the movable and anchorable modifiers when updating or removing the modifier ([Iaee5b](https://android-review.googlesource.com/#/q/Iaee5b920a5fd1db22c91986ab96b1b3d2fa3ff63))
+- Fixed a bug where scale modifier was not being applied properly to a `SpatialModel` ([I130b2](https://android-review.googlesource.com/#/q/I130b2a3b783c2c39b22b72fa6a0db82830084800))
+- Fixed an issue where the system movable was not being reset when updated or removed. ([I2cb89](https://android-review.googlesource.com/#/q/I2cb89d395bb15e20f70df2d806c72d2273071790))
+- Restore original alpha when `SubspaceModifier.alpha` is removed ([Id4902](https://android-review.googlesource.com/#/q/Id49020878934b3873b5a43d0e92121244e548185))
+- Update resizable `minimumSize` default to a 150.dp width/height, as it could be difficult to re-enlarge panels if they apparoach a zero size (old default). ([I183a6](https://android-review.googlesource.com/#/q/I183a649d4482eae8b8320f65bdf43859c1e30be3))
+- Fixes resizable behavior when `maintainAspectRatio = true`, and a `minimumSize` and/or `maximumSize` are set. The resizable will now hit its size cap once a min/max on either axis has been hit, rather than breaking aspect ratio to hit the min/max of both axis. ([I89793](https://android-review.googlesource.com/#/q/I89793ba44c940fc013a2ef92f09012d2835979ff))
+- Add constraints to clamp `SpatialPanel` and other panel-like Composables to a safe rendering size. The default max size for the resizable modifier is updated to this size. This max is dynamically calculated, but is substantially larger than the recommended content box size. Larger resizable sizes can still be explicitly specified for layout groups and `SpatialExternalSurface` but clamping will still apply for any `SpatialPanel` children they may have. ([If408a](https://android-review.googlesource.com/#/q/If408ae7b75f0cd0bef96ed719f6e100fe4fded3f))
+- Fixed an issue where `isSystemMoveOngoing` remained `true` when a `MovableComponent` was disabled mid-drag, preventing subsequent layout pose updates. Reset `isSystemMoveOngoing`, `previousPose`, and `previousScale` in `disableComponent()`. ([I090f25](https://android-review.googlesource.com/q/I090f259968b9b45ef2144b9be2401b24a7ea7aa3))
 
 ### Version 1.0.0-beta02
 
@@ -516,31 +540,31 @@ December 12, 2024
 
 **Features of Initial Release**
 
-- Initial developer release of Jetpack Compose for XR. Use familiar Compose concepts such as rows and columns to create spatial UI layouts in XR, whether you're porting an existing 2D app to XR or creating a new XR app from scratch. This library provides subspace and spatial composables: such as spatial panels and orbiters, which let you place your existing 2D Compose or Views-based UI in a spatial layout. It introduces the Volume subspace composable, which allows you to place SceneCore entities, such as 3D models, relative to your UI. Learn more in this [developer guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose):
+- Initial developer release of Jetpack Compose for XR. Use familiar Compose concepts such as rows and columns to create spatial UI layouts in XR, whether you're porting an existing 2D app to XR or creating a new XR app from scratch. This library provides subspace and spatial composables: such as spatial panels and orbiters, which let you place your existing 2D Compose or Views-based UI in a spatial layout. It introduces the Volume subspace composable, which allows you to place SceneCore entities, such as 3D models, relative to your UI. Learn more in this [developer guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose.md.txt):
 
-  - [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#Subspace(kotlin.Function1)): This composable can be placed anywhere within your app's UI hierarchy, allowing you to maintain layouts for 2D and spatial UI without losing context between files. This makes it easier to share things like existing app architecture between XR and other form factors without needing to hoist state through your whole UI tree or re-architect your app.
+  - [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary.md.txt#Subspace(kotlin.Function1)): This composable can be placed anywhere within your app's UI hierarchy, allowing you to maintain layouts for 2D and spatial UI without losing context between files. This makes it easier to share things like existing app architecture between XR and other form factors without needing to hoist state through your whole UI tree or re-architect your app.
 
-  - [SpatialPanel](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialPanel(android.content.Intent,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.String,androidx.xr.compose.subspace.layout.SpatialShape)): A spatial panel is a subspace composable that lets you display app content--for example, you could display video playback, still images, or any other content in a spatial panel.
+  - [SpatialPanel](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary.md.txt#SpatialPanel(android.content.Intent,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.String,androidx.xr.compose.subspace.layout.SpatialShape)): A spatial panel is a subspace composable that lets you display app content--for example, you could display video playback, still images, or any other content in a spatial panel.
 
-  - [Orbiter](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#Orbiter(androidx.xr.compose.spatial.OrbiterEdge.Horizontal,androidx.compose.ui.unit.Dp,androidx.compose.ui.Alignment.Horizontal,androidx.xr.compose.spatial.OrbiterSettings,androidx.xr.compose.subspace.layout.SpatialShape,kotlin.Function0)): An orbiter is a spatial UI component. It's designed to be attached to a corresponding spatial panel, and contains navigation and contextual action items related to that spatial panel. For example, if you've created a spatial panel to display video content, you could add video playback controls inside an orbiter.
+  - [Orbiter](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary.md.txt#Orbiter(androidx.xr.compose.spatial.OrbiterEdge.Horizontal,androidx.compose.ui.unit.Dp,androidx.compose.ui.Alignment.Horizontal,androidx.xr.compose.spatial.OrbiterSettings,androidx.xr.compose.subspace.layout.SpatialShape,kotlin.Function0)): An orbiter is a spatial UI component. It's designed to be attached to a corresponding spatial panel, and contains navigation and contextual action items related to that spatial panel. For example, if you've created a spatial panel to display video content, you could add video playback controls inside an orbiter.
 
-  - [Volume](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#Volume(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.String,kotlin.Function1)): Place SceneCore entities, such as 3D models, relative to your UI.
+  - [Volume](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary.md.txt#Volume(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.String,kotlin.Function1)): Place SceneCore entities, such as 3D models, relative to your UI.
 
 - Spatial Layout:
-  You can create multiple spatial panels and place them within a Spatial Layout using [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,androidx.compose.ui.unit.Dp,kotlin.String,kotlin.Function1)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.String,kotlin.Function1)), [`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.String,kotlin.Function1)), and [`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialLayoutSpacer.composable#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)).
+  You can create multiple spatial panels and place them within a Spatial Layout using [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary.md.txt#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,androidx.compose.ui.unit.Dp,kotlin.String,kotlin.Function1)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary.md.txt#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.String,kotlin.Function1)), [`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary.md.txt#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.String,kotlin.Function1)), and [`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialLayoutSpacer.composable#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)).
   Use `SubspaceModifier`s to customize your layout.
 
 - Spatial UI components: These elements can be reused in your 2D UI, and their spatial attributes will only be visible when spatial capabilities are enabled.
 
   - [`SpatialDialog`](https://developer.android.com/kotlin/androidx/xr/compose/spatial/package-summary#SpatialDialog(kotlin.Function0,androidx.xr.compose.spatial.SpatialDialogProperties,kotlin.Function0)): Panel will push slightly back in z-depth to display an elevated dialog.
-  - [`SpatialPopUp`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialPopup(androidx.xr.compose.spatial.SpatialElevationLevel,kotlin.Function1)): Panel will push slightly back in z-depth to display an elevated popup
-  - [`SpatialElevation`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialElevation(androidx.xr.compose.spatial.SpatialElevationLevel,kotlin.Function0)): `SpatialElevationLevel` can be set to add elevation.
-- SpatialCapabilities: Spatial capabilities can change as users interact with your app or the system, or can even be changed by your app itself---for example, moving into Home Space or Full Space. To avoid issues, your app needs to check for [`LocalSpatialCapabilities.current`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/package-summary#LocalSpatialCapabilities()) to determine which APIs are supported in the current environment.
-  [`isSpatialUiEnabled`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/SpatialCapabilities#isSpatialUiEnabled()): [Spatial UI elements](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose) (e.g. SpatialPanel)
-  [`isContent3dEnabled`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/SpatialCapabilities#isContent3dEnabled()): [3D objects](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models)
-  [`isAppEnvironmentEnabled`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/SpatialCapabilities#isAppEnvironmentEnabled()): The [environment](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environments)
-  [`isPassthroughControlEnabled`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/SpatialCapabilities#isPassthroughControlEnabled()): Whether or not the application can control the passthrough state
-  [`isSpatialAudioEnabled`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/SpatialCapabilities#isSpatialAudioEnabled()): [Spatial audio](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-audio)
+  - [`SpatialPopUp`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary.md.txt#SpatialPopup(androidx.xr.compose.spatial.SpatialElevationLevel,kotlin.Function1)): Panel will push slightly back in z-depth to display an elevated popup
+  - [`SpatialElevation`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary.md.txt#SpatialElevation(androidx.xr.compose.spatial.SpatialElevationLevel,kotlin.Function0)): `SpatialElevationLevel` can be set to add elevation.
+- SpatialCapabilities: Spatial capabilities can change as users interact with your app or the system, or can even be changed by your app itself---for example, moving into Home Space or Full Space. To avoid issues, your app needs to check for [`LocalSpatialCapabilities.current`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/package-summary.md.txt#LocalSpatialCapabilities()) to determine which APIs are supported in the current environment.
+  [`isSpatialUiEnabled`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/SpatialCapabilities.md.txt#isSpatialUiEnabled()): [Spatial UI elements](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose.md.txt) (e.g. SpatialPanel)
+  [`isContent3dEnabled`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/SpatialCapabilities.md.txt#isContent3dEnabled()): [3D objects](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models.md.txt)
+  [`isAppEnvironmentEnabled`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/SpatialCapabilities.md.txt#isAppEnvironmentEnabled()): The [environment](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environments.md.txt)
+  [`isPassthroughControlEnabled`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/SpatialCapabilities.md.txt#isPassthroughControlEnabled()): Whether or not the application can control the passthrough state
+  [`isSpatialAudioEnabled`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/SpatialCapabilities.md.txt#isSpatialAudioEnabled()): [Spatial audio](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-audio.md.txt)
 
 **Known Issues**
 

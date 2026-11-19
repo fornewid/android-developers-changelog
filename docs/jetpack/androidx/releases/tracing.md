@@ -12,7 +12,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | [2.0.5](https://developer.android.com/jetpack/androidx/releases/tracing.md.txt#2.0.5) | - | - | - |
+| November 18, 2026 | [2.0.5](https://developer.android.com/jetpack/androidx/releases/tracing.md.txt#2.0.5) | - | - | [2.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/tracing.md.txt#2.1.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -69,6 +69,21 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Tracing
+
+### Version 2.1
+
+#### Version 2.1.0-alpha01
+
+November 18, 2026
+
+`androidx.tracing:tracing-*:2.1.0-alpha01` is released. Version 2.1.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e6aa4ba482110aeb3a88be5dd78153c8a06fa7e0..06bc7eb4d4d17b59ebde130d1f3d1d643a1177dd/tracing).
+
+**Bug Fixes**
+
+- `Perfetto` changed the underlying protos being used from the `CallStack` type to `InlineCallStack`. For more information refer to the [changelog](https://github.com/google/perfetto/releases/tag/v58.2). ([I22453](https://android-review.googlesource.com/#/q/I22453d77395598c55ed76498c488d6078d9460b4))
+
+- Add support for toggling categories when enabling in-process tracing from benchmarks for a target process.
+  `PerfettoTraceRule` now supports enabling optional categories for in-process tracing. These categories are used by the `TraceDriver` instance in the target process. ([I663ed](https://android-review.googlesource.com/#/q/I663edf8ed922e0dda639777a29095d73a2ef77bf), [b/565040771](https://issuetracker.google.com/issues/565040771))
 
 ### Version 2.0
 

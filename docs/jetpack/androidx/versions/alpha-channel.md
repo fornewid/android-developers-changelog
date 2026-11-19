@@ -4,6 +4,8 @@ url: https://developer.android.com/jetpack/androidx/versions/alpha-channel
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/versions/llms.txt
+
 *** ** * ** ***
 
 Each version of an AndroidX library passes through four release channels while
@@ -15,6 +17,40 @@ to 2018.
 
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions.md.txt).
+
+## November 18, 2026
+
+- [Appstate Statestore Version 1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/appstate-statestore.md.txt#1.0.0-alpha03)
+- [Appstate Transform Version 1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/appstate-transform.md.txt#1.0.0-alpha03)
+- [Benchmark Version 1.6.0-alpha02](https://developer.android.com/jetpack/androidx/releases/benchmark.md.txt#1.6.0-alpha02)
+- [Compose Animation Version 1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt#1.14.0-alpha01)
+- [Compose Foundation Version 1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt#1.14.0-alpha01)
+- [Compose Material 3 Version 1.6.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt#1.6.0-alpha01)
+- [Compose Material Version 1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt#1.14.0-alpha01)
+- [Compose Remote Foundation Version 1.0.0-alpha07](https://developer.android.com/jetpack/androidx/releases/compose-remote-foundation.md.txt#1.0.0-alpha07)
+- [Compose Remote Version 1.0.0-alpha24](https://developer.android.com/jetpack/androidx/releases/compose-remote.md.txt#1.0.0-alpha24)
+- [Compose Runtime Version 1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt#1.14.0-alpha01)
+- [Compose UI Version 1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#1.14.0-alpha01)
+- [Core Core-ktx Core-testing Version 1.20.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core.md.txt#1.20.0-alpha01)
+- [Glance Adaptive Version 1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/glance-adaptive.md.txt#1.0.0-alpha05)
+- [Glance Wear Version 1.0.0-alpha23](https://developer.android.com/jetpack/androidx/releases/glance-wear.md.txt#1.0.0-alpha23)
+- [Ink Version 1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/ink.md.txt#1.1.0-alpha12)
+- [Javascriptengine Version 1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/javascriptengine.md.txt#1.2.0-alpha01)
+- [Lifecycle Version 2.12.0-alpha06](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.12.0-alpha06)
+- [Navigation3 Version 1.3.0-alpha05](https://developer.android.com/jetpack/androidx/releases/navigation3.md.txt#1.3.0-alpha05)
+- [Paging Version 3.6.0-alpha01](https://developer.android.com/jetpack/androidx/releases/paging.md.txt#3.6.0-alpha01)
+- [Room3 Version 3.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/room3.md.txt#3.1.0-alpha04)
+- [Savedstate Version 1.6.0-alpha06](https://developer.android.com/jetpack/androidx/releases/savedstate.md.txt#1.6.0-alpha06)
+- [Sqlite Version 2.8.0-alpha04](https://developer.android.com/jetpack/androidx/releases/sqlite.md.txt#2.8.0-alpha04)
+- [Tracing Version 2.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/tracing.md.txt#2.1.0-alpha01)
+- [Wear Compose Remote Version 1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote.md.txt#1.0.0-alpha16)
+- [Wear Compose Version 1.8.0-alpha04](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt#1.8.0-alpha04)
+- [Webkit Version 1.19.0-alpha02](https://developer.android.com/jetpack/androidx/releases/webkit.md.txt#1.19.0-alpha02)
+- [Xr Arcore Version 1.1.0-alpha02](https://developer.android.com/jetpack/androidx/releases/xr-arcore.md.txt#1.1.0-alpha02)
+- [Xr Compose Material3 Version 1.0.0-alpha18](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3.md.txt#1.0.0-alpha18)
+- [Xr Projected Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-projected.md.txt#1.0.0-alpha15)
+- [Xr Runtime Version 1.1.0-alpha03](https://developer.android.com/jetpack/androidx/releases/xr-runtime.md.txt#1.1.0-alpha03)
+- [Xr Scenecore Version 1.1.0-alpha02](https://developer.android.com/jetpack/androidx/releases/xr-scenecore.md.txt#1.1.0-alpha02)
 
 ## November 09, 2026
 

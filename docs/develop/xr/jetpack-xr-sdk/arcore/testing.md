@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/testing
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/llms.txt
+
 <br />
 
 
@@ -28,7 +30,7 @@ file:
 
 ```kotlin
 dependencies {
-    testImplementation("androidx.xr.arcore:arcore-testing:1.1.0-alpha01")
+    testImplementation("androidx.xr.arcore:arcore-testing:1.1.0-alpha02")
 }
 ```
 
@@ -36,7 +38,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    testImplementation "androidx.xr.arcore:arcore-testing:1.1.0-alpha01"
+    testImplementation "androidx.xr.arcore:arcore-testing:1.1.0-alpha02"
 }
 ```
 
@@ -47,7 +49,7 @@ If your app depends on [XR SceneCore](https://developer.android.com/jetpack/andr
 
 ```kotlin
 dependencies {
-    testImplementation("androidx.xr.scenecore:scenecore-testing:1.1.0-alpha01")
+    testImplementation("androidx.xr.scenecore:scenecore-testing:1.1.0-alpha02")
 }
 ```
 
@@ -55,7 +57,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    testImplementation "androidx.xr.scenecore:scenecore-testing:1.1.0-alpha01"
+    testImplementation "androidx.xr.scenecore:scenecore-testing:1.1.0-alpha02"
 }
 ```
 

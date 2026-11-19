@@ -29,7 +29,6 @@ function includes information from the network provider about the other number.
 If the verification status failed, this is a good indication that the call is
 from an invalid number or a potential spam call.
 
-### Kotlin
 
 ```kotlin
 class ScreeningService : CallScreeningService() {
@@ -61,32 +60,7 @@ class ScreeningService : CallScreeningService() {
 }
 ```
 
-### Java
-
-```java
-class ScreeningService extends CallScreeningService {
-    @Override
-    public void onScreenCall(@NonNull Call.Details callDetails) {
-        boolean isIncoming = callDetails.getCallDirection() == Call.Details.DIRECTION_INCOMING;
-
-        if (isIncoming) {
-            Uri handle = callDetails.getHandle();
-
-            switch (callDetails.getCallerNumberVerificationStatus()) {
-                case Connection.VERIFICATION_STATUS_FAILED:
-                    // Network verification failed, likely an invalid/spam call.
-                    break;
-                case Connection.VERIFICATION_STATUS_PASSED:
-                    // Network verification passed, likely a valid call.
-                    break;
-                default:
-                    // Network could not perform verification.
-                    // This branch matches Connection.VERIFICATION_STATUS_NOT_VERIFIED
-            }
-        }
-    }
-}
-```
+<br />
 
 Set the `onScreenCall()` function to call
 [`respondToCall()`](https://developer.android.com/reference/android/telecom/CallScreeningService.md.txt#respondToCall(android.telecom.Call.Details,%20android.telecom.CallScreeningService.CallResponse))
@@ -96,7 +70,6 @@ parameter that you can use to tell the system to block the call, reject it as if
 the user did, or silence it. You can also tell the system to skip adding this
 call to the device's call log altogether.
 
-### Kotlin
 
 ```kotlin
 // Tell the system how to respond to the incoming call
@@ -118,26 +91,7 @@ val response = CallResponse.Builder()
 respondToCall(callDetails, response)
 ```
 
-### Java
-
-```java
-// Tell the system how to respond to the incoming call
-// and if it should notify the user of the call.
-CallResponse.Builder response = new CallResponse.Builder();
-// Sets whether the incoming call should be blocked.
-response.setDisallowCall(false);
-// Sets whether the incoming call should be rejected as if the user did so manually.
-response.setRejectCall(false);
-// Sets whether ringing should be silenced for the incoming call.
-response.setSilenceCall(false);
-// Sets whether the incoming call should not be displayed in the call log.
-response.setSkipCallLog(false);
-// Sets whether a missed call notification should not be shown for the incoming call.
-response.setSkipNotification(false);
-
-// Call this function to provide your screening response.
-respondToCall(callDetails, response.build());
-```
+<br />
 
 You must register the `CallScreeningService` implementation in the manifest
 file with the appropriate intent filter and permission so the system can trigger

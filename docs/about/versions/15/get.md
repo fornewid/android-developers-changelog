@@ -4,17 +4,19 @@ url: https://developer.android.com/about/versions/15/get
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/about/versions/15/llms.txt
+
 ![](https://developer.android.com/static/images/lockups/android-stacked.svg)
 
 You can get Android 15 in any of the following ways:
 
-- [Get Android 15 on a Google Pixel device](https://developer.android.com/about/versions/15/get#on_pixel)
-- [Set up the Android Emulator](https://developer.android.com/about/versions/15/get#on_emulator)
-- [Get a generic system image (GSI)](https://developer.android.com/about/versions/15/get#on_gsi)
+- [Get Android 15 on a Google Pixel device](https://developer.android.com/about/versions/15/get.md.txt#on_pixel)
+- [Set up the Android Emulator](https://developer.android.com/about/versions/15/get.md.txt#on_emulator)
+- [Get a generic system image (GSI)](https://developer.android.com/about/versions/15/get.md.txt#on_gsi)
 
 ## Get Android 15 on a Google Pixel device
 
-If you have a [supported Pixel device](https://developer.android.com/about/versions/15/get#google-pixel-devices), you can [check and update your
+If you have a [supported Pixel device](https://developer.android.com/about/versions/15/get.md.txt#google-pixel-devices), you can [check and update your
 Android version](https://support.google.com/pixelphone/answer/7680439) to receive Android 15 over the air.
 
 In most cases, you don't need to do a full reset of your data to move to Android
@@ -55,8 +57,8 @@ and device characteristics.
 Depending on the type of testing you need to do, consider setting up a variety
 of virtual devices from these device categories:
 
-- [Phone](https://developer.android.com/about/versions/15/get#phone-avd)
-- [Tablet or large-screen device](https://developer.android.com/about/versions/15/get#large-screen-avd)
+- [Phone](https://developer.android.com/about/versions/15/get.md.txt#phone-avd)
+- [Tablet or large-screen device](https://developer.android.com/about/versions/15/get.md.txt#large-screen-avd)
 
 ### Set up a virtual device (phone)
 
@@ -66,16 +68,18 @@ To set up a virtual device to emulate a typical phone, follow these steps:
 2. In Android Studio, click **Tools \> SDK Manager**.
 3. In the **SDK Tools** tab, select the latest version of **Android Emulator** , and click **OK**. This action installs the latest version if it isn't already installed.
 4. In Android Studio, click **Tools \> Device Manager** , then click **Add a new
-   device ![](https://developer.android.com/static/studio/images/buttons/ic_plus_dark.png) \> Create
+   device ![Add new device
+   icon](https://developer.android.com/static/studio/images/buttons/ic_plus_dark.png) \> Create
    Virtual Device** in the **Device Manager** panel.
 
    ![Create an Android Virtual Device in Android
    Studio](https://developer.android.com/static/about/versions/15/images/15-create-avd.png)
-5. Select a device definition for a [supported Pixel device](https://developer.android.com/about/versions/15/get#on_pixel) in the
+5. Select a device definition for a [supported Pixel device](https://developer.android.com/about/versions/15/get.md.txt#on_pixel) in the
    **Phone** Category tab, then click **Next**.
 
 6. Find the Android 15 system image, called **VanillaIceCream** , and click
-   **Download** ![](https://developer.android.com/static/about/versions/15/images/15-studio-download.png)
+   **Download** ![Download
+   icon](https://developer.android.com/static/about/versions/15/images/15-studio-download.png)
    next to the **Release Name** to get it. After the download completes, select
    this system image and click **Next**.
 
@@ -83,7 +87,8 @@ To set up a virtual device to emulate a typical phone, follow these steps:
 
 8. After returning to the list of virtual devices in the Device Manager, find
    your Android 15 virtual device and click **Start**
-   ![](https://developer.android.com/static/about/versions/15/images/15-launch-avd-icon.png).
+   ![Start button
+   icon](https://developer.android.com/static/about/versions/15/images/15-launch-avd-icon.png).
 
 ### Set up a virtual device (tablet or large-screen)
 
@@ -94,7 +99,8 @@ follow these steps:
 2. In Android Studio, click **Tools \> SDK Manager**.
 3. In the **SDK Tools** tab, select the latest version of **Android Emulator** , and click **OK**. This action installs the latest version if it isn't already installed.
 4. In Android Studio, click **Tools \> Device Manager** , then click **Add a new
-   device ![](https://developer.android.com/static/studio/images/buttons/ic_plus_dark.png) \> Create
+   device ![Add new device
+   icon](https://developer.android.com/static/studio/images/buttons/ic_plus_dark.png) \> Create
    Virtual Device** in the **Device Manager** panel.
 
    ![Create an Android Virtual Device in Android
@@ -104,7 +110,8 @@ follow these steps:
    Category tab, then click **Next**.
 
 6. Find the Android 15 system image, called **VanillaIceCream** , and click
-   **Download** ![](https://developer.android.com/static/about/versions/15/images/15-studio-download.png)
+   **Download** ![Download
+   icon](https://developer.android.com/static/about/versions/15/images/15-studio-download.png)
    next to the **Release Name** to get it. After the download completes, select
    this system image and click **Next**.
 
@@ -112,7 +119,8 @@ follow these steps:
 
 8. After returning to the list of virtual devices in the Device Manager, find
    your Android 15 virtual device and click **Start**
-   ![](https://developer.android.com/static/about/versions/15/images/15-launch-avd-icon.png).
+   ![Start button
+   icon](https://developer.android.com/static/about/versions/15/images/15-launch-avd-icon.png).
 
 Repeat these steps to create large screen device definitions that you can use to
 test your app in a variety of large screen scenarios.
@@ -135,14 +143,14 @@ category.
 
 ## Get a generic system image (GSI)
 
-Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image) binaries are available to developers
+Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image.md.txt) binaries are available to developers
 for app testing and validation purposes on supported Treble-compliant devices.
 You can use these images to address any compatibility issues as well as discover
 and report OS and framework issues.
 
-See the [GSI documentation](https://developer.android.com/topic/generic-system-image) for device requirements, flashing instructions,
+See the [GSI documentation](https://developer.android.com/topic/generic-system-image.md.txt) for device requirements, flashing instructions,
 and information on choosing the right image type for your device. Once you're
-ready to download a GSI binary, see the [Downloads section](https://developer.android.com/topic/generic-system-image/releases#android-gsi-15) on the GSI
+ready to download a GSI binary, see the [Downloads section](https://developer.android.com/topic/generic-system-image/releases.md.txt#android-gsi-15) on the GSI
 binaries page.
 
 
@@ -151,8 +159,8 @@ binaries page.
 To learn about which changes might affect you, and to learn how to test these
 changes in your app, read the following topics:
 
-- [Behavior changes that affect all apps](https://developer.android.com/about/versions/15/behavior-changes-all)
-- [Behavior changes that affect only apps that target Android 15](https://developer.android.com/about/versions/15/behavior-changes-15)
+- [Behavior changes that affect all apps](https://developer.android.com/about/versions/15/behavior-changes-all.md.txt)
+- [Behavior changes that affect only apps that target Android 15](https://developer.android.com/about/versions/15/behavior-changes-15.md.txt)
 
 To learn more about new APIs and features available in Android 15, read [Android
 15 features](https://developer.android.com/about/versions/15/features).

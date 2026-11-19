@@ -33,8 +33,11 @@ compatibility [checklists](https://developer.android.com/docs/quality-guidelines
 the compatibility [tests](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality.md.txt#adaptive_app_compatibility_tests).
 
 The checklists and tests define a comprehensive set of quality requirements for
-most types of Android apps. Your app probably doesn't need to meet all of the
-requirements. Implement the ones that make sense for your app's use cases.
+most types of Android apps.
+[Tier 3 --- Adaptive ready](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-3.md.txt) defines the baseline quality
+standard for apps on foldables and large screens on Google Play, while
+[Tier 2](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-2.md.txt) and [Tier 1](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-1.md.txt) help your app qualify for
+enhanced promotion and store badging.
 
 The adaptive app quality guidelines replace and extend the guidance formerly
 provided in the
@@ -42,9 +45,12 @@ provided in the
 
 As you enhance your app with adaptive capabilities, help users better understand
 your app's multi-form-factor experience by updating your app listing on Google
-Play. Upload screenshots that show off the app on tablets and foldables. Call
-attention to XR features in your app description. For more information and best
-practices, see [Google Play Help](https://support.google.com/googleplay/android-developer/answer/9866151).
+Play. Upload screenshots that show off the app on tablets and foldables,
+including both square (1:1) and wide (4:3 landscape or 3:4 portrait)
+unfolded inner displays as well as folded outer screens (10:16 portrait or
+16:10 landscape, and 9:16 or 16:9, respectively). Call attention to XR features
+in your app description. For more information, see [Capture app screenshots for
+Google Play](https://developer.android.com/google/play/requirements/screenshots-android-cli) and [Google Play Help](https://support.google.com/googleplay/android-developer/answer/9866151#screenshots).
 
 For examples of optimized and differentiated layouts on screens of all sizes,
 see the [adaptive layout gallery](https://developer.android.com/large-screens/gallery).
@@ -93,13 +99,17 @@ combine the tests or integrate groups of tests together in your own test plans.
 For layout and UX purposes, test on at least the following device types:
 
 - Googlebook (160 ppi)
-- Foldable (841x701 dp)
+- Foldable with 1:1 inner display (802x802 dp)
+- Foldable with 4:3 inner display (1024x768 dp)
 - 8-inch tablet (1024x640 dp)
 - 10.5-inch tablet (1280x800 dp)
 - 13-inch Chromebook (1600x900 dp)
 
-Use the following Android emulators to test adaptive device compatibility:
+Use the following Android emulators to test adaptive device compatibility and
+capture store listing screenshots:
 
+- Foldable phone (1:1 inner display) --- **Phone \> Foldable (1:1 inner display)**
+- Foldable phone (4:3 inner display) --- **Phone \> Foldable (4:3 inner display)**
 - Foldable phone --- **Phone \> Pixel Fold**
 - Tablet --- **Tablet \> Medium Tablet**
 - Desktop --- **Desktop \> Desktop (Preview)**

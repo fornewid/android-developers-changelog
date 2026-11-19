@@ -16,6 +16,7 @@ All agents antigravity-sdk claude-code codex kimi-code muse-code opencode qwen-c
 
 | Model - Agent | Pass rate (%) info Average percentage of 30 tasks successfully resolved across all runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) | Completion rate (%) info How close each run got to a complete solution, even when the task failed | Avg latency (h) info Average time taken to solve 30 tasks across all runs | Avg cost ($) info Average cost per full benchmark run |
 |---|---|---|---|---|---|
+| <button data-modal-dialog-id="android-bench-score-model-dialog-anthropic/claude-fable-5-2"> </button> ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Fable 5.2 (max) claude-code chevron_right | **40.0** | 24.0 --- 54.7 | **87.7** | 84.3 | $2989.6 |
 | <button data-modal-dialog-id="android-bench-score-model-dialog-anthropic/claude-sonnet-5-5"> </button> ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Sonnet 5.5 (max) claude-code chevron_right | **40.0** | 24.0 --- 56.0 | **80.9** | 70.7 | $1574.9 |
 | <button data-modal-dialog-id="android-bench-score-model-dialog-anthropic/claude-opus-5-5"> </button> ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Opus 5.5 (max) claude-code chevron_right | **37.3** | 22.0 --- 52.0 | **85.6** | 56.6 | $1150.3 |
 | <button data-modal-dialog-id="android-bench-score-model-dialog-openai/gpt-6.1-sol"> </button> ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 6.1 Sol (max) codex chevron_right | **29.3** | 15.3 --- 42.7 | **82.8** | 26.6 | $99.5 |
@@ -33,6 +34,49 @@ All agents antigravity-sdk claude-code codex kimi-code muse-code opencode qwen-c
 | <button data-modal-dialog-id="android-bench-score-model-dialog-openai/gpt-6-luna"> </button> ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 6 Luna (default) codex chevron_right | **10.7** | 4.0 --- 17.3 | **53.2** | 6.2 | $5.3 |
 | <button data-modal-dialog-id="android-bench-score-model-dialog-gemini/gemini-3.8-flash"> </button> :gemini: Gemini 3.8 Flash (default) antigravity-sdk chevron_right | **8.0** | 3.3 --- 13.3 | **47.4** | 12.1 | $34.5 |
 | <button data-modal-dialog-id="android-bench-score-model-dialog-gemini/gemini-3.7-flash"> </button> :gemini: Gemini 3.7 Flash (default) antigravity-sdk chevron_right | **7.3** | 1.3 --- 14.7 | **50.1** | 9.9 | $26.0 |
+
+### ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Fable 5.2
+•
+[claude-code](https://claude.com/product/claude-code)
+
+Closed weights model <button class="devsite-dialog-close button button-white"> close </button> Pass rate 40.0% Avg completion rate 87.7% Avg latency 84.3 h Avg cost $2989.6
+
+#### Per task results
+
+All categories App conversion App creation Migration New feature **Number of tasks:** 30 2 10 13 5 /30
+
+| Task | Category | Avg completion rate | Runs passed | Failure reason(s) |
+|---|---|---|---|---|
+| Convert Flutter to Android: Habo app (habit tracker) | App conversion | 78% | 0/5 | All runs failed tests |
+| Convert React Native to Android: BlueWallet app (Bitcoin wallet) | App conversion | 93% | 0/5 | All runs failed tests |
+| New accessibility support across Droidcon (conference app) | New feature | 97% | 1/5 | 4 runs failed tests |
+| New Media3 and ExoPlayer video playback in Now in Android (news app) | New feature | 100% | 5/5 | N/A |
+| New picture-in-picture video mode in Now in Android (news app) | New feature | 100% | 5/5 | N/A |
+| New CameraX profile picture capture in Now in Android (news app) | New feature | 100% | 5/5 | N/A |
+| New user account submodule in Food Vibes (full app creation - food delivery) | App creation | 100% | 5/5 | N/A |
+| New authentication flow with SMS verification in Food Vibes (full app creation - food delivery) | App creation | 70% | 0/5 | All runs failed validation |
+| New bottom navigation and Browse search screen in Food Vibes (full app creation - food delivery) | App creation | 100% | 5/5 | N/A |
+| New design system and reusable UI component library in Food Vibes (full app creation - food delivery) | App creation | 81% | 0/5 | 4 runs failed validation, 1 run failed tests |
+| New All Filters screen in Food Vibes (full app creation - food delivery) | App creation | 80% | 4/5 | 1 run failed the build |
+| New map integration and location features in Food Vibes (full app creation - food delivery) | App creation | 83% | 2/5 | 2 runs failed validation, 1 run failed tests |
+| New real-time order tracking in Food Vibes (full app creation - food delivery) | App creation | 99% | 0/5 | All runs failed tests |
+| New promotions submodule and active offers screen in Food Vibes (full app creation - food delivery) | App creation | 100% | 5/5 | N/A |
+| New restaurant listing feed in Food Vibes (full app creation - food delivery) | App creation | 76% | 0/5 | All runs failed validation |
+| New ViewModel layer in Fossify File Manager | New feature | 95% | 0/5 | All runs failed tests |
+| Nav 2 to Nav 3 library migration in Bitwarden (password manager) | Migration | 94% | 0/5 | All runs failed tests |
+| Dual-pane adaptive layout migration in Bitwarden (password manager): settings screens | Migration | 100% | 5/5 | N/A |
+| Hilt to Koin dependency injection migration in Bitwarden (password manager) | Migration | 79% | 1/5 | 4 runs failed tests |
+| XML views to Compose migration in Fossify File Manager: main tabs and settings | Migration | 70% | 0/5 | All runs failed tests |
+| Hilt to Koin dependency injection migration in Now in Android (news app) | Migration | 93% | 0/5 | All runs failed tests |
+| Kotlin Multiplatform migration in Now in Android (news app): datastore and database | Migration | 60% | 3/5 | 2 runs failed the build |
+| Retrofit to Ktor migration in Pocket Casts (podcast player) | Migration | 100% | 5/5 | N/A |
+| XML views to Compose migration in Signal (messaging app): custom chat colour creator | Migration | 85% | 0/5 | All runs failed tests |
+| XML views to Compose migration in Signal (messaging app): profile creation | Migration | 98% | 0/5 | All runs failed tests |
+| XML views to Compose migration in Signal (messaging app): phone number entry | Migration | 11% | 0/5 | All runs failed tests |
+| Java to Kotlin migration in Signal (messaging app): Glide image loading module | Migration | 100% | 5/5 | N/A |
+| XML views to Compose migration in Signal (messaging app): edit profile screens | Migration | 99% | 4/5 | 1 run failed tests |
+| XML views to Compose migration in WordPress: people invite screen | Migration | 84% | 0/5 | All runs failed tests |
+| New book searching app using the OpenLibrary API | App creation | 95% | 0/5 | All runs failed tests |
 
 ### ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Sonnet 5.5
 •
@@ -766,7 +810,7 @@ All categories App conversion App creation Migration New feature **Number of tas
 | New book searching app using the OpenLibrary API | App creation | 51% | 0/5 | 3 runs failed tests, 1 run failed the build, 1 run missed required test results |
 
 **Latest results as of
-November 11th.**   
+November 18th.**   
 View [**archived leaderboards**](https://developer.android.com/bench/archive.md.txt) and check back periodically for updates.
 
 ### 1.0 task results
@@ -815,6 +859,11 @@ View [**archived leaderboards**](https://developer.android.com/bench/archive.md.
 ### [Latest Updates](http://developer.android.com/bench/changelog.md.txt)
 
 Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. Stay updated with our routine methodology updates and release logs. [View all updates](http://developer.android.com/bench/changelog.md.txt)
+- New agent results • Nov 18th   
+  **claude-code results now available** ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Fable 5.2
+
+<!-- -->
+
 - New agent results • Nov 11th   
   **claude-code results now available** ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Haiku 5.5
 - New agent results • Nov 11th   
@@ -830,20 +879,6 @@ Track the latest AI model benchmarks, newly introduced agent architectures, and 
   **kimi-code results now available** ![](https://developer.android.com/static/images/bench/icons/moonshotai.png) Kimi K3.1 Pro
 - New agent results • Nov 4th   
   **codex results now available** ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 6.1 Terra
-
-<!-- -->
-
-- New updates • Oct 26th ![](https://developer.android.com/static/images/bench/icons/news.png) Results now showing a reasoning effort
-- New agent results • Oct 26th   
-  **claude-code results now available** ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Sonnet 5 5
-- New agent results • Oct 26th   
-  **antigravity-sdk results now available** :gemini: Gemini 4 Argon
-- New agent results • Oct 26th   
-  **codex results now available** ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 6.1 Sol
-- Archived models • Oct 26th   
-  **claude-code results archived** ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Sonnet 5
-- Archived models • Oct 26th   
-  **codex results archived** ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 6 Sol
 ![](http://developer.android.com/static/images/picto-icons/badge.svg)
 
 ## Learn more about Android Bench

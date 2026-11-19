@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/apps/splash-screen
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/apps/llms.txt
+
 If your app implements a custom splash screen or uses a launcher theme, migrate
 your app to the [`SplashScreen`](https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen.md.txt) library, available in Jetpack, to ensure it
 displays correctly on all Wear OS versions.

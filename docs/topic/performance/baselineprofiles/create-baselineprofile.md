@@ -9,7 +9,7 @@ Pre-compiling your critical user journeys helps ensure that your Compose UI
 renders smoothly.
 
 Automatically generate profiles for every app release using the [Jetpack
-Macrobenchmark library](https://developer.android.com/macrobenchmark) and [`BaselineProfileRule`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/junit4/BaselineProfileRule). We recommend that you
+Macrobenchmark library](https://developer.android.com/macrobenchmark) and [`BaselineProfileRule`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/junit4/BaselineProfileRule.md.txt). We recommend that you
 use `com.android.tools.build:gradle:8.0.0` or higher to take advantage of build
 improvements when using Baseline Profiles.
 
@@ -34,7 +34,7 @@ Plugin (AGP) 8.2.
 
 The Android Studio Baseline Profile Generator module template automates the
 creation of a new module to generate and
-[benchmark](https://developer.android.com/topic/performance/baselineprofiles/measure-baselineprofile)
+[benchmark](https://developer.android.com/topic/performance/baselineprofiles/measure-baselineprofile.md.txt)
 Baseline Profiles. Running the template generates most of the typical build
 configuration, Baseline Profile generation, and verification code. The template
 creates code to generate and benchmark Baseline Profiles to measure app startup.
@@ -99,7 +99,7 @@ modules (not recommended).
 
 ## Create a new Baseline Profile with AGP 8.1
 
-If you aren't able to use the [Baseline Profile module template](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile#create-new-profile), use the
+If you aren't able to use the [Baseline Profile module template](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile.md.txt#create-new-profile), use the
 Macrobenchmark module template and the Baseline Profile Gradle plugin to create
 a new Baseline Profile. We recommend you use these tools starting with Android
 Studio Giraffe and AGP 8.1.
@@ -110,21 +110,23 @@ Studio Giraffe and AGP 8.1.
 Here are the steps to create a new Baseline Profile using the Macrobenchmark
 module template and Baseline Profile Gradle plugin:
 
-1. [Set up a Macrobenchmark module](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview#project-setup) in your Gradle project.
+1. [Set up a Macrobenchmark module](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview.md.txt#project-setup) in your Gradle project.
 2. Define a new class called `BaselineProfileGenerator`:
 
-       class BaselineProfileGenerator {
-           @get:Rule
-           val baselineProfileRule = BaselineProfileRule()
+   ```kotlin
+   class BaselineProfileGenerator {
+       @get:Rule
+       val baselineProfileRule = BaselineProfileRule()
 
-           @Test
-           fun startup() = baselineProfileRule.collect(
-               packageName = "com.example.app",
-               profileBlock = {
-                   startActivityAndWait()
-               }
-           )
-       }
+       @Test
+       fun startup() = baselineProfileRule.collect(
+           packageName = "com.example.app",
+           profileBlock = {
+               startActivityAndWait()
+           }
+       )
+   }
+   ```
 
    The generator can contain interactions with your app beyond app startup.
    This lets you optimize the runtime performance of your app, such as
@@ -153,13 +155,13 @@ module template and Baseline Profile Gradle plugin:
 ### Create a new Baseline Profile without templates
 
 We recommend creating a Baseline Profile using the Android Studio [Baseline
-Profile module template](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile#create-new-profile) (preferred) or [Macrobenchmark template](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile#create-new-profile-8-1), but you
+Profile module template](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile#create-new-profile) (preferred) or [Macrobenchmark template](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile.md.txt#create-new-profile-8-1), but you
 can also use the Baseline Profile Gradle plugin by itself. To read more about
 the Baseline Profile Gradle plugin, see [Configure Baseline Profile
 generation](https://developer.android.com/topic/performance/baselineprofiles/configure-baselineprofiles).
 
 > [!NOTE]
-> **Note:** The Baseline Profile Gradle plugin is already applied if you use the [Baseline Profile module template](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile#create-new-profile).
+> **Note:** The Baseline Profile Gradle plugin is already applied if you use the [Baseline Profile module template](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile.md.txt#create-new-profile).
 
 Here's how to create a Baseline Profile using the Baseline Profile Gradle plugin
 directly:
@@ -253,19 +255,20 @@ directly:
    following example is a test that generates a Baseline Profile for app
    startup.
 
-           class BaselineProfileGenerator {
-           @get:Rule
-           val baselineProfileRule = BaselineProfileRule()
+   ```kotlin
+       class BaselineProfileGenerator {
+       @get:Rule
+       val baselineProfileRule = BaselineProfileRule()
 
-           @Test
-           fun startup() = baselineProfileRule.collect(
-               packageName = "com.example.app",
-               profileBlock = {
-                   uiAutomator { startApp(PACKAGE_NAME) }
-               }
-           )
-       }
-
+       @Test
+       fun startup() = baselineProfileRule.collect(
+           packageName = "com.example.app",
+           profileBlock = {
+               uiAutomator { startApp(PACKAGE_NAME) }
+           }
+       )
+   }
+   ```
 4. Update the `build.gradle.kts` file in the app module, for example `:app`.
 
    1. Apply the plugin `androidx.baselineprofile`.
@@ -321,8 +324,8 @@ directly:
 To benchmark your Baseline Profile, create a new Android Instrumented Test Run
 configuration from the gutter action that executes the benchmarks defined in
 the `StartupBenchmarks.kt` file. To learn more about benchmark testing, see
-[Create a Macrobenchmark class](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview#create-macrobenchmark) and
-[Benchmark Baseline Profiles with Macrobenchmark library](https://developer.android.com/topic/performance/baselineprofiles/measure-baselineprofile).
+[Create a Macrobenchmark class](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview.md.txt#create-macrobenchmark) and
+[Benchmark Baseline Profiles with Macrobenchmark library](https://developer.android.com/topic/performance/baselineprofiles/measure-baselineprofile.md.txt).
 ![](https://developer.android.com/static/topic/performance/images/studio/gutter-action.png) **Figure 3.** Run Android Tests from the gutter action.
 
 When you run this within Android Studio, the build output contains details of
@@ -339,14 +342,14 @@ timeToInitialDisplayMs   min 184.7,   median 196.9,   max 202.9
 
 The two key metrics for measuring app startup times are as follows:
 
-- [**Time to initial display (TTID)**](https://developer.android.com/topic/performance/issues/launch-time#time-initial): The time it takes to display the
+- [**Time to initial display (TTID)**](https://developer.android.com/topic/performance/issues/launch-time.md.txt#time-initial): The time it takes to display the
   first frame of the application UI.
 
-- [**Time to full display (TTFD)**](https://developer.android.com/topic/performance/issues/launch-time#time-full): TTID plus the time to display content
+- [**Time to full display (TTFD)**](https://developer.android.com/topic/performance/issues/launch-time.md.txt#time-full): TTID plus the time to display content
   that is loaded asynchronously after the initial frame is displayed.
 
-TTFD is reported once the [`reportFullyDrawn`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity#reportFullyDrawn()) method of the
-[`ComponentActivity`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity) is called. If `reportFullyDrawn` is never called, the
+TTFD is reported once the [`reportFullyDrawn`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.md.txt#reportFullyDrawn()) method of the
+[`ComponentActivity`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.md.txt) is called. If `reportFullyDrawn` is never called, the
 TTID is reported instead. You might need to delay when `reportFullyDrawn` is
 called until after asynchronous loading is complete. For example, if the UI
 contains a dynamic [lazy list](https://developer.android.com/jetpack/compose/lists#lazy), the list might be populated by a background
@@ -355,7 +358,7 @@ is marked as fully drawn. In such cases, code that runs after the UI reaches
 fully drawn state isn't included in the Baseline Profile.
 
 To include the list population as part of your Baseline Profile, get the
-`FullyDrawnReporter` by using [`getFullyDrawnReporter`](https://developer.android.com/reference/androidx/activity/ComponentActivity#getFullyDrawnReporter()) and add a reporter
+`FullyDrawnReporter` by using [`getFullyDrawnReporter`](https://developer.android.com/reference/androidx/activity/ComponentActivity.md.txt#getFullyDrawnReporter()) and add a reporter
 to it in your app code. Release the reporter once the background task finishes
 populating the list. The `FullyDrawnReporter` doesn't call the
 `reportFullyDrawn` method until all reporters are released. By doing this,
@@ -365,13 +368,13 @@ include all the necessary code paths.
 
 To indicate fully drawn state, use the following Compose APIs:
 
-- [`ReportDrawn`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawn.composable#ReportDrawn()) indicates that your composable is immediately ready for interaction.
-- [`ReportDrawnWhen`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawnWhen.composable#ReportDrawnWhen(kotlin.Function0)) takes a predicate, such as `list.count > 0`, to indicate when your composable is ready for interaction.
-- [`ReportDrawnAfter`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawnAfter.composable#ReportDrawnAfter(kotlin.coroutines.SuspendFunction0)) takes a suspending method that, when it completes, indicates that your composable is ready for interaction.
+- [`ReportDrawn`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawn.composable.md.txt#ReportDrawn()) indicates that your composable is immediately ready for interaction.
+- [`ReportDrawnWhen`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawnWhen.composable.md.txt#ReportDrawnWhen(kotlin.Function0)) takes a predicate, such as `list.count > 0`, to indicate when your composable is ready for interaction.
+- [`ReportDrawnAfter`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawnAfter.composable.md.txt#ReportDrawnAfter(kotlin.coroutines.SuspendFunction0)) takes a suspending method that, when it completes, indicates that your composable is ready for interaction.
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Capture Macrobenchmark metrics](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics)
-- [Write a Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview)
-- [JankStats library](https://developer.android.com/topic/performance/jankstats)
+- [Capture Macrobenchmark metrics](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics.md.txt)
+- [Write a Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview.md.txt)
+- [JankStats library](https://developer.android.com/topic/performance/jankstats.md.txt)

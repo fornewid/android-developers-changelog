@@ -4,6 +4,8 @@ url: https://developer.android.com/jetpack/androidx/releases/compose-compiler
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Compose Compiler
 
 [User Guide](https://developer.android.com/jetpack/compose/tutorial) [Code Sample](https://github.com/android/compose-samples) Transform @Composable functions and enable optimizations with a Kotlin compiler plugin.
@@ -13,7 +15,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 7, 2024 | [1.5.15](https://developer.android.com/jetpack/androidx/releases/compose-compiler#1.5.15) | - | - | - |
+| August 7, 2024 | [1.5.15](https://developer.android.com/jetpack/androidx/releases/compose-compiler.md.txt#1.5.15) | - | - | - |
 
 ## Structure
 
@@ -25,13 +27,13 @@ This table explains the groups and links to each set of release notes.
 
 | Group | Description |
 |---|---|
-| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | Build animations in their Jetpack Compose applications to enrich the user experience. |
-| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
-| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces. |
-| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
-| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
-| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
-| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
+| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt) | Build animations in their Jetpack Compose applications to enrich the user experience. |
+| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler.md.txt) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
+| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt) | Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces. |
+| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
+| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
+| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
+| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
 
 ## Declaring dependencies
 
@@ -149,7 +151,7 @@ March 20, 2024
 
 **Notes**
 
-- Starting with this version, the compiler will now call [`startReplaceGroup`](https://android-review.googlesource.com/#/q/Iad90f02440e8f7c258ff493afa6cad1c6369be7a) instead of `startReplacableGroup` when a module is compiled with a runtime that contains this method. `startReplaceGroup` was introduced in the runtime in [Compose Runtime `1.7.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.7.0-alpha03). Calls to `startRestartGroup` are only generated when targeting 1.7.0-alpha03 or later versions of the runtime.
+- Starting with this version, the compiler will now call [`startReplaceGroup`](https://android-review.googlesource.com/#/q/Iad90f02440e8f7c258ff493afa6cad1c6369be7a) instead of `startReplacableGroup` when a module is compiled with a runtime that contains this method. `startReplaceGroup` was introduced in the runtime in [Compose Runtime `1.7.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt#1.7.0-alpha03). Calls to `startRestartGroup` are only generated when targeting 1.7.0-alpha03 or later versions of the runtime.
 
 - Calling `startReplaceGroup` instead of `startReplaceableGroup` allows the runtime to detect changes more efficiently but may affect the order in which changes are detected by the `Composer` and sent to the `Applier`. This may result in subtle changes in behavior if an `Applier` relies on the order these operations are detected.
 
@@ -684,9 +686,9 @@ February 9, 2022
 - Stable support for the Android 12 [Overscroll effect](https://android-review.googlesource.com/c/platform/frameworks/support/+/1795727/)
 - Improvements to touch target sizing
 - Note that, with respect to Compose 1.0, Material components will expand their layout space to meet Material [accessibility guidelines](https://material.io/design/usability/accessibility.html) for [touch target size](https://material.io/design/usability/accessibility.html#layout-and-typography). For instance, Button touch target will expand to a minimum size of `48x48dp`, even if you set the Button's size to be smaller. This aligns Compose Material to the same behavior of Material Design Components, providing consistent behavior if you mix Views and Compose. This change also ensures that when you create your UI using Compose Material components, minimum requirements for touch target accessibility will be met.
-- Stable support for [Navigation Rail](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#navigationrail)
+- Stable support for [Navigation Rail](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#navigationrail)
 - Graduates a number of previously experimental APIs to stable
-- [Support](https://developer.android.com/jetpack/androidx/releases/compose-kotlin) for newer versions of Kotlin
+- [Support](https://developer.android.com/jetpack/androidx/releases/compose-kotlin.md.txt) for newer versions of Kotlin
 
 ### Version 1.1.0-rc03
 
@@ -722,22 +724,26 @@ December 15, 2021
 
   Add the following snippet to the root `build.gradle` file for your project:
 
-      buildscript {
-          repositories {
-              google()
-              jcenter()
-              maven { url 'https://androidx.dev/snapshots/builds/8003490/artifacts/repository' }
-          }
+  ```groovy
+  buildscript {
+      repositories {
+          google()
+          jcenter()
+          maven { url 'https://androidx.dev/snapshots/builds/8003490/artifacts/repository' }
       }
+  }
+  ```
 
   Add the following snippet to the `build.gradle` file for your app or module
   that uses Compose:
 
-      android {
-          composeOptions {
-              kotlinCompilerExtensionVersion = "1.2.0-SNAPSHOT"
-          }
+  ```groovy
+  android {
+      composeOptions {
+          kotlinCompilerExtensionVersion = "1.2.0-SNAPSHOT"
       }
+  }
+  ```
 
 ### Version 1.1.0-beta04
 

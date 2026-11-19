@@ -4,6 +4,8 @@ url: https://developer.android.com/kotlin/ktx/extensions-list
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/kotlin/ktx/llms.txt
+
 ## androidx.activity
 
 #### Dependency
@@ -1303,11 +1305,11 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.11.0"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.11.0"
-    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.11.0"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.11.0"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.11.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.11.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.11.1"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.11.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.11.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.11.1"
 }
 ```
 
@@ -1315,11 +1317,11 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.lifecycle:lifecycle-livedata-core-ktx:2.11.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.11.0")
-    implementation("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.11.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.11.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.11.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-core-ktx:2.11.1")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.11.1")
+    implementation("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.11.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.11.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.11.1")
 }
 ```
 

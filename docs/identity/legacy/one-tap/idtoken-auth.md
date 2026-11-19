@@ -4,6 +4,8 @@ url: https://developer.android.com/identity/legacy/one-tap/idtoken-auth
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/identity/legacy/one-tap/llms.txt
+
 > [!CAUTION]
 > **Caution:** One Tap for Android is deprecated. To ensure the continued security and usability of your app, [migrate to
 > Credential Manager](https://developer.android.com/identity/sign-in/credential-manager). Credential Manager supports passkey, password, and federated identity authentication (such as Sign-in with Google), stronger security, and a more consistent user experience.
@@ -34,65 +36,73 @@ includes an ID token. If it does, send it to your backend.
 
 ### Java
 
-    public class YourActivity extends AppCompatActivity {
+```java
+public class YourActivity extends AppCompatActivity {
 
-        // ...
-        private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
-        private boolean showOneTapUI = true;
-        // ...
+    // ...
+    private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
+    private boolean showOneTapUI = true;
+    // ...
 
-        @Override
-        protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-            super.onActivityResult(requestCode, resultCode, data);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-            switch (requestCode) {
-                case REQ_ONE_TAP:
-                    try { SignInCredential credential = oneTapClient.getSignInCredentialFromIntent(data);
-    String idToken = credential.getGoogleIdToken();
-    if (idToken != null) {
-    // Got an ID token from Google. Use it to authenticate
-    // with your backend.
-    Log.d(TAG, "Got ID token.");
-    }
-                    } catch (ApiException e) {
-                        // ...
-                    }
-                    break;
-            }
+        switch (requestCode) {
+            case REQ_ONE_TAP:
+                try { SignInCredential credential = oneTapClient.getSignInCredentialFromIntent(data);
+String idToken = credential.getGoogleIdToken();
+if (idToken != null) {
+// Got an ID token from Google. Use it to authenticate
+// with your backend.
+Log.d(TAG, "Got ID token.");
+}
+                } catch (ApiException e) {
+                    // ...
+                }
+                break;
         }
     }
+}
+```
+
+<br />
 
 ### Kotlin
 
-    class YourActivity : AppCompatActivity() {
+```kotlin
+class YourActivity : AppCompatActivity() {
 
-          // ...
-          private val REQ_ONE_TAP = 2  // Can be any integer unique to the Activity
-          private var showOneTapUI = true
-          // ...
+      // ...
+      private val REQ_ONE_TAP = 2  // Can be any integer unique to the Activity
+      private var showOneTapUI = true
+      // ...
 
-          override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-              super.onActivityResult(requestCode, resultCode, data)
+      override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+          super.onActivityResult(requestCode, resultCode, data)
 
-              when (requestCode) {
-                   REQ_ONE_TAP -> {
-                      try { val credential = oneTapClient.getSignInCredentialFromIntent(data)
-    val idToken = credential.googleIdToken
-    when {
-    idToken != null -\> {
-    // Got an ID token from Google. Use it to authenticate
-    // with your backend.
-    Log.d(TAG, "Got ID token.")
-    }
-    else -\> {
-    // Shouldn't happen.
-    Log.d(TAG, "No ID token!")
-    }
-    }
-                      } catch (e: ApiException) {
-                          // ...
-                  }
+          when (requestCode) {
+               REQ_ONE_TAP -> {
+                  try { val credential = oneTapClient.getSignInCredentialFromIntent(data)
+val idToken = credential.googleIdToken
+when {
+idToken != null -\> {
+// Got an ID token from Google. Use it to authenticate
+// with your backend.
+Log.d(TAG, "Got ID token.")
+}
+else -\> {
+// Shouldn't happen.
+Log.d(TAG, "No ID token!")
+}
+}
+                  } catch (e: ApiException) {
+                      // ...
               }
           }
-          // ...
       }
+      // ...
+  }
+```
+
+<br />

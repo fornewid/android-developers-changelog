@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/javascriptengine
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # JavaScriptEngine
 
 Enable your Android app to evaluate JavaScript.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 23, 2026 | [1.1.1](https://developer.android.com/jetpack/androidx/releases/javascriptengine#1.1.1) | - | - | - |
+| November 18, 2026 | [1.1.1](https://developer.android.com/jetpack/androidx/releases/javascriptengine.md.txt#1.1.1) | - | - | [1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/javascriptengine.md.txt#1.2.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -25,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.javascriptengine:javascriptengine:1.1.1"
+    implementation "androidx.javascriptengine:javascriptengine:1.2.0-alpha01"
 }
 ```
 
@@ -33,7 +35,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.javascriptengine:javascriptengine:1.1.1")
+    implementation("androidx.javascriptengine:javascriptengine:1.2.0-alpha01")
 }
 ```
 
@@ -51,6 +53,18 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Version 1.2
+
+### Version 1.2.0-alpha01
+
+November 18, 2026
+
+`androidx.javascriptengine:javascriptengine:1.2.0-alpha01` is released. Version 1.2.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ebfabe3588025b959c66c9ade0d62884b853d5b4..3e55c1ad889c6c0087b0bf6720b1a970b6e8ea3b/javascriptengine/javascriptengine).
+
+**API Changes**
+
+- Added `createSharedSandboxAsync`, `createDedicatedSandboxAsync`, and `isShared` methods to `JavaScriptSandbox`. These APIs allow apps and libraries to create multiple concurrent `JavaScriptSandbox`es, using either a shared process for resource conservation or a dedicated process for increased stability and security. ([I3fc6a](https://android-review.googlesource.com/#/q/I3fc6a867ed2f4a88c0953ac102d37d37d67a2607))
 
 ## JavaScriptEngine Version 1.1
 

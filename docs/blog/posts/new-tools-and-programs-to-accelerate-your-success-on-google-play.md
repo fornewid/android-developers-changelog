@@ -109,7 +109,7 @@ Continue reading
 
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
   [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
-  - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
 - [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich.md.txt) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
   ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new.md.txt)

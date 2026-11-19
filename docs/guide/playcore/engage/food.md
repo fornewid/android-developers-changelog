@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/playcore/engage/food
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/playcore/engage/llms.txt
+
 Boost app engagement by reaching your users where they are. Integrate Engage SDK
 to deliver personalized recommendations and continuation content directly to
 users across multiple on-device surfaces, like
@@ -278,11 +280,11 @@ to publish.
 
 The following table lists the required specifications for image assets:
 
-| Aspect ratio | Minimum pixels | Recommended pixels |
-|---|---|---|
-| Square (1x1) **Preferred** | 300x300 | 1200x1200 |
-| Landscape (1.91x1) | 600x314 | 1200x628 |
-| Portrait (4x5) | 480x600 | 960x1200 |
+| Aspect ratio | Supported cluster(s) | Minimum pixels | Recommended pixels |
+|---|---|---|---|
+| Square (1x1) | All clusters (preferred for non-featured clusters) | 300x300 | 1200x1200 |
+| Landscape (16:9, 1.91x1) | Featured (16:9 preferred) | 640x360 (16:9) / 600x314 (1.91x1) | 1264x712 (16:9) / 1200x628 (1.91x1) |
+| Portrait (4x5) | Recommendation (cropped to 1:1 in non-featured clusters) | 480x600 | 960x1200 |
 
 *File formats*
 

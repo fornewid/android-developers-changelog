@@ -4,10 +4,12 @@ url: https://developer.android.com/games/playgames/development-readiness
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/llms.txt
+
 The Game Readiness Checker is a tool that helps validate your game against review
 requirements locally in the Google Play Games on PC Developer Emulator. Running your game
 through this tool helps shorten review time by highlighting common issues before
-submitting your game for [Official Review](https://developer.android.com/games/playgames/checklist).
+submitting your game for [Official Review](https://developer.android.com/games/playgames/checklist.md.txt).
 
 ## How does it work?
 
@@ -22,9 +24,7 @@ Failing tests have a description of the problem and a link to this developer
 documentation on the right. These links help you diagnose the problem and
 work out a solution.
 
-![A screenshot of the Game Readiness Checker with several results shown. There
-are three columns labelled "Test", "Status", and "Details". Status has green
-text "Test passed" and or red text "Test failed".](https://developer.android.com/static/images/games/playgames/self-audit-tool.png "Screenshot of the Game Readiness Checker")
+![The Game Readiness Checker listing compatibility tests across Test, PC Compatibility, Status, and Details columns.](https://developer.android.com/static/images/games/playgames/self-audit-tool.png "The Game Readiness Checker")
 
 ## Google Play Games on PC compatibility tests
 
@@ -34,7 +34,7 @@ any issues it discovers.
 ### Android features test
 
 - **What it tests:** this test looks for features that are not supported on Google Play Games on PC but are present in the game's `AndroidManifest.xml` file.
-- **How to address test failures:** [remove or make optional](https://developer.android.com/games/playgames/pc-compatibility#unsupported-android-features) any features that are not supported by the Google Play Games on PC to ensure players can install and play your game.
+- **How to address test failures:** [remove or make optional](https://developer.android.com/games/playgames/pc-compatibility.md.txt#unsupported-android-features) any features that are not supported by the Google Play Games on PC to ensure players can install and play your game.
 
 ### Supported ABI test
 
@@ -57,17 +57,17 @@ any issues it discovers.
 ### Play Games Services v2 SDK integration test (Optional)
 
 - **What it tests:** if the Play Games Services SDK v2 SDK can be found in the `AndroidManifest.xml`.
-- **How to address test failures:** If you are using Play Games Services (PGS) for cloud save or achievements, [read about the continuity requirements](https://developer.android.com/games/playgames/identity#game-identity) and make sure you've integrated the latest Play Games Services SDK. If you are using a custom cloud save solution and do not use PGS, you can ignore this failure.
+- **How to address test failures:** If you are using Play Games Services (PGS) for cloud save or achievements, [read about the continuity requirements](https://developer.android.com/games/playgames/identity.md.txt#game-identity) and make sure you've integrated the latest Play Games Services SDK. If you are using a custom cloud save solution and do not use PGS, you can ignore this failure.
 
 ### Play Games Services v2 SDK sign-in test (Optional)
 
 - **What it tests:** whether the player was signed in with the Play Games Services SDK v2 SDK.
-- **How to address test failures** If you are using PGS, [read about the continuity requirements](https://developer.android.com/games/playgames/identity#game-identity) and ensure that you're signing in the player at launch. If you are using a custom cloud save solution, you can ignore this failure.
+- **How to address test failures** If you are using PGS, [read about the continuity requirements](https://developer.android.com/games/playgames/identity.md.txt#game-identity) and ensure that you're signing in the player at launch. If you are using a custom cloud save solution, you can ignore this failure.
 
 ### Input SDK test
 
 - **What it tests:** if the game has integrated with the input mapping service using the Input SDK.
-- **How to address test failures:** [read about the Input SDK](https://developer.android.com/games/playgames/input-sdk) and make sure you're annotating action bindings in your game.
+- **How to address test failures:** [read about the Input SDK](https://developer.android.com/games/playgames/input-sdk.md.txt) and make sure you're annotating action bindings in your game.
 
 ### FPS Stability Test
 
@@ -92,4 +92,4 @@ any issues it discovers.
 ### App crash test
 
 - **What it tests:** if the game crashed.
-- **How to address test failures:** [Diagnose and repair](https://developer.android.com/topic/performance/issues/crash) any crashes that may have occurred when running the Game Readiness Checker.
+- **How to address test failures:** [Diagnose and repair](https://developer.android.com/topic/performance/issues/crash.md.txt) any crashes that may have occurred when running the Game Readiness Checker.

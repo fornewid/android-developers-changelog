@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/compose/navigation
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/compose/llms.txt
+
 Compose for Wear OS Material version <button value="2.5">2.5</button> <button value="3" default="">3</button>
 
 *** ** * ** ***
@@ -29,7 +31,7 @@ Use the following dependency in your app module's build.gradle file:
 
 ```kotlin
 dependencies {
-    def wear_compose_version = "1.7.1"
+    def wear_compose_version = "1.7.2"
     implementation "androidx.wear.compose:compose-navigation:$wear_compose_version"
 }
 ```

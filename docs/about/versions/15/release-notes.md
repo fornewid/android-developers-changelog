@@ -4,6 +4,8 @@ url: https://developer.android.com/about/versions/15/release-notes
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/about/versions/15/llms.txt
+
 ### Beta 3
 
 |---|---|
@@ -75,7 +77,7 @@ devices:
 - Pixel 8a
 - Pixel 9, 9 Pro, 9 Pro XL, and 9 Pro Fold
 
-See [Get Android 15 QPR beta builds](https://developer.android.com/about/versions/15/get-qpr) for details on how to get started.
+See [Get Android 15 QPR beta builds](https://developer.android.com/about/versions/15/get-qpr.md.txt) for details on how to get started.
 
 > [!NOTE]
 > **Note:** All eligible devices enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) will be offered an over-the-air (OTA) update to Beta 3.
@@ -105,7 +107,7 @@ you are encountering your issue.
   and search the lists of [top open issues](https://developer.android.com/about/versions/15/qpr-top-issues) and
   [recently created issues](https://developer.android.com/about/versions/15/qpr-recent-issues) to see if someone else has already reported it.
   You can subscribe and vote for an issue by clicking **star this issue**
-  ![](https://developer.android.com/static/images/shared/star-issue.svg)
+  ![Star issue icon](https://developer.android.com/static/images/shared/star-issue.svg)
 
   See [Where to report issues](https://developer.android.com/about/versions/15/feedback#templates) to find an issue template that best matches
   the type of issue that you are encountering.
@@ -143,7 +145,7 @@ This developer option is available on the following devices:
 - Pixel 9a (with Android 16 or higher)
 
 For more information about how to prepare your app to support 16 KB page
-sizes, see our [Developer's Guide](https://developer.android.com/guide/practices/page-sizes).
+sizes, see our [Developer's Guide](https://developer.android.com/guide/practices/page-sizes.md.txt).
 
 ### Enable the Linux development environment on device using developer options
 
@@ -160,7 +162,7 @@ Android Virtualization Framework (AVF) is enabled:
 
 To launch the terminal app:
 
-1. [Enable developer options](https://developer.android.com/studio/debug/dev-options#enable) on the device, then open the
+1. [Enable developer options](https://developer.android.com/studio/debug/dev-options.md.txt#enable) on the device, then open the
    Settings app and navigate to **System** \> **Developer options** \> **Linux
    development environment** and toggle the option on.
 
@@ -274,7 +276,7 @@ All eligible devices enrolled in the
 will be offered an over-the-air (OTA) update to Beta 2.1.
 
 > [!NOTE]
-> **Note:** See [top open issues](https://developer.android.com/about/versions/15/top-issues) for the latest list of issues that have been reported by developers and users.
+> **Note:** See [top open issues](https://developer.android.com/about/versions/15/qpr-top-issues) for the latest list of issues that have been reported by developers and users.
 
 #### Top resolved issues
 

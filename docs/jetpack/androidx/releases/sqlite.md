@@ -4,21 +4,23 @@ url: https://developer.android.com/jetpack/androidx/releases/sqlite
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Sqlite
 
-[User Guide](https://developer.android.com/training/data-storage/sqlite) The `androidx.sqlite` library contains abstract interfaces along with basic implementations which can be used to build your own libraries that access SQLite.
+[User Guide](https://developer.android.com/training/data-storage/sqlite.md.txt) The `androidx.sqlite` library contains abstract interfaces along with basic implementations which can be used to build your own libraries that access SQLite.
 
 <br />
 
 You might want to consider using the
-[Room](https://developer.android.com/training/data-storage/room) library, which provides an
+[Room](https://developer.android.com/training/data-storage/room.md.txt) library, which provides an
 abstraction layer over SQLite to allow for more robust database access
 while harnessing the full power of SQLite.
 
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | [2.7.1](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.1) | - | - | [2.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/sqlite#2.8.0-alpha03) |
+| November 18, 2026 | [2.7.1](https://developer.android.com/jetpack/androidx/releases/sqlite.md.txt#2.7.1) | - | - | [2.8.0-alpha04](https://developer.android.com/jetpack/androidx/releases/sqlite.md.txt#2.8.0-alpha04) |
 
 ## Declaring dependencies
 
@@ -80,6 +82,16 @@ for more information.
 
 ## Version 2.8
 
+### Version 2.8.0-alpha04
+
+November 18, 2026
+
+`androidx.sqlite:sqlite-*:2.8.0-alpha04` is released. Version 2.8.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3566803898b060d7136357220affc9ece8236019..ab24969fc8fbc8986c4eb8171f22564df3a7790b/sqlite).
+
+**Changes**
+
+- Removed the `watchosArm32` target, which Kotlin 2.5 no longer supports. ([Ic048d](https://android-review.googlesource.com/#/q/Ic048d3ac5dc60b7e62f0d1d7f683431f67f6209f))
+
 ### Version 2.8.0-alpha03
 
 October 21, 2026
@@ -123,7 +135,7 @@ July 01, 2026
 
 - Add js and wasmJs targets to `androidx.sqlite:sqlite` along with asynchronous version of the driver APIs: `SQLiteDriver.open()`, `SQLiteConnection.prepare()` and `SQLiteStatement.step()` for the web targets.
 - Existing projects that don't target web can continue using the synchronous APIs in common code, but once a project targets web then only the asynchronous APIs are available. For convenience a new artifact `andriodx.sqlite:sqlite-async` includes top-level suspend functions that use the synchronous naming scheme (along with `executeSQL`) and are expect / actual declarations that will invoke the right variant based on the platform. It is recommended to use these APIs for common code targeting both web and non-web targets.
-- This release also includes a new artifact `androidx.sqlite:sqlite-web` which contains `WebWorkerSQLiteDriver`, a `SQLiteDriver` implementation for the web that communicates with a Web Worker to perform database operation via a simple messaging protocol. The protocol is documented in the `WebWorkerSQLiteDriver` and even though there is no default worker implementation with the artifact, one can be provided via the constructor. For a more concrete example on how this new artifact can be used, check out the [Room 3.0 release notes](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha01).
+- This release also includes a new artifact `androidx.sqlite:sqlite-web` which contains `WebWorkerSQLiteDriver`, a `SQLiteDriver` implementation for the web that communicates with a Web Worker to perform database operation via a simple messaging protocol. The protocol is documented in the `WebWorkerSQLiteDriver` and even though there is no default worker implementation with the artifact, one can be provided via the constructor. For a more concrete example on how this new artifact can be used, check out the [Room 3.0 release notes](https://developer.android.com/jetpack/androidx/releases/room3.md.txt#3.0.0-alpha01).
 
 ### Version 2.7.0-rc01
 
@@ -188,7 +200,7 @@ March 11, 2026
 
 - Add js and wasmJs targets to `androidx.sqlite:sqlite` along with asynchronous version of the driver APIs: `SQLiteDriver.openAsync()`, `SQLiteConnection.prepareAsync()` and `SQLiteStatement.stepAsync()`.
 - Existing projects that don't target web can continue using the synchronous APIs in common code, but once a project targets web then only the asynchronous APIs are available. For convenience the `androidx.sqlite` package also includes top-level suspend functions that use the synchronous naming scheme (along with `executeSQL`) and are expect / actual declarations that will invoke the right variant based on the platform. It is recommended to use these APIs for common code targeting both web and non-web targets.
-- This release also includes a new artifact `androidx.sqlite:sqlite-web` which contains `WebWorkerSQLiteDriver`, a `SQLiteDriver` implementation for the web that communicates with a Web Worker to perform database operation via a simple messaging protocol. The protocol is documented in the `WebWorkerSQLiteDriver` and even though there is no default worker implementation with the artifact, one can be provided via the constructor. For a more concrete example on how this new artifact can be used, check out the [Room 3.0 release notes](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha01).
+- This release also includes a new artifact `androidx.sqlite:sqlite-web` which contains `WebWorkerSQLiteDriver`, a `SQLiteDriver` implementation for the web that communicates with a Web Worker to perform database operation via a simple messaging protocol. The protocol is documented in the `WebWorkerSQLiteDriver` and even though there is no default worker implementation with the artifact, one can be provided via the constructor. For a more concrete example on how this new artifact can be used, check out the [Room 3.0 release notes](https://developer.android.com/jetpack/androidx/releases/room3.md.txt#3.0.0-alpha01).
 
 ## Version 2.6
 
@@ -300,7 +312,7 @@ April 9, 2025
 
 **Important changes since 2.4.0**
 
-- **Kotlin Multi-Platform (KMP) Support:** With the release of Room KMP version 2.7.0 the `SQLite` APIs that enable Room to be KMP have also been updated. The package `andriodx.sqlite` contains three interfaces that define low-level `SQLite` APIs: `SQLiteDriver`, `SQLiteConnection` and `SQLiteStatement`. The artifact `androidx.sqlite:sqlite-framework` offers implementation of the interfaces for Android and iOS natively, while `androidx.sqlite:sqlite-bundled` offers an implementation that uses SQLite compiled from source (also known as "bundled SQLite"). For more information about the `SQLite` Driver API refer to the [official SQLite KMP documentation](https://developer.android.com/kotlin/multiplatform/sqlite).
+- **Kotlin Multi-Platform (KMP) Support:** With the release of Room KMP version 2.7.0 the `SQLite` APIs that enable Room to be KMP have also been updated. The package `andriodx.sqlite` contains three interfaces that define low-level `SQLite` APIs: `SQLiteDriver`, `SQLiteConnection` and `SQLiteStatement`. The artifact `androidx.sqlite:sqlite-framework` offers implementation of the interfaces for Android and iOS natively, while `androidx.sqlite:sqlite-bundled` offers an implementation that uses SQLite compiled from source (also known as "bundled SQLite"). For more information about the `SQLite` Driver API refer to the [official SQLite KMP documentation](https://developer.android.com/kotlin/multiplatform/sqlite.md.txt).
 
 ### Version 2.5.0-rc03
 
@@ -452,7 +464,7 @@ May 1, 2024
 
 **New Features**
 
-- **Kotlin Multi-Platform (KMP) Support** : With the release of Room 2.7.0-alpha01 which is the first release of Room KMP, the `SQLite` APIs that enable Room to be KMP have also been updated. The package `andriodx.sqlite` contains three interfaces that define low-level SQLite APIs: `SQLiteDriver`, `SQLiteConnection` and `SQLiteStatement`. The artifact `androidx.sqlite:sqlite-framework` offers implementation of the interfaces for Android and iOS Natively, while `androidx.sqlite:sqlite-bundled` offers an implementation that uses `SQLite` compiled from source (also known as "bundled SQLite"). For more information about the SQLite Driver API refer to the [official SQLite KMP documentation](https://developer.android.com/kotlin/multiplatform/sqlite).
+- **Kotlin Multi-Platform (KMP) Support** : With the release of Room 2.7.0-alpha01 which is the first release of Room KMP, the `SQLite` APIs that enable Room to be KMP have also been updated. The package `andriodx.sqlite` contains three interfaces that define low-level SQLite APIs: `SQLiteDriver`, `SQLiteConnection` and `SQLiteStatement`. The artifact `androidx.sqlite:sqlite-framework` offers implementation of the interfaces for Android and iOS Natively, while `androidx.sqlite:sqlite-bundled` offers an implementation that uses `SQLite` compiled from source (also known as "bundled SQLite"). For more information about the SQLite Driver API refer to the [official SQLite KMP documentation](https://developer.android.com/kotlin/multiplatform/sqlite.md.txt).
 
 ## Version 2.4
 
@@ -658,7 +670,7 @@ July 21, 2021
 
 `androidx.sqlite:sqlite:2.2.0-alpha02`, `androidx.sqlite:sqlite-framework:2.2.0-alpha02`, and `androidx.sqlite:sqlite-ktx:2.2.0-alpha02` are released. [Version 2.2.0-alpha02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/ccf79f53033e665475116a4e78ff124df2a52c4b..97264aa4532db7f7db1ffb3f42f3a9204971dbfc/sqlite)
 
-No significant changes since 2.2.0-alpha01. This release is just to align with [Room `2.4.0-alpha04`](https://developer.android.com/jetpack/androidx/releases/room#2.4.0-alpha04) release.
+No significant changes since 2.2.0-alpha01. This release is just to align with [Room `2.4.0-alpha04`](https://developer.android.com/jetpack/androidx/releases/room.md.txt#2.4.0-alpha04) release.
 
 ### Version 2.2.0-alpha01
 
@@ -691,7 +703,7 @@ January 8, 2020
 
 `androidx.sqlite:sqlite-*:2.1.0-rc01` is released. [Version 2.1.0-rc01 contains these commits](https://android.googlesource.com/platform/frameworks/support/+log/ce2902e01f920f17637879b6c918ffe987d2f35b..1c41b4cf882cca6eac765d7f2b0911addd0edc0c/sqlite).
 
-This release is identical to [`2.1.0-beta01`](https://developer.android.com/jetpack/androidx/releases/sqlite#2.1.0-alpha01).
+This release is identical to [`2.1.0-beta01`](https://developer.android.com/jetpack/androidx/releases/sqlite.md.txt#2.1.0-alpha01).
 
 ### Version 2.1.0-beta01
 

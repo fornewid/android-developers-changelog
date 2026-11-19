@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/compose/previews
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/compose/llms.txt
+
 Android Studio Compose Previews let you inspect and verify your Wear OS
 composables across different watch display sizes, round bezels, and font
 scales directly in the IDE---without deploying your app to a physical watch or
@@ -25,7 +27,7 @@ following dependencies to your module's `build.gradle.kts` file:
 dependencies {
     // Provides @WearPreview* multipreview annotations
     // (such as @WearPreviewDevices and @WearPreviewFontScales)
-    implementation("androidx.wear.compose:compose-ui-tooling:1.8.0-alpha03")
+    implementation("androidx.wear.compose:compose-ui-tooling:1.8.0-alpha04")
 
     // Provides WearDevices constants
     // (such as WearDevices.SMALL_ROUND and WearDevices.LARGE_ROUND)

@@ -18,11 +18,7 @@ In this post, we will look at how you can leverage [**Firebase AI Logic**](https
 - Routing requests dynamically between cloud and local execution using hybrid inference
 - Translating content with custom routing systems
 
-<br />
-
 [Video](https://www.youtube.com/watch?v=_iuXykdlTkk)
-
-<br />
 
 Sometimes a use case requires AI models with greater world knowledge, a much larger context window, or the ability to handle complex queries. In those scenarios, we can leverage cloud models.
 
@@ -95,7 +91,7 @@ var response = chat.sendMessage(prompt)
 Not every AI task requires a cloud-based model, and not every device is online. To help developers balance latency, cost, and offline availability, we recently introduced the [Firebase API for Hybrid Inference](https://firebase.google.com/docs/ai-logic/hybrid/android/get-started?api=dev).
 
 In Jetpacker, the **restaurant review** feature lets users review select topics and automatically drafts a review. To enable this for all users, we prioritize local execution with Gemini Nano, and fall back to cloud models on devices that don't support Gemini Nano.
-![review_upscaled.png](https://developer.android.com/static/blog/assets/review_upscaled_c12b0e6b00_28z63E.webp) The restaurant review feature uses hybrid inference to draft a review based on topics
+![review_upscaled.png](https://developer.android.com/static/blog/assets/review_upscaled_c12b0e6b00_28z63E.webp) The restaurant review feature uses hybrid inference to draft a review based on topics.
 
 ```kotlin
 // implementation("com.google.firebase:firebase-ai-logic")
@@ -154,7 +150,7 @@ private val generativeModel = Firebase.ai(backend = GenerativeBackend.googleAI()
 ```
 
 Because receptionist responses are in the hotel's local language (for example, French for Hotel Le Meurice in Paris), we need to translate messages to the user's preferred language.
-![translation_upscaled.png](https://developer.android.com/static/blog/assets/translation_upscaled_5e297d961e_ZCXgRf.webp) Hotel support chat messages are automatically translated to the user's preferred language
+![translation_upscaled.png](https://developer.android.com/static/blog/assets/translation_upscaled_5e297d961e_ZCXgRf.webp) Hotel support chat messages are automatically translated to the user's preferred language.
 
 While hybrid models can configure simple routing preferences, complex scenarios require custom routing logic. In Jetpacker, we implement a custom routing stack that takes into account:
 
@@ -260,10 +256,10 @@ Check out the [full source code for Jetpacker on GitHub](https://github.com/andr
 
 Check out the other parts of this blog post series:
 
-[**Part 1**](http://android-developers.googleblog.com/2026/07/build-intelligent-android-apps-introduction-jetpack.html)**:** Introduction of the app and a high-level overview.  
+[**Part 1**](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker.md.txt)**:** Introduction of the app and a high-level overview.  
 [**Part 2**](http://android-developers.googleblog.com/2026/07/android-on-device-inference.html)**:** On-device intelligence. Deep-dive into ML Kit's GenAI APIs and Gemini Nano to build privacy-first features like itinerary summarization, receipt parsing, and local audio processing.  
-[**Part 3 (this post!):**](http://android-developers.googleblog.com/2026/07/build-intelligent-android-apps-cloud-hybrid-inference.html) Hybrid and cloud reasoning. Explore how to use Firebase AI Logic to ground LLM answers in real-world data like Google Maps and web context.  
-[**Part 4:**](http://android-developers.googleblog.com/2026/07/build-intelligent-android-apps-appfunctions.html)System integration. Integrating with the Android intelligence system using AppFunctions.   
+[**Part 3 (this post!):**](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference.md.txt) Hybrid and cloud reasoning. Explore how to use Firebase AI Logic to ground LLM answers in real-world data like Google Maps and web context.  
+[**Part 4:**](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions.md.txt)System integration. Integrating with the Android intelligence system using AppFunctions.   
 **Part 5 (coming soon):** In-app agentic workflows. Extend the app with an end-to-end booking assistant powered by A2UI and ADK.
 
 Interested in more on Android Development? Follow Android Developers on [YouTube](https://www.youtube.com/@AndroidDevelopers) or [LinkedIn](https://www.linkedin.com/showcase/androiddev/)!
@@ -302,6 +298,13 @@ Written by:
   [read_more
   View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)
 Continue reading
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+
+  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
 - [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang.md.txt) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
   ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference.md.txt)
@@ -316,13 +319,6 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker.md.txt) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
   [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 4 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
-
-  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
-  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
-  - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
 Stay in the loop
 
 

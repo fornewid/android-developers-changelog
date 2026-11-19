@@ -4,6 +4,8 @@ url: https://developer.android.com/jetpack/androidx/releases/compose
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Compose
 
 [User Guide](https://developer.android.com/jetpack/compose/tutorial) [Code Sample](https://github.com/android/compose-samples) Define your UI programmatically with composable functions that describe its shape and data dependencies.
@@ -16,13 +18,13 @@ This table explains the groups and links to each set of release notes.
 
 | Group | Description |
 |---|---|
-| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | Build animations in their Jetpack Compose applications to enrich the user experience. |
-| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
-| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces. |
-| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
-| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
-| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
-| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
+| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt) | Build animations in their Jetpack Compose applications to enrich the user experience. |
+| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler.md.txt) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
+| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt) | Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces. |
+| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
+| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
+| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
+| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
 
 ## Versions
 
@@ -30,13 +32,13 @@ This table lists the current versions of each group.
 
 | Maven Group ID | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|---|
-| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | November 04, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.1) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-rc01) | - | - |
-| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler) | August 7, 2024 | [1.5.15](https://developer.android.com/jetpack/androidx/releases/compose-compiler#1.5.15) | - | - | - |
-| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | November 04, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.1) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-rc01) | - | - |
-| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | November 04, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.1) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-rc01) | - | - |
-| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | November 04, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | [1.5.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-rc01) | - | - |
-| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | November 04, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.1) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-rc01) | - | - |
-| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | November 04, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.1) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-rc01) | - | - |
+| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt) | November 18, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt#1.13.0) | - | - | [1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt#1.14.0-alpha01) |
+| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler.md.txt) | August 7, 2024 | [1.5.15](https://developer.android.com/jetpack/androidx/releases/compose-compiler.md.txt#1.5.15) | - | - | - |
+| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt) | November 18, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt#1.13.0) | - | - | [1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt#1.14.0-alpha01) |
+| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt) | November 18, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt#1.13.0) | - | - | [1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt#1.14.0-alpha01) |
+| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt) | November 18, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt#1.5.0) | - | - | [1.6.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt#1.6.0-alpha01) |
+| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt) | November 18, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt#1.13.0) | - | - | [1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt#1.14.0-alpha01) |
+| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt) | November 18, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#1.13.0) | - | - | [1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#1.14.0-alpha01) |
 
 ## Declaring dependencies
 

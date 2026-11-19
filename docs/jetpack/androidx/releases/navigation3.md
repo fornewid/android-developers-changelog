@@ -12,7 +12,7 @@ Navigation 3 is a new navigation library designed to work with Compose.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 04, 2026 | [1.2.1](https://developer.android.com/jetpack/androidx/releases/navigation3.md.txt#1.2.1) | - | - | [1.3.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation3.md.txt#1.3.0-alpha04) |
+| November 18, 2026 | [1.2.2](https://developer.android.com/jetpack/androidx/releases/navigation3.md.txt#1.2.2) | - | - | [1.3.0-alpha05](https://developer.android.com/jetpack/androidx/releases/navigation3.md.txt#1.3.0-alpha05) |
 
 ## Declaring dependencies
 
@@ -27,8 +27,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation3:navigation3-runtime:1.3.0-alpha04"
-    implementation "androidx.navigation3:navigation3-ui:1.3.0-alpha04"
+    implementation "androidx.navigation3:navigation3-runtime:1.3.0-alpha05"
+    implementation "androidx.navigation3:navigation3-ui:1.3.0-alpha05"
+    implementation "androidx.navigation3:navigation3-dynamic-features:1.3.0-alpha05"
 }
 ```
 
@@ -36,8 +37,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation3:navigation3-runtime:1.3.0-alpha04")
-    implementation("androidx.navigation3:navigation3-ui:1.3.0-alpha04")
+    implementation("androidx.navigation3:navigation3-runtime:1.3.0-alpha05")
+    implementation("androidx.navigation3:navigation3-ui:1.3.0-alpha05")
+    implementation("androidx.navigation3:navigation3-dynamic-features:1.3.0-alpha05")
 }
 ```
 
@@ -57,6 +59,94 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.3
+
+### Version 1.3.0-alpha05
+
+November 18, 2026
+
+`androidx.navigation3:navigation3-*:1.3.0-alpha05` is released. Version 1.3.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a021adf44194ae86e596ae25ca43d5e4e18f6926..190bd13667280b0d323bc365195427fee2220583/navigation3).
+
+**New Features**
+
+Dynamic feature modules, a.k.a. [Play Feature Delivery](https://developer.android.com/guide/playcore/feature-delivery.md.txt), is now integrated to Navigation 3 via `androidx.navigation3:navigation3-dynamic-features` library.
+
+- `DynamicFeatureNavEntryDecorator` takes in a `SplitInstallManager` to install a dynamic feature module upon first navigation to the module. To use, call `rememberDynamicFeatureNavEntryDecorator` and pass into the `NavDisplay`. Then pass in `DynamicFeatureNavEntryDecorator.entryProvider` as the `entryProvider`, and invoke `dynamicFeatureModule()` inside the provider to register the module.([Idfc15](https://android-review.googlesource.com/#/q/Idfc152b732ab1f59a76ccf3bfdbcc0ecb82c758e), [b/520494172](https://issuetracker.google.com/issues/520494172))
+
+  ```kotlin
+   val dynamicFeatureDecorator =
+      rememberDynamicFeatureNavEntryDecorator<NavKey>(
+          splitInstallManager = rememberSplitInstallManager(),
+          defaultLoadingContent = { LoadingIndicator() }
+      )
+
+   NavDisplay(
+      ...
+      entryDecorators =
+          listOf(
+              rememberSaveableStateHolderNavEntryDecorator(),
+              dynamicFeatureDecorator,
+          ),
+      entryProvider =
+          dynamicFeatureDecorator.entryProvider {
+              entry<HomeKey> {
+                  ...
+              }
+              dynamicFeatureModule(
+                  initialKey = PremiumKey,
+                  moduleName = "premium",
+                  entryProviderClassName = "com.example.premium.PremiumModuleEntryProvider",
+                  loadingContent = { state ->
+                      when (state.status()) {
+                          SplitInstallSessionStatus.FAILED -> Text("Failure")
+                          SplitInstallSessionStatus.REQUIRES_USER_CONFIRMATION -> {
+                              // Call SplitInstallManager::startConfirmationDialogForResult
+                          }
+                          else -> Text("Loading premium feature...") 
+                      }
+                  },
+              )
+          },
+  )
+  ```
+- `DynamicFeatureModuleEntryProvider` provides `NavEntries` of the dynamic feature module after the module has been installed. In the module, extend the `DynamicFeatureModuleEntryProvider` class to create an `EntryProvider` that will be resolved at runtime via Java reflect. The provider can be registered with `NavDisplay` by passing its fully qualified name into the `dynamicFeatureModule` invocation.([Idfc15](https://android-review.googlesource.com/#/q/Idfc152b732ab1f59a76ccf3bfdbcc0ecb82c758e), [b/520494172](https://issuetracker.google.com/issues/520494172))
+
+  ```kotlin
+  // Defined in the `:premium` dynamic feature module. 
+  // Resolved in the `:main` app module by reflection in runtime when
+  // the installation of the dynamic feature module is completed.
+  class PremiumModuleEntryProvider : DynamicFeatureModuleEntryProvider<NavKey> {
+      override fun EntryProviderScope<NavKey>.buildEntries() {
+          entry<PremiumKey> {
+              Text("PremiumScreen")
+          }
+          entry<PremiumSubKey> {
+              Text("SubScreen")
+          }
+      }
+  }
+  ```
+- The initial `NavKey` that is used for navigating to the module can be defined in the main module or a common module. `NavKeys` for additional sub-screens inside the dynamic feature module can be defined within the module. ([Idfc15](https://android-review.googlesource.com/#/q/Idfc152b732ab1f59a76ccf3bfdbcc0ecb82c758e), [b/520494172](https://issuetracker.google.com/issues/520494172))
+
+  ```kotlin
+  // Initial nav key for the `:premium` dynamic feature module. 
+  // Defined in the `:main` app module, but can also be accessed from 
+  // the dynamic feature module.
+  @Serializable data object PremiumKey : NavKey
+
+  // An internal sub nav key for the `:premium` dynamic feature module. 
+  // Defined in the `:premium` app module, cannot be accessed by other modules.
+  @Serializable internal data object PremiumSubKey : NavKey
+  ```
+
+**API Changes**
+
+- Made `EntryProviderScope` open and `EntryProviderScope.build()` public to allow extending the entry provider DSL scope. ([I6a66d](https://android-review.googlesource.com/#/q/I6a66d7ca84f82e7363f163fc604f7701c85026bb), [b/520494172](https://issuetracker.google.com/issues/520494172))
+- Added `SharedTransitionScope.DeferredTransitionBehavior` (`FollowContainer`, `Static`, `SeekToTarget`), `SharedContentConfig.deferredTransitionBehavior`, and `MutableContentTransform.sharedElementProgress` to support seeking shared elements toward their target bounds during the deferred phase of a `DeferredTransition`. Deprecated `permitTransformDuringDeferredTransition`. ([I2fac2](https://android-review.googlesource.com/#/q/I2fac2ac003bdf0d1157b92a4263136a0f4c638ca))
+- Removed the `watchosArm32` target, which Kotlin 2.5 no longer supports. ([Ic048d](https://android-review.googlesource.com/#/q/Ic048d3ac5dc60b7e62f0d1d7f683431f67f6209f))
+
+**Bug Fixes**
+
+- Fixed `ConcurrentModificationException` from calling `NavBackStack.toList()` on a background thread while mutating the back stack on the Main thread. `NavBackStack` now has a custom `toList()` that delegates to the internal `SnapshotStateList's` thread-safe `toList()`. ([Id9bb7](https://android-review.googlesource.com/#/q/Id9bb7c7ac9b3a9217d49914a2e169a7034fb5548), [b/576097101](https://issuetracker.google.com/issues/576097101))
 
 ### Version 1.3.0-alpha04
 
@@ -103,6 +193,16 @@ September 23, 2026
 - Shared elements don't seek during the deferred (gesture) phase.
 
 ## Navigation3 Version 1.2
+
+### Version 1.2.2
+
+November 18, 2026
+
+`androidx.navigation3:navigation3-*:1.2.2` is released. Version 1.2.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/65822252146d26e872acf03dc11bda43f11efa3b..8eea7e4915d0d6e9d91414ece089f31f05493e02/navigation3).
+
+**Bug Fixes**
+
+- Fix shared `NavEntry` not rendering on the incoming scene when a navigation interrupts a pop. ([I6a482](https://android-review.googlesource.com/#/q/I6a482e02627fa6804f9cf65809005c400a0b949e), [b/573660083](https://issuetracker.google.com/issues/573660083))
 
 ### Version 1.2.1
 

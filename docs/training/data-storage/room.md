@@ -4,8 +4,10 @@ url: https://developer.android.com/training/data-storage/room
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/data-storage/room/llms.txt
+
 # Save data in a local database using Room
-Part of [Android Jetpack](https://developer.android.com/jetpack).
+Part of [Android Jetpack](https://developer.android.com/jetpack.md.txt).
 
 
 Try with Kotlin Multiplatform Kotlin Multiplatform allows sharing the database layer with other platforms. Learn how to set up and work with Room Database in KMP [Set up Room Database for KMP →](https://developer.android.com/kotlin/multiplatform/room.md.txt) ![](https://developer.android.com/static/images/android-kmp-logo.png)

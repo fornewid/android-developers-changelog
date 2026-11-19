@@ -5,7 +5,32 @@ source: md.txt
 ---
 
 This page explains what's in the recent updates to the [Maven repository](https://maven.google.com/web/index.html#com.google.android.play:age-signals) for
-the [Play Age Signals Library](https://developer.android.com/google/play/age-signals/overview).
+the [Play Age Signals Library](https://developer.android.com/google/play/age-signals/overview.md.txt).
+
+## 0.0.5 (November 2026)
+
+- **New method for applicable age features** : Introduced
+  `getApplicableAgeFeatures()` to check which age-related features (such as
+  `ApplicableAgeFeature.MANDATORY_SHARING`) apply to the current user before
+  calling `requestAgeSignalsAccess()`.
+
+- **New error code** : Added `DEVICE_NOT_SUPPORTED` (`-11`) for unsupported
+  device types.
+
+- **Testing updates** : Added the following methods to `FakeAgeSignalsManager`
+  so that you can test how your app handles `getApplicableAgeFeatures()`
+  responses without connecting to the Play Store:
+
+  - `setNextApplicableAgeFeaturesResult()`: Sets the
+    `ApplicableAgeFeaturesResult` that the next `getApplicableAgeFeatures()`
+    call returns. Use this method to simulate users in regions where
+    mandatory age sharing applies (`ApplicableAgeFeature.MANDATORY_SHARING`)
+    or doesn't apply (an empty set).
+
+  - `setNextApplicableAgeFeaturesException()`: Makes the next
+    `getApplicableAgeFeatures()` call fail with the `AgeSignalsException`
+    that you specify. Use this method to test your app's error handling,
+    such as retry logic for a `NETWORK_ERROR`.
 
 ## 0.0.4 (July 2026)
 

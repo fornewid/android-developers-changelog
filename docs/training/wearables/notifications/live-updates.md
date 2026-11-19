@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/notifications/live-updates
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/notifications/llms.txt
+
 Starting with Wear OS 7, [Live Updates](https://developer.android.com/develop/ui/views/notifications/live-update.md.txt) can be displayed on Wear OS devices
 either as locally generated notifications or as bridged notifications.
 

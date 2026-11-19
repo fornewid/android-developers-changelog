@@ -4,6 +4,8 @@ url: https://developer.android.com/games/docs/release-notes
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/llms.txt
+
 This page contains release notes for features and updates to Android games.
 To get the latest product updates delivered to you, add the URL of this page to your
 [feed
@@ -15,11 +17,11 @@ Feature Game Stats API is Generally Available.
 
 Learn more:
 
-- [Game Stats](https://developer.android.com/games/pgs/gamestats)
+- [Game Stats](https://developer.android.com/games/pgs/gamestats.md.txt)
 
-- [Integrate Game Stats](https://developer.android.com/games/pgs/integrate-gamestats)
+- [Integrate Game Stats](https://developer.android.com/games/pgs/integrate-gamestats.md.txt)
 
-- [Google Play Level Up guidelines](https://developer.android.com/games/guidelines#game-stats)
+- [Google Play Level Up guidelines](https://developer.android.com/games/guidelines.md.txt#game-stats)
 
 ## July 20, 2026
 
@@ -27,13 +29,13 @@ Feature Turn Sidekick on by default for your game.
 
 Learn more:
 
-- [Make Sidekick default on for your game](https://developer.android.com/games/pgs/play-games-sidekick#add-sidekick-game)
+- [Make Sidekick default on for your game](https://developer.android.com/games/pgs/play-games-sidekick.md.txt#add-sidekick-game)
 
 ## March 16, 2026
 
 Feature Play Games Sidekick is Generally Available.
 
-Learn more: [Play Games Sidekick](https://developer.android.com/games/pgs/play-games-sidekick)
+Learn more: [Play Games Sidekick](https://developer.android.com/games/pgs/play-games-sidekick.md.txt)
 
 ## January 16, 2026
 
@@ -41,29 +43,29 @@ Feature Play Games Services v2 Native SDK (beta) is available for you to test.
 
 The v2 Native SDK (beta) supports the following features:
 
-- [Platform authentication](https://developer.android.com/games/pgs/platform-authentication)
+- [Platform authentication](https://developer.android.com/games/pgs/platform-authentication.md.txt)
 
-- [Achievements](https://developer.android.com/games/pgs/cpp/achievements)
+- [Achievements](https://developer.android.com/games/pgs/cpp/achievements.md.txt)
 
-- [Recall](https://developer.android.com/games/pgs/recall/recall-setup#play-games-services-v2-native-sdk)
+- [Recall](https://developer.android.com/games/pgs/recall/recall-setup.md.txt#play-games-services-v2-native-sdk)
 
 Learn more:
 
-- [Get started with Play Games Services for C and C++](https://developer.android.com/games/pgs/cpp/cpp-start)
+- [Get started with Play Games Services for C and C++](https://developer.android.com/games/pgs/cpp/cpp-start.md.txt)
 
-- [Play Games Services C++ (v2) (beta) API reference](https://developer.android.com/games/services/cpp/v2/api)
+- [Play Games Services C++ (v2) (beta) API reference](https://developer.android.com/games/services/cpp/v2/api.md.txt)
 
 ## January 13, 2026
 
 Announcement The updated game controllers documentation is now available.
 
-Learn more: [Support game controllers](https://developer.android.com/games/sdk/game-controller/overview)
+Learn more: [Support game controllers](https://developer.android.com/games/sdk/game-controller/overview.md.txt)
 
 ## November 24, 2025
 
 Feature Play Games Sidekick (beta) is ready for you to test.
 
-Learn more: [Play Games Sidekick (beta)](https://developer.android.com/games/pgs/play-games-sidekick)
+Learn more: [Play Games Sidekick (beta)](https://developer.android.com/games/pgs/play-games-sidekick.md.txt)
 
 ## September 23, 2025
 
@@ -79,7 +81,7 @@ Learn more: [Google Play Games \| Level Up+](https://support.google.com/googlepl
 
 Deprecated The [Google Play Games (v1) plugin for Unity, version 0.10.15](https://github.com/playgameservices/play-games-plugin-for-unity/releases/tag/v10.15) update includes the following changes:
 
-Following the deprecation of [Google Sign-in](https://developer.android.com/identity/legacy/gsi) API, we are deprecating the Games v1 SDK and APIs.
+Following the deprecation of [Google Sign-in](https://developer.android.com/identity/legacy/gsi.md.txt) API, we are deprecating the Games v1 SDK and APIs.
 
 > [!IMPORTANT]
 > **Important:** Starting in May 2026, the deprecated APIs will be removed from the SDK. Then, as early as July 2028, calls to these APIs will fail, even if you're using older versions of the SDK.
@@ -88,7 +90,7 @@ Following the deprecation of [Google Sign-in](https://developer.android.com/iden
 
 Deprecated The [play-services-games (v24.0.0)](https://mvnrepository.com/artifact/com.google.android.gms/play-services-games) update includes the following changes:
 
-Following the deprecation of [Google Sign-in](https://developer.android.com/identity/legacy/gsi) API, we are deprecating Games v1 SDK and APIs.
+Following the deprecation of [Google Sign-in](https://developer.android.com/identity/legacy/gsi.md.txt) API, we are deprecating Games v1 SDK and APIs.
 
 > [!IMPORTANT]
 > **Important:** Starting in May 2026, the deprecated APIs will be removed from the SDK. Then, as early as July 2028, calls to these APIs will fail, even if you're using older versions of the SDK.
@@ -97,15 +99,15 @@ Following the deprecation of [Google Sign-in](https://developer.android.com/iden
 
 Deprecated The [Google Play Games plugin for Unity, version 2.1.0](https://github.com/playgameservices/play-games-plugin-for-unity/releases/tag/v2.1.0) update includes the following changes:
 
-- Removed the deprecated [Google Sign-In](https://developer.android.com/identity/legacy/gsi) dependency.
+- Removed the deprecated [Google Sign-In](https://developer.android.com/identity/legacy/gsi.md.txt) dependency.
 
 - Removed the deprecated [Google Drive](https://developers.google.com/android/reference/com/google/android/gms/drive/Drive) dependency.
 
 Feature The [Google Play Games plugin for Unity, version 2.1.0](https://github.com/playgameservices/play-games-plugin-for-unity/releases/tag/v2.1.0) update includes the following changes:
 
-- Added support for additional auth scopes using [requestServerSideAccess](https://developer.android.com/games/pgs/unity/unity-start#retrieve-auth-codes).
+- Added support for additional auth scopes using [requestServerSideAccess](https://developer.android.com/games/pgs/unity/unity-start.md.txt#retrieve-auth-codes).
 
-- Published the [Play Games Services Unity Plugin (v2) Reference](https://developer.android.com/games/services/unity/v2/api) documentation.
+- Published the [Play Games Services Unity Plugin (v2) Reference](https://developer.android.com/games/services/unity/v2/api.md.txt) documentation.
 
 ## June 23, 2025
 
@@ -113,12 +115,12 @@ Feature The user can now request three basic OAuth 2.0 identity scopes with `Gam
 
 For details, see:
 
-- [Server-side access to Play Games Services](https://developer.android.com/games/pgs/android/server-access)
+- [Server-side access to Play Games Services](https://developer.android.com/games/pgs/android/server-access.md.txt)
 Feature The `play-services-games-v2 (v21.0.0)` update includes the following changes:
 
 - Added support for additional auth scopes using [requestServerSideAccess](https://developers.google.com/android/reference/com/google/android/gms/games/GamesSignInClient#public-abstract-taskauthresponse-requestserversideaccess-string-serverclientid,-boolean-forcerefreshtoken,-listauthscope-scopes).
 
-- Removed the deprecated [Google Sign-In](https://developer.android.com/identity/legacy/gsi) dependency.
+- Removed the deprecated [Google Sign-In](https://developer.android.com/identity/legacy/gsi.md.txt) dependency.
 
 - Removed the deprecated [Google Drive](https://developers.google.com/android/reference/com/google/android/gms/drive/Drive) dependency.
 
@@ -127,12 +129,12 @@ Feature The `play-services-games-v2 (v21.0.0)` update includes the following cha
 Feature You can now import definitions and other metadata for multiple achievements together in a single step.
 
 For details, see:
-[Achievements](https://developer.android.com/games/pgs/achievements#import-achievements)
+[Achievements](https://developer.android.com/games/pgs/achievements.md.txt#import-achievements)
 
 ## November 20, 2024
 
-Feature Google Play Games plugin for Unity, version 2.0.0 supports [recall API](https://developer.android.com/games/pgs/recall/recall-setup#unity-sdk).
+Feature Google Play Games plugin for Unity, version 2.0.0 supports [recall API](https://developer.android.com/games/pgs/recall/recall-setup.md.txt#unity-sdk).
 
 For details, see:
 
-- [Set up Google Play Games for Unity and sign-in](https://developer.android.com/games/pgs/unity/unity-start)
+- [Set up Google Play Games for Unity and sign-in](https://developer.android.com/games/pgs/unity/unity-start.md.txt)

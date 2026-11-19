@@ -4,6 +4,8 @@ url: https://developer.android.com/training/tv/discovery/watch-next-add-programs
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/tv/discovery/llms.txt
+
 The Watch Next channel is the second row that appears in the home screen, after
 the apps row. The system creates and maintains this channel. Your app can add
 programs to the Watch Next channel: programs that the user marked as
@@ -12,7 +14,7 @@ the user is watching (like the next episode in a series or next season of a
 show).
 
 > [!NOTE]
-> **Note:** On the home screen, the Watch Next channel has the label **Play Next** . However, the Android classes used to manage the Watch Next channel are [`WatchNextProgram`](https://developer.android.com/reference/androidx/tvprovider/media/tv/WatchNextProgram) and [`WatchNextPrograms`](https://developer.android.com/reference/android/media/tv/TvContract.WatchNextPrograms). They have methods and constants with the stem "watchnext".
+> **Note:** On the home screen, the Watch Next channel has the label **Play Next** . However, the Android classes used to manage the Watch Next channel are [`WatchNextProgram`](https://developer.android.com/reference/androidx/tvprovider/media/tv/WatchNextProgram.md.txt) and [`WatchNextPrograms`](https://developer.android.com/reference/android/media/tv/TvContract.WatchNextPrograms.md.txt). They have methods and constants with the stem "watchnext".
 
 The Watch Next channel has some constraints: your app cannot move, remove, or
 hide the Watch Next channel's row.
@@ -26,8 +28,8 @@ Watch Next.
 When inserting content into the Watch Next channel, you must follow these
 guidelines:
 
-- [Watch Next guidelines for app developers](https://developer.android.com/training/tv/discovery/guidelines-app-developers)
-- [Watch Next guidelines for TV providers](https://developer.android.com/training/tv/discovery/guidelines-tv-providers)
+- [Watch Next guidelines for app developers](https://developer.android.com/training/tv/discovery/guidelines-app-developers.md.txt)
+- [Watch Next guidelines for TV providers](https://developer.android.com/training/tv/discovery/guidelines-tv-providers.md.txt)
 
 ### Select a type of program
 
@@ -40,43 +42,33 @@ There are four types of Watch Next programs. Select the appropriate type:
 | `WATCH_NEXT_TYPE_NEW` | New content that clearly follows what the user is watching is now available. For example, the user is watching episode number 5 from a series and episode 6 becomes available for watching. |
 | `WATCH_NEXT_TYPE_WATCHLIST` | Inserted by the system or the app when the user saves a program. |
 
-For more information, see [Watch Next attributes](https://developer.android.com/training/tv/discovery/watch-next-programs).
+For more information, see [Watch Next attributes](https://developer.android.com/training/tv/discovery/watch-next-programs.md.txt).
 
 ### Use the WatchNextProgram builder
 
 Use a `WatchNextProgram.Builder`. For more information, see [Watch Next
 attributes](https://developer.android.com/training/tv/discovery/watch-next-programs).
 
-### Kotlin
 
-    val builder = WatchNextProgram.Builder()
-    builder.setType(TvContractCompat.WatchNextPrograms.TYPE_MOVIE)
-            .setWatchNextType(TvContractCompat.WatchNextPrograms.WATCH_NEXT_TYPE_CONTINUE)
-            .setLastEngagementTimeUtcMillis(time)
-            .setTitle("Title")
-            .setDescription("Program description")
-            .setPosterArtUri(uri)
-            .setIntentUri(uri)
-            .setInternalProviderId(appProgramId)
+```kotlin
+val builder = WatchNextProgram.Builder()
+builder.setType(TvContractCompat.WatchNextPrograms.TYPE_MOVIE)
+    .setWatchNextType(TvContractCompat.WatchNextPrograms.WATCH_NEXT_TYPE_CONTINUE)
+    .setLastEngagementTimeUtcMillis(time)
+    .setTitle("Title")
+    .setDescription("Program description")
+    .setPosterArtUri(uri)
+    .setIntentUri(uri)
+    .setInternalProviderId(appProgramId)
 
-    val watchNextProgramUri = context.contentResolver
-            .insert(TvContractCompat.WatchNextPrograms.CONTENT_URI,
-                    builder.build().toContentValues())
+val watchNextProgramUri = context.contentResolver
+    .insert(
+        TvContractCompat.WatchNextPrograms.CONTENT_URI,
+        builder.build().toContentValues()
+    )
+```
 
-### Java
-
-    WatchNextProgram.Builder builder = new WatchNextProgram.Builder();
-    builder.setType(TvContractCompat.WatchNextPrograms.TYPE_MOVIE)
-            .setWatchNextType(TvContractCompat.WatchNextPrograms.WATCH_NEXT_TYPE_CONTINUE)
-            .setLastEngagementTimeUtcMillis(time)
-            .setTitle("Title")
-            .setDescription("Program description")
-            .setPosterArtUri(uri)
-            .setIntentUri(uri)
-            .setInternalProviderId(appProgramId);
-
-    Uri watchNextProgramUri = context.getContentResolver()
-            .insert(TvContractCompat.WatchNextPrograms.CONTENT_URI, builder.build().toContentValues());
+<br />
 
 Use `TvContractCompat.buildWatchNextProgramUri(long watchNextProgramId)` to
 create the `Uri` you need to update a Watch Next program.

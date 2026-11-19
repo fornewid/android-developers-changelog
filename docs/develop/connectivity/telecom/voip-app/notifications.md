@@ -86,6 +86,6 @@ val contentIntent = PendingIntent.getActivity(
 
 <br />
 
-Read [Create a call style notification for call apps](https://developer.android.com/develop/ui/views/notifications/call-style) for instructions on
+Read [Create a call style notification for call apps](https://developer.android.com/develop/ui/compose/notifications/call-style.md.txt) for instructions on
 using [`CallStyle`](https://developer.android.com/reference/android/app/Notification.CallStyle.md.txt) to distinguishing call notifications from other types of
 notifications.

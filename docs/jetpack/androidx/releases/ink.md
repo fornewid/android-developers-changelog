@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/ink
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # ink
 
 Inspire best-in-class pen apps. Lower the developer barrier to entry for high performance, beautiful inking experiences. Supports Inking on Android and server-side JVM (currently supported on Linux for x86_64).
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 04, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha11](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha11) |
+| November 18, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink.md.txt#1.0.0) | - | - | [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/ink.md.txt#1.1.0-alpha12) |
 
 ## Declaring dependencies
 
@@ -26,16 +28,16 @@ your app or module:
 ```groovy
 dependencies {
   
-    implementation "androidx.ink:ink-authoring:1.1.0-alpha11"
-    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha11"
-    implementation "androidx.ink:ink-brush:1.1.0-alpha11"
-    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha11"
-    implementation "androidx.ink:ink-geometry:1.1.0-alpha11"
-    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha11"
-    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha11"
-    implementation "androidx.ink:ink-rendering:1.1.0-alpha11"
-    implementation "androidx.ink:ink-storage:1.1.0-alpha11"
-    implementation "androidx.ink:ink-strokes:1.1.0-alpha11"
+    implementation "androidx.ink:ink-authoring:1.1.0-alpha12"
+    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha12"
+    implementation "androidx.ink:ink-brush:1.1.0-alpha12"
+    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha12"
+    implementation "androidx.ink:ink-geometry:1.1.0-alpha12"
+    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha12"
+    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha12"
+    implementation "androidx.ink:ink-rendering:1.1.0-alpha12"
+    implementation "androidx.ink:ink-storage:1.1.0-alpha12"
+    implementation "androidx.ink:ink-strokes:1.1.0-alpha12"
     
 }
 ```
@@ -46,16 +48,16 @@ dependencies {
 dependencies {
 
 
-    implementation("androidx.ink:ink-authoring:1.1.0-alpha11")
-    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha11")
-    implementation("androidx.ink:ink-brush:1.1.0-alpha11")
-    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha11")
-    implementation("androidx.ink:ink-geometry:1.1.0-alpha11")
-    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha11")
-    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha11")
-    implementation("androidx.ink:ink-rendering:1.1.0-alpha11")
-    implementation("androidx.ink:ink-storage:1.1.0-alpha11")
-    implementation("androidx.ink:ink-strokes:1.1.0-alpha11")
+    implementation("androidx.ink:ink-authoring:1.1.0-alpha12")
+    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha12")
+    implementation("androidx.ink:ink-brush:1.1.0-alpha12")
+    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha12")
+    implementation("androidx.ink:ink-geometry:1.1.0-alpha12")
+    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha12")
+    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha12")
+    implementation("androidx.ink:ink-rendering:1.1.0-alpha12")
+    implementation("androidx.ink:ink-storage:1.1.0-alpha12")
+    implementation("androidx.ink:ink-strokes:1.1.0-alpha12")
 }
 ```
 
@@ -86,6 +88,24 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Ink Version 1.1
+
+### Version 1.1.0-alpha12
+
+November 18, 2026
+
+`androidx.ink:ink-*:1.1.0-alpha12` is released. Version 1.1.0-alpha12 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a021adf44194ae86e596ae25ca43d5e4e18f6926..3e55c1ad889c6c0087b0bf6720b1a970b6e8ea3b/ink).
+
+**API Changes**
+
+- Add Ink `InProgressShapesView` method overloads for unfinished strokes from a specific device ([I9c945](https://android-review.googlesource.com/#/q/I9c9459cd660692f49b4598f999e94ecc71b16c92))
+- Support multiple input devices simultaneously in Ink authoring module ([I41ee5](https://android-review.googlesource.com/#/q/I41ee512318200d1e4e69260c6b3b03feea0e6f78))
+- Add linux-aarch64 JVM support ([I752e5](https://android-review.googlesource.com/#/q/I752e5c1a3fa6a9525e1059c40807c67c544fd392), [I1216b](https://android-review.googlesource.com/#/q/I1216b4796cf2e8dc2c096f3fc6ae45412e629852))
+
+**Bug Fixes**
+
+- Clamp stroke shape durations to be non-negative and monotonic ([I752e5](https://android-review.googlesource.com/#/q/I752e5c1a3fa6a9525e1059c40807c67c544fd392), [b/552666754](https://issuetracker.google.com/issues/552666754))
+- Change `CanvasInProgressStrokesRenderHelperV33` requested frame rate to 720F. ([I752e5](https://android-review.googlesource.com/#/q/I752e5c1a3fa6a9525e1059c40807c67c544fd392))
+- Update `ink-authoring` and `ink-authoring-compose` dependency on `input-motionprediction` ([Ib84ef](https://android-review.googlesource.com/#/q/Ib84ef3343c925e5c407184cb247c74e765687d90))
 
 ### Version 1.1.0-alpha11
 

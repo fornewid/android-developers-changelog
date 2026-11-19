@@ -61,12 +61,12 @@ For more information, check out the [official documentation.](https://developer.
 
 ### **3. Android Bench adds new models**
 
-Earlier this year, we launched [Android Bench](https://developer.android.com/bench) - our leaderboard for **testing LLMs on real-world Android development** challenges and tasks, with the goal of accelerating model improvements, so you have more helpful options for AI assistance.
+Earlier this year, we launched [Android Bench](https://developer.android.com/bench.md.txt) - our leaderboard for **testing LLMs on real-world Android development** challenges and tasks, with the goal of accelerating model improvements, so you have more helpful options for AI assistance.
 ![BqxcGrPpA9yaLkh.png](https://developer.android.com/static/blog/assets/Bqxc_Gr_Pp_A9ya_Lkh_472be974e6_Z2hExuK.webp) Latest results from Android Bench leaderboard
 
 You asked us to evaluate open models. So, at I/O, we added more commonly used ones, including our local model **Gemma 4** , to the leaderboard. We also added the latest models including **Gemini 3.5 Flash.**
 
-We are also working on increasing the difficulty of challenges we're giving LLMs, including creating long running tasks, to continue encouraging improvements. These tasks will be coming soon to Android Bench. Check out the [Android Bench leaderboard](https://developer.android.com/bench) to see the latest results.
+We are also working on increasing the difficulty of challenges we're giving LLMs, including creating long running tasks, to continue encouraging improvements. These tasks will be coming soon to Android Bench. Check out the [Android Bench leaderboard](https://developer.android.com/bench.md.txt) to see the latest results.
 
 ### **Android development anywhere**
 
@@ -100,13 +100,18 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/android-cli-now-stable-1-accelerate-developing-for-android-using-any-agent.md.txt) As Android developers, you have many choices when it comes to the agents, tools, command-line interfaces (CLI), and LLMs you use for app development.
   [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic.md.txt), [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove.md.txt) • 5 min read
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
-- [![View Phalene Gowling's profile](https://developer.android.com/static/blog/assets/Phalene_Gowling_0adca8708d_Z1EF0vK.webp)](https://developer.android.com/blog/authors/phalene-gowling.md.txt)[![View Rejane França's profile](https://developer.android.com/static/blog/assets/unnamed_31_d80d832499_1LWl7t.webp)](https://developer.android.com/blog/authors/rejane-franca.md.txt) 16 Nov 2026 16 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_158_Beyond_the_App_A_bd07c85947_982bv.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+- [![View Aurash Mahbod's profile](https://developer.android.com/static/blog/assets/image3_98854eb3dd_Z2kItkm.webp)](https://developer.android.com/blog/authors/aurash-mahbod.md.txt) 18 Nov 2026 18 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_162_2000x1000_1_ce7dba8d2a_72W03.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Beyond the app: Expanding buyer reach across new surfaces with Google Play](https://developer.android.com/blog/posts/beyond-the-app-google-play-buyer-reach.md.txt)
+  ## [Elevating games: New large screens and foldables quality standards on Google Play](https://developer.android.com/blog/posts/elevating-game-quality-foldables-large-screens-google-play.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/beyond-the-app-google-play-buyer-reach.md.txt) Discover how Google Play's channel expansion tools in Play Console expand buyer reach across store, web, and external surfaces while protecting margins.
-  [Phalene Gowling](https://developer.android.com/blog/authors/phalene-gowling.md.txt), [Rejane França](https://developer.android.com/blog/authors/rejane-franca.md.txt) • 4 min read
-  - [#Monetization](https://developer.android.com/blog/topics/monetization.md.txt)
+  [arrow_forward](https://developer.android.com/blog/posts/elevating-game-quality-foldables-large-screens-google-play.md.txt) To give these experiences to players and ensure your games shine across every screen size, Google Play is introducing new large screen quality requirements for games
+  [Aurash Mahbod](https://developer.android.com/blog/authors/aurash-mahbod.md.txt) • 4 min read
+  - [#Google Play](https://developer.android.com/blog/topics/google-play.md.txt)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Adaptive Games](https://developer.android.com/blog/topics/adaptive-games.md.txt)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+  - [#Large Screens](https://developer.android.com/blog/topics/large-screens.md.txt)
+  - +3 ↩
 Stay in the loop
 
 

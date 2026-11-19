@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/mediarouter
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Mediarouter
 
 [User Guide](https://developer.android.com/guide/topics/media/mediarouter) [Code Sample](https://github.com/android/media-samples) Enable media display and playback on remote receiver devices using a common user interface.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | [1.8.1](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.8.1) | [1.9.0-rc01](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.9.0-rc01) | - | - |
+| November 18, 2026 | [1.9.0](https://developer.android.com/jetpack/androidx/releases/mediarouter.md.txt#1.9.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -25,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.mediarouter:mediarouter:1.8.1"
+    implementation "androidx.mediarouter:mediarouter:1.9.0"
 }
 ```
 
@@ -33,7 +35,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.mediarouter:mediarouter:1.8.1")
+    implementation("androidx.mediarouter:mediarouter:1.9.0")
 }
 ```
 
@@ -53,6 +55,31 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.9
+
+### Version 1.9.0
+
+November 18, 2026
+
+`androidx.mediarouter:mediarouter:1.9.0` and `androidx.mediarouter:mediarouter-testing:1.9.0` are released. Version 1.9.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0cab07c4babbff31087ac2ab8da21290b7923a35..89cb022d69fdba98938d496c46c19b6c238df3b9/mediarouter).
+
+**Important changes since 1.8.0:**
+
+**New Features and API Changes**
+
+- **Minimum SDK Bump**: The default minimum SDK requirement is now 24.
+- **Device Suggestions** : Introduced the `setDeviceSuggestions` API, allowing you to provide device suggestions for dynamic routes.
+- **Media Transfer Status** : Introduced the `isMediaTransferEnabled` method in `MediaRouter` to allow checking the media transfer status programmatically.
+- **Routing Controller API**: Added an API to fetch the routing controller ID directly from a selected route.
+- **Selection Triggers** : Added an `onSelectedRoute` overload that explicitly indicates the selection trigger.
+- **Simplified Media Transfer**: Enabling media transfer no longer requires a dedicated manifest tag.
+
+**Bug Fixes and Improvements**
+
+- **UI Polish** : Converted `MediaRouteExpandCollapseButton` and various other UI assets to use vector drawables instead of PNGs for better scaling and performance.
+- **Accessibility** : Added the `button` accessibility role to items in `MediaRouteChooserDialog` so screen readers properly announce route entries as buttons.
+- **Security \& Crash Prevention** : Fixed a potential crash (`NullPointerException` and `ClassCastException`) caused by receiving malformed parcels in `MediaRouteDescriptor`.
+- **Screen-off Scanning** : Prevented third-party apps from inappropriately requesting screen-off scanning via `MediaRouteDiscoveryRequest`.
+- **Routing Reliability**: Fixed several bugs that could cause incorrect route selection or inconsistent default route states when providers change or media transfer is toggled.
 
 ### Version 1.9.0-rc01
 

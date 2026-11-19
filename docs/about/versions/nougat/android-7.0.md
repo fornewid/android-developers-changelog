@@ -4,12 +4,14 @@ url: https://developer.android.com/about/versions/nougat/android-7.0
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/about/versions/nougat/llms.txt
+
 Android 7.0 Nougat introduces a variety of
 new features and capabilities for users and developers.
 This document highlights what's new for developers.
 
 Make sure check out the
-[Android 7.0 behavior changes](https://developer.android.com/about/versions/nougat/android-7.0-changes) to learn about areas where platform changes
+[Android 7.0 behavior changes](https://developer.android.com/about/versions/nougat/android-7.0-changes.md.txt) to learn about areas where platform changes
 may affect your apps.
 
 To learn more about
@@ -119,7 +121,7 @@ jobs/syncs are executed. Turning the screen on or plugging in the device brings
 the device out of Doze.
 
 When the device is stationary again, with screen off and on battery for a
-period of time, Doze applies the full CPU and network restrictions on `https://developer.android.com/reference/android/os/PowerManager.WakeLock`, `https://developer.android.com/reference/android/app/AlarmManager` alarms, and
+period of time, Doze applies the full CPU and network restrictions on `PowerManager.WakeLock`, `AlarmManager` alarms, and
 GPS/Wi-Fi scans.
 
 The best practices for adapting your app to Doze are the same whether the
@@ -138,14 +140,14 @@ can make your user experience amazing --- immediate, fast, and context-aware.
 When not handled right, background processing can needlessly consume RAM (and
 battery) and affect system performance for other apps.
 
-Since Android 5.0, `https://developer.android.com/reference/android/app/job/JobScheduler` has been the
+Since Android 5.0, `JobScheduler` has been the
 preferred way of performing background work in a way that's good
 for users. Apps can schedule jobs while letting the system optimize based on
 memory, power, and connectivity conditions. JobScheduler offers control and
 simplicity, and we want all apps to use it.
 
 
-Another good option is [`GCMNetworkManager`](https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager), part of Google Play Services, which
+Another good option is [`GCMNetworkManager`](https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager), part of Google Play services, which
 offers similar job scheduling with compatibility across legacy versions of
 Android.
 
@@ -157,7 +159,7 @@ deprecate some of the older patterns that can reduce system performance,
 especially on low-memory devices.
 
 In Android 7.0 we're removing three commonly-used implicit broadcasts ---
-`https://developer.android.com/reference/android/net/ConnectivityManager#CONNECTIVITY_ACTION`, `https://developer.android.com/reference/android/hardware/Camera#ACTION_NEW_PICTURE`, and `https://developer.android.com/reference/android/hardware/Camera#ACTION_NEW_VIDEO` --- since those can wake the
+`CONNECTIVITY_ACTION`, `ACTION_NEW_PICTURE`, and `ACTION_NEW_VIDEO` --- since those can wake the
 background processes of multiple apps at once and strain memory and battery. If
 your app is receiving these, take advantage of the Android 7.0 to
 migrate to `JobScheduler` and related APIs instead.
@@ -169,24 +171,27 @@ Optimizations](https://developer.android.com/topic/performance/background-optimi
 ## SurfaceView
 
 
-Android 7.0 brings synchronous movement to the `https://developer.android.com/reference/android/view/SurfaceView`
+Android 7.0 brings synchronous movement to the `SurfaceView`
 class, which provides better battery performance
-than `https://developer.android.com/reference/android/view/TextureView` in certain cases: When rendering video or
+than `TextureView` in certain cases: When rendering video or
 3D content, apps with scrolling and animated video position use less power with
-`https://developer.android.com/reference/android/view/SurfaceView` than with `https://developer.android.com/reference/android/view/TextureView`.
-The `https://developer.android.com/reference/android/view/SurfaceView` class enables more battery-efficient compositing on screen, because it is composited in dedicated hardware, separately from app window content. As a result, it makes fewer intermediate copies than `https://developer.android.com/reference/android/view/TextureView`.
-
-<br />
+`SurfaceView` than with `TextureView`.
 
 
-A `https://developer.android.com/reference/android/view/SurfaceView` object's content position is now updated synchronously
+The `SurfaceView` class enables more battery-efficient compositing on
+screen, because it is composited in dedicated hardware, separately from app
+window content. As a result, it makes fewer intermediate
+copies than `TextureView`.
+
+
+A `SurfaceView` object's content position is now updated synchronously
 with the containing app content. One result of this change is that simple
-translations or scales of a video playing in a `https://developer.android.com/reference/android/view/SurfaceView`
+translations or scales of a video playing in a `SurfaceView`
 no longer produce black bars alongside the view as it moves.
 
 
 Starting with Android 7.0, we strongly recommend that you save power by using
-`https://developer.android.com/reference/android/view/SurfaceView` instead of `https://developer.android.com/reference/android/view/TextureView`.
+`SurfaceView` instead of `TextureView`.
 
 ## Data Saver
 
@@ -195,24 +200,24 @@ Starting with Android 7.0, we strongly recommend that you save power by using
 
 **Figure 4.** Data Saver in Settings.
 
-Over the life of a mobile device, the cost of a cellular data plan typically
-exceeds the cost of the device itself. For many users, cellular data is an
+Over the life of a mobile device, the cost of a mobile data plan typically
+exceeds the cost of the device itself. For many users, mobile data is an
 expensive resource that they want to conserve.
 
 Android 7.0 introduces Data Saver mode, a new system service that helps reduce
-cellular data use by apps, whether roaming, near the end of the billing cycle,
+mobile data use by apps, whether roaming, near the end of the billing cycle,
 or on a small prepaid data pack. Data Saver gives users control over how apps
-use cellular data and lets developers provide more efficient service when Data
+use mobile data and lets developers provide more efficient service when Data
 Saver is on.
 
 When a user enables Data Saver in **Settings** and the device is
 on a metered network, the system blocks background data usage and signals apps
 to use less data in the foreground wherever possible --- such as by limiting
-bit rate for streaming, reducing image quality, deferring optimistic precaching,
-and so on. Users can allow specific apps to allow background metered data
+bit rate for streaming, reducing image quality, and deferring optimistic precaching.
+Users can allow specific apps to allow background metered data
 usage even when Data Saver is turned on.
 
-Android 7.0 extends the `https://developer.android.com/reference/android/net/ConnectivityManager` to provide apps a
+Android 7.0 extends the `ConnectivityManager` to provide apps a
 way to [retrieve the
 user's Data Saver preferences](https://developer.android.com/training/basics/network-ops/data-saver#status) and [monitor
 preference changes](https://developer.android.com/training/basics/network-ops/data-saver#monitor-changes). All apps should check whether the user has enabled Data
@@ -247,7 +252,7 @@ such as Nexus 5X, Nexus 6P, and Nexus Player. We're working closely with our
 partners to bring Vulkan to more devices as soon as possible.
 
 
-For more information, see the [API documentation](https://developer.android.com/ndk/guides/graphics).
+For more information, see the [API documentation](https://developer.android.com/ndk/guides/graphics.md.txt).
 
 ## Quick Settings Tile API
 
@@ -279,7 +284,7 @@ them to Quick Settings just by drag and drop.
 
 
 For information about creating an app tile, see the reference documentation
-for `https://developer.android.com/reference/android/service/quicksettings/Tile`.
+for `Tile`.
 
 ## Number Blocking
 
@@ -303,7 +308,7 @@ through any medium, such as a VOIP endpoint or forwarding phones.
 
 
 For more information, see the reference documentation for
-`https://developer.android.com/reference/android/provider/BlockedNumberContract`.
+`BlockedNumberContract`.
 
 ## Call Screening
 
@@ -311,7 +316,7 @@ For more information, see the reference documentation for
 Android 7.0 allows the default phone app to screen incoming calls. The phone
 app does this by implementing the new `CallScreeningService`,
 which allows the phone app to perform a number of actions based on an
-incoming call's `https://developer.android.com/reference/android/telecom/Call.Details`, such as:
+incoming call's `Call.Details`, such as:
 
 - Reject the incoming call
 - Do not allow the call to the call log
@@ -319,7 +324,7 @@ incoming call's `https://developer.android.com/reference/android/telecom/Call.De
 
 
 For more information, see the reference documentation for
-`https://developer.android.com/reference/android/telecom/CallScreeningService`.
+`CallScreeningService`.
 
 ## Multi-locale Support, More Languages
 
@@ -341,19 +346,19 @@ changing the way that it resolves resources. Make sure that you test and verify 
 working as expected with the new resource resolution logic.
 
 To learn about the new resource-resolution behavior and the best practices you
-should follow, see [Multilingual Support](https://developer.android.com/guide/topics/resources/multilingual-support).
+should follow, see [Multilingual Support](https://developer.android.com/guide/topics/resources/multilingual-support.md.txt).
 
-## New Emojis
+## New emoji
 
 
-Android 7.0 introduces additional emojis and emoji-related features including
-skin tone emojis and support for variation
-selectors. If your app supports emojis,
+Android 7.0 introduces additional emoji and emoji-related features including
+skin tone emoji and support for variation
+selectors. If your app supports emoji,
 follow the guidelines below to take advantage of these emoji-related features.
 
-- **Check that a device contains an emoji before inserting it.** To check which emojis are present in the system font, use the `https://developer.android.com/reference/android/graphics/Paint#hasGlyph(java.lang.String)` method.
-- **Check that an emoji supports variation selectors.** Variation selectors allow you to present certain emojis in color or in black-and-white. On mobile devices, apps should represent emojis in color rather than black-and-white. However, if your app displays emojis inline with text, then it should use the black-and-white variation. To determine whether an emoji has a variation, use the variation selector. For a complete list of characters with variations, review the *emoji variation sequences* section of the [Unicode documentation on variations](https://www.unicode.org/Public/UNIDATA/StandardizedVariants.txt).
-- **Check that an emoji supports skin tone.** Android 7.0 allows users to modify the rendered skin tone of emojis to their preference. Keyboard apps should provide visual indications for emojis that have multiple skin tones and should allow users to select the skin tone that they prefer. To determine which system emojis have skin tone modifiers, use the `https://developer.android.com/reference/android/graphics/Paint#hasGlyph(java.lang.String)` method. You can determine which emojis use skin tones by reading the [Unicode documentation](http://unicode.org/emoji/charts/full-emoji-list.html).
+- **Check that a device contains an emoji before inserting it.** To check which emoji are present in the system font, use the `hasGlyph(String)` method.
+- **Check that an emoji supports variation selectors.** Variation selectors allow you to present certain emoji in color or in black-and-white. On mobile devices, apps should represent emoji in color rather than black-and-white. However, if your app displays emoji inline with text, then it should use the black-and-white variation. To determine whether an emoji has a variation, use the variation selector. For a complete list of characters with variations, review the *emoji variation sequences* section of the [Unicode documentation on variations](https://www.unicode.org/Public/UNIDATA/StandardizedVariants.txt).
+- **Check that an emoji supports skin tone.** Android 7.0 allows users to modify the rendered skin tone of emoji to their preference. Keyboard apps should provide visual indications for emoji that have multiple skin tones and should allow users to select the skin tone that they prefer. To determine which system emoji have skin tone modifiers, use the `hasGlyph(String)` method. You can determine which emoji use skin tones by reading the [Unicode documentation](http://unicode.org/emoji/charts/full-emoji-list.html).
 
 ## ICU4J APIs in Android
 
@@ -366,7 +371,7 @@ apps, switching to the `android.icu` APIs provided in the Android
 framework can produce substantial savings in APK size.
 
 
-To learn more about the Android ICU4J APIs, see [ICU4J Support](https://developer.android.com/guide/topics/resources/internationalization#nougat).
+To learn more about the Android ICU4J APIs, see [ICU4J Support](https://developer.android.com/guide/topics/resources/internationalization.md.txt#nougat).
 
 ## WebView
 
@@ -427,7 +432,7 @@ WebView is updated regularly, so we recommend that you test compatibility
 with your app frequently using WebView's beta channel. To get started testing
 pre-release versions of WebView on Android 7.0, download and install either
 Chrome Dev or Chrome Beta, and select it as the WebView implementation under
-developer options as described above. Please report issues via the [Chromium
+developer options as described earlier. Report issues using the [Chromium
 bug tracker](https://bugs.chromium.org/p/chromium/issues/entry?template=Webview+Bugs) so that we can fix them before a new version of WebView is
 released.
 
@@ -446,16 +451,16 @@ requirement in your manifest file, using the `<uses-feature>` tag and
 the `android:glEsVersion` attribute.
 
 For information about using OpenGL ES, including how to check a device's
-supported OpenGL ES version at runtime, see the [OpenGL ES API guide](https://developer.android.com/develop/ui/views/graphics/opengl/about-opengl).
+supported OpenGL ES version at runtime, see the [OpenGL ES API guide](https://developer.android.com/develop/ui/views/graphics/opengl/about-opengl.md.txt).
 
 ## Android TV Recording
 
 Android 7.0 adds the ability to record and playback content from Android TV input
-services via new recording APIs. Building on top of existing time-shifting
+services using new recording APIs. Building on top of existing time-shifting
 APIs, TV input services can control what channel data can be recorded, how
 recorded sessions are saved, and manage user interaction with recorded content.
 
-For more information, see [Android TV Recording APIs](https://developer.android.com/training/tv/tif/content-recording).
+For more information, see [Android TV Recording APIs](https://developer.android.com/training/tv/tif/content-recording.md.txt).
 
 ## Android for Work
 
@@ -541,11 +546,11 @@ Accessibility.
 
 Also in Android 7.0, accessibility services can now help users with motor
 impairments to touch the screen. The new API allows building services with
-features such as face-tracking, eye-tracking, point scanning, and so on, to
+features such as face-tracking, eye-tracking, and point scanning to
 meet the needs of those users.
 
 For more information, see the reference documentation for
-`https://developer.android.com/reference/android/accessibilityservice/GestureDescription`.
+`GestureDescription`.
 
 ## Direct Boot
 
@@ -570,11 +575,8 @@ registered components by broadcasting the `LOCKED_BOOT_COMPLETED`
 intent. The system ensures registered device-encrypted app data is available
 before unlock. All other data is unavailable until the User confirms their lock
 screen credentials to decrypt it.
+
 For more information, see [Direct Boot](https://developer.android.com/training/articles/direct-boot).
-
-<br />
-
-<br />
 
 ## Key Attestation
 
@@ -589,10 +591,10 @@ in your apps, you should use this tool, particularly if you use the keys to
 verify sensitive information within your app.
 
 
-Key attestation allows you to verify that an RSA or EC key pair has been
+Key attestation lets you verify that an RSA or EC key pair has been
 created and stored in a device's hardware-backed keystore within the device's
-trusted execution environment (TEE). The tool also allows you to use an
-off-device service, such as your app's back-end server, to determine and
+trusted execution environment (TEE). The tool also lets you use an
+off-device service, such as your app's backend server, to determine and
 strongly verify the uses and validity of the key pair. These features provide
 an additional level of security that protects the key pair, even if someone
 roots the device or compromises the security of the Android platform running
@@ -635,7 +637,7 @@ For more information, see [Network security configuration](https://developer.and
 
 By default, apps that target Android 7.0 only trust system-provided certificates
 and no longer trust user-added Certificate Authorities (CA). Apps targeting Android 7.0
-(API level 24) that wish to trust user-added CAs should use the
+(API level 24) that want to trust user-added CAs should use the
 [Network security configuration](https://developer.android.com/training/articles/security-config) to
 specify how user CAs should be trusted.
 
@@ -681,7 +683,7 @@ before signing your app using APK Signature Scheme v2, not after.
 
 
 For more information, read the Android Studio documents that describe how to
-[sign an app](https://developer.android.com/studio/publish/app-signing#release-mode) in Android Studio and how to [configure
+[sign an app](https://developer.android.com/studio/publish/app-signing.md.txt#release-mode) in Android Studio and how to [configure
 the build file for signing apps](https://developer.android.com/studio/build/build-variants#signing) using the Android Plugin for Gradle.
 
 ## Scoped Directory Access
@@ -712,7 +714,7 @@ In Android 7.0, the user can press **Meta + /** to trigger a
 from the system and from the app in focus. The system retrieves these
 shortcuts automatically from the app's menu if the shortcuts exist. You can
 also provide your own fine-tuned shortcuts lists for the screen. You can do
-this by overriding the `https://developer.android.com/reference/android/view/Window.Callback#onProvideKeyboardShortcuts(java.util.List<android.view.KeyboardShortcutGroup>, android.view.Menu, int)` method.
+this by overriding the `onProvideKeyboardShortcuts()` method.
 
 
 **Note:** The **Meta** key is not present on all
@@ -722,7 +724,7 @@ Pixel C and the ChromeOS keyboards, it is the **Search** key.
 
 
 To trigger Keyboard Shortcuts Helper from anywhere in your app, call
-`https://developer.android.com/reference/android/app/Activity#requestShowKeyboardShortcuts()`
+`requestShowKeyboardShortcuts()`
 from the relevant activity.
 
 ## Custom Pointer API
@@ -785,18 +787,18 @@ about individual printers and print jobs.
 When listing individual printers, a print service can now set per-printer
 icons in two ways:
 
-- You can set an icon from a resource ID by calling `https://developer.android.com/reference/android/print/PrinterInfo.Builder#setIconResourceId(int)`.
-- You can show an icon from the network by calling `https://developer.android.com/reference/android/print/PrinterInfo.Builder#setHasCustomPrinterIcon(boolean)`, and setting a callback for when the icon is requested using `https://developer.android.com/reference/android/printservice/PrinterDiscoverySession#onRequestCustomPrinterIcon(android.print.PrinterId, android.os.CancellationSignal, android.printservice.CustomPrinterIconCallback)`.
+- You can set an icon from a resource ID by calling `setIconResourceId()`.
+- You can show an icon from the network by calling `setHasCustomPrinterIcon()`, and setting a callback for when the icon is requested using `onRequestCustomPrinterIcon()`.
 
 
 In addition, you can provide a per-printer activity to display additional
-information by calling `https://developer.android.com/reference/android/print/PrinterInfo.Builder#setInfoIntent(android.app.PendingIntent)`.
+information by calling `setInfoIntent()`.
 
 
 You can indicate the progress and status of print jobs in the print job
 notification by calling
-`https://developer.android.com/reference/android/printservice/PrintJob#setProgress(float)` and
-`https://developer.android.com/reference/android/printservice/PrintJob#setStatus(int)`, respectively.
+`setProgress()` and
+`setStatus()`, respectively.
 
 ## Frame Metrics API
 
@@ -804,7 +806,7 @@ notification by calling
 The Frame Metrics API allows an app to monitor its UI rendering
 performance. The API provides this capability by exposing a streaming Pub/Sub API to transfer frame
 timing info for the app's current window. The data returned is
-equivalent to that which `https://developer.android.com/tools/help/shell#shellcommands
+equivalent to that which `adb shell
 dumpsys gfxinfo framestats` displays, but is not limited to the past 120 frames.
 
 
@@ -820,11 +822,11 @@ for real use cases within an app.
 
 
 To monitor a window, implement the
-`https://developer.android.com/reference/android/view/Window.OnFrameMetricsAvailableListener#onFrameMetricsAvailable(android.view.Window, android.view.FrameMetrics, int)`
+`OnFrameMetricsAvailableListener.onFrameMetricsAvailable()`
 callback method and register it on that window.
 
 
-The API provides a `https://developer.android.com/reference/android/view/FrameMetrics` object, which
+The API provides a `FrameMetrics` object, which
 contains timing data that the rendering subsystem reports for various milestones
 in a frame lifecycle. The supported metrics are: `UNKNOWN_DELAY_DURATION`,
 `INPUT_HANDLING_DURATION`, `ANIMATION_DURATION`,
@@ -844,9 +846,9 @@ an input stream.
 
 Android 7.0 adds the concept of *virtual files* to the Storage Access
 Framework. The virtual files feature allows your
-`https://developer.android.com/reference/android/provider/DocumentsProvider` to return document URIs that can be
-used with an `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW` intent even if they
-don't have a direct bytecode representation. Android 7.0 also allows you to
+`DocumentsProvider` to return document URIs that can be
+used with an `ACTION_VIEW` intent even if they
+don't have a direct bytecode representation. Android 7.0 also lets you
 provide alternate formats for user files, virtual or otherwise.
 
 

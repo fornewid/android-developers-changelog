@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/notifications/ongoing-acti
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/notifications/llms.txt
+
 Wear OS devices are often used for long-running experiences, such as tracking a
 workout. These experiences may also provide important information that the user
 cares about and needs quick access to.

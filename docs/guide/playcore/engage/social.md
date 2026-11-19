@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/playcore/engage/social
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/playcore/engage/llms.txt
+
 Boost app engagement by reaching your users where they are. Integrate Engage SDK
 to deliver personalized recommendations and continuation content directly to
 users across multiple on-device surfaces, like
@@ -33,7 +35,7 @@ following table to determine your eligibility for specific surfaces:
 
 ### Integrate Engage SDK
 
-Use the Engage SDK [Android skill](https://developer.android.com/tools/agents/android-skills) to integrate, debug, and resolve implementation issues. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the Engage SDK [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to integrate, debug, and resolve implementation issues. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add engage-sdk-integration
 
@@ -96,10 +98,12 @@ Minimum API level: 19
 
 Add the `com.google.android.engage:engage-core` library to your app:
 
-    dependencies {
-        // Make sure you also include that repository in your project's build.gradle file.
-        implementation 'com.google.android.engage:engage-core:1.6.0'
-    }
+```groovy
+dependencies {
+    // Make sure you also include that repository in your project's build.gradle file.
+    implementation 'com.google.android.engage:engage-core:1.6.0'
+}
+```
 
 ### Summary
 
@@ -128,26 +132,26 @@ type.
 
 | Attribute | Requirement | Description | Format |
 |---|---|---|---|
-| Action URI | **Required** for all surfaces other than Google TV | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) | URI |
+| Action URI | **Required** for all surfaces other than Google TV | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) | URI |
 | PlatformSpecificPlayback | **Required** for Google TV surface | Deep Link to the entity in the provider app for platforms like Google TV and Mobile. | List of PlatformSpecificPlayback objects |
 | Recommendation Reason | Optional | The justification for recommending the content to the user. | RecommendationReason object |
 | Comments Summary | Optional | Summary of comments for the post. | String |
 | **Post related metadata (Required)** ||||
-| Image(s) | Required | Image(s) should be in **portrait aspect ratio.** The UI may show only 1 image when multiple images are provided. However, the UI may provide visual indication that there are more images in the app. *If the post is a video, the provider should provide a thumbnail of the video to be shown as an image.* | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social#image-specs) for guidance. |
+| Image(s) | Required | Image(s) should be in **portrait aspect ratio.** The UI may show only 1 image when multiple images are provided. However, the UI may provide visual indication that there are more images in the app. *If the post is a video, the provider should provide a thumbnail of the video to be shown as an image.* | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social.md.txt#image-specs) for guidance. |
 | Text content | Optional | The main text of a post, update, etc. | String (recommended max 140 chars) |
 | Timestamp | Optional | Time when the post was published. | Epoch timestamp in milliseconds |
 | Is video content | Optional | Is the post a video? | boolean |
 | Video duration | Optional | The duration of the video in milliseconds. | Long |
 | **Profile related metadata (Optional)** ||||
 | Name | Required | Profile name or id or handle, eg "John Doe", "@TeamPixel" | String(recommended max 25 chars) |
-| Avatar | Required | Profile picture or avatar image of the user. **Square 1:1 image** | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social#image-specs) for guidance. |
-| Additional Image | Optional | Profile badge. for example - verified badge **Square 1:1 image** | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social#image-specs) for guidance. |
+| Avatar | Required | Profile picture or avatar image of the user. **Square 1:1 image** | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social.md.txt#image-specs) for guidance. |
+| Additional Image | Optional | Profile badge. for example - verified badge **Square 1:1 image** | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social.md.txt#image-specs) for guidance. |
 | **Interactions related metadata (Optional)** ||||
 | Count | Optional | Indicate the number of interactions, for example - "3.7 M.". **Note:** If both Count and Count Value are provided, Count will be used. **Note:** Partners should use either **Count** or **CountWithOptionalLabel**. | String |
 | CountWithOptionalLabel | Optional | Indicate the number of interactions with an optional label, for example - "3.7 M Likes.". **Note:** If both CountWithOptionalLabel and Count Value are provided, one of them will be used. **Note:** Partners should use either **Count** or **CountWithOptionalLabel**. | String |
 | Count Value | Optional | The number of interactions as a value. **Note:** Provide Count Value instead of Count if your app doesn't handle logic on how a large number should be optimized for different display sizes. If both Count and Count Value are provided, Count is used. | Long |
 | Label | Optional | Indicate what the interaction label is for. For example - "Likes". | String |
-| Visual | Optional | Indicate what the interaction is for. For example - Image showing Likes icon, emoji. Can provide more than 1 image, though not all may not be shown on all form factors. **Note:** Must be Square 1:1 image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social#image-specs) for guidance. |
+| Visual | Optional | Indicate what the interaction is for. For example - Image showing Likes icon, emoji. Can provide more than 1 image, though not all may not be shown on all form factors. **Note:** Must be Square 1:1 image | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social.md.txt#image-specs) for guidance. |
 | **DisplayTimeWindow (Optional) - Set a time window for a content to be shown on the surface** ||||
 | Start Timestamp | Optional | The epoch timestamp after which the content should be shown on the surface. If not set, content is eligible to be shown on the surface. | Epoch timestamp in milliseconds |
 | End Timestamp | Optional | The epoch timestamp after which the content is no longer shown on the surface. If not set, content is eligible to be shown on the surface. | Epoch timestamp in milliseconds |
@@ -156,36 +160,44 @@ type.
 
 | Attribute | Requirement | Description | Format |
 |---|---|---|---|
-| Action URI | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) | URI |
+| Action URI | **Required** | Deep Link to the entity in the provider app. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) | URI |
 | PlatformSpecificPlayback URIs | **Required** for Google TV surface | Deep Link to the entity in the provider app for platforms like Google TV and Mobile. | List of PlatformSpecificPlayback objects |
 | Recommendation Reason | Optional | The justification for recommending the content to the user. | RecommendationReason object |
 | Comments Summary | Optional | Summary of comments for the post. | String |
 | **Post related metadata (Required)** At least one of TextContent, Image or WebContent is required ||||
-| Image(s) | Optional | Image(s) should be in **portrait aspect ratio.** The UI may show only 1 image when multiple images are provided. However, the UI may provide visual indication that there are more images in the app. *If the post is a video, the provider should provide a thumbnail of the video to be shown as an image.* | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social#image-specs) for guidance. |
+| Image(s) | Optional | Image(s) should be in **portrait aspect ratio.** The UI may show only 1 image when multiple images are provided. However, the UI may provide visual indication that there are more images in the app. *If the post is a video, the provider should provide a thumbnail of the video to be shown as an image.* | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social.md.txt#image-specs) for guidance. |
 | Text content | Optional | The main text of a post, update, etc. | String (recommended max 140 chars) |
 | **Video Content (Optional)** ||||
 | Duration | Required | The duration of the video in milliseconds. | Long |
-| Image | Required | Preview image of the video content. | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social#image-specs) for guidance. |
+| Image | Required | Preview image of the video content. | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social.md.txt#image-specs) for guidance. |
 | **Link Preview (Optional)** ||||
 | Link Preview - Title | Required | Text to indicate the title of the web page content | String |
 | Link Preview - Hostname | Required | Text to indicate the web page owner, eg "INSIDER" | String |
-| Link Preview - Image | Optional | Hero image for the web content | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social#image-specs) for guidance. |
+| Link Preview - Image | Optional | Hero image for the web content | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social.md.txt#image-specs) for guidance. |
 | Timestamp | Optional | Time when the post was published. | Epoch timestamp in milliseconds |
 | **Profile related metadata (Optional)** ||||
 | Name | Required | Profile name or id or handle, eg "John Doe", "@TeamPixel." | String(recommended max 25 chars) |
 | Additional Text | Optional | Could be used as profile id or handle or additional metadata For example "@John-Doe", "5M followers", "You might like", "Trending", "5 new posts" | String(recommended max 40 chars) |
-| Avatar | Required | Profile picture or avatar image of the user. **Square 1:1 image** | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social#image-specs) for guidance. |
-| Additional Image | Optional | Profile badge, for example - verified badge **Square 1:1 image** | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social#image-specs) for guidance. |
+| Avatar | Required | Profile picture or avatar image of the user. **Square 1:1 image** | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social.md.txt#image-specs) for guidance. |
+| Additional Image | Optional | Profile badge, for example - verified badge **Square 1:1 image** | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social.md.txt#image-specs) for guidance. |
 | **Interactions related metadata (Optional)** ||||
 | Count | Required | Indicate the number of interactions, for example - "3.7 M." **Note:** Partners should use either **Count** or **CountWithOptionalLabel**. | String |
 | CountWithOptionalLabel | Required | Indicate the number of interactions with an optional label, for example - "3.7 M Likes." **Note:** Partners should use either **Count** or **CountWithOptionalLabel**. | String |
 | Label | Optional If not provided, **Visual** must be provided. | Indicate what the interaction is for. For example - "Likes." | String (recommended max 20 chars for count + label combined) |
-| Visual | Optional If not provided, **Label** must be provided. | Indicate what the interaction is for. For example - Image showing Likes icon, emoji. Can provide more than 1 image, though not all may not be shown on all form factors. **Square 1:1 image** | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social#image-specs) for guidance. |
+| Visual | Optional If not provided, **Label** must be provided. | Indicate what the interaction is for. For example - Image showing Likes icon, emoji. Can provide more than 1 image, though not all may not be shown on all form factors. **Square 1:1 image** | See [Image Specifications](https://developer.android.com/guide/playcore/engage/social.md.txt#image-specs) for guidance. |
 | **DisplayTimeWindow (Optional) - Set a time window for a content to be shown on the surface** ||||
 | Start Timestamp | Optional | The epoch timestamp after which the content should be shown on the surface. If not set, content is eligible to be shown on the surface. | Epoch timestamp in milliseconds |
 | End Timestamp | Optional | The epoch timestamp after which the content is no longer shown on the surface. If not set, content is eligible to be shown on the surface. | Epoch timestamp in milliseconds |
 
 #### Image specifications
+
+The following table lists the required specifications for image assets:
+
+| Aspect ratio | Supported cluster(s) | Minimum pixels | Recommended pixels |
+|---|---|---|---|
+| Portrait (9:16, 4x5) | Recommendation (preferred for post images) | 360x640 (9:16) / 480x600 (4x5) | 720x1280 (9:16) / 960x1200 (4x5) |
+| Square (1x1) | Recommendation (required for profile avatar, badge, and interaction images) | 300x300 | 1200x1200 |
+| Landscape (16:9, 1.91x1) | Recommendation (video and link preview images) | 640x360 (16:9) / 600x314 (1.91x1) | 1264x712 (16:9) / 1200x628 (1.91x1) |
 
 The images are required to be hosted on public CDNs so that Google can access
 them.
@@ -236,7 +248,7 @@ whether the content can be presented on the device.
 
 ### Engage SDK integration
 
-To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add engage-sdk-integration
 
@@ -263,48 +275,52 @@ required for `ServiceAvailabilityRequest` from the following table.
 
 ### Kotlin
 
-    val request = ServiceAvailabilityRequest.Builder()
-        .addIntendedClusterType(ClusterType.TYPE_CONTINUATION)
-        .addIntendedClusterType(ClusterType.TYPE_RECOMMENDATION)
-        .build()
+```kotlin
+val request = ServiceAvailabilityRequest.Builder()
+    .addIntendedClusterType(ClusterType.TYPE_CONTINUATION)
+    .addIntendedClusterType(ClusterType.TYPE_RECOMMENDATION)
+    .build()
 
-    client.isServiceAvailable(request).addOnCompleteListener { task ->
-        if (task.isSuccessful) {
-            val availabilityMap = task.result
-            if (availabilityMap[ClusterType.TYPE_CONTINUATION] == true) {
-                // Proceed with publishing continuation content
-            }
-            if (availabilityMap[ClusterType.TYPE_RECOMMENDATION] == true) {
-                // Proceed with publishing recommendation content
-            }
-        } else {
-            // The IPC call itself fails, proceed with error handling logic here,
-            // such as retry.
+client.isServiceAvailable(request).addOnCompleteListener { task ->
+    if (task.isSuccessful) {
+        val availabilityMap = task.result
+        if (availabilityMap[ClusterType.TYPE_CONTINUATION] == true) {
+            // Proceed with publishing continuation content
         }
+        if (availabilityMap[ClusterType.TYPE_RECOMMENDATION] == true) {
+            // Proceed with publishing recommendation content
+        }
+    } else {
+        // The IPC call itself fails, proceed with error handling logic here,
+        // such as retry.
     }
+}
+```
 
 ### Java
 
-    ServiceAvailabilityRequest request =
-        new ServiceAvailabilityRequest.Builder()
-            .addIntendedClusterType(ClusterType.TYPE_CONTINUATION)
-            .addIntendedClusterType(ClusterType.TYPE_RECOMMENDATION)
-            .build();
+```java
+ServiceAvailabilityRequest request =
+    new ServiceAvailabilityRequest.Builder()
+        .addIntendedClusterType(ClusterType.TYPE_CONTINUATION)
+        .addIntendedClusterType(ClusterType.TYPE_RECOMMENDATION)
+        .build();
 
-    client.isServiceAvailable(request).addOnCompleteListener(task -> {
-        if (task.isSuccessful()) {
-            Map<Integer, Boolean> availabilityMap = task.getResult();
-            if (Boolean.TRUE.equals(availabilityMap.get(ClusterType.TYPE_CONTINUATION))) {
-                // Proceed with publishing continuation content
-            }
-            if (Boolean.TRUE.equals(availabilityMap.get(ClusterType.TYPE_RECOMMENDATION))) {
-                // Proceed with publishing recommendation content
-            }
-        } else {
-            // The IPC call itself fails, proceed with error handling logic here,
-            // such as retry.
+client.isServiceAvailable(request).addOnCompleteListener(task -> {
+    if (task.isSuccessful()) {
+        Map<Integer, Boolean> availabilityMap = task.getResult();
+        if (Boolean.TRUE.equals(availabilityMap.get(ClusterType.TYPE_CONTINUATION))) {
+            // Proceed with publishing continuation content
         }
-    });
+        if (Boolean.TRUE.equals(availabilityMap.get(ClusterType.TYPE_RECOMMENDATION))) {
+            // Proceed with publishing recommendation content
+        }
+    } else {
+        // The IPC call itself fails, proceed with error handling logic here,
+        // such as retry.
+    }
+});
+```
 
 ###### Conditional Service Availability Feature
 
@@ -321,37 +337,41 @@ type, contact engage-developers@google.com.
 
 ### Kotlin
 
-    client.isServiceAvailable.addOnCompleteListener { task ->
-        if (task.isSuccessful) {
-            // Handle IPC call success
-            if(task.result) {
-              // Service is available on the device, proceed with content publish
-              // calls.
-            } else {
-              // Service is not available, no further action is needed.
-            }
+```kotlin
+client.isServiceAvailable.addOnCompleteListener { task ->
+    if (task.isSuccessful) {
+        // Handle IPC call success
+        if(task.result) {
+          // Service is available on the device, proceed with content publish
+          // calls.
         } else {
-          // The IPC call itself fails, proceed with error handling logic here,
-          // such as retry.
+          // Service is not available, no further action is needed.
         }
+    } else {
+      // The IPC call itself fails, proceed with error handling logic here,
+      // such as retry.
     }
+}
+```
 
 ### Java
 
-    client.isServiceAvailable().addOnCompleteListener(task - > {
-        if (task.isSuccessful()) {
-            // Handle success
-            if(task.getResult()) {
-              // Service is available on the device, proceed with content publish
-              // calls.
-            } else {
-              // Service is not available, no further action is needed.
-            }
+```java
+client.isServiceAvailable().addOnCompleteListener(task - > {
+    if (task.isSuccessful()) {
+        // Handle success
+        if(task.getResult()) {
+          // Service is available on the device, proceed with content publish
+          // calls.
         } else {
-          // The IPC call itself fails, proceed with error handling logic here,
-          // such as retry.
+          // Service is not available, no further action is needed.
         }
-    });
+    } else {
+      // The IPC call itself fails, proceed with error handling logic here,
+      // such as retry.
+    }
+});
+```
 
 > [!NOTE]
 > **Note:** We highly recommend keeping a periodic job running to check if the service becomes available at a later point in time. The availability of the service may change with Android version upgrades, app upgrades, installs, and uninstalls. By ensuring periodic job checks at a certain time interval, data can be published once the service becomes available.
@@ -367,7 +387,7 @@ A `RecommendationCluster` object can have the following attributes:
 | List of SocialPostEntity, or PortraitMediaEntity | **Required** | A list of entities that make up the recommendations for this Recommendation Cluster. Entities in a single cluster must be of the same type. |
 | Title | **Required** | The title for the Recommendation Cluster (for example, *Latest from your friends*). **Recommended text size: under 25 chars** (Text that is too long may show ellipses) |
 | Subtitle | Optional | The subtitle for the Recommendation Cluster. |
-| Action Uri | Optional | The deep link to the page in the partner app where users can see the complete list of recommendations. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq#deeplinks-attribution) |
+| Action Uri | Optional | The deep link to the page in the partner app where users can see the complete list of recommendations. Note: You can use deep links for attribution. [Refer to this FAQ](https://developer.android.com/guide/playcore/engage/faq.md.txt#deeplinks-attribution) |
 
 > [!IMPORTANT]
 > **Important:** The publish APIs are upsert APIs; it replaces the existing content. **Don't** call delete and publish APIs subsequently to replace the content as the publish APIs do that inherently.
@@ -377,27 +397,31 @@ A `RecommendationCluster` object can have the following attributes:
 
 ### Kotlin
 
-    client.publishRecommendationClusters(
-                PublishRecommendationClustersRequest.Builder()
-                    .addRecommendationCluster(
-                        RecommendationCluster.Builder()
-                            .addEntity(entity1)
-                            .addEntity(entity2)
-                            .setTitle("Latest from your friends")
-                            .build())
-                    .build())
+```kotlin
+client.publishRecommendationClusters(
+            PublishRecommendationClustersRequest.Builder()
+                .addRecommendationCluster(
+                    RecommendationCluster.Builder()
+                        .addEntity(entity1)
+                        .addEntity(entity2)
+                        .setTitle("Latest from your friends")
+                        .build())
+                .build())
+```
 
 ### Java
 
-    client.publishRecommendationClusters(
-                new PublishRecommendationClustersRequest.Builder()
-                    .addRecommendationCluster(
-                        new RecommendationCluster.Builder()
-                            .addEntity(entity1)
-                            .addEntity(entity2)
-                            .setTitle("Latest from your friends")
-                            .build())
-                    .build());
+```java
+client.publishRecommendationClusters(
+            new PublishRecommendationClustersRequest.Builder()
+                .addRecommendationCluster(
+                    new RecommendationCluster.Builder()
+                        .addEntity(entity1)
+                        .addEntity(entity2)
+                        .setTitle("Latest from your friends")
+                        .build())
+                .build());
+```
 
 When the service receives the request, the following actions take place within
 one transaction:
@@ -429,41 +453,45 @@ The following metadata is part of the Sign In Card -
 
 ### Kotlin
 
-    var SIGN_IN_CARD_ENTITY =
-          SignInCardEntity.Builder()
-              .addPosterImage(
-                  Image.Builder()
-                      .setImageUri(Uri.parse("http://www.x.com/image.png"))
-                      .setImageHeightInPixel(500)
-                      .setImageWidthInPixel(500)
-                      .build())
-              .setActionText("Sign In")
-              .setActionUri(Uri.parse("http://xx.com/signin"))
-              .build()
+```kotlin
+var SIGN_IN_CARD_ENTITY =
+      SignInCardEntity.Builder()
+          .addPosterImage(
+              Image.Builder()
+                  .setImageUri(Uri.parse("http://www.x.com/image.png"))
+                  .setImageHeightInPixel(500)
+                  .setImageWidthInPixel(500)
+                  .build())
+          .setActionText("Sign In")
+          .setActionUri(Uri.parse("http://xx.com/signin"))
+          .build()
 
-    client.publishUserAccountManagementRequest(
-                PublishUserAccountManagementRequest.Builder()
-                    .setSignInCardEntity(SIGN_IN_CARD_ENTITY)
-                    .build());
+client.publishUserAccountManagementRequest(
+            PublishUserAccountManagementRequest.Builder()
+                .setSignInCardEntity(SIGN_IN_CARD_ENTITY)
+                .build());
+```
 
 ### Java
 
-    SignInCardEntity SIGN_IN_CARD_ENTITY =
-          new SignInCardEntity.Builder()
-              .addPosterImage(
-                  new Image.Builder()
-                      .setImageUri(Uri.parse("http://www.x.com/image.png"))
-                      .setImageHeightInPixel(500)
-                      .setImageWidthInPixel(500)
-                      .build())
-              .setActionText("Sign In")
-              .setActionUri(Uri.parse("http://xx.com/signin"))
-              .build();
+```java
+SignInCardEntity SIGN_IN_CARD_ENTITY =
+      new SignInCardEntity.Builder()
+          .addPosterImage(
+              new Image.Builder()
+                  .setImageUri(Uri.parse("http://www.x.com/image.png"))
+                  .setImageHeightInPixel(500)
+                  .setImageWidthInPixel(500)
+                  .build())
+          .setActionText("Sign In")
+          .setActionUri(Uri.parse("http://xx.com/signin"))
+          .build();
 
-    client.publishUserAccountManagementRequest(
-                new PublishUserAccountManagementRequest.Builder()
-                    .setSignInCardEntity(SIGN_IN_CARD_ENTITY)
-                    .build());
+client.publishUserAccountManagementRequest(
+            new PublishUserAccountManagementRequest.Builder()
+                .setSignInCardEntity(SIGN_IN_CARD_ENTITY)
+                .build());
+```
 
 When the service receives the request, the following actions take place within
 one transaction:
@@ -527,17 +555,21 @@ with the status code **NOT_PUBLISHED_REQUIRES_SIGN_IN**
 
 ### Kotlin
 
-    client.updatePublishStatus(
-       PublishStatusRequest.Builder()
-         .setStatusCode(AppEngagePublishStatusCode.NOT_PUBLISHED_REQUIRES_SIGN_IN)
-         .build())
+```kotlin
+client.updatePublishStatus(
+   PublishStatusRequest.Builder()
+     .setStatusCode(AppEngagePublishStatusCode.NOT_PUBLISHED_REQUIRES_SIGN_IN)
+     .build())
+```
 
 ### Java
 
-    client.updatePublishStatus(
-        new PublishStatusRequest.Builder()
-            .setStatusCode(AppEngagePublishStatusCode.NOT_PUBLISHED_REQUIRES_SIGN_IN)
-            .build());
+```java
+client.updatePublishStatus(
+    new PublishStatusRequest.Builder()
+        .setStatusCode(AppEngagePublishStatusCode.NOT_PUBLISHED_REQUIRES_SIGN_IN)
+        .build());
+```
 
 #### `deleteRecommendationsClusters`
 
@@ -548,11 +580,15 @@ This API is used to delete the content of Recommendation Clusters.
 
 ### Kotlin
 
-    client.deleteRecommendationsClusters()
+```kotlin
+client.deleteRecommendationsClusters()
+```
 
 ### Java
 
-    client.deleteRecommendationsClusters();
+```java
+client.deleteRecommendationsClusters();
+```
 
 When the service receives the request, it removes the existing data from the
 Recommendation Clusters. In case of an error, the entire request is rejected
@@ -567,11 +603,15 @@ This API is used to delete the content of UserAccountManagement Cluster.
 
 ### Kotlin
 
-    client.deleteUserManagementCluster()
+```kotlin
+client.deleteUserManagementCluster()
+```
 
 ### Java
 
-    client.deleteUserManagementCluster();
+```java
+client.deleteUserManagementCluster();
+```
 
 When the service receives the request, it removes the existing data from the
 UserAccountManagement Cluster. In case of an error, the entire request is
@@ -586,19 +626,23 @@ This API is used to delete the content of a given cluster type.
 
 ### Kotlin
 
-    client.deleteClusters(
-        DeleteClustersRequest.Builder()
-          .addClusterType(ClusterType.TYPE_RECOMMENDATION)
-          ...
-          .build())
+```kotlin
+client.deleteClusters(
+    DeleteClustersRequest.Builder()
+      .addClusterType(ClusterType.TYPE_RECOMMENDATION)
+      ...
+      .build())
+```
 
 ### Java
 
-    client.deleteClusters(
-                new DeleteClustersRequest.Builder()
-                    .addClusterType(ClusterType.TYPE_RECOMMENDATION)
-                    ...
-                    .build());
+```java
+client.deleteClusters(
+            new DeleteClustersRequest.Builder()
+                .addClusterType(ClusterType.TYPE_RECOMMENDATION)
+                ...
+                .build());
+```
 
 When the service receives the request, it removes the existing data from all
 clusters matching the specified cluster types. Clients can choose to pass one or
@@ -610,25 +654,27 @@ existing state is maintained.
 It is highly recommended to listen to the task result from the publish APIs such
 that a follow-up action can be taken to recover and resubmit an successful task.
 
-    client.publishRecommendationClusters(
-                  new PublishRecommendationClustersRequest.Builder()
-                      .addRecommendationCluster(...)
-                      .build())
-              .addOnCompleteListener(
-                  task -> {
-                    if (task.isSuccessful()) {
+```java
+client.publishRecommendationClusters(
+              new PublishRecommendationClustersRequest.Builder()
+                  .addRecommendationCluster(...)
+                  .build())
+          .addOnCompleteListener(
+              task -> {
+                if (task.isSuccessful()) {
+                  // do something
+                } else {
+                  Exception exception = task.getException();
+                  if (exception instanceof AppEngageException) {
+                    @AppEngageErrorCode
+                    int errorCode = ((AppEngageException) exception).getErrorCode();
+                    if (errorCode == AppEngageErrorCode.SERVICE_NOT_FOUND) {
                       // do something
-                    } else {
-                      Exception exception = task.getException();
-                      if (exception instanceof AppEngageException) {
-                        @AppEngageErrorCode
-                        int errorCode = ((AppEngageException) exception).getErrorCode();
-                        if (errorCode == AppEngageErrorCode.SERVICE_NOT_FOUND) {
-                          // do something
-                        }
-                      }
                     }
-                  });
+                  }
+                }
+              });
+```
 
 The error is returned as an `AppEngageException` with the cause included as an
 error code.
@@ -647,7 +693,7 @@ error code.
 
 In addition to making publish content API calls through a job, it is also
 required to set up a
-[`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) to receive
+[`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver.md.txt) to receive
 the request for a content publish.
 
 The goal of broadcast intents is mainly for app reactivation and forcing data
@@ -665,58 +711,65 @@ The `BroadcastReceiver` must be set up in the following two ways:
 
 ### Kotlin
 
-    class AppEngageBroadcastReceiver : BroadcastReceiver(){
-      // Trigger recommendation cluster publish when PUBLISH_RECOMMENDATION
-      // broadcast is received
-    }
+```kotlin
+class AppEngageBroadcastReceiver : BroadcastReceiver(){
+  // Trigger recommendation cluster publish when PUBLISH_RECOMMENDATION
+  // broadcast is received
+}
 
-    fun registerBroadcastReceivers(context: Context){
-      var  context = context
-      context = context.applicationContext
+fun registerBroadcastReceivers(context: Context){
+  var  context = context
+  context = context.applicationContext
 
-    // Register Recommendation Cluster Publish Intent
-      context.registerReceiver(AppEngageBroadcastReceiver(),
-                               IntentFilter(Intents.ACTION_PUBLISH_RECOMMENDATION),
-                               com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
-                               /*scheduler=*/null)
-    }
+// Register Recommendation Cluster Publish Intent
+  context.registerReceiver(AppEngageBroadcastReceiver(),
+                           IntentFilter(Intents.ACTION_PUBLISH_RECOMMENDATION),
+                           com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
+                           /*scheduler=*/null)
+}
+```
 
 ### Java
 
-    class AppEngageBroadcastReceiver extends BroadcastReceiver {
-    // Trigger recommendation cluster publish when PUBLISH_RECOMMENDATION broadcast
-    // is received
-    }
+```java
+class AppEngageBroadcastReceiver extends BroadcastReceiver {
+// Trigger recommendation cluster publish when PUBLISH_RECOMMENDATION broadcast
+// is received
+}
 
-    public static void registerBroadcastReceivers(Context context) {
+public static void registerBroadcastReceivers(Context context) {
 
-    context = context.getApplicationContext();
+context = context.getApplicationContext();
 
-    // Register Recommendation Cluster Publish Intent
-    context.registerReceiver(new AppEngageBroadcastReceiver(),
-                             new IntentFilter(com.google.android.engage.service.Intents.ACTION_PUBLISH_RECOMMENDATION),
-                             com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
-                             /*scheduler=*/null);
-    }
+// Register Recommendation Cluster Publish Intent
+context.registerReceiver(new AppEngageBroadcastReceiver(),
+                         new IntentFilter(com.google.android.engage.service.Intents.ACTION_PUBLISH_RECOMMENDATION),
+                         com.google.android.engage.service.BroadcastReceiverPermissions.BROADCAST_REQUEST_DATA_PUBLISH_PERMISSION,
+                         /*scheduler=*/null);
+}
+```
 
 - Statically declare an implementation with the `<receiver>` tag in your
   `AndroidManifest.xml` file. This allows the application to receive broadcast
   intents when it is not running, and also allows the application to publish
   the content.
 
-    <application>
-       <receiver
-          android:name=".AppEngageBroadcastReceiver"
-          android:permission="com.google.android.engage.REQUEST_ENGAGE_DATA"
-          android:exported="true"
-          android:enabled="true">
-          <intent-filter>
-             <action android:name="com.google.android.engage.action.PUBLISH_RECOMMENDATION" />
-          </intent-filter>
-       </receiver>
-    </application>
+```xml
+<application>
+   <receiver
+      android:name=".AppEngageBroadcastReceiver"
+      android:permission="com.google.android.engage.REQUEST_ENGAGE_DATA"
+      android:exported="true"
+      android:enabled="true">
+      <intent-filter>
+         <action android:name="com.google.android.engage.action.PUBLISH_RECOMMENDATION" />
+      </intent-filter>
+   </receiver>
+</application>
 
-The following [intents](https://developer.android.com/reference/android/content/Intent) will be sent by the
+```
+
+The following [intents](https://developer.android.com/reference/android/content/Intent.md.txt) will be sent by the
 service:
 
 - `com.google.android.engage.action.PUBLISH_RECOMMENDATION` It is recommended to start a `publishRecommendationClusters` call when receiving this intent.
@@ -724,11 +777,11 @@ service:
 ## Integration workflow
 
 For a step-by-step guide on verifying your integration after it is complete, see
-[Engage developer integration workflow](https://developer.android.com/guide/playcore/engage/workflow).
+[Engage developer integration workflow](https://developer.android.com/guide/playcore/engage/workflow.md.txt).
 
 ## FAQs
 
-See [Engage SDK Frequently Asked Questions](https://developer.android.com/guide/playcore/engage/faq) for
+See [Engage SDK Frequently Asked Questions](https://developer.android.com/guide/playcore/engage/faq.md.txt) for
 FAQs.
 
 ## Contact

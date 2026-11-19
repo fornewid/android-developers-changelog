@@ -4,10 +4,12 @@ url: https://developer.android.com/studio/run/managing-avds
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/run/llms.txt
+
 An Android Virtual Device (AVD) is a configuration that defines the
 characteristics of an Android phone, tablet, Wear OS, Android TV, or
 Automotive OS device that you want to simulate in the
-[Android Emulator](https://developer.android.com/studio/run/emulator).
+[Android Emulator](https://developer.android.com/studio/run/emulator.md.txt).
 The Device Manager is a tool you can launch from Android Studio that
 helps you create and manage AVDs.
 
@@ -20,7 +22,7 @@ helps you create and manage AVDs.
 
 Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
 
-For example, use the [`android emulator`](https://developer.android.com/tools/agents/android-cli/commands/emulator) command when you need to create, start, and stop an AVD.
+For example, use the [`android emulator`](https://developer.android.com/tools/agents/android-cli/commands/emulator.md.txt) command when you need to create, start, and stop an AVD.
 
     android emulator [create <profile-name>|start <device-name>|stop <device-serial-number>|list]
 
@@ -31,17 +33,16 @@ To open the new **Device Manager**, do one of the following:
 - From the Android Studio Welcome screen, select **More Actions \> Virtual
   Device Manager**.
 
-![Opening the Device Manager from the Welcome screen](https://developer.android.com/static/studio/images/run/device-manager-welcome-screen.png)
-
-- After opening a project, select **View \> Tool Windows \> Device Manager** from the main menu bar, then click the **+** , and then click **Create
+  ![Android Studio Welcome screen More Actions menu highlighting Virtual Device Manager.](https://developer.android.com/static/studio/images/run/device-manager-welcome-screen.png) **Figure 1.** Opening the Device Manager from the Welcome screen.
+- After opening a project, select **View \> Tool Windows \> Device Manager**
+  from the main menu bar, then click the **+** , and then click **Create
   Virtual Device**.
 
-![New Device Manager window](https://developer.android.com/static/studio/images/run/tools-new-device-manager.png)
+  ![Device Manager tool window in Android Studio showing the Create Virtual Device option.](https://developer.android.com/static/studio/images/run/tools-new-device-manager.png) **Figure 2.** New Device Manager window.
 
 After creating your devices, you can see a list of all the devices
 on the Device Manager panel.
-
-![Device Manager list](https://developer.android.com/static/studio/images/run/device-manager.png)
+![Device Manager panel listing configured virtual devices in Android Studio.](https://developer.android.com/static/studio/images/run/device-manager.png) **Figure 3.** Device Manager list.
 
 If you want to use virtual devices to run your automated instrumented
 tests in a scalable and self-managed way, consider using [Gradle Managed
@@ -54,7 +55,7 @@ and other properties.
 
 We recommend that you create an AVD for each system image that your app
 could potentially support based on the
-[`<uses-sdk>`](https://developer.android.com/guide/topics/manifest/uses-sdk-element) setting in your manifest.
+[`<uses-sdk>`](https://developer.android.com/guide/topics/manifest/uses-sdk-element.md.txt) setting in your manifest.
 
 ### Hardware profile
 
@@ -62,12 +63,16 @@ could potentially support based on the
 
 The hardware profile defines the characteristics of a device as
 shipped from the factory. The Device Manager comes pre-loaded with certain
-hardware profiles, such as Pixel devices, and you can define or customize the
-hardware profiles as needed.
+hardware profiles, such as Pixel devices and foldable profiles including
+**Foldable (1:1 inner display)** and **Foldable (4:3 inner display)** .
+These profiles let you test common foldable aspect ratios and
+[capture screenshots](https://developer.android.com/google/play/requirements/screenshots-android-cli.md.txt)
+that meet Google Play Store listing specifications. You can also define or
+customize hardware profiles as needed.
 
 <br />
 
-![The Select Hardware dialog](https://developer.android.com/static/studio/images/run/select-hardware-window.png)
+![Select Hardware dialog in Android Studio showing preloaded device profiles.](https://developer.android.com/static/studio/images/run/select-hardware-window.png) **Figure 4.** The **Select Hardware** dialog.
 
 <br />
 
@@ -82,7 +87,7 @@ Google Play services on the device.
 <br />
 
 Devices with this logo *and* a device type of "Phone" are also
-[CTS](https://source.android.com/compatibility/cts/) compliant
+[CTS](https://source.android.com/docs/compatibility/cts) compliant
 and might use system images that include the Play Store app.
 
 <br />
@@ -97,8 +102,7 @@ services](https://developers.google.com/android/guides/overview).
 
 <br />
 
-![The System Image
-dialog](https://developer.android.com/static/studio/images/run/system-image-device-configuration.png)
+![System Image dialog in Android Studio listing API levels and system images.](https://developer.android.com/static/studio/images/run/system-image-device-configuration.png) **Figure 5.** The **System Image** dialog.
 
 <br />
 
@@ -118,16 +122,16 @@ images.
 The API level of the target device is important, because your app
 doesn't run on a system image with an API level that's lower than the one
 required by your app, as specified in the
-[`minSdk`](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/BaseFlavor#minSdk()) attribute in the app manifest file. For more
+[`minSdk`](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/BaseFlavor.md.txt#minSdk()) attribute in the app manifest file. For more
 information about the relationship between system API level and
-`minSdk`, see [Version your app](https://developer.android.com/studio/publish/versioning).
+`minSdk`, see [Version your app](https://developer.android.com/studio/publish/versioning.md.txt).
 
 <br />
 
 <br />
 
 If your app declares a
-[`<uses-library>`](https://developer.android.com/guide/topics/manifest/uses-library-element) element in the manifest file, the app
+[`<uses-library>`](https://developer.android.com/guide/topics/manifest/uses-library-element.md.txt) element in the manifest file, the app
 requires a system image that includes that external library.
 To run your app on an emulator, create an AVD that includes the required
 library. To do so, you might need to use an add-on component for the AVD
@@ -201,8 +205,8 @@ provided by third parties.
 <br />
 
 Make sure your AVD definition includes the device features your app depends
-on. See the sections about [hardware profile properties](https://developer.android.com/studio/run/managing-avds#hpproperties)
-and [AVD properties](https://developer.android.com/studio/run/managing-avds#avdproperties) for lists of features you can
+on. See the sections about [hardware profile properties](https://developer.android.com/studio/run/managing-avds.md.txt#hpproperties)
+and [AVD properties](https://developer.android.com/studio/run/managing-avds.md.txt#avdproperties) for lists of features you can
 define in your AVDs.
 
 <br />
@@ -216,40 +220,47 @@ To create a new AVD:
 <br />
 
 1. Open the Device Manager.
-2. Click **Create Device** .
+
+2. Click **Create Device**.
 
    The **Select Hardware** window appears.
-   ![](https://developer.android.com/static/studio/images/run/select-hardware-window.png)
+   ![Select Hardware window showing categories and hardware profiles.](https://developer.android.com/static/studio/images/run/select-hardware-window.png) **Figure 6.** Selecting a hardware profile in the **Select Hardware** window.
 
-   Notice that only some hardware profiles include **Play
-   Store** . These profiles are fully [CTS](https://source.android.com/compatibility/cts/) compliant and might
-   use system images that include the Play Store app.
-3. Select a hardware profile, then click **Next** .
+   Notice that only some hardware profiles include **Play Store** . These
+   profiles are fully [CTS](https://source.android.com/docs/compatibility/cts) compliant and might use system images that
+   include the Play Store app.
+3. Select a hardware profile, and then click **Next**.
 
-   If you don't see the hardware profile you want, you can
-   [create](https://developer.android.com/studio/run/managing-avds#createhp)
-   or [import](https://developer.android.com/studio/run/managing-avds#importexporthp) a hardware profile, as described in
-   other sections on this page.
+   If you don't see the hardware profile you want, you can [create](https://developer.android.com/studio/run/managing-avds.md.txt#createhp)
+   or [import](https://developer.android.com/studio/run/managing-avds.md.txt#importexporthp) a hardware profile, as described in other
+   sections on this page.
 
    The **System Image** window appears.
-   ![](https://developer.android.com/static/studio/images/run/system-image-device-configuration.png)
-4. Select the system image for a particular API level, and then click **Next**.
-5. The **Verify Configuration** window appears.
-![](https://developer.android.com/static/studio/images/run/verify-configuration.png)
-6. Change the [AVD properties](https://developer.android.com/studio/run/managing-avds#avdproperties) as needed, and then click **Finish** .
+   ![System Image window showing recommended system images by release name and API level.](https://developer.android.com/static/studio/images/run/system-image-device-configuration.png) **Figure 7.** Selecting an API level in the **System Image** window.
+4. Select the system image for a particular API level, and then click
+   **Next**.
 
-   Click **Show Advanced Settings** to show more
-   settings, such as the skin.
-7. The new AVD appears in the **Virtual** tab of the Device Manager and the target device menu.
+   The **Verify Configuration** window
+   appears.
+   ![Verify Configuration window showing AVD name, startup orientation, and advanced settings.](https://developer.android.com/static/studio/images/run/verify-configuration.png) **Figure 8.** Reviewing AVD settings in the **Verify Configuration** window.
+5. Change the [AVD properties](https://developer.android.com/studio/run/managing-avds.md.txt#avdproperties) as needed, and then click
+   **Finish**.
+
+   Click **Show Advanced Settings** to show more settings, such as the skin.
+
+   The new AVD appears in the **Virtual** tab of the Device Manager and the
+   target device menu.
 
 To create an AVD starting with a copy:
 
-1. From the **Virtual** tab of the Device Manager, click **Menu** ![](https://developer.android.com/static/images/tools/studio-advmgr-actions-overflow-icon.png) and select **Duplicate** .
+1. From the **Virtual** tab of the Device Manager, click **Menu**
+   ![](https://developer.android.com/static/images/tools/studio-advmgr-actions-overflow-icon.png) and select **Duplicate**.
 
-   The [**Verify Configuration**](https://developer.android.com/studio/run/managing-avds#verifyconfigpage)
-   window appears.
-2. Click **Previous** if you need to make changes on the [System Image](https://developer.android.com/studio/run/managing-avds#systemimagepage) or [Select Hardware](https://developer.android.com/studio/run/managing-avds#selecthardwarepage) windows.
-3. Make any changes you need, and then click **Finish** .
+   The [**Verify Configuration**](https://developer.android.com/studio/run/managing-avds.md.txt#verifyconfigpage) window appears.
+2. If you need to make changes in the [**System Image**](https://developer.android.com/studio/run/managing-avds.md.txt#systemimagepage) or
+   [**Select Hardware**](https://developer.android.com/studio/run/managing-avds.md.txt#selecthardwarepage) windows, click **Previous**.
+
+3. Make any changes you need, and then click **Finish**.
 
    The AVD appears in the **Virtual** tab of the Device Manager.
 
@@ -265,33 +276,34 @@ hardware profiles aren't editable.
 
 To create a new hardware profile from the beginning:
 
-1. In the [Select Hardware](https://developer.android.com/studio/run/managing-avds#selecthardwarepage) window, click **New Hardware Profile**.
+1. In the [**Select Hardware**](https://developer.android.com/studio/run/managing-avds.md.txt#selecthardwarepage) window, click **New
+   Hardware Profile**.
+
 2. In the **Configure Hardware Profile** window, change the
-   [hardware profile properties](https://developer.android.com/studio/run/managing-avds#hpproperties) as
-   needed.
+   [hardware profile properties](https://developer.android.com/studio/run/managing-avds.md.txt#hpproperties) as needed.
 
-   ![The Configure hardware profile dialog](https://developer.android.com/static/studio/images/run/new-configure-hardware-profile.png)
-3. Click **Finish** .
+   ![Configure Hardware Profile window showing screen, memory, input, and sensor options.](https://developer.android.com/static/studio/images/run/new-configure-hardware-profile.png) **Figure 9.** The **Configure Hardware Profile** window.
+3. Click **Finish**.
 
-   Your new hardware profile appears in the **Select Hardware** window.
-   You can [create an AVD](https://developer.android.com/studio/run/managing-avds#createavd)
-   that uses the hardware profile
-   by clicking **Next** or click **Cancel** to return
-   to the **Virtual** tab or target device menu.
+   Your new hardware profile appears in the **Select Hardware** window. You
+   can [create an AVD](https://developer.android.com/studio/run/managing-avds.md.txt#createavd) that uses the hardware profile by clicking
+   **Next** or click **Cancel** to return to the **Virtual** tab or target
+   device menu.
 
 To create a hardware profile using a copy as a starting point:
 
-<br />
+1. In the **Select Hardware** window, select a hardware profile and click
+   **Clone Device** or right-click a hardware profile and select **Clone**.
 
-1. In the **Select Hardware** window, select a hardware profile and click **Clone Device** or right-click a hardware profile and select **Clone** .
+2. In the **Configure Hardware Profile** window, change the
+   [hardware profile properties](https://developer.android.com/studio/run/managing-avds.md.txt#hpproperties) as needed.
 
-   <br />
-
-2. In the **Configure Hardware Profile** window, change the [hardware profile properties](https://developer.android.com/studio/run/managing-avds#hpproperties) as needed.
 3. Click **Finish**.
-4. Your new hardware profile appears in the **Select Hardware** window. You can [create an AVD](https://developer.android.com/studio/run/managing-avds#createavd) that uses the hardware profile by clicking **Next** or click **Cancel** to return to the **Virtual** tab or target device menu.
 
-<br />
+   Your new hardware profile appears in the **Select Hardware** window. You
+   can [create an AVD](https://developer.android.com/studio/run/managing-avds.md.txt#createavd) that uses the hardware profile by clicking
+   **Next** or click **Cancel** to return to the **Virtual** tab or target
+   device menu.
 
 ## Edit existing AVDs
 
@@ -300,12 +312,12 @@ To create a hardware profile using a copy as a starting point:
 You can perform the following operations on an AVD from the Device Manager's
 **Virtual** tab:
 
+<br />
+
 - To edit an AVD, click **Edit this AVD** ![](https://developer.android.com/static/studio/images/buttons/avd-edit.png) and make your changes.
 - To delete an AVD, click **Menu** ![](https://developer.android.com/static/images/tools/studio-advmgr-actions-overflow-icon.png) and select **Delete**.
 - To show the associated AVD INI and IMG files on disk, click **Menu** ![](https://developer.android.com/static/images/tools/studio-advmgr-actions-overflow-icon.png) and select **Show on Disk**.
 - To view AVD configuration details that you can include in bug reports to the Android Studio team, click **Menu** ![](https://developer.android.com/static/images/tools/studio-advmgr-actions-overflow-icon.png) and select **View Details**.
-
-<br />
 
 ## Edit existing hardware profiles
 
@@ -315,10 +327,10 @@ You can't edit or delete the preloaded hardware profiles, but
 you can perform the following operations on other hardware profiles
 from the **Select Hardware** window:
 
+<br />
+
 - To edit a hardware profile, select it and click **Edit Device** . You can also right-click a hardware profile and select **Edit**. Next, make your changes.
 - To delete a hardware profile, right-click it and select **Delete**.
-
-<br />
 
 ## Run and stop an emulator and clear data
 
@@ -327,23 +339,19 @@ from the **Select Hardware** window:
 From the **Virtual** tab, you can
 perform the following operations on an emulator:
 
+<br />
+
 - To run an emulator that uses an AVD, click **Launch** ![](https://developer.android.com/static/images/tools/as-avd-start.png).
 - To stop a running emulator, click **Menu** ![](https://developer.android.com/static/images/tools/studio-advmgr-actions-overflow-icon.png) and select **Stop**.
 - To clear the data for an emulator, click **Menu** ![](https://developer.android.com/static/images/tools/studio-advmgr-actions-overflow-icon.png) and select **Wipe Data**.
-
-<br />
 
 ## Import and export hardware profiles
 
 From the **Select Hardware** window,
 you can import and export hardware profiles as follows:
 
-<br />
-
 - To import a hardware profile, click **Import Hardware Profiles** and select the XML file on your computer containing the definition.
 - To export a hardware profile, right-click it and select **Export**. Specify the location where you want to store the XML file containing the definition.
-
-<br />
 
 ## AVD properties
 
@@ -376,7 +384,7 @@ both.
 | Memory and Storage: RAM (Advanced) | Override the amount of RAM on the device set by the hardware manufacturer. Increasing the size uses more resources on your computer but supports faster emulator operation. Enter a RAM size and select the units, one of B (byte), KB (kilobyte), MB (megabyte), GB (gigabyte), or TB (terabyte). |
 | Memory and Storage: VM Heap (Advanced) | Override the VM heap size set by the hardware manufacturer. Enter a heap size and select the units, one of B (byte), KB (kilobyte), MB (megabyte), GB (gigabyte), or TB (terabyte). |
 | Memory and Storage: Internal Storage (Advanced) | Override the amount of non-removable memory space available on the device set by the hardware manufacturer. Enter a size and select the units, one of B (byte), KB (kilobyte), MB (megabyte), GB (gigabyte), or TB (terabyte). |
-| Memory and Storage: SD Card (Advanced) | Specify the amount of removable memory space available to store data on the device. To use a virtual SD card managed by Android Studio, select **Studio-managed**, enter a size, and select the units, one of B (byte), KB (kilobyte), MB (megabyte), GB (gigabyte), or TB (terabyte). A minimum of 100 MB is recommended to use the camera. To manage the space in a file, select **External file** and click **...** to specify the file and location. For more information, see `https://developer.android.com/tools/help/mksdcard` and [AVD data directory](https://developer.android.com/studio/run/emulator-commandline#data-filedir). |
+| Memory and Storage: SD Card (Advanced) | Specify the amount of removable memory space available to store data on the device. To use a virtual SD card managed by Android Studio, select **Studio-managed**, enter a size, and select the units, one of B (byte), KB (kilobyte), MB (megabyte), GB (gigabyte), or TB (terabyte). A minimum of 100 MB is recommended to use the camera. To manage the space in a file, select **External file** and click **...** to specify the file and location. For more information, see `mksdcard` and [AVD data directory](https://developer.android.com/studio/run/emulator-commandline.md.txt#data-filedir). |
 | Device Frame: Enable Device Frame | Select to enable a frame around the emulator window that mimics the look of a real device. |
 | Custom Skin Definition (Advanced) | Select a skin that controls what the device looks like when displayed in the emulator. Specifying a screen size that's too big for the skin can mean that the screen is cut off, so you can't see the whole screen. See the [Create an emulator skin](https://developer.android.com/tools/devices/managing-avds#skins) section for more information. |
 | Keyboard: Enable Keyboard Input (Advanced) | Select this option to use your hardware keyboard to interact with the emulator. This option is disabled for Wear OS and Android TV. |
@@ -426,8 +434,6 @@ you can create your own custom skin definition and then apply it to your AVD.
 
 Each emulator skin contains:
 
-<br />
-
 - A `hardware.ini` file
 - Layout files for supported orientations and physical configurations
 - Image files for display elements, such as background, keys, and buttons
@@ -435,45 +441,43 @@ Each emulator skin contains:
 To create and use a custom skin:
 
 1. Create a directory where you can save your skin configuration files.
-2. Define the visual appearance of the skin in a text file named `layout`. This file defines many characteristics of the skin, such as the size and image assets for specific buttons. For example:
+2. Define the visual appearance of the skin in a text file named `layout`.
+   This file defines many characteristics of the skin, such as the size and
+   image assets for specific buttons. For example:
 
-   <br />
-
-   ```
-   parts {
-       device {
-           display {
-               width   320
-               height  480
-               x       0
-               y       0
-           }
-       }
-
-       portrait {
-           background {
-               image background_port.png
-           }
-
-           buttons {
-               power {
-                   image  button_vertical.png
-                   x 1229
-                   y 616
+       parts {
+           device {
+               display {
+                   width   320
+                   height  480
+                   x       0
+                   y       0
                }
            }
-       }
-       ...
-   }
-   ```
 
-   <br />
+           portrait {
+               background {
+                   image background_port.png
+               }
+
+               buttons {
+                   power {
+                       image  button_vertical.png
+                       x 1229
+                       y 616
+                   }
+               }
+           }
+           ...
+       }
 
 3. Add bitmap files of the device images to the same directory.
-4. Specify additional hardware-specific device configurations in an INI file for the device settings, such as `hw.keyboard` and `hw.lcd.density`.
-5. Archive the files in the skin folder and select the archive file as a custom skin.
 
-<br />
+4. Specify additional hardware-specific device configurations in an INI file
+   for the device settings, such as `hw.keyboard` and `hw.lcd.density`.
+
+5. Archive the files in the skin folder and select the archive file as a
+   custom skin.
 
 For more detailed information about creating emulator skins, see the
 [Android Emulator Skin File Specification](https://android.googlesource.com/platform/external/qemu/+/emu-master-dev/android/docs/ANDROID-SKIN-FILES.TXT) in the tools source code.

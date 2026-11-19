@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/background-work/background-tasks/broa
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/background-work/background-tasks/broadcasts/llms.txt
+
 Android apps send and receive broadcast messages from the Android system and
 other Android apps, similar to the [publish-subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) design pattern. The
 system and apps typically send broadcasts when certain events occur. For

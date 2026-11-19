@@ -144,7 +144,7 @@ abstract class OrderTools : AppFunctionService() {
      * @param orderId The alphanumeric order identifier
      */
     @AppFunctionDeclaration(isDescribedByKDoc = true)
-    suspend fun fetch_order_details(
+    suspend fun fetchOrderDetails(
         orderId: String
     ): OrderDetails = withContext(Dispatchers.IO) {
         // Query local database or call your backend API
@@ -211,7 +211,7 @@ abstract class OrderTools : AppFunctionService() {
         level = AppFunctionMetadata.ACCESS_LEVEL_SELF,
         isCompatEnforcementEnabled = true,
     )
-    fun cancel_order(
+    fun cancelOrder(
         orderId: String
     ): String {
         // Only your app's internal agent can invoke this function
@@ -247,9 +247,12 @@ val agent = Agent.builder()
 val runner = AgentRunner(agent)
 ```
 
-Optionally, call the `addAppFunctionIds("fetch_order_details", "cancel_order")`
+Optionally, call the `addAppFunctionIds("fetchOrderDetails", "cancelOrder")`
 method to scope discovery strictly to specific AppFunction IDs instead of
 exposing all in-app functions.
+
+> [!NOTE]
+> **Note:** **Tool naming conventions:** Use standard Kotlin `camelCase` for tool method names (such as `fetchOrderDetails` and `cancelOrder`), and keep your KDoc wording consistent with the method name, including compound words (for example, avoid writing "follow-up" in KDoc if the method name uses `Followup`). Because Gemini Nano generates tool call names without strict schema constraints, mismatched phrasing can cause it to emit near-miss names that fail to match your registered function.
 
 ### Agent defaults
 

@@ -4,6 +4,8 @@ url: https://developer.android.com/courses/pathways/wear-compose
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/courses/llms.txt
+
 # Compose for Wear OS
 
 
@@ -26,7 +28,7 @@ Learn about basic components and principles of Compose for Wear OS.
 
 Learn how to create a Compose app for the wrist.
 
-<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/training/wearables/compose)
+<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/training/wearables/compose.md.txt)
 
 ## Compose material catalog for Wear OS
 

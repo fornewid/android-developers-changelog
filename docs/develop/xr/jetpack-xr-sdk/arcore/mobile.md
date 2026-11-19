@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/mobile
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/llms.txt
+
 ARCore for Jetpack XR can run on [supported mobile devices](https://developers.google.com/ar/devices)
 as well as Android XR devices. The
 [ARCore for Jetpack XR library](https://developer.android.com/jetpack/androidx/releases/xr-arcore.md.txt) can use the
@@ -42,7 +44,7 @@ Use the following dependency specification in your `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.arcore:arcore-play-services:1.1.0-alpha01"
+    implementation "androidx.xr.arcore:arcore-play-services:1.1.0-alpha02"
     implementation "com.google.ar:core:1.51.0"
 }
 ```
@@ -51,7 +53,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.arcore:arcore-play-services:1.1.0-alpha01")
+    implementation("androidx.xr.arcore:arcore-play-services:1.1.0-alpha02")
     implementation("com.google.ar:core:1.51.0")
 }
 ```

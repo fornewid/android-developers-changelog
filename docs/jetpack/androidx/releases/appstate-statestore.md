@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/appstate-statestore
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Appstate Statestore
 
 --
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 04, 2026 | - | - | - | [1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/appstate-statestore#1.0.0-alpha02) |
+| November 18, 2026 | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/appstate-statestore.md.txt#1.0.0-alpha03) |
 
 ## Declaring dependencies
 
@@ -25,25 +27,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.appstate.statestore:statestore:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-android:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-datastore:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-datastore-android:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-desktop:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-iosarm64:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-iossimulatorarm64:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-js:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-linuxarm64:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-linuxx64:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-macosarm64:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-mingwx64:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-tvosarm64:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-tvossimulatorarm64:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-wasm-js:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-watchosarm32:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-watchosarm64:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-watchosdevicearm64:1.0.0-alpha02"
-    implementation "androidx.appstate.statestore:statestore-watchossimulatorarm64:1.0.0-alpha02"
+    implementation "androidx.appstate.statestore:statestore:1.0.0-alpha03"
+    implementation "androidx.appstate.statestore:statestore-datastore:1.0.0-alpha03"
+    implementation "androidx.appstate.statestore:statestore-datastore-wasm:1.0.0-alpha03"
+    implementation "androidx.appstate.statestore:statestore-wasm:1.0.0-alpha03"
 }
 ```
 
@@ -51,25 +38,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.appstate.statestore:statestore:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-android:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-datastore:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-datastore-android:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-desktop:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-iosarm64:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-iossimulatorarm64:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-js:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-linuxarm64:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-linuxx64:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-macosarm64:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-mingwx64:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-tvosarm64:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-tvossimulatorarm64:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-wasm-js:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-watchosarm32:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-watchosarm64:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-watchosdevicearm64:1.0.0-alpha02")
-    implementation("androidx.appstate.statestore:statestore-watchossimulatorarm64:1.0.0-alpha02")
+    implementation("androidx.appstate.statestore:statestore:1.0.0-alpha03")
+    implementation("androidx.appstate.statestore:statestore-datastore:1.0.0-alpha03")
+    implementation("androidx.appstate.statestore:statestore-datastore-wasm:1.0.0-alpha03")
+    implementation("androidx.appstate.statestore:statestore-wasm:1.0.0-alpha03")
 }
 ```
 
@@ -90,6 +62,16 @@ for more information.
 
 ## Version 1.0
 
+### Version 1.0.0-alpha03
+
+November 18, 2026
+
+`androidx.appstate.statestore:statestore-*:1.0.0-alpha03` is released. Version 1.0.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a021adf44194ae86e596ae25ca43d5e4e18f6926..6dce8f813f5a350c8a2bfe33665c2e1ff5eb55cb/appstate/statestore).
+
+**API Changes**
+
+- The `statestore-datastore` artifact is had added support for the following platforms: `desktop`, `linux`, `mac`, `ios`, `tvos`, `watchos`, `js`, and `wasmJs`. In order to enable this, instead of using reflection, `PersistToDataStore` is now generic in the persisted value type and requires the key to provide the name it is stored under and its `KSerializer`. ([I4cd8e](https://android-review.googlesource.com/#/q/I4cd8ec26c36964cd7bff5dd1ea01de7a0ef17553), [I03124](https://android-review.googlesource.com/#/q/I031246463c4e84a096eb93139fd98dfb003e9be7), [b/579492485](https://issuetracker.google.com/issues/579492485))
+
 ### Version 1.0.0-alpha02
 
 November 04, 2026
@@ -104,7 +86,7 @@ October 28, 2026
 
 **New Features**
 
-[`AppState StateStore`](https://developer.android.com/reference/kotlin/androidx/appstate/statestore/package-summary) is a new library built on the Compose runtime that acts as a wrapper to provide custom integrations. The `androidx.appstate.statestore` artifact provides the library APIs and it also comes with a `androidx.appstate.statestore:statestore-datastore` artifact for state persistence. Developers can use `StateStore` to hoist their snapshot state into their application layer and the datastore integration to persist that state.
+[`AppState StateStore`](https://developer.android.com/reference/kotlin/androidx/appstate/statestore/package-summary.md.txt) is a new library built on the Compose runtime that acts as a wrapper to provide custom integrations. The `androidx.appstate.statestore` artifact provides the library APIs and it also comes with a `androidx.appstate.statestore:statestore-datastore` artifact for state persistence. Developers can use `StateStore` to hoist their snapshot state into their application layer and the datastore integration to persist that state.
 
     class MyApplication : Application() {
         val stateStore = StateStore()

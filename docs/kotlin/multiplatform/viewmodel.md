@@ -4,6 +4,8 @@ url: https://developer.android.com/kotlin/multiplatform/viewmodel
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/kotlin/multiplatform/llms.txt
+
 The AndroidX ViewModel serves as a bridge, establishing a clear contract between
 your shared business logic and your UI components. This pattern helps ensure
 data consistency across platforms, while enabling UIs to be customized for each
@@ -26,7 +28,7 @@ To set up the KMP ViewModel in your project, define the dependency in the
 
 ```toml
 [versions]
-androidx-viewmodel = 2.11.0
+androidx-viewmodel = 2.11.1
 
 [libraries]
 androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-viewmodel" }

@@ -4,6 +4,8 @@ url: https://developer.android.com/games/pgs/terms
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/llms.txt
+
 Last modified: June 26th, 2020
 By using this API, you consent to be bound by these terms in addition to the [Google APIs Terms of Service](http://developers.google.com/terms) ("API ToS").
 
@@ -57,7 +59,6 @@ By using this API, you consent to be bound by these terms in addition to the [Go
 
    The "Submission of Content" provision in Section 5 of the API ToS is deleted in its
    entirety and replaced with the following:
-
 
    "Some of our APIs allow the submission of content, and except as expressly provided in
    these Terms, Google does not acquire any ownership of any intellectual property rights

@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # I/O 2026: What's new in Google Play
 
-6 min read ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_7GyQM.webp) 19 May 2026 [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) [Paul Feng](https://developer.android.com/blog/authors/paul-feng) VP, Google Play Eng, Product, UX At Google Play, we're passionate about helping people connect with the experiences they'll love, while empowering developers like you to turn great ideas into lasting business success.
+6 min read ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_7GyQM.webp) 19 May 2026 [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng.md.txt) [Paul Feng](https://developer.android.com/blog/authors/paul-feng.md.txt) VP, Google Play Eng, Product, UX At Google Play, we're passionate about helping people connect with the experiences they'll love, while empowering developers like you to turn great ideas into lasting business success.
 
 At this year's Google I/O, we talked about our [evolving business model](https://android-developers.googleblog.com/2026/03/a-new-era-for-choice-and-openness.html) that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity. Watch the keynote video below, or keep reading for the biggest updates from this year's event.
 
@@ -51,7 +53,7 @@ We're also optimizing the Play Store to help grow your audience with engaging co
 Once players launch your title, the real challenge is keeping them in the action. **Play Games Sidekick** provides an in-game overlay that gives players instant access to gaming information---like AI-generated Game Tips, rewards, and achievements --- driving higher engagement while keeping players immersed. Sidekick has already debuted in over [100+ titles](https://play.google.com/store/apps/editorial?id=mc_games_editorialmd_gdc_sidekick_fcp), and we're building on this momentum with:
 
 - **New social features**: Starting next month, players can see which friends are playing the same game and track their achievements
-- **Global expansion:** Sidekick expands to all participating titles this summer. Head over to Play Console to [enable Sidekick and begin testing](https://developer.android.com/games/pgs/play-games-sidekick) the user experience so that you're ready for our global launch, while also meeting one of our core [Level Up program](https://play.google.com/console/about/levelup/) guidelines.
+- **Global expansion:** Sidekick expands to all participating titles this summer. Head over to Play Console to [enable Sidekick and begin testing](https://developer.android.com/games/pgs/play-games-sidekick.md.txt) the user experience so that you're ready for our global launch, while also meeting one of our core [Level Up program](https://play.google.com/console/about/levelup/) guidelines.
 
 ## Scaling your business with less complexity
 
@@ -107,39 +109,45 @@ In addition to [making it easier and faster to publish safer apps](https://andro
 Our latest updates reinforce our commitment to deliver the highest return on your team's investment, by expanding your reach beyond the store, simplifying your day-to-day operations, and helping you better safeguard your success. We're excited to see you use these new capabilities to create even more impactful experiences. Thank you for being a part of the Google Play community.
 
 Learn more about these announcements and all other Google I/O 2026 updates on [io.google](https://io.google/2026) starting May 21.
-- [#Google Play](https://developer.android.com/blog/topics/google-play)
-- [#Play Console](https://developer.android.com/blog/topics/play-console)
-- [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-- [#Android Developers](https://developer.android.com/blog/topics/android-developers)
+- [#Google Play](https://developer.android.com/blog/topics/google-play.md.txt)
+- [#Play Console](https://developer.android.com/blog/topics/play-console.md.txt)
+- [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+- [#Android Developers](https://developer.android.com/blog/topics/android-developers.md.txt)
 Written by:
 
 -
 
-  ## [Paul Feng](https://developer.android.com/blog/authors/paul-feng)
+  ## [Paul Feng](https://developer.android.com/blog/authors/paul-feng.md.txt)
 
   ###### VP, Google Play Eng, Product, UX
 
   [read_more
   View profile](https://developer.android.com/blog/authors/paul-feng) ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp) ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)
 Continue reading
-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Developer_Strapi_Banner_2000x1000_c21932c96a_1wEPmN.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Aurash Mahbod's profile](https://developer.android.com/static/blog/assets/image3_98854eb3dd_Z2kItkm.webp)](https://developer.android.com/blog/authors/aurash-mahbod.md.txt) 18 Nov 2026 18 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_162_2000x1000_1_ce7dba8d2a_72W03.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [New ways to drive smarter discovery, deeper engagement, and business growth on Google Play](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth)
+  ## [Elevating games: New large screens and foldables quality standards on Google Play](https://developer.android.com/blog/posts/elevating-game-quality-foldables-large-screens-google-play.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth) Today, we shared how we're taking our "more than a store" vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are.
-  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_ZrrS2v.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/elevating-game-quality-foldables-large-screens-google-play.md.txt) To give these experiences to players and ensure your games shine across every screen size, Google Play is introducing new large screen quality requirements for games
+  [Aurash Mahbod](https://developer.android.com/blog/authors/aurash-mahbod.md.txt) • 4 min read
+  - [#Google Play](https://developer.android.com/blog/topics/google-play.md.txt)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Adaptive Games](https://developer.android.com/blog/topics/adaptive-games.md.txt)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+  - [#Large Screens](https://developer.android.com/blog/topics/large-screens.md.txt)
+  - +3 ↩
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng.md.txt) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Developer_Strapi_Banner_2000x1000_c21932c96a_1wEPmN.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Delivering safer, age-appropriate experiences on Google Play](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play)
+  ## [New ways to drive smarter discovery, deeper engagement, and business growth on Google Play](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play) Providing a safe online experience and protecting users from harm is a top priority at Google Play.
-  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_HfapE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth.md.txt) Today, we shared how we're taking our "more than a store" vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are.
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng.md.txt) • 3 min read
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng.md.txt) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_ZrrS2v.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
+  ## [Delivering safer, age-appropriate experiences on Google Play](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
-  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
+  [arrow_forward](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play.md.txt) Providing a safe online experience and protecting users from harm is a top priority at Google Play.
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng.md.txt) • 2 min read
 Stay in the loop
 
 

@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/components/chip
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/components/llms.txt
+
 The `Chip` component is a compact, interactive UI element. It represents complex
 entities like a contact or tag, often with an icon and label. It can be
 checkable, dismissible, or clickable.
@@ -186,6 +188,137 @@ three following composables:
 - [`ElevatedAssistChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedAssistChip.composable.md.txt)
 - [`ElevatedFilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedFilterChip.composable.md.txt)
 - [`ElevatedSuggestionChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedSuggestionChip.composable.md.txt)
+
+## M3 Expressive update
+
+Filter and input chips feature stylistic updates, including increased corner
+radii and spring motion. Assist and suggestion chips have been merged into
+expressive buttons.
+
+For more information about the M3 Expressive updates for chips, see the
+[Material Design 3 Chips guidelines](https://m3.material.io/components/chips/guidelines).
+
+### Corner morphing
+
+Filter and input chips support corner morphing, animating the container's
+corner radius from 12dp when unselected to fully rounded when selected.
+
+### Filter
+
+The following snippet demonstrates how to implement a filter chip with
+corner morphing:
+
+
+```kotlin
+@Composable
+fun FilterChipWithCornerMorphingSample() {
+    var selected by remember { mutableStateOf(false) }
+    FilterChip(
+        selected = selected,
+        onClick = { selected = !selected },
+        label = { Text("Filter chip") },
+        shapes = FilterChipDefaults.shapes(),
+        leadingIcon = if (selected) {
+            {
+                Icon(
+                    painter = rememberVectorPainter(AppIcons.Done),
+                    contentDescription = null,
+                    modifier = Modifier.size(FilterChipDefaults.IconSize),
+                )
+            }
+        } else {
+            null
+        },
+    )
+}
+```
+![An unselected outlined filter chip with rounded corners labeled 'Filter chip'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_expressive_components_filterchipwithcornermorphing.png) Filter chip using corner morphing to transition shape when selected.
+
+<br />
+
+### Elevated filter
+
+Elevated filter chips provide separation from a visually prominent
+background and support corner morphing. The following snippet demonstrates
+how to implement an elevated filter chip with corner morphing:
+
+
+```kotlin
+@Composable
+fun ElevatedFilterChipWithCornerMorphingSample() {
+    var selected by remember { mutableStateOf(false) }
+    ElevatedFilterChip(
+        selected = selected,
+        onClick = { selected = !selected },
+        label = { Text("Filter chip") },
+        shapes = FilterChipDefaults.shapes(),
+        leadingIcon = if (selected) {
+            {
+                Icon(
+                    painter = rememberVectorPainter(AppIcons.Done),
+                    contentDescription = null,
+                    modifier = Modifier.size(FilterChipDefaults.IconSize),
+                )
+            }
+        } else {
+            {
+                Icon(
+                    painter = rememberVectorPainter(AppIcons.Home),
+                    contentDescription = null,
+                    modifier = Modifier.size(FilterChipDefaults.IconSize),
+                )
+            }
+        },
+        trailingIcon = {
+            Icon(
+                painter = rememberVectorPainter(AppIcons.ArrowDropDown),
+                contentDescription = null,
+                modifier = Modifier.size(FilterChipDefaults.IconSize),
+            )
+        },
+    )
+}
+```
+![An unselected elevated filter chip with a home icon, the label 'Filter chip', and a trailing drop-down arrow.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_expressive_components_elevatedfilterchipwithcornermorphing.png) Elevated filter chip supporting corner morphing.
+
+<br />
+
+### Input
+
+Input chips represent discrete pieces of information entered by a user and
+also support corner morphing. The following snippet demonstrates how to
+implement an input chip with corner morphing:
+
+
+```kotlin
+@Composable
+fun InputChipWithCornerMorphingSample() {
+    var selected by remember { mutableStateOf(false) }
+    InputChip(
+        selected = selected,
+        onClick = { selected = !selected },
+        label = { Text("Input Chip") },
+        shapes = InputChipDefaults.shapes(),
+        avatar = {
+            Icon(
+                painter = rememberVectorPainter(AppIcons.Person),
+                contentDescription = null,
+                modifier = Modifier.size(InputChipDefaults.AvatarSize),
+            )
+        },
+    )
+}
+```
+![An unselected outlined input chip with a person icon and the label 'Input Chip'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_expressive_components_inputchipwithcornermorphing.png) Input chip supporting corner morphing.
+
+<br />
+
+### Assist and suggestion chips
+
+Assist and suggestion chips are merged into expressive buttons in Material 3
+Expressive because they functionally mirror single-action button behaviors. Use
+expressive buttons when you need expressive assist or suggestion chip behavior;
+see the [Buttons documentation](https://developer.android.com/develop/ui/compose/components/button.md.txt) for implementation details.
 
 ## Additional resources
 

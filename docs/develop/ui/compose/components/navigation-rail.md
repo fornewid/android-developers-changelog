@@ -4,8 +4,10 @@ url: https://developer.android.com/develop/ui/compose/components/navigation-rail
 source: md.txt
 ---
 
-Rails provide access to destinations in apps that run on devices with large
-screens. You should use navigation rails for:
+> Documentation index: https://developer.android.com/develop/ui/compose/components/llms.txt
+
+[Navigation rails](https://m3.material.io/components/navigation-rail/guidelines#b51e4558-351f-4368-af8d-bbf1f63f68b4) provide access to destinations in apps that run on devices
+with large screens. You should use navigation rails for:
 
 - Top-level destinations that need to be accessible anywhere in an app
 - Three to seven main destinations
@@ -87,6 +89,230 @@ fun NavigationRailExample(modifier: Modifier = Modifier) {
 
 The following image shows the result of the previous snippet:
 ![A navigation rail with Songs, Album and Playlist destinations next to a screen that reads 'Songs Screen'; Songs is selected.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_components_navigationrailexample.png) **Figure 2.** A navigation rail that contains 3 destinations with associated icons: Songs, Album, and Playlist.
+
+## M3 Expressive update
+
+Material 3 Expressive introduces `WideNavigationRail` and
+`ModalWideNavigationRail`, which support collapsed and expanded states as
+additional options alongside the standard `NavigationRail`.
+![Image showing two navigation rails: one collapsed showing only icons, and one expanded showing icons and labels.](https://developer.android.com/static/develop/ui/compose/images/components/navigation_rail_expressive.png) **Figure 3.** Collapsed and expanded navigation rails.
+
+For more information about the M3 Expressive updates for navigation rails, see
+the [Material Design 3 navigation rail guidelines](https://m3.material.io/components/navigation-rail/guidelines#b51e4558-351f-4368-af8d-bbf1f63f68b4).
+
+### Collapsed and expanded wide navigation rail
+
+A wide navigation rail has two states, collapsed and expanded, which can
+transform into each other when the user selects the menu button. The following
+snippet demonstrates how to implement a `WideNavigationRail` that animates
+between collapsed and expanded states:
+
+
+```kotlin
+@Composable
+fun WideNavigationRailResponsiveSample() {
+    var selectedItem by remember { mutableIntStateOf(0) }
+    val items = listOf("Home", "Search", "Settings")
+    val selectedIcons = listOf(AppIcons.HomeFilled, AppIcons.Search, AppIcons.SettingsFilled)
+    val unselectedIcons = listOf(AppIcons.Home, AppIcons.Search, AppIcons.Settings)
+    val state = rememberWideNavigationRailState()
+    val scope = rememberCoroutineScope()
+
+    Row(Modifier.fillMaxWidth()) {
+        WideNavigationRail(
+            state = state,
+            header = {
+                IconButton(
+                    modifier =
+                        Modifier
+                            .padding(start = 24.dp)
+                            .semantics {
+                                // The button must announce the expanded or collapsed state of the rail
+                                // for accessibility.
+                                stateDescription =
+                                    if (state.currentValue == WideNavigationRailValue.Expanded) "Expanded"
+                                    else "Collapsed"
+                            },
+                    onClick = {
+                        scope.launch {
+                            if (state.targetValue == WideNavigationRailValue.Expanded) state.collapse()
+                            else state.expand()
+                        }
+                    },
+                ) {
+                    if (state.targetValue == WideNavigationRailValue.Expanded) {
+                        Icon(painter = rememberVectorPainter(AppIcons.MenuOpen), "Collapse rail")
+                    } else {
+                        Icon(painter = rememberVectorPainter(AppIcons.Menu), "Expand rail")
+                    }
+                }
+            },
+        ) {
+            items.forEachIndexed { index, item ->
+                WideNavigationRailItem(
+                    railExpanded = state.targetValue == WideNavigationRailValue.Expanded,
+                    icon = {
+                        val imageVector =
+                            if (selectedItem == index) {
+                                selectedIcons[index]
+                            } else {
+                                unselectedIcons[index]
+                            }
+                        Icon(
+                            painter = rememberVectorPainter(imageVector),
+                            contentDescription = null
+                        )
+                    },
+                    label = { Text(item) },
+                    selected = selectedItem == index,
+                    onClick = { selectedItem = index },
+                )
+            }
+        }
+
+        val textString =
+            if (state.currentValue == WideNavigationRailValue.Expanded) "expanded" else "collapsed"
+        Column {
+            Text(modifier = Modifier.padding(16.dp), text = "The rail is $textString.")
+        }
+    }
+}
+```
+![A collapsed wide navigation rail on the left with a menu button and 'Home' (selected), 'Search', and 'Settings' items, beside the text 'The rail is collapsed.'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_expressive_components_widenavigationrailexample.png) A wide navigation rail that toggles between collapsed and expanded states.
+
+<br />
+
+### Modal wide navigation rail
+
+The expanded navigation rail can be standard or modal. The modal configuration
+overlaps the body content and opens from a menu icon. The following snippet
+demonstrates how to implement a `ModalWideNavigationRail`:
+
+
+```kotlin
+@Composable
+fun ModalWideNavigationRailSample() {
+    var selectedItem by remember { mutableIntStateOf(0) }
+    val items = listOf("Home", "Search", "Settings")
+    val selectedIcons = listOf(AppIcons.HomeFilled, AppIcons.Search, AppIcons.SettingsFilled)
+    val unselectedIcons = listOf(AppIcons.Home, AppIcons.Search, AppIcons.Settings)
+    val state = rememberWideNavigationRailState()
+    val scope = rememberCoroutineScope()
+
+    Row(Modifier.fillMaxWidth()) {
+        ModalWideNavigationRail(
+            state = state,
+            // Note: the value of expandedHeaderTopPadding depends on the layout of your screen in
+            // order to achieve the best alignment.
+            expandedHeaderTopPadding = 64.dp,
+            header = {
+                IconButton(
+                    modifier =
+                        Modifier
+                            .padding(start = 24.dp)
+                            .semantics {
+                                // The button must announce the expanded or collapsed state of the rail
+                                // for accessibility.
+                                stateDescription =
+                                    if (state.currentValue == WideNavigationRailValue.Expanded) "Expanded"
+                                    else "Collapsed"
+                            },
+                    onClick = {
+                        scope.launch {
+                            if (state.targetValue == WideNavigationRailValue.Expanded) state.collapse()
+                            else state.expand()
+                        }
+                    },
+                ) {
+                    if (state.targetValue == WideNavigationRailValue.Expanded)
+                        Icon(painter = rememberVectorPainter(AppIcons.MenuOpen), "Collapse rail")
+                    else Icon(painter = rememberVectorPainter(AppIcons.Menu), "Expand rail")
+                }
+            },
+        ) {
+            items.forEachIndexed { index, item ->
+                WideNavigationRailItem(
+                    railExpanded = state.targetValue == WideNavigationRailValue.Expanded,
+                    icon = {
+                        Icon(
+                            painter = rememberVectorPainter(if (selectedItem == index) selectedIcons[index] else unselectedIcons[index]),
+                            contentDescription = null,
+                        )
+                    },
+                    label = { Text(item) },
+                    selected = selectedItem == index,
+                    onClick = { selectedItem = index },
+                )
+            }
+        }
+
+        val textString =
+            if (state.currentValue == WideNavigationRailValue.Expanded) "expanded" else "collapsed"
+        Column {
+            Text(modifier = Modifier.padding(16.dp), text = "The rail is $textString.")
+        }
+    }
+}
+```
+![A collapsed modal wide navigation rail on the left with a menu button and 'Home' (selected), 'Search', and 'Settings' items, beside the text 'The rail is collapsed.'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_expressive_components_modalwidenavigationrailexample.png) A modal wide navigation rail.
+
+<br />
+
+> [!NOTE]
+> **Note:** If there are more than four destinations, consider using a [modal expanded
+> navigation rail](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalWideNavigationRail.composable) instead.
+
+### Dismissible modal wide navigation rail
+
+On Android, predictive back gestures let users swipe left or right on the screen
+to go back or dismiss modal components. The following snippet demonstrates how
+to implement a dismissible `ModalWideNavigationRail` by setting
+`hideOnCollapse = true`:
+
+
+```kotlin
+@Composable
+fun DismissibleModalWideNavigationRailSample() {
+    var selectedItem by remember { mutableIntStateOf(0) }
+    val items = listOf("Home", "Search", "Settings")
+    val selectedIcons = listOf(AppIcons.HomeFilled, AppIcons.Search, AppIcons.SettingsFilled)
+    val unselectedIcons = listOf(AppIcons.Home, AppIcons.Search, AppIcons.Settings)
+    val state = rememberWideNavigationRailState()
+    val scope = rememberCoroutineScope()
+
+    Row(Modifier.fillMaxSize()) {
+        ModalWideNavigationRail(state = state, hideOnCollapse = true) {
+            items.forEachIndexed { index, item ->
+                WideNavigationRailItem(
+                    railExpanded = true,
+                    icon = {
+                        Icon(
+                            painter = rememberVectorPainter(if (selectedItem == index) selectedIcons[index] else unselectedIcons[index]),
+                            contentDescription = null,
+                        )
+                    },
+                    label = { Text(item) },
+                    selected = selectedItem == index,
+                    onClick = {
+                        selectedItem = index
+                        scope.launch { state.collapse() }
+                    },
+                )
+            }
+        }
+
+        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+            val currentPage = items.get(selectedItem)
+            Button(onClick = { scope.launch { state.expand() } }, Modifier.padding(32.dp)) {
+                Text(text = "$currentPage Page\nOpen modal rail", textAlign = TextAlign.Center)
+            }
+        }
+    }
+}
+```
+![An expanded dismissible modal wide navigation rail with 'Home' (selected), 'Search', and 'Settings' items overlapping a dimmed screen with a button reading 'Home Page Open modal rail'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_expressive_components_dismissiblemodalwidenavigationrailexample.png) A dismissible modal wide navigation rail.
+
+<br />
 
 ## Additional resources
 

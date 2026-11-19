@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/compose/rotary-input
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/compose/llms.txt
+
 Compose for Wear OS Material version <button value="2.5">2.5</button> <button value="3" default="">3</button>
 
 *** ** * ** ***

@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/compose-foundation
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Compose Foundation
 
 [User Guide](https://developer.android.com/jetpack/compose/tutorial) [Code Sample](https://github.com/android/compose-samples) Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 04, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.1) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-rc01) | - | - |
+| November 18, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt#1.13.0) | - | - | [1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt#1.14.0-alpha01) |
 
 ## Structure
 
@@ -22,13 +24,13 @@ This table explains the groups and links to each set of release notes.
 
 | Group | Description |
 |---|---|
-| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | Build animations in their Jetpack Compose applications to enrich the user experience. |
-| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
-| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces. |
-| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
-| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
-| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
-| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
+| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt) | Build animations in their Jetpack Compose applications to enrich the user experience. |
+| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler.md.txt) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
+| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt) | Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces. |
+| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
+| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
+| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
+| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
 
 ## Declaring dependencies
 
@@ -47,7 +49,7 @@ plugins {
 }
 
 dependencies {
-    implementation "androidx.compose.foundation:foundation:1.12.1"
+    implementation "androidx.compose.foundation:foundation:1.13.0"
 }
 
 android {
@@ -69,7 +71,7 @@ plugins {
 }
 
 dependencies {
-    implementation("androidx.compose.foundation:foundation:1.12.1")
+    implementation("androidx.compose.foundation:foundation:1.13.0")
 }
 
 android {
@@ -98,7 +100,79 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
+## Version 1.14
+
+### Version 1.14.0-alpha01
+
+November 18, 2026
+
+`androidx.compose.foundation:foundation-*:1.14.0-alpha01` is released. Version 1.14.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/57354ca42849ed417dfe0f797132477674d917e0..e52b0d690e9eccefeca97fff5b1300a000aced46/compose/foundation).
+
+**API Changes**
+
+- Removed `ComposeFoundationFlags`.`isLinkMinimumTouchTargetSizeZeroEnabled`. ([Ib9226](https://android-review.googlesource.com/#/q/Ib9226fe57d9227eae9742443a0236792bce625ab), [b/572883859](https://issuetracker.google.com/issues/572883859))
+- Added `ComposeFoundationFlags`.`isLinkPerformanceOptimizationEnabled` to control performance optimizations for `LinkAnnotation` in `BasicText`. The flag is off by default. ([I8ac26](https://android-review.googlesource.com/#/q/I8ac26ae4cb5e2922ade25b6d1e83cc7d5fd54400), [b/572883859](https://issuetracker.google.com/issues/572883859))
+- Added new overloads of `BasicText` that accept a `styleProvider` (`TextStyleScope.() -> Unit`) lambda for dynamic styling, allowing dynamic style attributes to skip recomposition. ([I88e20](https://android-review.googlesource.com/#/q/I88e20b4fcd2e7ac9b12dc9d1c0dc57da41a270c7))
+- Removed `ComposeFoundationFlags`.`isLinkMinimumTouchTargetSizeZeroEnabled`. ([I046d5](https://android-review.googlesource.com/#/q/I046d5ba2cce23bc494c3dc834864dd7848d69ee5), [b/572883859](https://issuetracker.google.com/issues/572883859))
+- Added `ComposeFoundationFlags`.`isLinkPerformanceOptimizationEnabled` to control performance optimizations for `LinkAnnotation` in `BasicText`. ([I64a0f](https://android-review.googlesource.com/#/q/I64a0fb97dc9cfe6eb5f064b1e02f817bc0cf54d9), [b/572883859](https://issuetracker.google.com/issues/572883859))
+- Added an `onTextChanged` callback to `TextFieldState` and `rememberTextFieldState`. It is called with the new text after each change to the text. ([Iaabf5](https://android-review.googlesource.com/#/q/Iaabf5e289f2285579ed99518cfae0cb33fd38052), [b/552879150](https://issuetracker.google.com/issues/552879150))
+- Removed the feature flag ComposeFoundationFlags.isAbsorbNonGestureNestedScrollInPagerFixEnabled ([I0a387](https://android-review.googlesource.com/#/q/I0a387c8fac3d23e31b1e4b1a896f121404fa3560))
+- `Modifier.border` uses a more efficient implementation for rendering generic shapes (such as polygon shapes) on API 28 and above. This causes minor antialiasing differences that may require updating screenshot tests. To temporarily disable this, use `ComposeFoundationFlags.isBorderUsesGraphicsLayerForGenericShapesEnabled` ([I3b917](https://android-review.googlesource.com/#/q/I3b917106c9b3c22ba301d424f5ae52100b2c0b37))
+- Added `rememberStyleResolver()` that should be used instead of remembering a `StyleResolver()` instance directy to ensure that the same style resolver is used even if the `style` and `styleState` used are modified. This prevents animations from being cancel because style style lambda instance was replaced. ([I946b0](https://android-review.googlesource.com/#/q/I946b0cc9808f6b856205bef4d49dc5413f19c243))
+- Added `TextContextMenuKeys.LookUpKey` to support the new 'Look Up' context menu item. ([I088ca](https://android-review.googlesource.com/#/q/I088cab796806c6111947640f4a6aa04c544d5d50))
+- Added DrawAnnotation for custom drawing behind and over AnnotatedString text ranges. ([I928bf](https://android-review.googlesource.com/#/q/I928bf58ab12f97733047a645a37dca49a6d8406a))
+- Exposed `crossAxisCellCount` on `LazyGridItemScope` to provide the number of cross-axis cells (columns in vertical grids or rows in horizontal grids) to item content. ([I89f78](https://android-review.googlesource.com/#/q/I89f78f74449899e1c0554b9a4da1ef52288a95a3), [b/183187002](https://issuetracker.google.com/issues/183187002))
+- The `styleable()` modifier API has been replaced by the `styleResolver` modifier based API. All `styleable()` modifiers and associated types (such as `Style` and `StyleScope`) have been deprecated. ([I54677](https://android-review.googlesource.com/#/q/I546777a2b5e5422a9a09309d6f3abb2834b1c83a))
+- Fixed an issue in BasicSecureTextField where multi-codepoint emojis in the input text were obfuscated or revealed as multiple characters instead of a single glyph. ([I91e44](https://android-review.googlesource.com/#/q/I91e446dbe9823aa9ee2860a95826b5fa666447b0))
+- Added `multiTouchSwipeWithVelocity` to `TouchInjectionScope` to allow testing multi-touch gestures with a specific end velocity. ([If0966](https://android-review.googlesource.com/#/q/If096688b6c40a84ea203dff6e0ef94dca951f2a4))
+- Adds `BorderRenderer`, an API that enables drawing borders identical to Modifier.border within any draw scope, such as within a `DrawModifierNode`. This enables advanced border rendering and efficient animations alongside other drawing operations / transformations. See the samples for more information. ([I2d259](https://android-review.googlesource.com/#/q/I2d2591d1d65b0d55a139bd7dfc681a6f73059d8b), [b/548628030](https://issuetracker.google.com/issues/548628030))
+- `Modifier.border` now consistently uses the outline size when rendering borders. Use `ComposeFoundationFlags.isBorderMatchesOutlineBoundsFixEnabled` to temporarily disable this if it causes issues. ([I3e171](https://android-review.googlesource.com/#/q/I3e171be3f77c0b9794ad70de9d7be36a2adcf20c))
+- Removes experimental feature flag `ComposeUiFlags.isTrackpadPanHoverFixEnabled`. ([I3aa5b](https://android-review.googlesource.com/#/q/I3aa5bdbf6f905a25c74a4de9ba781d4291f063ce))
+- Added `ComposeFoundationFlags.isNewBorderImplementationEnabled` - this flag will be used to disable the new border rendering implementation inside `Modifier.border`. If you run into issues and need to disable this flag, please file a bug. ([I98e90](https://android-review.googlesource.com/#/q/I98e902ad4102268ec400f3b7ff0dcc0e07c8cce5))
+- Added `isLazyLayoutItemAnimationEnterExitTransitionsEnabled` compose flag. When enabled, lazy layout item animations use a state-based enter and exit transition model instead of boolean-based fade tracking. ([Ibde5d](https://android-review.googlesource.com/#/q/Ibde5d4c76a02189af19ec4816b356793d492d151))
+- Removed `AndroidComposeFoundationFlags.isOverscrollPixelRoundingEnabled` flag ([I0e3e0](https://android-review.googlesource.com/#/q/I0e3e060b58a1aab5addb51b8ebbd361022d1ee62))
+- Fixes an edge case bug with rendering certain rounded rectangle outlines in `Modifier.border`. `ComposeFoundationFlags.isRoundedRectangleBorderRenderingFixEnabled` can be used to disable this change if it causes issues. ([I19141](https://android-review.googlesource.com/#/q/I191415aaa3e9b2a7816c14b7ebd0fc1ed0a90931))
+
+**Bug Fixes**
+
+- Improved composition and node overhead of `LinkAnnotation` in `BasicText` by consolidating per-link modifiers into a single `TextLinkNode`. ([I1e93b](https://android-review.googlesource.com/#/q/I1e93b823f031835b7d7416de6d8ef9277758b0d4), [b/572883859](https://issuetracker.google.com/issues/572883859))
+- Improved composition performance of `LinkAnnotation` in `BasicText` by avoiding unnecessary coroutine and `MutableInteractionSource` allocations when stateful link styles are not used. ([Ib036d](https://android-review.googlesource.com/#/q/Ib036de61f9fd0ea568d988c439958363cc3fb8cb), [b/572883859](https://issuetracker.google.com/issues/572883859))
+- Fixed a bug where simultaneous stateful styles on multiple `LinkAnnotations` in `BasicText` overwrote each other, and improved styling performance from O(N\^2) to O(N). ([I07a27](https://android-review.googlesource.com/#/q/I07a27f69d8a83f9553bebadd24f436d0554ac28d), [b/572883859](https://issuetracker.google.com/issues/572883859))
+- Improved drawing and hit-testing performance of single-line `LinkAnnotations` in `BasicText` by bypassing unnecessary path clipping. ([I70379](https://android-review.googlesource.com/#/q/I70379c8cee9631d85958c446dd484d6bab607900), [b/572883859](https://issuetracker.google.com/issues/572883859))
+- Improved measurement performance of single-line `LinkAnnotations` in `BasicText` by avoiding `Path` allocations. ([I9ec65](https://android-review.googlesource.com/#/q/I9ec65f56099959325769604ce2f882792f06552f), [b/572883859](https://issuetracker.google.com/issues/572883859))
+- Fixed a crash in Robolectric tests when a text field shows its magnifier, e.g. after two quick clicks on it. ([I65095](https://android-review.googlesource.com/#/q/I650957b2bd563d5212591633464224b2891c3e1f))
+- Improved composition performance of `LinkAnnotation` in `BasicText` by avoiding unnecessary coroutine and `MutableInteractionSource` allocations when stateful link styles are not used. ([Ia784d](https://android-review.googlesource.com/#/q/Ia784dbe8324f8e31442116ebfa4c46bdc455924b), [b/572883859](https://issuetracker.google.com/issues/572883859))
+- Fixed a bug where simultaneous stateful styles on multiple `LinkAnnotations` in `BasicText` overwrote each other, and improved styling performance from O(N\^2) to O(N). ([I4f28e](https://android-review.googlesource.com/#/q/I4f28efc4b47833fc21325618948d2cfc07aa179d), [b/572883859](https://issuetracker.google.com/issues/572883859))
+- Improved drawing and hit-testing performance of single-line `LinkAnnotations` in `BasicText` by bypassing unnecessary path clipping. ([Ib7f63](https://android-review.googlesource.com/#/q/Ib7f636fab1fb63c3e508005d44252cb30115f217), [b/572883859](https://issuetracker.google.com/issues/572883859))
+- Improved measurement performance of single-line `LinkAnnotations` in `BasicText` by avoiding `Path` allocations. ([I4312c](https://android-review.googlesource.com/#/q/I4312cebc6be6df4b0bac31b2ec52b672b3108ea5), [b/572883859](https://issuetracker.google.com/issues/572883859))
+- Fixed an issue where active but stationary trackpad gestures could cause unnecessary frame requests (high CPU usage). ([I1e879](https://android-review.googlesource.com/#/q/I1e879638c1f5e4ef6f03b50d3109eb3b31fb5da3))
+- Updated accessibility node text and text layout results to reflect active text translations (`SemanticsProperties.TextSubstitution`) when `SemanticsProperties.IsShowingTextSubstitution` is true. ([I006ef](https://android-review.googlesource.com/#/q/I006ef0649292690cf122122966b33dce862e6895))
+- Fixed an issue in `LazyGrid` where changing item spans dynamically via state could cause an `IllegalStateException` or item placement errors. ([I680b9](https://android-review.googlesource.com/#/q/I680b95a22b76a79afd174b90f1d439187a062f96), [b/398125797](https://issuetracker.google.com/issues/398125797))
+- Fixed an issue where changing only `isNonScrollCachingEnabled` on a `LazyLayoutCacheWindow` had no effect because the windows were considered equal. ([I16d57](https://android-review.googlesource.com/#/q/I16d5710dc73edb5ac6490fda9774c86c65a73b96))
+- Fixed long screenshots that show content twice when a scrolling node sits inside `pullRefresh` or a nested scroll parent. ([I2500f](https://android-review.googlesource.com/#/q/I2500f41f08a499080c3de037de177f80a15ef398))
+- Fixed `Modifier.animateItem()` animating items off screen when a lazy layout with `reverseLayout = true` is resized. ([I68af6](https://android-review.googlesource.com/#/q/I68af6a7ee4804ed8f595ee45b7352c2a5318828a), [b/548989579](https://issuetracker.google.com/issues/548989579))
+- `GridTrackSize.Flex` and `GridTrackSize.MinMax` now throw `IllegalArgumentException` when given a non-finite `Fr` weight. ([I70728](https://android-review.googlesource.com/#/q/I70728a3fb646a67b08d349ce9dcd98f6f0e71b76))
+- `Modifier.border` now supports rendering generic / polygon shapes with a runtime shader, when using the new border implementation. ([I128ca](https://android-review.googlesource.com/#/q/I128cacfaad9825dcef47d479d71291357fe48463))
+- `Modifier.border` now uses a new more performant implementation. You can disable this using `ComposeFoundationFlags.isNewBorderImplementationEnabled`. If you run into issues and need to disable this flag, please file a bug. ([I4c3b3](https://android-review.googlesource.com/#/q/I4c3b326711b5af04e94222d9564491b6d48b71f0))
+
+**External Contribution**
+
+- Fixed bring-into-view scroll animations that never finished when the `BringIntoViewSpec` target fell between pixels, such as when focusing a text field in a scrollable container on Android TV. ([Ida7b9](https://android-review.googlesource.com/#/q/Ida7b908c4087b6a0e8fa1c061ae5f6418ae16e50), [b/568935367](https://issuetracker.google.com/issues/568935367))
+- Fixed the text selection toolbar remaining visible when the selection no longer has a valid content area. ([I92563](https://android-review.googlesource.com/#/q/I9256310717f43b25404542d27ec53051f3a2e238))
+- Allow reversed (end \< start) selection when made via a mouse gesture in a `TextField(TextFieldState)`. Previously it would be automatically made "normal" (start \< end). ([I42559](https://android-review.googlesource.com/#/q/I4255958976f8dd18efc58792878e83394703de11))
+- Fixed `AndroidExternalSurface` callbacks after reuse in reusable content. ([I8b56c](https://android-review.googlesource.com/#/q/I8b56cd99738598d74b6b4252321bf5bb52857334), [b/554586999](https://issuetracker.google.com/issues/554586999))
+
 ## Version 1.13
+
+### Version 1.13.0
+
+November 18, 2026
+
+`androidx.compose.foundation:foundation-*:1.13.0` is released. Version 1.13.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5e0747401bf56b243e3b5141ae080dc9bc61d29c..ac6d2ce3d991b07d9b981d616bddc6d3ab461eab/compose/foundation).
+
+**Important changes since 1.12.0:**
+
+Please see the [release blog for 1.13](https://goo.gle/compose-blog-nov-2026) for a full list of new features in this release.
 
 ### Version 1.13.0-rc01
 
@@ -1289,8 +1363,8 @@ September 4, 2024
   - Added a new Indication API, `IndicationNodeFactory`. This leads to more performant Indication implementations compared to the previous (now deprecated) `rememberUpdatedInstance` API. For migration information, see [developer.android.com](http://developer.android.com/).
   - `clickable` / `combinedClickable` / `selectable` / `toggleable` now accepts a nullable `MutableInteractionSource` parameter. If null, and the provided Indication is an `IndicationNodeFactory`, the Indication can be lazily created only when needed, which improves performance. If you are not hoisting and using the `MutableInteractionSource`, it is recommended to pass null instead of passing `remember { MutableInteractionSource() }`.
   - `Indication#rememberUpdatedInstance` has been deprecated. It has a high unavoidable performance penalty, and prevents other optimizations. Instead, you should use the new `IndicationNodeFactory` API.
-- `BasicTextField` using a [`TextFieldState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState) is now stable and we advise all call-sites to begin migration from `BasicTextField(value, onValueChange)` to `BasicTextField(TextFieldState)`.
-- The `ClickableText` has been deprecated. To add clickable links to your text, use `BasicText` with the new [`LinkAnnotation`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/LinkAnnotation) annotation in your `AnnotatedString`. `LinkAnnotation` allows for custom styling based on link state (e.g. focused, hovered).
+- `BasicTextField` using a [`TextFieldState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState.md.txt) is now stable and we advise all call-sites to begin migration from `BasicTextField(value, onValueChange)` to `BasicTextField(TextFieldState)`.
+- The `ClickableText` has been deprecated. To add clickable links to your text, use `BasicText` with the new [`LinkAnnotation`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/LinkAnnotation.md.txt) annotation in your `AnnotatedString`. `LinkAnnotation` allows for custom styling based on link state (e.g. focused, hovered).
 - Introducing `ContextualFlowRow` and `Enhanced FlowRow/Column` with `MaxLines` and `Overflow`. We are excited to announce enhancements to the experimental `FlowRow` and `FlowColumn`, now featuring `maxLines` and overflow support, alongside the debut of `ContextualFlowRow` and `ContextualFlowColumn`. This update is designed to provide performance optimal components, where `ContextualFlow*` is perfect for a large number of items making use of a small maxLines config and dynamic +N see more buttons, and `FlowRow` and `FlowColumn` is perfect for a small number of items, less than 100 items. Important: To maintain existing behavior in `FlowRow` or `FlowColumn` where all items are composed regardless of if they fit the cross axis max, set overflow to `FlowRowOverflow.Visible` or `FlowColumnOverflow.Visible` during initialization. Explore `ContextualFlowRowSample` and `FlowRowSample` for examples of these new features in action. ([Ib9135](https://android-review.googlesource.com/#/q/Ib913509969a79ff002eafb0075e6722a7a118531), [b/293577082](https://issuetracker.google.com/issues/293577082))
 - Item appearance and disappearance animation support was added into `LazyColumn` and `LazyRow`. Previously it was possible to add `Modifier.animateItemPlacement()` modifier in order to support placement (reordering) animations. We deprecated this modifier and introduced a new non-experimental modifier called `Modifier.animateItem()` which allows you to support all three animation types: appearance (fade in), disappearance (fade out) and reordering. ([I2d7f7](https://android-review.googlesource.com/#/q/I2d7f7a376cea26c0a36a59a4586d2705ab04cab7), [b/150812265](https://issuetracker.google.com/issues/150812265))
 - Implemented experimental support for long screenshots in Compose scroll containers using the official Android API (`ScrollCaptureCallback`).
@@ -1596,7 +1670,7 @@ February 7, 2024
 
 - `HorizontalPager`, `VerticalPager` and `PagerState` are promoted to stable. ([I67660](https://android-review.googlesource.com/#/q/I67660aa3cc1d44ae3dae5b002bae4459a1b25ae3), [b/316966909](https://issuetracker.google.com/issues/316966909))
 - Added `LocalTextLinkStyle` composition local that allows to change the style of the links in Text across the app. If you're using your own theme in the app, you should be setting this composition local according to your theming. When using Material theme the color of the link by default will be set to Material's primary color. ([I7eb10](https://android-review.googlesource.com/#/q/I7eb10b55fcec1b268c60744de700058eb11a385a))
-- Introduced `receiveContent` modifier that provides developers with a way to [receive rich content](https://developer.android.com/develop/ui/views/receive-rich-content) in Jetpack Compose.
+- Introduced `receiveContent` modifier that provides developers with a way to [receive rich content](https://developer.android.com/develop/ui/views/receive-rich-content.md.txt) in Jetpack Compose.
 - `receiveContent` integrates with `BasicTextField2` to accept rich content provided by the software keyboard, or via Clipboard paste action. ([I81b72](https://android-review.googlesource.com/#/q/I81b72a6f0e851618fdd7346d9b1b7a8cf4e3ec3e))
 - In this change we're replacing `SnapFlingBehavior` with `TargetedFlingBehavior` in pager to unlock other use cases and provide greater flexibility. ([I762ea](https://android-review.googlesource.com/#/q/I762eac32d9f1f1545efa8d8eb79ceb97833a77ed))
 - In this change we're making Snapping APIs Stable. We're also cleaning up some of the testing code and adding more samples to Snapping. ([Id8da9](https://android-review.googlesource.com/#/q/Id8da9bf3d268eae6a5a7372170c6122d7adaea1e))
@@ -1627,7 +1701,7 @@ January 24, 2024
 - `BasicTextField2` is available for experimental use. It should be roughly at feature parity with `BasicTextField`, and behavior should be production-ready. However, the API remains experimental for now. Before stabilizing, it will be renamed to `BasicTextField` and moved into the same package.
 - Introduced the first draft of the `OutputTransformation` API for `BasicTextField2`. This API replaces most of the use cases of `VisualTransformation` in the old `BasicTextField`. However it is not complete yet, and some things won't work correctly, but we'd appreciate any feedback on the API usability for your use cases. ([aosp/2708848](https://r.android.com/2708848))
 - Introduced `LinkAnnotation` that allows to add links and clickables into text. Links feature is not complete yet and more API changes are coming.
-- Introduced `receiveContent` modifier that provides developers with a way to [receive rich content](https://developer.android.com/develop/ui/views/receive-rich-content) in Jetpack Compose.
+- Introduced `receiveContent` modifier that provides developers with a way to [receive rich content](https://developer.android.com/develop/ui/views/receive-rich-content.md.txt) in Jetpack Compose.
 - `receiveContent` integrates with `BasicTextField2` to accept rich content provided by the software keyboard, or via paste from Clipboard.
 - `KeyboardOptions.shouldShowKeyboardOnFocus` allows you to disable the default behavior of `BasicTextField` of requesting a software keyboard on focus.
 - `TextInputService` and `LocalTextInputService` are now deprecated. Use `PlatformTextInputModifierNode` to integrate directly with platform IME APIs instead. ([aosp/2862698](https://r.android.com/2862698))
@@ -1721,9 +1795,9 @@ January 24, 2024
 **Important changes since 1.5.0**
 
 - New Modifier `Modifier.anchoredDraggable` that unlocks the ability to drag and animate between predefined set of anchors. This modifier is intended to be a replacement for `Modifier.swipeable`. Learn how to use it and migrate from `Modifier.swipeable` in the [migration guide](https://developer.android.com/jetpack/compose/touch-input/pointer-input/migrate-swipeable).
-- Drag and drop functionality between apps and components has been added. Refer to [`DragAndDropTarget`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draganddrop/DragAndDropTarget), [`Modifier.dragAndDropSource`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/dragAndDropSource.modifier#(androidx.compose.ui.Modifier).dragAndDropSource(kotlin.coroutines.SuspendFunction1)) and other APIs to get started
+- Drag and drop functionality between apps and components has been added. Refer to [`DragAndDropTarget`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draganddrop/DragAndDropTarget.md.txt), [`Modifier.dragAndDropSource`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/dragAndDropSource.modifier.md.txt#(androidx.compose.ui.Modifier).dragAndDropSource(kotlin.coroutines.SuspendFunction1)) and other APIs to get started
 - `Modifier.draggable2D` is the new modifier that allows for easy 2d dragging support. See [Sample](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/foundation/foundation/samples/src/main/java/androidx/compose/foundation/samples/Draggable2DSamples.kt).
-- [`AndroidExternalSurface`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/AndroidExternalSurface.composable#AndroidExternalSurface(androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.unit.IntSize,androidx.compose.foundation.AndroidExternalSurfaceZOrder,kotlin.Boolean,kotlin.Function1)) and [`AndroidEmbeddedExternalSurface`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/AndroidEmbeddedExternalSurface.composable#AndroidEmbeddedExternalSurface(androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.unit.IntSize,androidx.compose.ui.graphics.Matrix,kotlin.Function1)) have been added to make it easier to add surface-driven components in compose
+- [`AndroidExternalSurface`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/AndroidExternalSurface.composable.md.txt#AndroidExternalSurface(androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.unit.IntSize,androidx.compose.foundation.AndroidExternalSurfaceZOrder,kotlin.Boolean,kotlin.Function1)) and [`AndroidEmbeddedExternalSurface`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/AndroidEmbeddedExternalSurface.composable.md.txt#AndroidEmbeddedExternalSurface(androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.unit.IntSize,androidx.compose.ui.graphics.Matrix,kotlin.Function1)) have been added to make it easier to add surface-driven components in compose
 - Various API changes and improvements in `Pager` and `snapFlingBehaviour`
 - Various focus, text and insets APIs have been promoted to stable APIs
 
@@ -2020,12 +2094,14 @@ July 26, 2023
 
 - An optional inspection to recommend migrating `mutableStateOf()` calls to their corresponding specialized types for primitives is available. Its lint ID is `AutoboxingStateCreation`. Previously, this inspection was enabled by default for all projects. To see this warning in Android Studio's editor and your project's lint outputs, change its severity from informational to warning (or higher) by declaring `warning "AutoboxingStateCreation"` inside your module's `build.gradle` or `build.gradle.kts` configuration as shown ([I34f7e](https://android-review.googlesource.com/#/q/I34f7ea540f782ae95630f7f94cab93d842dfdd0f)):
 
-          android {
-              lint {
-                  warning "AutoboxingStateCreation"
-              }
-              ...
+  ```groovy
+      android {
+          lint {
+              warning "AutoboxingStateCreation"
           }
+          ...
+      }
+  ```
 
 ### Version 1.5.0-beta03
 
@@ -2802,9 +2878,9 @@ February 9, 2022
 - Stable support for the Android 12 [Overscroll effect](https://android-review.googlesource.com/c/platform/frameworks/support/+/1795727/)
 - Improvements to touch target sizing
 - Note that, with respect to Compose 1.0, Material components will expand their layout space to meet Material [accessibility guidelines](https://material.io/design/usability/accessibility.html) for [touch target size](https://material.io/design/usability/accessibility.html#layout-and-typography). For instance, Button touch target will expand to a minimum size of 48x48dp, even if you set the Button's size to be smaller. This aligns Compose Material to the same behavior of Material Design Components, providing consistent behavior if you mix Views and Compose. This change also ensures that when you create your UI using Compose Material components, minimum requirements for touch target accessibility will be met.
-- Stable support for [Navigation Rail](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#navigationrail)
+- Stable support for [Navigation Rail](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#navigationrail)
 - Graduates a number of previously experimental APIs to stable
-- [Support](https://developer.android.com/jetpack/androidx/releases/compose-kotlin) for newer versions of Kotlin
+- [Support](https://developer.android.com/jetpack/androidx/releases/compose-kotlin.md.txt) for newer versions of Kotlin
 
 ### Version 1.1.0-rc03
 
@@ -2860,18 +2936,19 @@ November 17, 2021
   There is a new modifier available within LazyItemScope called `Modifier.animateItemPlacement()`.
   Usage example:
 
-        var list by remember { mutableStateOf(listOf("A", "B", "C")) }
-        LazyColumn {
-            item {
-                Button(onClick = { list = list.shuffled() }) {
-                    Text("Shuffle")
-                }
-            }
-            items(list, key = { it }) {
-                Text("Item $it", Modifier.animateItemPlacement())
+  ```kotlin
+    var list by remember { mutableStateOf(listOf("A", "B", "C")) }
+    LazyColumn {
+        item {
+            Button(onClick = { list = list.shuffled() }) {
+                Text("Shuffle")
             }
         }
-
+        items(list, key = { it }) {
+            Text("Item $it", Modifier.animateItemPlacement())
+        }
+    }
+  ```
   - When you provide a key via `LazyListScope.item` or `LazyListScope.items` this modifier will enable item reordering animations. Aside from item reordering all other position changes caused by events like arrangement or alignment changes will also be animated. ([I59e7b](https://android-review.googlesource.com/#/q/I59e7b8fd3a4a9eb19a15a4704da150bd187a6f24), [b/150812265](https://issuetracker.google.com/issues/150812265))
 
 ### Version 1.1.0-beta02
@@ -3121,12 +3198,14 @@ This release adds profile rules to the following compose modules ([I14ed6](https
 
 - A method rule will have the following pattern:
 
-      <FLAGS><CLASS_DESCRIPTOR>-><METHOD_SIGNATURE>
-
+  ```kotlin
+  <FLAGS><CLASS_DESCRIPTOR>-><METHOD_SIGNATURE>
+  ```
 - And a class rule will have the following pattern:
 
-      <CLASS_DESCRIPTOR>
-
+  ```kotlin
+  <CLASS_DESCRIPTOR>
+  ```
 - Here `<FLAGS>` is one or more of the characters `H`, `S`, and `P` to indicate whether or not this method should be flagged as "Hot", "Startup", or "Post Startup".
 
 - The `<CLASS_DESCRIPTOR>` is the descriptor for the class that the targeted method belongs to. For example, the class `androidx.compose.runtime.SlotTable` would have a descriptor of `Landroidx/compose/runtime/SlotTable;`.
@@ -3254,13 +3333,15 @@ April 7, 2021
 
   To summarize, consider the example:
 
-      @Composable fun Counter(count: Int, onCountChange: (Int) -> Unit) {
-        @Composable fun ShowCount() { Text("Count: $count") }
-        ShowCount()
-        Button(onClick={ onCountChange(count + 1) }) {
-          Text("Increment")
-        }
-      }
+  ```kotlin
+  @Composable fun Counter(count: Int, onCountChange: (Int) -> Unit) {
+    @Composable fun ShowCount() { Text("Count: $count") }
+    ShowCount()
+    Button(onClick={ onCountChange(count + 1) }) {
+      Text("Increment")
+    }
+  }
+  ```
 
   Prior to this change, the `ShowCount` composable function would always skip, even after the `count` parameter was updated. This is no longer the case. ([I5648a](https://android-review.googlesource.com/#/q/I5648a5f11c89e71c6b8c748f111c47bcafee9178))
 
@@ -3421,10 +3502,11 @@ February 10, 2021
 - Destructuring and copy() methods have been removed from several classes where they were rarely used. ([I26702](https://android-review.googlesource.com/#/q/I267021d3a45314acc9a169f6bbdfbfb4295a448c), [b/178659281](https://issuetracker.google.com/issues/178659281))
 - Custom keys support for LazyColumn/LazyRow was added. This allows us to smarter handle items reordering. So the state you stored in remember {} blocks will move together with the item when you reorder elements or removed the item from the middle.
 
-      LazyColumn {
-          items(users, key = { user -> user.id }) { ... }
-      }
-
+  ```kotlin
+  LazyColumn {
+      items(users, key = { user -> user.id }) { ... }
+  }
+  ```
   - ([Ia50ef](https://android-review.googlesource.com/#/q/Ia50ef7cd8f47ab87d76edc4e0691199ce426729d), [b/164901852](https://issuetracker.google.com/issues/164901852))
 - Changed Indication#createInstance to be @Composable, and changed LocalIndication to contain an Indication, not () -\> Indication. ([I5eeea](https://android-review.googlesource.com/#/q/I5eeea2424e4deda6116f0b48b690b628f8d545eb), [b/157150564](https://issuetracker.google.com/issues/157150564))
 
@@ -4114,18 +4196,20 @@ September 2, 2020
 
   For example:
 
-      @Test
-      fun myTest() = runWithManualClock { clock ->
-          // set some compose content
-          withContext(TestUiDispatcher.Main) {
-              clock.advanceClock(1000L)
-          }
-          if (clock.hasAwaiters) {
-              println("The clock has awaiters")
-          } else {
-              println("The clock has no more awaiters")
-          }
+  ```kotlin
+  @Test
+  fun myTest() = runWithManualClock { clock ->
+      // set some compose content
+      withContext(TestUiDispatcher.Main) {
+          clock.advanceClock(1000L)
       }
+      if (clock.hasAwaiters) {
+          println("The clock has awaiters")
+      } else {
+          println("The clock has no more awaiters")
+      }
+  }
+  ```
 
   ([I0a85b](https://android-review.googlesource.com/#/q/I0a85b019ae5f40f52f2c6b78c08958eb7b8e7485), [b/161247083](https://issuetracker.google.com/issues/161247083))
 
@@ -4261,7 +4345,7 @@ To use the `0.1.0-dev15` version of Compose, you will need to:
 
 #### Dependencies Update
 
-- To use the `0.1.0-dev15` version of Compose, you will need to update your dependencies according to the new code snippets shown above in [Declaring dependencies](https://developer.android.com/jetpack/androidx/releases/compose-foundation#declaring_dependencies).
+- To use the `0.1.0-dev15` version of Compose, you will need to update your dependencies according to the new code snippets shown above in [Declaring dependencies](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt#declaring_dependencies).
 
 **API Changes**
 

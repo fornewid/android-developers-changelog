@@ -4,6 +4,11 @@ url: https://developer.android.com/develop/ui/compose/text/migrate-state-based
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/text/llms.txt
+
+> [!CAUTION]
+> **Caution:** Starting in Compose 1.13, value-based [`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable.md.txt#BasicTextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.ui.text.input.VisualTransformation,kotlin.Function1,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,kotlin.Function1)), Material 2 [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable.md.txt#TextField(kotlin.String,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors)), and [`VisualTransformation`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/input/VisualTransformation.md.txt) are deprecated in favor of `TextFieldState`-based text fields with `InputTransformation` and `OutputTransformation`. Migrate to the recommended state-based text fields using this migration guide.
+
 This page provides examples of how you can migrate value-based `TextField`s to
 state-based `TextField`s. See the [Configure text fields](https://developer.android.com/develop/ui/compose/text/user-input.md.txt) page for
 information on the differences between value and state-based `TextField`s.

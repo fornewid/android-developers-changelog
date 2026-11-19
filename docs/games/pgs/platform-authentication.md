@@ -4,6 +4,8 @@ url: https://developer.android.com/games/pgs/platform-authentication
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/llms.txt
+
 The first step in integrating your game with Google Play Games Services (PGS) is
 implementing Platform Authentication. This is required to access all other
 features such as achievements, leaderboards, and events.
@@ -11,7 +13,7 @@ features such as achievements, leaderboards, and events.
 Since Play Games Services SDK automatically performs platform authentication at
 the game launch, you need to integrate PGS v2 SDK with your game and implement
 the recommended authentication flow, so that your game is ready to implement and
-satisfy the Google Play Games Level Up [user experience guidelines](https://developer.android.com/games/guidelines).
+satisfy the Google Play Games Level Up [user experience guidelines](https://developer.android.com/games/guidelines.md.txt).
 
 ## Authentication concepts
 
@@ -35,14 +37,14 @@ has the following key characteristics:
 
 A player ID is an identifier for a Play Games Services player account. Your
 game can retrieve a player ID for any player that signs into your game using
-Play Games Services authentication. Your [game client integration](https://developer.android.com/games/pgs/android/server-access#get-auth-code),
-[game server integration](https://developer.android.com/games/guidelines#gameplay-continuity), and
-[cloud-save service](https://developer.android.com/games/pgs/savedgames) can use the ID to securely access
+Play Games Services authentication. Your [game client integration](https://developer.android.com/games/pgs/android/server-access.md.txt#get-auth-code),
+[game server integration](https://developer.android.com/games/guidelines.md.txt#gameplay-continuity), and
+[cloud-save service](https://developer.android.com/games/pgs/savedgames.md.txt) can use the ID to securely access
 player data from Play Games Services.
 
 A player ID is consistent for a user when they play your game on multiple
 devices. However, it is not always consistent between games.
-For more information, see [next generation Player IDs](https://developer.android.com/games/pgs/next-gen-player-ids).
+For more information, see [next generation Player IDs](https://developer.android.com/games/pgs/next-gen-player-ids.md.txt).
 
 ### In-game authentication
 
@@ -75,14 +77,14 @@ This step is required to initialize and authenticate your game:
 
 Implement platform authentication by initializing the Play Games Services v2 SDK
 on startup. For more information, see
-[platform authentication for Android games](https://developer.android.com/games/pgs/android/android-signin).
+[platform authentication for Android games](https://developer.android.com/games/pgs/android/android-signin.md.txt).
 This step is required to access Play Games Services features, such as
 achievements and leaderboards.
 
 Authentication runs as a silent background process during game launch. Existing
 Play Games Services users see a welcome message after successful authentication.
 Users who don't have a Play Games Services profile are prompted to
-[create a profile](https://developer.android.com/games/pgs/platform-authentication#automatic-sign-in) during SDK initialization.
+[create a profile](https://developer.android.com/games/pgs/platform-authentication.md.txt#automatic-sign-in) during SDK initialization.
 
 ![Automatic sign-in prompt](https://developer.android.com/static/images/games/pgs/automatic-sign-in.gif)
 
@@ -119,8 +121,8 @@ Consider triggering the profile prompt during these recommended moments:
 - During a rewarded moment (for example, winning a match, collecting a rare item, or hitting a milestone).
 - At the time of launching a second session.
 
-For more information, see [Prevent auto-triggered profile creation (Java)](https://developer.android.com/games/pgs/android/android-signin#prevent-auto-profile)
-and [Prevent auto-triggered profile creation (Unity)](https://developer.android.com/games/pgs/unity/unity-start#prevent-auto-profile).
+For more information, see [Prevent auto-triggered profile creation (Java)](https://developer.android.com/games/pgs/android/android-signin.md.txt#prevent-auto-profile)
+and [Prevent auto-triggered profile creation (Unity)](https://developer.android.com/games/pgs/unity/unity-start.md.txt#prevent-auto-profile).
 
 ### In-game authentication
 
@@ -130,7 +132,7 @@ depending on the current game state:
 
 1. If an active game session exists on the device, allow the player to resume their current session.
 2. If no active game session is present:
-   1. In the case of a [seamless restore](https://developer.android.com/games/pgs/seamless-restore) scenario where a last played IGA is associated with the PGS Player ID, proceed to automatically restore the associated IGA.
+   1. In the case of a [seamless restore](https://developer.android.com/games/pgs/seamless-restore.md.txt) scenario where a last played IGA is associated with the PGS Player ID, proceed to automatically restore the associated IGA.
    2. Otherwise, present the player with your application's designated login or account creation screen. Players can then choose their preferred authentication method to establish or log into an existing IGA.
 
 ### OAuth scopes
@@ -147,7 +149,7 @@ When using the Play Games Services v2 SDK, you can request extra
 [OAuth scopes](https://developers.google.com/identity/protocols/googlescopes).
 If you need extra OAuth scopes, we recommend calling `requestServerSideAccess`.
 For more information, see
-[get the server auth code](https://developer.android.com/games/pgs/android/server-access#get-auth-code) or [retrieve server authentication codes](https://developer.android.com/games/pgs/unity/unity-start#retrieve-auth-codes).
+[get the server auth code](https://developer.android.com/games/pgs/android/server-access.md.txt#get-auth-code) or [retrieve server authentication codes](https://developer.android.com/games/pgs/unity/unity-start.md.txt#retrieve-auth-codes).
 
 ## User experience guideline for ideal authentication flow
 
@@ -163,7 +165,7 @@ device with no prior play history with the game.
 1. Upon launch, the PGS SDK initializes to authenticate the user's platform identity (PGS Player ID).
 2. After this background handshake, the game displays IGA creation options to the player, for example, **Create new account** , **Sign in with Google**, or other social login methods.
 3. Once the player creates or selects an IGA, the game binds this account to the chosen primary identifier in their backend.
-4. The game also binds this chosen IGA to the PGS Player ID, marking it as the last played IGA for [seamless restore](https://developer.android.com/games/pgs/seamless-restore).
+4. The game also binds this chosen IGA to the PGS Player ID, marking it as the last played IGA for [seamless restore](https://developer.android.com/games/pgs/seamless-restore.md.txt).
 
 [![New Player with signed in PGS Profile](https://developer.android.com/static/images/games/pgs/scenario1a.png)](https://developer.android.com/static/images/games/pgs/scenario1a.png) New Player with signed in PGS Profile (click to enlarge). [![New Player with no PGS profile](https://developer.android.com/static/images/games/pgs/scenario1b.png)](https://developer.android.com/static/images/games/pgs/scenario1b.png) New Player with no PGS profile (click to enlarge). [![New Player with signed in PGS profile](https://developer.android.com/static/images/games/pgs/scenario1c.png)](https://developer.android.com/static/images/games/pgs/scenario1c.png) New Player with signed in PGS profile (click to enlarge).
 
@@ -193,10 +195,10 @@ For example, signing out of a main account to use an alternate account.
 
 This scenario applies when a player launches the game after an inactive period,
 a re-install, or on a completely new device. The game is recommended to
-implement [seamless restore](https://developer.android.com/games/pgs/seamless-restore).
+implement [seamless restore](https://developer.android.com/games/pgs/seamless-restore.md.txt).
 
 1. Upon launch, PGS authenticates the user and provides the PGS Player ID to the game.
-2. The game checks its backend (or retrieved recall token if using [Recall](https://developer.android.com/games/pgs/recall) API) to see if a last played IGA is already linked to this PGS ID.
+2. The game checks its backend (or retrieved recall token if using [Recall](https://developer.android.com/games/pgs/recall.md.txt) API) to see if a last played IGA is already linked to this PGS ID.
 3. If a link is found, the game automatically restores the player's progress and logs them in, skipping the manual login screen entirely.
 4. Else, the game presents the player with their login screen
    1. The player then chooses a login method and signs into an IGA
@@ -210,5 +212,63 @@ Players can launch your game and play by using a local guest account.
 Play Games Services still authenticates the player in the background. If the
 player selects **Save Progress** , your game converts the guest session into a
 permanent IGA and binds it to the player ID. For more information about conflict
-resolution, see [Guest account](https://developer.android.com/games/pgs/savedgames#guest-account).
+resolution, see [Guest account](https://developer.android.com/games/pgs/savedgames.md.txt#guest-account).
 [![Guest Mode - No IGA created](https://developer.android.com/static/images/games/pgs/scenario5a.png)](https://developer.android.com/static/images/games/pgs/scenario5a.png) Guest Mode - No IGA created (click to enlarge). [![Guest Mode - IGA created](https://developer.android.com/static/images/games/pgs/scenario5b.png)](https://developer.android.com/static/images/games/pgs/scenario5b.png) Guest Mode - IGA created (click to enlarge).
+
+## Test your game
+
+Ensure your game functions as designed by testing it. The tests you perform
+depend on your game's features.
+
+The following is a list of common tests to run.
+
+1. **Successful sign-in**.
+
+   1. Automatic sign-in works. The user should be signed in to
+      Play Games Services upon launching the game.
+
+   2. The welcome popup is displayed.
+
+
+      [![Sample welcome popup.](https://developer.android.com/static/images/games/pgs/welcometoast.png)](https://developer.android.com/static/images/games/pgs/welcometoast.png) Sample welcome popup (click to enlarge).
+
+      <br />
+
+   3. Successful log messages are displayed. Run the following
+      command in the terminal:
+
+      ```bash
+      adb logcat | grep com.google.android.
+      ```
+
+      A successful log message is shown in the following example:
+
+      ```bash
+      [$PlaylogGamesSignInAction$SignInPerformerSource@e1cdecc
+      number=1 name=GAMES_SERVICE_BROKER>], returning true for shouldShowWelcomePopup.
+      [CONTEXT service_id=1 ]
+      ```
+2. **Ensure UI component consistency**.
+
+   1. Pop ups, leaderboards, and achievements display correctly and
+      consistently on various screen sizes and orientations in the
+      Play Games Services user interface (UI).
+
+   2. Sign-out option is not visible in the Play Games Services
+      UI.
+
+   3. Make sure you can successfully retrieve Player ID, and if applicable,
+      server-side capabilities work as expected.
+
+   4. If the game uses server-side authentication, thoroughly test the
+      `requestServerSideAccess` flow. Ensure the server receives the auth code
+      and can exchange it for an access token.
+      Test both success and failure scenarios for network errors, invalid
+      `client ID` scenarios.
+
+If your game was using any of the following features, test them to ensure that
+they work the same as before the migration:
+
+- **Leaderboards**: Submit scores and view leaderboards. Check for the correct ranking and display of player names and scores.
+- **Achievements**: Unlock achievements and verify they are correctly recorded and displayed in the Play Games UI.
+- **Saved Games**: If the game uses saved games, ensure that saving and loading the game progress works flawlessly. This is particularly critical to test across multiple devices and after app updates.

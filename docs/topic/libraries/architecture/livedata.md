@@ -5,9 +5,9 @@ source: md.txt
 ---
 
 # LiveData overview
-Part of [Android Jetpack](https://developer.android.com/jetpack).
+Part of [Android Jetpack](https://developer.android.com/jetpack.md.txt).
 
-[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) is an observable
+[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt) is an observable
 data holder class. Unlike a regular observable, LiveData is lifecycle-aware,
 meaning it respects the lifecycle of other app components, such as activities,
 fragments, or services. This awareness ensures LiveData only updates app
@@ -19,24 +19,24 @@ component observers that are in an active lifecycle state.
 > your Project](https://developer.android.com/topic/libraries/architecture/adding-components#lifecycle).
 
 LiveData considers an observer, which is represented by the
-[`Observer`](https://developer.android.com/reference/androidx/lifecycle/Observer) class, to be in an
+[`Observer`](https://developer.android.com/reference/androidx/lifecycle/Observer.md.txt) class, to be in an
 active state if its lifecycle is in the
-[`STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#STARTED) or
-[`RESUMED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#RESUMED)
+[`STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State.md.txt#STARTED) or
+[`RESUMED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State.md.txt#RESUMED)
 state. LiveData only notifies active observers about updates. Inactive
 observers registered to watch
-[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) objects aren't
+[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt) objects aren't
 notified about changes.
 
 You can register an observer paired with an object that implements the
-[`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner)
+[`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner.md.txt)
 interface. This relationship allows the observer to be removed when the state of
 the corresponding
-[`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) object changes
+[`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.md.txt) object changes
 to
-[`DESTROYED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#DESTROYED).
+[`DESTROYED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State.md.txt#DESTROYED).
 This is especially useful for activities and fragments because they can safely
-observe [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) objects
+observe [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt) objects
 and not worry about leaks---activities and fragments are instantly
 unsubscribed when their lifecycles are destroyed.
 
@@ -49,14 +49,14 @@ Using LiveData provides the following advantages:
 
 **Ensures your UI matches your data state**
 :   LiveData follows the observer pattern. LiveData notifies
-    [`Observer`](https://developer.android.com/reference/androidx/lifecycle/Observer) objects when
+    [`Observer`](https://developer.android.com/reference/androidx/lifecycle/Observer.md.txt) objects when
     underlying data changes. You can consolidate your code to update the UI in
     these `Observer` objects. That way, you don't need to update the UI every
     time the app data changes because the observer does it for you.
 
 **No memory leaks**
 :   Observers are bound to
-    [`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) objects and
+    [`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.md.txt) objects and
     clean up after themselves when their associated lifecycle is destroyed.
 
 **No crashes due to stopped activities**
@@ -78,28 +78,28 @@ Using LiveData provides the following advantages:
     device rotation, it immediately receives the latest available data.
 
 **Sharing resources**
-:   You can extend a [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData)
+:   You can extend a [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt)
     object using the singleton pattern to wrap system services so that they can be
     shared in your app. The `LiveData` object connects to the system service once,
     and then any observer that needs the resource can just watch the `LiveData`
-    object. For more information, see [Extend LiveData](https://developer.android.com/topic/libraries/architecture/livedata#extend_livedata).
+    object. For more information, see [Extend LiveData](https://developer.android.com/topic/libraries/architecture/livedata.md.txt#extend_livedata).
 
 ## Work with LiveData objects
 
 Follow these steps to work with
-[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) objects:
+[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt) objects:
 
-1. Create an instance of `LiveData` to hold a certain type of data. This is usually done within your [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) class.
-2. Create an [`Observer`](https://developer.android.com/reference/androidx/lifecycle/Observer) object that defines the [`onChanged()`](https://developer.android.com/reference/androidx/lifecycle/Observer#onChanged(T)) method, which controls what happens when the `LiveData` object's held data changes. You usually create an `Observer` object in a UI controller, such as an activity or fragment.
+1. Create an instance of `LiveData` to hold a certain type of data. This is usually done within your [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel.md.txt) class.
+2. Create an [`Observer`](https://developer.android.com/reference/androidx/lifecycle/Observer.md.txt) object that defines the [`onChanged()`](https://developer.android.com/reference/androidx/lifecycle/Observer.md.txt#onChanged(T)) method, which controls what happens when the `LiveData` object's held data changes. You usually create an `Observer` object in a UI controller, such as an activity or fragment.
 3. Attach the `Observer` object to the `LiveData` object using the
-   [`observe()`](https://developer.android.com/reference/androidx/lifecycle/LiveData#observe(androidx.lifecycle.LifecycleOwner,%0Aandroidx.lifecycle.Observer%3CT%3E)) method. The `observe()` method takes a
-   [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner)
+   [`observe()`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt#observe(androidx.lifecycle.LifecycleOwner,%0Aandroidx.lifecycle.Observer%3CT%3E)) method. The `observe()` method takes a
+   [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner.md.txt)
    object. This subscribes the `Observer` object to the `LiveData` object so
    that it is notified of changes. You usually attach the `Observer` object in a
    UI controller, such as an activity or fragment.
 
    > [!NOTE]
-   > **Note:** You can register an observer without an associated [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner) object using the [`observeForever(Observer)`](https://developer.android.com/reference/androidx/lifecycle/LiveData#observeForever(androidx.lifecycle.Observer%3CT%3E)) method. In this case, the observer is considered to be always active and is therefore always notified about modifications. You can remove these observers calling the [`removeObserver(Observer)`](https://developer.android.com/reference/androidx/lifecycle/LiveData#removeObserver(androidx.lifecycle.Observer%3CT%3E)) method.
+   > **Note:** You can register an observer without an associated [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner.md.txt) object using the [`observeForever(Observer)`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt#observeForever(androidx.lifecycle.Observer%3CT%3E)) method. In this case, the observer is considered to be always active and is therefore always notified about modifications. You can remove these observers calling the [`removeObserver(Observer)`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt#removeObserver(androidx.lifecycle.Observer%3CT%3E)) method.
 
 When you update the value stored in the `LiveData` object, it triggers all
 registered observers as long as the attached `LifecycleOwner` is in the active
@@ -111,9 +111,9 @@ held by the `LiveData` object changes, the UI automatically updates in response.
 ### Create LiveData objects
 
 LiveData is a wrapper that can be used with any data, including objects that
-implement `https://developer.android.com/reference/java/util/Collections`, such as `https://developer.android.com/reference/java/util/List`. A
-[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) object is usually
-stored within a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel)
+implement `Collections`, such as `List`. A
+[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt) object is usually
+stored within a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel.md.txt)
 object and is accessed via a getter method, as demonstrated in the following
 example:
 
@@ -159,16 +159,16 @@ Initially, the data in a `LiveData` object is not set.
 > > - To decouple `LiveData` instances from specific activity or fragment instances and allow `LiveData` objects to survive configuration changes.
 >
 You can read more about the benefits and usage of the `ViewModel` class in the
-[ViewModel guide](https://developer.android.com/topic/libraries/architecture/viewmodel).
+[ViewModel guide](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt).
 
 ### Observe LiveData objects
 
-In most cases, an app component's `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)` method is the right place to begin observing a
-[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) object for the
+In most cases, an app component's `onCreate()` method is the right place to begin observing a
+[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt) object for the
 following reasons:
 
-- To ensure the system doesn't make redundant calls from an activity or fragment's `https://developer.android.com/reference/android/app/Activity#onResume()` method.
-- To ensure that the activity or fragment has data that it can display as soon as it becomes active. As soon as an app component is in the [`STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#STARTED) state, it receives the most recent value from the `LiveData` objects it's observing. This only occurs if the `LiveData` object to be observed has been set.
+- To ensure the system doesn't make redundant calls from an activity or fragment's `onResume()` method.
+- To ensure that the activity or fragment has data that it can display as soon as it becomes active. As soon as an app component is in the [`STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State.md.txt#STARTED) state, it receives the most recent value from the `LiveData` objects it's observing. This only occurs if the `LiveData` object to be observed has been set.
 
 Generally, LiveData delivers updates only when data changes, and only to active
 observers. An exception to this behavior is that observers also receive an
@@ -237,9 +237,9 @@ public class NameActivity extends AppCompatActivity {
 ```
 
 After
-[`observe()`](https://developer.android.com/reference/androidx/lifecycle/LiveData#observe(androidx.lifecycle.LifecycleOwner,%0Aandroidx.lifecycle.Observer%3CT%3E)) is called with `nameObserver` passed as
+[`observe()`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt#observe(androidx.lifecycle.LifecycleOwner,%0Aandroidx.lifecycle.Observer%3CT%3E)) is called with `nameObserver` passed as
 parameter,
-[`onChanged()`](https://developer.android.com/reference/androidx/lifecycle/Observer#onChanged(T))
+[`onChanged()`](https://developer.android.com/reference/androidx/lifecycle/Observer.md.txt#onChanged(T))
 is immediately invoked providing the most recent value stored in `mCurrentName`.
 If the `LiveData` object hasn't set a value in `mCurrentName`, `onChanged()` is
 not called.
@@ -247,15 +247,15 @@ not called.
 ### Update LiveData objects
 
 LiveData has no publicly available methods to update the stored data. The
-[`MutableLiveData`](https://developer.android.com/reference/androidx/lifecycle/MutableLiveData)
+[`MutableLiveData`](https://developer.android.com/reference/androidx/lifecycle/MutableLiveData.md.txt)
 class exposes the
-[`setValue(T)`](https://developer.android.com/reference/androidx/lifecycle/MutableLiveData#setValue(T))
+[`setValue(T)`](https://developer.android.com/reference/androidx/lifecycle/MutableLiveData.md.txt#setValue(T))
 and
-[`postValue(T)`](https://developer.android.com/reference/androidx/lifecycle/MutableLiveData#postValue(T))
+[`postValue(T)`](https://developer.android.com/reference/androidx/lifecycle/MutableLiveData.md.txt#postValue(T))
 methods publicly and you must use these if you need to edit the value stored in
-a [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) object. Usually
+a [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt) object. Usually
 `MutableLiveData` is used in the
-[`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) and then the
+[`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel.md.txt) and then the
 `ViewModel` only exposes immutable `LiveData` objects to the observers.
 
 After you have set up the observer relationship, you can then update the value
@@ -284,7 +284,7 @@ button.setOnClickListener(new OnClickListener() {
 ```
 
 Calling `setValue(T)` in the example results in the observers calling their
-[`onChanged()`](https://developer.android.com/reference/androidx/lifecycle/Observer#onChanged(T))
+[`onChanged()`](https://developer.android.com/reference/androidx/lifecycle/Observer.md.txt#onChanged(T))
 methods with the value `John Doe`. The example shows a button press, but
 `setValue()` or `postValue()` could be called to update `mName` for a variety of
 reasons, including in response to a network request or a database load
@@ -292,13 +292,13 @@ completing; in all cases, the call to `setValue()` or `postValue()` triggers
 observers and updates the UI.
 
 > [!NOTE]
-> **Note:** You must call the [`setValue(T)`](https://developer.android.com/reference/androidx/lifecycle/MutableLiveData#setValue(T)) method to update the `LiveData` object from the main thread. If the code is executed in a worker thread, you can use the [`postValue(T)`](https://developer.android.com/reference/androidx/lifecycle/MutableLiveData#postValue(T)) method instead to update the `LiveData` object.
+> **Note:** You must call the [`setValue(T)`](https://developer.android.com/reference/androidx/lifecycle/MutableLiveData.md.txt#setValue(T)) method to update the `LiveData` object from the main thread. If the code is executed in a worker thread, you can use the [`postValue(T)`](https://developer.android.com/reference/androidx/lifecycle/MutableLiveData.md.txt#postValue(T)) method instead to update the `LiveData` object.
 
 ### Use LiveData with Room
 
-The [Room](https://developer.android.com/training/data-storage/room) persistence library supports
+The [Room](https://developer.android.com/training/data-storage/room.md.txt) persistence library supports
 observable queries, which return
-[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) objects.
+[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt) objects.
 Observable queries are written as part of a Database Access Object (DAO).
 
 Room generates all the necessary code to update the `LiveData` object when a
@@ -311,7 +311,7 @@ guide](https://developer.android.com/topic/libraries/architecture/room).
 ### Use coroutines with LiveData
 
 `LiveData` includes support for Kotlin coroutines. For more information, see
-[Use Kotlin coroutines with Android Architecture Components](https://developer.android.com/topic/libraries/architecture/coroutines).
+[Use Kotlin coroutines with Android Architecture Components](https://developer.android.com/topic/libraries/architecture/coroutines.md.txt).
 
 ## LiveData in an app's architecture
 
@@ -329,7 +329,7 @@ from holding data makes it easier to write unit tests.
 
 It may be tempting to work `LiveData` objects in your data layer class, but
 `LiveData`is not designed to handle asynchronous streams of data. Even though
-you can use `LiveData` transformations and [`MediatorLiveData`](https://developer.android.com/reference/androidx/lifecycle/MediatorLiveData)
+you can use `LiveData` transformations and [`MediatorLiveData`](https://developer.android.com/reference/androidx/lifecycle/MediatorLiveData.md.txt)
 to achieve this, this approach has drawbacks: the capability to combine streams
 of data is very limited and all `LiveData` objects (including ones created
 through transformations) are observed on the main thread. The code below is an
@@ -386,8 +386,8 @@ class UserRepository {
 ```
 
 If you need to use streams of data in other layers of your app, consider
-using [Kotlin Flows](https://developer.android.com/kotlin/flow) and then converting them to `LiveData` in the
-`ViewModel` using [`asLiveData()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary#aslivedata).
+using [Kotlin Flows](https://developer.android.com/kotlin/flow.md.txt) and then converting them to `LiveData` in the
+`ViewModel` using [`asLiveData()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary.md.txt#aslivedata).
 Learn more about using Kotlin `Flow` with `LiveData` in [this codelab](https://developer.android.com/codelabs/advanced-kotlin-coroutines).
 For codebases built with Java, consider using [Executors](https://developer.android.com/guide/background/threading)
 in conjunction with callbacks or `RxJava`.
@@ -396,10 +396,10 @@ in conjunction with callbacks or `RxJava`.
 
 LiveData considers an observer to be in an active state if the observer's
 lifecycle is in either the
-[`STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#STARTED)
-or [`RESUMED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#RESUMED)
+[`STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State.md.txt#STARTED)
+or [`RESUMED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State.md.txt#RESUMED)
 states. The following sample code illustrates how to extend the
-[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) class:
+[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt) class:
 
 ### Kotlin
 
@@ -453,9 +453,9 @@ public class StockLiveData extends LiveData<BigDecimal> {
 The implementation of the price listener in this example includes the following
 important methods:
 
-- The [`onActive()`](https://developer.android.com/reference/androidx/lifecycle/LiveData#onActive()) method is called when the `LiveData` object has an active observer. This means you need to start observing the stock price updates from this method.
-- The [`onInactive()`](https://developer.android.com/reference/androidx/lifecycle/LiveData#onInactive()) method is called when the `LiveData` object doesn't have any active observers. Since no observers are listening, there is no reason to stay connected to the `StockManager` service.
-- The [`setValue(T)`](https://developer.android.com/reference/androidx/lifecycle/MutableLiveData#setValue(T)) method updates the value of the `LiveData` instance and notifies any active observers about the change.
+- The [`onActive()`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt#onActive()) method is called when the `LiveData` object has an active observer. This means you need to start observing the stock price updates from this method.
+- The [`onInactive()`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt#onInactive()) method is called when the `LiveData` object doesn't have any active observers. Since no observers are listening, there is no reason to stay connected to the `StockManager` service.
+- The [`setValue(T)`](https://developer.android.com/reference/androidx/lifecycle/MutableLiveData.md.txt#setValue(T)) method updates the value of the `LiveData` instance and notifies any active observers about the change.
 
 You can use the `StockLiveData` class as follows:
 
@@ -489,10 +489,10 @@ public class MyFragment extends Fragment {
 ```
 
 The
-[`observe()`](https://developer.android.com/reference/androidx/lifecycle/LiveData#observe(androidx.lifecycle.LifecycleOwner,%20androidx.lifecycle.Observer%3C?%20super%20T%3E))
-method passes the [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner)
+[`observe()`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt#observe(androidx.lifecycle.LifecycleOwner,%20androidx.lifecycle.Observer%3C?%20super%20T%3E))
+method passes the [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner.md.txt)
 associated with the fragment's view as the first argument. Doing so denotes that
-this observer is bound to the [`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) object
+this observer is bound to the [`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.md.txt) object
 associated with the owner, meaning:
 
 - If the `Lifecycle` object is not in an active state, then the observer isn't called even if the value changes.
@@ -607,15 +607,15 @@ and active.
 ## Transform LiveData
 
 You may want to make changes to the value stored in a
-[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) object before
+[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt) object before
 dispatching it to the observers, or you may need to return a different
 `LiveData` instance based on the value of another one. The
-[`Lifecycle`](https://developer.android.com/reference/android/arch/lifecycle/package-summary) package
+[`Lifecycle`](https://developer.android.com/reference/android/arch/lifecycle/package-summary.md.txt) package
 provides the
-[`Transformations`](https://developer.android.com/reference/androidx/lifecycle/Transformations)
+[`Transformations`](https://developer.android.com/reference/androidx/lifecycle/Transformations.md.txt)
 class which includes helper methods that support these scenarios.
 
-[`Transformations.map()`](https://developer.android.com/reference/androidx/lifecycle/Transformations#map(androidx.lifecycle.LiveData%3CX%3E,%20androidx.arch.core.util.Function%3CX,%20Y%3E))
+[`Transformations.map()`](https://developer.android.com/reference/androidx/lifecycle/Transformations.md.txt#map(androidx.lifecycle.LiveData%3CX%3E,%20androidx.arch.core.util.Function%3CX,%20Y%3E))
 :   Applies a function on the value stored in the `LiveData` object, and
     propagates the result downstream.
 
@@ -637,7 +637,7 @@ LiveData<String> userName = Transformations.map(userLiveData, user -> {
 });
 ```
 
-[`Transformations.switchMap()`](https://developer.android.com/reference/androidx/lifecycle/Transformations#switchMap(androidx.lifecycle.LiveData%3CX%3E,%20androidx.arch.core.util.Function%3CX,%20androidx.lifecycle.LiveData%3CY%3E%3E))
+[`Transformations.switchMap()`](https://developer.android.com/reference/androidx/lifecycle/Transformations.md.txt#(androidx.lifecycle.LiveData).switchMap(kotlin.Function1))
 :   Similar to `map()`, applies a function to the value stored in the `LiveData`
     object and unwraps and dispatches the result downstream. The function passed
     to `switchMap()` must return a `LiveData` object, as illustrated by the
@@ -671,7 +671,7 @@ lazily, lifecycle-related behavior is implicitly passed down without requiring
 additional explicit calls or dependencies.
 
 If you think you need a `Lifecycle` object inside a
-[`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) object, a
+[`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel.md.txt) object, a
 transformation is probably a better solution. For example, assume that you have
 a UI component that accepts an address and returns the postal code for that
 address. You can implement the naive `ViewModel` for this component as
@@ -763,19 +763,19 @@ them.
 
 There are a dozen different specific transformation that may be useful in your
 app, but they aren't provided by default. To implement your own transformation
-you can you use the [`MediatorLiveData`](https://developer.android.com/reference/androidx/lifecycle/MediatorLiveData)
+you can you use the [`MediatorLiveData`](https://developer.android.com/reference/androidx/lifecycle/MediatorLiveData.md.txt)
 class, which listens to other
-[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) objects and
+[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt) objects and
 processes events emitted by them. `MediatorLiveData` correctly propagates its
 state to the source `LiveData` object. To learn more about this pattern, see the
 reference documentation of the
-[`Transformations`](https://developer.android.com/reference/androidx/lifecycle/Transformations)
+[`Transformations`](https://developer.android.com/reference/androidx/lifecycle/Transformations.md.txt)
 class.
 
 ## Merge multiple LiveData sources
 
-[`MediatorLiveData`](https://developer.android.com/reference/androidx/lifecycle/MediatorLiveData) is
-a subclass of [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) that
+[`MediatorLiveData`](https://developer.android.com/reference/androidx/lifecycle/MediatorLiveData.md.txt) is
+a subclass of [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt) that
 allows you to merge multiple LiveData sources. Observers of `MediatorLiveData`
 objects are then triggered whenever any of the original LiveData source objects
 change.
@@ -796,7 +796,7 @@ Architecture](https://developer.android.com/topic/libraries/architecture/guide).
 ## Additional resources
 
 To learn more about the
-[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) class, consult
+[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData.md.txt) class, consult
 the following resources.
 
 ### Samples
@@ -824,6 +824,6 @@ the following resources.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Use Kotlin coroutines with lifecycle-aware components](https://developer.android.com/topic/libraries/architecture/coroutines)
-- [Handling Lifecycles with Lifecycle-Aware Components](https://developer.android.com/topic/libraries/architecture/lifecycle)
-- [Test your Paging implementation](https://developer.android.com/topic/libraries/architecture/paging/test)
+- [Use Kotlin coroutines with lifecycle-aware components](https://developer.android.com/topic/libraries/architecture/coroutines.md.txt)
+- [Handling Lifecycles with Lifecycle-Aware Components](https://developer.android.com/topic/libraries/architecture/lifecycle.md.txt)
+- [Test your Paging implementation](https://developer.android.com/topic/libraries/architecture/paging/test.md.txt)

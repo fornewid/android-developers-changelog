@@ -4,8 +4,10 @@ url: https://developer.android.com/develop/ui/compose/text/user-input
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/text/llms.txt
+
 > [!CAUTION]
-> **Caution:** [Value-based text fields](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable.md.txt#BasicTextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.ui.text.input.VisualTransformation,kotlin.Function1,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,kotlin.Function1)) are deprecated. To migrate to the recommended state-based text fields, see [Migrate to state-based text fields](https://developer.android.com/develop/ui/compose/text/migrate-state-based.md.txt).
+> **Caution:** Starting in Compose 1.13, value-based [`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable.md.txt#BasicTextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.ui.text.input.VisualTransformation,kotlin.Function1,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,kotlin.Function1)), Material 2 [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable.md.txt#TextField(kotlin.String,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors)), and [`VisualTransformation`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/input/VisualTransformation.md.txt) are deprecated in favor of `TextFieldState`-based text fields with `InputTransformation` and `OutputTransformation`. Migrate to the recommended state-based text fields using the [migration guide](https://developer.android.com/develop/ui/compose/text/migrate-state-based.md.txt).
 
 [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable.md.txt#TextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)) allows users to enter and modify text. This page describes how
 you can implement `TextField`, style `TextField` input, and configure
@@ -210,6 +212,13 @@ TextField(
 <br />
 
 ![A TextField with the text Username appearing inside the text field.](https://developer.android.com/static/develop/ui/compose/images/text/tf-username.png) **Figure 2.** `TextField` with "Username" as the initial text.
+
+Starting in Compose 1.13, `rememberTextFieldState` and
+[`TextFieldState.Saver`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldState.Saver.md.txt) save and restore formatted `AnnotatedString`
+styles, such as `SpanStyle` and `ParagraphStyle`, across configuration changes
+and process recreation. To save and restore custom annotations, such as
+`StringAnnotation` or `LinkAnnotation`, use
+[`AnnotatedString.Annotation.Saver`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString.Annotation.md.txt#Saver()).
 
 ### Modify text with `TextFieldBuffer`
 
@@ -559,6 +568,62 @@ character input. `textObfuscationMode` has the following options:
   behavior on mobile devices.
 
   ![A secure text field where only the last typed character is briefly revealed.](https://developer.android.com/static/develop/ui/compose/images/text/reveal-last-typed.gif)
+
+## M3 Expressive update
+
+The expressive version of text fields remains functionally identical to the
+standard version, while offering a visual refresh with rounder corners and more
+tonal colors. In the expressive outlined variant, the label is displayed inside
+the container rather than in a cutout on the upper border.
+![Types of expressive text fields](https://developer.android.com/static/develop/ui/compose/images/components/expressive_types_textfield.png) **Figure 6.** Expressive filled (1, left) and outlined (2, right) text fields.
+
+### Using expressive text fields
+
+For filled text fields, the only difference from using the standard version is
+passing `TextFieldDefaults.roundedShape` and `TextFieldDefaults.tonalColors()`.
+The following snippet demonstrates how to implement an expressive filled text
+field:
+
+
+```kotlin
+@Composable
+fun TextFieldSample() {
+    TextField(
+        state = rememberTextFieldState(),
+        lineLimits = TextFieldLineLimits.SingleLine,
+        label = { Text("Label") },
+        shape = TextFieldDefaults.roundedShape,
+        colors = TextFieldDefaults.tonalColors(),
+    )
+}
+```
+![A filled tonal text field with rounded corners and the label 'Label'.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_expressive_components_textfield.png)
+
+<br />
+
+For outlined text fields, in addition to
+`OutlinedTextFieldDefaults.roundedShape` and
+`OutlinedTextFieldDefaults.tonalColors()`, set `labelPosition` to
+`TextFieldLabelPosition.Inside()`. The following snippet demonstrates how to
+implement an expressive outlined text field:
+
+
+```kotlin
+@Composable
+fun OutlinedTextFieldSample() {
+    OutlinedTextField(
+        state = rememberTextFieldState(),
+        lineLimits = TextFieldLineLimits.SingleLine,
+        label = { Text("Label") },
+        shape = OutlinedTextFieldDefaults.roundedShape,
+        colors = OutlinedTextFieldDefaults.tonalColors(),
+        labelPosition = TextFieldLabelPosition.Inside(),
+    )
+}
+```
+![An outlined text field with rounded corners and the label 'Label' inside the container.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_expressive_components_outlinedtextfield.png)
+
+<br />
 
 ## Additional resources
 

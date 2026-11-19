@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/compose-remote-foun
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Compose Remote Foundation
 
 TODO
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 04, 2026 | - | - | - | [1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose_remote_foundation#1.0.0-alpha06) |
+| November 18, 2026 | - | - | - | [1.0.0-alpha07](https://developer.android.com/jetpack/androidx/releases/compose_remote_foundation#1.0.0-alpha07) |
 
 ## Declaring dependencies
 
@@ -25,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.remote.foundation:foundation:1.0.0-alpha06"
+    implementation "androidx.compose.remote.foundation:foundation:1.0.0-alpha07"
 }
 ```
 
@@ -33,7 +35,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.remote.foundation:foundation:1.0.0-alpha06")
+    implementation("androidx.compose.remote.foundation:foundation:1.0.0-alpha07")
 }
 ```
 
@@ -53,6 +55,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha07
+
+November 18, 2026
+
+`androidx.compose.remote.foundation:foundation:1.0.0-alpha07` is released. Version 1.0.0-alpha07 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a021adf44194ae86e596ae25ca43d5e4e18f6926..58a4d1aa19df3743190e13146470e58c1c1aab8e/compose/remote/foundation/foundation).
+
+**API Changes**
+
+- Migrated `RemoteBasicImage` and `RemoteBasicText` to use `Remote*` types (`RemoteContentScale`, `RemoteTextOverflow`, etc.) instead of Compose UI types.
 
 ### Version 1.0.0-alpha06
 

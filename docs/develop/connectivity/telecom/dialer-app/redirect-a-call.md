@@ -15,7 +15,6 @@ API. The `CallRedirectionService` provides interfaces for you to use to
 modify outgoing calls made by the Android platform. For example, third-party
 apps might cancel calls and reroute them over VoIP.
 
-### Kotlin
 
 ```kotlin
 class RedirectionService : CallRedirectionService() {
@@ -44,32 +43,7 @@ class RedirectionService : CallRedirectionService() {
 }
 ```
 
-### Java
-
-```java
-class RedirectionService extends CallRedirectionService {
-    @Override
-    public void onPlaceCall(
-            @NonNull Uri handle,
-            @NonNull PhoneAccountHandle initialPhoneAccount,
-            boolean allowInteractiveResponse
-    ) {
-        // Determine if the call should proceed, be redirected, or cancelled.
-        // Your app should implement this logic to determine the redirection.
-        boolean callShouldProceed = true;
-        boolean callShouldRedirect = false;
-        if (callShouldProceed) {
-            placeCallUnmodified();
-        } else if (callShouldRedirect) {
-            // Update the URI to point to a different phone number or modify the
-            // PhoneAccountHandle and redirect.
-            redirectCall(handle, initialPhoneAccount, true);
-        } else {
-            cancelCall();
-        }
-    }
-}
-```
+<br />
 
 You must register this service in the manifest so the system can start it
 correctly.
@@ -95,13 +69,11 @@ so ensure you override the
 [`onActivityResult()`](https://developer.android.com/reference/android/app/Activity.md.txt#onActivityResult(int,%20int,%20android.content.Intent))
 function to handle the user's selection.
 
-### Kotlin
 
 ```kotlin
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
         // Tell the system that you want your app to handle call redirects. This
         // is done by using the RoleManager to register your app to handle redirects.
@@ -109,7 +81,7 @@ class MainActivity : AppCompatActivity() {
             val roleManager = getSystemService(Context.ROLE_SERVICE) as RoleManager
             // Check if the app needs to register call redirection role.
             val shouldRequestRole = roleManager.isRoleAvailable(RoleManager.ROLE_CALL_REDIRECTION) &&
-                    !roleManager.isRoleHeld(RoleManager.ROLE_CALL_REDIRECTION)
+                !roleManager.isRoleHeld(RoleManager.ROLE_CALL_REDIRECTION)
             if (shouldRequestRole) {
                 val intent = roleManager.createRequestRoleIntent(RoleManager.ROLE_CALL_REDIRECTION)
                 startActivityForResult(intent, REDIRECT_ROLE_REQUEST_CODE)
@@ -123,29 +95,4 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-### Java
-
-```java
-class MainActivity extends AppCompatActivity {
-    private static final int REDIRECT_ROLE_REQUEST_CODE = 0;
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // Tell the system that you want your app to handle call redirects. This
-        // is done by using the RoleManager to register your app to handle redirects.
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
-            RoleManager roleManager = (RoleManager) getSystemService(Context.ROLE_SERVICE);
-            // Check if the app needs to register call redirection role.
-            boolean shouldRequestRole = roleManager.isRoleAvailable(RoleManager.ROLE_CALL_REDIRECTION) &&
-                    !roleManager.isRoleHeld(RoleManager.ROLE_CALL_REDIRECTION);
-            if (shouldRequestRole) {
-                Intent intent = roleManager.createRequestRoleIntent(RoleManager.ROLE_CALL_REDIRECTION);
-                startActivityForResult(intent, REDIRECT_ROLE_REQUEST_CODE);
-            }
-        }
-    }
-}
-```
+<br />

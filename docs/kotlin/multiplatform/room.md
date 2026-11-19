@@ -4,6 +4,8 @@ url: https://developer.android.com/kotlin/multiplatform/room
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/kotlin/multiplatform/llms.txt
+
 The Room persistence library provides an abstraction layer over SQLite to allow
 for more robust database access while harnessing the full power of SQLite. This
 page focuses on using Room in **Kotlin Multiplatform (KMP)** projects. For more
@@ -19,7 +21,7 @@ Define the dependencies in the `libs.versions.toml` file:
 
 ```toml
 [versions]
-room3 = "3.1.0-alpha03"
+room3 = "3.1.0-alpha04"
 sqlite = "2.7.1"
 ksp = "<kotlinCompatibleKspVersion>"
 

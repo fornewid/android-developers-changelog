@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/compose-runtime
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Compose Runtime
 
 [User Guide](https://developer.android.com/jetpack/compose/tutorial) [Code Sample](https://github.com/android/compose-samples) Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 04, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.1) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-rc01) | - | - |
+| November 18, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt#1.13.0) | - | - | [1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt#1.14.0-alpha01) |
 
 ## Structure
 
@@ -22,13 +24,13 @@ This table explains the groups and links to each set of release notes.
 
 | Group | Description |
 |---|---|
-| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | Build animations in their Jetpack Compose applications to enrich the user experience. |
-| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
-| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces. |
-| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
-| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
-| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
-| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
+| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt) | Build animations in their Jetpack Compose applications to enrich the user experience. |
+| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler.md.txt) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
+| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt) | Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces. |
+| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
+| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
+| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
+| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
 
 ## Declaring dependencies
 
@@ -47,9 +49,9 @@ plugins {
 }
 
 dependencies {
-    implementation "androidx.compose.runtime:runtime:1.12.1"
-    implementation "androidx.compose.runtime:runtime-livedata:1.12.1"
-    implementation "androidx.compose.runtime:runtime-rxjava2:1.12.1"
+    implementation "androidx.compose.runtime:runtime:1.13.0"
+    implementation "androidx.compose.runtime:runtime-livedata:1.13.0"
+    implementation "androidx.compose.runtime:runtime-rxjava2:1.13.0"
 }
 
 android {
@@ -71,9 +73,9 @@ plugins {
 }
 
 dependencies {
-    implementation("androidx.compose.runtime:runtime:1.12.1")
-    implementation("androidx.compose.runtime:runtime-livedata:1.12.1")
-    implementation("androidx.compose.runtime:runtime-rxjava2:1.12.1")
+    implementation("androidx.compose.runtime:runtime:1.13.0")
+    implementation("androidx.compose.runtime:runtime-livedata:1.13.0")
+    implementation("androidx.compose.runtime:runtime-rxjava2:1.13.0")
 }
 
 android {
@@ -102,7 +104,64 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
+## Version 1.14
+
+### Version 1.14.0-alpha01
+
+November 18, 2026
+
+`androidx.compose.runtime:runtime-*:1.14.0-alpha01` is released. Version 1.14.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/57354ca42849ed417dfe0f797132477674d917e0..f8bc04d89fbf9be20610063e98600e551a335460/compose/runtime).
+
+**API Changes**
+
+- Parent snapshots are now advanced when a nested snapshot is taken. When snapshot writes are made to the same state object in both snapshots, the parent snapshot's writes will now appear to be after writes in the child, and will appear in the final snapshot when applied. This behavior can be disabled via the flag `ComposeRuntimeFlags.advanceParentSnapshotsWhenTakingNestedSnapshot`. ([I30263](https://android-review.googlesource.com/#/q/I3026357be45a534eece7f127f27e5bb40791ba11), [b/573222121](https://issuetracker.google.com/issues/573222121))
+- Added the `Snapshot.readOnly { }` API ([I5feef](https://android-review.googlesource.com/#/q/I5feef4a15860aa3ae64cbab5bb86459f136c7244))
+- `MutableVector` and `mutableVectorOf` are deprecated. Use `androidx.collection.MutableObjectList` and `mutableObjectListOf` instead. ([If0dd8](https://android-review.googlesource.com/#/q/If0dd84fb93c0890a069637cfc7963d0e06695a4a))
+- Removed the `watchosArm32` target, which Kotlin 2.5 no longer supports. ([Ic048d](https://android-review.googlesource.com/#/q/Ic048d3ac5dc60b7e62f0d1d7f683431f67f6209f))
+
+**Bug Fixes**
+
+- Fixed `SnapshotStateObserver` still notifying a cleared scope when its first observation nested an observation of the same scope. ([Ie7789](https://android-review.googlesource.com/#/q/Ie778952c4df403e02aaa35a21d6af88b404df5ea))
+- Fixed an issue in the `GapComposer` and `LinkComposer` that could cause a crash when nodes are modified around the end of an inlined node's group boundary ([I173fe](https://android-review.googlesource.com/#/q/I173fe4b981d5b9a863e61b6b7cdb433ddfe41ece), [b/569219194](https://issuetracker.google.com/issues/569219194))
+- Fixed an issue where a `CompositionLocal` could be read incorrectly if placed after a `MovableContent` instance that is removed from composition. ([I8100a](https://android-review.googlesource.com/#/q/I8100a4f2d0c316865416b3d7b08284483e8eea3b), [b/574059467](https://issuetracker.google.com/issues/574059467))
+- Fixed an issue in the `LinkTable` that could recompose content out of order when keyed items are inserted and removed in the same frame ([I4acc7](https://android-review.googlesource.com/#/q/I4acc75eea51822e0cf09e3cf4b26a89ae7c6957e))
+- Updated androidx.tracing:tracing-wire dependency to 2.0.5. ([I70e9f](https://android-review.googlesource.com/#/q/I70e9fe15d6f913d55b01a81391f9afeb83cd19e8))
+- Documented that `scheduleFrameEndCallback` throws `CancellationException` when the `Recomposer` shuts down. ([Iae38a](https://android-review.googlesource.com/#/q/Iae38af74e4491bbc272cbac1b9c058975c7d39a9), [b/568852322](https://issuetracker.google.com/issues/568852322))
+- Fixed an issue where disposing a parent `MutableSnapshot` while a nested snapshot remained active could prematurely unpin state records and cause subsequent reads of modified states to throw an `IllegalStateException`. ([If2887](https://android-review.googlesource.com/#/q/If28878cf5b0fb58c8682269440c21741233434c6), [b/573733481](https://issuetracker.google.com/issues/573733481))
+- Fixed a race condition in `derivedStateOf` where concurrent state updates could cause reading a derived state to throw a spurious `IllegalStateException`. ([I3861b](https://android-review.googlesource.com/#/q/I3861b7bd554c2f41e3c34f93636adbc15db19691), [b/574107950](https://issuetracker.google.com/issues/574107950))
+- Fixed a memory leak in `LinkComposer` where skipped conditional invalidations and invalidated scopes removed by ancestor recomposition were retained in the composer's invalidations map. ([Idffd0](https://android-review.googlesource.com/#/q/Idffd047b535a1db8a97d369729f1462f6c16391c))
+- Fixed a bug where applying a `NestedMutableSnapshot` with merged state records could leak an open snapshot ID and read unmerged state in the parent snapshot. ([I544a7](https://android-review.googlesource.com/#/q/I544a701880dd1a935ee26d5cdc9aeb005c0b5026), [b/570652672](https://issuetracker.google.com/issues/570652672))
+- Fixed a bug in `SnapshotIdSet.andNot` where sets sharing a `belowBound` array retained cleared snapshot IDs. ([Ie881e](https://android-review.googlesource.com/#/q/Ie881ec3bf37861980bf8a2a38afdc91a5fe374e5), [b/570534659](https://issuetracker.google.com/issues/570534659))
+
+**External Contribution**
+
+- Fixed an issue where a state change applied while a `PausedComposition` was composing its initial content on another thread was not reflected when the composition was applied. ([I52618](https://android-review.googlesource.com/#/q/I5261825045021dda3ae75956d6acedafa859da48))
+
 ## Version 1.13
+
+### Version 1.13.0
+
+November 18, 2026
+
+`androidx.compose.runtime:runtime-*:1.13.0` is released. Version 1.13.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5e0747401bf56b243e3b5141ae080dc9bc61d29c..ac6d2ce3d991b07d9b981d616bddc6d3ab461eab/compose/runtime).
+
+**Important changes since 1.12.0:**
+
+**`ComputedState` API**
+
+We've introduced a new `computedStateOf { }` API that can be used as an alternative to `derivedStateOf`.
+
+Like `DerivedState`, `ComputedState` is an implementation of `State` whose value is backed by a calculation that may read other states. The value will invalidate when the result of the calculation changes, not when one of the referenced states changes.
+
+The primary difference between `ComputedState` and `DerivedState` is that `DerivedState` caches the result of its calculation and `ComputedState` executes the calculation on-demand each time the `value` is read. For many calculations, this caching is more expensive than computing the value on-demand. Therefore, we recommend using `ComputedState` instead of `DerivedState` when your calculation doesn't benefit from caching. Good candidates for calculations that don't benefit from caching are ones that don't rely on object identity of its result, don't allocate large objects, don't read many states, aren't read many times in a single frame, and don't perform a complex algorithm.
+
+As a general rule of thumb, we recommend using `ComputedState` instead of `DerivedState` for most usages and if it's unclear whether caching would be beneficial.
+
+**Updates to the Experimental `SlotTable`**
+
+The `LinkComposer` remains opt-in as of Compose 1.13, and includes fixes for several issues reported since Compose 1.12. We continue to recommend testing your app against the new implementation of the `SlotTable` and reporting any issues you run into.
+
+Note that in runtime version 1.13.0-alpha01, the proguard syntax for enabling the `LinkComposer` in minified builds has changed. See the feature flag documentation and previous release notes for more information.
 
 ### Version 1.13.0-rc01
 
@@ -627,38 +686,42 @@ November 05, 2025
 
 Previously, installing a custom `RetainedValuesStore` may have looked like this:
 
-      val retainedValuesStore = retainControlledRetainedValuesStore()
-      if (active) {
-          CompositionLocalProvider(LocalRetainedValuesStore provides retainedValuesStore) {
-              content()
-          }
+```kotlin
+  val retainedValuesStore = retainControlledRetainedValuesStore()
+  if (active) {
+      CompositionLocalProvider(LocalRetainedValuesStore provides retainedValuesStore) {
+          content()
+      }
 
-          val composer = currentComposer
-          DisposableEffect(retainedValuesStore) {
-              val cancellationHandle =
-                  if (retainedValuesStore.retainExitedValuesRequestsFromSelf > 0) {
-                      composer.scheduleFrameEndCallback {
-                          retainedValuesStore.stopRetainingExitedValues()
-                      }
-                  } else {
-                      null
+      val composer = currentComposer
+      DisposableEffect(retainedValuesStore) {
+          val cancellationHandle =
+              if (retainedValuesStore.retainExitedValuesRequestsFromSelf > 0) {
+                  composer.scheduleFrameEndCallback {
+                      retainedValuesStore.stopRetainingExitedValues()
                   }
-
-              onDispose {
-                  cancellationHandle?.cancel()
-                  retainedValuesStore.startRetainingExitedValues()
+              } else {
+                  null
               }
+
+          onDispose {
+              cancellationHandle?.cancel()
+              retainedValuesStore.startRetainingExitedValues()
           }
       }
+  }
+```
 
 With these API changes, this installation can be expressed with this code instead:
 
-      val retainedValuesStore = retainManagedRetainedValuesStore()
-      if (active) {
-          LocalRetainedValuesStoreProvider(retainedValuesStore) {
-              content()
-          }
+```kotlin
+  val retainedValuesStore = retainManagedRetainedValuesStore()
+  if (active) {
+      LocalRetainedValuesStoreProvider(retainedValuesStore) {
+          content()
       }
+  }
+```
 
 **Bug Fixes**
 
@@ -1695,12 +1758,14 @@ July 26, 2023
 
 - An optional inspection to recommend migrating `mutableStateOf()` calls to their corresponding specialized types for primitives is available. Its lint ID is `AutoboxingStateCreation`. Previously, this inspection was enabled by default for all projects. To see this warning in Android Studio's editor and your project's lint outputs, change its severity from informational to warning (or higher) by declaring `warning "AutoboxingStateCreation"` inside your module's build.gradle or build.gradle.kts configuration as shown ([I34f7e](https://android-review.googlesource.com/#/q/I34f7ea540f782ae95630f7f94cab93d842dfdd0f)):
 
-          android {
-              lint {
-                  warning "AutoboxingStateCreation"
-              }
-              ...
+  ```groovy
+      android {
+          lint {
+              warning "AutoboxingStateCreation"
           }
+          ...
+      }
+  ```
 
 ### Version 1.5.0-beta03
 
@@ -2383,9 +2448,9 @@ February 9, 2022
 - Stable support for the Android 12 [Overscroll effect](https://android-review.googlesource.com/c/platform/frameworks/support/+/1795727/)
 - Improvements to touch target sizing
 - Note that, with respect to Compose 1.0, Material components will expand their layout space to meet Material [accessibility guidelines](https://material.io/design/usability/accessibility.html) for [touch target size](https://material.io/design/usability/accessibility.html#layout-and-typography). For instance, Button touch target will expand to a minimum size of `48x48dp`, even if you set the Button's size to be smaller. This aligns Compose Material to the same behavior of Material Design Components, providing consistent behavior if you mix Views and Compose. This change also ensures that when you create your UI using Compose Material components, minimum requirements for touch target accessibility will be met.
-- Stable support for [Navigation Rail](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#navigationrail)
+- Stable support for [Navigation Rail](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#navigationrail)
 - Graduates a number of previously experimental APIs to stable
-- [Support](https://developer.android.com/jetpack/androidx/releases/compose-kotlin) for newer versions of Kotlin
+- [Support](https://developer.android.com/jetpack/androidx/releases/compose-kotlin.md.txt) for newer versions of Kotlin
 
 ### Version 1.1.0-rc03
 
@@ -2595,12 +2660,14 @@ This release adds profile rules to the following compose modules ([I14ed6](https
 
 - A method rule will have the following pattern:
 
-      <FLAGS><CLASS_DESCRIPTOR>-><METHOD_SIGNATURE>
-
+  ```kotlin
+  <FLAGS><CLASS_DESCRIPTOR>-><METHOD_SIGNATURE>
+  ```
 - And a class rule will have the following pattern:
 
-      <CLASS_DESCRIPTOR>
-
+  ```kotlin
+  <CLASS_DESCRIPTOR>
+  ```
 - Here `<FLAGS>` is one or more of the characters `H`, `S`, and `P` to indicate whether or not this method should be flagged as "Hot", "Startup", or "Post Startup".
 
 - The `<CLASS_DESCRIPTOR>` is the descriptor for the class that the targeted method belongs to. For example, the class `androidx.compose.runtime.SlotTable` would have a descriptor of `Landroidx/compose/runtime/SlotTable;`.
@@ -2698,13 +2765,15 @@ April 7, 2021
 
   To summarize, consider the example:
 
-      @Composable fun Counter(count: Int, onCountChange: (Int) -> Unit) {
-        @Composable fun ShowCount() { Text("Count: $count") }
-        ShowCount()
-        Button(onClick={ onCountChange(count + 1) }) {
-          Text("Increment")
-        }
-      }
+  ```kotlin
+  @Composable fun Counter(count: Int, onCountChange: (Int) -> Unit) {
+    @Composable fun ShowCount() { Text("Count: $count") }
+    ShowCount()
+    Button(onClick={ onCountChange(count + 1) }) {
+      Text("Increment")
+    }
+  }
+  ```
 
   Prior to this change, the `ShowCount` composable function would always skip, even after the `count` parameter was updated. This is no longer the case. ([I5648a](https://android-review.googlesource.com/#/q/I5648a5f11c89e71c6b8c748f111c47bcafee9178))
 - Fixed the issue when `rememberSaveable()` was restoring the old value when used with input params ([I1b110](https://android-review.googlesource.com/#/q/I1b1108e2d8f141887a46e781d4fe04a0d84cd09c), [b/182403380](https://issuetracker.google.com/issues/182403380))
@@ -2987,11 +3056,15 @@ December 16, 2020
 
   The now-deprecated syntax for doing this was by annotating the property itself:
 
-          @Composable val someProperty: Int get() = ...
+  ```kotlin
+      @Composable val someProperty: Int get() = ...
+  ```
 
   The now-correct syntax for doing this is by annotating the getter of the property:
 
-         val someProperty: Int @Composable get() = ...
+  ```kotlin
+     val someProperty: Int @Composable get() = ...
+  ```
 
   Both syntaxes will work for some time, but the former deprecated syntax will eventually become a compile error. ([Id9197](https://android-review.googlesource.com/#/q/Id91977f2583b81d3e4e51bbf120cfaf943be25d5))
 
@@ -3204,11 +3277,15 @@ August 5, 2020
 
   For example,
 
-      val state = mutableStateOf(1f)
+  ```kotlin
+  val state = mutableStateOf(1f)
+  ```
 
   followed by,
 
-      state.value = 1f
+  ```kotlin
+  state.value = 1f
+  ```
 
   will no longer be consider a change to `state` and uses of
   `state` during composition will no longer need to be recomposed.
@@ -3258,7 +3335,7 @@ July 22, 2020
 
 #### Dependencies Update
 
-- To use the `0.1.0-dev15` version of Compose, you will need to update your dependencies according to the new code snippets shown above in [Declaring dependencies](https://developer.android.com/jetpack/androidx/releases/compose-runtime#declaring_dependencies).
+- To use the `0.1.0-dev15` version of Compose, you will need to update your dependencies according to the new code snippets shown above in [Declaring dependencies](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt#declaring_dependencies).
 
 **API Changes**
 
@@ -3284,19 +3361,21 @@ July 22, 2020
 
   Almost all existing usages of `@Model` are fairly trivially transformed in one of two ways. The example below has a `@Model` class with two properties just for the sake of example, and has it being used in a composable.
 
-      @Model class Position(
-       var x: Int,
-       var y: Int
-      )
+  ```kotlin
+  @Model class Position(
+   var x: Int,
+   var y: Int
+  )
 
-      @Composable fun Example() {
-       var p = remember { Position(0, 0) }
-       PositionChanger(
-         position=p,
-         onXChange={ p.x = it }
-         onYChange={ p.y = it }
-       )
-      }
+  @Composable fun Example() {
+   var p = remember { Position(0, 0) }
+   PositionChanger(
+     position=p,
+     onXChange={ p.x = it }
+     onYChange={ p.y = it }
+   )
+  }
+  ```
 
   #### Alternative 1: Use `State<OriginalClass>` and create copies.
 
@@ -3304,38 +3383,42 @@ July 22, 2020
 
   It's important to note that this approach only works when the only mutations to that class were done in the same scope that the `State` instance is created. If the class is internally mutating itself outside of the scope of usage, and you are relying on the observation of that, then the next approach is the one you will want to use.
 
-      data class Position(
-       val x: Int,
-       val y: Int
-      )
+  ```kotlin
+  data class Position(
+   val x: Int,
+   val y: Int
+  )
 
-      @Composable fun Example() {
-       var p by state { Position(0, 0) }
-       PositionChanger(
-         position=p,
-         onXChange={ p = p.copy(x=it) }
-         onYChange={ p = p.copy(y=it) }
-       )
-      }
+  @Composable fun Example() {
+   var p by state { Position(0, 0) }
+   PositionChanger(
+     position=p,
+     onXChange={ p = p.copy(x=it) }
+     onYChange={ p = p.copy(y=it) }
+   )
+  }
+  ```
 
   #### Alternative 2: Use mutableStateOf and property delegates
 
   This approach is made easier with Kotlin's property delegates and the `mutableStateOf` API which allows you to create MutableState instances outside of composition. Essentially, replace all `var` properties of the original class with `var` properties with `mutableStateOf` as their property delegate. This has the advantage that the usage of the class will not change at all, only the internal implementation of it. The behavior is not completely identical to the original example though, as each property is now observed/subscribed to individually, so the recompositions you see after this refactor could be more narrow (a good thing).
 
-      class Position(x: Int, y: Int) {
-       var x by mutableStateOf(x)
-       var y by mutableStateOf(y)
-      }
+  ```kotlin
+  class Position(x: Int, y: Int) {
+   var x by mutableStateOf(x)
+   var y by mutableStateOf(y)
+  }
 
-      // source of Example is identical to original
-      @Composable fun Example() {
-       var p = remember { Position(0, 0) }
-       PositionChanger(
-         position=p,
-         onXChange={ p.x = it }
-         onYChange={ p.y = it }
-       )
-      }
+  // source of Example is identical to original
+  @Composable fun Example() {
+   var p = remember { Position(0, 0) }
+   PositionChanger(
+     position=p,
+     onXChange={ p.x = it }
+     onYChange={ p.y = it }
+   )
+  }
+  ```
 
   ([I409e8](https://android-review.googlesource.com/#/q/I409e8c158841eae1dd548b33f1ec80bb609cba31), [b/152050010](https://issuetracker.google.com/issues/152050010), [b/146362815](https://issuetracker.google.com/issues/146362815), [b/146342522](https://issuetracker.google.com/issues/146342522), [b/143413369](https://issuetracker.google.com/issues/143413369), [b/135715219](https://issuetracker.google.com/issues/135715219), [b/143263925](https://issuetracker.google.com/issues/143263925), [b/139653744](https://issuetracker.google.com/issues/139653744))
 - Changes the code generation strategy of Compose's compiler. Prior to the change, the compose compiler would transform calls to composable functions. With this change, we now transform the body of a composable function and leave the callsite unaltered (mostly).

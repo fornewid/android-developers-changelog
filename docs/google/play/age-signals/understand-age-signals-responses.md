@@ -52,21 +52,23 @@ these signals.
 | ageUpper | Integer | - 2 to 18 - null | The inclusive upper bound of the user's age range. Returns **null** for the highest band (for example, 18+) or if **ageSignalsStatus** is **NOT_SHARED** or **VERIFICATION_REQUIRED**. |
 | significantChangeStatus | Enum | - APPROVED - PENDING - DECLINED - null | This only returns a non-null value in jurisdictions where significant changes are applicable. - **APPROVED**: The most recent significant change (and all prior changes) has been approved. - **PENDING**: Parent hasn't yet approved one or more pending significant changes. - **DECLINED**: Parents denied approval for one or more significant changes. - **null** : Returned for: - All unsupervised accounts - Supervised accounts that don't have any significant changes recorded yet. |
 | significantChangeApprovalDate | Date | - DateStamp - null | The effective date of the most recently approved significant change. All changes with effective dates prior to this date are also approved. Returns **null** if no changes exist. Combine it with \`significantChangeStatus\` to get the approval status for this significant change |
-| installId | String | - Alphanumeric - null | An ID assigned to supervised user installs by Google Play, used for the purposes of notifying you of revoked app approval. Review the documentation for [revoked app approvals](https://developer.android.com/google/play/age-signals/revoked-app-approval.md.txt). |
+| installId | String | - String - null | An ID assigned to supervised user installs by Google Play, used for the purposes of notifying you of revoked app approval. Review the documentation for [revoked app approvals](https://developer.android.com/google/play/age-signals/revoked-app-approval.md.txt). |
 
 ## Example 1
 
 For an adult user who verified their age by using Digital ID,
 you receive the following:
 
-- In a regulated region where age verification is mandatory:
+- If age verification and age sharing are mandatory:
 
+  - `features` is `ApplicableAgeFeature.MANDATORY_SHARING`.
   - `ageRangeSource` is `AgeRangeSource.TIER_D`.
   - `ageLower` is a number (for example, 18).
   - `ageUpper` is `null`.
   - Other response fields are `null`.
-- Everywhere else:
+- If a user chose to share their age:
 
+  - `features` is empty ({}).
   - `ageRangeSource` is `AgeRangeSource.TIER_A`.
   - `ageLower` is a number (for example, 18).
   - `ageUpper` is `null`.
@@ -77,14 +79,16 @@ you receive the following:
 For an adult user who verified their age by using age estimation methods
 (such as selfie assessment, credit card, or Tax ID), you receive the following:
 
-- In a regulated region where age verification is mandatory:
+- If age verification and age sharing are mandatory:
 
+  - `features` is `ApplicableAgeFeature.MANDATORY_SHARING`.
   - `ageRangeSource` is `AgeRangeSource.TIER_C`.
   - `ageLower` is a number (for example, 18).
   - `ageUpper` is `null`.
   - Other response fields are `null`
-- Everywhere else:
+- If a user chose to share their age:
 
+  - `features` is empty ({}).
   - `ageRangeSource` is `AgeRangeSource.TIER_A`.
   - `ageLower` is a number (for example, 18).
   - `ageUpper` is `null`.
@@ -92,9 +96,10 @@ For an adult user who verified their age by using age estimation methods
 
 ## Example 3
 
-For a user who is located in a region where age verification is not
-mandatory and shares it with apps, you receive the following:
+For an adult user (regardless of age-verification status) where age
+sharing is mandatory you receive the following:
 
+- `features` is `ApplicableAgeFeature.MANDATORY_SHARING`.
 - `ageRangeSource` is `AgeRangeSource.TIER_A`.
 - `ageLower` is a number (for example, 18).
 - `ageUpper` is `null`.
@@ -105,6 +110,7 @@ mandatory and shares it with apps, you receive the following:
 For a supervised minor user whose age is managed by a guardian who
 has shared it with apps, you receive the following:
 
+- `features` is `ApplicableAgeFeature.MANDATORY_SHARING` (in a regulated region where age sharing is mandatory) or empty (`{}`) (everywhere else).
 - `ageRangeSource` is `AgeRangeSource.TIER_B`.
 - `ageLower` is a number (for example, 13).
 - `ageUpper` is a number (for example, 15).
@@ -115,6 +121,7 @@ has shared it with apps, you receive the following:
 For a user who has not agreed (or whose parent has not agreed) to age sharing
 in a region where age verification is not mandatory, you receive the following:
 
+- `features` is empty (`{}`).
 - `ageRangeSource` is `null`.
 - `ageLower` is `null`.
 - `ageUpper` is `null`.
@@ -126,6 +133,7 @@ For a supervised minor user whose age is managed by a guardian, with an
 approved significant change and active install tracking, you receive the
 following:
 
+- `features` is `{ApplicableAgeFeature.MANDATORY_SHARING}`.
 - `ageRangeSource` is `AgeRangeSource.TIER_B`.
 - `ageLower` is a number (for example, 13).
 - `ageUpper` is a number (for example, 15).

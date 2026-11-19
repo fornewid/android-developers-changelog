@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/llms.txt
+
 Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use text in Compose. [Downloadable Fonts →](https://developer.android.com/jetpack/compose/text/fonts#downloadable-fonts) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 The Downloadable Fonts feature lets APIs request fonts from a provider application instead of

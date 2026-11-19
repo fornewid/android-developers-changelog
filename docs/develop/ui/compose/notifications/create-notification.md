@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/notifications/create-notif
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/notifications/llms.txt
+
 Notifications provide short, timely information about events in your app while
 it isn't in use. This document shows you how to create a notification with
 various features. For an introduction to how notifications appear on Android,

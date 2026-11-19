@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/intro/migrate
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/intro/llms.txt
+
 <br />
 
 Migrating your projects to Android Studio requires adapting to a new project
@@ -13,7 +15,7 @@ If you are migrating from IntelliJ and your project already uses Gradle,
 you can open your existing project from Android Studio. If you are using
 IntelliJ but your project doesn't already use Gradle, you need to
 manually prepare your project before you can import it into Android
-Studio. For more information, see the [Migrate from IntelliJ](https://developer.android.com/studio/intro/migrate#migrate-intellij)
+Studio. For more information, see the [Migrate from IntelliJ](https://developer.android.com/studio/intro/migrate.md.txt#migrate-intellij)
 section.
 
 ## Android Studio basics
@@ -26,7 +28,7 @@ migrate to Android Studio.
 Android Studio is based on the [IntelliJ
 IDEA](https://www.jetbrains.com/idea/) IDE. To familiarize yourself
 with the IDE basics, such as navigation, code completion, and keyboard
-shortcuts, see [Meet Android Studio](https://developer.android.com/studio/intro).
+shortcuts, see [Meet Android Studio](https://developer.android.com/studio/intro.md.txt).
 
 Android Studio organizes code into projects, which contain everything that
 defines your Android app, from app source code to build configurations and test
@@ -86,7 +88,7 @@ in the sections that follow:
 
 - Create a new empty Android Studio project and copy your existing source code into the directories associated with the new project. For more information, see the section about [migrating by creating a new empty
   project](https://developer.android.com/studio/intro/migrate#empty-project).
-- Create a new Gradle build file for your project and then import the project and new build file into Android Studio. For more information, see the section about [migrating by creating a custom Gradle build file](https://developer.android.com/studio/intro/migrate#custom-gradle).
+- Create a new Gradle build file for your project and then import the project and new build file into Android Studio. For more information, see the section about [migrating by creating a custom Gradle build file](https://developer.android.com/studio/intro/migrate.md.txt#custom-gradle).
 
 <br />
 
@@ -99,7 +101,7 @@ copying your source files into the new directories, proceed as follows:
 2. Enter a name for your app project and specify the location where it should be created, then click **Next**.
 3. Select the form factors your app runs on, then click **Next**.
 4. Click **Add No Activity** , then click **Finish**.
-5. In the **Project** tool window, click the arrow to open the view menu and select the **Project** view to see and explore the organization of your new Android Studio project. To read more about changing views and how Android Studio structures projects, see [Project files](https://developer.android.com/studio/projects#ProjectFiles).
+5. In the **Project** tool window, click the arrow to open the view menu and select the **Project** view to see and explore the organization of your new Android Studio project. To read more about changing views and how Android Studio structures projects, see [Project files](https://developer.android.com/studio/projects.md.txt#ProjectFiles).
 6. Navigate to the location you selected for your new project and move the code, unit tests, instrumentation tests, and resources from your old project directories into the correct locations in your new project structure.
 7. In Android Studio, click **File \> Project Structure** to open the Project Structure dialog. Ensure that your app's module is selected in the left pane.
 8. Make any necessary modifications in the **Properties** tab for your project (for example, modifying the `minSdk` or `targetSdk`).
@@ -177,7 +179,7 @@ to point to your existing source files, proceed as follows:
    The Android Gradle plugin applies some default
    [source sets](https://developer.android.com/studio/build#sourcesets) to the project. These
    source sets define the directories used to store
-   [various types of source files](https://developer.android.com/studio/projects#ProjectView).
+   [various types of source files](https://developer.android.com/studio/projects.md.txt#ProjectView).
    Gradle uses these source sets to determine the locations of specific file
    types. If your existing project doesn't conform to the defaults, then you can
    either move files to where they should be or
@@ -256,12 +258,12 @@ to point to your existing source files, proceed as follows:
 
 Once you have migrated your project to Android Studio, learn more about building
 with Gradle and running your app in Android Studio by reading
-[Build and run your app](https://developer.android.com/studio/run).
+[Build and run your app](https://developer.android.com/studio/run.md.txt).
 
 Depending on your project and workflow, you may also want to learn more about
 version control, managing dependencies, and configuring Android Studio. To get
 started using Android Studio, read
-[Meet Android Studio](https://developer.android.com/studio/intro).
+[Meet Android Studio](https://developer.android.com/studio/intro.md.txt).
 
 ### Configure version control
 
@@ -305,7 +307,7 @@ If no release certificate was defined previously, add the release signing
 configuration to the `build.gradle` or `build.gradle.kts` file or use the
 **Build \> Generate Signed APK** menu option to open the *Generate Signed APK
 Wizard* . For more information about signing your app, see
-[Sign your app](https://developer.android.com/studio/publish/app-signing).
+[Sign your app](https://developer.android.com/studio/publish/app-signing.md.txt).
 
 ### Adjust Android Studio's maximum heap size
 
@@ -325,4 +327,4 @@ version is released, but you can choose to update more frequently and
 receive canary or RC versions.
 
 For more information about updating Android Studio and using canary and RC
-versions, read about [updates](https://developer.android.com/studio/intro/update).
+versions, read about [updates](https://developer.android.com/studio/intro/update.md.txt).

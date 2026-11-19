@@ -4,9 +4,11 @@ url: https://developer.android.com/develop/background-work/background-tasks/asyn
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/background-work/background-tasks/asynchronous/llms.txt
+
 A `ListenableFuture` represents the result of an asynchronous computation: a
 computation that may or may not have finished producing a result yet. It's a
-type of `https://developer.android.com/reference/java/util/concurrent/Future`
+type of `Future`
 that allows you to register callbacks to be executed once the computation is
 complete, or if the computation is already complete, immediately.
 
@@ -14,11 +16,11 @@ complete, or if the computation is already complete, immediately.
 by [Guava](https://github.com/google/guava). For more information about the
 implementation of this class, see [ListenableFuture explained](https://github.com/google/guava/wiki/ListenableFutureExplained).
 
-Many existing Jetpack libraries such as [CameraX](https://developer.android.com/jetpack/androidx/releases/camera)
+Many existing Jetpack libraries such as [CameraX](https://developer.android.com/jetpack/androidx/releases/camera.md.txt)
 or [Health Services](https://developer.android.com/training/wearables/health-services) have asynchronous methods
 where the return type is a `ListenableFuture` which represents the status of
 the execution. In some cases you may need to implement a method that returns a
-`ListenableFuture`, such as to satisfy the requirements of [`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService).
+`ListenableFuture`, such as to satisfy the requirements of [`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt).
 
 > [!NOTE]
 > **Tip:** Check if the Jetpack library you're using has a `-ktx` artifact, as these often contain built-in wrappers for `ListenableFuture`-based methods. For example, `androidx.work:work-runtime-ktx` provides wrappers for WorkManager APIs as suspend functions.
@@ -213,10 +215,10 @@ fun getResultFuture(): ListenableFuture<QueryResult> {
 ### Converting a callback
 
 To convert a callback-based API into one that uses `ListenableFuture`, use
-[`CallbackToFutureAdapter`](https://developer.android.com/reference/androidx/concurrent/futures/CallbackToFutureAdapter).
+[`CallbackToFutureAdapter`](https://developer.android.com/reference/androidx/concurrent/futures/CallbackToFutureAdapter.md.txt).
 This API is provided by the `androidx.concurrent:concurrent-futures` artifact.
 
-See [androidx.concurrent](https://developer.android.com/jetpack/androidx/releases/concurrent) for more information.
+See [androidx.concurrent](https://developer.android.com/jetpack/androidx/releases/concurrent.md.txt) for more information.
 
 ### Converting from RxJava `Single`
 

@@ -4,6 +4,8 @@ url: https://developer.android.com/games/pgs/android/achievements
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/llms.txt
+
 This guide shows you how to use the achievements APIs in an Android application
 to unlock and display achievements in your game. The APIs can be found
 in the [`com.google.android.gms.games`](https://developers.google.com//android/reference/com/google/android/gms/games/package-summary)
@@ -13,7 +15,7 @@ packages.
 ## Before you begin
 
 If you haven't already done so, you might find it helpful to review the
-[achievements game concepts](https://developer.android.com/games/pgs/achievements).
+[achievements game concepts](https://developer.android.com/games/pgs/achievements.md.txt).
 
 Before you start to code using the achievements API:
 
@@ -22,13 +24,13 @@ Before you start to code using the achievements API:
   [Set Up Google Play Services SDK](https://developers.google.com/android/guides/setup) guide.
 
 - Define the achievements that you want your game to unlock or display, by
-  following the instructions in the [Google Play Console guide](https://developer.android.com/games/pgs/achievements#creating_an_achievement).
+  following the instructions in the [Google Play Console guide](https://developer.android.com/games/pgs/achievements.md.txt#creating_an_achievement).
 
 - Download and review the achievements code samples in the
   [Android samples page](https://github.com/playgameservices/android-basic-samples).
 
 - Familiarize yourself with the recommendations described in
-  [Quality Checklist](https://developer.android.com/games/pgs/quality).
+  [Quality Checklist](https://developer.android.com/games/pgs/quality.md.txt).
 
 ## Get an achievements client
 
@@ -71,7 +73,7 @@ steps.
 A good practice is to define the achievement IDs in the `strings.xml` file, so
 your game can reference the achievements by resource ID. When making calls to
 update and load achievements, make sure to also follow these
-[best practices](https://developer.android.com/games/pgs/quality) to avoid exceeding your API
+[best practices](https://developer.android.com/games/pgs/quality.md.txt) to avoid exceeding your API
 quota.
 
 ## Display achievements
@@ -79,10 +81,10 @@ quota.
 To show a player's achievements, call
 [`AchievementsClient.getAchievementsIntent()`](https://developers.google.com/android/reference/com/google/android/gms/games/AchievementsClient#public-abstract-taskintent-getachievementsintent)
 to get an
-[`Intent`](http://developer.android.com/reference/android/content/Intent.html)
+[`Intent`](http://developer.android.com/reference/android/content/Intent.md.txt)
 to create the default achievements user interface. Your game can then bring up
 the UI by calling
-[`startActivityForResult`](http://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent,%20int)).
+[`startActivityForResult`](http://developer.android.com/reference/android/app/Activity.md.txt#startActivityForResult(android.content.Intent,%20int)).
 
 The following code snippet shows how your app can display the default
 achievement user interface. In the snippet, `RC_ACHIEVEMENT_UI` is an arbitrary
@@ -108,4 +110,4 @@ The following image shows an example of the default achievements UI.
 The **Suggested** row shows the most common revealed achievement, which is the
 one
 the player hasn't unlocked yet but the highest percentage of other players have.
-![](https://developer.android.com/static/images/games/pgs/achievements_android.png)
+![The default achievements UI showing a suggested achievement and unlocked achievements.](https://developer.android.com/static/images/games/pgs/achievements_android.png)

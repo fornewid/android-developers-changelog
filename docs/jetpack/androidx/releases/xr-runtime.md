@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/xr-runtime
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # XR Runtime
 
 [User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-arcore) Start your custom AR or 3D session with our native runtime.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0) | - | - | [1.1.0-alpha02](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.1.0-alpha02) |
+| November 18, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/xr-runtime.md.txt#1.0.0) | - | - | [1.1.0-alpha03](https://developer.android.com/jetpack/androidx/releases/xr-runtime.md.txt#1.1.0-alpha03) |
 
 ## Declaring dependencies
 
@@ -25,10 +27,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.runtime:runtime:1.1.0-alpha02"
+    implementation "androidx.xr.runtime:runtime:1.1.0-alpha03"
 
     // Use in environments that do not support OpenXR
-    testImplementation "androidx.xr.runtime:runtime-testing:1.1.0-alpha02"
+    testImplementation "androidx.xr.runtime:runtime-testing:1.1.0-alpha03"
 }
 ```
 
@@ -36,10 +38,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.runtime:runtime:1.1.0-alpha02")
+    implementation("androidx.xr.runtime:runtime:1.1.0-alpha03")
 
     // Use in environments that do not support OpenXR
-    testImplementation("androidx.xr.runtime:runtime-testing:1.1.0-alpha02")
+    testImplementation("androidx.xr.runtime:runtime-testing:1.1.0-alpha03")
 }
 ```
 
@@ -61,6 +63,17 @@ for more information.
 ## Runtime
 
 ### Version 1.1
+
+#### Version 1.1.0-alpha03
+
+November 18, 2026
+
+`androidx.xr.runtime:runtime-*:1.1.0-alpha03` is released. Version 1.1.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a00edc3411be97f96a18ab32f160447e8be09db..eec25abffecb8c38fa7268d15be4c617820276ce/xr/runtime).
+
+**Bug Fixes**
+
+- Updated `XrCapabilities` KDoc with supported device types, runtimes, and required permissions. ([Id5e0b](https://android-review.googlesource.com/#/q/Id5e0b6dc67cbc9510cfe5b4d49c1a80a1a3ee7d0), [Id9d8d](https://android-review.googlesource.com/#/q/Id9d8d4c9e80007435624d83995970afabd50c60c))
+- Fixed a synchronization primitive ordering issue in tests that was causing deadlocks. ([Id14a6a](https://android-review.googlesource.com/q/Id14a6a1a0a56eff46f061a31aeef962b5cbcaba2))
 
 #### Version 1.1.0-alpha02
 
@@ -92,8 +105,8 @@ October 21, 2026
 
 **Major features of 1.0.0:**
 
-- Jetpack XR Runtime is now stable! The Jetpack XR Runtime library contains common classes, interfaces, and utilities used by the [ARCore for Jetpack XR](https://developer.android.com/jetpack/androidx/releases/xr-arcore), [SceneCore](https://developer.android.com/jetpack/androidx/releases/xr-scenecore), and [XR Compose](https://developer.android.com/jetpack/androidx/releases/xr-compose) libraries and their clients.
-- For more information, see our [Developer Guide for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk), as well as the [XR Runtime API Reference](https://developer.android.com/reference/kotlin/androidx/xr/runtime).
+- Jetpack XR Runtime is now stable! The Jetpack XR Runtime library contains common classes, interfaces, and utilities used by the [ARCore for Jetpack XR](https://developer.android.com/jetpack/androidx/releases/xr-arcore.md.txt), [SceneCore](https://developer.android.com/jetpack/androidx/releases/xr-scenecore.md.txt), and [XR Compose](https://developer.android.com/jetpack/androidx/releases/xr-compose.md.txt) libraries and their clients.
+- For more information, see our [Developer Guide for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk.md.txt), as well as the [XR Runtime API Reference](https://developer.android.com/reference/kotlin/androidx/xr/runtime).
 
 #### Version 1.0.0-rc02
 
@@ -417,12 +430,12 @@ December 12, 2024
 
 **Features of Initial Release**
 
-Initial release of Jetpack XR Runtime. This library contains fundamental pieces of functionality for the Jetpack XR suite of libraries. This includes capability discovery, lifecycle management, configuration, and more. The Runtime library provides different variations (e.g. `runtime-openxr` or `runtime-testing`) depending on the execution platform. Additionally, this library offers fundamental math abstractions such as [`Vector3`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/Vector3) and [`Matrix4`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/Matrix4) that are used across the entire Jetpack XR API surface.
+Initial release of Jetpack XR Runtime. This library contains fundamental pieces of functionality for the Jetpack XR suite of libraries. This includes capability discovery, lifecycle management, configuration, and more. The Runtime library provides different variations (e.g. `runtime-openxr` or `runtime-testing`) depending on the execution platform. Additionally, this library offers fundamental math abstractions such as [`Vector3`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/Vector3.md.txt) and [`Matrix4`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/Matrix4.md.txt) that are used across the entire Jetpack XR API surface.
 
-- [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session): Provides you with fine-grained controls over the XR system, including deciding when processing is and is not being executed and the overall configuration. It is also the handle that you will use across all other APIs to unlock the underlying system capabilities.
+- [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session.md.txt): Provides you with fine-grained controls over the XR system, including deciding when processing is and is not being executed and the overall configuration. It is also the handle that you will use across all other APIs to unlock the underlying system capabilities.
 
-- [`Pose`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/Pose): A location in an arbitrary coordinate system that has a position and orientation associated with it. You will use this class to communicate the location of objects with ARCore for Jetpack XR and Jetpack SceneCore.
+- [`Pose`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/Pose.md.txt): A location in an arbitrary coordinate system that has a position and orientation associated with it. You will use this class to communicate the location of objects with ARCore for Jetpack XR and Jetpack SceneCore.
 
 **Known Issues**
 
-- [`configure`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session#configure()) is currently a no-op. Future releases will add new settings that you can use to control the behavior of the [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session).
+- [`configure`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session.md.txt#configure()) is currently a no-op. Future releases will add new settings that you can use to control the behavior of the [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session.md.txt).

@@ -4,25 +4,27 @@ url: https://developer.android.com/training/wearables/compose
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/compose/llms.txt
+
 Compose for Wear OS Material version <button value="2.5">2.5</button> <button value="3" default="">3</button>
 
 *** ** * ** ***
 
 ![Compose code and a preview of the watch face in Android Studio](https://developer.android.com/static/wear/images/components/Compose_hero_m3.png) **Figure 1.** Jetpack Compose for Wear OS
 
-[Compose for Wear OS](https://developer.android.com/jetpack/androidx/releases/wear-compose) is similar to
+[Compose for Wear OS](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt) is similar to
 Compose for mobile. However, there are some key differences. This guide
 walks you through the similarities and differences.
 
 Compose for Wear OS is part of Android Jetpack, and like the other Wear Jetpack
 libraries you use, it helps you write better code faster. This is our
-recommended approach for building user interfaces for [Wear OS apps](https://developer.android.com/training/wearables/user-interfaces#apps).
+recommended approach for building user interfaces for [Wear OS apps](https://developer.android.com/training/wearables/user-interfaces.md.txt#apps).
 
 If you are unfamiliar with using the Jetpack Compose toolkit, check out the
 [Compose pathway](https://developer.android.com/courses/pathways/compose). Many of the development principles for mobile Compose
 apply to Compose for Wear OS. See [Why Compose](https://developer.android.com/jetpack/compose/why-adopt) for more information on the
 general advantages of a declarative UI framework. To learn more about Compose
-for Wear OS, see the [Compose for Wear OS Pathway](https://developer.android.com/courses/pathways/wear-compose) and the [Wear OS samples
+for Wear OS, see the [Compose for Wear OS Pathway](https://developer.android.com/courses/pathways/wear-compose.md.txt) and the [Wear OS samples
 repository](https://github.com/android/wear-os-samples/tree/main/ComposeStarter#readme) on GitHub.
 
 
@@ -32,7 +34,7 @@ repository](https://github.com/android/wear-os-samples/tree/main/ComposeStarter#
 
 ### Wear Compose Material 3
 
-Use an Android skill to help you build using Jetpack Compose on Wear OS, including migrating from earlier versions of Material to Material3. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use an Android skill to help you build using Jetpack Compose on Wear OS, including migrating from earlier versions of Material to Material3. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add wear-compose-m3
 
@@ -42,7 +44,7 @@ Use an Android skill to help you build using Jetpack Compose on Wear OS, includi
 
 Jetpack Compose on Wear OS offers an implementation of
 
-[Material 3](https://developer.android.com/design/ui/wear/guides/get-started), which helps you design more engaging app
+[Material 3](https://developer.android.com/design/ui/wear/guides/get-started.md.txt), which helps you design more engaging app
 
 experiences. The
 [Material Design components](https://developer.android.com/design/ui/wear/guides/components/buttons) on
@@ -53,12 +55,12 @@ product's brand.
 
 ## Compatibility
 
-Compose for Wear OS works on watches that support Wear OS 3.0 (API Level 30) and watches that use Wear OS 2.0 (API level 25 and above). Using [version 1.5](https://developer.android.com/jetpack/androidx/releases/wear-compose) of Compose for Wear OS requires using version 1.8 of [androidx.compose](https://developer.android.com/jetpack/androidx/releases/compose) libraries and Kotlin 1.9.0. You can use the [BOM mapping](https://developer.android.com/develop/ui/compose/bom/bom-mapping) and [Compose to Kotlin compatibility map](https://developer.android.com/jetpack/androidx/releases/compose-kotlin) to check Compose compatibility.
+Compose for Wear OS works on watches that support Wear OS 3.0 (API Level 30) and watches that use Wear OS 2.0 (API level 25 and above). Using [version 1.5](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt) of Compose for Wear OS requires using version 1.8 of [androidx.compose](https://developer.android.com/jetpack/androidx/releases/compose.md.txt) libraries and Kotlin 1.9.0. You can use the [BOM mapping](https://developer.android.com/develop/ui/compose/bom/bom-mapping.md.txt) and [Compose to Kotlin compatibility map](https://developer.android.com/jetpack/androidx/releases/compose-kotlin.md.txt) to check Compose compatibility.
 
 ## Surfaces
 
 Compose for Wear OS makes building apps on Wear OS easier. For more information
-see [Apps](https://developer.android.com/training/wearables/apps#building-an-app). Use our built-in
+see [Apps](https://developer.android.com/training/wearables/apps.md.txt#building-an-app). Use our built-in
 components to create user experiences that conform to Wear OS guidelines.
 For more information about components, see our
 [design guidance](https://developer.android.com/design/ui/wear/guides/components/buttons).
@@ -72,8 +74,8 @@ tailored to watches.
 In some cases those components share the same name as
 their non-wear counterparts, such as
 
-[`androidx.wear.compose.material3.Button`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.String,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.wear.compose.material3.ButtonColors,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.wear.compose.material3.SurfaceTransformation,kotlin.Function1)) and
-[`androidx.compose.material3.Button`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)).
+[`androidx.wear.compose.material3.Button`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/Button.composable.md.txt#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.String,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.wear.compose.material3.ButtonColors,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.wear.compose.material3.SurfaceTransformation,kotlin.Function1)) and
+[`androidx.compose.material3.Button`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Button.composable.md.txt#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)).
 
 
 ### Create a new app in Android Studio
@@ -109,7 +111,7 @@ However, Wear OS has its own versions of `material` and `material3`,
 libraries.
 
 Use the
-[`WearComposeMaterial`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/package-summary)
+[`WearComposeMaterial`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/package-summary.md.txt)
 version of APIs where possible. While it's technically possible to use the
 mobile version of Compose Material, it is not optimized for the unique
 requirements of Wear OS. In addition, mixing Compose Material with Compose
@@ -122,9 +124,9 @@ Mobile:
 
 |---|---|---|
 | **Wear OS Dependency** (androidx.wear.\*) | **Comparison** | **Mobile Dependency** (androidx.\*) |
-| [androidx.wear.compose:compose-material3](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/package-summary) | ***instead of*** | androidx.compose.material:material3 |
-| [androidx.wear.compose:compose-navigation](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation/package-summary) | ***instead of*** | androidx.navigation:navigation-compose |
-| [androidx.wear.compose:compose-foundation](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/package-summary) | ***in addition to*** | androidx.compose.foundation:foundation |
+| [androidx.wear.compose:compose-material3](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/package-summary.md.txt) | ***instead of*** | androidx.compose.material:material3 |
+| [androidx.wear.compose:compose-navigation](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation/package-summary.md.txt) | ***instead of*** | androidx.navigation:navigation-compose |
+| [androidx.wear.compose:compose-foundation](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/package-summary.md.txt) | ***in addition to*** | androidx.compose.foundation:foundation |
 
 > [!NOTE]
 > **Note:** Other non-mobile material dependencies can be used, such as material ripple and material icons extended.
@@ -142,21 +144,21 @@ dependencies {
     // General compose dependencies
     implementation(composeBom)
     implementation("androidx.activity:activity-compose:1.13.0")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.12.1")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.13.0")
     // Other compose dependencies
 
     // Compose for Wear OS dependencies
-    implementation("androidx.wear.compose:compose-material3:1.7.1")
+    implementation("androidx.wear.compose:compose-material3:1.7.2")
 
     // Foundation is additive, so you can use the mobile version in your Wear OS app.
-    implementation("androidx.wear.compose:compose-foundation:1.7.1")
+    implementation("androidx.wear.compose:compose-foundation:1.7.2")
 
     // Wear OS preview annotations
-    implementation("androidx.wear.compose:compose-ui-tooling:1.7.1")
+    implementation("androidx.wear.compose:compose-ui-tooling:1.7.2")
 
     // If you are using Compose Navigation, use the Wear OS version (NOT THE MOBILE VERSION).
     // Uncomment the line below and update the version number.
-    // implementation("androidx.wear.compose:compose-navigation:1.7.1")
+    // implementation("androidx.wear.compose:compose-navigation:1.7.2")
 
     // Testing
     testImplementation("junit:junit:4.13.2")
@@ -181,6 +183,6 @@ experience.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Resources in Compose](https://developer.android.com/develop/ui/compose/resources)
-- [Material Design 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material3)
-- [Get Started with Jetpack Compose](https://developer.android.com/develop/ui/compose/documentation)
+- [Resources in Compose](https://developer.android.com/develop/ui/compose/resources.md.txt)
+- [Material Design 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material3.md.txt)
+- [Get Started with Jetpack Compose](https://developer.android.com/develop/ui/compose/documentation.md.txt)

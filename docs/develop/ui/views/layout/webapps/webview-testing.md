@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/views/layout/webapps/webview-testi
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/views/layout/webapps/llms.txt
+
 The WebView Beta program gives you early access to new releases of Android
 WebView. We encourage all developers using WebView in their apps to join the
 Beta program so you can try out new WebView versions 4 weeks before they're
@@ -64,7 +66,7 @@ enable/disable experimental features.
 
 ## Using WebView on older versions of Android
 
-Jetpack's [androidx.webkit](https://developer.android.com/jetpack/androidx/releases/webkit) enables you to use WebView APIs on older versions
+Jetpack's [androidx.webkit](https://developer.android.com/jetpack/androidx/releases/webkit.md.txt) enables you to use WebView APIs on older versions
 of Android that would otherwise not support them. There are several benefits to
 Jetpack Webkit:
 
@@ -103,5 +105,5 @@ The following are additional resource for developers.
 ### Documentation
 
 - [Web-based content](https://developer.android.com/guide/webapps)
-- [Espresso Web](https://developer.android.com/training/testing/espresso/web)
+- [Espresso Web](https://developer.android.com/training/testing/espresso/web.md.txt)
 - [Bug template for reporting issues](https://issues.chromium.org/issues/new?component=1456456&template=1923373)

@@ -4,6 +4,8 @@ url: https://developer.android.com/topic/performance/tracing/profiling-manager/h
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/topic/performance/tracing/llms.txt
+
 On Android 15 (API level 35) and higher, app-driven profiling lets your app
 explicitly start and stop [supported profile recordings](https://developer.android.com/topic/performance/tracing/profiling-manager/overview.md.txt#supported-profile-types) in code using the
 [`ProfilingManager`](https://developer.android.com/reference/android/os/ProfilingManager.md.txt) API or AndroidX Core (`androidx.core:core` 1.15.0 or

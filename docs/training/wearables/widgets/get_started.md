@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/widgets/get_started
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/widgets/llms.txt
+
 > [!NOTE]
 > **Note:** This tutorial assumes you are building a new widget and don't have an existing tile. If you're updating an app that already has an existing tile, read the [Migrate from tiles to widgets](https://developer.android.com/training/wearables/widgets/migration.md.txt) guide to configure your services.
 
@@ -72,15 +74,15 @@ Include the following dependencies in your app's `build.gradle.kts` file:
 ```groovy
 dependencies {
     // Core Wear Widget and Remote Compose libraries
-    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha23"
-    implementation "androidx.compose.remote:remote-core:1.0.0-alpha23"
-    implementation "androidx.glance.wear:wear:1.0.0-alpha22"
-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha22"
-    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha15"
+    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha24"
+    implementation "androidx.compose.remote:remote-core:1.0.0-alpha24"
+    implementation "androidx.glance.wear:wear:1.0.0-alpha23"
+    implementation "androidx.glance.wear:wear-core:1.0.0-alpha23"
+    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha16"
 
     // Tooling for previews (optional, but recommended)
-    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha23"
-    implementation "androidx.wear.compose:compose-ui-tooling:1.7.1"
+    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha24"
+    implementation "androidx.wear.compose:compose-ui-tooling:1.7.2"
     implementation "androidx.wear.tiles:tiles-tooling-preview:1.6.2"
     debugImplementation "androidx.wear.tiles:tiles-renderer:1.6.2"
 }
@@ -91,15 +93,15 @@ dependencies {
 ```kotlin
 dependencies {
     // Core Wear Widget and Remote Compose libraries
-    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha23")
-    implementation("androidx.compose.remote:remote-core:1.0.0-alpha23")
-    implementation("androidx.glance.wear:wear:1.0.0-alpha22")
-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha22")
-    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha15")
+    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha24")
+    implementation("androidx.compose.remote:remote-core:1.0.0-alpha24")
+    implementation("androidx.glance.wear:wear:1.0.0-alpha23")
+    implementation("androidx.glance.wear:wear-core:1.0.0-alpha23")
+    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha16")
 
     // Tooling for previews (optional, but recommended)
-    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha23")
-    implementation("androidx.wear.compose:compose-ui-tooling:1.7.1")
+    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha24")
+    implementation("androidx.wear.compose:compose-ui-tooling:1.7.2")
     implementation("androidx.wear.tiles:tiles-tooling-preview:1.6.2")
     debugImplementation("androidx.wear.tiles:tiles-renderer:1.6.2")
 }

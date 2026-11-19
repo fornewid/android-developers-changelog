@@ -4,6 +4,8 @@ url: https://developer.android.com/jetpack/androidx/releases/wear-compose
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 <br />
 
 # Wear Compose
@@ -12,10 +14,10 @@ Write Jetpack Compose applications for Wear OS devices by providing functionalit
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 04, 2026 | [1.7.1](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.1) | - | - | [1.8.0-alpha03](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.8.0-alpha03) |
+| November 18, 2026 | [1.7.2](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt#1.7.2) | - | - | [1.8.0-alpha04](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt#1.8.0-alpha04) |
 
 > [!NOTE]
-> **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
+> **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3.md.txt) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
 
 ## Declaring dependencies
 
@@ -30,16 +32,16 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.wear.compose:compose-foundation:1.7.1"
+    implementation "androidx.wear.compose:compose-foundation:1.7.2"
 
     // For Wear Material Design UX guidelines and specifications
-    implementation "androidx.wear.compose:compose-material:1.7.1"
+    implementation "androidx.wear.compose:compose-material:1.7.2"
 
     // For integration between Wear Compose and Androidx Navigation libraries
-    implementation "androidx.wear.compose:compose-navigation:1.7.1"
+    implementation "androidx.wear.compose:compose-navigation:1.7.2"
 
     // For Wear preview annotations
-    implementation("androidx.wear.compose:compose-ui-tooling:1.7.1")
+    implementation("androidx.wear.compose:compose-ui-tooling:1.7.2")
     
     // NOTE: DO NOT INCLUDE a dependency on androidx.compose.material:material.
     // androidx.wear.compose:compose-material is designed as a replacement
@@ -53,16 +55,16 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.wear.compose:compose-foundation:1.7.1")
+    implementation("androidx.wear.compose:compose-foundation:1.7.2")
 
     // For Wear Material Design UX guidelines and specifications
-    implementation("androidx.wear.compose:compose-material:1.7.1")
+    implementation("androidx.wear.compose:compose-material:1.7.2")
 
     // For integration between Wear Compose and Androidx Navigation libraries
-    implementation("androidx.wear.compose:compose-navigation:1.7.1")
+    implementation("androidx.wear.compose:compose-navigation:1.7.2")
     
     // For Wear preview annotations
-    implementation("androidx.wear.compose:compose-ui-tooling:1.7.1")
+    implementation("androidx.wear.compose:compose-ui-tooling:1.7.2")
 
     // NOTE: DO NOT INCLUDE a dependency on androidx.compose.material:material.
     // androidx.wear.compose:compose-material is designed as a replacement
@@ -90,6 +92,35 @@ for more information.
 <br />
 
 ## Version 1.8
+
+### Version 1.8.0-alpha04
+
+November 18, 2026
+
+`androidx.wear.compose:compose-*:1.8.0-alpha04` is released. Version 1.8.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a021adf44194ae86e596ae25ca43d5e4e18f6926..d15f2dcffd365812a213c8b60c2dc01fbbbcc1f1/wear/compose).
+
+**API Changes**
+
+- Added `DurationPicker`, a new component for Wear Compose Material 3 which allows users to select a duration (as opposed to the existing `TimePicker` which should be used only to select a time). Also added a `PickerGroupScope.PickerGroupItem` overload with a `gradientColor` parameter. `TimePickerType.MinutesSeconds` has been deprecated, and `DurationPicker` should be used with `DurationPickerType.MinutesSeconds` instead. ([I4bc8c](https://android-review.googlesource.com/#/q/I4bc8c2bafdf6d4db4e3f8535c9202ed210b2f25a))
+- Renamed `Modifier.curveToEdge` to `Modifier.drawCurvedToEdge` and added `DrawCurvedToEdgeDefaults` for recommended sweep angles. ([Ic2e07](https://android-review.googlesource.com/#/q/Ic2e07517eec7db5763cf244daffc1a3b6a6a6964))
+- Added `AlertDialogDefaults.EdgeButton` and `AlertDialogDefaults.ConfirmButton` overloads with a new `gestureVisibilityThreshold` parameter, used to configure how much of the button must be visible before the associated one-handed gesture is enabled. Setting `gestureVisibilityThreshold` to zero turns the gesture off on that button. ([I39d87](https://android-review.googlesource.com/#/q/I39d8707fdc3bb93e97374fded7e164849fb72d67))
+- Rotary and fling snapping of `TransformingLazyColumn` now step through tall items in several snaps instead of skipping to their center in a single snap. By default, an item taller than the band around the center of a round screen in which it is fully visible is split into equal segments, each with its own snap point. The new `Modifier.snapSegmentThreshold` in `TransformingLazyColumnItemScope` customizes how an item is split, or keeps it whole if the threshold \>= `measuredHeight`. With a snap offset, a slow release now snaps the item nearest to the snap line rather than to the center, and a fling faster than 400dp/s always moves on to the next snap point in its direction. Rotary input before a snap scrolls the list linearly, and turning against a running snap cancels it. ([Ic5e66](https://android-review.googlesource.com/#/q/Ic5e66ee82f8694470f90bc47751dbbcb77c9ff01))
+- Added a `scrollFraction` parameter to `OneHandedGestureDefaults.scrollDown()` to configure how far each gesture scrolls as a fraction of the viewport height. ([I2973d](https://android-review.googlesource.com/#/q/I2973d2c2669c62d341ea12c9461b021b9074312b))
+
+**Bug Fixes**
+
+- `compileSdk` for Compose UI and all Compose libraries that build against it (including Wear Compose libraries) have been updated to 37.2. This will require transitively updating `compileSdk` for all apps and libraries using them. ([I2859d](https://android-review.googlesource.com/#/q/I2859d6c2a90dea97c73f0c19bb1558ee6d076166))
+- Custom accessibility actions added via `Modifier.semantics` on `SplitCheckboxButton`, `SplitSwitchButton`, and `SplitRadioButton` (for example when used with `SwipeToReveal`) are now propagated to the focusable primary clickable container Row, so that `TalkBack` announces available actions. ([Ibfebe](https://android-review.googlesource.com/#/q/Ibfebe0a9ab7c547fab19db05ce9c6fa0a48ec38d))
+- Fixed a crash in `ButtonGroup` when `expansionWidth` exceeds a neighbor's width, or when either spacing or content padding exceeds the group's available width. ([Id3bdf](https://android-review.googlesource.com/#/q/Id3bdf9053a18ce048ced3cd6aab34ac5a5cdd876))
+- Wear Compose Material 3 Dialog now supports predictive back gestures from API 36 onwards, providing haptic feedback at the dismiss threshold and matching Navigation 3 exit transitions. ([Id4c7c](https://android-review.googlesource.com/#/q/Id4c7cea3e77872aa076e49ac6f56856ba66aad71))
+- Fixed a memory leak where the last revealed `SwipeToReveal` item kept its removed screen in memory. ([Ied8b5](https://android-review.googlesource.com/#/q/Ied8b58530598b80203fb52093f4369a980fe65ce))
+- Fixed an issue where `ButtonGroupScope` modifiers (`weight`, `minWidth`, `animateWidth`) never compared equal, causing unnecessary node updates and remeasurement on recomposition. ([I5e95d](https://android-review.googlesource.com/#/q/I5e95d32aefc149310849926ec3852661d9c54a37))
+- Fixed an issue where `Modifier.oneHandedGesture` called `onGestureAvailable` again whenever the caller recomposed, resulting in repeated gesture indicator hints. The indicator hint is now only shown on the initial composition. ([I0b514](https://android-review.googlesource.com/#/q/I0b514bceab74bfb9c47a7d21d5ea36b110e1a7e3))
+- Ensure `onSwipePrimaryAction` is triggered on full swipe in `SwipeToReveal` ([Ia01ba](https://android-review.googlesource.com/#/q/Ia01babf8b770489437c03778bff305300e7d5eca))
+- Fixed an issue where circular screen paddings, transformation specs, and component dimensions in Wear Compose Material 3 shrunk when the Wear OS Global Status Bar reduced `Configuration.screenHeightDp`. Wear Compose Material3 now uses the `screenWidthDp` (rather than `screenHeightDp`) as the screen size, which does not shrink. ([I34567](https://android-review.googlesource.com/#/q/I34567844de818f00f8b50c7ac4711a51bbe73de9))
+- Improved `AlertDialog` performance by avoiding double composition when content fits on the screen. Note that `AlertDialog` slots (`icon`, `title`, and `text`) are now measured with unbounded maximum height when content fits on the screen (matching the scrollable case), so `Modifier.fillMaxSize()` and `Modifier.fillMaxHeight()` applied inside those slots will no longer expand vertically. ([I8963d](https://android-review.googlesource.com/#/q/I8963da4a683d03a30630fe5ec9f0ca1d45a2533b))
+- Fixed a one-frame flash of the system status bar when `AppScaffold` enters composition. ([Ic0e83](https://android-review.googlesource.com/#/q/Ic0e836f6cd286d8c243719c158e6a49135a956ed))
+- Fixed an `IllegalStateException` crash in `SwipeToReveal` when subcomposed inside a `LookaheadScope` (such as inside a `TransformingLazyColumn`). ([I12b5b](https://android-review.googlesource.com/#/q/I12b5bc29f95be74f85fda25319020c72506333db))
 
 ### Version 1.8.0-alpha03
 
@@ -176,6 +207,16 @@ October 07, 2026
 - Updated baseline profiles for Wear Compose Foundation, Material3, and Navigation3 libraries. ([I9b0a3](https://android-review.googlesource.com/#/q/I9b0a3340a892d8adce9df11fcc35c4591670e702))
 
 ## Version 1.7
+
+### Version 1.7.2
+
+November 18, 2026
+
+`androidx.wear.compose:compose-*:1.7.2` is released. Version 1.7.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1bb7f7817e31806882acfe7e83ce184fc89db859..0661268cbc9bad896887497b531a7c8f5bef081e/wear/compose).
+
+**Bug Fixes**
+
+- Fixed an issue where `Modifier.oneHandedGesture` called `onGestureAvailable` again whenever the caller recomposed, resulting in repeated gesture indicator hints. The indicator hint is now only shown on the initial composition. ([I0b514](https://android-review.googlesource.com/#/q/I0b514bceab74bfb9c47a7d21d5ea36b110e1a7e3))
 
 ### Version 1.7.1
 
@@ -444,7 +485,7 @@ March 25, 2026
 - Added new overloads for `AlertDialog` which use a `TransformingLazyColumn` for consistency with scrolling in other Material3 screens.
 - Improved curved text rendering, particularly for cursive fonts, with the introduction of text-warping via the new `CurvedTextStyle` parameter `warpOffset`, which is turned on by default for API 34 onwards.
 - Added `LocalAmbientModeManager`, a new `CompositionLocal` that supports defining different UI and behavior for interactive and ambient modes.
-- For a more complete list of the features introduced in version 1.6.0, see the [beta01 release notes](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.0-beta01)
+- For a more complete list of the features introduced in version 1.6.0, see the [beta01 release notes](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt#1.6.0-beta01)
 
 ### Version 1.6.0-rc01
 
@@ -1268,7 +1309,7 @@ September 4, 2024
 
 **Additional changes**
 
-- For a more complete set of the changes introduced in version 1.3.0, see the [beta01 release notes](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.4.0-beta01).
+- For a more complete set of the changes introduced in version 1.3.0, see the [beta01 release notes](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt#1.4.0-beta01).
 
 ### Version 1.4.0-rc01
 
@@ -1460,22 +1501,22 @@ January 24, 2024
 
 **Important changes since 1.2.0**
 
-- The [`SwipeToDismissBoxState`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/SwipeToDismissBoxState) class, [`SwipeToDismissValue`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/SwipeToDismissValue) enumeration, and [`Modifier.edgeSwipeToDismiss`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/edgeSwipeToDismiss.modifier#(androidx.compose.ui.Modifier).edgeSwipeToDismiss(androidx.wear.compose.foundation.SwipeToDismissBoxState,androidx.compose.ui.unit.Dp)) extension function are now each part of the `androidx.wear.compose.foundation` package, instead of the `androidx.wear.compose.material` package. This updated architecture allows you to implement gesture handling independently from other design considerations. Material Design workflows, such as applying colors from a configured theme, are handled separately.
-- The [`SwipeToRevealCard`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/package-summary#SwipeToRevealCard(kotlin.Function1,androidx.wear.compose.foundation.RevealState,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,kotlin.Function1,androidx.wear.compose.material.SwipeToRevealActionColors,androidx.compose.ui.graphics.Shape,kotlin.Function0)) and [`SwipeToRevealChip`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/package-summary#SwipeToRevealChip(kotlin.Function1,androidx.wear.compose.foundation.RevealState,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,kotlin.Function1,androidx.wear.compose.material.SwipeToRevealActionColors,androidx.compose.ui.graphics.Shape,kotlin.Function0)) classes help you implement the [`recommended swipe-to-reveal guidance`](https://developer.android.com/design/ui/wear/guides/components/swipe-to-reveal). The [`SwipeToRevealSample`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:wear/compose/compose-material/samples/src/main/java/androidx/wear/compose/material/samples/SwipeToRevealSample.kt) class demonstrates how to use these components.
-- Our 1.3.0-alpha02 release introduced a change that causes [`Chip`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/Chip.composable#Chip(kotlin.Function1,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.wear.compose.material.ChipColors,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.foundation.layout.PaddingValues,androidx.compose.ui.graphics.Shape,androidx.wear.compose.material.ChipBorder)) and [`ToggleChip`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/ToggleChip.composable#ToggleChip(kotlin.Boolean,kotlin.Function1,kotlin.Function1,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.wear.compose.material.ToggleChipColors,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.foundation.layout.PaddingValues,androidx.compose.ui.graphics.Shape)) objects to grow in height to better support user-selected font scaling. This can cause some clipping to occur. To fix this issue, the `large` shape for `MaterialTheme` now uses a larger corner radius (26 dp instead of 24 dp). `Chip` and `ToggleChip` objects use this new corner radius to avoid clipping content on the corners of Chip and `ToggleChip`.
+- The [`SwipeToDismissBoxState`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/SwipeToDismissBoxState.md.txt) class, [`SwipeToDismissValue`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/SwipeToDismissValue.md.txt) enumeration, and [`Modifier.edgeSwipeToDismiss`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/edgeSwipeToDismiss.modifier#(androidx.compose.ui.Modifier).edgeSwipeToDismiss(androidx.wear.compose.foundation.SwipeToDismissBoxState,androidx.compose.ui.unit.Dp)) extension function are now each part of the `androidx.wear.compose.foundation` package, instead of the `androidx.wear.compose.material` package. This updated architecture allows you to implement gesture handling independently from other design considerations. Material Design workflows, such as applying colors from a configured theme, are handled separately.
+- The [`SwipeToRevealCard`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/package-summary.md.txt#SwipeToRevealCard(kotlin.Function1,androidx.wear.compose.foundation.RevealState,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,kotlin.Function1,androidx.wear.compose.material.SwipeToRevealActionColors,androidx.compose.ui.graphics.Shape,kotlin.Function0)) and [`SwipeToRevealChip`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/package-summary.md.txt#SwipeToRevealChip(kotlin.Function1,androidx.wear.compose.foundation.RevealState,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,kotlin.Function1,androidx.wear.compose.material.SwipeToRevealActionColors,androidx.compose.ui.graphics.Shape,kotlin.Function0)) classes help you implement the [`recommended swipe-to-reveal guidance`](https://developer.android.com/design/ui/wear/guides/components/swipe-to-reveal). The [`SwipeToRevealSample`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:wear/compose/compose-material/samples/src/main/java/androidx/wear/compose/material/samples/SwipeToRevealSample.kt) class demonstrates how to use these components.
+- Our 1.3.0-alpha02 release introduced a change that causes [`Chip`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/Chip.composable.md.txt#Chip(kotlin.Function1,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.wear.compose.material.ChipColors,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.foundation.layout.PaddingValues,androidx.compose.ui.graphics.Shape,androidx.wear.compose.material.ChipBorder)) and [`ToggleChip`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/ToggleChip.composable.md.txt#ToggleChip(kotlin.Boolean,kotlin.Function1,kotlin.Function1,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.wear.compose.material.ToggleChipColors,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.foundation.layout.PaddingValues,androidx.compose.ui.graphics.Shape)) objects to grow in height to better support user-selected font scaling. This can cause some clipping to occur. To fix this issue, the `large` shape for `MaterialTheme` now uses a larger corner radius (26 dp instead of 24 dp). `Chip` and `ToggleChip` objects use this new corner radius to avoid clipping content on the corners of Chip and `ToggleChip`.
 
   - Most `Chips` and `ToggleChips` are unchanged, given their default 52 dp height. However, `Chip` and `ToggleChip` objects that contain multiple lines of primary or secondary label text, or for which the height has been overridden, could cause screenshot tests to break.
 
 **Additional changes**
 
-For a more complete set of the changes introduced in version 1.3.0, see the [beta01 release notes](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.3.0-beta01).
+For a more complete set of the changes introduced in version 1.3.0, see the [beta01 release notes](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt#1.3.0-beta01).
 
 **Recommendations for implementation**
 
-- If your app allows users to pan around the screen's content, such as in a map-based app, turn off swipe handling by setting `userSwipeEnabled` to `false` in the [`SwipeDismissableNavHost`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation/SwipeDismissableNavHost.composable#SwipeDismissableNavHost(androidx.navigation.NavHostController,androidx.navigation.NavGraph,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.wear.compose.navigation.SwipeDismissableNavHostState)) composable, and include a button that allows users to go to the previous screen.
-- To turn off animations for a position indicator during fade-in and position-change animations within a scrolling list, use a [`SnapSpec`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/SnapSpec) object.
-- While waiting for a media app to load content for playback, show a blank [`Placeholder`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/Placeholder) composable.
-- To create a collection of expandable items on demand, consider using the experimental [`ExpandableStateMapping`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/ExpandableStateMapping) class.
+- If your app allows users to pan around the screen's content, such as in a map-based app, turn off swipe handling by setting `userSwipeEnabled` to `false` in the [`SwipeDismissableNavHost`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation/SwipeDismissableNavHost.composable.md.txt#SwipeDismissableNavHost(androidx.navigation.NavHostController,androidx.navigation.NavGraph,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.wear.compose.navigation.SwipeDismissableNavHostState)) composable, and include a button that allows users to go to the previous screen.
+- To turn off animations for a position indicator during fade-in and position-change animations within a scrolling list, use a [`SnapSpec`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/SnapSpec.md.txt) object.
+- While waiting for a media app to load content for playback, show a blank [`Placeholder`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/Placeholder.md.txt) composable.
+- To create a collection of expandable items on demand, consider using the experimental [`ExpandableStateMapping`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/ExpandableStateMapping.md.txt) class.
 
 ### Version 1.3.0-rc01
 
@@ -1713,7 +1754,7 @@ August 9, 2023
 **Important changes since 1.1.0**
 
 - Stable release of Compose for Wear OS 1.2.0 ([read more](https://android-developers.googleblog.com/2023/08/compose-for-wear-os-and-tiles-1-2-libraries-now-stable-new-features.html))
-- For a list of the key changes in Wear Compose 1.2, see the release notes for ([Compose for Wear OS 1.2 Beta01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.2.0-beta01))
+- For a list of the key changes in Wear Compose 1.2, see the release notes for ([Compose for Wear OS 1.2 Beta01](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt#1.2.0-beta01))
 
 ### Version 1.2.0-rc01
 
@@ -1760,7 +1801,7 @@ The 1.2-beta01 release of Compose for Wear OS indicates that this release of the
 - `SwipeToReveal` - we have added experimental support for swipe-to-reveal as a means to access secondary actions, supplementing the existing 'long press' pattern.
 - `Stepper` - now has an overload with an additional `enableRangeSemantics` parameter to facilitate disabling the default range semantics.
 - `Previews` - we have added the following custom annotations for previewing composables on Wear screens: `WearPreviewSmallRound` previews the composable on a small, round device; `WearPreviewLargeRound` previews the composable on a large round device; `WearPreviewSquare` previews the composable on a square device. Also, the following and multi-preview annotations: `WearPreviewFontScales` previews the composables on a wear device with multiple font sizes, while `WearPreviewDevices` previews the composables on different wear devices.
-- We have added a `DefaultTextStyle` to Wear Compose which defaults the `PlatformTextStyle.includeFontPadding` property to true (this is the current setting). This will allow us to synchronize turning off font padding by default with the Compose libraries in an early 1.3 alpha version - see [1.2.0-alpha10](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.2.0-alpha10) for more information.
+- We have added a `DefaultTextStyle` to Wear Compose which defaults the `PlatformTextStyle.includeFontPadding` property to true (this is the current setting). This will allow us to synchronize turning off font padding by default with the Compose libraries in an early 1.3 alpha version - see [1.2.0-alpha10](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt#1.2.0-alpha10) for more information.
 
 **New Features**
 
@@ -1795,7 +1836,7 @@ May 10, 2023
 
 - We have identified a bug in Android Studio which causes failure in rendering preview when annotated with @WearPreviewDevices and @WearPreviewFontScales - a fix is planned for release soon. Please note that the other wear preview annotations work as intended in Android Studio Giraffe 2022.3.1 and beyond.
 
-- In version [1.2.0-alpha07](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.2.0-alpha07) we added DefaultTextStyle to Wear Compose, maintaining the existing PlatformTextStyle.includeFontPadding value as true - for background, see [Fix font padding in Compose](https://medium.com/androiddevelopers/fixing-font-padding-in-compose-text-768cd232425b). We will be changing the DefaultTextStyle to turn off font padding in an early 1.3 alpha version, to be consistent across the Android Platform. This will address some cases of text clipping with large font sizes and may also impact screen layouts, so that screenshot tests need updating. For example, with large font sizes we see text clipping here:
+- In version [1.2.0-alpha07](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt#1.2.0-alpha07) we added DefaultTextStyle to Wear Compose, maintaining the existing PlatformTextStyle.includeFontPadding value as true - for background, see [Fix font padding in Compose](https://medium.com/androiddevelopers/fixing-font-padding-in-compose-text-768cd232425b). We will be changing the DefaultTextStyle to turn off font padding in an early 1.3 alpha version, to be consistent across the Android Platform. This will address some cases of text clipping with large font sizes and may also impact screen layouts, so that screenshot tests need updating. For example, with large font sizes we see text clipping here:
 
 ![Text clipped with large font size](https://developer.android.com/static/jetpack/androidx/images/IncludeFontPadding-True.png) **Figure 1**: Text clipped.
 
@@ -2012,7 +2053,7 @@ December 7, 2022
 **Important changes since 1.0.0**
 
 - Stable release of Compose for Wear OS 1.1.0 ([read more](https://android-developers.googleblog.com/2022/12/compose-for-wear-os-11-stable.html)).
-- For a list of the key changes in Wear Compose 1.1 see the release notes for ([Compose for Wear OS 1.1 Beta01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.1.0-beta01)).
+- For a list of the key changes in Wear Compose 1.1 see the release notes for ([Compose for Wear OS 1.1 Beta01](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt#1.1.0-beta01)).
 
 **New Features**
 
@@ -2233,7 +2274,7 @@ July 27, 2022
 
 - This is the first stable release of Compose for Wear OS ([read more](https://android-developers.googleblog.com/2022/07/compose-for-wear-os-10-stable.html)).
 - Compose for Wear OS builds upon the core Compose libraries providing additional wearable-specific components and, where appropriate, alternate implementations of core Compose components tailored to wearable devices.
-- For a list of the key components in Wear Compose see the release notes for ([Compose for Wear OS Beta01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.0.0-beta01)).
+- For a list of the key components in Wear Compose see the release notes for ([Compose for Wear OS Beta01](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt#1.0.0-beta01)).
 
 **Bug Fixes**
 
@@ -2739,33 +2780,34 @@ September 15, 2021
   - `rememberSwipeDismissableNavController()` to allow hoisting state
 - Example usage where we create two screens and navigate between them:
 
-      val navController = rememberSwipeDismissableNavController()
-      SwipeDismissableNavHost(
-          navController = navController,
-          startDestination = "start"
-      ) {
-          composable("start") {
-              Column(
-                  horizontalAlignment = Alignment.CenterHorizontally,
-                  verticalArrangement = Arrangement.Center,
-                  modifier = Modifier.fillMaxSize(),
-              ) {
-                  Button(onClick = { navController.navigate("next") }) {
-                      Text("Go")
-                  }
-              }
-          }
-          composable("next") {
-              Column(
-                  horizontalAlignment = Alignment.CenterHorizontally,
-                  verticalArrangement = Arrangement.Center,
-                  modifier = Modifier.fillMaxSize(),
-              ) {
-                  Text("Swipe to go back")
+  ```kotlin
+  val navController = rememberSwipeDismissableNavController()
+  SwipeDismissableNavHost(
+      navController = navController,
+      startDestination = "start"
+  ) {
+      composable("start") {
+          Column(
+              horizontalAlignment = Alignment.CenterHorizontally,
+              verticalArrangement = Arrangement.Center,
+              modifier = Modifier.fillMaxSize(),
+          ) {
+              Button(onClick = { navController.navigate("next") }) {
+                  Text("Go")
               }
           }
       }
-
+      composable("next") {
+          Column(
+              horizontalAlignment = Alignment.CenterHorizontally,
+              verticalArrangement = Arrangement.Center,
+              modifier = Modifier.fillMaxSize(),
+          ) {
+              Text("Swipe to go back")
+          }
+      }
+  }
+  ```
 - Wear Compose Navigation is packaged as a separate library so that simple WearCompose applications that implement their own hand-rolled navigation are not required to depend on the Androidx Navigation library.
 
 **API Changes**

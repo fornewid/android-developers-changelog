@@ -4,14 +4,16 @@ url: https://developer.android.com/about/versions/android-3.0-highlights
 source: md.txt
 ---
 
-# Honeycomb
+> Documentation index: https://developer.android.com/about/versions/llms.txt
 
 Welcome to Android 3.0!
 
-The Android 3.0 platform introduces many new and exciting features for users and developers. This document provides a glimpse of some of the new features and technologies, as delivered in Android 3.0. For a more detailed look at new developer APIs, see the[Android 3.0 Platform](https://developer.android.com/about/versions/android-3.0)document.
+The Android 3.0 platform introduces many new and exciting features for users and developers.
+This document provides a glimpse of some of the new features and technologies, as delivered in
+Android 3.0. For a more detailed look at new developer APIs, see the [Android 3.0 Platform](https://developer.android.com/about/versions/android-3.0.md.txt) document.
 
-- [New User Features](https://developer.android.com/about/versions/android-3.0-highlights#UserFeatures)
-- [New Developer Features](https://developer.android.com/about/versions/android-3.0-highlights#DeveloperApis)
+- [New User Features](https://developer.android.com/about/versions/android-3.0-highlights.md.txt#UserFeatures)
+- [New Developer Features](https://developer.android.com/about/versions/android-3.0-highlights.md.txt#DeveloperApis)
 
 ## New User Features
 
@@ -31,12 +33,12 @@ Across the system and in all applications, users have quick access to notificati
 
 **Action Bar, for application control**
 
-In every application, users have access to contextual options, navigation, widgets, or other types of content in an Action Bar, displayed at the top of the screen. The Action Bar is always present when an application is in use, although its content, theme, and other properties are managed by the application rather than the system. The Action Bar is another key touchpoint for users, especially with action items and an overflow dropdown menu, which users frequently access in a similar manner in most applications.  
+In every application, users have access to contextual options, navigation, widgets, or other types of content in an Action Bar, displayed at the top of the screen. The Action Bar is always present when an application is in use, although its content, theme, and other properties are managed by the application rather than the system. The Action Bar is another key touchpoint for users, especially with action items and an overflow drop-down menu, which users frequently access in a similar manner in most applications.
 [![](https://developer.android.com/static/sdk/images/3.0/homescreen_cust_port.png)](https://developer.android.com/static/sdk/images/3.0/homescreen_cust_port_full.png)
 
 **Customizable Home screens**
 
-Five customizable Home screens give users instant access to all parts of the system from any context. Each screen offers a large grid that maintains spatial arrangement in all orientations. Users can select and manipulate Home screen widgets, app shortcuts, and wallpapers using a dedicated visual layout mode. Visual cues and drop shadows improve visibility when adjusting the layout of shortcuts and widgets. Each Home screen also offers a familiar launcher for access to all installed applications, as well as a Search box for universal search of apps, contacts, media files, web content, and more.  
+Five customizable Home screens give users instant access to all parts of the system from any context. Each screen offers a large grid that maintains spatial arrangement in all orientations. Users can select and manipulate Home screen widgets, app shortcuts, and wallpapers using a dedicated visual layout mode. Visual cues and drop shadows improve visibility when adjusting the layout of shortcuts and widgets. Each Home screen also offers a familiar launcher for access to all installed applications, as well as a Search box for universal search of apps, contacts, media files, web content, and more.
 [![](https://developer.android.com/static/sdk/images/3.0/tasks.png)](https://developer.android.com/static/sdk/images/3.0/tasks_full.png)
 
 **Recent Apps, for easy visual multitasking**
@@ -45,7 +47,7 @@ Multitasking is a key strength of Android and it is central to the Android 3.0 e
 
 ### Redesigned keyboard
 
-The Android soft keyboard is redesigned to make entering text fast and accurate on larger screen sizes. The keys are reshaped and repositioned for improved targeting, and new keys have been added, such as a Tab key, to provide richer and more efficient text input. Users can touch-hold keys to access menus of special characters and switch text/voice input modes from a button in the System Bar.  
+The Android soft keyboard is redesigned to make entering text fast and accurate on larger screen sizes. The keys are reshaped and repositioned for improved targeting, and new keys have been added, such as a Tab key, to provide richer and more efficient text input. Users can touch-hold keys to access menus of special characters and switch text/voice input modes from a button in the System Bar.
 [![](https://developer.android.com/static/sdk/images/3.0/copy.png)](https://developer.android.com/static/sdk/images/3.0/copy_full.png)
 
 ### Improved text selection, copy and paste
@@ -62,9 +64,8 @@ Android 3.0 includes new connectivity features that add versatility and convenie
 [:camera:](https://developer.android.com/static/sdk/images/3.0/camera_full.png)
 
 The Android 3.0 platform includes an updated set of standard applications that are designed for use on larger screen devices. The sections below highlight some of the new features.
-**Browser**
 
-<br />
+**Browser**
 
 The browser includes new features that let users navigate and organize more efficiently. Multiple tabs replace browser windows and a new "incognito" mode allows anonymous browsing. Bookmarks and history are presented and managed in a single unified view. Users can now choose to automatically sign into Google sites on the browser with a supplied account and sync bookmarks with Google Chrome. New multitouch support is now available to JavaScript and plugins. Users can enjoy a better browsing experience at non-mobile sites through an improved zoom and viewport model, overflow scrolling, support for fixed positioning, and more.
 
@@ -74,7 +75,7 @@ The Camera application has been redesigned to take advantage of a larger screen 
 
 **Contacts**
 
-The Contacts app uses a new two-pane UI and Fast Scroll to let users easily organize and locate contacts. The application offers improved formatting of international phone numbers as user types, based on home country and an international number parsing library. Contact information is presented in a card-like UI, making it easier for users to read and edit contacts.
+The Contacts app uses a new two-pane UI and Fast Scroll to let users organize and locate contacts. The application offers improved formatting of international phone numbers as user types, based on home country and an international number parsing library. Contact information is presented in a card-like UI, making it easier for users to read and edit contacts.
 
 **Email**
 
@@ -84,12 +85,12 @@ The Email application uses a new two-pane UI to make viewing and organizing mess
 
 The Android 3.0 platform is designed specially to meet the unique needs of applications on devices with larger screen sizes. It offers all of the tools developers need to create incredible visual and interaction experiences on these devices.
 
-- [New UI framework for creating great tablet apps](https://developer.android.com/about/versions/android-3.0-highlights#ui)
-- [High-performance 2D and 3D graphics](https://developer.android.com/about/versions/android-3.0-highlights#graphics)
-- [Support for multicore processor architectures](https://developer.android.com/about/versions/android-3.0-highlights#multicore)
-- [Rich multimedia and connectivity](https://developer.android.com/about/versions/android-3.0-highlights#multimedia)
-- [Enhancements for enterprise](https://developer.android.com/about/versions/android-3.0-highlights#enterprise)
-- [Compatibility with existing apps](https://developer.android.com/about/versions/android-3.0-highlights#compatibility)
+- [New UI framework for creating great tablet apps](https://developer.android.com/about/versions/android-3.0-highlights.md.txt#ui)
+- [High-performance 2D and 3D graphics](https://developer.android.com/about/versions/android-3.0-highlights.md.txt#graphics)
+- [Support for multicore processor architectures](https://developer.android.com/about/versions/android-3.0-highlights.md.txt#multicore)
+- [Rich multimedia and connectivity](https://developer.android.com/about/versions/android-3.0-highlights.md.txt#multimedia)
+- [Enhancements for enterprise](https://developer.android.com/about/versions/android-3.0-highlights.md.txt#enterprise)
+- [Compatibility with existing apps](https://developer.android.com/about/versions/android-3.0-highlights.md.txt#compatibility)
 
 ### New UI Framework for creating great tablet apps
 
@@ -101,7 +102,7 @@ Starting with Android 3.0, developers can break the Activities of their applicat
 
 **Redesigned UI widgets**
 
-Android 3.0 offers an updated set of UI widgets that developers can use to quickly add new types of content to their applications. The new UI widgets are redesigned for use on larger screens such as tablets and incorporate the new holographic UI theme. Several new widget types are available, including a 3D stack, search box, a date/time picker, number picker, calendar, popup menu, and others. Most of the redesigned UI widgets can now be used as remote views in application widgets displayed on the home screen. Applications written for earlier versions can inherit the new Widget designs and themes.  
+Android 3.0 offers an updated set of UI widgets that developers can use to quickly add new types of content to their applications. The new UI widgets are redesigned for use on larger screens such as tablets and incorporate the new holographic UI theme. Several new widget types are available, including a 3D stack, search box, a date/time picker, number picker, calendar, popup menu, and others. Most of the redesigned UI widgets can now be used as remote views in application widgets displayed on the home screen. Applications written for earlier versions can inherit the new Widget designs and themes.
 [![](https://developer.android.com/static/sdk/images/3.0/widgets.png)](https://developer.android.com/static/sdk/images/3.0/widgets.png)
 
 **Expanded Home screen widgets**
@@ -114,18 +115,18 @@ The platform provides each application with its own instance of the Action Bar a
 
 **Richer notifications**
 
-Notifications are a key part of the Android user experience because they let applications show key updates and status information to users in real time. Android 3.0 extends this capability, letting developers include richer content and control more properties. A new builder class lets developers quickly create notifications that include large and small icons, a title, a priority flag, and any properties already available in previous versions. Notifications can offer more types of content by building on the expanded set of UI Widgets that are now available as remote Views.  
+Notifications are a key part of the Android user experience because they let applications show key updates and status information to users in real time. Android 3.0 extends this capability, letting developers include richer content and control more properties. A new builder class lets developers quickly create notifications that include large and small icons, a title, a priority flag, and any properties already available in previous versions. Notifications can offer more types of content by building on the expanded set of UI Widgets that are now available as remote Views.
 [![](https://developer.android.com/static/sdk/images/3.0/mail_drag.png)](https://developer.android.com/static/sdk/images/3.0/mail_drag_full.png)
 
 **Multiselect, clipboard, and drag-and-drop**
 
-The platform offers convenient new interaction modes that developers can use. For managing collections of items in lists or grids, developers can offer a new multiselect mode that lets users choose multiple items for an action. Developers can also use a new system-wide Clipboard to let users easily copy any type of data into and out of their applications. To make it easier for users to manage and organize files, developers can now add drag-and-drop interaction through a DragEvent framework.
+The platform offers convenient new interaction modes that developers can use. For managing collections of items in lists or grids, developers can offer a new multiselect mode that lets users choose multiple items for an action. Developers can also use a new system-wide Clipboard to let users copy any type of data into and out of their applications. To make it easier for users to manage and organize files, developers can now add drag-and-drop interaction through a DragEvent framework.
 
 ### High-performance 2D and 3D graphics
 
 **New animation framework**
 
-The platform includes a flexible new animation framework that lets developers easily animate the properties of UI elements such as Views, Widgets, Fragments, Drawables, or any arbitrary object. Animations can create fades or movement between states, loop an animated image or an existing animation, change colors, and much more. Adding animation to UI elements can add visual interest to an application and refine the user experience, to keep users engaged.
+The platform includes a flexible new animation framework that lets developers animate the properties of UI elements such as Views, Widgets, Fragments, Drawables, or any arbitrary object. Animations can create fades or movement between states, loop an animated image or an existing animation, change colors, and much more. Adding animation to UI elements can add visual interest to an application and refine the user experience, to keep users engaged.
 
 **Hardware-accelerated 2D graphics**
 
@@ -151,11 +152,11 @@ Android 3.0 includes an extensible DRM framework that lets applications manage p
 
 **Digital media file transfer**
 
-The platform includes built-in support for Media/Picture Transfer Protocol (MTP/PTP) over USB, which lets users easily transfer any type of media files between devices and to a host computer. Developers can build on this support, creating applications that let users create or manage media files that they may want to transfer or share across devices.
+The platform includes built-in support for Media/Picture Transfer Protocol (MTP/PTP) over USB, which lets users transfer any type of media files between devices and to a host computer. Developers can build on this support, creating applications that let users create or manage media files that they may want to transfer or share across devices.
 
 **More types of connectivity**
 
-The platform offers new connectivity that developers can build on. API support for Bluetooth A2DP and HSP profiles lets applications query Bluetooth profiles for connected devices, audio state, and more, then notify the user. For example, a music application can check connectivity and status and let the user know that music is playing through a stereo headset. Applications can also register to receive system broadcasts of pre-defined vendor-specific AT commands, such as Platronics Xevent. For example, an application could receive broadcasts that indicate a connected device's battery level and could notify the user or take other action as needed. Applications can also take advantage of the platform's new support for full keyboards connected by USB or Bluetooth.
+The platform offers new connectivity that developers can build on. API support for Bluetooth A2DP and HSP profiles lets applications query Bluetooth profiles for connected devices, audio state, and more, then notify the user. For example, a music application can check connectivity and status and let the user know that music is playing through a stereo headset. Applications can also register to receive system broadcasts of predefined vendor-specific AT commands, such as Platronics Xevent. For example, an application could receive broadcasts that indicate a connected device's battery level and could notify the user or take other action as needed. Applications can also take advantage of the platform's new support for full keyboards connected by USB or Bluetooth.
 
 ### Enhancements for enterprise
 

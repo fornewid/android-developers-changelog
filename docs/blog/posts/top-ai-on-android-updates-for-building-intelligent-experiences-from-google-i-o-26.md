@@ -4,18 +4,20 @@ url: https://developer.android.com/blog/posts/top-ai-on-android-updates-for-buil
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Top AI on Android updates for building intelligent experiences from Google I/O '26
 
-2 min read ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_Zj9dt4.webp) 26 May 2026 [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) Developer Relations Manager At Google I/O 2026, we introduced Android's shift from an operating system to an intelligence system. We also demonstrated how you can build intelligent experiences natively with the system and bring the power of Google's AI into your apps. If you missed these updates, check out our quick recap video here:
+2 min read ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_Zj9dt4.webp) 26 May 2026 [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) Developer Relations Manager At Google I/O 2026, we introduced Android's shift from an operating system to an intelligence system. We also demonstrated how you can build intelligent experiences natively with the system and bring the power of Google's AI into your apps. If you missed these updates, check out our quick recap video here:
 [Video](https://www.youtube.com/watch?v=TZNu9u9TfN4)
 
 #### 1. **Putting your apps at the center of the intelligence system**
 
 The Android OS already enables agents like [Gemini](https://www.android.com/gemini-intelligence/?utm_source=blog.google&utm_medium=owned&utm_campaign=next) to complete task automation, where it can navigate an app on the users behalf.
 
-[AppFunctions](https://developer.android.com/ai/appfunctions) (Android MCP) provides you with more control over how your app integrates with the intelligence system. This new platform API and Jetpack library are currently available in experimental preview.
+[AppFunctions](https://developer.android.com/ai/appfunctions.md.txt) (Android MCP) provides you with more control over how your app integrates with the intelligence system. This new platform API and Jetpack library are currently available in experimental preview.
 
 - **Android MCP:** AppFunctions allows your application to act as an on-device Model Context Protocol (MCP) server. It means you seamlessly share your app's tools, services and data to the system and agents.
 - **Streamlined Development:** You can leverage the new [skill](https://github.com/android/skills/tree/main/device-ai/appfunctions) to easily generate AppFunctions within your codebase.
@@ -54,50 +56,55 @@ From building with on-device models, exploring hybrid inference to building agen
 Whether you are experimenting with AppFunctions to prepare for the intelligence system, or looking to bring the power of Google's AI within your own app, we've got you covered. Dive deeper into the code snippets, samples and comprehensive developer guides on the Android AI [hub](https://developer.android.com/ai). For the full breakdown of what's new, check out the official **AI on Android at Google I/O 2026** [playlist](https://www.youtube.com/playlist?list=PLWz5rJ2EKKc-GL3584TkxUyoPfzPkB1mV).
 
 We are excited to see what you build!
-- [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-- [#Android](https://developer.android.com/blog/topics/android)
-- [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
-- [#On-device](https://developer.android.com/blog/topics/on-device)
+- [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+- [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [#AppFunctions](https://developer.android.com/blog/topics/app-functions.md.txt)
+- [#On-device](https://developer.android.com/blog/topics/on-device.md.txt)
 Written by:
 
 -
 
-  ## [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi)
+  ## [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt)
 
   ###### Developer Relations Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/jingyu-shi) ![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp) ![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)
 Continue reading
-- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
+  ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
-  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 8 min read
-  - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md.txt) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt) • 8 min read
+  - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills.md.txt)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
   - +2 ↩
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Aurash Mahbod's profile](https://developer.android.com/static/blog/assets/image3_98854eb3dd_Z2kItkm.webp)](https://developer.android.com/blog/authors/aurash-mahbod.md.txt) 18 Nov 2026 18 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_162_2000x1000_1_ce7dba8d2a_72W03.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads)
+  ## [Elevating games: New large screens and foldables quality standards on Google Play](https://developer.android.com/blog/posts/elevating-game-quality-foldables-large-screens-google-play.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 4 min read
-  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp)
-  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano)
-  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit)
-  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/elevating-game-quality-foldables-large-screens-google-play.md.txt) To give these experiences to players and ensure your games shine across every screen size, Google Play is introducing new large screen quality requirements for games
+  [Aurash Mahbod](https://developer.android.com/blog/authors/aurash-mahbod.md.txt) • 4 min read
+  - [#Google Play](https://developer.android.com/blog/topics/google-play.md.txt)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Adaptive Games](https://developer.android.com/blog/topics/adaptive-games.md.txt)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+  - [#Large Screens](https://developer.android.com/blog/topics/large-screens.md.txt)
+  - +3 ↩
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) • 4 min read
+  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp.md.txt)
+  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano.md.txt)
+  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
   - +2 ↩
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
 

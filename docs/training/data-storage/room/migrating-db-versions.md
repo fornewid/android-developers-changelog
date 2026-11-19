@@ -4,6 +4,8 @@ url: https://developer.android.com/training/data-storage/room/migrating-db-versi
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/data-storage/room/llms.txt
+
 As you add and change features in your app, you need to modify your Room entity
 classes and underlying database tables to reflect these changes. It's important
 to preserve user data that is already in the on-device database when an app

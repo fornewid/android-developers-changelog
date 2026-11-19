@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/views/notifications/live-update
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/views/notifications/llms.txt
+
 Live updates provide a summary of important updates so users can track progress
 without opening the app. The system promotes Live Update notifications although
 users can temporarily dismiss or demote a live update notification, to a

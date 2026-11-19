@@ -4,9 +4,11 @@ url: https://developer.android.com/games/optimize/adpf/gamemode/fps-throttling
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/optimize/adpf/llms.txt
+
 Android FPS throttling is a Game Mode intervention that helps games run at a
 more stable frame rate in order to reduce battery consumption. The intervention
-is available in [Android 13](https://developer.android.com/about/versions/13/get) or later.
+is available in [Android 13](https://developer.android.com/about/versions/13/get.md.txt) or later.
 
 As more Android devices ship with displays that have higher refresh rates, such
 as 90 Hz and 120 Hz, most games try to pace at a high FPS. However, they usually
@@ -28,7 +30,7 @@ power reduction. It also helps run unpaced games at a smoother and less janky
 frame rate.
 
 An unpaced game often has higher peak frame rates but with
-[higher variance](https://developer.android.com/games/sdk/frame-pacing#how-it-works) of frame time. This
+[higher variance](https://developer.android.com/games/sdk/frame-pacing.md.txt#how-it-works) of frame time. This
 significantly impacts how the performance is perceived by players. The FPS
 throttling intervention only helps unpaced games achieve frame pacing from the
 platform side.
@@ -50,20 +52,24 @@ This section describes how to set up and use FPS throttling using
 [Android Debug Bridge (adb)](https://developer.android.com/studio/command-line/adb).
 
 > [!IMPORTANT]
-> **Important:** Make sure your game hasn't [declared support](https://developer.android.com/games/optimize/adpf/gamemode/gamemode-api#declare_support_for_game_modes) for the Game Mode API so the FPS throttling intervention isn't overridden.
+> **Important:** Make sure your game hasn't [declared support](https://developer.android.com/games/optimize/adpf/gamemode/gamemode-api.md.txt#declare_support_for_game_modes) for the Game Mode API so the FPS throttling intervention isn't overridden.
 
 ### Enable game mode interventions
 
 To enable game mode interventions for a game, use the following command:
 
-    adb shell device_config put game_overlay <PACKAGE_NAME> <CONFIG>
+```bash
+adb shell device_config put game_overlay <PACKAGE_NAME> <CONFIG>
+```
 
 ### Set the FPS intervention
 
 ​​To set the target FPS throttling intervention, use the `device_config` command.
 Here's an example that sets FPS throttling for performance and battery mode:
 
-    adb shell device_config put game_overlay <PACKAGE_NAME> mode=2,fps=90:mode=3,fps=30
+```bash
+adb shell device_config put game_overlay <PACKAGE_NAME> mode=2,fps=90:mode=3,fps=30
+```
 
 Details of the parameters:
 

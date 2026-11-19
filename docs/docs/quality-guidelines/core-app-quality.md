@@ -27,7 +27,7 @@ The following core guidelines help you build a basic, high‑quality app.
 Standard Android visual design and interaction patterns provide a consistent and
 intuitive user experience.
 
-Use [Material design components](https://m3.material.io/components) to create your app's user interface in place
+Use [Material Design components](https://m3.material.io/components) to create your app's user interface in place
 of Android platform components where possible. Material Design provides a modern
 Android look and feel along with UI consistency across Android versions.
 
@@ -258,8 +258,9 @@ Set up a test environment as follows:
   hardware/software combinations for your target user base. Test a variety of
   form factors using the following emulators (at a minimum):
 
-  - Foldables: 7.6" fold-in with outer display (this is listed under phones in the AVD Manager)
-  - Tablet: Pixel C 9.94" (2,560px x 1,800px)
+  - Foldables: **Foldable (1:1 inner display)** , **Foldable (4:3 inner
+    display)** , and **Pixel Fold** (listed under **Phone** in the Device Manager)
+  - Tablet: **Medium Tablet** (listed under **Tablet** in the Device Manager)
   - Mobile app notification testing: Pair a mobile device / emulator with Wear OS emulator: Wear OS Round 1.84"
 - **Hardware devices:** Your test environment should include a small number of
   actual hardware devices that represent the key form factors and hardware/software combinations that are available to consumers. You don't
@@ -272,7 +273,7 @@ Set up a test environment as follows:
 - **Test with the latest Android version:** In addition to testing
   representative Android versions for your target user base, you should
   always test against the latest version of Android to ensure the
-  [latest behavior changes](https://developer.android.com/about/versions/14/behavior-changes-14.md.txt) don't negatively impact your app's user
+  [latest behavior changes](https://developer.android.com/about/versions/17/behavior-changes-17.md.txt) don't negatively impact your app's user
   experience.
 
 For further guidance on testing, including unit testing, integration testing,

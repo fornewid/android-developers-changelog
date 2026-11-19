@@ -4,13 +4,15 @@ url: https://developer.android.com/about/versions/16/qpr2/get
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/about/versions/16/qpr2/llms.txt
+
 ![](https://developer.android.com/static/images/lockups/android-stacked.svg)
 
 You can get Android 16 QPR2 in any of the following ways:
 
-- [Get Android 16 QPR2 on a Google Pixel device](https://developer.android.com/about/versions/16/qpr2/get#on_pixel)
-- [Set up the Android Emulator](https://developer.android.com/about/versions/16/qpr2/get#on_emulator)
-- [Get a generic system image (GSI)](https://developer.android.com/about/versions/16/qpr2/get#on_gsi)
+- [Get Android 16 QPR2 on a Google Pixel device](https://developer.android.com/about/versions/16/qpr2/get.md.txt#on_pixel)
+- [Set up the Android Emulator](https://developer.android.com/about/versions/16/qpr2/get.md.txt#on_emulator)
+- [Get a generic system image (GSI)](https://developer.android.com/about/versions/16/qpr2/get.md.txt#on_gsi)
 
 ## Get Android 16 QPR2 Beta on a Google Pixel device
 
@@ -57,7 +59,7 @@ devices:
 ### Flash or manually install a system image
 
 Alternatively, if you'd rather flash your device, we recommend using the [Android Flash
-Tool](https://flash.android.com/preview/baklava-qpr2-beta3.3). If you need to flash your device manually for some other reason, you can get an Android 16 QPR2 system image for your device on the [Pixel downloads page](https://developer.android.com/about/versions/16/download). See the general instructions on the downloads page for how to flash a system image to your device. This approach can be useful when you need more control over testing, such as for automated testing or regression testing. Android 16 QPR2 Beta images are available for [supported Pixel devices](https://developer.android.com/about/versions/16/qpr2/get#google-pixel-devices).
+Tool](https://flash.android.com/preview/baklava-qpr2-beta3.3). If you need to flash your device manually for some other reason, you can get an Android 16 QPR2 system image for your device on the [Pixel downloads page](https://developer.android.com/about/versions/16/download.md.txt). See the general instructions on the downloads page for how to flash a system image to your device. This approach can be useful when you need more control over testing, such as for automated testing or regression testing. Android 16 QPR2 Beta images are available for [supported Pixel devices](https://developer.android.com/about/versions/16/qpr2/get.md.txt#google-pixel-devices).
 
 > [!NOTE]
 > **Note:** After you've flashed a Developer Preview or Beta build to a supported Pixel device, you're automatically enrolled in over-the-air updates of all subsequent Developer Preview and Beta builds through the final release.
@@ -72,8 +74,8 @@ screen sizes and device characteristics.
 Depending on the type of testing you need to do, consider setting up a variety
 of virtual devices from these device categories:
 
-- [Phone](https://developer.android.com/about/versions/16/qpr2/get#phone-avd)
-- [Tablet or large-screen device](https://developer.android.com/about/versions/16/qpr2/get#large-screen-avd)
+- [Phone](https://developer.android.com/about/versions/16/qpr2/get.md.txt#phone-avd)
+- [Tablet or large-screen device](https://developer.android.com/about/versions/16/qpr2/get.md.txt#large-screen-avd)
 
 ### Set up a virtual device (phone)
 
@@ -83,16 +85,18 @@ To set up a virtual device to emulate a typical phone, follow these steps:
 2. In Android Studio, click **Tools \> SDK Manager**.
 3. In the **SDK Tools** tab, select the latest version of **Android Emulator** , and click **OK**. This action installs the latest version if it isn't already installed.
 4. In Android Studio, click **Tools \> Device Manager** , then click **Add a new
-   device ![](https://developer.android.com/static/studio/images/buttons/ic_plus_dark.png) \> Create
+   device ![Add new device
+   icon](https://developer.android.com/static/studio/images/buttons/ic_plus_dark.png) \> Create
    Virtual Device** in the **Device Manager** panel.
 
    ![Create an Android Virtual Device in Android
    Studio](https://developer.android.com/static/about/versions/16/images/16-create-avd.png)
-5. Select a device definition for a [supported Pixel device](https://developer.android.com/about/versions/16/qpr2/get#on_pixel) in the
+5. Select a device definition for a [supported Pixel device](https://developer.android.com/about/versions/16/qpr2/get.md.txt#on_pixel) in the
    **Phone** Category tab, then click **Next**.
 
 6. Find the Android 16 QPR2 system image, called **Baklava** , and click
-   **Download** ![](https://developer.android.com/static/about/versions/16/images/16-studio-download.png)
+   **Download** ![Download
+   icon](https://developer.android.com/static/about/versions/16/images/16-studio-download.png)
    next to the **Release Name** to get it. After the download completes, select
    this system image and click **Next**.
 
@@ -100,7 +104,8 @@ To set up a virtual device to emulate a typical phone, follow these steps:
 
 8. After returning to the list of virtual devices in the Device Manager, find
    your Android 16 QPR2 virtual device and click **Start**
-   ![](https://developer.android.com/static/about/versions/16/images/16-launch-avd-icon.png).
+   ![Start button
+   icon](https://developer.android.com/static/about/versions/16/images/16-launch-avd-icon.png).
 
 ### Set up a virtual device (tablet or large-screen)
 
@@ -111,7 +116,8 @@ follow these steps:
 2. In Android Studio, click **Tools \> SDK Manager**.
 3. In the **SDK Tools** tab, select the latest version of **Android Emulator** , and click **OK**. This action installs the latest version if it isn't already installed.
 4. In Android Studio, click **Tools \> Device Manager** , then click **Add a new
-   device ![](https://developer.android.com/static/studio/images/buttons/ic_plus_dark.png) \> Create
+   device ![Add new device
+   icon](https://developer.android.com/static/studio/images/buttons/ic_plus_dark.png) \> Create
    Virtual Device** in the **Device Manager** panel.
 
    ![Create an Android Virtual Device in Android
@@ -121,7 +127,8 @@ follow these steps:
    Category tab, then click **Next**.
 
 6. Find the Android 16 QPR2 system image and click
-   **Download** ![](https://developer.android.com/static/about/versions/16/images/16-studio-download.png)
+   **Download** ![Download
+   icon](https://developer.android.com/static/about/versions/16/images/16-studio-download.png)
    next to the **Release Name** to get it. After the download completes, select
    this system image and click **Next**.
 
@@ -129,7 +136,8 @@ follow these steps:
 
 8. After returning to the list of virtual devices in the Device Manager, find
    your Android 16 QPR2 virtual device and click **Start**
-   ![](https://developer.android.com/static/about/versions/16/images/16-launch-avd-icon.png).
+   ![Start button
+   icon](https://developer.android.com/static/about/versions/16/images/16-launch-avd-icon.png).
 
 Repeat these steps to create large screen device definitions that you can use to
 test your app in a variety of large screen scenarios.
@@ -152,12 +160,12 @@ category.
 
 ## Get a generic system image (GSI)
 
-Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image) binaries are available to developers
+Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image.md.txt) binaries are available to developers
 for app testing and validation purposes on supported Treble-compliant devices.
 You can use these images to address any compatibility issues as well as discover
 and report OS and framework issues.
 
-See the [GSI documentation](https://developer.android.com/topic/generic-system-image) for device requirements, flashing instructions,
+See the [GSI documentation](https://developer.android.com/topic/generic-system-image.md.txt) for device requirements, flashing instructions,
 and information on choosing the right image type for your device. Once you're
-ready to download a GSI binary, see the [Downloads section](https://developer.android.com/topic/generic-system-image/releases#android-gsi-16) on the GSI
+ready to download a GSI binary, see the [Downloads section](https://developer.android.com/topic/generic-system-image/releases.md.txt#android-gsi-16) on the GSI
 binaries page.

@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/navigation/navigation-3/migration-guide
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/navigation/navigation-3/llms.txt
+
 ## Android skills
 
 [View on GitHub](https://github.com/android/skills/tree/main/navigation/navigation-3)
@@ -103,10 +105,10 @@ project. The core dependencies are provided for you to copy.
 
 ```toml
 [versions]
-nav3Core = "1.2.1"
+nav3Core = "1.2.2"
 
 # If your screens depend on ViewModels, add the Nav3 Lifecycle ViewModel add-on library
-lifecycleViewmodelNav3 = "2.11.0"
+lifecycleViewmodelNav3 = "2.11.1"
 
 [libraries]
 # Core Navigation 3 libraries

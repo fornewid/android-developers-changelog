@@ -4,6 +4,8 @@ url: https://developer.android.com/games/pgs/branding
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/llms.txt
+
 This page describes the design guidelines for Google Play Games Services branding elements.
 You can use these elements in your app without pre-approval provided you follow
 these guidelines. Use of Google brands in ways not expressly covered by these
@@ -26,9 +28,9 @@ To use Google Play Games branding elements in a game and to officially
 support Google Play games services, your game must meet these requirements:
 
 - **Minimum features**
-  - Meet all required tasks in the [Google Play games services quality checklist](https://developer.android.com/games/pgs/quality).
+  - Meet all required tasks in the [Google Play games services quality checklist](https://developer.android.com/games/pgs/quality.md.txt).
 - **Required iconography**
-  - Provide a way to invoke Google Play Games default UI with user interface entry points for Achievements or Leaderboards. Developers are still encouraged to implement their own UI for these features. See the [FAQ](https://developer.android.com/games/pgs/branding#faq) for details.
+  - Provide a way to invoke Google Play Games default UI with user interface entry points for Achievements or Leaderboards. Developers are still encouraged to implement their own UI for these features. See the [FAQ](https://developer.android.com/games/pgs/branding.md.txt#faq) for details.
   - Always use the Google Play game controller icon when labeling entry points. In instances where there are many entry points on one screen, use the guidelines below to best match your game's experience.
 - **Game feature terminology**
   - When describing any game feature in-game, you may use the "Google Play", "Google Play Games" or "Play Games" brands nominatively to refer to those services. For reference usage, see the examples on this page.
@@ -185,4 +187,4 @@ Google Play game controller must still be shown on the same screen
 ## Download files
 
 You can download the image files for Play Games Services branding on the
-[downloads](https://developer.android.com/games/pgs/downloads#graphics) page.
+[downloads](https://developer.android.com/games/pgs/downloads.md.txt#graphics) page.

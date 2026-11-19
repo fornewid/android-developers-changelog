@@ -4,6 +4,8 @@ url: https://developer.android.com/tools/agents/android-skills
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/tools/agents/android-skills/llms.txt
+
 Android skills are AI-optimized instructions, to help AI tools and agents better
 understand and execute specific patterns that follow best practices and guidance
 on Android development. They are housed in the
@@ -12,6 +14,7 @@ on Android development. They are housed in the
 You can use an Android skill to do tasks such as the following:
 
 - Migrate from XML to Compose
+- Make your app UI adaptive across phones, foldables, tablets, Googlebooks, and ChromeOS devices
 - Upgrade to AGP 9
 - Set up newer frameworks like Navigation 3
 - Modernize your app UI by making it edge-to-edge
@@ -23,7 +26,7 @@ and context on specialized Android workflows.
 Android skills follow the [agent skills](https://agentskills.io/home) open
 standard, so they are compatible with any AI tool that supports skills. This
 page explains how to use skills in Android Studio and how to use the
-[Android CLI](https://developer.android.com/tools/agents/android-cli) to install skills for use with any agent and
+[Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt) to install skills for use with any agent and
 tooling of your choice.
 
 > [!NOTE]
@@ -49,11 +52,11 @@ your choice.
 ### Android CLI
 
 We recommend installing an Android skill using the
-[Android CLI](https://developer.android.com/tools/agents/android-cli), which makes it easier to discover, download,
+[Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), which makes it easier to discover, download,
 and manage skills for any agent of your choice.
 
-- To see the list of available skills, run [`android skills list`](https://developer.android.com/tools/agents/android-cli/commands/skills_list).
-- To install a skill, run [`android skills add skill-name`](https://developer.android.com/tools/agents/android-cli/commands/skills_add). If you already have the skill installed, `skills add` will update it to the latest version.
+- To see the list of available skills, run [`android skills list`](https://developer.android.com/tools/agents/android-cli/commands/skills_list.md.txt).
+- To install a skill, run [`android skills add skill-name`](https://developer.android.com/tools/agents/android-cli/commands/skills_add.md.txt). If you already have the skill installed, `skills add` will update it to the latest version.
 
 > [!NOTE]
 > **Note:** If you customize a skill, you should rename it, or it will get overwritten when you update it using `skills add`.
@@ -61,8 +64,8 @@ and manage skills for any agent of your choice.
 ### Android Studio
 
 You can download a skill from the
-[Android skills GitHub repo](https://goo.gle/android-skills) and
-[import it into your project in Android Studio](https://developer.android.com/studio/gemini/skills).
+[Android skills GitHub repository](https://goo.gle/android-skills) and
+[import it into your project in Android Studio](https://developer.android.com/studio/gemini/skills.md.txt).
 
 ## Activate a skill
 
@@ -71,7 +74,7 @@ a skill, prompt the agent to complete a task that is related to the skill, for
 example "Make my app UI edge-to-edge." The agent should automatically find and
 use the skill if it's available.
 
-In [Android Studio](https://developer.android.com/studio/gemini/skills), you can also invoke a skill
+In [Android Studio](https://developer.android.com/studio/gemini/skills.md.txt), you can also invoke a skill
 manually directly by typing `@skill-name` in the chat window.
 
 ## Create your own skills
@@ -89,7 +92,7 @@ steps:
 
 Skills must follow these rules:
 
-- **One directory per skill:** Each skill must have its own unique directory that includes a `SKILL.md` file and any [additional resources](https://developer.android.com/tools/agents/android-skills#directories).
+- **One directory per skill:** Each skill must have its own unique directory that includes a `SKILL.md` file and any [additional resources](https://developer.android.com/tools/agents/android-skills.md.txt#directories).
 - **Nesting:** All skills must be in the `.skills/` or `.agent/skills/` directory at the project root. However, you can use subdirectories for better organization (for example, `skills/ui-flows/<skill name>/SKILL.md` or `skills/testing/<skill name>/SKILL.md`).
 - **Scope:** Only skills located within the project's codebase are supported.
 
@@ -116,7 +119,7 @@ instructions.
 
 - **Name:** Maximum of 64 characters (lowercase letters, numbers, and hyphens only).
 - **Description:** Maximum of 1024 characters.
-- **Body content:** Aim for 10k--20k characters (\~2,500--5,000 tokens). If your instructions exceed this, consider moving detailed documentation to a resource file as described in [Optional skill directories](https://developer.android.com/tools/agents/android-skills#directories).
+- **Body content:** Aim for 10k--20k characters (\~2,500--5,000 tokens). If your instructions exceed this, consider moving detailed documentation to a resource file as described in [Optional skill directories](https://developer.android.com/tools/agents/android-skills.md.txt#directories).
 
 ### Optional skill directories
 

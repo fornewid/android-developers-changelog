@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/wear-compose-remote
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Wear Remote Compose Material 3
 
 Write Widgets and other Remote UI for Wear OS using the Material 3 Expressive design system.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 04, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha15) |
+| November 18, 2026 | - | - | - | [1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote.md.txt#1.0.0-alpha16) |
 
 ## Declaring dependencies
 
@@ -26,7 +28,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha15"
+    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha16"
 }
 ```
 
@@ -34,7 +36,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha15")
+    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha16")
 }
 ```
 
@@ -55,6 +57,28 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha16
+
+November 18, 2026
+
+`androidx.wear.compose.remote:remote-material3:1.0.0-alpha16` is released. Version 1.0.0-alpha16 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a021adf44194ae86e596ae25ca43d5e4e18f6926..58a4d1aa19df3743190e13146470e58c1c1aab8e/wear/compose/remote/remote-material3).
+
+**API Changes**
+
+- Exposed `RemoteIconToggleButton`, `RemoteIconToggleButtonDefaults`, `RemoteIconToggleButtonColors`, `RemoteIconToggleButtonShapes`, `RemoteTextToggleButton`, `RemoteTextToggleButtonDefaults`, `RemoteTextToggleButtonColors`, and `RemoteTextToggleButtonShapes` as public APIs in Wear Material 3 Remote Compose. ([Ib93ab](https://android-review.googlesource.com/#/q/Ib93ab7a120e6abaf336665239aeae9a22760389e))
+- Replaced the `shape` parameter on `RemoteIconButton` and `RemoteTextButton` with `shapes` (`RemoteIconButtonShapes` and `RemoteTextButtonShapes`) and added `animatedShapes()` defaults to animate button corners on press, matching Wear Compose Material3. ([I6fa6b](https://android-review.googlesource.com/#/q/I6fa6b3ab69ba46ed7ce0c48556d95dfa71606540))
+- Added a `backgroundColor` parameter to `RemoteTimeText`, defaulting to `RemoteTimeTextDefaults.backgroundColor`, which draws an arc behind the text like Wear Compose Material 3 `TimeText`. ([I165f1](https://android-review.googlesource.com/#/q/I165f146355082fbdce43b92875eb0889189af3f2))
+- Added `@IntRange(from = 0)` to `RemotePageIndicatorState.pageCount` and `rememberRemotePageIndicatorState`. ([I420f2](https://android-review.googlesource.com/#/q/I420f21f2711ab107e459022fea3e1b074d909208))
+- Added `RemoteTextButtonDefaults.filledTonalTextButtonColors()` for filled tonal text buttons. ([Ie43cd](https://android-review.googlesource.com/#/q/Ie43cd187ef73536e06f3ce5e9a0f0781b470aa65))
+- Add press width animation support (`expansionWidth` and `RemoteButtonGroupScope.animateWidth()`) to `RemoteButtonGroup` in Wear Remote Compose Material 3. ([Ie2909](https://android-review.googlesource.com/#/q/Ie290935374e8bdf8ce6350fea5ac158f53b5f75b))
+- Updated `RemoteShape` overrides to use `RemoteLayoutDirection`.
+
+**Bug Fixes**
+
+- Fixed `RemoteCircularProgressIndicator` so full-circle indicators (`startAngle == endAngle`) close the gap seamlessly at `progress = 1f`, and sub-gap indicator and track sweeps scale smoothly down to `0` without leaving stray round endcap dots at `progress = 0f` or `1f`. ([I8158e](https://android-review.googlesource.com/#/q/I8158e4605c1ad9d4c0356b91f58625168c11a1d3))
+- Fixed `RemoteIconButton` overriding custom size modifiers. ([Ibf940](https://android-review.googlesource.com/#/q/Ibf9406320d177ea9aa7f0b1f72b79999b597b343))
+- Coerce negative `sweepAngle` and `strokeWidth` values to `0` in Remote Compose progress indicators and document clockwise arc direction. ([I1243b](https://android-review.googlesource.com/#/q/I1243b03184111fb7c0f50bc0b85c63aeabfd96f2))
 
 ### Version 1.0.0-alpha15
 

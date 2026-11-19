@@ -9,6 +9,35 @@ source: md.txt
 # The Latest
 
 Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
+- [![View Aurash Mahbod's profile](https://developer.android.com/static/blog/assets/image3_98854eb3dd_Z2kItkm.webp)](https://developer.android.com/blog/authors/aurash-mahbod.md.txt) 18 Nov 2026 18 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_162_2000x1000_1_ce7dba8d2a_72W03.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [Elevating games: New large screens and foldables quality standards on Google Play](https://developer.android.com/blog/posts/elevating-game-quality-foldables-large-screens-google-play.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/elevating-game-quality-foldables-large-screens-google-play.md.txt) To give these experiences to players and ensure your games shine across every screen size, Google Play is introducing new large screen quality requirements for games
+  [Aurash Mahbod](https://developer.android.com/blog/authors/aurash-mahbod.md.txt) • 4 min read
+  - [#Google Play](https://developer.android.com/blog/topics/google-play.md.txt)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Adaptive Games](https://developer.android.com/blog/topics/adaptive-games.md.txt)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+  - [#Large Screens](https://developer.android.com/blog/topics/large-screens.md.txt)
+  - +3 ↩
+- [![View Meghan Mehta's profile](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z2r6wan.webp)](https://developer.android.com/blog/authors/meghan-mehta.md.txt) 18 Nov 2026 18 Nov 2026 ![](https://developer.android.com/static/blog/assets/0420_Compose_1_11_Strapi_812f851abd_WuQ5h.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [What's new in the Jetpack Compose November '26 release](https://developer.android.com/blog/posts/jetpack-compose-november-2026-release.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/jetpack-compose-november-2026-release.md.txt) The Jetpack Compose November '26 release is stable! This release brings version 1.13 across core Compose modules (see the full BOM mapping), introducing updates to text, graphics, layouts, performance, and more---along with a few important deprecations and behavior changes to be aware of.
+  [Meghan Mehta](https://developer.android.com/blog/authors/meghan-mehta.md.txt) • 10 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+- [![View Mekka Okereke's profile](https://developer.android.com/static/blog/assets/unnamed_32_974e21c6be_Z1qBCTw.webp)](https://developer.android.com/blog/authors/mekka-okereke.md.txt) 18 Nov 2026 18 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_163_Elevating_Adaptive_App_Quality_Blue_30a2165ec7_Z1hsFPv.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [Elevating apps: New adaptive quality standards on Google Play](https://developer.android.com/blog/posts/google-play-adaptive-quality-standards.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/google-play-adaptive-quality-standards.md.txt) To give users the premium experience they expect and ensure your apps shine across every screen size, Google Play is introducing new adaptive app quality requirements that go into effect April 2027.
+  [Mekka Okereke](https://developer.android.com/blog/authors/mekka-okereke.md.txt) • 4 min read
+  - [#Adaptive Games](https://developer.android.com/blog/topics/adaptive-games.md.txt)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps.md.txt)
+  - +1 ↩
 - [![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_1PpSPG.webp)](https://developer.android.com/blog/authors/breana-tate.md.txt) 17 Nov 2026 17 Nov 2026 ![](https://developer.android.com/static/blog/assets/1109_ABL_160_Ship_smarter_keep_rules_How_library_providers_can_unblock_app_level_DEX_code_optimization_1_44aba4f3cd_1kr2I.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
   ## [Ship smarter keep rules: How library providers can unblock app-level DEX code optimization](https://developer.android.com/blog/posts/ship-smarter-keep-rules-unblock-dex-optimization.md.txt)
@@ -130,28 +159,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   [arrow_forward](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills.md.txt) As Android developers, you have many choices when it comes to the agents, LLMs, tools, and command-line interfaces (CLI) you use for app development. Our goal is to help you build beautiful, high-quality Android apps, no matter how you choose to build.
   [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic.md.txt) • 4 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
-- [![View Pavlo Stavytskyi's profile](https://developer.android.com/static/blog/assets/pavlo_a4e2ec12e9_v4xs2.webp)](https://developer.android.com/blog/authors/pavlo-stavytskyi.md.txt)[![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)](https://developer.android.com/blog/authors/rebecca-franks.md.txt) 30 Sep 2026 30 Sep 2026 ![](https://developer.android.com/static/blog/assets/Compose_Carousel_Strapi_3_ca1ff69fce_Z1u412n.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
-
-  ## [How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33%](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct.md.txt)
-
-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct.md.txt) The team built an AI-native UI codebase that is 50% smaller than the original implementation, while achieving a 35% reduction in AI agent execution time, 32% fewer engineer-agent exchanges, and a 33% reduction in token cost.
-  [Pavlo Stavytskyi](https://developer.android.com/blog/authors/pavlo-stavytskyi.md.txt), [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks.md.txt) • 11 min read
-  - [#Compose-first](https://developer.android.com/blog/topics/compose-first.md.txt)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
-- [![View Sheenam Mittal's profile](https://developer.android.com/static/blog/assets/unnamed_24_1859332bf9_Z2nsiJr.webp)](https://developer.android.com/blog/authors/sheenam-mittal.md.txt) 29 Sep 2026 29 Sep 2026 ![](https://developer.android.com/static/blog/assets/ABL_0137_Strapi_1331188d3a_Z17ea85.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
-
-  ## [Driving growth on Google Play: The next era of subscriptions](https://developer.android.com/blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions.md.txt)
-
-  [arrow_forward](https://developer.android.com/blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions.md.txt) On Google Play, we are continuously expanding our subscription platform to help you drive growth, adapt to new business models, and meet your users exactly where they are.
-  [Sheenam Mittal](https://developer.android.com/blog/authors/sheenam-mittal.md.txt) • 4 min read
-  - [#Google Play subscriptions](https://developer.android.com/blog/topics/google-play-subscriptions.md.txt)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 28 Sep 2026 28 Sep 2026 ![](https://developer.android.com/static/blog/assets/0817_Booking_assistant_agentic_cloud_Strapi_36710f6e0c_hrRjy.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
-
-  ## [Build intelligent Android apps: In-app agentic workflows](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-in-app-agentic-workflows.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where you take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post you learned how to connect to the intelligence system using AppFunctions.
-  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 9 min read
-  - [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
@@ -165,24 +172,25 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Android](https://developer.android.com/blog/topics/android.md.txt)
 - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
 - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
-- [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
 - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+- [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
 - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
 - [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
 - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
 - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
+- [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
+- [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps.md.txt)
 - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
 - [#Wear OS](https://developer.android.com/blog/topics/wear-os.md.txt)
 - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
-- [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
 - [#R8](https://developer.android.com/blog/topics/r8.md.txt)
-- [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps.md.txt)
+- [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+- [#Google Play](https://developer.android.com/blog/topics/google-play.md.txt)
 - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development.md.txt)
 - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation.md.txt)
 - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os.md.txt)
 - [#AppFunctions](https://developer.android.com/blog/topics/app-functions.md.txt)
 - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk.md.txt)
-- [#Google Play](https://developer.android.com/blog/topics/google-play.md.txt)
 - [#Memory](https://developer.android.com/blog/topics/memory.md.txt)
 - [#Android Skills](https://developer.android.com/blog/topics/android-skills.md.txt)
 - [#Jetpack](https://developer.android.com/blog/topics/jetpack.md.txt)
@@ -190,12 +198,13 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#made by google](https://developer.android.com/blog/topics/made-by-google.md.txt)
 - [#Android Auto](https://developer.android.com/blog/topics/android-auto.md.txt)
 - [#Googlebook](https://developer.android.com/blog/topics/googlebook.md.txt)
+- [#Adaptive Games](https://developer.android.com/blog/topics/adaptive-games.md.txt)
 - [#Idling Resources](https://developer.android.com/blog/topics/idling-resources.md.txt)
 - [#identity](https://developer.android.com/blog/topics/identity.md.txt)
 - [#Nav3](https://developer.android.com/blog/topics/nav3.md.txt)
 - [#Now In Android](https://developer.android.com/blog/topics/now-in-android.md.txt)
 - [#Android 16](https://developer.android.com/blog/topics/android-16.md.txt)
-- [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+- [#Large Screens](https://developer.android.com/blog/topics/large-screens.md.txt)
 - [#beta](https://developer.android.com/blog/topics/beta.md.txt)
 - [#Generative AI](https://developer.android.com/blog/topics/generative-ai.md.txt)
 - [#Developer Preview](https://developer.android.com/blog/topics/developer-preview.md.txt)
@@ -238,16 +247,14 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
 - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
 - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
-- [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
 - [#Monetization](https://developer.android.com/blog/topics/monetization.md.txt)
 - [#authentication](https://developer.android.com/blog/topics/authentication)
 - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
-- [#Large Screens](https://developer.android.com/blog/topics/large-screens)
 - [#Layouts](https://developer.android.com/blog/topics/layouts)
 - [#Window Size Classes](https://developer.android.com/blog/topics/blog-topic)
 - [#usage-based billing GenAI apps](https://developer.android.com/blog/topics/usage-based-billing-gen-ai-apps)
 - [#Remote Compose](https://developer.android.com/blog/topics/remote-compose)
-- [#Adaptive Games](https://developer.android.com/blog/topics/adaptive-games)
+- [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
 Stay in the loop
 
 

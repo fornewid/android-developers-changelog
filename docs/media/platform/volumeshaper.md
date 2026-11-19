@@ -4,13 +4,15 @@ url: https://developer.android.com/media/platform/volumeshaper
 source: md.txt
 ---
 
-You can use a `https://developer.android.com/reference/android/media/VolumeShaper` in an audio app to perform
+> Documentation index: https://developer.android.com/media/platform/llms.txt
+
+You can use a `VolumeShaper` in an audio app to perform
 fade-ins, fade-outs, cross fades, ducking, and other short automated volume
 transitions. The `VolumeShaper` class is available in Android 8.0 (API level 26)
 and later.
 
 You create a `VolumeShaper` by calling `createVolumeShaper()` on an instance of
-`https://developer.android.com/reference/android/media/AudioTrack` or `https://developer.android.com/reference/android/media/MediaPlayer`. The
+`AudioTrack` or `MediaPlayer`. The
 `VolumeShaper` only acts on the audio produced by the AudioTrack or MediaPlayer
 that created it.
 
@@ -20,7 +22,7 @@ that created it.
 ## VolumeShaper.Configuration
 
 The behavior of a `VolumeShaper` is defined by its
-`https://developer.android.com/reference/android/media/VolumeShaper.Configuration`. The configuration specifies a
+`VolumeShaper.Configuration`. The configuration specifies a
 \*volume curve, interpolator type, *and* duration.\*
 
 ### Volume curve
@@ -29,7 +31,7 @@ The volume curve represents amplitude change over time. It is defined by a pair
 of float arrays, x\[\] and y\[\] that define a series of control points. Each (x, y)
 pair represents time and volume respectively. The arrays must be of equal length
 and contain at least 2 and no more than 16 values. (The maximum curve length is
-defined in `https://developer.android.com/reference/android/media/VolumeShaper.Configuration#getMaximumCurvePoints()`.)
+defined in `getMaximumCurvePoints()`.)
 
 The time coordinates are given over the interval \[0.0, 1.0\]. The first time
 point must be 0.0, the last must be 1.0, and the times must be monotonically
@@ -61,29 +63,19 @@ the audio output.
 
 ### Creating a configuration
 
-Before building a `VolumeShaper`, you must create an instance of `https://developer.android.com/reference/android/media/VolumeShaper.Configuration`. Do this using a
+Before building a `VolumeShaper`, you must create an instance of `VolumeShaper.Configuration`. Do this using a
 `VolumeShaper.Configuration.Builder()`:
 
-### Kotlin
 
 ```kotlin
 val config: VolumeShaper.Configuration = VolumeShaper.Configuration.Builder()
-        .setDuration(3000)
-        .setCurve(floatArrayOf(0f, 1f), floatArrayOf(0f, 1f))
-        .setInterpolatorType(VolumeShaper.Configuration.INTERPOLATOR_TYPE_LINEAR)
-        .build()
+    .setDuration(3000)
+    .setCurve(floatArrayOf(0f, 1f), floatArrayOf(0f, 1f))
+    .setInterpolatorType(VolumeShaper.Configuration.INTERPOLATOR_TYPE_LINEAR)
+    .build()
 ```
 
-### Java
-
-```java
-VolumeShaper.Configuration config =
-  new VolumeShaper.Configuration.Builder()
-      .setDuration(3000)
-      .setCurve(new float[] {0.f, 1.f}, new float[] {0.f, 1.f})
-      .setInterpolatorType(VolumeShaper.Configuration.INTERPOLATOR_TYPE_LINEAR)
-      .build();
-```
+<br />
 
 With no arguments the `VolumeShaper.Configuration.Builder` constructor returns a
 builder that creates a configuration with default settings:
@@ -103,19 +95,13 @@ with one second duration:
 To create a `VolumeShaper`, call `createVolumeShaper()` on an instance of the
 appropriate class, passing in a `VolumeShaper.Configuration`:
 
-### Kotlin
 
 ```kotlin
 volumeShaper = myMediaPlayer.createVolumeShaper(config)
 volumeShaper = myAudioTrack.createVolumeShaper(config)
 ```
 
-### Java
-
-```java
-volumeShaper = myMediaPlayer.createVolumeShaper(config);
-volumeShaper = myAudioTrack.createVolumeShaper(config);
-```
+<br />
 
 A single track or media player can have many shapers attached to it, and you can
 control each shaper separately. The outputs of all the shapers on a track or
@@ -131,7 +117,9 @@ is to start playing audio from silence and use a `VolumeShaper` to implement a
 fade-in when playback starts. Create a `VolumeShaper` that starts at 0 volume
 and fades up. For example:
 
-    setCurve(new float[] {0.f, 1.f}, new float[] {0.f, 1.f})
+```kotlin
+setCurve(new float[] {0.f, 1.f}, new float[] {0.f, 1.f})
+```
 
 Start playback and the shaper at the same time. This ensures that playback
 begins from silence and the volume ramps up to full volume. This is explained in
@@ -146,17 +134,12 @@ creating the shaper, the first invocation of `apply()` must specify the `PLAY`
 operation in order to start the shaper. This runs the curve from its first to
 last control points:
 
-### Kotlin
 
 ```kotlin
 shaper.apply(VolumeShaper.Operation.PLAY)
 ```
 
-### Java
-
-```java
-shaper.apply(VolumeShaper.Operation.PLAY);
-```
+<br />
 
 While the shaper is running you can issue alternating `apply()` calls specifying
 REVERSE and PLAY operations. This changes the direction of readout of the
@@ -187,30 +170,18 @@ Use the `replace()` method to change a `VolumeShaper`'s curve. This method takes
 a configuration, an operation, and a join parameter. You can call the
 `replace()` method at any time, while the shaper is running or after it expires:
 
-### Kotlin
 
 ```kotlin
 val newConfig = VolumeShaper.Configuration.Builder()
-        .setDuration(1000)
-        .setCurve(floatArrayOf(0f, 0.5f), floatArrayOf(0f, 1f))
-        .setInterpolatorType(VolumeShaper.Configuration.INTERPOLATOR_TYPE_LINEAR)
-        .build()
+    .setDuration(1000)
+    .setCurve(floatArrayOf(0f, 0.5f), floatArrayOf(0f, 1f))
+    .setInterpolatorType(VolumeShaper.Configuration.INTERPOLATOR_TYPE_LINEAR)
+    .build()
 val join = true
 shaper.replace(newConfig, VolumeShaper.Operation.PLAY, join)
 ```
 
-### Java
-
-```java
-VolumeShaper.Configuration newConfig =
-  new VolumeShaper.Configuration.Builder()
-    .setDuration(1000)
-    .setCurve(new float[] {0.f, 0.5f}, new float[] {0.f, 1.f})
-    .setInterpolatorType(VolumeShaper.Configuration.INTERPOLATOR_TYPE_LINEAR)
-    .build();
-boolean join = true;
-shaper.replace(newConfig, VolumeShaper.Operation.PLAY, join);
-```
+<br />
 
 When you call `replace()` while the shaper is running, it stops changing the
 volume and remains at its current value. Then the shaper tries to start the new

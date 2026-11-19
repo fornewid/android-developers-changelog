@@ -412,7 +412,7 @@ If your app is a third-party companion app and wants to access InCallService API
 app could do are:
 
 1. Declare MANAGE_ONGOING_CALLS permission in your manifest
-2. Associate with a physical wearable device via the `CompanionDeviceManager` API as a companion app. See: https://developer.android.com/guide/topics/connectivity/companion-device-pairing
+2. Associate with a physical wearable device via the `CompanionDeviceManager` API as a companion app. See [Companion device pairing](https://developer.android.com/develop/connectivity/bluetooth/companion-device-pairing.md.txt).
 3. Implement this InCallService with BIND_INCALL_SERVICE permission
 
 <br />
@@ -482,5 +482,7 @@ For example:
      NotificationManager.class);
  notificationManager.notify(YOUR_CHANNEL_ID, YOUR_TAG, YOUR_ID, builder.build());
 ```
+
+
 
 ````

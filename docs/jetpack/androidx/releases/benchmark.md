@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/benchmark
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Benchmark
 
-[User Guide](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview) [Code Sample](https://github.com/android/performance-samples) [Codelab](https://developer.android.com/codelabs/android-macrobenchmark-inspect) Accurately measure your code's performance within Android Studio.
+[User Guide](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview.md.txt) [Code Sample](https://github.com/android/performance-samples) [Codelab](https://developer.android.com/codelabs/android-macrobenchmark-inspect) Accurately measure your code's performance within Android Studio.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 07, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0) | - | - | [1.6.0-alpha01](https://developer.android.com/jetpack/androidx/releases/benchmark#1.6.0-alpha01) |
+| November 18, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/benchmark.md.txt#1.5.0) | - | - | [1.6.0-alpha02](https://developer.android.com/jetpack/androidx/releases/benchmark.md.txt#1.6.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -21,10 +23,10 @@ information.
 
 ### Macrobenchmark
 
-To use [Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview)
+To use [Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview.md.txt)
 in your project, add the following dependencies to your `build.gradle` file for
 your
-[macrobenchmark module](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview#setup-macrobenchmark):
+[macrobenchmark module](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview.md.txt#setup-macrobenchmark):
 
 ### Groovy
 
@@ -44,10 +46,10 @@ dependencies {
 
 ### Microbenchmark
 
-To use [Microbenchmark](https://developer.android.com/topic/performance/benchmarking/microbenchmark-overview)
+To use [Microbenchmark](https://developer.android.com/topic/performance/benchmarking/microbenchmark-overview.md.txt)
 in your project, add the following dependencies to your `build.gradle` file for
 your
-[microbenchmark module](https://developer.android.com/topic/performance/benchmarking/microbenchmark-write#full-setup):
+[microbenchmark module](https://developer.android.com/topic/performance/benchmarking/microbenchmark-write.md.txt#full-setup):
 
 ### Groovy
 
@@ -83,7 +85,7 @@ android {
 
 The Microbenchmark library also provides a Gradle plugin to use with your microbenchmark module.
 This plugin sets build configuration defaults for the module, sets up
-[benchmark output copy to the host](https://developer.android.com/topic/performance/benchmarking/microbenchmark-overview),
+[benchmark output copy to the host](https://developer.android.com/topic/performance/benchmarking/microbenchmark-overview.md.txt),
 and provides the [`./gradlew lockClocks` task](https://developer.android.com/performance/benchmarking/microbenchmark-overview#lock-clocks).
 
 To use the plugin, include the following line in the \`plugins\` block in your top-level
@@ -138,6 +140,31 @@ for more information.
 
 ## Version 1.6
 
+### Version 1.6.0-alpha02
+
+November 18, 2026
+
+`androidx.benchmark:benchmark-*:1.6.0-alpha02` is released. Version 1.6.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/988ac9734e8223273eb7f186ee1639ee68deb025..2ecbd43c9652f042f7c7af3b050780d625f00f0e/benchmark).
+
+**Bug Fixes**
+
+- Add support for toggling categories when enabling in-process tracing from benchmarks for a target process.
+  `PerfettoTraceRule` now supports enabling optional categories for in-process tracing. These categories are used by the `TraceDriver` instance in the target process. ([I663ed](https://android-review.googlesource.com/#/q/I663edf8ed922e0dda639777a29095d73a2ef77bf), [b/565040771](https://issuetracker.google.com/issues/565040771))
+
+- Fixed thermal throttle logic to reset main thread deadlines after the cooldown sleep completes to avoid premature time limit errors. ([Ibb2f02](https://android-review.googlesource.com/q/Ibb2f0275c474dc019401af0d3c63ff0f87e5fd4d))
+
+- Swapped restricted API surface labels in metalava configuration to correctly align with atomic and non-atomic group definitions. ([I0c563c](https://android-review.googlesource.com/q/I0c563cb05d776a3e6408ad28ab489aaf93711016), [b/582384448](https://issuetracker.google.com/issues/582384448))
+
+- Updated `PerfettoCapture` to wait for target process exit using `am force-stop` to ensure process stability during benchmarks. ([If8a631](https://android-review.googlesource.com/q/If8a631f76abd293fe850c91c27091620b09462e3))
+
+- Buffered file streams in `PerfettoOutput` to reduce total write counts and prevent file system exhaustion and timeouts. ([I1c828c](https://android-review.googlesource.com/q/I1c828c54e47d1a01b3e804a373aa2002e6d3db03))
+
+- Updated AndroidX test library dependencies and fixed javadoc warning configurations to maintain build stability. ([Ia7e3ff](https://android-review.googlesource.com/q/Ia7e3fff8d5728f997f0a54f7ada1c2b0c68eb650))
+
+- Transitioned build environment to JDK 25 and added necessary workarounds for compatibility, including JSpecify annotation removals and native access flags. ([I88704c](https://android-review.googlesource.com/q/I88704cffb26e131b56672dfd90d44ecb1e159597), [b/559834169](https://issuetracker.google.com/issues/559834169), [b/445484245](https://issuetracker.google.com/issues/445484245))
+
+- Ensured target packages are killed after in-process tracing is enabled when the process was not previously alive to maintain consistent cold-start tracing states. ([Icef99b](https://android-review.googlesource.com/q/Icef99b00939f2bcd42d7ae16e22f04f30eeda486), [b/568496084](https://issuetracker.google.com/issues/568496084))
+
 ### Version 1.6.0-alpha01
 
 October 07, 2026
@@ -157,9 +184,9 @@ October 07, 2026
 - Fixed a bug in microbenchmark where method trace capture was sometimes overcautiously skipped to avoid ANRs. ([Ifc307](https://android-review.googlesource.com/#/q/Ifc307821343e3fbe0a3d7db6d8eae68a99f332be))
 - Fix Baseline profile capture for processes not using a `:<suffix>` naming pattern. ([I512ab](https://android-review.googlesource.com/#/q/I512abca799b154efb9a6bba98eda3b288e28cd04))
 - Profiler trace links are now reported under a separate 'Profiling Traces' section in IDE summaries. ([Id639f](https://android-review.googlesource.com/#/q/Id639fd6bda041a358372de5fd80c53d53a302260))
-- Fix a bug in virtual file flushing which would result in `Unable to flush profiles for <packagename>`. ([I48ccc](https://android-review.git.corp.google.com/q/I48cccda394d386d1335025516788f7cdfa1aaa36))
-- Fix synchronization in method traces embedded in system trace. [Ifd2e33](https://android-review.googlesource.com/q/Ifd2e33b235092d731bddb31ad7a0e56c98dd7bfd) [b/537688349](https://buganizer.corp.google.com/issues/537688349)
-- Baseline Profile Gradle Plugin - Improved `CollectBaselineProfileTask` to support finding `test-result.pb` files in subdirectories, enabling compatibility with the new built-in test platform. [Id9c488](https://android-review.googlesource.com/q/Id9c488dd0388a206cd0ac98f49cee21c37c7878d) [b/543799367](https://buganizer.corp.google.com/issues/543799367)
+- Fix a bug in virtual file flushing which would result in `Unable to flush profiles for <packagename>`. ([I48ccc](https://android-review.googlesource.com/q/I48cccda394d386d1335025516788f7cdfa1aaa36))
+- Fix synchronization in method traces embedded in system trace. [Ifd2e33](https://android-review.googlesource.com/q/Ifd2e33b235092d731bddb31ad7a0e56c98dd7bfd) [b/537688349](https://issuetracker.google.com/issues/537688349)
+- Baseline Profile Gradle Plugin - Improved `CollectBaselineProfileTask` to support finding `test-result.pb` files in subdirectories, enabling compatibility with the new built-in test platform. [Id9c488](https://android-review.googlesource.com/q/Id9c488dd0388a206cd0ac98f49cee21c37c7878d) [b/543799367](https://issuetracker.google.com/issues/543799367)
 
 ## Version 1.5
 
@@ -263,19 +290,20 @@ January 28, 2026
 
 - Add partial support for baseline profile generation for Kotlin multi-platform modules. Typically dependencies on profiles can be defined using the `baselineProfile` Gradle configuration in the dependencies block, but this doesn't currently work for KMP modules.
 
-      kotlin {
-        androidLibrary {
-          namespace = "com.example.namespace"
-          compileSdk = 36
-        }
-        sourceSets {
-          androidMain.dependencies {
-            // THIS DOES NOT WORK
-            // baselineProfile(":yourProducerProject")
-          }
-        }
+  ```kotlin
+  kotlin {
+    androidLibrary {
+      namespace = "com.example.namespace"
+      compileSdk = 36
+    }
+    sourceSets {
+      androidMain.dependencies {
+        // THIS DOES NOT WORK
+        // baselineProfile(":yourProducerProject")
       }
-
+    }
+  }
+  ```
 - Instead you should be defining your dependencies using the `baselineProfile` \*\*extension. ([Ie19c4](https://android-review.googlesource.com/#/q/Ie19c4535ebe25ead09e22d9a5e7654c2a5d0b627))
 
       plugins {
@@ -311,8 +339,8 @@ December 17, 2025
 
 `androidx.benchmark:benchmark-*:1.5.0-alpha01` is released. Version 1.5.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/53b1ca0749c57eeb0aaab2bef8b2afaede083710..ec985eed3cba8444e5aaa52a748333397a1298f3/benchmark).
 
-- Macrobenchmark 1.5 uses `UiAutomator` 2.4 to simplify interacting with the measured application. The [MacrobenchmarkScope](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/MacrobenchmarkScope) object now extends [UiAutomatorTestScope](https://developer.android.com/reference/kotlin/androidx/test/uiautomator/UiAutomatorTestScope), which allows you to use the modern `UiAutomator` APIs such as `onElement { ... }.click()`.
-- For more information on `UiAutomator` 2.4, see [the docs](https://developer.android.com/training/testing/other-components/ui-automator).
+- Macrobenchmark 1.5 uses `UiAutomator` 2.4 to simplify interacting with the measured application. The [MacrobenchmarkScope](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/MacrobenchmarkScope.md.txt) object now extends [UiAutomatorTestScope](https://developer.android.com/reference/kotlin/androidx/test/uiautomator/UiAutomatorTestScope.md.txt), which allows you to use the modern `UiAutomator` APIs such as `onElement { ... }.click()`.
+- For more information on `UiAutomator` 2.4, see [the docs](https://developer.android.com/training/testing/other-components/ui-automator.md.txt).
 
 **New Features**
 
@@ -348,13 +376,13 @@ July 30, 2025
 **Microbenchmark**
 
 - Moved Gradle tasks `lockClocks` and `unlockClocks` to be on benchmark projects, instead of at the top level to respect Gradle project isolation.
-- Refactored `BenchmarkRule` to be built on top of coroutines, and support better `yield()` behavior. This should significantly reduce the risk of ANRs during benchmark runs, especially long CI runs. Note: UI Benchmarks should run with [`measureRepeatedOnMainThread`](https://developer.android.com/reference/kotlin/androidx/benchmark/junit4/BenchmarkRule#(androidx.benchmark.junit4.BenchmarkRule).measureRepeatedOnMainThread(kotlin.Function1))
+- Refactored `BenchmarkRule` to be built on top of coroutines, and support better `yield()` behavior. This should significantly reduce the risk of ANRs during benchmark runs, especially long CI runs. Note: UI Benchmarks should run with [`measureRepeatedOnMainThread`](https://developer.android.com/reference/kotlin/androidx/benchmark/junit4/BenchmarkRule.md.txt#(androidx.benchmark.junit4.BenchmarkRule).measureRepeatedOnMainThread(kotlin.Function1))
 
 **Macrobenchmark**
 
 - Added workaround on API 34+ for `CompilationMode.None()` would have inconsistent performance due to ART's verify now partly compiling apps after first launch.
 - Experimental feature - Startup Insights can highlight certain common issues in a startup Macrobenchmark by passing `MacrobenchmarkRule(..., experimentalConfig = ExperimentalConfig(StartupInsightsConfig(isEnabled = true)))`.
-- Added [ArtMetric](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/ArtMetric) which can be used to detect JIT Compilation, and unoptimized class loading - both useful for validating Baseline Profile optimizations.
+- Added [ArtMetric](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/ArtMetric.md.txt) which can be used to detect JIT Compilation, and unoptimized class loading - both useful for validating Baseline Profile optimizations.
 
 **Baseline Profiles**
 
@@ -362,7 +390,7 @@ July 30, 2025
 
 **Other Changes**
 
-- [TraceProcessor](https://developer.android.com/reference/androidx/benchmark/traceprocessor/TraceProcessor) has been pulled out into its own library (`androidx.benchmark:benchmark-traceprocessor`) so that it can be used outside of `Macrobenchmark` metrics, in other cases. It can also be run on Desktop JVM by defining your own [ServerLifecycleManager](https://developer.android.com/reference/androidx/benchmark/traceprocessor/ServerLifecycleManager).
+- [TraceProcessor](https://developer.android.com/reference/androidx/benchmark/traceprocessor/TraceProcessor.md.txt) has been pulled out into its own library (`androidx.benchmark:benchmark-traceprocessor`) so that it can be used outside of `Macrobenchmark` metrics, in other cases. It can also be run on Desktop JVM by defining your own [ServerLifecycleManager](https://developer.android.com/reference/androidx/benchmark/traceprocessor/ServerLifecycleManager.md.txt).
 
 ### Version 1.4.0-rc01
 
@@ -572,7 +600,7 @@ October 2, 2024
 **Bug Fixes**
 
 - `BaselineProfileRule` now collects profiles for multi-process apps by signaling each running process at the end of the block to dump profiles. If a profile based compilation never successfully finds a process to broadcast to, the compilation will fail, as it's unexpected to have profile data within. Additionally, added an instrumentation argument to control dump wait duration: `androidx.benchmark.saveProfileWaitMillis` ([I0f519](https://android-review.googlesource.com/#/q/I0f51962266d3771ef72fad1a8c368316d8650694), [b/366231469](https://issuetracker.google.com/issues/366231469))
-- [From Benchmark `1.3.2`](https://developer.android.com/jetpack/androidx/releases/benchmark#1.3.2): Fixed Firebase Test Lab (FTL) being unable to pull Baseline Profile or Macrobenchmark result files from the Baseline Profile Gradle Plugin. ([I2f678](https://android-review.googlesource.com/#/q/I2f6789d81a32d04df976437c2be426cbe04488ac), [b/285187547](https://issuetracker.google.com/issues/285187547))
+- [From Benchmark `1.3.2`](https://developer.android.com/jetpack/androidx/releases/benchmark.md.txt#1.3.2): Fixed Firebase Test Lab (FTL) being unable to pull Baseline Profile or Macrobenchmark result files from the Baseline Profile Gradle Plugin. ([I2f678](https://android-review.googlesource.com/#/q/I2f6789d81a32d04df976437c2be426cbe04488ac), [b/285187547](https://issuetracker.google.com/issues/285187547))
 
 To use FTL apply the plugin to the baseline profile module in the plugin block, with:
 
@@ -624,20 +652,22 @@ September 18, 2024
 
 To enable in a startup benchmark:
 
-      @Test
-      fun startup {
-          macrobenchmarkRule.measureRepeated(
-              ...
-              packageName = "com.example.my.application.id"
-              metrics = listOf(StartupTimingMetric()),
-              iterations = 5,
-              startupMode = StartupMode.COLD,
-              compilationMode = CompilationMode.None(),
-              experimentalConfig = ExperimentalConfig(startupInsightsConfig = StartupInsightsConfig(isEnabled = true))
-              ) {
-              scope.startActivityAndWait(...)
-          }
+```kotlin
+  @Test
+  fun startup {
+      macrobenchmarkRule.measureRepeated(
+          ...
+          packageName = "com.example.my.application.id"
+          metrics = listOf(StartupTimingMetric()),
+          iterations = 5,
+          startupMode = StartupMode.COLD,
+          compilationMode = CompilationMode.None(),
+          experimentalConfig = ExperimentalConfig(startupInsightsConfig = StartupInsightsConfig(isEnabled = true))
+          ) {
+          scope.startActivityAndWait(...)
       }
+  }
+```
 
 Then running your startup benchmark will analyze the trace to look for common problems, and print them after metrics to Studio test output in the benchmark tab, e.g.:
 
@@ -800,7 +830,7 @@ August 21, 2024
 - Added experimental `MacrobenchmarkRule#measureRepeated` variant which takes a custom `PerfettoConfig` for fully customized Perfetto trace recording. Note that incorrectly configured configs may cause built in Metric classes to fail. ([Idfd3d](https://android-review.googlesource.com/#/q/Idfd3d0c071005f04f8be9975c6379e6095416775), [b/309841164](https://issuetracker.google.com/issues/309841164), [b/304038384](https://issuetracker.google.com/issues/304038384))
 - Cancel background dexopt jobs before running a Macrobenchmark to reduce interference. ([I989ed](https://android-review.googlesource.com/#/q/I989ed4f9e8384734f2fd16da7d6817f8dd1ee6cd))
 - Macrobenchmark now waits for 1 second for the target application to flush an ART profile (previously it waited for 500 ms). ([I85a50](https://android-review.googlesource.com/#/q/I85a50e775f8b997c9a69c7a40d1e2b59561a10b1), [b/316082056](https://issuetracker.google.com/issues/316082056))
-- [TraceSectionMetric](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/TraceSectionMetric) overhaul
+- [TraceSectionMetric](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/TraceSectionMetric.md.txt) overhaul
   - **Note** : `TraceSectionMetric` changes below can affect outputs in CI usage, and may create discontinuities, or break parsing
   - Sum is now the default, as most usage of this metric is for repeated events, and first would discard data in these cases
   - Changed to be more customizable, with more available modes
@@ -1076,7 +1106,7 @@ October 18, 2023
 
 **Baseline Profiles**
 
-- New [Baseline Profile Gradle Plugin](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile#android%20studio%20hedgehot) automates capturing and including baseline profiles in your test and build workflow.
+- New [Baseline Profile Gradle Plugin](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile.md.txt#android%20studio%20hedgehot) automates capturing and including baseline profiles in your test and build workflow.
 - `BaselineProfileRule.collect` now stable, a streamlined and simplified version of the previous experimental `BaselineProfileRule.collectBaselineProfile` API
   - Just specify `packageName`, and drive your app
 - For libraries generating baseline profiles, you can now filter the rules generated either in code (`BaselineProfileRule.collect` argument), or even more simply in the gradle plugin
@@ -1087,21 +1117,21 @@ October 18, 2023
 
 - Compilation
   - Macrobenchmark now correctly fully resets compilation state for each compile - this requires reinstalling the APK prior to Android 14, so benchmarking on Android 14+ is strongly recommended if you want to persist state (like user login) in what's being measured.
-  - You can also work around this by controlling app compilation separately, and skipping compilation with [`CompilationMode.Ignore()`](https://developer.android.com/reference/androidx/benchmark/macro/CompilationMode.Ignore) or [instrumentation argument](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-instrumentation-args#compilation-enabled)
+  - You can also work around this by controlling app compilation separately, and skipping compilation with [`CompilationMode.Ignore()`](https://developer.android.com/reference/androidx/benchmark/macro/CompilationMode.Ignore.md.txt) or [instrumentation argument](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-instrumentation-args.md.txt#compilation-enabled)
 - Instrumentation Arguments
 
-  - Support for [`androidx.benchmark.dryRunMode.enable`](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-instrumentation-args#dryrunmode-enable) instrumentation argument, (already available in microbenchmark) for quicker validation runs (e.g. when creating the benchmark, or in presubmit)
+  - Support for [`androidx.benchmark.dryRunMode.enable`](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-instrumentation-args.md.txt#dryrunmode-enable) instrumentation argument, (already available in microbenchmark) for quicker validation runs (e.g. when creating the benchmark, or in presubmit)
   - Support for `androidx.benchmark.profiling.mode=StackSampling` and `MethodTracing`.
-  - Added [`androidx.benchmark.enabledRules`](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-instrumentation-args#enabled-rules) to allow runtime filtering baseline profile vs macrobenchmark rule tests
-  - Added [`androidx.benchmark.perfettoSdkTracing.enable`](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-instrumentation-args#perfettoSdkTracing) argument to enable tracing with tracing-perfetto, e.g. Compose recomposition tracing. Note that when used with `StartupMode.COLD`, timing will be significantly affected as the tracing library is loaded and enabled during app startup.
+  - Added [`androidx.benchmark.enabledRules`](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-instrumentation-args.md.txt#enabled-rules) to allow runtime filtering baseline profile vs macrobenchmark rule tests
+  - Added [`androidx.benchmark.perfettoSdkTracing.enable`](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-instrumentation-args.md.txt#perfettoSdkTracing) argument to enable tracing with tracing-perfetto, e.g. Compose recomposition tracing. Note that when used with `StartupMode.COLD`, timing will be significantly affected as the tracing library is loaded and enabled during app startup.
 - Requirements
 
   - Macrobenchmark now requires `ProfileInstaller` 1.3.0 or greater in the target app, to enable profile capture / reset, and shader cache clearing.
-- New Experimental [Metric APIs](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics)
+- New Experimental [Metric APIs](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics.md.txt)
 
-  - Added experimental [`TraceSectionMetric`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/TraceSectionMetric), which allows for extracting simple timing from [`trace("") {}`](https://developer.android.com/topic/performance/tracing/custom-events) blocks in your app, or [TraceMetric](https://developer.android.com/reference/androidx/benchmark/macro/TraceMetric) for leveraging the full query capability of Perfetto `TraceProcessor`.
-  - Added experimental [`PowerMetric`](https://developer.android.com/reference/androidx/benchmark/macro/PowerMetric) to capture power usage information
-  - Added experimental [`MemoryCountersMetric`](https://developer.android.com/reference/androidx/benchmark/macro/MemoryCountersMetric) to count page faults
+  - Added experimental [`TraceSectionMetric`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/TraceSectionMetric.md.txt), which allows for extracting simple timing from [`trace("") {}`](https://developer.android.com/topic/performance/tracing/custom-events.md.txt) blocks in your app, or [TraceMetric](https://developer.android.com/reference/androidx/benchmark/macro/TraceMetric.md.txt) for leveraging the full query capability of Perfetto `TraceProcessor`.
+  - Added experimental [`PowerMetric`](https://developer.android.com/reference/androidx/benchmark/macro/PowerMetric.md.txt) to capture power usage information
+  - Added experimental [`MemoryCountersMetric`](https://developer.android.com/reference/androidx/benchmark/macro/MemoryCountersMetric.md.txt) to count page faults
   - Added experimental [`PerfettoTraceProcessor`](https://developer.android.com/reference/androidx/benchmark/perfetto/PerfettoTraceProcessor) API, which is used internally to extract metrics from System traces (aka Perfetto traces)
 - Fixes
 
@@ -1119,8 +1149,8 @@ October 18, 2023
 - Features
   - Profiling was moved to a separate phase, after other metrics, so one test run can display both accurate timing *and* profiling results.
 - Experimental APIs
-  - Added experimental [`MicrobenchmarkConfig`](https://developer.android.com/reference/kotlin/androidx/benchmark/MicrobenchmarkConfig) API for defining custom metrics and configuring tracing and profiling. Can be used to capture method traces, or capture tracepoints (but be aware of tracing overhead).
-  - Added experimental APIs for controlling [`BenchmarkState`](https://developer.android.com/reference/kotlin/androidx/benchmark/BenchmarkState) separately from `BenchmarkRule`, without JUnit
+  - Added experimental [`MicrobenchmarkConfig`](https://developer.android.com/reference/kotlin/androidx/benchmark/MicrobenchmarkConfig.md.txt) API for defining custom metrics and configuring tracing and profiling. Can be used to capture method traces, or capture tracepoints (but be aware of tracing overhead).
+  - Added experimental APIs for controlling [`BenchmarkState`](https://developer.android.com/reference/kotlin/androidx/benchmark/BenchmarkState.md.txt) separately from `BenchmarkRule`, without JUnit
   - Added experimental [`PerfettoTrace`](https://developer.android.com/reference/androidx/benchmark/perfetto/PerfettoTrace) record to enable capturing Perfetto traces, with custom configuration, separate from benchmark APIs.
 - Fixes
   - Workaround missing leading whitespaces in Android Studio benchmark output.
@@ -1382,8 +1412,8 @@ November 9, 2022
 **API Changes**
 
 - Adds `PowerMetric` API for measuring energy and power in Macrobenchmarks. ([Ife601](https://android-review.googlesource.com/#/q/Ife60176ae827bef14c86b1604b146e7b1208c439), [b/220183779](https://issuetracker.google.com/issues/220183779))
-- Fixed `MacrobenchmarkScope.dropShaderCache()` to actually drop the shader cache. This removes roughly 20ms of noise from `StartupMode.COLD` benchmarks, as shaders are now consistently cleared each iteration. Previously, `Partial` compilation using warmup iterations would report incorrectly fast numbers, as shader caching was more likely to happen during warmup. This fix requires either a rooted device, or using `profileinstaller:1.3.0-alpha02` in the target app. For `ProfileInstaller` library's API changes, please refer to [ProfileInstaller 1.30-alpha02](https://developer.android.com/jetpack/androidx/releases/profileinstaller#1.3.0-alpha02) page. ([Ia5171](https://android-review.googlesource.com/#/q/Ia5171b0f40dd8ce6f64f5ccf0a33281a4d8b121e), [b/231455742](https://issuetracker.google.com/issues/231455742))
-- Added `TraceSectionMode("label", Mode.Sum)`, allowing measurement of total time spent on multiple trace sections with the same label. For instance, `TraceSectionMetric("inflate", Mode.Sum)` will report a metric `inflateMs` for the total time in a macrobenchmark spent on inflation. Also removed API 29 requirement, as `TraceSectionMetric` works together with `androidx.tracing.Trace` back to lower API levels, with the use of [`forceEnableAppTracing`](https://developer.android.com/reference/androidx/tracing/Trace#forceEnableAppTracing()) within the target app. ([Id7b68](https://android-review.googlesource.com/#/q/Id7b68e23f5ded4d20ab21771dbf9eb96d9dcfdb7), [b/231455742](https://issuetracker.google.com/issues/231455742))
+- Fixed `MacrobenchmarkScope.dropShaderCache()` to actually drop the shader cache. This removes roughly 20ms of noise from `StartupMode.COLD` benchmarks, as shaders are now consistently cleared each iteration. Previously, `Partial` compilation using warmup iterations would report incorrectly fast numbers, as shader caching was more likely to happen during warmup. This fix requires either a rooted device, or using `profileinstaller:1.3.0-alpha02` in the target app. For `ProfileInstaller` library's API changes, please refer to [ProfileInstaller 1.30-alpha02](https://developer.android.com/jetpack/androidx/releases/profileinstaller.md.txt#1.3.0-alpha02) page. ([Ia5171](https://android-review.googlesource.com/#/q/Ia5171b0f40dd8ce6f64f5ccf0a33281a4d8b121e), [b/231455742](https://issuetracker.google.com/issues/231455742))
+- Added `TraceSectionMode("label", Mode.Sum)`, allowing measurement of total time spent on multiple trace sections with the same label. For instance, `TraceSectionMetric("inflate", Mode.Sum)` will report a metric `inflateMs` for the total time in a macrobenchmark spent on inflation. Also removed API 29 requirement, as `TraceSectionMetric` works together with `androidx.tracing.Trace` back to lower API levels, with the use of [`forceEnableAppTracing`](https://developer.android.com/reference/androidx/tracing/Trace.md.txt#forceEnableAppTracing()) within the target app. ([Id7b68](https://android-review.googlesource.com/#/q/Id7b68e23f5ded4d20ab21771dbf9eb96d9dcfdb7), [b/231455742](https://issuetracker.google.com/issues/231455742))
 
 **Bug Fixes**
 
@@ -1428,19 +1458,23 @@ September 21, 2022
 
 **New Features**
 
-- Add support for `dryRunMode.enable` instrumentation argument to macrobenchmark (already available in micro) for faster local development, and validating app automation (e.g. in presubmit). This overrides iterations to 1, skips compilation, suppresses all [configuration errors](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview#configuration-errors), and disables measurement .json file output. ([Ib51b4](https://android-review.googlesource.com/#/q/Ib51b446731deef7aec7ddd604f0f701e1b0d7feb), [b/175149857](https://issuetracker.google.com/issues/175149857))
+- Add support for `dryRunMode.enable` instrumentation argument to macrobenchmark (already available in micro) for faster local development, and validating app automation (e.g. in presubmit). This overrides iterations to 1, skips compilation, suppresses all [configuration errors](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview.md.txt#configuration-errors), and disables measurement .json file output. ([Ib51b4](https://android-review.googlesource.com/#/q/Ib51b446731deef7aec7ddd604f0f701e1b0d7feb), [b/175149857](https://issuetracker.google.com/issues/175149857))
 
   On Gradle command line:
 
-      ./gradlew macrobenchmark:cC -P android.testInstrumentationRunnerArguments.androidx.benchmark.dryRunMode.enable=true
+  ```bash
+  ./gradlew macrobenchmark:cC -P android.testInstrumentationRunnerArguments.androidx.benchmark.dryRunMode.enable=true
+  ```
 
   In build.gradle:
 
-      android {
-          defaultConfig {
-              testInstrumentationRunnerArgument 'androidx.benchmark.dryRunMode.enable', 'true'
-          }
+  ```kotlin
+  android {
+      defaultConfig {
+          testInstrumentationRunnerArgument 'androidx.benchmark.dryRunMode.enable', 'true'
       }
+  }
+  ```
 
 **Bug Fixes**
 
@@ -1489,15 +1523,19 @@ July 27, 2022
 
   E.g. in Your macrobenchmark's build.gradle:
 
-      android {
-          defaultConfig {
-              testInstrumentationRunnerArgument 'androidx.benchmark.enabledRules', 'BaselineProfile'
-          }
+  ```groovy
+  android {
+      defaultConfig {
+          testInstrumentationRunnerArgument 'androidx.benchmark.enabledRules', 'BaselineProfile'
       }
+  }
+  ```
 
   Or from the Gradle command line:
 
-      ./gradlew macrobenchmark:cC -P android.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
+  ```bash
+  ./gradlew macrobenchmark:cC -P android.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
+  ```
 
 **API Changes**
 
@@ -1540,12 +1578,12 @@ June 15, 2022
 
 **Important changes since 1.0.0**
 
-- Support for Jetpack Macrobenchmarks, which allows you to measure whole-app interactions like [startup](https://developer.android.com/reference/androidx/benchmark/macro/StartupTimingMetric) and [scrolling](https://developer.android.com/reference/androidx/benchmark/macro/FrameTimingMetric), provides the [ability to capture traces](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics) \& [measure trace sections](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics#trace-section).
+- Support for Jetpack Macrobenchmarks, which allows you to measure whole-app interactions like [startup](https://developer.android.com/reference/androidx/benchmark/macro/StartupTimingMetric.md.txt) and [scrolling](https://developer.android.com/reference/androidx/benchmark/macro/FrameTimingMetric.md.txt), provides the [ability to capture traces](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics.md.txt) \& [measure trace sections](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics.md.txt#trace-section).
 
 - Support for [Baseline Profiles](https://d.android.com/baselineprofiles)
 
-  - [`CompilationMode.Partial`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/CompilationMode.Partial) to measure the effectiveness of Baseline Profiles.
-  - [`@BaselineProfileRule`](https://developer.android.com/reference/androidx/benchmark/macro/junit4/BaselineProfileRule) to automatically generate Baseline profiles for a given critical user journey.
+  - [`CompilationMode.Partial`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/CompilationMode.Partial.md.txt) to measure the effectiveness of Baseline Profiles.
+  - [`@BaselineProfileRule`](https://developer.android.com/reference/androidx/benchmark/macro/junit4/BaselineProfileRule.md.txt) to automatically generate Baseline profiles for a given critical user journey.
 - Support for Allocation metrics \& [profiling](https://developer.android.com/benchmark#profiling) during Microbenchmark runs.
 
 ### Version 1.1.0-rc03
@@ -1588,8 +1626,9 @@ May 11, 2022
 
   Or from the Gradle command line:
 
-      ./gradlew macrobenchmark:cC -P android.testInstrumentationRunnerArguments.androidx.benchmark.compilation.enabled=false
-
+  ```bash
+  ./gradlew macrobenchmark:cC -P android.testInstrumentationRunnerArguments.androidx.benchmark.compilation.enabled=false
+  ```
 - Made it possible to share a module between macrobenchmarks and baseline profile generating tests by adding `androidx.benchmark.enabledRules` instrumentation argument. Pass in 'Macrobenchmark', or 'BaselineProfile' to just run one type of test, e.g. when generating `BaselineProfiles` on an emulator. ([I756b7](https://android-review.googlesource.com/#/q/I756b7695adba25f31ca31a6408b14c8aeedfdf6a), [b/230371561](https://issuetracker.google.com/issues/230371561))
 
   E.g. in Your macrobenchmark's build.gradle:
@@ -1602,7 +1641,9 @@ May 11, 2022
 
   Or from the Gradle command line:
 
-      ./gradlew macrobenchmark:cC -P android.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
+  ```bash
+  ./gradlew macrobenchmark:cC -P android.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
+  ```
 
 ### Version 1.1.0-rc01
 
@@ -1634,7 +1675,7 @@ March 23, 2022
 
 **Bug Fixes**
 
-- Kill package after skipping profile installation when using [`CompilationMode.None`](https://developer.android.com/reference/androidx/benchmark/macro/CompilationMode.None). ([aosp/1991373](https://android-review.googlesource.com/c/platform/frameworks/support/+/1991373))
+- Kill package after skipping profile installation when using [`CompilationMode.None`](https://developer.android.com/reference/androidx/benchmark/macro/CompilationMode.None.md.txt). ([aosp/1991373](https://android-review.googlesource.com/c/platform/frameworks/support/+/1991373))
 - Fixed an issue where Macrobenchmarks is unable to collect startup metrics when using`StartupMode.COLD`. ([aosp/2012227](https://android-review.googlesource.com/c/platform/frameworks/support/+/2012227) [b/218668335](https://issuetracker.google.com/issues/218668335))
 
 ### Version 1.1.0-beta04
@@ -1678,29 +1719,33 @@ February 9, 2022
 
   For e.g.
 
-      @Test
-      fun collectBaselineProfile() {
-          baselineRule.collectBaselineProfile(
-              packageName = PACKAGE_NAME,
-              setupBlock = {
-                  startActivityAndWait()
-              },
-              profileBlock = {
-                  // ...
-              }
-          )
-      }
+  ```kotlin
+  @Test
+  fun collectBaselineProfile() {
+      baselineRule.collectBaselineProfile(
+          packageName = PACKAGE_NAME,
+          setupBlock = {
+              startActivityAndWait()
+          },
+          profileBlock = {
+              // ...
+          }
+      )
+  }
+  ```
 
-      @Test
-      fun collectBaselineProfile() {
-          baselineRule.collectBaselineProfile(
-              packageName = PACKAGE_NAME,
-              profileBlock = {
-                  startActivityAndWait()
-                  // ...
-              }
-          )
-      }
+  ```kotlin
+  @Test
+  fun collectBaselineProfile() {
+      baselineRule.collectBaselineProfile(
+          packageName = PACKAGE_NAME,
+          profileBlock = {
+              startActivityAndWait()
+              // ...
+          }
+      )
+  }
+  ```
 
 **Bug Fixes**
 
@@ -1803,7 +1848,7 @@ October 13, 2021
 
 **Bug Fixes**
 
-- Support dropping Kernel page cache without root on API 31/S+, which will increase accuracy of [StartupMode.COLD](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/StartupMode#ENUM_VALUE:COLD) launches. ([Iecfdb](https://android-review.googlesource.com/#/q/Iecfdbd7b712ceaba109c7551c669845db1ff51b7), [b/200160030](https://issuetracker.google.com/issues/200160030))
+- Support dropping Kernel page cache without root on API 31/S+, which will increase accuracy of [StartupMode.COLD](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/StartupMode.md.txt#ENUM_VALUE:COLD) launches. ([Iecfdb](https://android-review.googlesource.com/#/q/Iecfdbd7b712ceaba109c7551c669845db1ff51b7), [b/200160030](https://issuetracker.google.com/issues/200160030))
 
 ### Version 1.1.0-alpha08
 
@@ -1860,7 +1905,7 @@ August 4, 2021
 
 **API Changes**
 
-- Switched [startActivityAndWait](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/MacrobenchmarkScope#startActivityAndWait(android.content.Intent)) to invoke launch via `am start`, which reduces the time of each measurement iteration by approximately 5 seconds, at the cost of no longer supporting intent parcelables. ([I5a6f5](https://android-review.googlesource.com/#/q/I5a6f55819fe095da1317b55405a6a5a9fe3cb758), [b/192009149](https://issuetracker.google.com/issues/192009149)
+- Switched [startActivityAndWait](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/MacrobenchmarkScope.md.txt#startActivityAndWait(android.content.Intent)) to invoke launch via `am start`, which reduces the time of each measurement iteration by approximately 5 seconds, at the cost of no longer supporting intent parcelables. ([I5a6f5](https://android-review.googlesource.com/#/q/I5a6f55819fe095da1317b55405a6a5a9fe3cb758), [b/192009149](https://issuetracker.google.com/issues/192009149)
 
 **Bug Fixes**
 
@@ -1880,7 +1925,7 @@ June 16, 2021
 
 **New Features**
 
-- Added a new `CompilationMode.BaselineProfile` to support profiles installed using the [Jetpack ProfileInstaller library](https://developer.android.com/jetpack/androidx/releases/profileinstaller). ([aosp/1720930](https://android-review.googlesource.com/c/platform/frameworks/support/+/1720930))
+- Added a new `CompilationMode.BaselineProfile` to support profiles installed using the [Jetpack ProfileInstaller library](https://developer.android.com/jetpack/androidx/releases/profileinstaller.md.txt). ([aosp/1720930](https://android-review.googlesource.com/c/platform/frameworks/support/+/1720930))
 
 **Bug Fixes**
 
@@ -1888,7 +1933,9 @@ June 16, 2021
 
   E.g.,
 
-      testInstrumentationRunnerArguments["androidx.benchmark.suppressErrors"] = "EMULATOR,LOW-BATTERY"
+  ```kotlin
+  testInstrumentationRunnerArguments["androidx.benchmark.suppressErrors"] = "EMULATOR,LOW-BATTERY"
+  ```
 
 ### Version 1.1.0-alpha02
 
@@ -2002,7 +2049,7 @@ September 18, 2019
 
 **API changes**
 
-- The experimental annotation `ExperimentalAnnotationReport` is now correctly public. Usage of the experimental [BenchmarkState#report](https://developer.android.com/reference/kotlin/androidx/benchmark/BenchmarkState#report) API now requires this annotation
+- The experimental annotation `ExperimentalAnnotationReport` is now correctly public. Usage of the experimental [BenchmarkState#report](https://developer.android.com/reference/kotlin/androidx/benchmark/BenchmarkState.md.txt#report) API now requires this annotation
 
 ### Version 1.0.0-alpha05
 

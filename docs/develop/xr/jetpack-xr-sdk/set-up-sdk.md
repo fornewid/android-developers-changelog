@@ -4,11 +4,13 @@ url: https://developer.android.com/develop/xr/jetpack-xr-sdk/set-up-sdk
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/xr/jetpack-xr-sdk/llms.txt
+
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
-Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices.md.txt#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices.md.txt#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices.md.txt#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices.md.txt)
 
 <br />
 
@@ -17,8 +19,8 @@ the steps in each section to set up your development environment with the SDK.
 
 ## Check Android SDK compatibility
 
-The Jetpack XR SDK requires your app to use an Android [`minSdk`](https://developer.android.com/build#min-sdk) of 24 and a
-[`compileSdk`](https://developer.android.com/build#compile-sdk) of 34 or higher.
+The Jetpack XR SDK requires your app to use an Android [`minSdk`](https://developer.android.com/build.md.txt#min-sdk) of 24 and a
+[`compileSdk`](https://developer.android.com/build.md.txt#compile-sdk) of 34 or higher.
 
 ## Add library dependencies
 
@@ -31,11 +33,11 @@ information about adding the dependencies for your app.
 First, see the following reference guides to understand necessary dependencies
 and compatibility issues for each of the required libraries:
 
-- [XR Runtime](https://developer.android.com/jetpack/androidx/releases/xr-runtime)
-- [Jetpack SceneCore](https://developer.android.com/jetpack/androidx/releases/xr-scenecore)
-- [Jetpack Compose for XR](https://developer.android.com/jetpack/androidx/releases/xr-compose)
-- [Material Design for XR](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3)
-- [ARCore for Jetpack XR](https://developer.android.com/jetpack/androidx/releases/xr-arcore)
+- [XR Runtime](https://developer.android.com/jetpack/androidx/releases/xr-runtime.md.txt)
+- [Jetpack SceneCore](https://developer.android.com/jetpack/androidx/releases/xr-scenecore.md.txt)
+- [Jetpack Compose for XR](https://developer.android.com/jetpack/androidx/releases/xr-compose.md.txt)
+- [Material Design for XR](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3.md.txt)
+- [ARCore for Jetpack XR](https://developer.android.com/jetpack/androidx/releases/xr-arcore.md.txt)
 
 Then, add the necessary dependencies to your app's `build.gradle.kts` file:
 
@@ -44,11 +46,11 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.runtime:runtime:1.1.0-alpha02"
-    implementation "androidx.xr.scenecore:scenecore:1.1.0-alpha01"
-    implementation "androidx.xr.compose:compose:1.0.0-beta02"
-    implementation "androidx.xr.compose.material3:material3:1.0.0-alpha17"
-    implementation "androidx.xr.arcore:arcore:1.1.0-alpha01"
+    implementation "androidx.xr.runtime:runtime:1.1.0-alpha03"
+    implementation "androidx.xr.scenecore:scenecore:1.1.0-alpha02"
+    implementation "androidx.xr.compose:compose:1.0.0-rc01"
+    implementation "androidx.xr.compose.material3:material3:1.0.0-alpha18"
+    implementation "androidx.xr.arcore:arcore:1.1.0-alpha02"
 }
 ```
 
@@ -56,11 +58,11 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.runtime:runtime:1.1.0-alpha02")
-    implementation("androidx.xr.scenecore:scenecore:1.1.0-alpha01")
-    implementation("androidx.xr.compose:compose:1.0.0-beta02")
-    implementation("androidx.xr.compose.material3:material3:1.0.0-alpha17")
-    implementation("androidx.xr.arcore:arcore:1.1.0-alpha01")
+    implementation("androidx.xr.runtime:runtime:1.1.0-alpha03")
+    implementation("androidx.xr.scenecore:scenecore:1.1.0-alpha02")
+    implementation("androidx.xr.compose:compose:1.0.0-rc01")
+    implementation("androidx.xr.compose.material3:material3:1.0.0-alpha18")
+    implementation("androidx.xr.arcore:arcore:1.1.0-alpha02")
 }
 ```
 
@@ -99,32 +101,36 @@ dependencies {
 First, see the following reference guides to understand necessary dependencies
 and compatibility issues for each of the required libraries:
 
-- [XR Runtime](https://developer.android.com/jetpack/androidx/releases/xr-runtime)
-- [ARCore for Jetpack XR](https://developer.android.com/jetpack/androidx/releases/xr-arcore)
-- [Jetpack Compose Glimmer](https://developer.android.com/jetpack/androidx/releases/xr-glimmer)
-- [Jetpack Projected](https://developer.android.com/jetpack/androidx/releases/xr-projected)
+- [XR Runtime](https://developer.android.com/jetpack/androidx/releases/xr-runtime.md.txt)
+- [ARCore for Jetpack XR](https://developer.android.com/jetpack/androidx/releases/xr-arcore.md.txt)
+- [Jetpack Compose Glimmer](https://developer.android.com/jetpack/androidx/releases/xr-glimmer.md.txt)
+- [Jetpack Projected](https://developer.android.com/jetpack/androidx/releases/xr-projected.md.txt)
 
 Then, add the necessary dependencies to your app's `build.gradle.kts` file:
 
 ### Groovy
 
-    dependencies {
-        implementation "androidx.xr.runtime:runtime:1.1.0-alpha02"
-        implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha22"
-        implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha22"
-        implementation "androidx.xr.projected:projected:1.0.0-alpha14"
-        implementation "androidx.xr.arcore:arcore:1.1.0-alpha01"
-    }
+```groovy
+dependencies {
+    implementation "androidx.xr.runtime:runtime:1.1.0-alpha03"
+    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha22"
+    implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha22"
+    implementation "androidx.xr.projected:projected:1.0.0-alpha14"
+    implementation "androidx.xr.arcore:arcore:1.1.0-alpha01"
+}
+```
 
 ### Kotlin
 
-    dependencies {
-        implementation("androidx.xr.runtime:runtime:1.1.0-alpha02")
-        implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha22")
-        implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha22")
-        implementation("androidx.xr.projected:projected:1.0.0-alpha14")
-        implementation("androidx.xr.arcore:arcore:1.1.0-alpha01")
-    }
+```kotlin
+dependencies {
+    implementation("androidx.xr.runtime:runtime:1.1.0-alpha03")
+    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha22")
+    implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha22")
+    implementation("androidx.xr.projected:projected:1.0.0-alpha14")
+    implementation("androidx.xr.arcore:arcore:1.1.0-alpha01")
+}
+```
 
 > [!NOTE]
 > **Note:** While developing for audio and display glasses, use these stated library versions even if newer versions of these Jetpack libraries have already been released.

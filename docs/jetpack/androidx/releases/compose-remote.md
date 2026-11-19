@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/compose-remote
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # remote compose
 
 Remote Compose is a framework to create UI for remote surfaces
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 04, 2026 | - | - | - | [1.0.0-alpha23](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha23) |
+| November 18, 2026 | - | - | - | [1.0.0-alpha24](https://developer.android.com/jetpack/androidx/releases/compose-remote.md.txt#1.0.0-alpha24) |
 
 ## Declaring dependencies
 
@@ -26,20 +28,21 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.remote:remote-core:1.0.0-alpha23"
+    implementation "androidx.compose.remote:remote-core:1.0.0-alpha24"
 
     // Use to create Remote Compose documents
-    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha23"
-    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha23"
-    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha23"
-    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha23"
-    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha23"
+    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha24"
+    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha24"
+    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha24"
+    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha24"
+    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha24"
 
     // Use to render a Remote Compose document
-    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha23"
-    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha23"
+    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha24"
+    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha24"
 
-    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha23"
+    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha24"
+    implementation "androidx.compose.remote:remote-generator:1.0.0-alpha24"
 }
 ```
 
@@ -47,20 +50,21 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.remote:remote-core:1.0.0-alpha23")
+    implementation("androidx.compose.remote:remote-core:1.0.0-alpha24")
 
     // Use to create Remote Compose documents
-    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha23")
-    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha23")
-    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha23")
-    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha23")
-    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha23")
+    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha24")
+    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha24")
+    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha24")
+    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha24")
+    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha24")
 
     // Use to render a Remote Compose document
-    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha23")
-    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha23")
+    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha24")
+    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha24")
 
-    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha23")
+    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha24")
+    implementation("androidx.compose.remote:remote-generator:1.0.0-alpha24")
 }
 ```
 
@@ -81,6 +85,42 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha24
+
+November 18, 2026
+
+`androidx.compose.remote:remote-*:1.0.0-alpha24` is released. Version 1.0.0-alpha24 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a021adf44194ae86e596ae25ca43d5e4e18f6926..cb8e6388acf70f4bc3af425c928a3f0761fb6478/compose/remote).
+
+**New Features**
+
+- Enabled Kotlin Multiplatform (`jvmAndAndroidMain`) support in `:compose:remote:remote-creation-compose`, decoupling core creation APIs from Android and Compose UI types so remote documents can be authored and tested on JVM targets as well as Android.
+
+**API Changes**
+
+- Promoted `RemoteContentScale`, `RemoteTextOverflow`, `RemoteCompositingStrategy`, `RemotePathFillType`, `RemotePaintingStyle`, `RemoteStrokeCap`, `RemoteStrokeJoin`, `RemoteBlendMode`, `RemoteLayoutDirection`, `RemoteFontVariation.Settings`, and Remote text styling types to public API, and decoupled `RemotePaint`, `RemoteShape`, `RemoteStateScope`, `RemoteTextStyle`, `RemoteCreationDisplayInfo`, `RemoteImageVector.Builder`, `RemotePainter`, `RemoteRenderEffect`, `RemoteBlurEffect`, and `RemoteFontFamily` from Compose UI and Android types.
+- Decoupled `RemoteImageBitmap` from Compose UI `ImageBitmap`. ([I1dfb9](https://android-review.googlesource.com/#/q/I1dfb92cc39c3b112df283e22a14672419c8841cd))
+- Decoupled `RemoteTextUnit` from Compose UI `TextUnit`. ([Id9ba1](https://android-review.googlesource.com/#/q/Id9ba1e3bc12f02c64e2a09c028dfb506733f8fa4))
+- Extracted core remote state AST expressions into `:compose:remote:remote-creation-expression`. ([I41115](https://android-review.googlesource.com/#/q/I41115157d3e203c89fecc4dcc84659f906217c45))
+- Extracted Compose Runtime composables and Android formatters from `RemoteState`, removed deprecated `rememberMutableRemote*` composables, and exposed `RemoteEnum.enumEntries`. ([I76417](https://android-review.googlesource.com/#/q/I764179d07a537c2e04f436b7b695da60a0e8d682))
+- Exposed `RemoteDrawScope` drawing (`drawImage`, `drawText`), transformation (`rotate`, `translate`, `scale`, `withTransform`, `RemoteDrawTransform`), and clipping (`clipRect`, `clipOutline`, `RemoteDrawTransform.clipOutline`) APIs. ([I2c823](https://android-review.googlesource.com/#/q/I2c823e28095de0bf4c2bdc767ac9931cbf727744))
+- Replaced `RemoteTextMeasurer.measure` and `RemoteTextLayoutResult` with `measureSingleLine` (`RemoteSingleLineTextBounds`), `measureFontMetrics` (`RemoteFontMetrics`), `measurePaintBounds` (`RemotePaintBounds`), and `measureMonospaceWidth`. ([I9022f](https://android-review.googlesource.com/#/q/I9022f559f5ce86554a8a163d192390a9aabe074c))
+- Replaced public `RemoteState` and `MutableRemoteState` constructors and `Companion.invoke` factories with top-level factory functions (`RemoteFloat`, `MutableRemoteFloat`, `RemoteInt`, `MutableRemoteInt`, `RemoteLong`, `MutableRemoteLong`, `RemoteBoolean`, `MutableRemoteBoolean`, `RemoteString`, `MutableRemoteString`, `RemoteColor`, `RemoteDp`, `RemoteTextUnit`, `RemoteEnum`, `MutableRemoteEnum`, and `RemoteImageBitmap`). ([Iff2f6](https://android-review.googlesource.com/#/q/Iff2f6bb000e9fc37e58a9a6c6785ef44551e03bf))
+- Added public `RemoteState.Domain(namespace: String?)` constructor, `RemoteState.Domain.None`, and `Domain.prefixed(name: String)` to support custom and unprefixed named-state namespaces alongside `RemoteState.Domain.User` and `RemoteState.Domain.System`. ([Ibef77](https://android-review.googlesource.com/#/q/Ibef7777b8626c8b50b5834015768c911cf9b4cfa))
+- Exposed `positionInParent` and `positionInRoot` (`RemoteOffset`) on `RemoteComponent`, and moved `RemoteOffset` to `:compose:remote:remote-creation-expression`. ([I67998](https://android-review.googlesource.com/#/q/I6799839f82a4cef11822e38c29f6c6cdab520d53))
+- Promoted `RemoteTileMode` and linear gradient shaders to public API. ([I1464b](https://android-review.googlesource.com/#/q/I1464bfad7c5347444221b3c96fee6781cd093dde))
+- Promoted `RemoteRole` to public API and updated `RemoteModifier.clickable` and `RemoteSemanticsPropertyReceiver.role` to use `RemoteRole` instead of `androidx.compose.ui.semantics.Role`. ([Iace42](https://android-review.googlesource.com/#/q/Iace421c125d8c36d4a3e98c876103fd8733afd3b))
+- Added `RemoteFontVariation.weight`, `width`, `slant`, `opticalSizing`, and `grade` factory functions. ([Ib8198](https://android-review.googlesource.com/#/q/Ib8198ccad7ed49725513e9817068fe8373e36961))
+- Added `RemoteAction.None` for representing a no-op `RemoteAction`. ([I18ce6](https://android-review.googlesource.com/#/q/I18ce658478419fee307c82eed5647d8edba70429))
+- Added `RemoteComponent` in `:compose:remote:remote-creation-expression` along with `@Composable remoteComponent()` and `RemoteStateScope.remoteComponent()` in `:compose:remote:remote-creation-compose` for dynamic component measurements, and replaced `RemoteFloatContext` lambda overloads (`createNamedRemoteFloatExpression`, `MutableRemoteFloat`, and `rememberNamedRemoteFloat`) with `RemoteFloat`-accepting overloads. ([Icb1c5](https://android-review.googlesource.com/#/q/Icb1c57b3b87702f5d9fcc57efbbf31c9e87b2655))
+- Marked `remote-creation-compose` composables and remote slot lambdas with `@RemoteComposable`, added `@Immutable` and `@Stable` annotations to remote value, shape, alignment, arrangement, and style types, and added `@RemoteLayoutScopeMarker` to `RemoteRowScope` and `RemoteColumnScope`. ([I2d4f0](https://android-review.googlesource.com/#/q/I2d4f01ee6c1130838a132f30d4afb63d13d7f23f))
+- Restricted internal writer and core declarations (`RemotePath`, `RemoteDocument`, `RemoteWriterEvents.storePendingIntent`) from the public Remote Compose API surface and exposed `ExperimentalRemoteCreationComposeApi` publicly. ([I459cb](https://android-review.googlesource.com/#/q/I459cb6374a58b8f2a3d502782dd6925ee2fd899d))
+- Renamed public types in `remote-creation-compose` (`RemoteCapturedDocument`, `RemoteWriterEvents`, `RemoteGraphicsLayerScope`, `RemoteRenderEffect`, `RemoteBlurEffect`, `RemoteSemanticsProperties`, `RemoteSemanticsPropertyKey`, `RemoteSemanticsPropertyReceiver`) to include the `Remote` prefix. ([Ia2573](https://android-review.googlesource.com/#/q/Ia257300b252b4bdd7f5558338f7bcd6af93bd01d))
+- Renamed `pendingIntentAction` to `rememberPendingIntentAction` (with dynamic String extras), the `@Composable` `createCreationDisplayInfo` overload to `rememberRemoteCreationDisplayInfo`, `RemoteEasing.Cubic`/`Spline` to `cubic`/`spline`, `valueChange` to `valueChangeAction`, `createProfile` to `Profile`, `RemoteColor` `tween` to `lerp`, and the `action` parameter of `RemoteModifier.clickable` to `onClick`; added `hostAction(id, metadata)` and the `RemoteBoolean` overload of `hostAction`. ([I16acd](https://android-review.googlesource.com/#/q/I16acd29b24229e42436dc8c3cb077bc6fedbcea4))
+
+**Bug Fixes**
+
+- Long press, double click and touch cancel handlers now receive coordinates adjusted for preceding padding modifiers, matching click and touch down/up/drag. ([I1fe01](https://android-review.googlesource.com/#/q/I1fe01a700af5c124c7d506035c096079980dea8b))
 
 ### Version 1.0.0-alpha23
 

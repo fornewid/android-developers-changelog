@@ -4,6 +4,8 @@ url: https://developer.android.com/training/tv/discovery/recommendations-channel
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/tv/discovery/llms.txt
+
 The Android TV *home screen* provides a UI that displays recommended content as
 a table of *channels* and *programs*. Each row is a channel. A channel contains
 cards for every program available on that channel:
@@ -86,24 +88,12 @@ implementation("androidx.tvprovider:tvprovider:1.0.0")
 To work with channels and programs, be sure to include these support library
 imports in your program:
 
-### Kotlin
-
 ```kotlin
 import android.support.media.tv.Channel
 import android.support.media.tv.TvContractCompat
 import android.support.media.tv.ChannelLogoUtils
 import android.support.media.tv.PreviewProgram
 import android.support.media.tv.WatchNextProgram
-```
-
-### Java
-
-```java
-import android.support.media.tv.Channel;
-import android.support.media.tv.TvContractCompat;
-import android.support.media.tv.ChannelLogoUtils;
-import android.support.media.tv.PreviewProgram;
-import android.support.media.tv.WatchNextProgram;
 ```
 
 ## Channels
@@ -126,91 +116,65 @@ To create a channel, follow these steps:
 1. Create a channel builder and set its attributes. Note that the channel type
    must be `TYPE_PREVIEW`. Add more [attributes](https://developer.android.com/training/tv/discovery/recommendations-channel.md.txt#attributes) as required.
 
-   ### Kotlin
 
    ```kotlin
    val builder = Channel.Builder()
-   // Every channel you create must have the type `TYPE_PREVIEW`
+   // Every channel you create must have the type `TYPE_PREVIEW`.
    builder.setType(TvContractCompat.Channels.TYPE_PREVIEW)
-           .setDisplayName("Channel Name")
-           .setAppLinkIntentUri(uri)
+       .setDisplayName("Channel Name")
+       .setAppLinkIntentUri(uri)
    ```
 
-   ### Java
+   <br />
 
-   ```java
-   Channel.Builder builder = new Channel.Builder();
-   // Every channel you create must have the type `TYPE_PREVIEW`
-   builder.setType(TvContractCompat.Channels.TYPE_PREVIEW)
-           .setDisplayName("Channel Name")
-           .setAppLinkIntentUri(uri);
-   ```
 2. Insert the channel into the provider:
 
-   ### Kotlin
 
    ```kotlin
    var channelUri = context.contentResolver.insert(
-           TvContractCompat.Channels.CONTENT_URI, builder.build().toContentValues())
+       TvContractCompat.Channels.CONTENT_URI, builder.build().toContentValues()
+   )
    ```
 
-   ### Java
+   <br />
 
-   ```java
-   Uri channelUri = context.getContentResolver().insert(
-           TvContractCompat.Channels.CONTENT_URI, builder.build().toContentValues());
-   ```
 3. You need to save the channel ID in order to add programs to the channel
    later. Extract the channel ID from the returned URI:
 
-   ### Kotlin
 
    ```kotlin
    var channelId = ContentUris.parseId(channelUri)
    ```
 
-   ### Java
+   <br />
 
-   ```java
-   long channelId = ContentUris.parseId(channelUri);
-   ```
 4. You must add a logo for your channel. Use a `Uri` or `Bitmap`. The logo icon
    should be 80dp x 80dp, and it must be opaque. It is displayed under a circular
    mask:
 
    ![TV home screen icon mask](https://developer.android.com/training/tv/images/home-screen-1.png)
 
-   ### Kotlin
 
    ```kotlin
-   // Choose one or the other
-   storeChannelLogo(context: Context, channelId: Long, logoUri: Uri) // also works if logoUri is a URL
-   storeChannelLogo(context: Context, channelId: Long, logo: Bitmap)
+   // Choose one or the other.
+   storeChannelLogo(context, channelId, logoUri) // also works if logoUri is a URL.
+   storeChannelLogo(context, channelId, logo)
    ```
 
-   ### Java
+   <br />
 
-   ```java
-   // Choose one or the other
-   storeChannelLogo(Context context, long channelId, Uri logoUri); // also works if logoUri is a URL
-   storeChannelLogo(Context context, long channelId, Bitmap logo);
-   ```
 5. Create the default channel (optional): When your app creates its first
    channel, you can make it the [default channel](https://developer.android.com/training/tv/discovery/recommendations-channel.md.txt#default-channel) so it appears in the home
    screen immediately without any user action. Any other channels you create
    aren't visible until the user explicitly [selects](https://developer.android.com/training/tv/discovery/recommendations-channel.md.txt#discovering-and-adding-channels) them.
 
-   ### Kotlin
 
    ```kotlin
    TvContractCompat.requestChannelBrowsable(context, channelId)
    ```
 
-   ### Java
+   <br />
 
-   ```java
-   TvContractCompat.requestChannelBrowsable(context, channelId);
-   ```
 6. Make your default channel appear before your app is opened. You can make
    this behavior happen by adding a `BroadcastReceiver` that listens for the
    `android.media.tv.action.INITIALIZE_PROGRAMS` action, which the home screen
@@ -248,39 +212,28 @@ Use another `Channel.Builder` to set the attributes that need to change.
 Use the `ContentResolver` to update the channel. Use the channel ID that you
 saved when the channel was originally added:
 
-### Kotlin
 
 ```kotlin
 context.contentResolver.update(
-        TvContractCompat.buildChannelUri(channelId),
-        builder.build().toContentValues(),
-        null,
-        null
+    TvContractCompat.buildChannelUri(channelId),
+    builder.build().toContentValues(),
+    null,
+    null
 )
 ```
 
-### Java
-
-```java
-context.getContentResolver().update(TvContractCompat.buildChannelUri(channelId),
-    builder.build().toContentValues(), null, null);
-```
+<br />
 
 To update a channel's logo, use `storeChannelLogo()`.
 
 ### Deleting a channel
 
-### Kotlin
 
 ```kotlin
 context.contentResolver.delete(TvContractCompat.buildChannelUri(channelId), null, null)
 ```
 
-### Java
-
-```java
-context.getContentResolver().delete(TvContractCompat.buildChannelUri(channelId), null, null);
-```
+<br />
 
 > [!NOTE]
 > **Note:** You should never delete the default channel. If you do, the user must select it again and ask to add it to the home screen. It cannot reappear automatically. When it's added back it appears at the bottom of the home screen, just like any other newly added channel.
@@ -295,64 +248,43 @@ Next channel.
 
 Create a `PreviewProgram.Builder` and set its attributes:
 
-### Kotlin
 
 ```kotlin
 val builder = PreviewProgram.Builder()
 builder.setChannelId(channelId)
-        .setType(TvContractCompat.PreviewPrograms.TYPE_CLIP)
-        .setTitle("Title")
-        .setDescription("Program description")
-        .setPosterArtUri(uri)
-        .setIntentUri(uri)
-        .setInternalProviderId(appProgramId)
+    .setType(TvContractCompat.PreviewPrograms.TYPE_CLIP)
+    .setTitle("Title")
+    .setDescription("Program description")
+    .setPosterArtUri(uri)
+    .setIntentUri(uri)
+    .setInternalProviderId(appProgramId)
 ```
 
-### Java
-
-```java
-PreviewProgram.Builder builder = new PreviewProgram.Builder();
-builder.setChannelId(channelId)
-        .setType(TvContractCompat.PreviewPrograms.TYPE_CLIP)
-        .setTitle("Title")
-        .setDescription("Program description")
-        .setPosterArtUri(uri)
-        .setIntentUri(uri)
-        .setInternalProviderId(appProgramId);
-```
+<br />
 
 Add more attributes depending on the type of program. (To see the attributes
 available for each type of program, refer to the [tables](https://developer.android.com/training/tv/discovery/recommendations-channel.md.txt#attributes) below.)
 
 Insert the program into the provider:
 
-### Kotlin
 
 ```kotlin
-var programUri = context.contentResolver.insert(TvContractCompat.PreviewPrograms.CONTENT_URI,
-        builder.build().toContentValues())
+var programUri = context.contentResolver.insert(
+    TvContractCompat.PreviewPrograms.CONTENT_URI,
+    builder.build().toContentValues()
+)
 ```
 
-### Java
-
-```java
-Uri programUri = context.getContentResolver().insert(TvContractCompat.PreviewPrograms.CONTENT_URI,
-      builder.build().toContentValues());
-```
+<br />
 
 Retrieve the program ID for later reference:
 
-### Kotlin
 
 ```kotlin
 val programId = ContentUris.parseId(programUri)
 ```
 
-### Java
-
-```java
-long programId = ContentUris.parseId(programUri);
-```
+<br />
 
 ### Adding programs to the Watch Next channel
 
@@ -369,36 +301,25 @@ Use a `PreviewProgram.Builder` to set the attributes you need to change, then
 call `getContentResolver().update` to update the program. Specify the program ID
 that you saved when the program was originally added:
 
-### Kotlin
 
 ```kotlin
 context.contentResolver.update(
-        TvContractCompat.buildPreviewProgramUri(programId),
-                builder.build().toContentValues(), null, null
+    TvContractCompat.buildPreviewProgramUri(programId),
+    builder.build().toContentValues(), null, null
 )
 ```
 
-### Java
-
-```java
-context.getContentResolver().update(TvContractCompat.buildPreviewProgramUri(programId),
-    builder.build().toContentValues(), null, null);
-```
+<br />
 
 ### Deleting a program
 
-### Kotlin
 
 ```kotlin
 context.contentResolver
-        .delete(TvContractCompat.buildPreviewProgramUri(programId), null, null)
+    .delete(TvContractCompat.buildPreviewProgramUri(programId), null, null)
 ```
 
-### Java
-
-```java
-context.getContentResolver().delete(TvContractCompat.buildPreviewProgramUri(programId), null, null);
-```
+<br />
 
 ## Handling user actions
 
@@ -414,26 +335,12 @@ Your app can provide a UI element that lets the user select and add its channels
 After the user requests a specific channel, execute this code to get the user's
 permission to add it to the home screen UI:
 
-### Kotlin
-
 ```kotlin
 val intent = Intent(TvContractCompat.ACTION_REQUEST_CHANNEL_BROWSABLE)
 intent.putExtra(TvContractCompat.EXTRA_CHANNEL_ID, channelId)
 try {
   activity.startActivityForResult(intent, 0)
 } catch (e: ActivityNotFoundException) {
-  // handle error
-}
-```
-
-### Java
-
-```java
-Intent intent = new Intent(TvContractCompat.ACTION_REQUEST_CHANNEL_BROWSABLE);
-intent.putExtra(TvContractCompat.EXTRA_CHANNEL_ID, channelId);
-try {
-   activity.startActivityForResult(intent, 0);
-} catch (ActivityNotFoundException e) {
   // handle error
 }
 ```
@@ -470,56 +377,29 @@ sends for user interactions; for example:
 - Many TV apps require that users login. In this case the `BroadcastReceiver` that listens for `android.media.tv.action.INITIALIZE_PROGRAMS` should suggest channel content for unauthenticated users. For example, your app can initially show the best content or currently popular content. After the user logs in, it can show personalized content. This is a great chance for apps to up-sell users before they login.
 - When your app is not in the foreground and you need to update a channel or a program, use the `JobScheduler` to schedule the work (see [`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler.md.txt) and [`JobService`](https://developer.android.com/reference/android/app/job/JobService.md.txt)).
 - The system can revoke your app's provider permissions if your app misbehaves (for example: continuously spamming the provider with data). Make sure you wrap the code that accesses the provider with try-catch clauses to handle security exceptions.
-- Before updating programs and channels, query the provider for the data you
-  need to update and reconcile the data. For example, there is no need to
-  update a program that the user wants removed from the UI. Use a background
-  job that inserts or updates your data into the provider after querying for
-  the existing data and then requesting approval for your channels. You can
-  run this job when the app starts and whenever the app needs to update its
-  data.
+- Before updating programs and channels, query the provider for the data you need to update and reconcile the data. For example, there is no need to update a program that the user wants removed from the UI. Use a background job that inserts or updates your data into the provider after querying for the existing data and then requesting approval for your channels. You can run this job when the app starts and whenever the app needs to update its data.
 
-### Kotlin
 
 ```kotlin
 context.contentResolver
-      .query(
-          TvContractCompat.buildChannelUri(channelId),
-              null, null, null, null).use({
-                  cursor-> if (cursor != null and cursor.moveToNext()) {
-                                val channel = Channel.fromCursor(cursor)
-                                if (channel.isBrowsable()) {
-                                    //update channel's programs
-                                }
-                            }
-              })
+    .query(
+        TvContractCompat.buildChannelUri(channelId),
+        null, null, null, null
+    ).use({
+            cursor ->
+        if (cursor != null && cursor.moveToNext()) {
+            val channel = Channel.fromCursor(cursor)
+            if (channel.isBrowsable()) {
+                // update channel's programs.
+            }
+        }
+    })
 ```
 
-### Java
+<br />
 
-```java
-try (Cursor cursor = context.getContentResolver()
-          .query(
-              TvContractCompat.buildChannelUri(channelId),
-              null,
-              null,
-              null,
-              null)) {
-                  if (cursor != null &amp;&amp; cursor.moveToNext()) {
-                      Channel channel = Channel.fromCursor(cursor);
-                      if (channel.isBrowsable()) {
-                          //update channel's programs
-                      }
-                  }
-              }
-```
-
-- Use unique Uris for all images (logos, icons, content images). Be sure to
-  use a different Uri when you update an image. All images are cached. If you
-  don't change the Uri when you change the image, the old image will continue
-  to appear.
-
-- Remember that WHERE clauses are not allowed and calls to the providers with
-  WHERE clauses will throw a security exception.
+- Use unique Uris for all images (logos, icons, content images). Be sure to use a different Uri when you update an image. All images are cached. If you don't change the Uri when you change the image, the old image will continue to appear.
+- Remember that WHERE clauses are not allowed and calls to the providers with WHERE clauses will throw a security exception.
 
 ## Attributes
 
