@@ -1,0 +1,66 @@
+diff --git a/docs/jetpack/androidx/releases/appfunctions.md b/docs/jetpack/androidx/releases/appfunctions.md
+index 47d14a5d..f856dc2a 100644
+--- a/docs/jetpack/androidx/releases/appfunctions.md
++++ b/docs/jetpack/androidx/releases/appfunctions.md
+@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/appfunctions
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
++
+ # appfunctions
+ 
+ Allows apps to share functionality and data with AI assistants, enabling them to discover and execute tasks directly on the device to fulfill user requests.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| November 04, 2026 | - | [1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-rc01) | - | - |
++| November 18, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/appfunctions.md.txt#1.0.0) | - | - | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,10 +27,10 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.appfunctions:appfunctions:1.0.0-rc01"
++    implementation "androidx.appfunctions:appfunctions:1.0.0"
+     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
+-    // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
+-    ksp "androidx.appfunctions:appfunctions-compiler:1.0.0-rc01"
++    // See KSP Quickstart to add KSP to your build
++    ksp "androidx.appfunctions:appfunctions-compiler:1.0.0"
+ }
+ ```
+ 
+@@ -36,10 +38,10 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.appfunctions:appfunctions:1.0.0-rc01")
++    implementation("androidx.appfunctions:appfunctions:1.0.0")
+     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
+-    // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
+-    ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-rc01")
++    // See KSP Quickstart to add KSP to your build
++    ksp("androidx.appfunctions:appfunctions-compiler:1.0.0")
+ }
+ ```
+ 
+@@ -62,6 +64,16 @@ There are no release notes for this artifact.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0
++
++November 18, 2026
++
++`androidx.appfunctions:appfunctions:1.0.0`, `androidx.appfunctions:appfunctions-compiler:1.0.0`, and `androidx.appfunctions:appfunctions-testing:1.0.0` are released. Version 1.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b6c541571b9fb5471f965fc52612cb280713e5e4..695eabffd8060f9778aa2c081502c4b86af4e69d/appfunctions).
++
++**Major features of 1.0.0:**
++
++- Version bump to Stable
++
+ ### Version 1.0.0-rc01
+ 
+ November 04, 2026

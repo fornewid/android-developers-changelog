@@ -1,0 +1,87 @@
+diff --git a/docs/jetpack/androidx/releases/camera-viewfinder.md b/docs/jetpack/androidx/releases/camera-viewfinder.md
+index 24cf3e05..f033f80f 100644
+--- a/docs/jetpack/androidx/releases/camera-viewfinder.md
++++ b/docs/jetpack/androidx/releases/camera-viewfinder.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/jetpack/androidx/releases/camera-viewfinder
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
++
+ # camera viewfinder
+ 
+ Standalone Composable and View based Viewfinder for Camera"
+@@ -13,11 +15,11 @@ This table lists all the artifacts in the `androidx.camera-viewfinder` group.
+ 
+ | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| viewfinder-compose | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-rc02) | - | - |
+-| viewfinder-core | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-rc02) | - | - |
+-| viewfinder-view | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.2) | [1.7.0-rc02](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-rc02) | - | - |
++| viewfinder-compose | [1.7.0](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder.md.txt#1.7.0) | - | - | - |
++| viewfinder-core | [1.7.0](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder.md.txt#1.7.0) | - | - | - |
++| viewfinder-view | [1.7.0](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder.md.txt#1.7.0) | - | - | - |
+ 
+-This library was last updated on: November 04, 2026
++This library was last updated on: November 18, 2026
+ 
+ ## Declaring dependencies
+ 
+@@ -34,9 +36,9 @@ your app or module:
+ dependencies {
+     // Use to implement camera viewfinders
+     
+-    implementation "androidx.camera.viewfinder:viewfinder-view:1.7.0-rc02"
+-    implementation "androidx.camera.viewfinder:viewfinder-compose:1.7.0-rc02"
+-    implementation "androidx.camera.viewfinder:viewfinder-core:1.7.0-rc02"
++    implementation "androidx.camera.viewfinder:viewfinder-view:1.7.0"
++    implementation "androidx.camera.viewfinder:viewfinder-compose:1.7.0"
++    implementation "androidx.camera.viewfinder:viewfinder-core:1.7.0"
+ 
+ }
+ ```
+@@ -46,9 +48,9 @@ dependencies {
+ ```kotlin
+ dependencies {
+     // Use to implement camera viewfinders
+-    implementation("androidx.camera.viewfinder:viewfinder-view:1.7.0-rc02")
+-    implementation("androidx.camera.viewfinder:viewfinder-core:1.7.0-rc02")
+-    implementation("androidx.camera.viewfinder:viewfinder-compose:1.7.0-rc02")
++    implementation("androidx.camera.viewfinder:viewfinder-view:1.7.0")
++    implementation("androidx.camera.viewfinder:viewfinder-core:1.7.0")
++    implementation("androidx.camera.viewfinder:viewfinder-compose:1.7.0")
+ 
+ 
+ }
+@@ -71,6 +73,22 @@ for more information.
+ 
+ ## Version 1.7
+ 
++### Version 1.7.0
++
++November 18, 2026
++
++`androidx.camera.viewfinder:viewfinder-compose:1.7.0`, `androidx.camera.viewfinder:viewfinder-core:1.7.0`, and `androidx.camera.viewfinder:viewfinder-view:1.7.0` are released. Version 1.7.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9046f07948c1e7a89aaec581463730f4d666611b..f10325d8016188131590e7b71ef776064836791f/camera/viewfinder).
++
++**Important changes since 1.6.0:**
++
++**API Changes**
++
++- **Transformation Mode Support** : Added the `TransformationMode` property to `TransformationInfo` to support apps using the `OpenGL` pipeline in `EMBEDDED` mode.
++- **Focus State Tracking** : Added `FocusState` and `FocusMeteringState` constants to the generic viewfinder core. **Note** : These constants were primarily introduced to support the new tap-to-focus and gesture capabilities in the higher-level `CameraXViewfinder` API, but they are exposed in the core modules for developers building custom viewfinder integrations who wish to model camera focus states.
++
++**Bug Fixes**
++- **Transformations Mirroring**: Fixed a critical bug in the mirroring logic within Transformations. This ensures that surface-to-viewfinder matrix calculations correctly mirror the preview when using front-facing cameras or inverted setups.
++
+ ### Version 1.7.0-rc02
+ 
+ November 04, 2026
+@@ -258,7 +276,7 @@ May 7, 2025
+ 
+ `androidx.camera.viewfinder:viewfinder-compose:1.5.0-beta01`, `androidx.camera.viewfinder:viewfinder-core:1.5.0-beta01`, and `androidx.camera.viewfinder:viewfinder-view:1.5.0-beta01` are released. Version 1.5.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/824a6d81bccbc4bf5286a94e6476d35825adf198..a99266d9ab8e4a0b6b8d4c11d8fc79524f59c314/camera/viewfinder).
+ 
+-- This is the first official beta release of the view-based and compose-based viewfinders that are flexible enough to be used with Camera2. If you're looking for a View or composable to use with CameraX, see [`PreviewView`](https://developer.android.com/reference/androidx/camera/view/PreviewView) and [`CameraXViewfinder`](https://developer.android.com/reference/kotlin/androidx/camera/compose/package-summary#CameraXViewfinder(androidx.camera.core.SurfaceRequest,androidx.camera.viewfinder.core.ImplementationMode,androidx.camera.viewfinder.core.TransformationInfo,androidx.compose.ui.Modifier,androidx.camera.viewfinder.compose.MutableCoordinateTransformer,androidx.compose.ui.Alignment,androidx.compose.ui.ContentScale)).
++- This is the first official beta release of the view-based and compose-based viewfinders that are flexible enough to be used with Camera2. If you're looking for a View or composable to use with CameraX, see [`PreviewView`](https://developer.android.com/reference/androidx/camera/view/PreviewView.md.txt) and [`CameraXViewfinder`](https://developer.android.com/reference/kotlin/androidx/camera/compose/package-summary.md.txt#CameraXViewfinder(androidx.camera.core.SurfaceRequest,androidx.camera.viewfinder.core.ImplementationMode,androidx.camera.viewfinder.core.TransformationInfo,androidx.compose.ui.Modifier,androidx.camera.viewfinder.compose.MutableCoordinateTransformer,androidx.compose.ui.Alignment,androidx.compose.ui.ContentScale)).
+ 
+ **New Features**
+ 

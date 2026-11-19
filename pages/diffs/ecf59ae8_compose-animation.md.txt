@@ -1,0 +1,220 @@
+diff --git a/docs/jetpack/androidx/releases/compose-animation.md b/docs/jetpack/androidx/releases/compose-animation.md
+index d0f15afc..cecf2fd9 100644
+--- a/docs/jetpack/androidx/releases/compose-animation.md
++++ b/docs/jetpack/androidx/releases/compose-animation.md
+@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/compose-animation
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
++
+ # Compose Animation
+ 
+ [User Guide](https://developer.android.com/jetpack/compose/tutorial) [Code Sample](https://github.com/android/compose-samples) Build animations in their Jetpack Compose applications to enrich the user experience.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| November 04, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.1) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-rc01) | - | - |
++| November 18, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt#1.13.0) | - | - | [1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt#1.14.0-alpha01) |
+ 
+ ## Structure
+ 
+@@ -22,13 +24,13 @@ This table explains the groups and links to each set of release notes.
+ 
+ | Group | Description |
+ |---|---|
+-| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | Build animations in their Jetpack Compose applications to enrich the user experience. |
+-| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
+-| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces. |
+-| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
+-| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
+-| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
+-| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
++| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt) | Build animations in their Jetpack Compose applications to enrich the user experience. |
++| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler.md.txt) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
++| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt) | Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces. |
++| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
++| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
++| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
++| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
+ 
+ ## Declaring dependencies
+ 
+@@ -47,7 +49,7 @@ plugins {
+ }
+ 
+ dependencies {
+-    implementation "androidx.compose.animation:animation:1.12.1"
++    implementation "androidx.compose.animation:animation:1.13.0"
+ }
+ 
+ android {
+@@ -69,7 +71,7 @@ plugins {
+ }
+ 
+ dependencies {
+-    implementation("androidx.compose.animation:animation:1.12.1")
++    implementation("androidx.compose.animation:animation:1.13.0")
+ }
+ 
+ android {
+@@ -98,8 +100,49 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 1.14
++
++### Version 1.14.0-alpha01
++
++November 18, 2026
++
++`androidx.compose.animation:animation-*:1.14.0-alpha01` is released. Version 1.14.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/57354ca42849ed417dfe0f797132477674d917e0..3e55c1ad889c6c0087b0bf6720b1a970b6e8ea3b/compose/animation).
++
++**API Changes**
++
++- Added `ExperimentalAnimationCoreApi` and `ComposeAnimationCoreFlags.isSeekableTransitionStateStartAfterLayoutEnabled` to guard starting `SeekableTransitionState.animateTo` after the target state has composed and completed layout. ([I034e3](https://android-review.googlesource.com/#/q/I034e38d545cf412d49b83cd5394afbc12aa2986b), [b/553804644](https://issuetracker.google.com/issues/553804644))
++- Migrate Compose animation specs (`FloatSpringSpec`, `FloatExponentialDecaySpec`, `KeyframesSpec`, `KeyframesWithSplineSpec`, and `SplineBasedFloatDecayAnimationSpec`) to nanosecond precision, guarded by `ComposeAnimationCoreFlags.isNanosecondAnimationSpecEnabled`. ([Ib9545](https://android-review.googlesource.com/#/q/Ib95455d5a9908b2230eccb60de6d88a088e156aa))
++- Added `SharedTransitionScope.DeferredTransitionBehavior` (`FollowContainer`, `Static`, `SeekToTarget`), `SharedContentConfig.deferredTransitionBehavior`, and `MutableContentTransform.sharedElementProgress` to support seeking shared elements toward their target bounds during the deferred phase of a `DeferredTransition`. Deprecated `permitTransformDuringDeferredTransition`. ([I2fac2](https://android-review.googlesource.com/#/q/I2fac2ac003bdf0d1157b92a4263136a0f4c638ca))
++- Added `InterruptionAwareAnimationSpec` to allow pairing a `FiniteAnimationSpec` with a custom `interruptionSpec` (or itself) when a `Transition`, `animate*AsState`, or `Animatable.animateTo` animation is interrupted mid-flight. ([If85e8](https://android-review.googlesource.com/#/q/If85e82744079499aab7f971359305481e9fe72fd))
++- Allow constructing `MutableContentTransform` from two `MutableTransform` instances via constructor. ([I4054e](https://android-review.googlesource.com/#/q/I4054efbeb63487b07858daddf3fc4f29a7f96c27))
++- Made `SharedTransitionDefaults.EnterTransition`, `ExitTransition`, and `ResizeMode` public. Added `AnimatedContentDefaults` with `ContentTransform`, `SizeTransform`, and `SizeAnimationSpec`. ([Id912e](https://android-review.googlesource.com/#/q/Id912eb6a02e72f723723f722baaaf10bfe58e6ac))
++
++**Bug Fixes**
++
++- Fixed an issue where `SeekableTransitionState.animateTo` skipped initial animation frames when the target content had an expensive first composition or layout pass. ([I383c6](https://android-review.googlesource.com/#/q/I383c636812ef685110e6d6c9dee2c3fa3128cf95), [b/553804644](https://issuetracker.google.com/issues/553804644))
++- `compileSdk` for Compose UI and the Compose libraries that build against it (Animation, Foundation, Material 3, UI Test, UI Tooling, UI `ViewBinding` and Navigation3 UI) updated to 37.2. This will require transitively updating `compileSdk` for all apps and libraries using them. ([I2859d](https://android-review.googlesource.com/#/q/I2859d6c2a90dea97c73f0c19bb1558ee6d076166))
++- When a `MutableContentTransform` or `MutableTransform` is provided during a deferred transition phase, transform properties that are not manually set now default to their resting values instead of the transition's initial values. ([Ia79c4](https://android-review.googlesource.com/#/q/Ia79c40bc4937c5bf613404bc652d49c5323a08bb))
++- Shared elements sought via `MutableContentTransform.sharedElementProgress` now transfer their progress velocity to the bounds animation upon handoff. ([I462c0](https://android-review.googlesource.com/#/q/I462c0b354ae17c2b73c9ea6b7dbda3076e31cdfa))
++- `Modifier.sharedElement` now renders the incoming target element (`pendingTargetState`) during the deferred phase of a `DeferredTransition` while keeping its bounds anchored to the outgoing state until the transition commits. ([If60c7](https://android-review.googlesource.com/#/q/If60c72285e5a99216d8eda27a5591def26cf8c4c))
++- Fixed an issue where shared elements nested under `Modifier.animateEnterExit` lost `MutableContentTransform` placement transformations on handoff from a deferred transition phase. ([Icdcd7](https://android-review.googlesource.com/#/q/Icdcd7f3d1806550441638ed80d30e122c6d7de1f), [b/572520922](https://issuetracker.google.com/issues/572520922))
++
+ ## Version 1.13
+ 
++### Version 1.13.0
++
++November 18, 2026
++
++`androidx.compose.animation:animation-*:1.13.0` is released. Version 1.13.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5e0747401bf56b243e3b5141ae080dc9bc61d29c..ac6d2ce3d991b07d9b981d616bddc6d3ab461eab/compose/animation).
++
++**Important changes since 1.12.0:**
++
++- **Deferred Transitions Stable** : Promoted deferred transition APIs out of experimental. This includes `DeferredTransitionState`, `rememberDeferredTransition`, `DeferredAnimatedContent`, `DeferredAnimatedVisibility`, and `TransformScope`. ([Ib6430](https://android-review.googlesource.com/#/q/Ib64300bf3bce149fe8119343be539859c4ae084b), [I7bb7e](https://android-review.googlesource.com/#/q/I7bb7e398e092853a33ce0fc5bc79529b70e3d1d4))
++- **`CapturedAnimatedVisibility`** : Introduced `CapturedAnimatedVisibility`. Disposes child composition immediately when hidden, and animates exit transitions by rendering the last captured frame on a `GraphicsLayer`. ([I6c5b3](https://android-review.googlesource.com/#/q/I6c5b336a2dd8303e5e4fa78b927ce4491ec13410))
++- **Graduated Stable APIs** : Promoted `createChildTransition`, `Transition.Crossfade`, `veilOut`, and `unveilIn` to stable APIs. `EnterTransition.with` has been removed; use `togetherWith` instead. ([I38f66](https://android-review.googlesource.com/#/q/I38f6697b35453a94229dca76718c25bfc1792638), [Ied832](https://android-review.googlesource.com/#/q/Ied832a863cfd89eed556e03fda451d8373cd5cda), [I9e3a3](https://android-review.googlesource.com/#/q/I9e3a3441119894f6c82c1be32c43890991b42490))
++- **Transition Configurations** : Made `EnterExitTransitionConfig` public on `EnterTransition` and `ExitTransition`. External libraries can now inspect `EnterTransition` and `ExitTransition` configurations to build custom transition support. ([Idd5a4](https://android-review.googlesource.com/#/q/Idd5a4854816746d1ac74f7b75d6292d145d79002), [b/330152398](https://issuetracker.google.com/issues/330152398))
++- **`DeferredTargetAnimation.value`** : Exposed the current animated value as a public property on `DeferredTargetAnimation`. ([Ie4f6e](https://android-review.googlesource.com/#/q/Ie4f6e751a0a5d118111b1c04d9b0a5ee7217d220), [b/434659224](https://issuetracker.google.com/issues/434659224))
++- **Seekable Transition Crash Fix** : Fixed an issue in `SeekableTransitionState` where zero-duration or interrupted transitions could calculate `NaN` fractions and throw an `IllegalArgumentException`. ([I8f3a9](https://android-review.googlesource.com/#/q/I8f3a9d2e1b4c5a6f7e8d9c0b1a2f3e4d5c6b7a89), [b/555294641](https://issuetracker.google.com/issues/555294641))
++
+ ### Version 1.13.0-rc01
+ 
+ November 04, 2026
+@@ -484,7 +527,7 @@ October 08, 2025
+ 
+ **API Changes**
+ 
+-- Shared transition APIs are now stable. For more information, please see the [shared element guide](https://developer.android.com/develop/ui/compose/animation/shared-elements). ([I7167e](https://android-review.googlesource.com/#/q/I7167e00a544b1c9ef4a7c8d16803fc3439228d6d)).
++- Shared transition APIs are now stable. For more information, please see the [shared element guide](https://developer.android.com/develop/ui/compose/animation/shared-elements.md.txt). ([I7167e](https://android-review.googlesource.com/#/q/I7167e00a544b1c9ef4a7c8d16803fc3439228d6d)).
+ 
+ ### Version 1.10.0-alpha04
+ 
+@@ -653,7 +696,7 @@ April 23, 2025
+ 
+ **External Contribution**
+ 
+-- From [Compose `1.8.1`](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.8.1): End animations in `SeekableTransitionState` if already past new duration by Steven Schoen. ([0c832c](https://android-review.googlesource.com/#/q/0c832c1))
++- From [Compose `1.8.1`](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt#1.8.1): End animations in `SeekableTransitionState` if already past new duration by Steven Schoen. ([0c832c](https://android-review.googlesource.com/#/q/0c832c1))
+ 
+ ## Version 1.8
+ 
+@@ -1336,12 +1379,14 @@ July 26, 2023
+ 
+ - An optional inspection to recommend migrating `mutableStateOf()` calls to their corresponding specialized types for primitives is available. Its lint ID is `AutoboxingStateCreation`. Previously, this inspection was enabled by default for all projects. To see this warning in Android Studio's editor and your project's lint outputs, change its severity from informational to warning (or higher) by declaring `warning "AutoboxingStateCreation"` inside your module's `build.gradle` or `build.gradle.kts` configuration as shown ([I34f7e](https://android-review.googlesource.com/#/q/I34f7ea540f782ae95630f7f94cab93d842dfdd0f)):
+ 
+-          android {
+-              lint {
+-                  warning "AutoboxingStateCreation"
+-              }
+-              ...
++  ```groovy
++      android {
++          lint {
++              warning "AutoboxingStateCreation"
+           }
++          ...
++      }
++  ```
+ 
+ ### Version 1.5.0-beta03
+ 
+@@ -1787,9 +1832,9 @@ February 9, 2022
+ - Stable support for the Android 12 [Overscroll effect](https://android-review.googlesource.com/c/platform/frameworks/support/+/1795727/)
+ - Improvements to touch target sizing
+ - Note that, with respect to Compose 1.0, Material components will expand their layout space to meet Material [accessibility guidelines](https://material.io/design/usability/accessibility.html) for [touch target size](https://material.io/design/usability/accessibility.html#layout-and-typography). For instance, Button touch target will expand to a minimum size of 48x48dp, even if you set the Button's size to be smaller. This aligns Compose Material to the same behavior of Material Design Components, providing consistent behavior if you mix Views and Compose. This change also ensures that when you create your UI using Compose Material components, minimum requirements for touch target accessibility will be met.
+-- Stable support for [Navigation Rail](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#navigationrail)
++- Stable support for [Navigation Rail](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#navigationrail)
+ - Graduates a number of previously experimental APIs to stable
+-- [Support](https://developer.android.com/jetpack/androidx/releases/compose-kotlin) for newer versions of Kotlin
++- [Support](https://developer.android.com/jetpack/androidx/releases/compose-kotlin.md.txt) for newer versions of Kotlin
+ 
+ ### Version 1.1.0-rc03
+ 
+@@ -2040,12 +2085,14 @@ This release adds profile rules to the following compose modules ([I14ed6](https
+ 
+ - A method rule will have the following pattern:
+ 
+-      <FLAGS><CLASS_DESCRIPTOR>-><METHOD_SIGNATURE>
+-
++  ```kotlin
++  <FLAGS><CLASS_DESCRIPTOR>-><METHOD_SIGNATURE>
++  ```
+ - And a class rule will have the following pattern:
+ 
+-      <CLASS_DESCRIPTOR>
+-
++  ```kotlin
++  <CLASS_DESCRIPTOR>
++  ```
+ - Here `<FLAGS>` is one or more of the characters `H`, `S`, and `P` to indicate whether or not this method should be flagged as "Hot", "Startup", or "Post Startup".
+ 
+ - The `<CLASS_DESCRIPTOR>` is the descriptor for the class that the targeted method belongs to. For example, the class `androidx.compose.runtime.SlotTable` would have a descriptor of `Landroidx/compose/runtime/SlotTable;`.
+@@ -2398,18 +2445,20 @@ September 2, 2020
+ 
+   For example:
+ 
+-      @Test
+-      fun myTest() = runWithManualClock { clock ->
+-          // set some compose content
+-          withContext(TestUiDispatcher.Main) {
+-              clock.advanceClock(1000L)
+-          }
+-          if (clock.hasAwaiters) {
+-              println("The clock has awaiters")
+-          } else {
+-              println("The clock has no more awaiters")
+-          }
++  ```kotlin
++  @Test
++  fun myTest() = runWithManualClock { clock ->
++      // set some compose content
++      withContext(TestUiDispatcher.Main) {
++          clock.advanceClock(1000L)
++      }
++      if (clock.hasAwaiters) {
++          println("The clock has awaiters")
++      } else {
++          println("The clock has no more awaiters")
+       }
++  }
++  ```
+ 
+   ([I0a85b](https://android-review.googlesource.com/#/q/I0a85b019ae5f40f52f2c6b78c08958eb7b8e7485), [b/161247083](https://issuetracker.google.com/issues/161247083))
+ 
+@@ -2498,7 +2547,7 @@ July 22, 2020
+ 
+ #### Dependencies Update
+ 
+-- To use the `0.1.0-dev15` version of Compose, you will need to update your dependencies according to the new code snippets shown above in [Declaring dependencies](https://developer.android.com/jetpack/androidx/releases/compose-animation#declaring_dependencies).
++- To use the `0.1.0-dev15` version of Compose, you will need to update your dependencies according to the new code snippets shown above in [Declaring dependencies](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt#declaring_dependencies).
+ 
+ **API Changes**
+ 

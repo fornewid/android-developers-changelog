@@ -1,0 +1,245 @@
+diff --git a/docs/jetpack/androidx/releases/savedstate.md b/docs/jetpack/androidx/releases/savedstate.md
+index 070692a4..98804592 100644
+--- a/docs/jetpack/androidx/releases/savedstate.md
++++ b/docs/jetpack/androidx/releases/savedstate.md
+@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/savedstate
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
++
+ # Savedstate
+ 
+ [User Guide](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate) [Codelab](https://codelabs.developers.google.com/codelabs/android-lifecycles/#6) Write pluggable components that save the UI state when a process dies, and restore it when the process restarts.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| October 21, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/savedstate#1.5.0) | - | - | [1.6.0-alpha05](https://developer.android.com/jetpack/androidx/releases/savedstate#1.6.0-alpha05) |
++| November 18, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/savedstate.md.txt#1.5.0) | - | - | [1.6.0-alpha06](https://developer.android.com/jetpack/androidx/releases/savedstate.md.txt#1.6.0-alpha06) |
+ 
+ ## Declaring dependencies
+ 
+@@ -62,6 +64,16 @@ for more information.
+ 
+ ## Version 1.6
+ 
++### Version 1.6.0-alpha06
++
++November 18, 2026
++
++`androidx.savedstate:savedstate-*:1.6.0-alpha06` is released. Version 1.6.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3566803898b060d7136357220affc9ece8236019..3e55c1ad889c6c0087b0bf6720b1a970b6e8ea3b/savedstate).
++
++**API Changes**
++
++- Migrate `LocalSavedStateRegistryOwner` to use `compositionLocalWithHostDefaultOf` and `SavedStateRegistryOwnerHostDefaultKey` detaching it from being directly retrieved as part of the view tree outside of Android. ([I6768f](https://android-review.googlesource.com/#/q/I6768fa3b94b5b8c72132c5e61e60bcab674ae057))
++
+ ### Version 1.6.0-alpha05
+ 
+ October 21, 2026
+@@ -128,7 +140,7 @@ May 19, 2026
+ **Important changes since 1.4.0:**
+ 
+ - Enable generic serialization for `SavedState` objects, allowing them to be encoded and decoded using standard formats like CBOR or JSON across all platforms. ([Iafda4](https://android-review.googlesource.com/#/q/Iba02ed1a48285a26dd5910b98849175bbf11e8cf), [b/425919375](https://issuetracker.google.com/issues/425919375))
+-- Add `putKotlinSerializable` and `getKotlinSerializable` extension functions to `SavedStateWriter` and `SavedStateReader` to allow directly storing and retrieving Kotlin Serializable objects using keys, streamlining the integration with SavedState APIs. ([Iba02e](https://developer.android.com/jetpack/androidx/releases/savedstate#:%7E:text=with%20SavedState%20APIs.%20(-,Iba02e,-)))
++- Add `putKotlinSerializable` and `getKotlinSerializable` extension functions to `SavedStateWriter` and `SavedStateReader` to allow directly storing and retrieving Kotlin Serializable objects using keys, streamlining the integration with SavedState APIs. ([Iba02e](https://developer.android.com/jetpack/androidx/releases/savedstate.md.txt#:%7E:text=with%20SavedState%20APIs.%20(-,Iba02e,-)))
+ - Add factory functions for `LifecycleOwner`, `ViewModelStoreOwner`, and `SavedStateRegistryOwner` to reduce boilerplate when composing custom owner components. ([I9682c](https://android-review.googlesource.com/#/q/I9682c335efa683b00f36d4e4423780d45a33f320))
+ - Enable saving and restoring `SnapshotStateSet` (created via `mutableStateSetOf()`) with `rememberSerializable`. You can now use `SnapshotStateSet` in `rememberSerializable` without requiring a custom saver. ([I9a4ed](https://android-review.googlesource.com/#/q/I9a4ed31c263ad4f66f6510acb20bec559905612e), [b/449498367](https://issuetracker.google.com/issues/449498367))
+ 
+@@ -254,7 +266,7 @@ May 7, 2025
+ 
+ **Important changes since 1.2.0**
+ 
+-- `LocalSavedStateRegistryOwner` has been moved from Compose UI to the new `savedstate-compose` module so that its Compose-based helper APIs can be used outside of Compose UI. This should always be used when using [Compose UI `1.9.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.9.0-alpha02) and higher, but is backward compatible such that it can be used with all versions of Compose.
++- `LocalSavedStateRegistryOwner` has been moved from Compose UI to the new `savedstate-compose` module so that its Compose-based helper APIs can be used outside of Compose UI. This should always be used when using [Compose UI `1.9.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#1.9.0-alpha02) and higher, but is backward compatible such that it can be used with all versions of Compose.
+ - The `savedstate-ktx` kotlin extensions have now been moved to the base savedstate module.
+ - `SavedStateRegistryOwner` instances retrieved via `findViewTreeSavedStateRegistryOwner` can now be resolved through disjoint parents of a view, such as a `ViewOverlay`. See the release notes of core or the documentation in `ViewTree.setViewTreeDisjointParent` for more information on disjoint view parents.
+ 
+@@ -263,50 +275,54 @@ May 7, 2025
+ - The `SavedState` module is now KMP compatible. Supported platforms now include Android, iOS, Linux, Mac, and JVM desktop environments.
+ - Introduce `SavedState` opaque type as an abstraction to provide a consistent way to save and restore application state in KMP. It includes a `SavedStateReader` and `SavedStateWriter` for modifying the state to be saved. On Android, `SavedState` is a type alias for `Bundle`, ensuring binary compatibility and facilitating the migration of existing APIs to a common source set. On other platforms, `SavedState` is a `Map<String, Any>` instance.
+ 
+-        // Create a new SavedState object using the savedState DSL:
+-        val savedState = savedState {
+-          putInt("currentPage", 1)
+-          putString("filter", "favorites")
+-        }
++  ```kotlin
++    // Create a new SavedState object using the savedState DSL:
++    val savedState = savedState {
++      putInt("currentPage", 1)
++      putString("filter", "favorites")
++    }
+ 
+-        // Read from a SavedState object
+-        val currentPage = savedState.read { getInt("currentPage") }
++    // Read from a SavedState object
++    val currentPage = savedState.read { getInt("currentPage") }
+ 
+-        // Edit an existing SavedState object
+-        savedState.write {
+-          remove("currentPage")
+-        }
++    // Edit an existing SavedState object
++    savedState.write {
++      remove("currentPage")
++    }
++  ```
+ 
+ **KotlinX Serialization Support**
+ 
+ - `SavedState` now includes KotlinX Serialization support. You can convert a class annotated with `@Serializable` to a `SavedState` using the methods `encodeToSavedState` and `decodeFromSavedState`. The returned `SavedState` is a regular `Bundle` on Android and can be used by any API that accepts a `Bundle`.
+ 
+-      @Serializable
+-      data class Person(val firstName: String, val lastName: String)
++  ```kotlin
++  @Serializable
++  data class Person(val firstName: String, val lastName: String)
+ 
+-      fun main() {
+-          val person = Person("John", "Doe")
+-          val encoded: SavedState = encodeToSavedState(person)
+-          val decoded: Person = decodeFromSavedState(encoded)
+-      }
+-
+-- While most types (such as primitive types) are directly supported without any configuration needed, additional serializers that can be used with `@Serializable(with = ___:class)`can be found in the [`androidx.savedstate.serialization.serializers` package](https://developer.android.com/reference/kotlin/androidx/savedstate/serialization/serializers/package-summary) in the `savedstate` module and the [`androidx.savedstate.compose.serialization.serializers` package](https://developer.android.com/reference/kotlin/androidx/savedstate/compose/serialization/serializers/package-summary) in the `savedstate-compose` module.
++  fun main() {
++      val person = Person("John", "Doe")
++      val encoded: SavedState = encodeToSavedState(person)
++      val decoded: Person = decodeFromSavedState(encoded)
++  }
++  ```
++- While most types (such as primitive types) are directly supported without any configuration needed, additional serializers that can be used with `@Serializable(with = ___:class)`can be found in the [`androidx.savedstate.serialization.serializers` package](https://developer.android.com/reference/kotlin/androidx/savedstate/serialization/serializers/package-summary.md.txt) in the `savedstate` module and the [`androidx.savedstate.compose.serialization.serializers` package](https://developer.android.com/reference/kotlin/androidx/savedstate/compose/serialization/serializers/package-summary.md.txt) in the `savedstate-compose` module.
+ 
+ - We also have included `saved`, a lazy property delegate, to make it easy to store `@Serializable` classes in a `SavedStateRegistryOwner` (e.g., `ComponentActivity`, `Fragment`, etc.) and have those classes automatically be restored across process death and recreation. Please note the `saved` delegate is lazy and will not call the `init` lambda or save anything into the `SavedStateRegistry` until it is accessed.
+ 
+-      @Serializable
+-      data class Person(val firstName: String, val lastName: String)
++  ```kotlin
++  @Serializable
++  data class Person(val firstName: String, val lastName: String)
+ 
+-      class MyActivity : ComponentActivity() {
+-          var person by saved { Person("John", "Doe") }
++  class MyActivity : ComponentActivity() {
++      var person by saved { Person("John", "Doe") }
+ 
+-          override fun onCreate(savedInstanceState: Bundle?) {
+-              super.onCreate(savedInstanceState)
+-              this.person = Person("Jane", "Doe")
+-          }
++      override fun onCreate(savedInstanceState: Bundle?) {
++          super.onCreate(savedInstanceState)
++          this.person = Person("Jane", "Doe")
+       }
+-
+-- There is a similar `saved` property delegate for `SavedStateHandle` added in [Lifecycle `2.9.0`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.9.0).
++  }
++  ```
++- There is a similar `saved` property delegate for `SavedStateHandle` added in [Lifecycle `2.9.0`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.9.0).
+ 
+ ### Version 1.3.0-rc01
+ 
+@@ -431,30 +447,32 @@ November 13, 2024
+ 
+ - `SavedState` now includes KotlinX Serialization support. You can convert a class annotated with `@Serializable` to a `SavedState` using the methods `encodeToSavedState` and `decodeFromSavedState`. The returned `SavedState` is a regular `Bundle` on Android and can be used by any API that accepts a `Bundle`. ([I6f59f](https://android-review.googlesource.com/#/q/I6f59faffaa3777bf56132a67f41b867d7a9663e5), [b/374102924](https://issuetracker.google.com/issues/374102924))
+ 
+-      @Serializable
+-      data class Person(val firstName: String, val lastName: String)
+-
+-      fun main() {
+-          val person = Person("John", "Doe")
+-          val encoded: SavedState = encodeToSavedState(person)
+-          val decoded: Person = decodeFromSavedState(encoded)
+-      }
++  ```kotlin
++  @Serializable
++  data class Person(val firstName: String, val lastName: String)
+ 
++  fun main() {
++      val person = Person("John", "Doe")
++      val encoded: SavedState = encodeToSavedState(person)
++      val decoded: Person = decodeFromSavedState(encoded)
++  }
++  ```
+ - We also have included `saved`, a lazy property delegate, to make it easy to store `@Serializable` classes in a `SavedStateRegistryOwner` (e.g., `ComponentActivity`, `Fragment`, etc.) and have those classes automatically be restored across process death and recreation. Please note the `saved` delegate is lazy and will not call the `init` lambda or save anything into the `SavedStateRegistry` until it is accessed. ([I66739](https://android-review.googlesource.com/#/q/I667391f94de531e5535435b3b05bdef8bde5f61f), [b/376027806](https://issuetracker.google.com/issues/376027806))
+ 
+-      @Serializable
+-      data class Person(val firstName: String, val lastName: String)
++  ```kotlin
++  @Serializable
++  data class Person(val firstName: String, val lastName: String)
+ 
+-      class MyActivity : ComponentActivity() {
+-          var person by saved { Person("John", "Doe") }
++  class MyActivity : ComponentActivity() {
++      var person by saved { Person("John", "Doe") }
+ 
+-          override fun onCreate(savedInstanceState: Bundle?) {
+-              super.onCreate(savedInstanceState)
+-              this.person = Person("Jane", "Doe")
+-          }
++      override fun onCreate(savedInstanceState: Bundle?) {
++          super.onCreate(savedInstanceState)
++          this.person = Person("Jane", "Doe")
+       }
+-
+-- There is a similar `saved` property delegate for `SavedStateHandle` added in [Lifecycle `2.9.0-alpha07`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.9.0-alpha07).
++  }
++  ```
++- There is a similar `saved` property delegate for `SavedStateHandle` added in [Lifecycle `2.9.0-alpha07`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.9.0-alpha07).
+ 
+ **API Changes**
+ 
+@@ -495,19 +513,21 @@ October 2, 2024
+ 
+ - Introduce `SavedState` opaque type as an abstraction to provide a consistent way to save and restore application state in KMP. It includes a `SavedStateReader` and `SavedStateWriter` for modifying the state to be saved. On Android, `SavedState` is a type alias for `Bundle`, ensuring binary compatibility and facilitating the migration of existing APIs to a common source set. On other platforms, `SavedState` is a `Map<String, Any>` instance. ([I18575](https://android-review.googlesource.com/#/q/I185754bb2e7e04c32ccc89209a4d4e765334e547), [b/334076622](https://issuetracker.google.com/issues/334076622))
+ 
+-      // Create a new SavedState object using the savedState DSL:
+-      val savedState = savedState {
+-        putInt("currentPage", 1)
+-        putString("filter", "favorites")
+-      }
+-
+-      // Read from a SavedState object
+-      val currentPage = savedState.read { getInt("currentPage") }
+-
+-      // Edit an existing SavedState object
+-      savedState.write {
+-        remove("currentPage")
+-      }
++```kotlin
++  // Create a new SavedState object using the savedState DSL:
++  val savedState = savedState {
++    putInt("currentPage", 1)
++    putString("filter", "favorites")
++  }
++
++  // Read from a SavedState object
++  val currentPage = savedState.read { getInt("currentPage") }
++
++  // Edit an existing SavedState object
++  savedState.write {
++    remove("currentPage")
++  }
++```
+ 
+ **API Changes**
+ 
+@@ -538,7 +558,7 @@ March 22, 2023
+ 
+ **Dependency Updates**
+ 
+-- `SavedState` now depends on [Lifecycle `2.6.1`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.6.1). ([c1f621](https://android.googlesource.com/platform/frameworks/support/+/c1f62187db7f83e7db1bc1c1fb0b122d7ed34ee8))
++- `SavedState` now depends on [Lifecycle `2.6.1`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.6.1). ([c1f621](https://android.googlesource.com/platform/frameworks/support/+/c1f62187db7f83e7db1bc1c1fb0b122d7ed34ee8))
+ 
+ ## Version 1.2.0
+ 
+@@ -641,7 +661,7 @@ May 20, 2020
+ 
+ **New Features**
+ 
+-- A new `ViewTreeSavedStateRegistryOwner.get(View)` API allows you to retrieve the containing `SavedStateRegistry` given a `View` instance. You must upgrade to [Activity `1.2.0-alpha05`](https://developer.android.com/jetpack/androidx/releases/activity#1.2.0-alpha05), [Fragment `1.3.0-alpha05`](https://developer.android.com/jetpack/androidx/releases/fragment#1.3.0-alpha05), and [AppCompat `1.3.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/appcompat#1.3.0-alpha01) to populate this correctly. ([aosp/1298679](https://android-review.googlesource.com/1298679))
++- A new `ViewTreeSavedStateRegistryOwner.get(View)` API allows you to retrieve the containing `SavedStateRegistry` given a `View` instance. You must upgrade to [Activity `1.2.0-alpha05`](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#1.2.0-alpha05), [Fragment `1.3.0-alpha05`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.3.0-alpha05), and [AppCompat `1.3.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/appcompat.md.txt#1.3.0-alpha01) to populate this correctly. ([aosp/1298679](https://android-review.googlesource.com/1298679))
+ - The new `savedstate-ktx` artifact has been added with a `findViewTreeSavedStateRegistryOwner()` Kotlin extension for working with `ViewTreeSavedStateRegistryOwner`. ([aosp/1299434](https://android-review.googlesource.com/1299434))
+ 
+ ## Version 1.0.0

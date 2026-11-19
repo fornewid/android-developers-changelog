@@ -1,0 +1,38 @@
+diff --git a/docs/jetpack/androidx/releases/exifinterface.md b/docs/jetpack/androidx/releases/exifinterface.md
+index f3a7e58c..4fb42161 100644
+--- a/docs/jetpack/androidx/releases/exifinterface.md
++++ b/docs/jetpack/androidx/releases/exifinterface.md
+@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/exifinterface
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
++
+ # Exifinterface
+ 
+ [Code Sample](https://github.com/android/camera-samples/blob/master/CameraUtils/lib/src/main/java/com/example/android/camera/utils/ExifUtils.kt) Read and write image file EXIF tags.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| November 04, 2026 | [1.4.2](https://developer.android.com/jetpack/androidx/releases/exifinterface#1.4.2) | - | [1.5.0-beta01](https://developer.android.com/jetpack/androidx/releases/exifinterface#1.5.0-beta01) | - |
++| November 18, 2026 | [1.4.2](https://developer.android.com/jetpack/androidx/releases/exifinterface.md.txt#1.4.2) | - | [1.5.0-beta02](https://developer.android.com/jetpack/androidx/releases/exifinterface.md.txt#1.5.0-beta02) | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -54,6 +56,16 @@ for more information.
+ 
+ ## Version 1.5
+ 
++### Version 1.5.0-beta02
++
++November 18, 2026
++
++`androidx.exifinterface:exifinterface:1.5.0-beta02` is released. Version 1.5.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a021adf44194ae86e596ae25ca43d5e4e18f6926..c395005ece1a96fa54b051898031ab98a90323e9/exifinterface/exifinterface).
++
++- Ensure Exif IFD tags are written in ascending order by tag ID.
++- Make the date formatters inside `ExifInterface` thread-safe.
++- Stop adding an incorrect `NUL` terminator to Exif tags of type `UNDEFINED`.
++
+ ### Version 1.5.0-beta01
+ 
+ November 04, 2026

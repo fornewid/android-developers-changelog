@@ -1,0 +1,113 @@
+diff --git a/docs/jetpack/androidx/releases/xr-scenecore.md b/docs/jetpack/androidx/releases/xr-scenecore.md
+index c9ec7b9c..8ad457fa 100644
+--- a/docs/jetpack/androidx/releases/xr-scenecore.md
++++ b/docs/jetpack/androidx/releases/xr-scenecore.md
+@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/xr-scenecore
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
++
+ # Jetpack SceneCore
+ 
+ [User Guide](https://developer.android.com/develop/devices/xr/jetpack-xr-sdk) [Code Sample](https://github.com/android/xr-samples) Build and manipulate the Android XR scene graph with 3D content.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| October 21, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0) | - | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.1.0-alpha01) |
++| November 18, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/xr-scenecore.md.txt#1.0.0) | - | - | [1.1.0-alpha02](https://developer.android.com/jetpack/androidx/releases/xr-scenecore.md.txt#1.1.0-alpha02) |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,10 +27,10 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.scenecore:scenecore:1.1.0-alpha01"
++    implementation "androidx.xr.scenecore:scenecore:1.1.0-alpha02"
+ 
+     // Use to write unit tests
+-    testImplementation "androidx.xr.scenecore:scenecore-testing:1.1.0-alpha01"
++    testImplementation "androidx.xr.scenecore:scenecore-testing:1.1.0-alpha02"
+ }
+ ```
+ 
+@@ -36,10 +38,10 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.scenecore:scenecore:1.1.0-alpha01")
++    implementation("androidx.xr.scenecore:scenecore:1.1.0-alpha02")
+ 
+     // Use to write unit tests
+-    testImplementation("androidx.xr.scenecore:scenecore-testing:1.1.0-alpha01")
++    testImplementation("androidx.xr.scenecore:scenecore-testing:1.1.0-alpha02")
+ }
+ ```
+ 
+@@ -60,6 +62,29 @@ for more information.
+ 
+ ## Version 1.1
+ 
++### Version 1.1.0-alpha02
++
++November 18, 2026
++
++`androidx.xr.scenecore:scenecore-*:1.1.0-alpha02` is released. Version 1.1.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d0c6d95953dce7229144a5c588b1b3ef040131b4..583ca0f7692aeccecd394e97332244a2ea533c57/xr/scenecore).
++
++**New Features**
++
++- Added support for resizable geometry interactions to `GltfEntity` and `MeshEntity` components. ([Id57fa](https://android-review.googlesource.com/q/Id57faecf0969675e32a773e7bfc60277494f0ba5))
++- Added support for dynamically updating the looping state of `GltfAnimation` during playback. ([Ib0dd7](https://android-review.googlesource.com/q/Ib0dd773d7163a0ccfbbc9d7a5f7e477d404661da))
++
++**API Changes**
++
++- Added `PointSourceParams.Builder` with directivity, spread angle, and `DistanceAttenuation` models for 3D spatial audio point sources. ([Ib3737](https://android-review.googlesource.com/#/q/Ib37371047e787900f20329a6726f3db421ff239a))
++- The `GltfAnimation.setLoop()` API is no longer marked as experimental as it can now toggle the looping behavior while the animation is playing. ([I6da98](https://android-review.googlesource.com/q/I6da98c92440fd4778b26637ebddc32b6b54c9c75), [I67be6](https://android-review.googlesource.com/#/q/I67be6d89787dfb6e6985c19c2c233a9f433dfc66))
++
++**Bug Fixes**
++
++- `ResizableComponent` can now be attached to a `GltfModelEntity` to let the user scale the model. ([I5c3e4](https://android-review.googlesource.com/#/q/I5c3e4ab32877a13f1796fb1adf92986c05ac43ec))
++- `AnchorSpace` now transitions to `AnchorSpace.State.ERROR` when anchor token export or binding fails. ([I91169](https://android-review.googlesource.com/#/q/I9116932859063730186eff12b6d72c34554b20d5))
++- Synchronized `PanelEntity` resizing by using transaction callbacks to eliminate visual flickering during scaling. ([I8f803](https://android-review.googlesource.com/q/I8f80325f4cdd22b1c8372857f13319cf807ec22d))
++- Fixed corner radius clamping issue when resizing quad `SurfaceEntity` shapes by ensuring values remain within bounds. ([I74283](https://android-review.googlesource.com/q/I7428311376f550dd927045fc75b2980c88276a86))
++
+ ### Version 1.1.0-alpha01
+ 
+ October 21, 2026
+@@ -92,7 +117,7 @@ October 21, 2026
+ **Major features of 1.0.0:**
+ 
+ - Jetpack XR SceneCore is now stable! SceneCore lets you place and arrange 3D content, defined by entities, relative to each other and your environment. With SceneCore, you can create, place, and manipulate 2D panels and 3D models in virtual and mixed-reality scenes; specify spatial environments and spatial audio sources; and anchor virtual content to the real world.
+-- For more information, see our [Overview Page](https://developer.android.com/develop/xr/jetpack-xr-sdk#jetpack-scenecore) and [API Reference](https://developer.android.com/reference/kotlin/androidx/xr/scenecore).
++- For more information, see our [Overview Page](https://developer.android.com/develop/xr/jetpack-xr-sdk.md.txt#jetpack-scenecore) and [API Reference](https://developer.android.com/reference/kotlin/androidx/xr/scenecore).
+ 
+ ### Version 1.0.0-rc02
+ 
+@@ -626,20 +651,20 @@ December 12, 2024
+ **Features of Initial Release**
+ Initial developer release of Jetpack SceneCore, a 3D scene graph library for creating and manipulating immersive scenes and environments. This library allows you to place and arrange 3D models and content panels relative to each other and your virtual or real-world environments.
+ 
+-- [SpatialEnvironment](https://developer.android.com/design/ui/xr/guides/environments): Create fully immersive experiences with a skybox image and/or 3D model geometry as the backdrop for your XR scene of your environment. Or enable passthrough, so your virtual scene can integrate with the user's real-world environment.
+-- [PanelEntity](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/PanelEntity): Add 2D content to your 3D scenes by embedding standard Android layouts and Activities into spatialized panels that can float or be anchored to real-world surfaces.
+-- [GltfModelEntity](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModelEntity): Place, animate, and interact with 3D models in your scene. SceneCore supports the glTF file format for ease of integration with existing models.
+-- [SpatialAudio](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-audio): Add ambient and point audio sources into your 3D scene for fully immersive, spatialized sound.
++- [SpatialEnvironment](https://developer.android.com/design/ui/xr/guides/environments.md.txt): Create fully immersive experiences with a skybox image and/or 3D model geometry as the backdrop for your XR scene of your environment. Or enable passthrough, so your virtual scene can integrate with the user's real-world environment.
++- [PanelEntity](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/PanelEntity.md.txt): Add 2D content to your 3D scenes by embedding standard Android layouts and Activities into spatialized panels that can float or be anchored to real-world surfaces.
++- [GltfModelEntity](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModelEntity.md.txt): Place, animate, and interact with 3D models in your scene. SceneCore supports the glTF file format for ease of integration with existing models.
++- [SpatialAudio](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-audio.md.txt): Add ambient and point audio sources into your 3D scene for fully immersive, spatialized sound.
+ - [StereoSurfaceEntity](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/StereoSurfaceEntity): SceneCore supports left/right eye routing of content rendered onto an Android Surface. This can be used to render stereoscopic content in a side-by-side or top-bottom format, such as stereo photos, 3D video, or other dynamically rendered UIs. Applications should use MediaPlayer or ExoPlayer for video decoding.
+ - Component System: SceneCore offers a robust and flexible component system for adding capabilities to your XR content, including affordances for users to move, resize, and interact with models and panels.
+-- [Anchor](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor): With passthrough enabled, you can attach panels and models to actual surfaces, giving users seamless integration of virtual content in their real-world environment.
++- [Anchor](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor.md.txt): With passthrough enabled, you can attach panels and models to actual surfaces, giving users seamless integration of virtual content in their real-world environment.
+ - User Pose: Access the user's location in the virtual scene, to orient your content around the user's position.
+ - [SpatialCapabilities](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialCapabilities): Build fully adaptive apps that take advantage of spatialized capabilities when available, such as 3D positioning of UI content. Not only that, but your app can monitor for changes to capabilities while the app is executing, to modify the experience based on how the user is using their Android XR device.
+ 
+ **Known Issues**
+ 
+ - Currently a minSDK of 30 is required to use Jetpack SceneCore. As a workaround add the following manifest entry `<uses-sdk tools:overrideLibrary="androidx.xr.scenecore, androidx.xr.compose"/>` to be able to build and run with a minSDK of 23.
+-- Session can become invalid in various situations that automatically recreate the Activity, including resizing a main panel, connecting peripherals, and changing between light and dark mode. If you encounter session invalidation issues, workarounds include making you main panel non-resizable, using a dynamic panel entity, [disabling activity recreation](https://developer.android.com/guide/topics/resources/runtime-changes#restrict-activity) for specific config changes or disabling light/dark mode theme changes.
++- Session can become invalid in various situations that automatically recreate the Activity, including resizing a main panel, connecting peripherals, and changing between light and dark mode. If you encounter session invalidation issues, workarounds include making you main panel non-resizable, using a dynamic panel entity, [disabling activity recreation](https://developer.android.com/guide/topics/resources/runtime-changes.md.txt#restrict-activity) for specific config changes or disabling light/dark mode theme changes.
+ - Movable and Resizable components are not supported on GltfEntity.
+ - Entity.getSize() is not supported on GltfEntity.
+ - Jetpack XR apps required to request `android.permission.SCENE_UNDERSTANDING` permission in AndroidManifest.

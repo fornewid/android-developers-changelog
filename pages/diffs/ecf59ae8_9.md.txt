@@ -1,0 +1,118 @@
+diff --git a/docs/blog/latest/9.md b/docs/blog/latest/9.md
+index fcdadc51..6c3d0a45 100644
+--- a/docs/blog/latest/9.md
++++ b/docs/blog/latest/9.md
+@@ -9,6 +9,24 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora.md.txt)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Z2c5PaI.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
++
++  ## [How Uber is reducing manual logins by 4 million per year with the Restore Credentials API](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api.md.txt) Uber leveraged the Android Restore Credentials API to streamline new device sign-in, projecting a reduction of 4 million manual logins per year and increasing user retention.
++  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
++- [![View Tor Norbye's profile](https://developer.android.com/static/blog/assets/Tor_Norbye_7b1b17eb31_Z1JVx8k.webp)](https://developer.android.com/blog/authors/tor-norbye.md.txt) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/gemini3as_Assitance_a5fd86cee5_ZfNyVb.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
++
++  ## [Gemini 3 is now available for AI assistance in Android Studio](https://developer.android.com/blog/posts/gemini-3-is-now-available-for-ai-assistance-in-android-studio.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/gemini-3-is-now-available-for-ai-assistance-in-android-studio.md.txt) The Gemini 3 Pro model, released today and engineered for better coding and agentic experiences, is now available for AI assistance in the latest version of Android Studio Otter.
++  [Tor Norbye](https://developer.android.com/blog/authors/tor-norbye.md.txt) • 1 min read
++- [![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp)](https://developer.android.com/blog/authors/ajesh-pai.md.txt)[![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss.md.txt) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week7_0b86aba329_Z1h1s1q.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
++
++  ## [Configure and troubleshoot R8 Keep Rules](https://developer.android.com/blog/posts/configure-and-troubleshoot-r8-keep-rules.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/configure-and-troubleshoot-r8-keep-rules.md.txt) The Android build system's primary tool for achieving a small, fast, and secure application is the R8 optimizer, the compiler that handles dead code and resource removal for shrinking, code renaming or minification, and app optimization.
++  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt) • 7 min read
+ - [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss.md.txt) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week10_467f2693b4_19FhE4.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
+ 
+   ## [Use R8 to shrink, optimize, and fast-track your app](https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app.md.txt)
+@@ -113,25 +131,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/high-speed-capture-and-slow-motion-video-with-camera-x-1-5.md.txt) Capturing fast-moving action with clarity is a key feature for modern camera apps. This is achieved through high-speed capture---the process of acquiring frames at rates like 120 or 240 fps.
+   [Leo Huang](https://developer.android.com/blog/authors/leo-huang.md.txt) • 6 min read
+-- [![View Rob Orgiu's profile](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_Z2l461S.webp)](https://developer.android.com/blog/authors/rob-orgiu.md.txt) 27 Oct 2025 27 Oct 2025 ![](https://developer.android.com/static/blog/assets/material3adaptive_72cc7e27f6_ZlWmpA.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+-
+-  ## [Material 3 Adaptive 1.2.0 is stable](https://developer.android.com/blog/posts/material-3-adaptive-1-2-0-is-stable.md.txt)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/material-3-adaptive-1-2-0-is-stable.md.txt) We're excited to announce that Material 3 Adaptive 1.2.0 is now stable!
+-  This release continues to build on the foundations of previous versions, expanding support to more breakpoints for window size classes and new strategies to place display panes automatically.
+-  [Rob Orgiu](https://developer.android.com/blog/authors/rob-orgiu.md.txt) • 1 min read
+-- [![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)](https://developer.android.com/blog/authors/jan-kleinert.md.txt) 24 Oct 2025 24 Oct 2025 ![](https://developer.android.com/static/blog/assets/xr_Week3_12c745cd96_1A4z99.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+-
+-  ## [5 things you need to know about publishing and distributing your app for Android XR](https://developer.android.com/blog/posts/5-things-you-need-to-know-about-publishing-and-distributing-your-app-for-android-xr.md.txt)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/5-things-you-need-to-know-about-publishing-and-distributing-your-app-for-android-xr.md.txt) Samsung Galaxy XR is here, powered by Android XR! This blog post is part of our Android XR Spotlight Week, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR.
+-  [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert.md.txt) • 4 min read
+-- [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_1yXUBh.webp)](https://developer.android.com/blog/authors/luke-hopkins.md.txt) 23 Oct 2025 23 Oct 2025 ![](https://developer.android.com/static/blog/assets/xr_Week3_984ec91c60_Z6imGe.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+-
+-  ## [Getting started with Unity and Android XR](https://developer.android.com/blog/posts/getting-started-with-unity-and-android-xr.md.txt)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/getting-started-with-unity-and-android-xr.md.txt) Samsung Galaxy XR is here, powered by Android XR! This blog post is part of our Android XR Spotlight Week, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR.
+-  [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins.md.txt) • 6 min read
+ [arrow_back](https://developer.android.com/blog/latest/8.md.txt)
+ 
+ #### Page 9
+@@ -145,24 +144,25 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+ - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
+ - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+-- [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
+ - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
++- [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
+ - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+ - [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
+ - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
+ - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
++- [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
++- [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps.md.txt)
+ - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
+ - [#Wear OS](https://developer.android.com/blog/topics/wear-os.md.txt)
+ - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+-- [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
+ - [#R8](https://developer.android.com/blog/topics/r8.md.txt)
+-- [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps.md.txt)
++- [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
++- [#Google Play](https://developer.android.com/blog/topics/google-play.md.txt)
+ - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development.md.txt)
+ - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation.md.txt)
+ - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os.md.txt)
+ - [#AppFunctions](https://developer.android.com/blog/topics/app-functions.md.txt)
+ - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk.md.txt)
+-- [#Google Play](https://developer.android.com/blog/topics/google-play.md.txt)
+ - [#Memory](https://developer.android.com/blog/topics/memory.md.txt)
+ - [#Android Skills](https://developer.android.com/blog/topics/android-skills.md.txt)
+ - [#Jetpack](https://developer.android.com/blog/topics/jetpack.md.txt)
+@@ -170,12 +170,13 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#made by google](https://developer.android.com/blog/topics/made-by-google.md.txt)
+ - [#Android Auto](https://developer.android.com/blog/topics/android-auto.md.txt)
+ - [#Googlebook](https://developer.android.com/blog/topics/googlebook.md.txt)
++- [#Adaptive Games](https://developer.android.com/blog/topics/adaptive-games.md.txt)
+ - [#Idling Resources](https://developer.android.com/blog/topics/idling-resources.md.txt)
+ - [#identity](https://developer.android.com/blog/topics/identity.md.txt)
+ - [#Nav3](https://developer.android.com/blog/topics/nav3.md.txt)
+ - [#Now In Android](https://developer.android.com/blog/topics/now-in-android.md.txt)
+ - [#Android 16](https://developer.android.com/blog/topics/android-16.md.txt)
+-- [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
++- [#Large Screens](https://developer.android.com/blog/topics/large-screens.md.txt)
+ - [#beta](https://developer.android.com/blog/topics/beta.md.txt)
+ - [#Generative AI](https://developer.android.com/blog/topics/generative-ai.md.txt)
+ - [#Developer Preview](https://developer.android.com/blog/topics/developer-preview.md.txt)
+@@ -218,16 +219,14 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+ - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
+ - [#Camera X](https://developer.android.com/blog/topics/camera-x.md.txt)
+-- [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
+ - [#Monetization](https://developer.android.com/blog/topics/monetization.md.txt)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+-- [#Large Screens](https://developer.android.com/blog/topics/large-screens)
+ - [#Layouts](https://developer.android.com/blog/topics/layouts)
+ - [#Window Size Classes](https://developer.android.com/blog/topics/blog-topic)
+ - [#usage-based billing GenAI apps](https://developer.android.com/blog/topics/usage-based-billing-gen-ai-apps)
+ - [#Remote Compose](https://developer.android.com/blog/topics/remote-compose)
+-- [#Adaptive Games](https://developer.android.com/blog/topics/adaptive-games)
++- [#Android intelligence](https://developer.android.com/blog/topics/android-intelligence.md.txt)
+ Stay in the loop
+ 
+ 

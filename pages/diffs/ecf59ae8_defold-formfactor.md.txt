@@ -1,0 +1,153 @@
+diff --git a/docs/games/engines/defold/defold-formfactor.md b/docs/games/engines/defold/defold-formfactor.md
+index 2f322c6b..f2bd89ff 100644
+--- a/docs/games/engines/defold/defold-formfactor.md
++++ b/docs/games/engines/defold/defold-formfactor.md
+@@ -4,34 +4,44 @@ url: https://developer.android.com/games/engines/defold/defold-formfactor
+ source: md.txt
+ ---
+ 
+-Android devices are available in a variety of form factors and screen sizes. Common categories include:
++> Documentation index: https://developer.android.com/games/llms.txt
++
++Android-powered devices are available in a variety of form factors and screen
++sizes. Common categories include:
+ 
+ - Mobile phones
++- Foldable devices
+ - Tablets
+ - Televisions and television set-top boxes
+ - Laptops with Android Runtime for Chrome
+ 
+-This variety means your game will encounter a range of different screen resolutions, often with different aspect ratios. For example:
++This variety means your game encounters a range of different screen
++resolutions, often with different aspect ratios. For example:
+ 
+ - A phone in landscape orientation with a 19:9 aspect ratio (2280x1080)
+ - A different phone in landscape orientation with a 20:9 aspect ratio (3200x1400)
++- A foldable unfolded inner display with a 1:1 aspect ratio (2106x2106) or a 4:3 aspect ratio (2688x2016)
+ - A 1080p HD TV with a 16:9 aspect ratio (1920x1080)
+ - A tablet with a 4:3 aspect ratio (2048x1536)
+ 
+-The design of your game should take these differences into account to ensure correct presentation regardless of the screen resolution and aspect ratio of the device.
++The design of your game should take these differences into account to ensure
++correct presentation regardless of the screen resolution and aspect ratio of the
++device.
+ 
+ ## Defold projection modes
+ 
+ A Defold project has a configurable base resolution. This resolution is set in
+-the `game.project` file using the **Width** and **Height** fields in the **Display** category.
++the `game.project` file using the **Width** and **Height** fields in the
++**Display** category.
+ ![Defold project display settings](https://developer.android.com/static/images/games/engines/defold/Resolution_settings.png) **Figure 1.** The **Display** project settings
+ 
+-The default behavior of Defold is to render at the base resolution and then scale
+-the resulting image to the actual resolution of the target device. Defold refers
+-to this mode as *stretch projection* . Stretch projection does not preserve the
+-original aspect ratio. For some games, this default may be visually acceptable.
+-The standard Defold rendering script includes two additional projection options
+-that preserve the base aspect ratio: *fixed fit projection* and *fixed projection*.
++The default behavior of Defold is to render at the base resolution and then
++scale the resulting image to the actual resolution of the target device. Defold
++refers to this mode as *stretch projection* . Stretch projection doesn't
++preserve the original aspect ratio. For some games, this default might be
++visually acceptable. The standard Defold rendering script includes two
++additional projection options that preserve the base aspect ratio: *fixed-fit
++projection* and *fixed projection*.
+ 
+ The following example shows a sample project designed around a base resolution
+ of 480x272, displayed in the Defold editor.
+@@ -59,8 +69,8 @@ stretch projection, where the aspect ratio is not preserved:
+ The *fixed-fit* projection mode maintains the base resolution aspect ratio.
+ Because the aspect ratio is preserved, there will be additional screen area not
+ covered by the scaled base resolution. Depending on the major axis of the aspect
+-ratio difference, this extra area exists either at the top and bottom or the left
+-and right of the base resolution. Fixed-fit projection will modify the base
++ratio difference, this extra area exists either at the top and bottom or the
++left and right of the base resolution. Fixed-fit projection modifies the base
+ resolution to account for this area. This modification results in additional
+ areas of the game scene outside of the base resolution region being rendered.
+ The resulting image is then scaled to the display resolution.
+@@ -71,10 +81,10 @@ resolution with a different aspect ratio than the base resolution of 480x272:
+ 
+ ### Fixed projection
+ 
+-The *fixed projection* mode maintains the base resolution aspect ratio and scales
+-the base resolution by a specified zoom factor. Depending on the display
++The *fixed projection* mode maintains the base resolution aspect ratio and
++scales the base resolution by a specified zoom factor. Depending on the display
+ resolution and the zoom factor, a subset or superset of the base resolution area
+-may be displayed.
++might be displayed.
+ 
+ The following examples demonstrate fixed projection mode using a screen
+ resolution of 644x408 with 1x and 2x zoom factors, respectively:
+@@ -83,10 +93,12 @@ resolution of 644x408 with 1x and 2x zoom factors, respectively:
+ ### Change projection modes
+ 
+ The active projection mode can be switched at runtime by sending the appropriate
+-message to the renderer. These messages are sent using the standard Defold message
+-system. All projection mode messages include parameters specifying near and far
+-plane Z values.
+-| **Note:** The message for fixed projection has an additional parameter specifying the zoom level.
++message to the renderer. These messages are sent using the standard Defold
++message system. All projection mode messages include parameters specifying near
++and far plane Z values.
++
++> [!NOTE]
++> **Note:** The message for fixed projection has an additional parameter specifying the zoom level.
+ 
+     -- Change to stretch projection mode
+     msg.post("@render:", "use_stretch_projection", { near = -1, far = 1 })
+@@ -100,15 +112,13 @@ plane Z values.
+ ## Defold render scripts
+ 
+ Defold rendering behavior is controlled by a special script file called a render
+-script. Like other Defold Engine scripts, the render script is written in the Lua
+-programming language. A default render script is included at project creation,
+-but you can also replace it with a custom render script.
++script. Like other Defold Engine scripts, the render script is written in the
++Lua programming language. A default render script is included at project
++creation, but you can also replace it with a custom render script.
+ 
+-The stretched, fixed-fit and fixed projection modes are features of the default
+-render script. When using one of these modes, the render script generates a 2D
+-orthographic projection matrix for use in rendering game objects. The
+-configuration of this matrix differs depending on the projection mode being
+-used.
++The default render script provides the stretch, fixed-fit, and fixed
++projection modes. In each mode, the script generates a 2D orthographic
++projection matrix configured for that mode to render game objects.
+ 
+ You can use a custom render script to extend or change the configuration of the
+ projection matrix. Functionality not supported by the default script, such as
+@@ -117,8 +127,7 @@ with custom render scripts.
+ 
+ Open-source developers have created render script and camera packages that offer
+ more features than the default Defold scripts. Two commonly-used packages are
+-[RenderCam](https://github.com/rgrams/rendercam) and
+-[Defold-Orthographic](https://github.com/britzl/defold-orthographic).
++[RenderCam](https://github.com/rgrams/rendercam) and [Defold-Orthographic](https://github.com/britzl/defold-orthographic).
+ 
+ ## Defold GUI system
+ 
+@@ -146,7 +155,7 @@ differences in display resolution.
+ 
+ ### GUI node pivot and anchors
+ 
+-GUI nodes can be anchored to vertical and/or horizontal edges using the
++GUI nodes can be anchored to vertical, horizontal, or both edges using the
+ **X Anchor** and **Y Anchor** properties.
+ 
+ - If a node has a parent node, the anchor is to the edges of the parent node.
+@@ -187,7 +196,9 @@ GUI nodes may be resized when the display resolution differs from the base
+ project resolution. The **Adjust Mode** property controls the scaling behavior
+ of the node content. **Adjust Mode** has three settings: `Fit`, `Zoom`, and
+ `Stretch`.
+-| **Note:** The root GUI scene object has an **Adjust Reference** property. If this property is set to `Disabled`, the **Adjust Mode** properties of all GUI nodes in the scene will be ignored. When **Adjust Reference** is set to `Disabled`, GUI nodes will not be resized or repositioned to account for changes in the display resolution.
++
++> [!NOTE]
++> **Note:** The root GUI scene object has an **Adjust Reference** property. If this property is set to `Disabled`, the **Adjust Mode** properties of all GUI nodes in the scene will be ignored. When **Adjust Reference** is set to `Disabled`, GUI nodes won't be resized or repositioned to account for changes in the display resolution.
+ 
+ ### Fit
+ 

@@ -1,0 +1,25 @@
+diff --git a/docs/develop/connectivity/bluetooth/ble/connect-gatt-server.md b/docs/develop/connectivity/bluetooth/ble/connect-gatt-server.md
+index f15a7861..7c2c9212 100644
+--- a/docs/develop/connectivity/bluetooth/ble/connect-gatt-server.md
++++ b/docs/develop/connectivity/bluetooth/ble/connect-gatt-server.md
+@@ -6,6 +6,9 @@ source: md.txt
+ 
+ > Documentation index: https://developer.android.com/develop/connectivity/bluetooth/llms.txt
+ 
++> [!WARNING]
++> **[`connectGatt(Context, boolean, BluetoothGattCallback)`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.md.txt#connectGatt(android.content.Context,%20boolean,%20android.bluetooth.BluetoothGattCallback)) is deprecated in API level 37.** Use \[\`gatt-settings\`\]\[gatt-settings\] instead.
++
+ The first step in interacting with a BLE device is connecting to it. More
+ specifically, connecting to the GATT server on the device. To connect to a GATT
+ server on a BLE device, use the [`connectGatt()`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.md.txt#connectGatt(android.content.Context,%20boolean,%20android.bluetooth.BluetoothGattCallback)) method. This method
+@@ -279,6 +282,10 @@ BLE device, so `false` is passed for `autoConnect`.
+ The service also adds a `BluetoothGatt` property so it can
+ [close the connection](https://developer.android.com/reference/android/bluetooth/BluetoothGatt.md.txt#close()) when it is no longer needed.
+ 
++The `connectGatt()` method in this example is deprecated in API level 37. On
++API level 37 and higher, use the up-to-date
++[`connectGatt()`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.md.txt?_gl=1*1l1wgbn*_up*MQ..*_ga*MTc2NjYwNjE4LjE3OTUwMjc5NzM.*_ga_5QGJFZTNG7*czE3OTUwMjc5NzMkbzEkZzAkdDE3OTUwMjc5NzMkajYwJGwwJGgw#connectGatt(android.bluetooth.BluetoothGattConnectionSettings,%20java.util.concurrent.Executor,%20android.bluetooth.BluetoothGattCallback)) method.
++
+ 
+ ```kotlin
+ class BluetoothLeService : Service() {

@@ -1,0 +1,632 @@
+diff --git a/docs/jetpack/androidx/releases/compose-material3.md b/docs/jetpack/androidx/releases/compose-material3.md
+index c91fcf04..9406ca9f 100644
+--- a/docs/jetpack/androidx/releases/compose-material3.md
++++ b/docs/jetpack/androidx/releases/compose-material3.md
+@@ -4,16 +4,18 @@ url: https://developer.android.com/jetpack/androidx/releases/compose-material3
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
++
+ # Compose Material 3
+ 
+ [User Guide](https://developer.android.com/jetpack/compose/tutorial) [Code Sample](https://github.com/android/compose-samples) Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| November 04, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | [1.5.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-rc01) | - | - |
++| November 18, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt#1.5.0) | - | - | [1.6.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt#1.6.0-alpha01) |
+ 
+ > [!NOTE]
+-> **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library instead of this one.
++> **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3.md.txt) library instead of this one.
+ 
+ ## Structure
+ 
+@@ -25,13 +27,13 @@ This table explains the groups and links to each set of release notes.
+ 
+ | Group | Description |
+ |---|---|
+-| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | Build animations in their Jetpack Compose applications to enrich the user experience. |
+-| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
+-| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces. |
+-| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
+-| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
+-| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
+-| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
++| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt) | Build animations in their Jetpack Compose applications to enrich the user experience. |
++| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler.md.txt) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
++| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt) | Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces. |
++| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
++| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
++| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
++| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
+ 
+ ## Declaring dependencies
+ 
+@@ -50,9 +52,9 @@ plugins {
+ }
+ 
+ dependencies {
+-    implementation "androidx.compose.material3:material3:1.4.0"
+-    implementation "androidx.compose.material3:material3-window-size-class:1.4.0"
+-    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-rc01"
++    implementation "androidx.compose.material3:material3:1.5.0"
++    implementation "androidx.compose.material3:material3-window-size-class:1.5.0"
++    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.6.0-alpha01"
+ }
+ 
+ android {
+@@ -74,9 +76,9 @@ plugins {
+ }
+ 
+ dependencies {
+-    implementation("androidx.compose.material3:material3:1.4.0")
+-    implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
+-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-rc01")
++    implementation("androidx.compose.material3:material3:1.5.0")
++    implementation("androidx.compose.material3:material3-window-size-class:1.5.0")
++    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.6.0-alpha01")
+ }
+ 
+ android {
+@@ -105,6 +107,68 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 1.6
++
++### Version 1.6.0-alpha01
++
++November 18, 2026
++
++`androidx.compose.material3:material3-*:1.6.0-alpha01` is released. Version 1.6.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f21fda9b646704378b1cf5458d39ba47bc69676a..7d68a49549322900fdd694b32f5eed2c74fc17fe/compose/material3).
++
++**API Changes**
++
++- Added `HorizontalSharedAxisNavigationTransitions` and `FadeThroughNavigationTransitions` for Material 3 shared axis and fade through transitions, including predictive back. ([I0a37a](https://android-review.googlesource.com/#/q/I0a37a9651c79544f1bde4ed6aefc3170d4e2b9ea), [I36fb9](https://android-review.googlesource.com/#/q/I36fb941ba16ac0d3cc8ce27b4c728bdda22b6190), [I4b9e6](https://android-review.googlesource.com/#/q/I4b9e6d09c3862a0a73516e8e411d1fd88c9e7549), [I62437](https://android-review.googlesource.com/#/q/I62437f3828162778ea490f80705afb74d9b0be1a))
++- Marked `SliderState` and `RangeSliderState` as `@Stable`. ([I8fda7](https://android-review.googlesource.com/#/q/I8fda749b56edf7a886e560094ef0582de75ef122))
++- Deprecated the `TextField` and `OutlinedTextField` overloads that take `value`/`onValueChange`, plus `TextFieldDefaults.DecorationBox` and `OutlinedTextFieldDefaults.DecorationBox`. Use the `TextFieldState` overloads and `decorator` APIs instead. ([Idb68b](https://android-review.googlesource.com/#/q/Idb68b288609594820c032a533458693d3f477ba8), [b/554049628](https://issuetracker.google.com/issues/554049628))
++
++**Bug Fixes**
++
++*`Slider` and `RangeSlider`*
++
++- Fixed a `TalkBack` freeze when a `Slider` updates automatically (for example, during video playback). ([I8fda7](https://android-review.googlesource.com/#/q/I8fda749b56edf7a886e560094ef0582de75ef122))
++- Fixed precision loss when a discrete `Slider` or `RangeSlider` snaps to integer ticks. ([I0f2ac](https://android-review.googlesource.com/#/q/I0f2ac55454b1cc3a28f417af7a637fadea01847e), [b/237634010](https://issuetracker.google.com/issues/237634010))
++- Fixed `RangeSlider` not updating on tap when its thumbs overlap. ([I8287e](https://android-review.googlesource.com/#/q/I8287ea1cb2ddba577e03261c95d4228042f7f5a9), [b/352467346](https://issuetracker.google.com/issues/352467346))
++- Fixed dragging a `RangeSlider` thumb scrolling the parent when the slider is inside a horizontally scrollable container. ([I855c0](https://android-review.googlesource.com/#/q/I855c0b5c489536f4cc91f6cf38977ca6940d6866), [b/415838608](https://issuetracker.google.com/issues/415838608))
++
++*Text fields*
++
++- Focusing a `TextField` or `OutlinedTextField` no longer recomposes its container, and the outlined border no longer recomposes on every frame while it animates. ([Id915b](https://android-review.googlesource.com/#/q/Id915b7fae9876844b7649781ee4798f2a76f2b31))
++- `OutlinedTextFieldDefaults.tonalColors` now uses a transparent container color. ([I79be4](https://android-review.googlesource.com/#/q/I79be4df88e3a4cda597eb940b954ad779d6ccc9b))
++
++*Pickers*
++
++- Fixed the `TimePicker` clock face selector not updating after you toggle AM/PM or the state changes. ([I99955](https://android-review.googlesource.com/#/q/I999557b1ad9f6a658bf0801b3654ef768fbe441f), [b/513496734](https://issuetracker.google.com/issues/513496734))
++- Fixed AM/PM text clipping at large font scales in `TimePicker` and `TimeInput`. ([I73bda](https://android-review.googlesource.com/#/q/I73bda4164652e26480fd96410220e7fc2955da31))
++- Fixed the `DatePicker` year dropdown icon ignoring `navigationContentColor`. ([I4eb6a](https://android-review.googlesource.com/#/q/I4eb6a4b624798581143d63a5a67165b6d9acc93c), [b/489897727](https://issuetracker.google.com/issues/489897727))
++
++*Progress and loading indicators*
++
++- `LinearWavyProgressIndicator` and `CircularWavyProgressIndicator` now show an indeterminate indicator while progress isn't a finite number (such as `Float.NaN`), then animate to determinate progress once it is. ([I4c631](https://android-review.googlesource.com/#/q/I4c631dc00efea8707403194e7850838b58c5acbb))
++- `LoadingIndicator` now shares its shape morphs across instances, which speeds up composition. `PullToRefreshDefaults.LoadingIndicator` no longer composes when it's hidden at rest. ([Ic81df](https://android-review.googlesource.com/#/q/Ic81df4c9505f06e798092c4ad5f9b9d9afd4e2a2), [b/574346694](https://issuetracker.google.com/issues/574346694))
++- Fixed `PullToRefreshDefaults.LoadingIndicator` drawing an empty container on the first frame of a pull. ([Ia87cf](https://android-review.googlesource.com/#/q/Ia87cf39ceb589253063774a247be4d1f5a7fce10))
++- Fixed `PullToRefreshBox` hiding its indicator after `onRefresh` starts a refresh when you use a custom `PullToRefreshState`. ([I7537d](https://android-review.googlesource.com/#/q/I7537de94eda2feb9f9c2181e1abedead7b277fa9))
++
++*`ScrollField`*
++
++- Reduced the gap between items to 16dp and lowered `ScrollFieldDefaults.ScrollFieldHeight` from 200dp to 120dp. ([I80382](https://android-review.googlesource.com/#/q/I80382d8d10cfd6eb4a12a653f614a16cdfdb8b52))
++- Items no longer show a ripple or hover background, and the focus indicator no longer draws outside the rounded shape. ([I08e48](https://android-review.googlesource.com/#/q/I08e48e2493acfc0c68230097c7fcd9bcb48c8dd2), [Ief60e](https://android-review.googlesource.com/#/q/Ief60e5d1c6dda12648ae32d379e966c7ffb6349e))
++
++*Other components*
++
++- Fixed short `ModalBottomSheet`s needing two back presses to close. With `PartiallyExpanded` enabled, the sheet now rests at half its content height (no more than half the screen). To remove that anchor in code, use `enabledValues`. This change is behind `ComposeMaterial3Flags.isBottomSheetPartiallyExpandedDeterministicEnabled`. ([I395d4](https://android-review.googlesource.com/#/q/I395d427a1687ff21797559b69b28d0ad6c30a340), [b/521534697](https://issuetracker.google.com/issues/521534697))
++- `FloatingActionButtonMenu` now composes its items the first time it expands, and expanding or collapsing does less layout work. ([I16131](https://android-review.googlesource.com/#/q/I1613193db0df83c25c6e8dd37cc9167706ffa585))
++- Fixed a crash in `ButtonGroup` when it overflows at a fixed width (for example, `Modifier.fillMaxWidth()`). ([I5a448](https://android-review.googlesource.com/#/q/I5a448d5f97b15db55677227c3a46f3d375bcab18), [b/572113567](https://issuetracker.google.com/issues/572113567))
++- `ToggleButton` now gets its pressed shape from `ButtonSmallTokens.PressedContainerShape` instead of a hardcoded value. ([Ia60dc](https://android-review.googlesource.com/#/q/Ia60dc38f5dc5174eb7028ee81945a37b9521471b), [b/531792521](https://issuetracker.google.com/issues/531792521))
++- Fixed `DropdownMenuItem` cutting off `trailingContent` when the text is long or the font is scaled up. ([Iae4c8](https://android-review.googlesource.com/#/q/Iae4c8536ac8312ecea13f4f06b19871535f5b62f))
++- Fixed an extra recomposition the first time `BottomAppBar`, `FloatingToolbar` and other components compose while an accessibility service is on. ([Ic461a](https://android-review.googlesource.com/#/q/Ic461a85121cc482a74b762d6ec766227d602e893))
++- Fixed inset focus rings not drawing the inner stroke on generic or path-based shapes. ([I6a430](https://android-review.googlesource.com/#/q/I6a430712a4605e3d312a38c07209400ee98f81f0))
++
++**Dependency Updates**
++
++- `material3` now depends on `androidx.graphics:graphics-shapes:1.1.0`. ([I52c5c](https://android-review.googlesource.com/#/q/I52c5c85beb48560111b21038c48ec956a79a525c), [b/574346694](https://issuetracker.google.com/issues/574346694))
++
++- `material3` now depends on `androidx.compose.foundation:foundation:1.14.0-alpha01`. ([Id915b](https://android-review.googlesource.com/#/q/Id915b7fae9876844b7649781ee4798f2a76f2b31))
++
+ ## Material3-A2ui
+ 
+ ### Version 1.0
+@@ -187,7 +251,7 @@ Themeless components that can be used to build Material Design components:
+ ## Compose Material3 Adaptive Navigation Suite Version 1.0
+ 
+ > [!NOTE]
+-> **Note:** As of 1.0.0-alpha07, the `androidx.compose.material3:material3-adaptive-navigation-suite` package is released as part of the Compose Material3 package (Material3 versions 1.3.0-\*). As a result, Compose Material3 adaptive navigation suite versioning has jumped from 1.0.0-xxxx to 1.3.0-xxxx. To find the current and future navigation suite release notes and commits, see [Compose Material3 Version 1.3.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.3.0) and later versions.
++> **Note:** As of 1.0.0-alpha07, the `androidx.compose.material3:material3-adaptive-navigation-suite` package is released as part of the Compose Material3 package (Material3 versions 1.3.0-\*). As a result, Compose Material3 adaptive navigation suite versioning has jumped from 1.0.0-xxxx to 1.3.0-xxxx. To find the current and future navigation suite release notes and commits, see [Compose Material3 Version 1.3.0](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt#1.3.0) and later versions.
+ 
+ ### Version 1.0.0-alpha07
+ 
+@@ -269,14 +333,14 @@ November 15, 2023
+ 
+ **New Features**
+ 
+-- [NavigationSuiteScaffold](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/package-summary#NavigationSuiteScaffold(kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteType,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteColors,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function0))
+-  - [NavigationSuiteScaffoldLayout](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/package-summary#NavigationSuiteScaffoldLayout(kotlin.Function0,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteType,kotlin.Function0))
+-  - [NavigationSuite](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuite.composable#NavigationSuite(androidx.compose.ui.Modifier,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteType,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteColors,kotlin.Function1))
++- [NavigationSuiteScaffold](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/package-summary.md.txt#NavigationSuiteScaffold(kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteType,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteColors,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function0))
++  - [NavigationSuiteScaffoldLayout](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/package-summary.md.txt#NavigationSuiteScaffoldLayout(kotlin.Function0,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteType,kotlin.Function0))
++  - [NavigationSuite](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuite.composable.md.txt#NavigationSuite(androidx.compose.ui.Modifier,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteType,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteColors,kotlin.Function1))
+ 
+ ## Compose Material3 Adaptive Version 1.0
+ 
+ > [!NOTE]
+-> **Note:** As of 1.0.0-alpha07, `androidx.compose.material3:material3-adaptive` was migrated to `androidx.compose.material3.adaptive`. For future releases, please use `androidx.compose.material3.adaptive` and the associated release notes on our [Compose Material3 Adaptive](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive) page.
++> **Note:** As of 1.0.0-alpha07, `androidx.compose.material3:material3-adaptive` was migrated to `androidx.compose.material3.adaptive`. For future releases, please use `androidx.compose.material3.adaptive` and the associated release notes on our [Compose Material3 Adaptive](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive.md.txt) page.
+ 
+ ### Version 1.0.0-alpha06
+ 
+@@ -355,13 +419,13 @@ November 15, 2023
+ 
+ Material3 adaptive condition APIs:
+ 
+-- [Posture](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/Posture)
++- [Posture](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/Posture.md.txt)
+ 
+ Material3 adaptive pane scaffold directive APIs:
+ 
+ - [PaneScaffoldDirective](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/PaneScaffoldDirective)
+-  - [calculateStandardPaneScaffoldDirective](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#calculateStandardPaneScaffoldDirective(androidx.compose.material3.adaptive.WindowAdaptiveInfo,androidx.compose.material3.adaptive.HingePolicy))
+-  - [calculateDensePaneScaffoldDirective](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#calculateDensePaneScaffoldDirective(androidx.compose.material3.adaptive.WindowAdaptiveInfo,androidx.compose.material3.adaptive.HingePolicy))
++  - [calculateStandardPaneScaffoldDirective](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary.md.txt#calculateStandardPaneScaffoldDirective(androidx.compose.material3.adaptive.WindowAdaptiveInfo,androidx.compose.material3.adaptive.HingePolicy))
++  - [calculateDensePaneScaffoldDirective](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary.md.txt#calculateDensePaneScaffoldDirective(androidx.compose.material3.adaptive.WindowAdaptiveInfo,androidx.compose.material3.adaptive.HingePolicy))
+   - [AdaptStrategy](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/AdaptStrategy)
+   - [ThreePaneScaffoldAdaptStrategies](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/ThreePaneScaffoldAdaptStrategies)
+   - [HingePolicy](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/HingePolicy)
+@@ -373,11 +437,135 @@ Material3 adaptive pane scaffold APIs:
+   - [ThreePaneScaffoldRole](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/ThreePaneScaffoldRole)
+   - [PaneAdaptedValue](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/PaneAdaptedValue)
+   - [ThreePaneScaffoldValue](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/ThreePaneScaffoldValue)
+-  - [calculateThreePaneScaffoldValue](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#calculateThreePaneScaffoldValue(kotlin.Int,androidx.compose.material3.adaptive.ThreePaneScaffoldAdaptStrategies,androidx.compose.material3.adaptive.ThreePaneScaffoldRole))
+-  - [AnimatedPane](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#(androidx.compose.material3.adaptive.ThreePaneScaffoldScope).AnimatedPane(androidx.compose.ui.Modifier,kotlin.Function2))
++  - [calculateThreePaneScaffoldValue](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary.md.txt#calculateThreePaneScaffoldValue(kotlin.Int,androidx.compose.material3.adaptive.ThreePaneScaffoldAdaptStrategies,androidx.compose.material3.adaptive.ThreePaneScaffoldRole))
++  - [AnimatedPane](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary.md.txt#(androidx.compose.material3.adaptive.ThreePaneScaffoldScope).AnimatedPane(androidx.compose.ui.Modifier,kotlin.Function2))
+ 
+ ## Compose Material3 Version 1.5
+ 
++### Version 1.5.0
++
++Nov 18 2026
++
++`androidx.compose.material3:material3-*:1.5.0` is released. Version 1.5.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5113b82a4ed6416d6344efa50e41db8cb65928ff..919e948eaa351c590e7e6fc89d4014fad7a6e78c/compose/material3).
++
++**Important changes since 1.4.0:**
++
++**Library change announcements**
++
++- **New `material3-ripple` artifact and Inset Focus Rings** : Added the dedicated `androidx.compose.material3:material3-ripple` artifact as a modern replacement for `material-ripple` ([I1b3a3](https://android-review.googlesource.com/q/I1b3a3e310538661ae4f1bc36bcbd6dd88f044f28)).
++
++This library adds support for rendering focus states using visual inset focus rings instead of opacity layers. Within `material3`, this integrates seamlessly via `LocalRippleThemeConfiguration` ([I0551a](https://android-review.googlesource.com/#/q/I0551ae78abc7faae4afcf3e9ccfbff622b015bd9)). Standalone design systems can also depend directly on `androidx.compose.material3:material3-ripple`.
++
++**Behavior Changes**
++
++- **`Slider` and `RangeSlider` stateful migration \& source-breaking parameter change**:
++
++  - Stateless overloads of `Slider` and `RangeSlider` are deprecated in favor of stateful overloads taking `SliderState` and `RangeSliderState` ([If8995](https://android-review.googlesource.com/#/q/If8995438653fe44d5d108787e920c7fe06f6ff69)).
++  - **Source breaking change** : `onValueChange` is now a required parameter, and its position in the parameter list has changed. `Slider` and `RangeSlider` now handle `onValueChange` and `onValueChangeFinished` directly in the composable layer rather than passing them through `SliderState` ([I959ac](https://android-review.googlesource.com/#/q/I959ac9a6e2adbf55969b16c9dbe75e92faa1c7ad)).
++  - In `RangeSliderState`, `activeRangeStart` and `activeRangeEnd` have been renamed to `startValue` and `endValue` ([If8995](https://android-review.googlesource.com/#/q/If8995438653fe44d5d108787e920c7fe06f6ff69)).
++
++  *Migration Example:*
++
++  ```kotlin
++  // Before (Stateless)
++  var value by remember { mutableFloatStateOf(0.5f) }
++  Slider(value = value, onValueChange = { value = it })
++
++  // After (Stateful)
++  val state = remember { SliderState(value = 0.5f) }
++  Slider(state = state, onValueChange = { /* optional side effects */ })
++  ```
++- **`SecureTextField` Default Obfuscation Mode** : Updated `SecureTextField` and `OutlinedSecureTextField` to default to `TextObfuscationMode.System` rather than `TextObfuscationMode.RevealLastTyped` ([I76c7e](https://android-review.googlesource.com/#/q/I76c7ee604ecea755df3c91dfa281778532338f4d)).
++
++- **`BottomSheet` Deterministic Anchor Resolution** : `ModalBottomSheet` and `BottomSheetScaffold` no longer automatically remove the `PartiallyExpanded` anchor based on layout height heuristics ([Ia4167](https://android-review.googlesource.com/#/q/Ia416719592d05f705e67eb7351a70d1aaf335363). Developers explicitly control anchors via `rememberBottomSheetState`. Sheets also now respect `MaterialTheme.motionScheme` during nested scrolling and dragging ([I5fe22](https://android-review.googlesource.com/#/q/I5fe22dfd62c7fe144d0f68b3d528facdddc72d6c)).
++
++- **Navigation Item High-Contrast Label Color** : Horizontal `NavigationItem` labels (e.g. in `WideNavigationRail`) now calculate color via `selectedTextColorStartIconPosition` to match `selectedIconColor` under high-contrast themes ([I85855](https://android-review.googlesource.com/#/q/I858557f11ab08313701b24d3eb36ad4e82aa9d6d), [b/490910896](https://issuetracker.google.com/issues/490910896)). To revert, set `selectedTextColorStartIconPosition = MaterialTheme.colorScheme.secondary`.
++
++- **Checkbox Sizing \& Alignment** : Checkbox box size and indicator marks have been recalibrated to strictly align with the Material 3 specification ([I97baf](https://android-review.googlesource.com/#/q/I97baff4d10013601d267c97104516b2c347be1e7), [b/457504316](https://issuetracker.google.com/issues/457504316)). Flag `ComposeMaterial3Flags.isCheckboxStylingFixEnabled` is provided to assist testing and rollout.
++
++- **`TopAppBarDefaults` Scroll Behaviors** : `pinnedScrollBehavior` and `enterAlwaysScrollBehavior` overloads now take `ScrollableState` (`LazyListState`, `ScrollState`) to resolve reversed layout directions and initially scrolled offsets ([Idef9d](https://android-review.googlesource.com/#/q/Idef9d20d5c9fd92e61d6d4bd27b717ea601ea93a), [I9d5c2](https://android-review.googlesource.com/#/q/I9d5c2261d6b2881eb2c897751a1f608816ba5bcc)). Parameter `isAtTop` is renamed to `isAtStart` ([If7323](https://android-review.googlesource.com/#/q/If7323dd80acd06912f56bef5c4e69e7f690be342)).
++
++- **Single Theme Composition Local** : `MaterialTheme` was refactored internally to consolidate theme values into a single composition local (`MaterialTheme.LocalMaterialTheme.current`) ([Idee2e](https://android-review.googlesource.com/#/q/Idee2e8c3dcc0db95341a59c50a58b6718a4d5b93)). Deprecated `LocalMotionScheme` in favor of `MaterialTheme.motionScheme` ([I4b61d](https://android-review.googlesource.com/#/q/I4b61dd15fae45469a3cb9b0ee25b1448d66dd525)).
++
++**New Material Design 3 Components**
++
++- **Expressive Buttons \& Button Groups** :
++  - [`ToggleButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ToggleButton.composable.md.txt), [`ElevatedToggleButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedToggleButton.composable.md.txt), [`FilledTonalToggleButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledTonalToggleButton.composable.md.txt), and [`OutlinedToggleButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedToggleButton.composable.md.txt): Toggle buttons featuring expressive shape morphing, `ButtonSize`, and icon slots ([Iab484](https://android-review.googlesource.com/#/q/Iab484ab734ad5fedd308c54fcfbe9ddf37d0b391)).
++  - [`SplitButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SplitButton.composable): Expressive split button combining a primary action button and a trailing menu/dropdown trigger, replacing `SplitButtonLayout` ([Ic9840](https://android-review.googlesource.com/#/q/Ic984059c127afda448f3981ebb56471f409456f8)).
++  - [`ButtonGroup`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ButtonGroup.composable.md.txt): Container for grouped buttons supporting adaptive width squishing via `Modifier.animateWidth(compressionLimit = ...)` and overflow indicators ([I8ef39](https://android-review.googlesource.com/#/q/I8ef3946c7a7e41b6bb6540290c8475720fcbb665), [I6e67c](https://android-review.googlesource.com/#/q/I6e67c1d0238c065a62bb8be6d2c82f4618832a5a)).
++- **Expressive Text Fields** :
++  - [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable.md.txt) and [`OutlinedTextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedTextField.composable.md.txt) expressive styling options featuring `TextFieldDefaults.roundedShape`, `tonalColors()`, and `TextFieldLabelPosition.Inside` / `Cutout` label placement ([Id9185](https://android-review.googlesource.com/#/q/Id9185e6356df12f82e08953120846a6a1a34515a), [I40f62](https://android-review.googlesource.com/#/q/I40f625168c7da2ffb815a8ba8c79cac00567ad8b)).
++- **Expressive Chips** :
++  - [`FilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilterChip.composable.md.txt), [`ElevatedFilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedFilterChip.composable.md.txt), and [`InputChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/InputChip.composable.md.txt) with shape-morphing selection animations, custom content padding, and `horizontalArrangement` support ([I84717](https://android-review.googlesource.com/#/q/I847178aa1f2dbda2e4971832085251ccfefa43ac), [Ida874](https://android-review.googlesource.com/#/q/Ida8740cbd48eab366fa86fbdcea966c594215499)).
++- **Expressive Menus \& Submenus** :
++  - [`SelectableDropdownMenuItem`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SelectableDropdownMenuItem.composable.md.txt) and [`CheckableDropdownMenuItem`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CheckableDropdownMenuItem.composable.md.txt): Expressive menu items supporting radio and checkbox selection semantics, supporting text, and vibrant colors ([I160ca](https://android-review.googlesource.com/#/q/I160ca23104cb58328af2c05ff946c5166a8fc91a), [I89e4b](https://android-review.googlesource.com/#/q/I89e4b9622847ac95f54a10118feb434b407a8762)).
++  - [`DropdownMenuPopupPositionProvider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DropdownMenuPopupPositionProvider.md.txt): Enables anchor-relative popup positioning for nested cascading submenus ([Ic1ace](https://android-review.googlesource.com/#/q/Ic1ace6a9d9e84b2eeb7bc737b046003224c0eb6d)).
++- **Expressive Time Pickers \& Pickers** :
++  - [`VibrantTimePickerDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material3/VibrantTimePickerDialog.composable.md.txt): Expressive time picker dialog supporting both dial and uncontained scroll/input modes ([Iea5aa](https://android-review.googlesource.com/#/q/Iea5aa467256e7e84889eaa46325ed79445ffdf5d), [I2b3b6](https://android-review.googlesource.com/#/q/I2b3b625f1fd185d19d26dede024f261ddfa4af8f)).
++  - Scrollable `TimePicker` variant and [`ScrollField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ScrollField.composable.md.txt): Wheel/scroll picker variant for rapid numeric selection with full keyboard and screen reader accessibility ([I46f6b](https://android-review.googlesource.com/#/q/I46f6b6acc6888933b7561e5f52d31e2714f5b83f), [Iab612](https://android-review.googlesource.com/#/q/Iab61234eee7cb08a56fceec0662031c8fb6662e6)).
++- **Sheets and Scrims** :
++  - Standalone static `Sheet` component (Experimental): Non-modal static surface for anchored bottom and side sheets ([I0ef95](https://android-review.googlesource.com/#/q/I0ef95ed8717bb1cb4ece596b8e6730026e082a95)).
++  - Standalone `Scrim`: Decoupled scrim composable for use across modal sheets, dialogs, and custom containers ([I29555](https://android-review.googlesource.com/#/q/I2955549d37aa4a851db38265c562b8f7975c7541)).
++- **Wavy Progress Indicators** :
++  - [`WavyLinearProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/WavyLinearProgressIndicator.composable) and [`WavyCircularProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/WavyCircularProgressIndicator.composable): Expressive wavy paths for determinate and indeterminate loading indications ([Id72a3](https://android-review.googlesource.com/#/q/Id72a36a60fa393b26f9e91239b70b9d369928db7)).
++- **Loading Indicators** (Experimental):
++  - [`LoadingIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LoadingIndicator.composable.md.txt) and [`ContainedLoadingIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ContainedLoadingIndicator.composable.md.txt): Expressive loading indicators that morph smoothly across a sequence of `RoundedPolygon` shapes in both determinate (`progress`) and indeterminate modes, customizable via [`LoadingIndicatorDefaults`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LoadingIndicatorDefaults.md.txt) (and supported as a pull-to-refresh indicator via `PullToRefreshDefaults.LoadingIndicator`).
++- **Material Shapes** (Experimental):
++  - [`MaterialShapes`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MaterialShapes.md.txt): Provides 35 predefined, normalized Material Design 3 shapes as `RoundedPolygon`s (including `Circle`, `Square`, `Slanted`, `Arch`, `Oval`, `Pill`, `Sunny`, `Cookie4Sided`--`Cookie12Sided`, `Clover4Leaf`, `Clover8Leaf`, `Burst`, `SoftBurst`, `Flower`, `Puffy`, and `Heart`), along with [`toShape`](https://developer.android.com/reference/kotlin/androidx/compose/material3/toShape.composable.md.txt) and [`toPath`](https://developer.android.com/reference/kotlin/androidx/compose/material3/toPath.composable.md.txt) extensions to convert `RoundedPolygon` and `Morph` instances into Compose `Shape` and `Path` objects.
++- **Toolbars \& List Items** :
++  - [`FloatingToolbar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FloatingToolbar.composable) and [`HorizontalFloatingToolbar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/HorizontalFloatingToolbar.composable.md.txt): Expressive floating toolbars with built-in overflow handling ([I5a4d8](https://android-review.googlesource.com/#/q/I5a4d868d9a027f3244b), [I6a6f8](https://android-review.googlesource.com/#/q/I6a6f8d4e77581863516de42b87581f3c01e0381c)).
++  - Expressive and Segmented `ListItem`: Interactive and non-interactive list item variants with rounded container segmenting ([I54057](https://android-review.googlesource.com/#/q/I5405718266bfcc508787e22939040977a0c11d28), [I2836a](https://android-review.googlesource.com/#/q/I2836a6d2eebbdb98e97eb4038b3b2)).
++  - Added support for `verticalAlignment` in interactive `ListItem`, allowing custom alignment of content ([Id69ec6](https://android-review.googlesource.com/q/Id69ec64f0688f159339aa0b30ad14189e477e939)).
++  - Added `InteractiveListItem` documentation and performed renames of internal components to `ListItem` for improved developer ergonomics ([Ib70923](https://android-review.googlesource.com/q/Ib709234a53a5ab1c05bc631fd8b25b6d4a2364f8)).
++- Enabled customizing list items vertical alignment via `InteractiveListItemDefaults.verticalAlignment()` ([Id69ec6](https://android-review.googlesource.com/q/Id69ec64f0688f159339aa0b30ad14189e477e939)).
++- **Search Variants** :
++  - [`AppBarWithSearch`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AppBarWithSearch.composable.md.txt) (Experimental): Seamless integration of top app bar navigation with a search field ([I213a5](https://android-review.googlesource.com/#/q/I213a50fcc776f6dde4726ac0dc4b15507d7a581c)).
++  - [`ExpandedDockedSearchBarWithGap`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ExpandedDockedSearchBarWithGap.composable.md.txt) and [`ExpandedFullScreenContainedSearchBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ExpandedFullScreenContainedSearchBar.composable.md.txt): Expansion variants for tablet and large-screen search experiences ([Idb7f8](https://android-review.googlesource.com/#/q/Idb7f84f427518f29f7098981453059c1e2d125cf), [Ie472d](https://android-review.googlesource.com/#/q/Ie472da54accba9823347f4cb9507fbc103fa39d9)).
++
++**Enhancements to existing Material Design 3 components**
++
++- **Accessibility \& Keyboard Navigation** : Overhauled keyboard navigation and focus traversal across `DatePicker`s (grid, year selector), `TimePicker`s (dial numbers, AM/PM buttons), `Slider`s, `Scaffold`s, and `NavigationDrawer`s ([Ibba27](https://android-review.googlesource.com/#/q/Ibba27b91409ec477b11d9b7a887697585b99f48b), [I77194](https://android-review.googlesource.com/#/q/I77194c764667a8299eb6348c62aea118295ecb3)).
++- **Theming \& Styling** : Graduated the Expressive theming (`MaterialTheme.expressiveLightColorScheme`, `MaterialTheme.materialExpressTheme`) ([I40eab](https://android-review.googlesource.com/#/q/I40eab704c0bb7c7a4fd015ed0e57650fa7f6acef), bringing expressive design tokens, shapes, and color configurations across components.
++- **Typography** : Added constructor overloads to `Typography` that accept a `defaultFontFamily`, propagating the font family to all unset styles in the type scale ([I2e305](https://android-review.googlesource.com/#/q/I2e3058a9437d30958da3f1f4e593deea0a28a34d),
++- **Text** : Added `Text` composable overloads taking a `ColorProducer` lambda to animate or update text color during the draw phase without triggering recomposition ([I9ff25](https://android-review.googlesource.com/#/q/I9ff250bbfbb5a6012ce3d9c80572fc8c96a7747e),
++- **Carousels** :
++  - Added multi-aspect carousel support via the `Modifier.carouselParallaxScrollEffect` and `LazyGrid` integration ([I46b17](https://android-review.googlesource.com/#/q/I46b17fbc7eb3b0d061ce059234976a7d5a9912b5), [I2b109](https://android-review.googlesource.com/#/q/I2b1093fea1767575e0f09669b7d4d5d5171d0661)).
++  - Renamed `maxItemWidth` to `preferredItemWidth` in `HorizontalCenteredHeroCarousel` ([Ie7883](https://android-review.googlesource.com/#/q/Ie7883232c6428c649335c1bcbdd6d51057dc0304)).
++  - Added `CarouselDefaults.ItemSpacing` and `CarouselDefaults.ContentPadding` ([I2f36a](https://android-review.googlesource.com/#/q/I2f36abfea23f415297488cbcbfa3cc69a186ebe8)).
++- **Tooltips** :
++  - Added custom caret shape configuration and expanded `TooltipPositionProvider` to anchor tooltips above, below, left, or right ([Ie513c](https://android-review.googlesource.com/#/q/Ie513c947d881a2afc8dea1f09929dc58bacf29d5)).
++  - Tooltips are now clamped to window boundaries to prevent viewport clipping ([I874b6](https://android-review.googlesource.com/#/q/I874b60d7587cfc8d44e44912b1966329656c4f09)).
++
++**Stable APIs**
++
++All components and APIs listed under **New Material Design 3 Components** are stable in 1.5.0, except those listed under *Remaining experimental APIs* below.
++
++The following previously experimental APIs are also now stable:
++
++- `BottomAppBar` and associated methods ([I42c61](https://android-review.googlesource.com/#/q/I42c61cd5206432c0cc61f3effbbf96566d4ad271))
++- `TopAppBarScrollBehavior` and top app bar variants (`TopAppBar`, `MediumFlexibleTopAppBar`, `LargeTopAppBar`, `TwoRowsTopAppBar`) ([Ieb2d1](https://android-review.googlesource.com/#/q/Ieb2d11f5cfaf333eb89966f7af5672fe79ebb7d3), [Iea5aa](https://android-review.googlesource.com/#/q/Iea5aa467256e7e84889eaa46325ed79445ffdf5d))
++- `SearchBarState` and slot-based `SearchBar` composables ([Ia3793](https://android-review.googlesource.com/#/q/Ia3793ca2a54aba1de5897d33518875e457466e8e))
++- Core `Slider` and `RangeSlider` APIs ([I5efb3](https://android-review.googlesource.com/#/q/I5efb3368a55e4ce1be530bbd64e8a0fe99d0f859))
++- Multi-browse and uncontained `Carousel` APIs ([I7a558](https://android-review.googlesource.com/#/q/I7a558f8f00f0a70e3473f9953baff8fe043cd7d4))
++- `LocalRippleThemeConfiguration` and `RippleThemeConfiguration` ([Ide5d0](https://android-review.googlesource.com/#/q/Ide5d0bbd2c05620b30fb1e9d0f74c5f4acc3c10f))
++- `BasicAlertDialog` ([If157c](https://android-review.googlesource.com/#/q/If157c5fd4972a9e9cfdd95bda85389f100b2816c))
++
++**Remaining experimental APIs**
++
++These APIs are new in 1.5.0 but remain experimental and may change in future releases:
++
++- Loading indicators: `LoadingIndicator`, `ContainedLoadingIndicator`, `LoadingIndicatorDefaults`, and `PullToRefreshDefaults.LoadingIndicator`
++- Material shapes: `MaterialShapes` and the `toShape` / `toPath` extensions
++- `AppBarWithSearch` and `AppBarWithSearchColors`
++- Carousel parallax / multi-aspect support: `Modifier.carouselParallaxScrollEffect`
++- Standalone static `BottomSheet`
++
++**Performance improvements**
++
++- `DatePicker` month navigation now resolves in a single frame by evaluating navigation availability directly from the displayed month index ([I08db7](https://android-review.googlesource.com/#/q/I08db7973b21ec076f76456926a35d6f15ffdb401)).
++- Reduced recompositions when updating text colors using the new `ColorProducer` overload on `Text` ([I9ff25](https://android-review.googlesource.com/#/q/I9ff250bbfbb5a6012ce3d9c80572fc8c96a7747e)).
++- Optimized `BasicTextField` minimum dimension layout calculations ([I70ade](https://android-review.googlesource.com/#/q/I70ade2488b5f1add0d22fa359ab5b850a7bfa16f)).
++
+ ### Version 1.5.0-rc01
+ 
+ November 04, 2026
+@@ -1094,26 +1282,26 @@ For more information: https://developer.android.com/develop/ui/compose/graphics/
+ 
+ **New Material Design 3 Components**
+ 
+-- [`HorizontalCenteredHeroCarousel`](https://developer.android.com/reference/kotlin/androidx/compose/material3/carousel/HorizontalCenteredHeroCarousel.composable#HorizontalCenteredHeroCarousel(androidx.compose.material3.carousel.CarouselState,androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.gestures.TargetedFlingBehavior,kotlin.Boolean,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.PaddingValues,kotlin.Function2))
+-- [`VerticalDragHandle`](https://developer.android.com/reference/kotlin/androidx/compose/material3/VerticalDragHandle.composable#VerticalDragHandle(androidx.compose.ui.Modifier,androidx.compose.material3.DragHandleSizes,androidx.compose.material3.DragHandleColors,androidx.compose.material3.DragHandleShapes,androidx.compose.foundation.interaction.MutableInteractionSource))
++- [`HorizontalCenteredHeroCarousel`](https://developer.android.com/reference/kotlin/androidx/compose/material3/carousel/HorizontalCenteredHeroCarousel.composable.md.txt#HorizontalCenteredHeroCarousel(androidx.compose.material3.carousel.CarouselState,androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.gestures.TargetedFlingBehavior,kotlin.Boolean,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.PaddingValues,kotlin.Function2))
++- [`VerticalDragHandle`](https://developer.android.com/reference/kotlin/androidx/compose/material3/VerticalDragHandle.composable.md.txt#VerticalDragHandle(androidx.compose.ui.Modifier,androidx.compose.material3.DragHandleSizes,androidx.compose.material3.DragHandleColors,androidx.compose.material3.DragHandleShapes,androidx.compose.foundation.interaction.MutableInteractionSource))
+ - Secure text fields for password entry fields
+-  - [`SecureTextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedSecureTextField.composable#OutlinedSecureTextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.TextObfuscationMode,kotlin.Char,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,kotlin.Function2,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource))
+-  - [`OutlinedSecureTextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedSecureTextField.composable#OutlinedSecureTextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.TextObfuscationMode,kotlin.Char,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,kotlin.Function2,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource))
++  - [`SecureTextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedSecureTextField.composable.md.txt#OutlinedSecureTextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.TextObfuscationMode,kotlin.Char,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,kotlin.Function2,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource))
++  - [`OutlinedSecureTextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedSecureTextField.composable.md.txt#OutlinedSecureTextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.TextObfuscationMode,kotlin.Char,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,kotlin.Function2,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource))
+ 
+ **Enhancements to existing Material Design 3 components**
+ 
+ - Text now supports `autoSize`
+-  - Text with [string](https://developer.android.com/reference/kotlin/androidx/compose/material3/Text.composable#Text(kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.foundation.text.TextAutoSize,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.Function1,androidx.compose.ui.text.TextStyle))
+-  - Text with [annotatedString](https://developer.android.com/reference/kotlin/androidx/compose/material3/Text.composable#Text(androidx.compose.ui.text.AnnotatedString,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.foundation.text.TextAutoSize,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.collections.Map,kotlin.Function1,androidx.compose.ui.text.TextStyle))
++  - Text with [string](https://developer.android.com/reference/kotlin/androidx/compose/material3/Text.composable.md.txt#Text(kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.foundation.text.TextAutoSize,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.Function1,androidx.compose.ui.text.TextStyle))
++  - Text with [annotatedString](https://developer.android.com/reference/kotlin/androidx/compose/material3/Text.composable.md.txt#Text(androidx.compose.ui.text.AnnotatedString,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.foundation.text.TextAutoSize,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.collections.Map,kotlin.Function1,androidx.compose.ui.text.TextStyle))
+ - Added Material 3 decorators for `BasicTextField2`
+-  - [`Textfield`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable#TextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource))
+-  - [`OutlineTextfield`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedTextField.composable#OutlinedTextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource))
++  - [`Textfield`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable.md.txt#TextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource))
++  - [`OutlineTextfield`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedTextField.composable.md.txt#OutlinedTextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.material3.TextFieldLabelPosition,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material3.TextFieldColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource))
+ - Added an `TimePickerDialog` API that can be used for `TimePicker`, `TimeInput` or to have a switchable version.
+ - New search bar APIs:
+   - Collapsed search bars and expanded search "views" are now separate composables:
+   - `SearchBar` represents a search bar in the collapsed state.
+   - `ExpandedFullScreenSearchBar` and `ExpandedDockedSearchBar` represent the search bar in the expanded state. These open in a new window.
+-  - [`SearchBarState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SearchBarState) to control the state of the search bar
++  - [`SearchBarState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SearchBarState.md.txt) to control the state of the search bar
+ - Promoted experimental APIs to stable!
+ - Performance improvements
+ 
+@@ -1657,7 +1845,7 @@ Major features of 1.3.0
+ New Material Design 3 components
+ 
+ - [Carousel](https://m3.material.io/components/carousel/overview)
+-  - [`HorizontalMultiBrowseCarousel`](https://developer.android.com/reference/kotlin/androidx/compose/material3/carousel/package-summary#HorizontalMultiBrowseCarousel(androidx.compose.material3.carousel.CarouselState,androidx.compose.ui.unit.Dp,androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.foundation.gestures.TargetedFlingBehavior,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.PaddingValues,kotlin.Function2)) and [`HorizontalUncontainedCarousel`](https://developer.android.com/reference/kotlin/androidx/compose/material3/carousel/package-summary#HorizontalUncontainedCarousel(androidx.compose.material3.carousel.CarouselState,androidx.compose.ui.unit.Dp,androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.foundation.gestures.TargetedFlingBehavior,androidx.compose.foundation.layout.PaddingValues,kotlin.Function2)) Enhancements to existing Material Design 3 components.
++  - [`HorizontalMultiBrowseCarousel`](https://developer.android.com/reference/kotlin/androidx/compose/material3/carousel/package-summary.md.txt#HorizontalMultiBrowseCarousel(androidx.compose.material3.carousel.CarouselState,androidx.compose.ui.unit.Dp,androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.foundation.gestures.TargetedFlingBehavior,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.PaddingValues,kotlin.Function2)) and [`HorizontalUncontainedCarousel`](https://developer.android.com/reference/kotlin/androidx/compose/material3/carousel/package-summary.md.txt#HorizontalUncontainedCarousel(androidx.compose.material3.carousel.CarouselState,androidx.compose.ui.unit.Dp,androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.foundation.gestures.TargetedFlingBehavior,androidx.compose.foundation.layout.PaddingValues,kotlin.Function2)) Enhancements to existing Material Design 3 components.
+ - \[`ModalBottomSheet`\] now supports Predictive Back on U+ ([Iccf32](https://android-review.googlesource.com/#/q/Iccf324cb6dfc7f4ea1fe413b69e035658282360d), [b/281967264](https://issuetracker.google.com/issues/281967264), [b/304850357](https://issuetracker.google.com/issues/304850357))
+ - \[`SearchBar`\] now supports Predictive Back on U+ ([I657f8](https://android-review.googlesource.com/#/q/I657f8859433717fe5e4058bcd7a74649adece529))
+ - Nav Drawer (`ModalDrawerSheet` and `DismissibleDrawerSheet`) now supports Predictive Back on U+ as opt-in ([Ie5b0b](https://android-review.googlesource.com/#/q/Ie5b0b1662087258f4573372df4ff600eb1a5a025))
+@@ -1961,20 +2149,20 @@ February 7, 2024
+ **New Material Design 3 Components**
+ 
+ - Pull to refresh
+-  - [PullToRefreshContainer](https://developer.android.com/reference/kotlin/androidx/compose/material3/pulltorefresh/package-summary#PullToRefreshContainer(androidx.compose.material3.pulltorefresh.PullToRefreshState,androidx.compose.ui.Modifier,kotlin.Function1,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color))
+-  - [PullToRefreshState](https://developer.android.com/reference/kotlin/androidx/compose/material3/pulltorefresh/PullToRefreshState)
++  - [PullToRefreshContainer](https://developer.android.com/reference/kotlin/androidx/compose/material3/pulltorefresh/package-summary.md.txt#PullToRefreshContainer(androidx.compose.material3.pulltorefresh.PullToRefreshState,androidx.compose.ui.Modifier,kotlin.Function1,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color))
++  - [PullToRefreshState](https://developer.android.com/reference/kotlin/androidx/compose/material3/pulltorefresh/PullToRefreshState.md.txt)
+ - [Segmented Button](https://m3.material.io/components/segmented-buttons/overview)
+-  - [SegmentedButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#(androidx.compose.material3.SingleChoiceSegmentedButtonRowScope).SegmentedButton(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SegmentedButtonColors,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0,kotlin.Function0))
+-  - [SingleChoiceSegmentedButtonRow](https://developer.android.com/reference/kotlin/androidx/compose/material3/SingleChoiceSegmentedButtonRow.composable#SingleChoiceSegmentedButtonRow(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,kotlin.Function1))
++  - [SegmentedButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#(androidx.compose.material3.SingleChoiceSegmentedButtonRowScope).SegmentedButton(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SegmentedButtonColors,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0,kotlin.Function0))
++  - [SingleChoiceSegmentedButtonRow](https://developer.android.com/reference/kotlin/androidx/compose/material3/SingleChoiceSegmentedButtonRow.composable.md.txt#SingleChoiceSegmentedButtonRow(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,kotlin.Function1))
+   - [MultiChoiceSegmentedButtonRow](https://developer.android.com/kotlin/androidx/compose/material3/package-summary#MultiChoiceSegmentedButtonRow(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,kotlin.Function1))
+ 
+ **Enhancements to existing Material Design 3 components.**
+ 
+ - Bottom app bar (RTL alignment, auto-hide on scroll)
+-  - [BottomAppBarScrollBehavior](https://developer.android.com/reference/kotlin/androidx/compose/material3/BottomAppBarScrollBehavior)
++  - [BottomAppBarScrollBehavior](https://developer.android.com/reference/kotlin/androidx/compose/material3/BottomAppBarScrollBehavior.md.txt)
+ - Tabs visual update
+-  - [PrimaryIndicator](https://developer.android.com/reference/kotlin/androidx/compose/material3/TabRowDefaults#PrimaryIndicator(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Shape))
+-  - [SecondaryIndicator](https://developer.android.com/reference/kotlin/androidx/compose/material3/TabRowDefaults#SecondaryIndicator(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color))
++  - [PrimaryIndicator](https://developer.android.com/reference/kotlin/androidx/compose/material3/TabRowDefaults.md.txt#PrimaryIndicator(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Shape))
++  - [SecondaryIndicator](https://developer.android.com/reference/kotlin/androidx/compose/material3/TabRowDefaults.md.txt#SecondaryIndicator(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color))
+ - Badge (alignment update)
+ 
+ **Promoted experimental APIs to stable!**
+@@ -2146,7 +2334,7 @@ September 6, 2023
+ 
+ **New Features**
+ 
+-- Auto-mirror icons support has been added in `compose material 1.6.0-alpha05`, please see the [release notes](https://developer.android.com/jetpack/androidx/releases/compose-material#1.6.0-alpha05) for details on auto-mirror icons.
++- Auto-mirror icons support has been added in `compose material 1.6.0-alpha05`, please see the [release notes](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt#1.6.0-alpha05) for details on auto-mirror icons.
+ 
+ **API Changes**
+ 
+@@ -2316,17 +2504,17 @@ May 10, 2023
+ **New Material Design 3 components**
+ 
+ - [Bottom sheets](https://m3.material.io/components/bottom-sheets/overview)
+-  - [ModalBottomSheet](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#ModalBottomSheet(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.SheetState,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,kotlin.Function0,kotlin.Function1)), [BottomSheetScaffold](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#BottomSheetScaffold(kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.material3.BottomSheetScaffoldState,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,kotlin.Function0,kotlin.Boolean,kotlin.Function0,kotlin.Function1,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1))
++  - [ModalBottomSheet](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#ModalBottomSheet(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.SheetState,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,kotlin.Function0,kotlin.Function1)), [BottomSheetScaffold](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#BottomSheetScaffold(kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.material3.BottomSheetScaffoldState,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,kotlin.Function0,kotlin.Boolean,kotlin.Function0,kotlin.Function1,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1))
+ - [Date pickers](https://m3.material.io/components/date-pickers/overview)
+-  - [DatePicker](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#DatePicker(androidx.compose.material3.DatePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.DatePickerFormatter,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.DatePickerColors)), [DateRangePicker](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#DateRangePicker(androidx.compose.material3.DateRangePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.DatePickerFormatter,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.DatePickerColors)), [DatePickerDialog](https://developer.android.com/reference/kotlin/androidx/compose/material3/DatePickerDialog.composable#DatePickerDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.material3.DatePickerColors,androidx.compose.ui.window.DialogProperties,kotlin.Function1))
++  - [DatePicker](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#DatePicker(androidx.compose.material3.DatePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.DatePickerFormatter,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.DatePickerColors)), [DateRangePicker](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#DateRangePicker(androidx.compose.material3.DateRangePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.DatePickerFormatter,kotlin.Function1,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.DatePickerColors)), [DatePickerDialog](https://developer.android.com/reference/kotlin/androidx/compose/material3/DatePickerDialog.composable.md.txt#DatePickerDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.material3.DatePickerColors,androidx.compose.ui.window.DialogProperties,kotlin.Function1))
+ - [Search](https://m3.material.io/components/search/overview)
+-  - [SearchBar](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#SearchBar(kotlin.String,kotlin.Function1,kotlin.Function1,kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.material3.SearchBarColors,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)), [DockedSearchBar](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#DockedSearchBar(kotlin.String,kotlin.Function1,kotlin.Function1,kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.material3.SearchBarColors,androidx.compose.ui.unit.Dp,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1))
+-- [SwipeToDismiss](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#SwipeToDismiss(androidx.compose.material3.DismissState,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.collections.Set))
++  - [SearchBar](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#SearchBar(kotlin.String,kotlin.Function1,kotlin.Function1,kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.material3.SearchBarColors,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)), [DockedSearchBar](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#DockedSearchBar(kotlin.String,kotlin.Function1,kotlin.Function1,kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.material3.SearchBarColors,androidx.compose.ui.unit.Dp,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1))
++- [SwipeToDismiss](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#SwipeToDismiss(androidx.compose.material3.DismissState,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.collections.Set))
+ - [Time Pickers](https://m3.material.io/components/time-pickers/overview)
+-  - [TimePicker](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimePicker.composable#TimePicker(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors,androidx.compose.material3.TimePickerLayoutType))
+-  - [TimeInput](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimeInput.composable#TimeInput(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors))
++  - [TimePicker](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimePicker.composable.md.txt#TimePicker(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors,androidx.compose.material3.TimePickerLayoutType))
++  - [TimeInput](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimeInput.composable.md.txt#TimeInput(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors))
+ - [Tooltips](https://m3.material.io/components/tooltips/overview)
+-  - [PlainTooltipBox](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#PlainTooltipBox(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.PlainTooltipState,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)), [RichTooltip](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#RichTooltipBox(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.RichTooltipState,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.material3.RichTooltipColors,kotlin.Function1))
++  - [PlainTooltipBox](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#PlainTooltipBox(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.PlainTooltipState,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)), [RichTooltip](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#RichTooltipBox(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.RichTooltipState,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.material3.RichTooltipColors,kotlin.Function1))
+ 
+ **Enhancements to existing Material Design 3 components.**
+ 
+@@ -2479,7 +2667,7 @@ January 26, 2023
+ 
+ **Dependency Updates**
+ 
+-- `Compose UI` and `Compose Material` now depend on [Lifecycle 2.6.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.6.0).
++- `Compose UI` and `Compose Material` now depend on [Lifecycle 2.6.0](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.6.0).
+ 
+ ### Version 1.1.0-alpha04
+ 
+@@ -2583,75 +2771,75 @@ This is the first stable release of Compose Material 3!
+ 
+ #### Material Design 3 theming and Material You dynamic color
+ 
+-- [MaterialTheme](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#materialtheme)
++- [MaterialTheme](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#materialtheme)
+ - [Color](https://m3.material.io/styles/color/overview)
+-  - [ColorScheme](https://developer.android.com/reference/kotlin/androidx/compose/material3/ColorScheme)
+-  - [lightColorScheme](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#lightcolorscheme), [darkColorScheme](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#darkcolorscheme)
++  - [ColorScheme](https://developer.android.com/reference/kotlin/androidx/compose/material3/ColorScheme.md.txt)
++  - [lightColorScheme](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#lightcolorscheme), [darkColorScheme](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#darkcolorscheme)
+ - [Dynamic color](https://m3.material.io/styles/color/dynamic-color/overview)
+-  - [dynamicLightColorScheme](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#dynamiclightcolorscheme), [dynamicDarkColorScheme](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#dynamicdarkcolorscheme)
++  - [dynamicLightColorScheme](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#dynamiclightcolorscheme), [dynamicDarkColorScheme](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#dynamicdarkcolorscheme)
+ - [Typography](https://m3.material.io/styles/typography/overview)
+-  - [Typography](https://developer.android.com/reference/kotlin/androidx/compose/material3/Typography)
++  - [Typography](https://developer.android.com/reference/kotlin/androidx/compose/material3/Typography.md.txt)
+ - [Shapes](https://m3.material.io/styles/shape/overview)
+-  - [Shapes](https://developer.android.com/reference/kotlin/androidx/compose/material3/Shapes)
++  - [Shapes](https://developer.android.com/reference/kotlin/androidx/compose/material3/Shapes.md.txt)
+ 
+ #### Material Design 3 components
+ 
+ - [Badge](https://m3.material.io/components/badges/overview)
+-  - [Badge](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#badge), [BadgedBox](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#badgedbox)
++  - [Badge](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#badge), [BadgedBox](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#badgedbox)
+ - [Bottom App Bar](https://m3.material.io/components/bottom-app-bar/overview)
+-  - [BottomAppBar](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#BottomAppBar)
++  - [BottomAppBar](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#BottomAppBar)
+ - [Buttons](https://m3.material.io/components/buttons/overview)
+-  - [Button](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#button), [ElevatedButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#elevatedbutton), [FilledTonalButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#filledtonalbutton), [OutlinedButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#outlinedbutton), [TextButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#textbutton)
++  - [Button](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#button), [ElevatedButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#elevatedbutton), [FilledTonalButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#filledtonalbutton), [OutlinedButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#outlinedbutton), [TextButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#textbutton)
+ - [FAB](https://m3.material.io/components/floating-action-button/overview) and [extended FAB](https://m3.material.io/components/extended-fab/overview)
+-  - [SmallFloatingActionButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#smallfloatingactionbutton), [FloatingActionButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#floatingactionbutton), [LargeFloatingActionButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#largefloatingactionbutton), [ExtendedFloatingActionButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#extendedfloatingactionbutton)
++  - [SmallFloatingActionButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#smallfloatingactionbutton), [FloatingActionButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#floatingactionbutton), [LargeFloatingActionButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#largefloatingactionbutton), [ExtendedFloatingActionButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#extendedfloatingactionbutton)
+ - [Cards](https://m3.material.io/components/cards/overview)
+-  - [Card](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#card), [OutlinedCard](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#outlinedcard), [ElevatedCard](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#elevatedcard)
++  - [Card](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#card), [OutlinedCard](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#outlinedcard), [ElevatedCard](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#elevatedcard)
+ - [Checkbox](https://m3.material.io/components/checkbox/overview)
+-  - [Checkbox](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#checkbox)
++  - [Checkbox](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#checkbox)
+ - [Chips](https://m3.material.io/components/chips/overview)
+-  - [AssistChip](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#AssistChip), [ElevatedAssistChip](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#ElevatedAssistChip), [FilterChip](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#FilterChip), [ElevatedFilterChip](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#ElevatedFilterChip), [InputChip](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#InputChip), [SuggestionChip](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#SuggestionChip), [ElevatedSuggestionChip](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#ElevatedSuggestionChip)
++  - [AssistChip](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#AssistChip), [ElevatedAssistChip](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#ElevatedAssistChip), [FilterChip](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#FilterChip), [ElevatedFilterChip](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#ElevatedFilterChip), [InputChip](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#InputChip), [SuggestionChip](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#SuggestionChip), [ElevatedSuggestionChip](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#ElevatedSuggestionChip)
+ - [Dialogs](https://m3.material.io/components/dialogs/overview)
+-  - [AlertDialog](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#alertdialog)
++  - [AlertDialog](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#alertdialog)
+ - [Divider](https://m3.material.io/components/divider/overview)
+-  - [Divider](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#Divider)
++  - [Divider](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#Divider)
+ - [Dropdown Menu](https://m3.material.io/components/menus/overview)
+-  - [DropdownMenu](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#DropdownMenu), [DropdownMenuItem](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#DropdownMenuItem), [ExposedDropdownMenuBox](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#ExposedDropdownMenuBox)
++  - [DropdownMenu](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#DropdownMenu), [DropdownMenuItem](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#DropdownMenuItem), [ExposedDropdownMenuBox](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#ExposedDropdownMenuBox)
+ - [List](https://m3.material.io/components/lists/overview)
+-  - [ListItem](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#ListItem)
++  - [ListItem](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#ListItem)
+ - [Navigation bar](https://m3.material.io/components/navigation-bar/overview)
+-  - [NavigationBar](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#navigationbar)
++  - [NavigationBar](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#navigationbar)
+ - [Navigation drawer](https://m3.material.io/components/navigation-drawer/overview)
+-  - [ModalNavigationDrawer](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#modalnavigationdrawer), [ModalDrawerSheet](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#modaldrawersheet), [DismissibleNavigationDrawer](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#dismissiblenavigationdrawer), [DismissibleDrawerSheet](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#dismissibledrawersheet), [PermanentNavigationDrawer](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#permanentnavigationdrawer), [PermanentDrawerSheet](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#permanentdrawersheet)
++  - [ModalNavigationDrawer](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#modalnavigationdrawer), [ModalDrawerSheet](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#modaldrawersheet), [DismissibleNavigationDrawer](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#dismissiblenavigationdrawer), [DismissibleDrawerSheet](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#dismissibledrawersheet), [PermanentNavigationDrawer](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#permanentnavigationdrawer), [PermanentDrawerSheet](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#permanentdrawersheet)
+ - [Navigation rail](https://m3.material.io/components/navigation-rail/overview)
+-  - [NavigationRail](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#navigationrail)
++  - [NavigationRail](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#navigationrail)
+ - [Progress Indicator](https://m3.material.io/components/progress-indicators/overview)
+-  - [CircularProgressIndicator](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#CircularProgressIndicator), [LinearProgressIndicator](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#LinearProgressIndicator)
++  - [CircularProgressIndicator](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#CircularProgressIndicator), [LinearProgressIndicator](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#LinearProgressIndicator)
+ - [Radio Button](https://m3.material.io/components/radio-button/overview)
+-  - [RadioButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#RadioButton)
++  - [RadioButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#RadioButton)
+ - [Slider](https://m3.material.io/components/sliders/overview)
+-  - [Slider](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#Slider), [RangeSlider](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#RangeSlider)
++  - [Slider](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#Slider), [RangeSlider](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#RangeSlider)
+ - [Switch](https://m3.material.io/components/switch/overview)
+-  - [Switch](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#Switch)
++  - [Switch](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#Switch)
+ - [Tabs](https://m3.material.io/components/tabs/overview)
+-  - [Tab](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#Tab), [LeadingIconTab](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#LeadingIconTab), [TabRow](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#TabRow), [ScrollableTabRow](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#ScrollableTabRow)
++  - [Tab](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#Tab), [LeadingIconTab](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#LeadingIconTab), [TabRow](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#TabRow), [ScrollableTabRow](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#ScrollableTabRow)
+ - [Text Fields](https://m3.material.io/components/text-fields/overview)
+-  - [TextField](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#TextField), [OutlinedTextField](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#OutlinedTextField)
++  - [TextField](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#TextField), [OutlinedTextField](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#OutlinedTextField)
+ - [Top app bar](https://m3.material.io/components/top-app-bar/overview)
+-  - [TopAppBar](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#topappbar), [CenterAlignedTopAppBar](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#centeralignedtopappbar), [MediumTopAppBar](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#mediumtopappbar), [LargeTopAppBar](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#LargeTopAppBar)
++  - [TopAppBar](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#topappbar), [CenterAlignedTopAppBar](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#centeralignedtopappbar), [MediumTopAppBar](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#mediumtopappbar), [LargeTopAppBar](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#LargeTopAppBar)
+ - Icon
+-  - [Icon](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#icon), [IconButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#iconbutton)
++  - [Icon](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#icon), [IconButton](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#iconbutton)
+ - Text
+-  - [Text](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#text)
++  - [Text](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#text)
+ - Surface
+-  - [Surface](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#surface)
++  - [Surface](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#surface)
+ - Layout
+-  - [Scaffold](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#scaffold)
++  - [Scaffold](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#scaffold)
+ - Content color
+-  - [LocalContentColor](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#LocalContentColor())
++  - [LocalContentColor](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#LocalContentColor())
+ 
+ #### Window Size Class
+ 
+-- `material3-window-size-class` is a new library that provides support for window size classes: a set of opinionated viewport breakpoints for you to design, develop, and test resizable application layouts against. You can use `calculateWindowSizeClass` to retrieve a window size class instance, which you can use to determine how your UI should appear, such as showing a navigation rail instead of bottom navigation for larger window sizes. For more information and sample usage see the API reference [documentation](https://developer.android.com/reference/kotlin/androidx/compose/material3/windowsizeclass/package-summary) for `WindowSizeClass`.
++- `material3-window-size-class` is a new library that provides support for window size classes: a set of opinionated viewport breakpoints for you to design, develop, and test resizable application layouts against. You can use `calculateWindowSizeClass` to retrieve a window size class instance, which you can use to determine how your UI should appear, such as showing a navigation rail instead of bottom navigation for larger window sizes. For more information and sample usage see the API reference [documentation](https://developer.android.com/reference/kotlin/androidx/compose/material3/windowsizeclass/package-summary.md.txt) for `WindowSizeClass`.
+ 
+ - Please see this [blog post](http://material.io/blog/material-3-compose-stable) for more details!
+ 
+@@ -2708,7 +2896,7 @@ August 24, 2022
+ 
+ **API Reference**
+ 
+-To see latest theming, component and other composables available check out the [Compose Material 3 API reference overview](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#overview).
++To see latest theming, component and other composables available check out the [Compose Material 3 API reference overview](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#overview).
+ 
+ **API Changes**
+ 
+@@ -2950,9 +3138,9 @@ February 9, 2022
+ Added Material Design 3 components
+ 
+ - Dropdown menu
+-  - [DropdownMenu](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#dropdownmenu), [DropdownMenuItem](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#dropdownmenuitem)
++  - [DropdownMenu](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#dropdownmenu), [DropdownMenuItem](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#dropdownmenuitem)
+ - [Cards](https://m3.material.io/components/cards/overview)
+-  - [Card](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#card), [OutlinedCard](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#outlinedcard), [ElevatedCard](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#elevatedcard)
++  - [Card](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#card), [OutlinedCard](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#outlinedcard), [ElevatedCard](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#elevatedcard)
+ 
+ **API Changes**
+ 
+@@ -3029,42 +3217,42 @@ October 27, 2021
+ 
+ Material Design 3 theming and Material You dynamic color
+ 
+-- [`MaterialTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#materialtheme)
++- [`MaterialTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#materialtheme)
+ - [Color](https://m3.material.io/styles/color/overview)
+-  - [`ColorScheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ColorScheme)
+-  - [`lightColorScheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#lightcolorscheme), [`darkColorScheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#darkcolorscheme)
++  - [`ColorScheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ColorScheme.md.txt)
++  - [`lightColorScheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#lightcolorscheme), [`darkColorScheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#darkcolorscheme)
+ - [Dynamic color](https://m3.material.io/styles/color/dynamic-color/overview)
+-  - [`dynamicLightColorScheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#dynamiclightcolorscheme), [`dynamicDarkColorScheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#dynamicdarkcolorscheme)
++  - [`dynamicLightColorScheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#dynamiclightcolorscheme), [`dynamicDarkColorScheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#dynamicdarkcolorscheme)
+ - [Typography](https://m3.material.io/styles/typography/overview)
+-  - [`Typography`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Typography)
++  - [`Typography`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Typography.md.txt)
+ 
+ Material Design 3 components
+ 
+ - [Buttons](https://m3.material.io/components/buttons/overview)
+-  - [`Button`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#button), [`ElevatedButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#elevatedbutton), [`FilledTonalButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#filledtonalbutton), [`OutlinedButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#outlinedbutton), [`TextButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#textbutton)
++  - [`Button`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#button), [`ElevatedButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#elevatedbutton), [`FilledTonalButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#filledtonalbutton), [`OutlinedButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#outlinedbutton), [`TextButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#textbutton)
+ - [FAB](https://m3.material.io/components/floating-action-button/overview) and [extended FAB](https://m3.material.io/components/extended-fab/overview)
+-  - [`SmallFloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#smallfloatingactionbutton), [`FloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#floatingactionbutton), [`LargeFloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#largefloatingactionbutton), [`ExtendedFloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#extendedfloatingactionbutton)
++  - [`SmallFloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#smallfloatingactionbutton), [`FloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#floatingactionbutton), [`LargeFloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#largefloatingactionbutton), [`ExtendedFloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#extendedfloatingactionbutton)
+ - [Dialogs](https://m3.material.io/components/dialogs/overview)
+-  - [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#alertdialog)
++  - [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#alertdialog)
+ - [Navigation bar](https://m3.material.io/components/navigation-bar/overview)
+-  - [`NavigationBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#navigationbar)
++  - [`NavigationBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#navigationbar)
+ - [Navigation drawer](https://m3.material.io/components/navigation-drawer/overview)
+-  - [`NavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#navigationdrawer)
++  - [`NavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#navigationdrawer)
+ - [Navigation rail](https://m3.material.io/components/navigation-rail/overview)
+-  - [`NavigationRail`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#navigationrail)
++  - [`NavigationRail`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#navigationrail)
+ - [Top app bar](https://m3.material.io/components/top-app-bar/overview)
+-  - [`SmallTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#smalltopappbar), [`CenterAlignedTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#centeralignedtopappbar), [`MediumTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#mediumtopappbar), [`LargeTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#largetopappbar)
++  - [`SmallTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#smalltopappbar), [`CenterAlignedTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#centeralignedtopappbar), [`MediumTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#mediumtopappbar), [`LargeTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#largetopappbar)
+ - Badge
+-  - [`Badge`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#badge), [`BadgedBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#badgedbox)
++  - [`Badge`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#badge), [`BadgedBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#badgedbox)
+ - Icon
+-  - [`Icon`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#icon), [`IconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#iconbutton)
++  - [`Icon`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#icon), [`IconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#iconbutton)
+ - Text
+-  - [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#text)
++  - [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#text)
+ - Surface
+-  - [`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#surface)
++  - [`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#surface)
+ - Layout
+-  - [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#scaffold)
++  - [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#scaffold)
+ - Content color
+-  - [`LocalContentColor`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#LocalContentColor())
++  - [`LocalContentColor`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#LocalContentColor())
+ 
+ For more information, check out the [Material Design 3 and Material You](https://developer.android.com/jetpack/compose/themes/material#material3) section in the Material Theming in Compose guide.
+\ No newline at end of file

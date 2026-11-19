@@ -1,0 +1,320 @@
+diff --git a/docs/jetpack/androidx/releases/compose-ui.md b/docs/jetpack/androidx/releases/compose-ui.md
+index c5320334..fe696cfc 100644
+--- a/docs/jetpack/androidx/releases/compose-ui.md
++++ b/docs/jetpack/androidx/releases/compose-ui.md
+@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/compose-ui
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
++
+ # Compose UI
+ 
+ [User Guide](https://developer.android.com/jetpack/compose/tutorial) [Code Sample](https://github.com/android/compose-samples) Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| November 04, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.1) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-rc01) | - | - |
++| November 18, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#1.13.0) | - | - | [1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#1.14.0-alpha01) |
+ 
+ ## Structure
+ 
+@@ -22,13 +24,13 @@ This table explains the groups and links to each set of release notes.
+ 
+ | Group | Description |
+ |---|---|
+-| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | Build animations in their Jetpack Compose applications to enrich the user experience. |
+-| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
+-| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces. |
+-| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
+-| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
+-| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
+-| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
++| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt) | Build animations in their Jetpack Compose applications to enrich the user experience. |
++| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler.md.txt) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
++| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt) | Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces. |
++| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
++| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
++| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
++| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
+ 
+ ## Declaring dependencies
+ 
+@@ -47,7 +49,7 @@ plugins {
+ }
+ 
+ dependencies {
+-    implementation "androidx.compose.ui:ui:1.12.1"
++    implementation "androidx.compose.ui:ui:1.13.0"
+ }
+ 
+ android {
+@@ -69,7 +71,7 @@ plugins {
+ }
+ 
+ dependencies {
+-    implementation("androidx.compose.ui:ui:1.12.1")
++    implementation("androidx.compose.ui:ui:1.13.0")
+ }
+ 
+ android {
+@@ -98,8 +100,84 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 1.14
++
++### Version 1.14.0-alpha01
++
++November 18, 2026
++
++`androidx.compose.ui:ui-*:1.14.0-alpha01` is released. Version 1.14.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/57354ca42849ed417dfe0f797132477674d917e0..e52b0d690e9eccefeca97fff5b1300a000aced46/compose/ui).
++
++**API Changes**
++
++- Fixed an issue where `AndroidView` (and `AndroidFragment`) jittered and oscillated during nested scrolling when a parent Compose container (such as `Scaffold` with a collapsing `TopAppBar`, `ModalBottomSheet`, or dynamic padding/offset) moved or resized the hosted `View`. This fix is gated by `AndroidComposeUiFlags.isNestedScrollInteropMeasureAndLayoutEnabled`. ([I57434](https://android-review.googlesource.com/#/q/I57434a9ab78439189aee1d52ea75201ef4121201))
++- Added new overloads of `BasicText` that accept a `styleProvider` (`TextStyleScope.() -> Unit`) lambda for dynamic styling, allowing dynamic style attributes to skip recomposition. ([I88e20](https://android-review.googlesource.com/#/q/I88e20b4fcd2e7ac9b12dc9d1c0dc57da41a270c7))
++- Added `Modifier.illuminate`, `IlluminationScope`, and `Modifier.lightAnchor` to apply lighting effects to composables and anchor light positions to layout coordinates. ([If829a](https://android-review.googlesource.com/#/q/If829a1cfb381d6ec645c92539bee41610fe925af))
++- Adds `Light` (`DirectionalLight`, `SpotLight` and `PointLight`), `SurfaceMaterial`, `SurfaceGeometrySpec`. ([I8fd41](https://android-review.googlesource.com/#/q/I8fd4172b0b262751dc4c9e191eab439a404a37b7))
++- Added `DrawAnnotation` for custom drawing behind and over `AnnotatedString` text ranges. ([I928bf](https://android-review.googlesource.com/#/q/I928bf58ab12f97733047a645a37dca49a6d8406a))
++- Added `computedMediaQuery` API, which offers better performance over `derivedMediaQuery` for calculations that don't benefit from caching. `derivedMediaQuery` is now deprecated. ([Idacbf](https://android-review.googlesource.com/#/q/Idacbff5a887b03ccba8a713ee1652a8867b1ab97))
++- Added `LayoutModifierNode.invalidateRulers()` to force `Ruler` values provided by a node to be recalculated when they depend on non-snapshot state. ([Ia02a8](https://android-review.googlesource.com/#/q/Ia02a813d63675fc56dcdea9e3fc86d4f8e1ec740), [b/422509162](https://issuetracker.google.com/issues/422509162))
++- The `styleable()` modifier API has been replaced by the `styleResolver` modifier based API. All `styleable()` modifiers and associated types (such as `Style` and `StyleScope`) have been deprecated. ([I54677](https://android-review.googlesource.com/#/q/I546777a2b5e5422a9a09309d6f3abb2834b1c83a))
++- `MutableVector` and `mutableVectorOf` are deprecated. Use `androidx.collection.MutableObjectList` and `mutableObjectListOf` instead. ([If0dd8](https://android-review.googlesource.com/#/q/If0dd84fb93c0890a069637cfc7963d0e06695a4a))
++- Added `TextLayoutResult.getBoundingBoxesForRange` and
++  `TextLayoutResult.fillPathForRange` to query coalesced per-line
++  bounding boxes and merged rounded highlight paths for a character range. ([Ic134a](https://android-review.googlesource.com/#/q/Ic134aa26e3f8b2cc243999f5b636dd3749a91444), [b/329052205](https://issuetracker.google.com/issues/329052205))
++
++- Fixed an issue where `AndroidView` (and `AndroidFragment`)
++  dropped nested scroll and fling deltas when the root hosted `View` was a
++  container `ViewGroup` (such as `FrameLayout`, `FragmentContainerView`, or
++  `CoordinatorLayout`) with `isNestedScrollingEnabled == false` wrapping a
++  nested scrolling child (such as `RecyclerView`). To disable View-to-Compose
++  nested scrolling, call `ViewCompat.setNestedScrollingEnabled(view, false)`
++  on the nested scrolling child `View` itself. This fix is gated by
++  `AndroidComposeUiFlags.isNestedScrollInteropViewHolderFixEnabled`. ([I74782](https://android-review.googlesource.com/#/q/I747824fbab3e12d11f13811f2e11b3ae89716179))
++
++- Add missing pixel 10, 9a and 11 pro fold devices ([If7aa5](https://android-review.googlesource.com/#/q/If7aa57208a6591f868a0dd0172f813afbfd4d4ed))
++
++- Added `multiTouchSwipeWithVelocity` to `TouchInjectionScope` to allow testing multi-touch gestures with a specific end velocity. ([If0966](https://android-review.googlesource.com/#/q/If096688b6c40a84ea203dff6e0ef94dca951f2a4))
++
++- Material 3 `TextField` and `OutlinedTextField` overloads that accept `value, onValueChange` parameters, along with `TextFieldDefaults.DecorationBox` and `OutlinedTextFieldDefaults.DecorationBox`, are deprecated in favor of the `TextFieldState` overloads and `decorator` APIs. ([Idb68b](https://android-review.googlesource.com/#/q/Idb68b288609594820c032a533458693d3f477ba8), [b/554049628](https://issuetracker.google.com/issues/554049628))
++
++##### Feature Flag removals
++
++- Removed `AndroidComposeUiFlags.isAccessibilityPerformanceEnabled`. ([I2a70e](https://android-review.googlesource.com/#/q/I2a70e3cee1e7bab9eae222589108547967b9cb9d), [b/529420099](https://issuetracker.google.com/issues/529420099))
++- Removed `ComposeUiFlags.isMinimalistLocalsEnabled`. ([Ibc870](https://android-review.googlesource.com/#/q/Ibc870b4bfd0f7eff0340648b8b76b2c296a3ec4d), [b/523295932](https://issuetracker.google.com/issues/523295932))
++- Removed the feature flag `ComposeUiFlags.isClippedTouchBoundsOcclusionFixEnabled` ([Id9e0a](https://android-review.googlesource.com/#/q/Id9e0a03c6e1678a34aca6d498256c969bdf2b6c6))
++- Removed the temporary feature flag `AndroidComposeUiFlags.isDelayedWindowInsetsRulersEnabled`. ([I722b7](https://android-review.googlesource.com/#/q/I722b745724326778e8ea3a428619a46883c28349))
++- Removed `ComposeUiFlags.isTrackpadPinchReinterpretationEnabled`. ([I39fef](https://android-review.googlesource.com/#/q/I39fef0c4380d8212479da0f9ad0e3b3d9e9dd7cc))
++- Removed `ComposeUiTestFlags` and the temporary `ComposeUiTestFlags.isMainThreadTestSynchronizationEnabledForDeviceTests` flag. Main-thread synchronization in Compose device tests is now permanently enabled. ([I765e9](https://android-review.googlesource.com/#/q/I765e901e64b1295689896f53909b8718c4771c85))
++- Removed the feature flag `AndroidComposeUiFlags.isPropagateHideFromAccessibilityToMergingChildrenEnabled` ([Ief6fa](https://android-review.googlesource.com/#/q/Ief6fab7593779ad033820b631ac057ee2f812a07))
++- Removes experimental feature flag `ComposeUiFlags.isTrackpadPanHoverFixEnabled`. ([I3aa5b](https://android-review.googlesource.com/#/q/I3aa5bdbf6f905a25c74a4de9ba781d4291f063ce))
++- Removed the feature flag `AndroidComposeUiFlags.isTraversalGroupSortingEnabled` ([I18b92](https://android-review.googlesource.com/#/q/I18b92f3e791f1f48b09cceb6a6e4a680b35db677))
++
++**Bug Fixes**
++
++- Map `HintText` semantics to `ViewStructure.setHint` in Autofill. ([If6bcc](https://android-review.googlesource.com/#/q/If6bcccd4e38b398837742f30fb718b542bfbb007))
++- Fixed a crash in Robolectric tests when a text field shows its magnifier, e.g. after two quick clicks on it. ([I65095](https://android-review.googlesource.com/#/q/I650957b2bd563d5212591633464224b2891c3e1f))
++- Fixed an unnecessary remeasurement when reading an alignment line during measurement and placing the child with a non-zero offset. ([I363ab](https://android-review.googlesource.com/#/q/I363ab938335d65f5a1b09bd412255342c103b091), [b/435377724](https://issuetracker.google.com/issues/435377724))
++- Updated accessibility node text and text layout results to reflect active text translations (`SemanticsProperties.TextSubstitution`) when `SemanticsProperties.IsShowingTextSubstitution` is true. ([I006ef](https://android-review.googlesource.com/#/q/I006ef0649292690cf122122966b33dce862e6895))
++- Fixed screen reader focus resets in `LazyRow`, `LazyColumn`, and `LazyGrid` by setting pixel `scrollDeltaX` and `scrollDeltaY` on `TYPE_VIEW_SCROLLED` events. ([I463bc](https://android-review.googlesource.com/#/q/I463bc7ab812417d93980976eee2bd0e993a829c1), [b/330744631](https://issuetracker.google.com/issues/330744631))
++- Fixed a long screenshot crash on Android 12 when a captured frame is read before it presents. ([I0f9ec](https://android-review.googlesource.com/#/q/I0f9ec8758d89a90bdce4a33d0e54e0bdae52a40e))
++- Fixed an issue where indirect pointer events and cancellations were not dispatched to multiple delegated `IndirectPointerInputModifierNode`s or to `IndirectPointerInputModifierNode`s chained after a focus target in the same modifier chain. ([I0f15a](https://android-review.googlesource.com/#/q/I0f15a24ae28d75e944f2d03ff78d15f0ccd4b3a5))
++- Updated `SemanticsProperties.PaneTitle` exception message and `paneTitle` KDoc to clarify that a pane cannot be a descendant of a clickable or semantics-merging node. ([I250f2](https://android-review.googlesource.com/#/q/I250f299c00297542758e6ef6c2182d7f63bc0611), [b/575553356](https://issuetracker.google.com/issues/575553356))
++
++**External Contribution**
++
++- `onVisibilityChanged` and `onFirstVisible` no longer report content as visible while it is outside of the window, when its `ComposeView` isn't at the window's origin, such as in a `RecyclerView`. ([Ibb2b6](https://android-review.googlesource.com/#/q/Ibb2b67beaa6a87041ee9443381661a08c1571396), [b/577830524](https://issuetracker.google.com/issues/577830524))
++- Allow reversed (end \< start) selection when made via a mouse gesture in a `TextField(TextFieldState)`. Previously it would be automatically made "normal" (start \< end). ([I42559](https://android-review.googlesource.com/#/q/I4255958976f8dd18efc58792878e83394703de11))
++
+ ## Version 1.13
+ 
++### Version 1.13.0
++
++November 18, 2026
++
++`androidx.compose.ui:ui-*:1.13.0` is released. Version 1.13.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5e0747401bf56b243e3b5141ae080dc9bc61d29c..ac6d2ce3d991b07d9b981d616bddc6d3ab461eab/compose/ui).
++
++**Important changes since 1.12.0:**
++
++Please see the [release blog for 1.13](https://goo.gle/compose-blog-nov-2026) for a full list of new features in this release.
++
+ ### Version 1.13.0-rc01
+ 
+ November 04, 2026
+@@ -661,8 +739,8 @@ January 14, 2026
+ **API Changes**
+ 
+ - Removed the `ComposeUiTestFlags.isStandardTestDispatcherSupportEnabled` flag. The v2 `run*ComposeUiTest` and `create*ComposeRule` APIs now use `StandardTestDispatcher` by default. To continue using `UnconfinedTestDispatcher`, you can use the deprecated API variants; however, we strongly recommend migrating to the v2 APIs for better control over coroutine execution. ([Iecc9c](https://android-review.googlesource.com/#/q/Iecc9cea0a3669832923e3a3603f06b6aae5cb83a), [b/455601592](https://issuetracker.google.com/issues/455601592))
+-- Introduced `androidx.compose.ui.test.junit4.v2.create*ComposeRule` APIs. These new APIs use a `StandardTestDispatcher` by default to better simulate production behavior where coroutines are queued rather than executed immediately. See the [migration guidance](https://developer.android.com/develop/ui/compose/testing/migrate-v2) for more information. ([I1870e](https://android-review.googlesource.com/#/q/I1870e29d6b5e79ce2e64d7fc4c3634557bb85947), [b/254115946](https://issuetracker.google.com/issues/254115946))
+-- Introduced `androidx.compose.ui.test.v2.run*ComposeUiTest` APIs. These new APIs use a `StandardTestDispatcher` by default to better simulate production behavior where coroutines are queued rather than executed immediately. See the [migration guidance](https://developer.android.com/develop/ui/compose/testing/migrate-v2) for more information. ([I4f782](https://android-review.googlesource.com/#/q/I4f782e6905a33e11258e1dcabf3970f0f8a77cb3), [b/254115946](https://issuetracker.google.com/issues/254115946))
++- Introduced `androidx.compose.ui.test.junit4.v2.create*ComposeRule` APIs. These new APIs use a `StandardTestDispatcher` by default to better simulate production behavior where coroutines are queued rather than executed immediately. See the [migration guidance](https://developer.android.com/develop/ui/compose/testing/migrate-v2.md.txt) for more information. ([I1870e](https://android-review.googlesource.com/#/q/I1870e29d6b5e79ce2e64d7fc4c3634557bb85947), [b/254115946](https://issuetracker.google.com/issues/254115946))
++- Introduced `androidx.compose.ui.test.v2.run*ComposeUiTest` APIs. These new APIs use a `StandardTestDispatcher` by default to better simulate production behavior where coroutines are queued rather than executed immediately. See the [migration guidance](https://developer.android.com/develop/ui/compose/testing/migrate-v2.md.txt) for more information. ([I4f782](https://android-review.googlesource.com/#/q/I4f782e6905a33e11258e1dcabf3970f0f8a77cb3), [b/254115946](https://issuetracker.google.com/issues/254115946))
+ - Common structures within `ComposeView` can now be shared. When `ComposeUiFlags.isSharedComposeViewContextEnabled` is true, values are automatically shared. When false, they are not shared. ([I0d1b4](https://android-review.googlesource.com/#/q/I0d1b40edd5a2f6cde3734a8af6e5a8114cafb8ce), [b/463540495](https://issuetracker.google.com/issues/463540495), [b/460468959](https://issuetracker.google.com/issues/460468959), [b/461503366](https://issuetracker.google.com/issues/461503366), [b/463641813](https://issuetracker.google.com/issues/463641813))
+ 
+ **Bug Fixes**
+@@ -866,8 +944,8 @@ August 27, 2025
+ - Removed flag `isPointerInteropFilterDispatchingFixEnabled`. ([Iaa589](https://android-review.googlesource.com/#/q/Iaa58900d980303b9f51fc96f5fd5d9422780cda3))
+ - Removed flag `isNestedScrollInteropPostFlingFixEnabled`. ([I2a756](https://android-review.googlesource.com/#/q/I2a756541e431ebf6e9e3452547dc2b09f4baa0d0))
+ - Add in `isHiddenFromAccessibility()` and `isInHiddenAccessibilitySubtree()` semantics matchers. ([I9f5a1](https://android-review.googlesource.com/#/q/I9f5a1e1b68eead720c37a1eaed91777e00cd5a0c))
+-- Added `runCurrent()` to `MainTestClock` to run all due tasks on the underlying scheduler. This is to support running tests on a `StandardTestDispatcher`, where tasks are added to the scheduler rather than executed immediately when they have a delay of 0ms. A test can be setup to use a `StandardTestDispatcher` by [creating](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/package-summary#createComposeRule(kotlin.coroutines.CoroutineContext)) a `ComposeTestRule` and passing a `StandardTestDispatcher` to it. By default, tests are run on an `UnconfinedTestDispatcher`, in which case `runCurrent()` will never have to be called.
+-- Added support for running tests on a `StandardTestDispatcher`. Historically, the test framework was (and still is) set up using an `UnconfinedTestDispatcher`, which differs from a production environment in subtle ways. You can now change this setup by creating your own `StandardTestDispatcher` and adding it to the `effectContext` when [creating](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/package-summary#createComposeRule(kotlin.coroutines.CoroutineContext)) your `ComposeTestRule` (or when calling [runComposeUiTest](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/package-summary#runComposeUiTest(kotlin.coroutines.CoroutineContext,kotlin.Function1)) ). ([I334d0](https://android-review.googlesource.com/#/q/I334d0d149d263eb65c327f3dbba4fad154e8a559), [b/254115946](https://issuetracker.google.com/issues/254115946))
++- Added `runCurrent()` to `MainTestClock` to run all due tasks on the underlying scheduler. This is to support running tests on a `StandardTestDispatcher`, where tasks are added to the scheduler rather than executed immediately when they have a delay of 0ms. A test can be setup to use a `StandardTestDispatcher` by [creating](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/package-summary.md.txt#createComposeRule(kotlin.coroutines.CoroutineContext)) a `ComposeTestRule` and passing a `StandardTestDispatcher` to it. By default, tests are run on an `UnconfinedTestDispatcher`, in which case `runCurrent()` will never have to be called.
++- Added support for running tests on a `StandardTestDispatcher`. Historically, the test framework was (and still is) set up using an `UnconfinedTestDispatcher`, which differs from a production environment in subtle ways. You can now change this setup by creating your own `StandardTestDispatcher` and adding it to the `effectContext` when [creating](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/package-summary.md.txt#createComposeRule(kotlin.coroutines.CoroutineContext)) your `ComposeTestRule` (or when calling [runComposeUiTest](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/package-summary.md.txt#runComposeUiTest(kotlin.coroutines.CoroutineContext,kotlin.Function1)) ). ([I334d0](https://android-review.googlesource.com/#/q/I334d0d149d263eb65c327f3dbba4fad154e8a559), [b/254115946](https://issuetracker.google.com/issues/254115946))
+ - Update code for creating a tree of nodes from `SlotTree`. ([I997d3](https://android-review.googlesource.com/#/q/I997d32b63f7c4170dc02671537b18d5b3867a382))
+ 
+ **Bug Fixes**
+@@ -1130,7 +1208,7 @@ April 23, 2025
+ - Added `LocalResources` composition local to query Resources. Calling `LocalResources.current` will recompose when the configuration changes, so calls to APIs such as `stringResource()` will return updated values. ([I50c13](https://android-review.googlesource.com/#/q/I50c13ee26bc440f3fe64c40271850e76e734a596), [b/274786917](https://issuetracker.google.com/issues/274786917))
+ - Expose experimental API for Composables to handle indirect touch events ([Icff57](https://android-review.googlesource.com/#/q/Icff57d89af4f857abd2d37f41af8229f2e582b97))
+ - This release improves the reporting of unhandled exceptions thrown during the layout and draw phases of your composable content. Previously, an uncaught exception here would crash the test runner and prematurely end the test suite. These exceptions can now be reported more gracefully without ending the test suite. ([I9928b](https://android-review.googlesource.com/#/q/I9928b954c197d7295faeea252cf87733d092ed17), [b/314128080](https://issuetracker.google.com/issues/314128080))
+-- Deprecated the experimental `GlobalAssertions` API. Its intended use was to run accessibility checks, see [`enableAccessibilityChecks()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTest?hl=en#enableAccessibilityChecks()) for that purpose instead. ([I50aa5](https://android-review.googlesource.com/#/q/I50aa509889849f8772724f46d5849920cf4fd660))
++- Deprecated the experimental `GlobalAssertions` API. Its intended use was to run accessibility checks, see [`enableAccessibilityChecks()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTest.md.txt?hl=en#enableAccessibilityChecks()) for that purpose instead. ([I50aa5](https://android-review.googlesource.com/#/q/I50aa509889849f8772724f46d5849920cf4fd660))
+ - `SemanticsNodeInteraction.performTextInputSelection` is no longer experimental and now supports an additional `relativeToOriginal` parameter which allows you to apply the selection to either the original untransformed text or the transformed text. ([I3a905](https://android-review.googlesource.com/#/q/I3a905087b0cd779910d09ff619d0a7e2c9e2a8ba), [b/261561038](https://issuetracker.google.com/issues/261561038), [b/277018945](https://issuetracker.google.com/issues/277018945))
+ - Introduce API for creating custom bullet lists through `AnnotatedString` ([I1d066](https://android-review.googlesource.com/#/q/I1d066d3df73999bd3c771b72982fe8bbccc822ae), [b/383269496](https://issuetracker.google.com/issues/383269496), [b/139326648](https://issuetracker.google.com/issues/139326648))
+ - Deprecate `runWithTimingDisabled` in favor of `runWithMeasurementDisabled`, which more clearly describes the behavior - all metrics are paused. Additionally, expose the `MicrobenchmarkScope` superclass since redeclaring the `runWithMeasurementDisabled` function to open access isn't possible, since it's inline. ([I9e23b](https://android-review.googlesource.com/#/q/I9e23b0dfcff18f162ca0d2517734f3038870b59c), [b/389149423](https://issuetracker.google.com/issues/389149423), [b/149979716](https://issuetracker.google.com/issues/149979716))
+@@ -1195,8 +1273,8 @@ April 23, 2025
+ 
+ **Important changes since 1.7.0**
+ 
+-- Compose 1.8 contains newly added support for semantic autofill. Ensure that the versions of UI and Foundation that you use are version 1.8 or higher, as autofill for text components needs the latest versions of both modules. For API usage and examples, please refer to the autofill documentation for more details, [here](https://developer.android.com/develop/ui/compose/text/autofill).
+-- Compose 1.8 supports additional types of haptic feedback: `Confirm`, `ContextClick`, `GestureEnd`, `GestureThresholdActivate`, `Reject`, `SegmentFrequentTick`, `SegmentTick`, `ToggleOn`, `ToggleOff`, `VirtualKey`. This is accessible via `LocalHapticFeedback` and on Android, this is available by default when the [Vibrator API](https://developer.android.com/develop/ui/views/haptics/haptics-apis#vibration_effect_composition) indicates that haptics are supported.
++- Compose 1.8 contains newly added support for semantic autofill. Ensure that the versions of UI and Foundation that you use are version 1.8 or higher, as autofill for text components needs the latest versions of both modules. For API usage and examples, please refer to the autofill documentation for more details, [here](https://developer.android.com/develop/ui/compose/text/autofill.md.txt).
++- Compose 1.8 supports additional types of haptic feedback: `Confirm`, `ContextClick`, `GestureEnd`, `GestureThresholdActivate`, `Reject`, `SegmentFrequentTick`, `SegmentTick`, `ToggleOn`, `ToggleOff`, `VirtualKey`. This is accessible via `LocalHapticFeedback` and on Android, this is available by default when the [Vibrator API](https://developer.android.com/develop/ui/views/haptics/haptics-apis.md.txt#vibration_effect_composition) indicates that haptics are supported.
+ - Multiple Focus APIs are now stable, including `Modifier.focusRestorer()` and `onEnter` and `onExit` `FocusProperties` ([I6e667](https://android-review.googlesource.com/#/q/I6e667ad84b51a525531f4902c1a0ac6ab8b4fba8)). You can now specify a `FocusDirection` when you call `requestFocus`. We have added a `requestFocus(FocusDirection)` API to both `focusRequester` and `FocusTargetModifierNode` to allow focusing with a specific direction. (I5d9ec\]\[https://android-review.googlesource.com/#/q/I5d9eca3a2cd283c1b84ad6b77d929ef9a49ce4cc\], [b/245755256](https://issuetracker.google.com/issues/245755256))
+ 
+ ### Version 1.8.0-rc03
+@@ -2099,7 +2177,7 @@ June 21, 2023
+ 
+ **Behavior Change: includeFontPadding is now false by default in Compose**
+ 
+-[`includeFontPadding`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/PlatformTextStyle#PlatformTextStyle(kotlin.Boolean)) is now false by default ([21d806](https://android-review.googlesource.com/#/q/21d806ccda067df1e0e90cb7a4ff489d7e11a71d)) in Compose.
++[`includeFontPadding`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/PlatformTextStyle.md.txt#PlatformTextStyle(kotlin.Boolean)) is now false by default ([21d806](https://android-review.googlesource.com/#/q/21d806ccda067df1e0e90cb7a4ff489d7e11a71d)) in Compose.
+ 
+ `includeFontPadding` is a legacy attribute that controls whether or not to include extra padding on top of the first line and last line of the text to accommodate any characters that may extend above or below the text baselines.
+ 
+@@ -2645,8 +2723,8 @@ October 24, 2022
+ - New experimental API suite [`Modifier.Node`](https://developer.android.com/jetpack/androidx/releases/(/jetpack/androidx/releases/compose-ui#1.3.0-beta01)) (higher-performance alternative to `Modifier.composed`)
+ - Improved window insets support.
+ - Focus support for D-Pads and hardware keyboard in LazyLists.
+-- Maximum supported elevation in dialogs and popups has been reduced to 8dp (behavior breaking change for some customized design systems -- [rationale in beta01 release notes](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.3.0-beta01))
+-- Many [minor, nonbreaking API improvements](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.3.0-alpha03)
++- Maximum supported elevation in dialogs and popups has been reduced to 8dp (behavior breaking change for some customized design systems -- [rationale in beta01 release notes](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#1.3.0-beta01))
++- Many [minor, nonbreaking API improvements](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#1.3.0-alpha03)
+ - Many bugfixes and performance improvements
+ 
+ ### Version 1.3.0-rc01
+@@ -2957,32 +3035,35 @@ May 11, 2022
+   Migrating a test from a `ComposeTestRule` to `ComposeUiTest` can be done
+   like this (Android example). From:
+ 
+-      @RunWith(AndroidJUnit4::class)
+-      class MyTest {
+-          @get:Rule val rule = createComposeRule()
+-          @Test
+-          fun test() {
+-              rule.setContent {
+-                  Text("Hello Compose!")
+-              }
+-              rule.onNodeWithText("Hello Compose!").assertExists()
++  ```kotlin
++  @RunWith(AndroidJUnit4::class)
++  class MyTest {
++      @get:Rule val rule = createComposeRule()
++      @Test
++      fun test() {
++          rule.setContent {
++              Text("Hello Compose!")
+           }
++          rule.onNodeWithText("Hello Compose!").assertExists()
+       }
++  }
++  ```
+ 
+   To:
+ 
+-      @RunWith(AndroidJUnit4::class)
+-      class MyTest {
+-          @Test
+-          @OptIn(ExperimentalTestApi::class)
+-          fun test() = runComposeUiTest {
+-              setContent {
+-                  Text("Hello Compose!")
+-              }
+-              onNodeWithText("Hello Compose!").assertExists()
++  ```kotlin
++  @RunWith(AndroidJUnit4::class)
++  class MyTest {
++      @Test
++      @OptIn(ExperimentalTestApi::class)
++      fun test() = runComposeUiTest {
++          setContent {
++              Text("Hello Compose!")
+           }
++          onNodeWithText("Hello Compose!").assertExists()
+       }
+-
++  }
++  ```
+ - For now, `ComposeContentTestRule` and `ComposeTestRule` don't extend from `ComposeUiTest`, which means extension functions on `ComposeUiTest` can't be called yet on the `TestRule` interface. When `ComposeUiTest` graduates to stable API, `ComposeContentTestRule` and `ComposeTestRule` will be changed to extend from `ComposeUiTest`. ([Ib4e90](https://android-review.googlesource.com/#/q/Ib4e909d5b4f83a9b3942278e8cb7c86854b6ecaa))
+ 
+ - `LineHeightBehavior` is renamed as `LineHeightStyle`
+@@ -3327,9 +3408,9 @@ February 9, 2022
+ - Stable support for the Android 12 [Overscroll effect](https://android-review.googlesource.com/c/platform/frameworks/support/+/1795727/)
+ - Improvements to touch target sizing
+   - Note that, with respect to Compose 1.0, Material components will expand their layout space to meet Material [accessibility guidelines](https://material.io/design/usability/accessibility.html) for [touch target size](https://material.io/design/usability/accessibility.html#layout-and-typography). For instance, Button touch target will expand to a minimum size of 48x48dp, even if you set the Button's size to be smaller. This aligns Compose Material to the same behavior of Material Design Components, providing consistent behavior if you mix Views and Compose. This change also ensures that when you create your UI using Compose Material components, minimum requirements for touch target accessibility will be met.
+-- Stable Support for [Navigation Rail](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#navigationrail)
++- Stable Support for [Navigation Rail](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#navigationrail)
+ - Graduates a number of previously experimental APIs to stable
+-- [Support](https://developer.android.com/jetpack/androidx/releases/compose-kotlin) for newer versions of Kotlin
++- [Support](https://developer.android.com/jetpack/androidx/releases/compose-kotlin.md.txt) for newer versions of Kotlin
+ 
+ ### Version 1.1.0-rc03
+ 
+@@ -3738,12 +3819,14 @@ This release adds profile rules to the following compose modules ([I14ed6](https
+ 
+ - A method rule will have the following pattern:
+ 
+-      <FLAGS><CLASS_DESCRIPTOR>-><METHOD_SIGNATURE>
+-
++  ```kotlin
++  <FLAGS><CLASS_DESCRIPTOR>-><METHOD_SIGNATURE>
++  ```
+ - And a class rule will have the following pattern:
+ 
+-      <CLASS_DESCRIPTOR>
+-
++  ```kotlin
++  <CLASS_DESCRIPTOR>
++  ```
+ - Here `<FLAGS>` is one or more of the characters `H`, `S`, and `P` to indicate whether or not this method should be flagged as "Hot", "Startup", or "Post Startup".
+ 
+ - The `<CLASS_DESCRIPTOR>` is the descriptor for the class that the targeted method belongs to. For example, the class `androidx.compose.runtime.SlotTable` would have a descriptor of `Landroidx/compose/runtime/SlotTable;`.
+@@ -3878,7 +3961,7 @@ April 7, 2021
+ - Fixed the issue when items of `LazyColumn`/`LazyRow` located on the edges were incorrectly positioned after fast fling ([Ie4d13](https://android-review.googlesource.com/#/q/Ie4d13def7dc4b12d4f52b4c5edbb0abb5150f698), [b/183877420](https://issuetracker.google.com/issues/183877420))
+ - `AndroidViewBinding` now properly removes fragments inflated via `FragmentContainerView` when the `AndroidViewBinding` is removed from the compose hierarchy. ([Ib0248](https://android-review.googlesource.com/#/q/Ib02480f78570972b3190ebd45ab12f4d7291fa23), [b/179915946](https://issuetracker.google.com/issues/179915946))
+ - `AndroidViewBinding` now correctly nests fragments inflated via `FragmentContainerView` when your `ComposeView` is within a `Fragment`, fixing issues with saving and restoring the state of those fragments. ([I70eb0](https://android-review.googlesource.com/#/q/I70eb0831fb6b756e2968e713e181193969d49b9a), [b/179915946](https://issuetracker.google.com/issues/179915946))
+-- Compose ViewBinding now depends on [Fragment `1.3.2`](https://developer.android.com/jetpack/androidx/releases/fragment#1.3.2) and now consistently shows fragments inflated via `FragmentContainerView` after configuration changes. ([I0743d](https://android-review.googlesource.com/#/q/I0743d383564ee28429ad0074f58de79c0e98ada0), [b/179915946](https://issuetracker.google.com/issues/179915946))
++- Compose ViewBinding now depends on [Fragment `1.3.2`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.3.2) and now consistently shows fragments inflated via `FragmentContainerView` after configuration changes. ([I0743d](https://android-review.googlesource.com/#/q/I0743d383564ee28429ad0074f58de79c0e98ada0), [b/179915946](https://issuetracker.google.com/issues/179915946))
+ 
+ ### Version 1.0.0-beta03
+ 
+@@ -4077,7 +4160,7 @@ February 10, 2021
+ `androidx.compose.ui:ui-*:1.0.0-alpha12` is released. [Version 1.0.0-alpha12 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/6950aab50fe6c9f7e9d97cf865161f2d3999eb9e..9ed3262e0dfca1d352bdbf8f8e10253a61ef6218/compose/ui)
+ 
+ > [!NOTE]
+-> **Note:** An issue was found in Activity Compose that causes a `NoSuchMethodError: No static method setContent` exception to be thrown by default for Apps that depend on either `androidx.compose.ui:ui-tooling:1.0.0-alpha12` or `androidx.compose.ui:ui-test-junit4:1.0.0-alpha12`, or internally use `setContent` ([b/179911234](https://issuetracker.google.com/issues/179911234)). To fix, add a dependency on [`androidx.activity:activity-compose:1.3.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/activity#1.3.0-alpha02).
++> **Note:** An issue was found in Activity Compose that causes a `NoSuchMethodError: No static method setContent` exception to be thrown by default for Apps that depend on either `androidx.compose.ui:ui-tooling:1.0.0-alpha12` or `androidx.compose.ui:ui-test-junit4:1.0.0-alpha12`, or internally use `setContent` ([b/179911234](https://issuetracker.google.com/issues/179911234)). To fix, add a dependency on [`androidx.activity:activity-compose:1.3.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#1.3.0-alpha02).
+ 
+ **API Changes**
+ 
+@@ -5077,7 +5160,7 @@ July 22, 2020
+ 
+ #### Dependencies Update
+ 
+-- To use the `0.1.0-dev15` version of Compose, you will need to update your dependencies according to the new code snippets shown above in [Declaring dependencies](https://developer.android.com/jetpack/androidx/releases/compose-ui#declaring_dependencies).
++- To use the `0.1.0-dev15` version of Compose, you will need to update your dependencies according to the new code snippets shown above in [Declaring dependencies](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#declaring_dependencies).
+ 
+ **API Changes**
+ 

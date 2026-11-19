@@ -1,0 +1,65 @@
+diff --git a/docs/topic/libraries/data-binding/start.md b/docs/topic/libraries/data-binding/start.md
+index 377b7df4..5a7b58f6 100644
+--- a/docs/topic/libraries/data-binding/start.md
++++ b/docs/topic/libraries/data-binding/start.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/topic/libraries/data-binding/start
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/topic/libraries/data-binding/llms.txt
++
+ # Get started
+ 
+ Learn how to get your development environment ready to work with the Data
+@@ -28,12 +30,14 @@ To configure your app to use data binding, enable the `dataBinding` build option
+ in your `build.gradle` file in the app module, as shown in the following
+ example:
+ 
+-    android {
+-        ...
+-        buildFeatures {
+-            dataBinding true
+-        }
++```xml
++android {
++    ...
++    buildFeatures {
++        dataBinding true
+     }
++}
++```
+ 
+ > [!NOTE]
+ > **Note:** You must configure data binding for app modules that depend on libraries that use data binding, even if the app module doesn't directly use data binding.
+@@ -56,13 +60,15 @@ The **Preview** pane in the **Layout Editor** displays the default value of data
+ binding expressions, if provided. For example, the **Preview** pane displays the
+ `my_default` value on the `TextView` widget declared in the following example:
+ 
+-    <TextView android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:text="@{user.firstName, default=my_default}"/>
++```xml
++<TextView android:layout_width="wrap_content"
++    android:layout_height="wrap_content"
++    android:text="@{user.firstName, default=my_default}"/>
++```
+ 
+ If you need to display a default value only during the design phase of your
+ project, you can use `tools` attributes instead of default expression values, as
+-described in the [Tools attributes reference](https://developer.android.com/studio/write/tool-attributes).
++described in the [Tools attributes reference](https://developer.android.com/studio/write/tool-attributes.md.txt).
+ 
+ ## Additional resources
+ 
+@@ -82,6 +88,6 @@ additional resources.
+ ## Recommended for you
+ 
+ - Note: link text is displayed when JavaScript is off
+-- [Work with observable data objects](https://developer.android.com/topic/libraries/data-binding/observability)
+-- [View binding](https://developer.android.com/topic/libraries/view-binding)
+-- [Paging 2 library overview](https://developer.android.com/topic/libraries/architecture/paging)
+\ No newline at end of file
++- [Work with observable data objects](https://developer.android.com/topic/libraries/data-binding/observability.md.txt)
++- [View binding](https://developer.android.com/topic/libraries/view-binding.md.txt)
++- [Paging 2 library overview](https://developer.android.com/topic/libraries/architecture/paging.md.txt)
+\ No newline at end of file

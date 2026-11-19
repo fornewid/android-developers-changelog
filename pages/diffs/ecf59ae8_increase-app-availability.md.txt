@@ -1,0 +1,164 @@
+diff --git a/docs/develop/adaptive-apps/guides/increase-app-availability.md b/docs/develop/adaptive-apps/guides/increase-app-availability.md
+index 1e68335a..ef3c4cd6 100644
+--- a/docs/develop/adaptive-apps/guides/increase-app-availability.md
++++ b/docs/develop/adaptive-apps/guides/increase-app-availability.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/adaptive-apps/guides/increase-app-ava
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/develop/llms.txt
++
+ Android devices come in many form factors---phones, foldables, tablets,
+ ChromeOS laptops, TVs, car displays, XR. Different devices offer different
+ hardware capabilities. For example, some devices don't have telephony services,
+@@ -22,25 +24,29 @@ your app's manifest and dependencies.
+ 
+ ### Explicit feature declarations
+ 
+-The [`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element) manifest element specifies hardware or software
++The [`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt) manifest element specifies hardware or software
+ dependencies. By default, `<uses-feature>` marks declared features as required
+ (`android:required="true"`).
+ 
+ For example, declaring a camera requirement prevents devices that don't have a
+ back (world‑facing) camera from downloading the app:
+ 
+-    <uses-feature android:name="android.hardware.camera" />
++```xml
++<uses-feature android:name="android.hardware.camera" />
++```
+ 
+ To indicate that the feature is optional, you must explicitly set
+ `android:required` to `false`:
+ 
+-    <uses-feature
+-        android:name="android.hardware.camera"
+-        android:required="false" />
++```xml
++<uses-feature
++    android:name="android.hardware.camera"
++    android:required="false" />
++```
+ 
+ ### Implicit feature requirements from permissions
+ 
+-Declaring [`<uses-permission>`](https://developer.android.com/guide/topics/manifest/uses-permission-element) elements can also implicitly require
++Declaring [`<uses-permission>`](https://developer.android.com/guide/topics/manifest/uses-permission-element.md.txt) elements can also implicitly require
+ corresponding hardware features. For example, declaring the `CAMERA` permission
+ requires the `android.hardware.camera` feature unless explicitly overridden.
+ 
+@@ -58,7 +64,7 @@ underlying hardware feature at install time and having Google Play filter on
+ that requirement is unnecessary.
+ 
+ For a complete list of permissions that trigger implicit feature requirements,
+-see [Permissions that imply feature requirements](https://developer.android.com/guide/topics/manifest/uses-feature-element#permissions).
++see [Permissions that imply feature requirements](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt#permissions).
+ 
+ ### Implicit feature requirements from activity orientation
+ 
+@@ -70,7 +76,7 @@ displays such as cars or desktop environments.
+ 
+ Apps should always support both landscape and portrait orientations, so
+ declaring an orientation requirement is unnecessary and can reduce app
+-availability. See [Screen hardware features](https://developer.android.com/guide/topics/manifest/uses-feature-element#screen-hw-features).
++availability. See [Screen hardware features](https://developer.android.com/guide/topics/manifest/uses-feature-element.md.txt#screen-hw-features).
+ 
+ ## Manage transitive dependencies and manifest merging
+ 
+@@ -82,14 +88,16 @@ unexpected requirements, silently reducing device availability.
+ ### Determine your app's required features
+ 
+ Check the exact features required by your app after manifest merging using
+-[`AAPT2`](https://developer.android.com/tools/aapt2) or Google Play Console.
++[`AAPT2`](https://developer.android.com/tools/aapt2.md.txt) or Google Play Console.
+ 
+ #### Use AAPT2 badging output
+ 
+-Run the [`AAPT2`](https://developer.android.com/tools/aapt2) tool to dump badging metadata from your
++Run the [`AAPT2`](https://developer.android.com/tools/aapt2.md.txt) tool to dump badging metadata from your
+ universal APK:
+ 
+-    aapt2 dump badging path/to/app.apk
++```bash
++aapt2 dump badging path/to/app.apk
++```
+ 
+ The badging output lists all declared permissions and all explicitly and
+ implicitly required features, which determines the filtering rules applied by
+@@ -99,7 +107,10 @@ Google Play.
+ 
+ In the Google Play Console, check the **Device Catalog** to view the list of
+ supported and excluded devices. Excluded device entries specify the manifest
+-declarations that caused the exclusion.
++declarations that caused the exclusion. You can also filter by form
++factor---including foldables, tablets, Googlebooks, and ChromeOS
++devices---across **Device Catalog** , **Reach and devices** , **Statistics** ,
++and **Android vitals** to inspect device availability and quality metrics.
+ 
+ ## Make features optional
+ 
+@@ -121,12 +132,14 @@ unavailable, for example:
+ Add `android:required="false"` to all `<uses-feature>` declarations in
+ `AndroidManifest.xml`:
+ 
+-    <uses-feature
+-        android:name="android.hardware.camera"
+-        android:required="false" />
+-    <uses-feature
+-        android:name="android.hardware.autofocus"
+-        android:required="false" />
++```xml
++<uses-feature
++    android:name="android.hardware.camera"
++    android:required="false" />
++<uses-feature
++    android:name="android.hardware.autofocus"
++    android:required="false" />
++```
+ 
+ Or remove the `<uses-feature>` declaration entirely if the app no longer
+ supports a specific feature.
+@@ -139,21 +152,25 @@ supports a specific feature.
+ When declaring permissions that imply hardware features, add a corresponding
+ `<uses-feature>` tag with `android:required="false"`:
+ 
+-    <uses-permission android:name="android.permission.CAMERA" />
+-    <uses-feature
+-        android:name="android.hardware.camera"
+-        android:required="false" />
++```xml
++<uses-permission android:name="android.permission.CAMERA" />
++<uses-feature
++    android:name="android.hardware.camera"
++    android:required="false" />
++```
+ 
+ ### Check feature availability at runtime
+ 
+ Before calling hardware-specific APIs, check whether the device supports the
+-feature using [`PackageManager.hasSystemFeature`](https://developer.android.com/reference/kotlin/android/content/pm/PackageManager#hasSystemFeature(kotlin.String)):
++feature using [`PackageManager.hasSystemFeature`](https://developer.android.com/reference/kotlin/android/content/pm/PackageManager.md.txt#hasSystemFeature(kotlin.String)):
+ 
+-    if (packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
+-        // Access camera hardware.
+-    } else {
+-        // Provide alternative workflow.
+-    }
++```kotlin
++if (packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
++    // Access camera hardware.
++} else {
++    // Provide alternative workflow.
++}
++```
+ 
+ ## Prevent regressions with CI and badging
+ 
+@@ -200,4 +217,4 @@ devices and users.
+ 
+ ## Additional resources
+ 
+-- [Permissions on Android](https://developer.android.com/guide/topics/permissions/overview)
+\ No newline at end of file
++- [Permissions on Android](https://developer.android.com/guide/topics/permissions/overview.md.txt)
+\ No newline at end of file

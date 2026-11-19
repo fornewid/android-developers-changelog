@@ -1,0 +1,1014 @@
+diff --git a/docs/jetpack/androidx/releases/lifecycle.md b/docs/jetpack/androidx/releases/lifecycle.md
+index a2049e9f..14fd3726 100644
+--- a/docs/jetpack/androidx/releases/lifecycle.md
++++ b/docs/jetpack/androidx/releases/lifecycle.md
+@@ -4,19 +4,21 @@ url: https://developer.android.com/jetpack/androidx/releases/lifecycle
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
++
+ # Lifecycle
+ 
+-[User Guide](https://developer.android.com/topic/libraries/architecture/lifecycle) [Code Sample](https://github.com/android/architecture-components-samples) [Codelab](https://codelabs.developers.google.com/codelabs/android-lifecycles/index.html?index#0) Lifecycle-aware components perform actions in response to a change in the lifecycle status of another component, such as activities and fragments. These components help you produce better-organized, and often lighter-weight code, that is easier to maintain.
++[User Guide](https://developer.android.com/topic/libraries/architecture/lifecycle.md.txt) [Code Sample](https://github.com/android/architecture-components-samples) [Codelab](https://codelabs.developers.google.com/codelabs/android-lifecycles/index.html?index#0) Lifecycle-aware components perform actions in response to a change in the lifecycle status of another component, such as activities and fragments. These components help you produce better-organized, and often lighter-weight code, that is easier to maintain.
+ 
+ 
+ This table lists all the artifacts in the `androidx.lifecycle` group.
+ 
+ | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| lifecycle-\* | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | [2.12.0-alpha05](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha05) |
+-| lifecycle-viewmodel-navigation3 | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | [2.12.0-alpha05](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha05) |
++| lifecycle-\* | [2.11.1](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.11.1) | - | - | [2.12.0-alpha06](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.12.0-alpha06) |
++| lifecycle-viewmodel-navigation3 | [2.11.1](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.11.1) | - | - | [2.12.0-alpha06](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.12.0-alpha06) |
+ 
+-This library was last updated on: October 21, 2026
++This library was last updated on: November 18, 2026
+ 
+ ## Declaring dependencies
+ 
+@@ -36,7 +38,7 @@ your app or module:
+ 
+ ```groovy
+     dependencies {
+-        def lifecycle_version = "2.11.0"
++        def lifecycle_version = "2.11.1"
+         def arch_version = "2.2.0"
+ 
+         // ViewModel
+@@ -54,7 +56,7 @@ your app or module:
+         implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+ 
+         // ViewModel integration with Navigation3
+-        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha05"
++        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha06"
+ 
+         // Annotation processor
+         kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+@@ -83,7 +85,7 @@ your app or module:
+ 
+ ```kotlin
+     dependencies {
+-        val lifecycle_version = "2.11.0"
++        val lifecycle_version = "2.11.1"
+         val arch_version = "2.2.0"
+ 
+         // ViewModel
+@@ -101,7 +103,7 @@ your app or module:
+         implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
+ 
+         // ViewModel integration with Navigation3
+-        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha05")
++        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha06")
+ 
+         // Annotation processor
+         kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
+@@ -132,7 +134,7 @@ your app or module:
+ 
+ ```groovy
+     dependencies {
+-        def lifecycle_version = "2.11.0"
++        def lifecycle_version = "2.11.1"
+         def arch_version = "2.2.0"
+ 
+         // ViewModel
+@@ -172,7 +174,7 @@ your app or module:
+ 
+ ```kotlin
+     dependencies {
+-        val lifecycle_version = "2.11.0"
++        val lifecycle_version = "2.11.1"
+         val arch_version = "2.2.0"
+ 
+         // ViewModel
+@@ -225,6 +227,20 @@ for more information.
+ 
+ ## Version 2.12
+ 
++### Version 2.12.0-alpha06
++
++November 18, 2026
++
++`androidx.lifecycle:lifecycle-*:2.12.0-alpha06` is released. Version 2.12.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3566803898b060d7136357220affc9ece8236019..3e55c1ad889c6c0087b0bf6720b1a970b6e8ea3b/lifecycle).
++
++**API Changes**
++
++- Migrate `LocalLifecycleOwner` to use `compositionLocalWithHostDefaultOf` and `LifecycleOwnerHostDefaultKey` detaching it from being directly retrieved as part of the view tree outside of Android. ([I7c265](https://android-review.googlesource.com/#/q/I7c2655f9040d951906980e286143414e22e3d271))
++
++**Bug Fixes**
++
++- From [Lifecycle 2.11.1](https://developer.android.com/jetpack/androidx/releases/jetpack/androidx/releases/lifecycle#2.11.1): The `currentStateFlow` property of `LifecycleRegistry` now returns the same instance with each invocation, rather than creating a new instance each time. ([I1ae01](https://android-review.googlesource.com/#/q/I1ae01405ae45b01878f0fc9ee870e3a31b8f8765), [b/579057749](https://issuetracker.google.com/issues/579057749))
++
+ ### Version 2.12.0-alpha05
+ 
+ October 21, 2026
+@@ -275,6 +291,16 @@ August 12, 2026
+ 
+ ## Version 2.11
+ 
++### Version 2.11.1
++
++November 18, 2026
++
++`androidx.lifecycle:lifecycle-*:2.11.1` is released. Version 2.11.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a01f1a6c29523dd9b046b7f2a383d7d24559e316..def56dbfecf527197bb67c59d6424a4d3fe9d25a/lifecycle).
++
++**Bug Fixes**
++
++- The `currentStateFlow` property of `LifecycleRegistry` now returns the same instance with each invocation, rather than creating a new instance each time. ([I1ae01](https://android-review.googlesource.com/#/q/I1ae01405ae45b01878f0fc9ee870e3a31b8f8765), [b/579057749](https://issuetracker.google.com/issues/579057749))
++
+ ### Version 2.11.0
+ 
+ June 17, 2026
+@@ -359,20 +385,22 @@ March 11, 2026
+ 
+ - This release introduces APIs to create scoped `ViewModelStore` instances in Compose. This allows `ViewModels` to be tied to specific UI scopes (such as individual `Pager` pages or `LazyList` items). These `ViewModels` survive configuration changes and are automatically cleared when their corresponding Composable is permanently removed from the hierarchy.
+ 
+-      // Hoist the parent provider outside the Pager.
+-      val provider = rememberViewModelStoreProvider()
+-      val pagerState = rememberPagerState(pageCount = { 5 })
++  ```kotlin
++  // Hoist the parent provider outside the Pager.
++  val provider = rememberViewModelStoreProvider()
++  val pagerState = rememberPagerState(pageCount = { 5 })
+ 
+-      HorizontalPager(state = pagerState) { page ->
+-          // Create an owner scoped to the current page.
+-          val storeOwner = rememberViewModelStoreOwner(provider, key = page)
++  HorizontalPager(state = pagerState) { page ->
++      // Create an owner scoped to the current page.
++      val storeOwner = rememberViewModelStoreOwner(provider, key = page)
+ 
+-          // Provide the scoped owner to this composition.
+-          CompositionLocalProvider(LocalViewModelStoreOwner provides storeOwner) {
+-              // ViewModel is now scoped specifically to this page.
+-              val viewModel: PageViewModel = viewModel()
+-          }
++      // Provide the scoped owner to this composition.
++      CompositionLocalProvider(LocalViewModelStoreOwner provides storeOwner) {
++          // ViewModel is now scoped specifically to this page.
++          val viewModel: PageViewModel = viewModel()
+       }
++  }
++  ```
+ 
+ Note that `ViewModelStoreProvider` is available outside of Compose and can be used with Activities, Fragments and/or Views.
+ 
+@@ -415,49 +443,52 @@ November 19, 2025
+ 
+ **Important changes since 2.9.0:**
+ 
+-- Add a `rememberLifecycleOwner` composable to enable creating scoped lifecycles directly within the UI. This is useful for components that need to manage their own lifecycles independently such as a `HorizontalPager` that wants to only make the current page `RESUMED` or libraries like [Navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.0.0):
+-
+-      @Composable
+-      fun MyComposable() {
+-          // This LifecycleOwner is automatically moved to DESTROYED when
+-          // it leaves composition and its maxLifecycle is the maximum of either
+-          // the maxLifecycle you set or the Lifecycle.State of the parentLifecycleOwner
+-          val lifecycleOwner = rememberLifecycleOwner(
+-              maxLifecycle = RESUMED,
+-              parentLifecycleOwner = LocalLifecycleOwner.current,
+-          )
+-          CompositionLocalProvider(LocalLifecycleOwner provides lifecycleOwner) {
+-              val childLifecycleOwner = LocalLifecycleOwner.current
+-          }
++- Add a `rememberLifecycleOwner` composable to enable creating scoped lifecycles directly within the UI. This is useful for components that need to manage their own lifecycles independently such as a `HorizontalPager` that wants to only make the current page `RESUMED` or libraries like [Navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3.md.txt#1.0.0):
++
++  ```kotlin
++  @Composable
++  fun MyComposable() {
++      // This LifecycleOwner is automatically moved to DESTROYED when
++      // it leaves composition and its maxLifecycle is the maximum of either
++      // the maxLifecycle you set or the Lifecycle.State of the parentLifecycleOwner
++      val lifecycleOwner = rememberLifecycleOwner(
++          maxLifecycle = RESUMED,
++          parentLifecycleOwner = LocalLifecycleOwner.current,
++      )
++      CompositionLocalProvider(LocalLifecycleOwner provides lifecycleOwner) {
++          val childLifecycleOwner = LocalLifecycleOwner.current
+       }
+-
+-- The `lifecycle-viewmodel-navigation3` artifact provides a prebuilt integration for [Navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.0.0), allowing you to enable scoping `ViewModel` instances to individual screens ('entries') by using the `rememberViewModelStoreNavEntryDecorator()` API:
+-
+-      @Composable
+-      fun MyComposable() {
+-          NavDisplay(
+-              backStack = backStack,
+-              entryDecorators =
+-                  listOf(
+-                      rememberSaveableStateHolderNavEntryDecorator(),
+-                      // Add this line to automatically scope ViewModels to each entry
+-                      rememberViewModelStoreNavEntryDecorator(),
+-                  ),
+-              entryProvider = entryProvider {
+-                  // Add your entries here
+-              }
++  }
++  ```
++- The `lifecycle-viewmodel-navigation3` artifact provides a prebuilt integration for [Navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3.md.txt#1.0.0), allowing you to enable scoping `ViewModel` instances to individual screens ('entries') by using the `rememberViewModelStoreNavEntryDecorator()` API:
++
++  ```kotlin
++  @Composable
++  fun MyComposable() {
++      NavDisplay(
++          backStack = backStack,
++          entryDecorators =
++              listOf(
++                  rememberSaveableStateHolderNavEntryDecorator(),
++                  // Add this line to automatically scope ViewModels to each entry
++                  rememberViewModelStoreNavEntryDecorator(),
++              ),
++          entryProvider = entryProvider {
++              // Add your entries here
+           }
+       }
+-
++  }
++  ```
+ - Add a builder factory function for `CreationExtras`, providing a more convenient and idiomatic Kotlin API.
+ 
+-      override val defaultViewModelCreationExtras: CreationExtras
+-          // Use the CreationExtras builder to add in a custom value to the default
+-          // CreationExtras in your Activity or Fragment
+-          get() = super.defaultViewModelCreationExtras + CreationExtras {
+-              this[CustomKey] = "customValue"
+-         }
+-
++  ```kotlin
++  override val defaultViewModelCreationExtras: CreationExtras
++      // Use the CreationExtras builder to add in a custom value to the default
++      // CreationExtras in your Activity or Fragment
++      get() = super.defaultViewModelCreationExtras + CreationExtras {
++          this[CustomKey] = "customValue"
++     }
++  ```
+ - Add native support for nullable types in `SavedStateHandle.saved`, simplifying saving and restoring nullable properties.
+ 
+ - Mark `SavedStateHandle` constructors as `@VisibleForTesting`.
+@@ -526,13 +557,15 @@ August 13, 2025
+ 
+ - The `LifecycleOwner` composable can now create a **standalone root lifecycle** . By (explicitly) setting `parent = null`, the new lifecycle operates independently of any host (like an `Activity`, `Fragment` or `NavBackStackEntry`). It starts as soon as the composable enters the composition and is automatically destroyed when it leaves. ([I8dfbe](https://android-review.googlesource.com/#/q/I8dfbe99ecb67853e9303b01646257adeecf05f36), [b/433659048](https://issuetracker.google.com/issues/433659048))
+ 
+-      @Composable
+-      fun IndependentComponent() {
+-          // Create a standalone lifecycle, not tied to the parent Activity/Fragment.
+-          LifecycleOwner(parent = null) {
+-              val rootLifecycle = LocalLifecycleOwner.current.lifecycle
+-          }
++  ```kotlin
++  @Composable
++  fun IndependentComponent() {
++      // Create a standalone lifecycle, not tied to the parent Activity/Fragment.
++      LifecycleOwner(parent = null) {
++          val rootLifecycle = LocalLifecycleOwner.current.lifecycle
+       }
++  }
++  ```
+ 
+ **API Changes**
+ 
+@@ -557,15 +590,17 @@ July 30, 2025
+ 
+ - Add a `LifecycleOwner` composable to enable creating scoped lifecycles directly within the UI. This is useful for components that need to manage their own lifecycles independently. For an example of how Navigation3 integrates this new composable, see [aosp/3708610](https://r.android.com/3708610). ([76cbf7](https://android-review.googlesource.com/#/q/I70c9c6206ac3f3e1447e4e722e8e5f9861cb880e))
+ 
+-      @Composable
+-      fun MyComposable() {
+-          LifecycleOwner(
+-              maxLifecycle = RESUMED,
+-              parentLifecycleOwner = LocalLifecycleOwner.current,
+-          ) {
+-              val childLifecycleOwner = LocalLifecycleOwner.current
+-          }
++  ```kotlin
++  @Composable
++  fun MyComposable() {
++      LifecycleOwner(
++          maxLifecycle = RESUMED,
++          parentLifecycleOwner = LocalLifecycleOwner.current,
++      ) {
++          val childLifecycleOwner = LocalLifecycleOwner.current
+       }
++  }
++  ```
+ 
+ **API Changes**
+ 
+@@ -611,7 +646,7 @@ July 16, 2025
+ 
+ **Dependency updates**
+ 
+-- Lifecycle now depends on [Annotation `1.9.1`](https://developer.android.com/jetpack/androidx/releases/annotation#1.9.1) to enable support for the new KMP targets ([Ic9e4f](https://android-review.googlesource.com/#/q/Ic9e4f34d55e1532167435c843590b2293a6ed1d9), [b/397701294](https://issuetracker.google.com/issues/397701294)).
++- Lifecycle now depends on [Annotation `1.9.1`](https://developer.android.com/jetpack/androidx/releases/annotation.md.txt#1.9.1) to enable support for the new KMP targets ([Ic9e4f](https://android-review.googlesource.com/#/q/Ic9e4f34d55e1532167435c843590b2293a6ed1d9), [b/397701294](https://issuetracker.google.com/issues/397701294)).
+ 
+ ### Version 2.9.1
+ 
+@@ -631,24 +666,26 @@ May 7, 2025
+ 
+ **Important changes since 2.8.0**
+ 
+-- A new `androidx.lifecycle:lifecycle-viewmodel-testing` KMP artifact is available that provides a [`ViewModelScenario`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/testing/ViewModelScenario) class for testing `ViewModels` in isolation, with support for `onCleared` and `SavedStateHandle` as well as testing process death and recreation via `recreate()`.
++- A new `androidx.lifecycle:lifecycle-viewmodel-testing` KMP artifact is available that provides a [`ViewModelScenario`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/testing/ViewModelScenario.md.txt) class for testing `ViewModels` in isolation, with support for `onCleared` and `SavedStateHandle` as well as testing process death and recreation via `recreate()`.
+ - Add `getMutableStateFlow` to `SavedStateHandle` to return a `MutableStateFlow`. This new function is key-exclusive and cannot be used with `getLiveData`. An exception will be thrown if you try to use both to access the same state.
+ - `CreationExtras` now includes map-like operator overloads to enable idiomatic manipulation of content in Kotlin. It allows the use of `in`, `+=`, and `+` with `CreationExtras`.
+ 
+ **KotlinX Serialization Support**
+ 
+-- With the support of KotlinX Serialization added in [SavedState `1.3.0`](https://developer.android.com/jetpack/androidx/releases/savedstate#1.3.0), we have introduced `saved`, a lazy property delegate, to make it easy to store `@Serializable` classes in a `SavedStateHandle` and have those classes automatically be restored across process death and recreation. Please note the `saved` delegate is lazy and will not call the `init` lambda or save anything into the `SavedStateHandle` until it is accessed.
++- With the support of KotlinX Serialization added in [SavedState `1.3.0`](https://developer.android.com/jetpack/androidx/releases/savedstate.md.txt#1.3.0), we have introduced `saved`, a lazy property delegate, to make it easy to store `@Serializable` classes in a `SavedStateHandle` and have those classes automatically be restored across process death and recreation. Please note the `saved` delegate is lazy and will not call the `init` lambda or save anything into the `SavedStateHandle` until it is accessed.
+ 
+-      @Serializable
+-      data class Person(val firstName: String, val lastName: String)
++  ```kotlin
++  @Serializable
++  data class Person(val firstName: String, val lastName: String)
+ 
+-      class MyViewModel(handle: SavedStateHandle) : ViewModel() {
+-          var person by handle.saved { Person("John", "Doe") }
++  class MyViewModel(handle: SavedStateHandle) : ViewModel() {
++      var person by handle.saved { Person("John", "Doe") }
+ 
+-          fun onPersonChanged(person: Person) {
+-              this.person = person
+-          }
++      fun onPersonChanged(person: Person) {
++          this.person = person
+       }
++  }
++  ```
+ 
+ **Kotlin Multiplatform**
+ 
+@@ -670,7 +707,7 @@ April 23, 2025
+ 
+ **Lint API Compatibility Warning**
+ 
+-- JetBrains changed `KaCallableMemberCall` from [a class to an interface](https://cs.android.com/android-studio/kotlin/+/110e9e27b760bdf6902642926998f94f4afea800), which breaks binary compatibility. This can cause crashes if your project's AGP version differs from the version used to compile lint checks. This update was made in [aosp/3577172](https://r.android.com/3577172) but was missing from the release notes --- we're clarifying it here. **Recommended fix:** Update to the latest stable AGP. If you can't fully update, use `android.experimental.lint.version` to align lint checks with your AGP version --- see [Compose Runtime behavior changes](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.9.0-alpha01) for details.
++- JetBrains changed `KaCallableMemberCall` from [a class to an interface](https://cs.android.com/android-studio/kotlin/+/110e9e27b760bdf6902642926998f94f4afea800), which breaks binary compatibility. This can cause crashes if your project's AGP version differs from the version used to compile lint checks. This update was made in [aosp/3577172](https://r.android.com/3577172) but was missing from the release notes --- we're clarifying it here. **Recommended fix:** Update to the latest stable AGP. If you can't fully update, use `android.experimental.lint.version` to align lint checks with your AGP version --- see [Compose Runtime behavior changes](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt#1.9.0-alpha01) for details.
+ 
+ ### Version 2.9.0-beta01
+ 
+@@ -680,7 +717,7 @@ April 9, 2025
+ 
+ **API Changes**
+ 
+-- `Lifecycle ViewModel Compose` now uses the same Kotlin Multiplatform setup as [Compose Runtime 1.7.1](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.7.1) and higher - the `-desktop` artifacts are now removed and `-jvmStubs` and `-linuxx64Stubs` artifacts have been added. None of these targets are meant to be used, they are placeholders to help Jetbrains Compose efforts. ([I5cb14](https://android-review.googlesource.com/#/q/I5cb14cb1dc5bc462961763252b2b3726f85145cb), [b/406592090](https://issuetracker.google.com/issues/406592090))
++- `Lifecycle ViewModel Compose` now uses the same Kotlin Multiplatform setup as [Compose Runtime 1.7.1](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt#1.7.1) and higher - the `-desktop` artifacts are now removed and `-jvmStubs` and `-linuxx64Stubs` artifacts have been added. None of these targets are meant to be used, they are placeholders to help Jetbrains Compose efforts. ([I5cb14](https://android-review.googlesource.com/#/q/I5cb14cb1dc5bc462961763252b2b3726f85145cb), [b/406592090](https://issuetracker.google.com/issues/406592090))
+ 
+ **Dependency Updates**
+ 
+@@ -775,18 +812,20 @@ November 13, 2024
+ 
+ **KotlinX Serialization Support**
+ 
+-- With the support of KotlinX Serialization added in [SavedState `1.3.0-alpha05`](https://developer.android.com/jetpack/androidx/releases/savedstate#1.3.0-alpha05), we have introduced `saved`, a lazy property delegate, to make it easy to store `@Serializable` classes in a `SavedStateHandle` and have those classes automatically be restored across process death and recreation. Please note the `saved` delegate is lazy and will not call the `init` lambda or save anything into the `SavedStateHandle` until it is accessed. ([I47a88](https://android-review.googlesource.com/#/q/I47a88d7bc335db7e22a9e6c05da38c2a8e012331), [b/376026744](https://issuetracker.google.com/issues/376026744))
++- With the support of KotlinX Serialization added in [SavedState `1.3.0-alpha05`](https://developer.android.com/jetpack/androidx/releases/savedstate.md.txt#1.3.0-alpha05), we have introduced `saved`, a lazy property delegate, to make it easy to store `@Serializable` classes in a `SavedStateHandle` and have those classes automatically be restored across process death and recreation. Please note the `saved` delegate is lazy and will not call the `init` lambda or save anything into the `SavedStateHandle` until it is accessed. ([I47a88](https://android-review.googlesource.com/#/q/I47a88d7bc335db7e22a9e6c05da38c2a8e012331), [b/376026744](https://issuetracker.google.com/issues/376026744))
+ 
+-      @Serializable
+-      data class Person(val firstName: String, val lastName: String)
++  ```kotlin
++  @Serializable
++  data class Person(val firstName: String, val lastName: String)
+ 
+-      class MyViewModel(handle: SavedStateHandle) : ViewModel() {
+-          var person by handle.saved { Person("John", "Doe") }
++  class MyViewModel(handle: SavedStateHandle) : ViewModel() {
++      var person by handle.saved { Person("John", "Doe") }
+ 
+-          fun onPersonChanged(person: Person) {
+-              this.person = person
+-          }
++      fun onPersonChanged(person: Person) {
++          this.person = person
+       }
++  }
++  ```
+ 
+ **API Changes**
+ 
+@@ -831,11 +870,11 @@ September 18, 2024
+ 
+ **Bug Fixes**
+ 
+-- From [Lifecycle `2.8.6`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.8.6): The `NullSafeMutableLiveData` Lint error has improved support for smart casts, avoiding false positives. ([85fed6](https://android.googlesource.com/platform/frameworks/support/+/85fed6d07668f2e903172592580d8076cb6da80a), [b/181042665](https://issuetracker.google.com/181042665))
++- From [Lifecycle `2.8.6`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.8.6): The `NullSafeMutableLiveData` Lint error has improved support for smart casts, avoiding false positives. ([85fed6](https://android.googlesource.com/platform/frameworks/support/+/85fed6d07668f2e903172592580d8076cb6da80a), [b/181042665](https://issuetracker.google.com/181042665))
+ 
+ **Dependency Updates**
+ 
+-- From [Lifecycle `2.8.6`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.8.6): Lifecycle Runtime Compose now depends on [Compose Runtime `1.7.1`](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.7.1)
++- From [Lifecycle `2.8.6`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.8.6): Lifecycle Runtime Compose now depends on [Compose Runtime `1.7.1`](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt#1.7.1)
+ - Lifecycle Runtime now depends on [ProfileInstaller `1.4.0`](https://developer.android.com/jetpack/androidx/releases/jetpack/androidx/releases/profileinstaller#1.4.0)
+ 
+ ### Version 2.9.0-alpha02
+@@ -846,12 +885,12 @@ September 4, 2024
+ 
+ **Bug Fixes**
+ 
+-- From [Lifecycle `2.8.5`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.8.5): Update the `androidx.lifecycle.ReportFragment` ProGuard rules to allow obfuscation . ([ff898e1](https://android.googlesource.com/platform/frameworks/support/+/ff898e1b01a9d3df1a205d8a374537a801e76289))
++- From [Lifecycle `2.8.5`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.8.5): Update the `androidx.lifecycle.ReportFragment` ProGuard rules to allow obfuscation . ([ff898e1](https://android.googlesource.com/platform/frameworks/support/+/ff898e1b01a9d3df1a205d8a374537a801e76289))
+ 
+ **External Contribution**
+ 
+ - Move `androidx.compose.ui.platform.LocalLifecycleOwner` to common source set (KMP). Thanks Ivan Matkov from JetBrains for the contribution. ([8cd5d03](https://android.googlesource.com/platform/frameworks/support/+/8cd5d03e92db33899c521bd7172a29f2c2db5114))
+-- From [Lifecycle `2.8.5`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.8.5): SavedStateHandle.saveable\` extension delegate now supports nullable values. Thanks Roman Kalukiewicz for the contribution. ([0d78ea6](https://android.googlesource.com/platform/frameworks/support/+/0d78ea6ac30db5624315952b4bd62ff232991f40))
++- From [Lifecycle `2.8.5`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.8.5): SavedStateHandle.saveable\` extension delegate now supports nullable values. Thanks Roman Kalukiewicz for the contribution. ([0d78ea6](https://android.googlesource.com/platform/frameworks/support/+/0d78ea6ac30db5624315952b4bd62ff232991f40))
+ 
+ ### Version 2.9.0-alpha01
+ 
+@@ -866,7 +905,7 @@ August 7, 2024
+ 
+ **New Features**
+ 
+-- A new `androidx.lifecycle:lifecycle-viewmodel-testing` KMP artifact is available that provides a [`ViewModelScenario`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/testing/ViewModelScenario) class for testing ViewModels in isolation, with support for `onCleared` (all platforms) and `SavedStateHandle` (Android only). ([337f68d](https://android.googlesource.com/platform/frameworks/support/+/337f68d7ae82f8eaceba983736bfa10ad1f1a0b9), [c9b3409](https://android.googlesource.com/platform/frameworks/support/+/c9b3409fcde227edba6b2ee6f9baa89c6b43081c), [9799a95c](https://android.googlesource.com/platform/frameworks/support/+/9799a95c1fc5e6d976d693f5a3fcb74ebe1beb4b), [b/264602919](https://issuetracker.google.com/264602919))
++- A new `androidx.lifecycle:lifecycle-viewmodel-testing` KMP artifact is available that provides a [`ViewModelScenario`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/testing/ViewModelScenario.md.txt) class for testing ViewModels in isolation, with support for `onCleared` (all platforms) and `SavedStateHandle` (Android only). ([337f68d](https://android.googlesource.com/platform/frameworks/support/+/337f68d7ae82f8eaceba983736bfa10ad1f1a0b9), [c9b3409](https://android.googlesource.com/platform/frameworks/support/+/c9b3409fcde227edba6b2ee6f9baa89c6b43081c), [9799a95c](https://android.googlesource.com/platform/frameworks/support/+/9799a95c1fc5e6d976d693f5a3fcb74ebe1beb4b), [b/264602919](https://issuetracker.google.com/264602919))
+ - Creating a `ViewModel` with `ViewModelProvider` is now thread safe; `@MainThread` annotations have been removed. ([Ifd978](https://android-review.googlesource.com/#/q/Ifd97842e103a029e1aeeeb5cd57dcb86b8770cf4), [b/237006831](https://issuetracker.google.com/issues/237006831))
+ 
+ **API Changes**
+@@ -906,7 +945,7 @@ September 18, 2024
+ 
+ **Dependency Updates**
+ 
+-- Lifecycle Runtime Compose now depends on [Compose Runtime `1.7.1`](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.7.1)
++- Lifecycle Runtime Compose now depends on [Compose Runtime `1.7.1`](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt#1.7.1)
+ 
+ ### Version 2.8.5
+ 
+@@ -977,18 +1016,19 @@ May 14, 2024
+ - The `lifecycle-runtime-compose` artifact now contains the `dropUnlessResumed` and `dropUnlessStarted` APIs which allow you to drop click or other events that occur even after the `LifecycleOwner` has dropped below the given `Lifecycle.State`. For example, this can be used with Navigation Compose to avoid handling click events after a transition to another screen has already begun: `onClick: () -> Unit = dropUnlessResumed { navController.navigate(NEW_SCREEN) }`
+ - `ViewModel.viewModelScope` is now an overridable constructor parameter, allowing you to inject your own dispatcher and `SupervisorJob()` or to override the default by using the `backgroundScope` available within `runTest`. ([I2817c](https://android-review.googlesource.com/#/q/I2817ca223e31fb3e66b1b87b470b2eb26c2fac55), [b/264598574](https://issuetracker.google.com/issues/264598574))
+ 
+-      class MyViewModel(
+-        // Make Dispatchers.Main the default, rather than Dispatchers.Main.immediate
+-        viewModelScope: CoroutineScope = Dispatchers.Main + SupervisorJob()
+-      ) : ViewModel(viewModelScope) {
+-        // Use viewModelScope as before, without any code changes
+-      }
+-
+-      // Allows overriding the viewModelScope in a test
+-      fun Test() = runTest {
+-        val viewModel = MyViewModel(backgroundScope)
+-      }
+-
++  ```kotlin
++  class MyViewModel(
++    // Make Dispatchers.Main the default, rather than Dispatchers.Main.immediate
++    viewModelScope: CoroutineScope = Dispatchers.Main + SupervisorJob()
++  ) : ViewModel(viewModelScope) {
++    // Use viewModelScope as before, without any code changes
++  }
++
++  // Allows overriding the viewModelScope in a test
++  fun Test() = runTest {
++    val viewModel = MyViewModel(backgroundScope)
++  }
++  ```
+ - `ViewModel` has been rewritten in Kotlin and now uses `AutoClosable` instead of `Closeable`. It now supports adding `AutoCloseable` objects with a `key` that allows retrieving them via `getCloseable()`.
+ 
+ - Calling `LifecycleStartEffect` and `LifecycleResumeEffect` without a key is now an error, following the same convention as the `DisposableEffect` API that these APIs mirror.
+@@ -1036,7 +1076,7 @@ Artifacts impacted:
+ 
+ **Known Issues**
+ 
+-- `lifecycle-*:2.8.0` requires a minimum Compose version of [1.7.0-alpha05](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.7.0-alpha05) ([b/336842920](https://issuetracker.google.com/issues/336842920)).
++- `lifecycle-*:2.8.0` requires a minimum Compose version of [1.7.0-alpha05](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#1.7.0-alpha05) ([b/336842920](https://issuetracker.google.com/issues/336842920)).
+ 
+ ### Version 2.8.0-rc01
+ 
+@@ -1081,7 +1121,7 @@ April 3, 2024
+ **Dependency update**
+ 
+ - The `lifecycle-viewmodel-compose` artifact now depends on Compose 1.6.0.
+-- Lifecycle now depends on [Profile Installer 1.3.1](https://developer.android.com/jetpack/androidx/releases/profileinstaller#1.3.1).
++- Lifecycle now depends on [Profile Installer 1.3.1](https://developer.android.com/jetpack/androidx/releases/profileinstaller.md.txt#1.3.1).
+ 
+ ### Version 2.8.0-alpha03
+ 
+@@ -1093,17 +1133,19 @@ March 20, 2024
+ 
+ - `ViewModel.viewModelScope` is now an overridable constructor parameter, allowing you to inject your own dispatcher and `SupervisorJob()` or to override the default by using the `backgroundScope` available within `runTest`. ([I2817c](https://android-review.googlesource.com/#/q/I2817ca223e31fb3e66b1b87b470b2eb26c2fac55), [b/264598574](https://issuetracker.google.com/issues/264598574))
+ 
+-      class MyViewModel(
+-        // Make Dispatchers.Main the default, rather than Dispatchers.Main.immediate
+-        viewModelScope: CoroutineScope = Dispatchers.Main + SupervisorJob()
+-      ) : ViewModel(viewModelScope) {
+-        // Use viewModelScope as before, without any code changes
+-      }
++  ```kotlin
++  class MyViewModel(
++    // Make Dispatchers.Main the default, rather than Dispatchers.Main.immediate
++    viewModelScope: CoroutineScope = Dispatchers.Main + SupervisorJob()
++  ) : ViewModel(viewModelScope) {
++    // Use viewModelScope as before, without any code changes
++  }
+ 
+-      // Allows overriding the viewModelScope in a test
+-      fun Test() = runTest {
+-        val viewModel = MyViewModel(backgroundScope)
+-      }
++  // Allows overriding the viewModelScope in a test
++  fun Test() = runTest {
++    val viewModel = MyViewModel(backgroundScope)
++  }
++  ```
+ 
+ **Kotlin Multiplatform Compatibility**
+ 
+@@ -1193,25 +1235,29 @@ January 10, 2024
+ - As an alternative to using a `LifecycleEventObserver`, you can now observe a `Flow` of `Lifecycle.Event` via the `Lifecycle.asFlow()` extension method.
+ - Jetpack Compose users can now use `LifecycleEventEffect` to run Compose side effects based on `Lifecycle.Event`.
+ 
+-    @Composable
+-    fun HomeScreen(viewModel: HomeViewModel = viewModel()) {
+-      LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+-        viewModel.refreshData()
+-      }
+-      // ...
+-    }
++```kotlin
++@Composable
++fun HomeScreen(viewModel: HomeViewModel = viewModel()) {
++  LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
++    viewModel.refreshData()
++  }
++  // ...
++}
++```
+ 
+ - Jetpack Compose users can use `LifecycleStartEffect` and `LifecycleResumeEffect` to handle *pairs* of events - started to stopped and resumed to paused, respectively. This API mirrors the one found in `DisposableEffect` and is suitable for cases where the change being made when the state is going up needs to be reversed when going back down.
+ 
+-    fun HomeScreen(viewModel: HomeViewModel = viewModel()) {
+-      LifecycleStartEffect(viewModel) {
+-        val timeTracking = viewModel.startTrackingTimeOnScreen()
+-        onStopOrDispose {
+-          timeTracking.stopTrackingTimeOnScreen()
+-        }
+-      }
+-      // ...
++```kotlin
++fun HomeScreen(viewModel: HomeViewModel = viewModel()) {
++  LifecycleStartEffect(viewModel) {
++    val timeTracking = viewModel.startTrackingTimeOnScreen()
++    onStopOrDispose {
++      timeTracking.stopTrackingTimeOnScreen()
+     }
++  }
++  // ...
++}
++```
+ 
+ See [Run code on lifecycle events](https://developer.android.com/topic/libraries/architecture/compose#run-code) for more information.
+ 
+@@ -1285,7 +1331,7 @@ September 6, 2023
+ 
+ **Bug Fixes**
+ 
+-- From [Lifecycle `2.6.2`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.6.2): Fixed an issue where `SavedStateHandle` would not correctly be restored after process death if the state was restored, `save()` was called without actually saving the state in the parent `SavedStateRegistry`, and then the state was restored again. This fixes the interaction between `rememberSaveable` and Navigation Compose's `NavHost`. ([aosp/2729289](https://android-review.googlesource.com/c/platform/frameworks/support/+/2729289))
++- From [Lifecycle `2.6.2`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.6.2): Fixed an issue where `SavedStateHandle` would not correctly be restored after process death if the state was restored, `save()` was called without actually saving the state in the parent `SavedStateRegistry`, and then the state was restored again. This fixes the interaction between `rememberSaveable` and Navigation Compose's `NavHost`. ([aosp/2729289](https://android-review.googlesource.com/c/platform/frameworks/support/+/2729289))
+ 
+ ### Version 2.7.0-alpha01
+ 
+@@ -1327,8 +1373,8 @@ March 22, 2023
+ 
+ **Dependency Updates**
+ 
+-- `lifecycle-viewmodel-savedstate` now depends on [SavedState `1.2.1`](https://developer.android.com/jetpack/androidx/releases/savedstate#1.2.1). ([cd7251](https://android.googlesource.com/platform/frameworks/support/+/cd7251e68b99b9275bdcb722fb2bc0fa39b09901))
+-- Lifecycle now depends on [ProfileInstaller `1.3.0`](https://developer.android.com/jetpack/androidx/releases/profileinstaller#1.3.0). ([f9d30b](https://android.googlesource.com/platform/frameworks/support/+/f9d30b70c2b1e8a51f63e050ff3fa8527d65e1fd))
++- `lifecycle-viewmodel-savedstate` now depends on [SavedState `1.2.1`](https://developer.android.com/jetpack/androidx/releases/savedstate.md.txt#1.2.1). ([cd7251](https://android.googlesource.com/platform/frameworks/support/+/cd7251e68b99b9275bdcb722fb2bc0fa39b09901))
++- Lifecycle now depends on [ProfileInstaller `1.3.0`](https://developer.android.com/jetpack/androidx/releases/profileinstaller.md.txt#1.3.0). ([f9d30b](https://android.googlesource.com/platform/frameworks/support/+/f9d30b70c2b1e8a51f63e050ff3fa8527d65e1fd))
+ 
+ ### Version 2.6.0
+ 
+@@ -1451,7 +1497,7 @@ September 7, 2022
+ - `Lifecycle` artifacts now include [constraints](https://docs.gradle.org/current/userguide/dependency_constraints.html#sec:adding-constraints-transitive-deps) that ensure that all inter-dependent Lifecycle artifacts use the same version, automatically upgrading other dependencies when one is upgraded. [b/242871265](https://issuetracker.google.com/242871265)
+ - `FlowLiveData.asFlow()` now creates a `callbackFlow` rather than using its own `Channel` implementation to ensure thread-safety and context preservation. ([I4a8b2](https://android-review.googlesource.com/#/q/I4a8b270a92ac3779cbb3d56dae585bf6876396d2), [b/200596935](https://issuetracker.google.com/issues/200596935))
+ - `FlowLiveData`'s `asLiveData` function will now preserve the initial value of a `StateFlow` when creating the new `LiveData` object. ([I3f530](https://android-review.googlesource.com/#/q/I3f53068b1a071e2f334f2cbab2819e7f7a4c60b2), [b/157380488](https://issuetracker.google.com/issues/157380488))
+-- From [Lifecycle `2.5.1`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.5.1): Custom implementations of `AndroidViewModelFactory` now correctly calls the `create(modelClass)` function when using the stateful constructor with `Lifecycle` 2.4+ ([I5b315](https://android-review.googlesource.com/#/q/I5b315ae80d1498b92e412d9316a90e7fa0e9fb3a), [b/238011621](https://issuetracker.google.com/issues/238011621))
++- From [Lifecycle `2.5.1`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.5.1): Custom implementations of `AndroidViewModelFactory` now correctly calls the `create(modelClass)` function when using the stateful constructor with `Lifecycle` 2.4+ ([I5b315](https://android-review.googlesource.com/#/q/I5b315ae80d1498b92e412d9316a90e7fa0e9fb3a), [b/238011621](https://issuetracker.google.com/issues/238011621))
+ 
+ ### Version 2.6.0-alpha01
+ 
+@@ -1483,82 +1529,90 @@ June 29, 2022
+ 
+ **Important changes since 2.4.0**
+ 
+-- `SavedStateHandle` now offers a `getStateFlow()` API that returns a [Kotlin `StateFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow#stateflow) for monitoring value changes as an alternative to using `LiveData`.
+-
+-- **ViewModel CreationExtras** - when writing a custom `ViewModelProvider.Factory`, it is no longer required to extend `AndroidViewModelFactory` or `AbstractSavedStateViewModelFactory` to gain access to an `Application` or `SavedStateHandle`, respectively. Instead, these fields are provided to **every** `ViewModelProvider.Factory` subclass as `CreationExtras` via the new overload of `create`: `create(Class<T>, CreationExtras)`. These extras are provided automatically by your Activity or Fragment when using [Activity `1.5.0`](https://developer.android.com/jetpack/androidx/releases/activity#1.5.0) and [Fragment `1.5.0`](https://developer.android.com/jetpack/androidx/releases/fragment#1.5.0), respectively.
+-
+-      class CustomFactory : ViewModelProvider.Factory {
+-          override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
+-              return when (modelClass) {
+-                  HomeViewModel::class -> {
+-                      // Get the Application object from extras
+-                      val application = checkNotNull(extras[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY])
+-                      // Pass it directly to HomeViewModel
+-                      HomeViewModel(application)
+-                  }
+-                  DetailViewModel::class -> {
+-                      // Create a SavedStateHandle for this ViewModel from extras
+-                      val savedStateHandle = extras.createSavedStateHandle()
+-                      DetailViewModel(savedStateHandle)
+-                  }
+-                  else -> throw IllegalArgumentException("Unknown class $modelClass")
+-              } as T
+-          }
+-      }
++- `SavedStateHandle` now offers a `getStateFlow()` API that returns a [Kotlin `StateFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow.md.txt#stateflow) for monitoring value changes as an alternative to using `LiveData`.
+ 
+-- `lifecycle-viewmodel` now provides a `viewModelFactory` Kotlin DSL that allows you define your `ViewModelProvider.Factory` in terms of one or more lambda initializers, one for each particular `ViewModel` class your custom factory supports, using `CreationExtras` as the primary data source.
++- **ViewModel CreationExtras** - when writing a custom `ViewModelProvider.Factory`, it is no longer required to extend `AndroidViewModelFactory` or `AbstractSavedStateViewModelFactory` to gain access to an `Application` or `SavedStateHandle`, respectively. Instead, these fields are provided to **every** `ViewModelProvider.Factory` subclass as `CreationExtras` via the new overload of `create`: `create(Class<T>, CreationExtras)`. These extras are provided automatically by your Activity or Fragment when using [Activity `1.5.0`](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#1.5.0) and [Fragment `1.5.0`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.5.0), respectively.
+ 
+-      val customFactory = viewModelFactory {
+-          // The return type of the lambda automatically sets what class this lambda handles
+-          initializer {
+-              // Get the Application object from extras provided to the lambda
+-              val application = checkNotNull(get(ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY))
+-              HomeViewModel(application)
+-          }
+-          initializer {
+-              val savedStateHandle = createSavedStateHandle()
+-              DetailViewModel(savedStateHandle)
+-          }
++  ```kotlin
++  class CustomFactory : ViewModelProvider.Factory {
++      override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
++          return when (modelClass) {
++              HomeViewModel::class -> {
++                  // Get the Application object from extras
++                  val application = checkNotNull(extras[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY])
++                  // Pass it directly to HomeViewModel
++                  HomeViewModel(application)
++              }
++              DetailViewModel::class -> {
++                  // Create a SavedStateHandle for this ViewModel from extras
++                  val savedStateHandle = extras.createSavedStateHandle()
++                  DetailViewModel(savedStateHandle)
++              }
++              else -> throw IllegalArgumentException("Unknown class $modelClass")
++          } as T
+       }
++  }
++  ```
++- `lifecycle-viewmodel` now provides a `viewModelFactory` Kotlin DSL that allows you define your `ViewModelProvider.Factory` in terms of one or more lambda initializers, one for each particular `ViewModel` class your custom factory supports, using `CreationExtras` as the primary data source.
+ 
+-- `lifecycle-viewmodel-compose` now offers a `viewModel()` API that takes a lambda factory for creating a `ViewModel` instance without requiring the creation of a custom `ViewModelProvider.Factory`.
+-
+-      // Within a @Composable, you can now skip writing a custom Factory
+-      // and instead write a lambda to do the initialization of your ViewModel
+-      val detailViewModel = viewModel {
+-        // This lambda is only called the first time the ViewModel is created
+-        // and all CreationExtras are available inside the lambda
+-        val savedStateHandle = createSavedStateHandle()
+-        DetailViewModel(savedStateHandle)
++  ```kotlin
++  val customFactory = viewModelFactory {
++      // The return type of the lambda automatically sets what class this lambda handles
++      initializer {
++          // Get the Application object from extras provided to the lambda
++          val application = checkNotNull(get(ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY))
++          HomeViewModel(application)
++      }
++      initializer {
++          val savedStateHandle = createSavedStateHandle()
++          DetailViewModel(savedStateHandle)
+       }
++  }
++  ```
++- `lifecycle-viewmodel-compose` now offers a `viewModel()` API that takes a lambda factory for creating a `ViewModel` instance without requiring the creation of a custom `ViewModelProvider.Factory`.
+ 
++  ```kotlin
++  // Within a @Composable, you can now skip writing a custom Factory
++  // and instead write a lambda to do the initialization of your ViewModel
++  val detailViewModel = viewModel {
++    // This lambda is only called the first time the ViewModel is created
++    // and all CreationExtras are available inside the lambda
++    val savedStateHandle = createSavedStateHandle()
++    DetailViewModel(savedStateHandle)
++  }
++  ```
+ - **SavedStateHandle Compose Saver Integration** - the `lifecycle-viewmodel-compose` artifact now contains new experimental APIs in `SavedStateHandle.saveable` that allow `rememberSaveable` like behavior backed by the `SavedStateHandle` of a \`ViewModel.
+ 
+-      class ListScreenViewModel(handle: SavedStateHandle): ViewModel() {
+-          // This value survives both configuration changes and process death and recreation
+-          val editMode by handle.saveable { mutableStateOf(false) }
+-      }
+-
++  ```kotlin
++  class ListScreenViewModel(handle: SavedStateHandle): ViewModel() {
++      // This value survives both configuration changes and process death and recreation
++      val editMode by handle.saveable { mutableStateOf(false) }
++  }
++  ```
+ - Added an `addCloseable()` API and a new constructor overload that allow you to add one or more `Closeable` objects to the `ViewModel` that will be closed when the `ViewModel` is cleared without requiring any manual work in `onCleared()`.
+ 
+   For instance, to create a coroutine scope that you can inject into a ViewModel, but control via testing, you can create a `CoroutineScope` that implements `Closeable`:
+ 
+-      class CloseableCoroutineScope(
+-          context: CoroutineContext = SupervisorJob() + Dispatchers.Main.immediate
+-      ) : Closeable, CoroutineScope {
+-          override val coroutineContext: CoroutineContext = context
+-          override fun close() {
+-              coroutineContext.cancel()
+-         }
+-      }
++  ```kotlin
++  class CloseableCoroutineScope(
++      context: CoroutineContext = SupervisorJob() + Dispatchers.Main.immediate
++  ) : Closeable, CoroutineScope {
++      override val coroutineContext: CoroutineContext = context
++      override fun close() {
++          coroutineContext.cancel()
++     }
++  }
++  ```
+ 
+   Which can then be used in your `ViewModel` constructor while maintaining the same lifetime as `viewModelScope`:
+ 
+-      class TestScopeViewModel(
+-          val customScope: CloseableCoroutineScope = CloseableCoroutineScope()
+-      ) : ViewModel(customScope) {
+-          // You can now use customScope in the same way as viewModelScope
+-      }
++  ```kotlin
++  class TestScopeViewModel(
++      val customScope: CloseableCoroutineScope = CloseableCoroutineScope()
++  ) : ViewModel(customScope) {
++      // You can now use customScope in the same way as viewModelScope
++  }
++  ```
+ 
+ **Behavior changes**
+ 
+@@ -1643,7 +1697,7 @@ March 9, 2022
+ 
+ **API Changes**
+ 
+-- `SavedStateHandle` now offers a `getStateFlow()` API that returns a [Kotlin `StateFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow#stateflow) for monitoring value changes as an alternative to using `LiveData`. ([Iad3ab](https://android-review.googlesource.com/#/q/Iad3ab4826281fdd87077b23356e444d17bc19cf6), [b/178037961](https://issuetracker.google.com/issues/178037961))
++- `SavedStateHandle` now offers a `getStateFlow()` API that returns a [Kotlin `StateFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow.md.txt#stateflow) for monitoring value changes as an alternative to using `LiveData`. ([Iad3ab](https://android-review.googlesource.com/#/q/Iad3ab4826281fdd87077b23356e444d17bc19cf6), [b/178037961](https://issuetracker.google.com/issues/178037961))
+ 
+ ### Version 2.5.0-alpha03
+ 
+@@ -1684,7 +1738,7 @@ February 9, 2022
+ 
+ **Bug Fixes**
+ 
+-- From [Lifecycle `2.4.1`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.4.1): Updated `lifecycle-process` to depend on [Startup 1.1.1](https://developer.android.com/jetpack/androidx/releases/startup#1.1.1) to ensure that fixes that prevent `ProcessLifecycleInitializer` from throwing a `StartupException` are available by default. ([Ib01df](https://android-review.googlesource.com/#/q/Ib01dfbba1d63aa03e43e09ee8886cc76e1050e1b), [b/216490724](https://issuetracker.google.com/issues/216490724))
++- From [Lifecycle `2.4.1`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.4.1): Updated `lifecycle-process` to depend on [Startup 1.1.1](https://developer.android.com/jetpack/androidx/releases/startup.md.txt#1.1.1) to ensure that fixes that prevent `ProcessLifecycleInitializer` from throwing a `StartupException` are available by default. ([Ib01df](https://android-review.googlesource.com/#/q/Ib01dfbba1d63aa03e43e09ee8886cc76e1050e1b), [b/216490724](https://issuetracker.google.com/issues/216490724))
+ - There is now an improved error message when custom `AndroidViewModel` classes have parameters in the wrong order and attempt to create a `ViewModel`. ([I340f7](https://android-review.googlesource.com/#/q/I340f7696bbf90e331e0b727e9195210cf1dadd0a), [b/177667711](https://issuetracker.google.com/issues/177667711))
+ - You can now create a view model via `CreationExtras` using the `AndroidViewModelFactory` without setting an application. ([I6ebef](https://android-review.googlesource.com/#/q/I6ebefdf40940a08576a92ee4fb2dcc2b561d781d), [b/217271656](https://issuetracker.google.com/issues/217271656))
+ 
+@@ -1706,28 +1760,30 @@ With this change, `ViewModelProvider` no longer makes direct calls into the prev
+ - `SavedStateHandleSupport.VIEW_MODEL_STORE_OWNER_KEY` provides access to the `ViewModelStoreOwner` that is being used to construct this ViewModel.
+ - `SavedStateHandleSupport.DEFAULT_ARGS_KEY` provides access to the `Bundle` of arguments that should be used to construct a `SavedStateHandle`.
+ 
+-These extras are provided by default when using [Activity `1.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/activity#1.5.0-alpha01), [Fragment `1.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/fragment#1.5.0-alpha01), and [Navigation `2.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation#2.5.0-alpha01). If you use an earlier version of those libraries, your `CreationExtras` will be empty - all of the existing subclasses of `ViewModelProvider.Factory` have been rewritten to support both the legacy creation path used by earlier versions of those libraries and the `CreationExtras` path which will be used going forward.
++These extras are provided by default when using [Activity `1.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#1.5.0-alpha01), [Fragment `1.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.5.0-alpha01), and [Navigation `2.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.5.0-alpha01). If you use an earlier version of those libraries, your `CreationExtras` will be empty - all of the existing subclasses of `ViewModelProvider.Factory` have been rewritten to support both the legacy creation path used by earlier versions of those libraries and the `CreationExtras` path which will be used going forward.
+ 
+ These `CreationExtras` allow you to construct a `ViewModelProvider.Factory` that passes just the information you need to each `ViewModel` without relying on a strict hierarchy of Factory subclasses:
+ 
+-    class CustomFactory : ViewModelProvider.Factory {
+-        override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
+-            return when (modelClass) {
+-                HomeViewModel::class -> {
+-                    // Get the Application object from extras
+-                    val application = checkNotNull(extras[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY])
+-                    // Pass it directly to HomeViewModel
+-                    HomeViewModel(application)
+-                }
+-                DetailViewModel::class -> {
+-                    // Create a SavedStateHandle for this ViewModel from extras
+-                    val savedStateHandle = extras.createSavedStateHandle()
+-                    DetailViewModel(savedStateHandle)
+-                }
+-                else -> throw IllegalArgumentException("Unknown class $modelClass")
+-            } as T
+-        }
++```kotlin
++class CustomFactory : ViewModelProvider.Factory {
++    override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
++        return when (modelClass) {
++            HomeViewModel::class -> {
++                // Get the Application object from extras
++                val application = checkNotNull(extras[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY])
++                // Pass it directly to HomeViewModel
++                HomeViewModel(application)
++            }
++            DetailViewModel::class -> {
++                // Create a SavedStateHandle for this ViewModel from extras
++                val savedStateHandle = extras.createSavedStateHandle()
++                DetailViewModel(savedStateHandle)
++            }
++            else -> throw IllegalArgumentException("Unknown class $modelClass")
++        } as T
+     }
++}
++```
+ 
+ We use the `createSavedStateHandle()` Kotlin extension function on `CreationExtras` from `SavedStateHandleSupport` to construct a `SavedStateHandle` only for the one ViewModel that needs it. ([Ia6654](https://android-review.googlesource.com/#/q/Ia6654a36eff3c71dc45dbf35e447d1efe24b5b4b), [b/188541057](https://issuetracker.google.com/issues/188541057))
+ 
+@@ -1747,8 +1803,8 @@ February 9, 2022
+ 
+ **Bug Fixes**
+ 
+-- Backported from [Lifecycle `2.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.5.0-alpha01): Fixed an issue where the default value provided to a `SavedStateHandle` would re-appear after process death and recreation, even if it was specifically removed from the `SavedStateHandle`. As a consequence of this, `SavedStateHandle` will no longer merge default values and restored values together, instead only using the restored values as the source of truth. ([I53a4b](https://android-review.googlesource.com/#/q/I53a4bbffc6990f8dea902584daf47e780ae9abdb))
+-- `lifecycle-process` now depends on [Androidx Startup 1.1.1](https://developer.android.com/jetpack/androidx/releases/startup#1.1.1) which fixed a regression in where using `ProcessLifecycleInitializer` would cause an `StartupException`. ([b/216490724](https://issuetracker.google.com/216490724))
++- Backported from [Lifecycle `2.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.5.0-alpha01): Fixed an issue where the default value provided to a `SavedStateHandle` would re-appear after process death and recreation, even if it was specifically removed from the `SavedStateHandle`. As a consequence of this, `SavedStateHandle` will no longer merge default values and restored values together, instead only using the restored values as the source of truth. ([I53a4b](https://android-review.googlesource.com/#/q/I53a4bbffc6990f8dea902584daf47e780ae9abdb))
++- `lifecycle-process` now depends on [Androidx Startup 1.1.1](https://developer.android.com/jetpack/androidx/releases/startup.md.txt#1.1.1) which fixed a regression in where using `ProcessLifecycleInitializer` would cause an `StartupException`. ([b/216490724](https://issuetracker.google.com/216490724))
+ 
+ ### Version 2.4.0
+ 
+@@ -1773,17 +1829,19 @@ October 27, 2021
+   If you used `tools:node="remove"` the `ContentProvider` being used to initialize
+   process lifecycle in the past, then you need to do the following instead.
+ 
+-       <provider
+-          android:name="androidx.startup.InitializationProvider"
+-          android:authorities=\"${applicationId}.androidx-startup"
+-          android:exported="false"
+-          tools:node=\"merge">
+-          <!-- If you are using androidx.startup to initialize other components -->
+-          <meta-data
+-              android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+-              android:value="androidx.startup"
+-              tools:node="remove" />
+-       </provider>
++  ```xml
++   <provider
++      android:name="androidx.startup.InitializationProvider"
++      android:authorities=\"${applicationId}.androidx-startup"
++      android:exported="false"
++      tools:node=\"merge">
++      <!-- If you are using androidx.startup to initialize other components -->
++      <meta-data
++          android:name="androidx.lifecycle.ProcessLifecycleInitializer"
++          android:value="androidx.startup"
++          tools:node="remove" />
++   </provider>
++  ```
+ 
+   (or)
+ 
+@@ -1874,26 +1932,30 @@ March 24, 2021
+   If you used `tools:node="remove"` the `ContentProvider` being used to initialize
+   process lifecycle in the past, then you need to do the following instead.
+ 
+-       <provider
+-          android:name="androidx.startup.InitializationProvider"
+-          android:authorities=\"${applicationId}.androidx-startup"
+-          android:exported="false"
+-          tools:node=\"merge">
+-          <!-- If you are using androidx.startup to initialize other components -->
+-          <meta-data
+-              android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+-              android:value="androidx.startup"
+-              tools:node="remove" />
+-       </provider>
++  ```xml
++   <provider
++      android:name="androidx.startup.InitializationProvider"
++      android:authorities=\"${applicationId}.androidx-startup"
++      android:exported="false"
++      tools:node=\"merge">
++      <!-- If you are using androidx.startup to initialize other components -->
++      <meta-data
++          android:name="androidx.lifecycle.ProcessLifecycleInitializer"
++          android:value="androidx.startup"
++          tools:node="remove" />
++   </provider>
++  ```
+ 
+   (or)
+ 
+-       <!-- If you want to disable androidx.startup completely. -->
+-       <provider
+-          android:name="androidx.startup.InitializationProvider"
+-          android:authorities="${applicationId}.androidx-startup"
+-          tools:node="remove">
+-       </provider>
++  ```xml
++   <!-- If you want to disable androidx.startup completely. -->
++   <provider
++      android:name="androidx.startup.InitializationProvider"
++      android:authorities="${applicationId}.androidx-startup"
++      tools:node="remove">
++   </provider>
++  ```
+ 
+ **API Changes**
+ 
+@@ -1901,7 +1963,7 @@ March 24, 2021
+ 
+ **Bug Fixes**
+ 
+-- From [Lifecycle 2.3.1](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.3.1): The `NonNullableMutableLiveData` lint rule can now properly differentiate between field variables with different nullability. ([b/169249668](https://issuetracker.google.com/issues/169249668))
++- From [Lifecycle 2.3.1](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.3.1): The `NonNullableMutableLiveData` lint rule can now properly differentiate between field variables with different nullability. ([b/169249668](https://issuetracker.google.com/issues/169249668))
+ 
+ ## Lifecycle Viewmodel Compose Version 1.0.0
+ 
+@@ -1916,7 +1978,7 @@ June 16, 2021
+ - `viewModel()` now takes an optional `ViewModelStoreOwner`, making it easier to work with owners other than the `LocalViewModelStoreOwner`. For example, you can now use `viewModel(navBackStackEntry)` to retrieve a ViewModel associated with a particular navigation graph. ([I2628d](https://android-review.googlesource.com/#/q/I2628d27791bfeb8a0d2f45b0fa8e9e72cb00c34b), [b/188693123](https://issuetracker.google.com/issues/188693123))
+ 
+ > [!NOTE]
+-> **Note:** this is a binary breaking change - you must upgrade to [Hilt-Navigation-Compose `1.0.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/hilt#hilt-navigation-compose-1.0.0-alpha03) and [Navigation Compose `2.4.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/navigation#2.4.0-alpha03). This may be a source breaking change if you were not specifying `key =` when using `viewModel(key, factory)`. You should use named arguments: `viewModel(key = key, factory = factory)`.
++> **Note:** this is a binary breaking change - you must upgrade to [Hilt-Navigation-Compose `1.0.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/hilt.md.txt#hilt-navigation-compose-1.0.0-alpha03) and [Navigation Compose `2.4.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.4.0-alpha03). This may be a source breaking change if you were not specifying `key =` when using `viewModel(key, factory)`. You should use named arguments: `viewModel(key = key, factory = factory)`.
+ 
+ ### Version 1.0.0-alpha06
+ 
+@@ -2014,7 +2076,7 @@ February 10, 2021
+   - `LifecycleRegistry` now verifies that its methods are called on main thread. It was always a requirement for lifecycles of activities, fragments etc. An addition of observers from non-main threads resulted in hard to catch crashes in runtime. For `LifecycleRegistry` objects that owned by your own components, you can explicitly opt out from checks by using `LifecycleRegistry.createUnsafe(...)`, but then you have to ensure that a proper synchronization is in place when this `LifecycleRegistry` is accessed from different threads.
+ - **Lifecycle State and Event Helpers** : Added static helper methods of `downFrom(State)`, `downTo(State)`, `upFrom(State)`, `upTo(State)` to `Lifecycle.Event` for generating the `Event` given a `State` and transition direction. Added the `getTargetState()` method that provides the `State` that the Lifecycle will transition to directly following the `Event`.
+ - **`withStateAtLeast`** : Added `Lifecycle.withStateAtLeast` APIs that await a lifecycle state and run a non-suspending block of code synchronously at the point of state change, then resume with the result. These APIs differ from the existing `when*` methods as they do not permit running suspending code and do not employ a custom dispatcher. ([aosp/1326081](https://android-review.googlesource.com/1326081))
+-- **`ViewTree` APIs** : A new `ViewTreeLifecycleOwner.get(View)` and `ViewTreeViewModelStoreOwner.get(View)` API allows you to retrieve the containing `LifecycleOwner` and `ViewModelStoreOwner`, respectively, given a `View` instance. You must upgrade to [Activity `1.2.0`](https://developer.android.com/jetpack/androidx/releases/activity#1.2.0) and [Fragment `1.3.0`](https://developer.android.com/jetpack/androidx/releases/fragment#1.3.0), and [AppCompat 1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/appcompat:1.3.0-alpha01) or higher to populate this correctly. The `findViewTreeLifecycleOwner` and `findViewTreeViewModelStoreOwner` Kotlin extensions are available in `lifecycle-runtime-ktx` and `lifecycle-viewmodel-ktx`, respectively.
++- **`ViewTree` APIs** : A new `ViewTreeLifecycleOwner.get(View)` and `ViewTreeViewModelStoreOwner.get(View)` API allows you to retrieve the containing `LifecycleOwner` and `ViewModelStoreOwner`, respectively, given a `View` instance. You must upgrade to [Activity `1.2.0`](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#1.2.0) and [Fragment `1.3.0`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.3.0), and [AppCompat 1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/appcompat:1.3.0-alpha01) or higher to populate this correctly. The `findViewTreeLifecycleOwner` and `findViewTreeViewModelStoreOwner` Kotlin extensions are available in `lifecycle-runtime-ktx` and `lifecycle-viewmodel-ktx`, respectively.
+ - **`LiveData.observe()` Kotlin extension deprecation** : The `LiveData.observe()` Kotlin extension necessary to use lambda syntax is now deprecated as it is not necessary when using Kotlin 1.4.
+ 
+ ### Version 2.3.0-rc01
+@@ -2029,7 +2091,7 @@ December 16, 2020
+ 
+ **External Contribution**
+ 
+-- The APIs to [suspend Lifecycle-aware coroutines](https://developer.android.com/topic/libraries/architecture/coroutines#suspend) now better handle calls to `yield()`. Thanks Nicklas Ansman Giertz! ([aosp/1430830](https://android-review.googlesource.com/c/platform/frameworks/support/+/1430830), [b/168777346](https://issuetracker.google.com/168777346))
++- The APIs to [suspend Lifecycle-aware coroutines](https://developer.android.com/topic/libraries/architecture/coroutines.md.txt#suspend) now better handle calls to `yield()`. Thanks Nicklas Ansman Giertz! ([aosp/1430830](https://android-review.googlesource.com/c/platform/frameworks/support/+/1430830), [b/168777346](https://issuetracker.google.com/168777346))
+ 
+ ### Version 2.3.0-beta01
+ 
+@@ -2111,11 +2173,11 @@ May 20, 2020
+ **New Features**
+ 
+ - `SavedStateHandle` now supports lazy serialization by allowing you to call `setSavedStateProvider()` for a given key, providing a `SavedStateProvider` that will get a callback to `saveState()` when the `SavedStateHandle` is asked to save its state. ([b/155106862](https://issuetracker.google.com/issues/155106862))
+-- A new `ViewTreeViewModelStoreOwner.get(View)` API allows you to retrieve the containing `ViewModelStoreOwner` given a `View` instance. You must upgrade to [Activity `1.2.0-alpha05`](https://developer.android.com/jetpack/androidx/releases/activity#1.2.0-alpha05), [Fragment `1.3.0-alpha05`](https://developer.android.com/jetpack/androidx/releases/fragment#1.3.0-alpha05), and [AppCompat `1.3.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/appcompat#1.3.0-alpha01) to populate this correctly. A `findViewModelStoreOwner()` Kotlin extension has been added to `lifecycle-viewmodel-ktx`. ([aosp/1295522](https://android-review.googlesource.com/1295522))
++- A new `ViewTreeViewModelStoreOwner.get(View)` API allows you to retrieve the containing `ViewModelStoreOwner` given a `View` instance. You must upgrade to [Activity `1.2.0-alpha05`](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#1.2.0-alpha05), [Fragment `1.3.0-alpha05`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.3.0-alpha05), and [AppCompat `1.3.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/appcompat.md.txt#1.3.0-alpha01) to populate this correctly. A `findViewModelStoreOwner()` Kotlin extension has been added to `lifecycle-viewmodel-ktx`. ([aosp/1295522](https://android-review.googlesource.com/1295522))
+ 
+ **Bug Fixes**
+ 
+-- Fixed an issue that caused the `MutableLiveData` Lint checks released in [Lifecycle `2.3.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.3.0-alpha01) from being published alongside the `lifecycle-livedata-core-ktx` artifact. ([b/155323109](https://issuetracker.google.com/issues/155323109))
++- Fixed an issue that caused the `MutableLiveData` Lint checks released in [Lifecycle `2.3.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.3.0-alpha01) from being published alongside the `lifecycle-livedata-core-ktx` artifact. ([b/155323109](https://issuetracker.google.com/issues/155323109))
+ 
+ ### Version 2.3.0-alpha02
+ 
+@@ -2139,7 +2201,7 @@ March 4, 2020
+ 
+ **New Features**
+ 
+-- A new `ViewTreeLifecycleOwner.get(View)` API allows you to retrieve the containing `LifecycleOwner` given a `View` instance. You must upgrade to [Activity `1.2.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/activity#1.2.0-alpha01) and [Fragment `1.3.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/fragment#1.3.0-alpha01) to populate this correctly. A `findViewTreeLifecycleOwner` Kotlin extension is available in `lifecycle-runtime-ktx`. ([aosp/1182361](https://android-review.googlesource.com/1182361), [aosp/1182956](https://android-review.googlesource.com/1182956))
++- A new `ViewTreeLifecycleOwner.get(View)` API allows you to retrieve the containing `LifecycleOwner` given a `View` instance. You must upgrade to [Activity `1.2.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#1.2.0-alpha01) and [Fragment `1.3.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.3.0-alpha01) to populate this correctly. A `findViewTreeLifecycleOwner` Kotlin extension is available in `lifecycle-runtime-ktx`. ([aosp/1182361](https://android-review.googlesource.com/1182361), [aosp/1182956](https://android-review.googlesource.com/1182956))
+ - Added a new Lint check that warns you when setting a `null` value on a `MutableLiveData` that has been defined in Kotlin as non-null. This is available when using the `livedata-core-ktx` or `livedata-ktx` artifacts. ([aosp/1154723](https://android-review.googlesource.com/1154723), [aosp/1159092](https://android-review.googlesource.com/1159092))
+ - A new `lifecycle-runtime-testing` artifact is available that provides a `TestLifecycleOwner` that implements `LifecycleOwner` and provides a thread safe mutable `Lifecycle`. ([aosp/1242438](https://android-review.googlesource.com/1242438))
+ 
+@@ -2148,7 +2210,7 @@ March 4, 2020
+ - The `lifecycle-runtime` artifact now has a unique package name. ([aosp/1187196](https://android-review.googlesource.com/1187196))
+ 
+ > [!NOTE]
+-> **Note:** as per the [Lifecycle `2.2.0` release notes](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.2.0), the `lifecycle-extensions` artifact is no longer published.
++> **Note:** as per the [Lifecycle `2.2.0` release notes](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.2.0), the `lifecycle-extensions` artifact is no longer published.
+ 
+ ## Version 2.2.0
+ 
+@@ -2168,8 +2230,8 @@ January 22, 2020
+ 
+ **Important changes since 2.1.0**
+ 
+-- **Lifecycle Coroutine Integration** : The new `lifecycle-runtime-ktx` artifact adds integration between Lifecycle and Kotlin coroutines. The `lifecycle-livedata-ktx` has also been expanded to take advantage of coroutines. See [Use Kotlin coroutines with Architecture Components](https://developer.android.com/topic/libraries/architecture/coroutines) for more details.
+-- **`ViewModelProviders.of()` deprecation** : `ViewModelProviders.of()` has been deprecated. You can pass a `Fragment` or `FragmentActivity` to the new `ViewModelProvider(ViewModelStoreOwner)` constructor to achieve the same functionality when using [Fragment `1.2.0`](https://developer.android.com/jetpack/androidx/releases/fragment#1.2.0).
++- **Lifecycle Coroutine Integration** : The new `lifecycle-runtime-ktx` artifact adds integration between Lifecycle and Kotlin coroutines. The `lifecycle-livedata-ktx` has also been expanded to take advantage of coroutines. See [Use Kotlin coroutines with Architecture Components](https://developer.android.com/topic/libraries/architecture/coroutines.md.txt) for more details.
++- **`ViewModelProviders.of()` deprecation** : `ViewModelProviders.of()` has been deprecated. You can pass a `Fragment` or `FragmentActivity` to the new `ViewModelProvider(ViewModelStoreOwner)` constructor to achieve the same functionality when using [Fragment `1.2.0`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.2.0).
+ - **`lifecycle-extensions` Artifact Deprecation** : With the above deprecation of `ViewModelProviders.of()`, this release marks the deprecation of the last API in `lifecycle-extensions` and this artifact should now be considered deprecated in its entirety. We strongly recommend depending on the specific Lifecycle artifacts you need (such as `lifecycle-service` if you're using `LifecycleService` and `lifecycle-process` if you're using `ProcessLifecycleOwner`) rather than `lifecycle-extensions` as there will not be a future `2.3.0` release of `lifecycle-extensions`.
+ - **Gradle Incremental Annotation Processor** : Lifecycle's annotation processor is incremental by default. If your app is written in the Java 8 programming language you can use `DefautLifecycleObserver` instead; and if it's written in the Java 7 programming language you can use `LifecycleEventObserver`.
+ 
+@@ -2225,8 +2287,8 @@ October 9, 2019
+ 
+ **Bug fixes**
+ 
+-- Fixed a regression introduced in [Lifecycle 2.2.0-alpha05](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.2.0-alpha05) in the ordering of `ProcessLifecycleOwner` and the activity's `LifecycleOwner` moving to started and resumed on Android 10 devices. ([aosp/1128132](https://android-review.googlesource.com/1128132))
+-- Fixed a regression introduced in [Lifecycle `2.2.0-alpha05`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.2.0-alpha05) which would cause a `NullPointerException` when using version `2.0.0` or `2.1.0` of `lifecycle-process`. ([b/141536990](https://issuetracker.google.com/issues/141536990))
++- Fixed a regression introduced in [Lifecycle 2.2.0-alpha05](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.2.0-alpha05) in the ordering of `ProcessLifecycleOwner` and the activity's `LifecycleOwner` moving to started and resumed on Android 10 devices. ([aosp/1128132](https://android-review.googlesource.com/1128132))
++- Fixed a regression introduced in [Lifecycle `2.2.0-alpha05`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.2.0-alpha05) which would cause a `NullPointerException` when using version `2.0.0` or `2.1.0` of `lifecycle-process`. ([b/141536990](https://issuetracker.google.com/issues/141536990))
+ 
+ ### Version 2.2.0-alpha05
+ 
+@@ -2260,7 +2322,7 @@ August 7, 2019
+ 
+ **New features**
+ 
+-- Implementations of `ViewModelStoreOwner` can now optionally implement `HasDefaultViewModelProviderFactory` to provide a default `ViewModelProvider.Factory`. This has been done for [Activity `1.1.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/activity#1.1.0-alpha02), [Fragment `1.2.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/fragment#1.2.0-alpha02), and [Navigation `2.2.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation#2.2.0-alpha01). ([aosp/1092370](https://android-review.googlesource.com/1092370), [b/135716331](https://issuetracker.google.com/issues/135716331))
++- Implementations of `ViewModelStoreOwner` can now optionally implement `HasDefaultViewModelProviderFactory` to provide a default `ViewModelProvider.Factory`. This has been done for [Activity `1.1.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#1.1.0-alpha02), [Fragment `1.2.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.2.0-alpha02), and [Navigation `2.2.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.2.0-alpha01). ([aosp/1092370](https://android-review.googlesource.com/1092370), [b/135716331](https://issuetracker.google.com/issues/135716331))
+ 
+ **API changes**
+ 
+@@ -2285,7 +2347,7 @@ May 7, 2019
+ 
+ **New features**
+ 
+-- This release adds new features that adds support for Kotlin coroutines for Lifecycle and LiveData. Detailed documentation on them can be found [here](https://developer.android.com/topic/libraries/architecture/coroutines).
++- This release adds new features that adds support for Kotlin coroutines for Lifecycle and LiveData. Detailed documentation on them can be found [here](https://developer.android.com/topic/libraries/architecture/coroutines.md.txt).
+ 
+ ## ViewModel-SavedState Version 1.0.0
+ 
+@@ -2355,7 +2417,7 @@ August 7, 2019
+ 
+ **Breaking Changes**
+ 
+-- `lifecycle-viewmodel-savedstate` no longer depends on `fragment` and the related `SavedStateViewModelFactory(Fragment)` and `SavedStateViewModelFactory(FragmentActivity)` constructors have been removed. Instead, `SavedStateViewModelFactory` is now the default factory for [Activity `1.1.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/activity#1.1.0-alpha02), [Fragment `1.2.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/fragment#1.2.0-alpha02), and [Navigation `2.2.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation#2.2.0-alpha01). ([b/135716331](https://issuetracker.google.com/issues/135716331))
++- `lifecycle-viewmodel-savedstate` no longer depends on `fragment` and the related `SavedStateViewModelFactory(Fragment)` and `SavedStateViewModelFactory(FragmentActivity)` constructors have been removed. Instead, `SavedStateViewModelFactory` is now the default factory for [Activity `1.1.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#1.1.0-alpha02), [Fragment `1.2.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.2.0-alpha02), and [Navigation `2.2.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.2.0-alpha01). ([b/135716331](https://issuetracker.google.com/issues/135716331))
+ 
+ ### ViewModel-SavedState Version 1.0.0-alpha02
+ 

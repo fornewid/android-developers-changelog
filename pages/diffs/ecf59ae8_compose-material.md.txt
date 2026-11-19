@@ -1,0 +1,248 @@
+diff --git a/docs/jetpack/androidx/releases/compose-material.md b/docs/jetpack/androidx/releases/compose-material.md
+index 7835e287..67ad5578 100644
+--- a/docs/jetpack/androidx/releases/compose-material.md
++++ b/docs/jetpack/androidx/releases/compose-material.md
+@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/compose-material
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
++
+ # Compose Material
+ 
+ [User Guide](https://developer.android.com/jetpack/compose/tutorial) [Code Sample](https://github.com/android/compose-samples) Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| November 04, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.1) | [1.13.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-rc01) | - | - |
++| November 18, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt#1.13.0) | - | - | [1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt#1.14.0-alpha01) |
+ 
+ ## Structure
+ 
+@@ -22,13 +24,13 @@ This table explains the groups and links to each set of release notes.
+ 
+ | Group | Description |
+ |---|---|
+-| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | Build animations in their Jetpack Compose applications to enrich the user experience. |
+-| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
+-| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces. |
+-| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
+-| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
+-| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
+-| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
++| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt) | Build animations in their Jetpack Compose applications to enrich the user experience. |
++| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler.md.txt) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
++| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation.md.txt) | Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces. |
++| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
++| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3.md.txt) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
++| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime.md.txt) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
++| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
+ 
+ ## Declaring dependencies
+ 
+@@ -47,7 +49,7 @@ plugins {
+ }
+ 
+ dependencies {
+-    implementation "androidx.compose.material:material:1.12.1"
++    implementation "androidx.compose.material:material:1.13.0"
+ }
+ 
+ android {
+@@ -69,7 +71,7 @@ plugins {
+ }
+ 
+ dependencies {
+-    implementation("androidx.compose.material:material:1.12.1")
++    implementation("androidx.compose.material:material:1.13.0")
+ }
+ 
+ android {
+@@ -98,8 +100,24 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 1.14
++
++### Version 1.14.0-alpha01
++
++November 18, 2026
++
++`androidx.compose.material:material-*:1.14.0-alpha01` is released. Version 1.14.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/57354ca42849ed417dfe0f797132477674d917e0..cb8e6388acf70f4bc3af425c928a3f0761fb6478/compose/material).
++
+ ## Version 1.13
+ 
++### Version 1.13.0
++
++November 18, 2026
++
++`androidx.compose.material:material-*:1.13.0` is released. Version 1.13.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5e0747401bf56b243e3b5141ae080dc9bc61d29c..ac6d2ce3d991b07d9b981d616bddc6d3ab461eab/compose/material).
++
++**Important changes since 1.12.0:**
++
+ ### Version 1.13.0-rc01
+ 
+ November 04, 2026
+@@ -1661,9 +1679,9 @@ February 9, 2022
+ - Stable support for the Android 12 [Overscroll effect](https://android-review.googlesource.com/c/platform/frameworks/support/+/1795727/)
+ - Improvements to touch target sizing
+ - Note that, with respect to Compose 1.0, Material components will expand their layout space to meet Material [accessibility guidelines](https://material.io/design/usability/accessibility.html) for [touch target size](https://material.io/design/usability/accessibility.html#layout-and-typography). For instance, Button touch target will expand to a minimum size of 48x48dp, even if you set the Button's size to be smaller. This aligns Compose Material to the same behavior of Material Design Components, providing consistent behavior if you mix Views and Compose. This change also ensures that when you create your UI using Compose Material components, minimum requirements for touch target accessibility will be met.
+-- Stable Support for [Navigation Rail](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#navigationrail)
++- Stable Support for [Navigation Rail](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary.md.txt#navigationrail)
+ - Graduates a number of previously experimental APIs to stable
+-- [Support](https://developer.android.com/jetpack/androidx/releases/compose-kotlin) for newer versions of Kotlin
++- [Support](https://developer.android.com/jetpack/androidx/releases/compose-kotlin.md.txt) for newer versions of Kotlin
+ 
+ ### Version 1.1.0-rc03
+ 
+@@ -1944,12 +1962,14 @@ This release adds profile rules to the following compose modules ([I14ed6](https
+ 
+ - A method rule will have the following pattern:
+ 
+-      <FLAGS><CLASS_DESCRIPTOR>-><METHOD_SIGNATURE>
+-
++  ```kotlin
++  <FLAGS><CLASS_DESCRIPTOR>-><METHOD_SIGNATURE>
++  ```
+ - And a class rule will have the following pattern:
+ 
+-      <CLASS_DESCRIPTOR>
+-
++  ```kotlin
++  <CLASS_DESCRIPTOR>
++  ```
+ - Here `<FLAGS>` is one or more of the characters `H`, `S`, and `P` to indicate whether or not this method should be flagged as "Hot", "Startup", or "Post Startup".
+ 
+ - The `<CLASS_DESCRIPTOR>` is the descriptor for the class that the targeted method belongs to. For example, the class `androidx.compose.runtime.SlotTable` would have a descriptor of `Landroidx/compose/runtime/SlotTable;`.
+@@ -2412,11 +2432,15 @@ December 16, 2020
+ 
+   The now-deprecated syntax for doing this was by annotating the property itself:
+ 
+-          @Composable val someProperty: Int get() = ...
++  ```kotlin
++      @Composable val someProperty: Int get() = ...
++  ```
+ 
+   The now-correct syntax for doing this is by annotating the getter of the property:
+ 
+-         val someProperty: Int @Composable get() = ...
++  ```kotlin
++     val someProperty: Int @Composable get() = ...
++  ```
+ 
+   Both syntaxes will work for some time, but the former deprecated syntax will eventually become a compile error. ([Id9197](https://android-review.googlesource.com/#/q/Id91977f2583b81d3e4e51bbf120cfaf943be25d5))
+ - Added `androidx.compose.material:material-ripple` library containing ripple APIs to allow building interactive components without needing the rest of the Material library. rememberRippleIndication has been deprecated and replaced with rememberRipple. ([Ibdf11](https://android-review.googlesource.com/#/q/Ibdf11f8fe8da5abc8abc4d57e06c8e53b8eb589c))
+@@ -2813,7 +2837,7 @@ July 22, 2020
+ 
+ #### Dependencies Update
+ 
+-- To use the `0.1.0-dev15` version of Compose, you will need to update your dependencies according to the new code snippets shown above in [Declaring dependencies](https://developer.android.com/jetpack/androidx/releases/compose-material#declaring_dependencies).
++- To use the `0.1.0-dev15` version of Compose, you will need to update your dependencies according to the new code snippets shown above in [Declaring dependencies](https://developer.android.com/jetpack/androidx/releases/compose-material.md.txt#declaring_dependencies).
+ 
+ **API Changes**
+ 
+@@ -2839,19 +2863,21 @@ July 22, 2020
+ 
+   Almost all existing usages of `@Model` are fairly trivially transformed in one of two ways. The example below has a `@Model` class with two properties just for the sake of example, and has it being used in a composable.
+ 
+-      @Model class Position(
+-       var x: Int,
+-       var y: Int
+-      )
+-
+-      @Composable fun Example() {
+-       var p = remember { Position(0, 0) }
+-       PositionChanger(
+-         position=p,
+-         onXChange={ p.x = it }
+-         onYChange={ p.y = it }
+-       )
+-      }
++  ```kotlin
++  @Model class Position(
++   var x: Int,
++   var y: Int
++  )
++
++  @Composable fun Example() {
++   var p = remember { Position(0, 0) }
++   PositionChanger(
++     position=p,
++     onXChange={ p.x = it }
++     onYChange={ p.y = it }
++   )
++  }
++  ```
+ 
+   #### Alternative 1: Use `State<OriginalClass>` and create copies.
+ 
+@@ -2859,38 +2885,42 @@ July 22, 2020
+ 
+   It's important to note that this approach only works when the only mutations to that class were done in the same scope that the `State` instance is created. If the class is internally mutating itself outside of the scope of usage, and you are relying on the observation of that, then the next approach is the one you will want to use.
+ 
+-      data class Position(
+-       val x: Int,
+-       val y: Int
+-      )
+-
+-      @Composable fun Example() {
+-       var p by state { Position(0, 0) }
+-       PositionChanger(
+-         position=p,
+-         onXChange={ p = p.copy(x=it) }
+-         onYChange={ p = p.copy(y=it) }
+-       )
+-      }
++  ```kotlin
++  data class Position(
++   val x: Int,
++   val y: Int
++  )
++
++  @Composable fun Example() {
++   var p by state { Position(0, 0) }
++   PositionChanger(
++     position=p,
++     onXChange={ p = p.copy(x=it) }
++     onYChange={ p = p.copy(y=it) }
++   )
++  }
++  ```
+ 
+   #### Alternative 2: Use mutableStateOf and property delegates
+ 
+   This approach is made easier with Kotlin's property delegates and the `mutableStateOf` API which allows you to create MutableState instances outside of composition. Essentially, replace all `var` properties of the original class with `var` properties with `mutableStateOf` as their property delegate. This has the advantage that the usage of the class will not change at all, only the internal implementation of it. The behavior is not completely identical to the original example though, as each property is now observed/subscribed to individually, so the recompositions you see after this refactor could be more narrow (a good thing).
+ 
+-      class Position(x: Int, y: Int) {
+-       var x by mutableStateOf(x)
+-       var y by mutableStateOf(y)
+-      }
+-
+-      // source of Example is identical to original
+-      @Composable fun Example() {
+-       var p = remember { Position(0, 0) }
+-       PositionChanger(
+-         position=p,
+-         onXChange={ p.x = it }
+-         onYChange={ p.y = it }
+-       )
+-      }
++  ```kotlin
++  class Position(x: Int, y: Int) {
++   var x by mutableStateOf(x)
++   var y by mutableStateOf(y)
++  }
++
++  // source of Example is identical to original
++  @Composable fun Example() {
++   var p = remember { Position(0, 0) }
++   PositionChanger(
++     position=p,
++     onXChange={ p.x = it }
++     onYChange={ p.y = it }
++   )
++  }
++  ```
+ 
+   ([I409e8](https://android-review.googlesource.com/#/q/I409e8c158841eae1dd548b33f1ec80bb609cba31), [b/152050010](https://issuetracker.google.com/issues/152050010), [b/146362815](https://issuetracker.google.com/issues/146362815), [b/146342522](https://issuetracker.google.com/issues/146342522), [b/143413369](https://issuetracker.google.com/issues/143413369), [b/135715219](https://issuetracker.google.com/issues/135715219), [b/143263925](https://issuetracker.google.com/issues/143263925), [b/139653744](https://issuetracker.google.com/issues/139653744))
+ - onFocusChange callback in text fields renamed to onFocusChanged ([Ida4a1](https://android-review.googlesource.com/#/q/Ida4a1a55e5a9119c3a740d28ad2e0d9126d40853))

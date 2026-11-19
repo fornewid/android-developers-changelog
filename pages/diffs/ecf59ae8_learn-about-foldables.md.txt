@@ -1,0 +1,78 @@
+diff --git a/docs/develop/adaptive-apps/guides/foldables/learn-about-foldables.md b/docs/develop/adaptive-apps/guides/foldables/learn-about-foldables.md
+index c84d0529..50c847fc 100644
+--- a/docs/develop/adaptive-apps/guides/foldables/learn-about-foldables.md
++++ b/docs/develop/adaptive-apps/guides/foldables/learn-about-foldables.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/adaptive-apps/guides/foldables/learn-
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/develop/llms.txt
++
+ ![](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/foldables/hero-gallery.svg) **Figure 1.** Examples of apps running on foldable devices.
+ 
+ Foldable devices provide an opportunity for innovative app development. Large
+@@ -27,12 +29,25 @@ use of the wide screen. Folded, the device is similar to a standard phone; a
+ single column layout with a bottom navigation bar is straightforward but
+ effective. Because the layouts are separate, you can optimize each for its
+ specific use case.
++
++Unfolded inner displays on foldable phones generally fall into two aspect ratio
++categories:
++
++- **Square (1:1) inner displays:** Generally fall into the medium or expanded window size class in both portrait and landscape orientations.
++- **Wide (4:3) inner displays (4:3 in landscape, 3:4 in portrait):** Reach the expanded window size class in landscape orientation and pair with a 10:16 (16:10 landscape) outer display when folded.
++
++Test your adaptive layouts across both categories using the **Foldable (1:1
++inner display)** and **Foldable (4:3 inner display)** emulator profiles in
++Android Studio (or `foldable_1_1` and `foldable_4_3` in the Android CLI), which
++also match [Google Play Store screenshot specifications](https://developer.android.com/google/play/requirements/screenshots-android-cli.md.txt).
+ Your browser doesn't support the video tag. **Figure 3.** Adaptive layouts optimized for both folded and unfolded screens.
+ 
+-To learn more about adaptive design and development for foldables, see the following:
++To learn more about adaptive design and development for foldables, see the
++following:
+ 
+ - **Design:** Look at the [UI gallery](https://developer.android.com/design/ui/gallery) for layout inspiration and patterns across form factors.
+-- **Development:** Follow the developer guidance in [Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes) to build adaptive layouts.
++- **Development:** Follow the developer guidance in [Support different display
++  sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes) to build adaptive layouts.
+ 
+ ## Foldable states and postures
+ 
+@@ -40,13 +55,13 @@ The fold of a foldable device divides the screen into two portions. The fold can
+ be a flexible area of the screen or, on dual‑screen devices, a hinge that
+ separates the two displays.
+ 
+-The fold has dimension and an [`occlusionType`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.OcclusionType) property, which defines
++The fold has dimension and an [`occlusionType`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.OcclusionType.md.txt) property, which defines
+ whether the fold obscures part of the display. On dual‑screen devices, the
+ `occlusionType` is `FULL`, no content is viewable in the fold (hinge) area even
+ though an app might span both screens.
+ 
+-Foldable devices can be in various folded states, such as [`FLAT`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State#FLAT()) (fully
+-open) or [`HALF_OPENED`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State#HALF_OPENED()) (somewhere between fully open and completely closed).
++Foldable devices can be in various folded states, such as [`FLAT`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State.md.txt#FLAT()) (fully
++open) or [`HALF_OPENED`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State.md.txt#HALF_OPENED()) (somewhere between fully open and completely closed).
+ ![](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/foldables/foldable_postures_flat_and_half_opened.png) **Figure 4.** Foldable device in flat and half-opened states.
+ 
+ When a device is in the `HALF_OPENED` state, two postures are possible,
+@@ -78,7 +93,7 @@ display modes](https://developer.android.com/develop/ui/compose/layouts/adaptive
+ An app stops and restarts as it transitions from one screen to another when a
+ device folds or unfolds. To maintain continuity for the user, the app must
+ preserve and restore its state seamlessly, as outlined in the
+-[Adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality).
++[Adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality.md.txt).
+ 
+ The different screen layouts of a foldable device should also complement one
+ another. For example, if the folded screen shows an image and description for a
+@@ -86,8 +101,8 @@ product from an online store, the unfolded screen should maintain continuity by
+ showing the same image and description, but also include complementary content,
+ such as product specifications or reviews.
+ 
+-To learn more about managing app state and continuity, see [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states)
+-and [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes).
++To learn more about managing app state and continuity, see [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt)
++and [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes.md.txt).
+ 
+ ## Multitasking
+ 

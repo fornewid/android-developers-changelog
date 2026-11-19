@@ -1,0 +1,30 @@
+diff --git a/docs/docs/quality-guidelines/adaptive-app-quality/tier-3.md b/docs/docs/quality-guidelines/adaptive-app-quality/tier-3.md
+index db0ee078..349c1f32 100644
+--- a/docs/docs/quality-guidelines/adaptive-app-quality/tier-3.md
++++ b/docs/docs/quality-guidelines/adaptive-app-quality/tier-3.md
+@@ -11,7 +11,7 @@ basic support for external input devices, enabling users to complete critical
+ task flows on any device.
+ 
+ ![Depiction of the three quality tiers as layers stacked vertically with the bottom tier highlighted.](https://developer.android.com/static/images/docs/quality-guidelines/tier-3/tier_3_header.png)
+-Adaptive ready apps must first fulfill the [core app quality](https://developer.android.com/docs/quality-guidelines/core-app-quality.md.txt) requirements---in particular, the [User experience](https://developer.android.com/docs/quality-guidelines/core-app-quality.md.txt#user_experience) requirements.
++Adaptive ready apps must first fulfill the [core app quality](https://developer.android.com/docs/quality-guidelines/core-app-quality.md.txt) requirements---in particular, the [User experience](https://developer.android.com/docs/quality-guidelines/core-app-quality.md.txt#user_experience) requirements. Tier 3 (Adaptive ready) defines the baseline quality standard for apps on foldables and large screens on Google Play.
+ 
+ ## Guidelines
+ 
+@@ -54,13 +54,14 @@ Provide a stable and functional experience on all form factors.
+ 
+ ## Tests
+ 
+-To confirm that your app is functional on all form factors, run the following tests.
++To confirm that your app is functional on all form factors, run the following
++tests.
+ 
+ ### Configuration and continuity
+ 
+ | Test ID | Guideline IDs | Description |
+ |---|---|---|
+-| T-Config_Orientation | [Config_Changes](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-3.md.txt#Config_Changes) | Verify that the app is not [letterboxed](https://developer.android.com/guide/practices/enhanced-letterboxing) and is not running in [compatibility mode](https://developer.android.com/guide/topics/manifest/supports-screens-element.md.txt#compat-mode) in portrait orientation, landscape orientation, multi-window mode, or when a large screen foldable device is unfolded in portrait or landscape orientation. Verify that all content fits within the available display space. Resize the app window in multi-window mode, including split-screen and desktop windowing modes. On desktop devices, minimize and restore the app window, maximize and restore the app window. Verify that the app assumes the proper orientation and maintains state in all window sizes. **Note:** Test on a large screen device (sw \>= 600 dp) running Android 12 (API level 31) or higher to ensure the device supports the following: - All device orientations regardless of orientation restrictions set with the [`android:screenOrientation`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#screen) app manifest element - Multi-window mode, even for apps that have specified [`android:resizeableActivity="false"`](https://developer.android.com/guide/topics/manifest/application-element.md.txt#resizeableActivity) in the app manifest |
++| T-Config_Orientation | [Config_Changes](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-3.md.txt#Config_Changes) | Verify that the app is not [letterboxed](https://developer.android.com/guide/practices/enhanced-letterboxing) and is not running in [compatibility mode](https://developer.android.com/guide/topics/manifest/supports-screens-element.md.txt#compat-mode) in portrait orientation, landscape orientation, multi-window mode, or when a large screen foldable device is unfolded in portrait or landscape orientation. Verify that all content fits within the available display space. Resize the app window in multi-window mode, including split-screen and desktop windowing modes. On desktop devices, minimize and restore the app window, maximize and restore the app window. Verify that the app assumes the proper orientation and maintains state in all window sizes. **Note:** Test on a large screen device (sw \>= 600 dp), including both 1:1 and 4:3 foldable emulators (**Foldable (1:1 inner display)** and **Foldable (4:3 inner display)**), running Android 12 (API level 31) or higher to ensure the device supports the following: - All device orientations regardless of orientation restrictions set with the [`android:screenOrientation`](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#screen) app manifest element - Multi-window mode, even for apps that have specified [`android:resizeableActivity="false"`](https://developer.android.com/guide/topics/manifest/application-element.md.txt#resizeableActivity) in the app manifest |
+ | T-Config_State | [Config_Changes](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-3.md.txt#Config_Changes) | From each app screen that has scrollable content, continuous playback content, or text entry fields, do the following: - Scrollable content: Scroll the content - Playback content: Begin playback - Text entry fields: Enter text in multiple fields Rotate the device between landscape and portrait orientations, fold and unfold the device (if applicable), and resize the app window in multi-window mode. Minimize and restore the app window on desktop devices; maximize and restore the app window. Verify the following: - Scrollable content: The scroll position remains the same - Playback content: Playback resumes where it left off when the configuration change was initiated - Text entry fields: Previously entered text is retained in input fields |
+ | T-Config_Combinations | [Config_Combinations](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-3.md.txt#Config_Combinations) | From each app screen, perform combinations of rotating the device between landscape and portrait orientations, folding and unfolding the device (if applicable), and resizing the app window in multi-window mode. |
+ 

@@ -1,0 +1,42 @@
+diff --git a/docs/distribute/age-appropriate-experiences/regional-protections.md b/docs/distribute/age-appropriate-experiences/regional-protections.md
+index c718124e..6427096c 100644
+--- a/docs/distribute/age-appropriate-experiences/regional-protections.md
++++ b/docs/distribute/age-appropriate-experiences/regional-protections.md
+@@ -1,17 +1,10 @@
+ ---
+-title: Regional age-related protections on Play  |  Google Play  |  Android Developers
++title: https://developer.android.com/distribute/age-appropriate-experiences/regional-protections
+ url: https://developer.android.com/distribute/age-appropriate-experiences/regional-protections
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Google Play](https://developer.android.com/distribute)
+-
+-# Regional age-related protections on Play Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
++> Documentation index: https://developer.android.com/distribute/llms.txt
+ 
+ Review the age-related protections and tools that Play makes available in each
+ region where you distribute your app. You're responsible for making sure your
+@@ -24,7 +17,10 @@ available in certain regions. To find a specific country or region, use the
+ filter field.
+ 
+ | Country or region | Protections on Play |
+-| --- | --- |
+-| Global | The Play Age Signals API (coming in Q4 2026) provides apps with access to age range information from users with age range sharing enabled. |
+-| Australia, Brazil, EEA, Singapore, Switzerland, and the UK | Play restricts users identified as minors from downloading apps rated as 18+ under its local age rating. |
+-| United States | * In US states with regulations that require app stores to verify users' ages, Play verifies the ages of users in accordance with these regulations. * In US states that require app stores to share users' age ranges, the Play Age Signals API will return age information for users subject to this requirement. |
+\ No newline at end of file
++|---|---|
++| Global | The [Play Age Signals API](https://developer.android.com/google/play/age-signals/overview.md.txt) provides apps with access to age range information from users if a user [chooses to share their age range](https://support.google.com/googleplay/answer/17232873). |
++| Australia, EEA, Singapore, Switzerland, and the UK | Play restricts users identified as minors from downloading apps rated as 18+ under its [local age rating](https://support.google.com/googleplay/android-developer/answer/9859655#How_content_ratings_are_used). |
++| Brazil | - \[Starting January 2027\] The Play Age Signals API returns age information for users, on a mandatory basis, in Brazil to help developers meet requirements under the Digital ECA. For more information, see [Distributing your app in Brazil](https://support.google.com/googleplay/android-developer/answer/6223646#digital_eca_requirements). - Play restricts users identified as minors from downloading apps rated as 18+ under its [local age rating](https://support.google.com/googleplay/android-developer/answer/9859655#How_content_ratings_are_used). |
++| United States (Alabama) | Details coming soon. |
++| United States (California) | \[Starting January 2027\] The [Play Age Signals API](https://developer.android.com/google/play/age-signals/overview.md.txt) returns age range information for users on a mandatory basis. For more information, see [Changes to Google Play for upcoming app store bills for users in applicable US states](https://support.google.com/googleplay/android-developer/answer/16569691). |
++| United States (Texas) | Google Play verifies the ages of eligible users and the [Play Age Signals API](https://developer.android.com/google/play/age-signals/overview.md.txt) returns age range and significant change approval status signals for eligible users. For more information, see [Changes to Google Play for upcoming app store bills for users in applicable US states](https://support.google.com/googleplay/android-developer/answer/16569691). |
+\ No newline at end of file

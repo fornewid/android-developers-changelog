@@ -1,0 +1,17 @@
+diff --git a/docs/develop/ui/compose/designsystems/material.md b/docs/develop/ui/compose/designsystems/material.md
+index 8a3caddc..baed8aba 100644
+--- a/docs/develop/ui/compose/designsystems/material.md
++++ b/docs/develop/ui/compose/designsystems/material.md
+@@ -4,9 +4,10 @@ url: https://developer.android.com/develop/ui/compose/designsystems/material
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/develop/ui/compose/designsystems/llms.txt
++
+ > [!CAUTION]
+-> **Caution:** Material 3 is the latest set of Material Components for Compose. New apps should use [Material 3](https://developer.android.com/develop/ui/compose/designsystems/material3.md.txt) instead. This guidance is for Material 2. For information on how to migrate to Material 3, see the [migration
+-> guidance](https://developer.android.com/develop/ui/compose/designsystems/material2-material3).
++> **Caution:** Compose Material 2 (`androidx.compose.material:material`) is deprecated. Migrate your app to [Material Design 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material3.md.txt) (`androidx.compose.material3:material3` 1.5.0 or later) by following [Migrate from Material 2 to Material 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material2-material3.md.txt).
+ 
+ Jetpack Compose offers an implementation of [Material Design](https://material.io/design/introduction), a
+ comprehensive design system for creating digital interfaces. The [Material

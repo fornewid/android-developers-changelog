@@ -1,0 +1,22 @@
+diff --git a/docs/develop/ui/compose/animation/choose-api.md b/docs/develop/ui/compose/animation/choose-api.md
+index 0ddb4421..2346ff5c 100644
+--- a/docs/develop/ui/compose/animation/choose-api.md
++++ b/docs/develop/ui/compose/animation/choose-api.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/animation/choose-api
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/develop/ui/llms.txt
++
+ The following diagram helps you decide what API to use to implement your
+ animation.
+ 
+@@ -28,7 +30,7 @@ Use the following decision tree to choose the most appropriate animation API for
+           - Yes: [`composable()`](https://developer.android.com/reference/kotlin/androidx/navigation/compose/package-summary.md.txt#(androidx.navigation.NavGraphBuilder).composable(kotlin.String,kotlin.collections.List,kotlin.collections.List,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function2)) with `enterTransition` and `exitTransition` set.
+           - No: [`AnimatedContent`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers.md.txt#animatedcontent), [`Crossfade`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers.md.txt#crossfade), or [`Pager`](https://developer.android.com/develop/ui/compose/layouts/pager.md.txt).
+         - No: Are you animating the appearance or disappearance of content?
+-          - Yes: [`AnimatedVisibility`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers.md.txt#animatedvisibility) or [`animateFloatAsState`](https://developer.android.com/develop/ui/compose/animation/value-based.md.txt#animate-as-state) with `Modifier.alpha()`.
++          - Yes: [`CapturedAnimatedVisibility`](https://developer.android.com/reference/kotlin/androidx/compose/animation/CapturedAnimatedVisibility.composable.md.txt) (when content isn't live - snapshot of the state at exit), [`AnimatedVisibility`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers.md.txt#animatedvisibility) (when exiting content stays live or uses `Modifier.animateEnterExit`), or [`animateFloatAsState`](https://developer.android.com/develop/ui/compose/animation/value-based.md.txt#animate-as-state) with `Modifier.alpha()`.
+           - No: Are you animating a size change?
+             - Yes: [`Modifier.animateContentSize`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers.md.txt#animateContentSize).
+             - No: Are you animating another layout property (for example, offset or padding)?

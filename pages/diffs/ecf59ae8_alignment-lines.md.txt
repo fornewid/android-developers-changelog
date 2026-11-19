@@ -1,0 +1,137 @@
+diff --git a/docs/develop/ui/compose/layouts/alignment-lines.md b/docs/develop/ui/compose/layouts/alignment-lines.md
+index 5e411e98..26ed5e2a 100644
+--- a/docs/develop/ui/compose/layouts/alignment-lines.md
++++ b/docs/develop/ui/compose/layouts/alignment-lines.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/layouts/alignment-lines
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/develop/ui/compose/layouts/llms.txt
++
+ The Compose layout model lets you use [`AlignmentLine`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/AlignmentLine.md.txt) to create custom
+ alignment lines that can be used by parent layouts to align and position their
+ children. For example, [`Row`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Row.composable.md.txt#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)) can use its children's custom alignment lines
+@@ -63,6 +65,105 @@ is used in the measurement phase.
+ > [!NOTE]
+ > **Note:** The `firstBaselineToTop` modifier is shown for educational purposes. The Compose library provides a [`paddingFrom`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/paddingFrom.modifier.md.txt#(androidx.compose.ui.Modifier).paddingFrom(androidx.compose.ui.layout.AlignmentLine,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)) modifier that lets you specify padding relative to any alignment line defined in that layout.
+ 
++The following example uses `paddingFrom` to place the first baseline of the
++`Text` 32 dp from the top, like the `firstBaselineToTop` example. To pad from
++the first and last baselines of text, use [`paddingFromBaseline`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/paddingFromBaseline.modifier.md.txt#(androidx.compose.ui.Modifier).paddingFromBaseline(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)).
++
++
++```kotlin
++@Composable
++private fun TextWithPaddingFromBaseline() {
++    MaterialTheme {
++        Text("Hi there!", Modifier.paddingFrom(FirstBaseline, before = 32.dp))
++    }
++}
++```
++
++<br />
++
++![Hi there! text with 32 dp of padding above its first baseline.](https://developer.android.com/static/develop/ui/compose/images/layouts/alignmentlines-padding-from.png) **Figure 2.** `Text` with 32 dp of padding before its first baseline.
++
++## Align the children of a row
++
++In a `Row`, the [`alignByBaseline`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/RowScope.md.txt#(androidx.compose.ui.Modifier).alignByBaseline()) and [`alignBy`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/RowScope.md.txt#(androidx.compose.ui.Modifier).alignBy(androidx.compose.ui.layout.HorizontalAlignmentLine)) modifiers align
++children with each other on an alignment line. Both modifiers are members of
++`RowScope`, so you can use them only inside a `RowScope`, such as the content of
++a `Row`. Apply the modifier to each child that must align. A child without it,
++and without `align`, follows the `verticalAlignment` of the `Row`.
++
++The following example aligns two texts of different sizes on their first
++baselines:
++
++
++```kotlin
++@Composable
++private fun TitleWithSubtitle() {
++    MaterialTheme {
++        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
++            Text(
++                "Title",
++                modifier = Modifier.alignByBaseline(),
++                style = MaterialTheme.typography.headlineMedium
++            )
++            Text(
++                "Subtitle",
++                modifier = Modifier.alignByBaseline(),
++                style = MaterialTheme.typography.bodySmall
++            )
++        }
++    }
++}
++```
++
++<br />
++
++![Title text and smaller Subtitle text aligned on their baselines.](https://developer.android.com/static/develop/ui/compose/images/layouts/alignmentlines-align-baseline.png) **Figure 3.** Two `Text` elements of different sizes aligned on their first baselines.
++
++`alignByBaseline` is the same as `alignBy(FirstBaseline)`. To align on a
++position that isn't an alignment line, pass a block to `alignBy`. The block
++receives the measured child and returns the distance, in pixels, from the top of
++the child to the line to align on. In the following example, the middle of a
++small box sits on the baseline of the text next to it:
++
++
++```kotlin
++@Composable
++private fun BoxMiddleOnBaseline() {
++    MaterialTheme {
++        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
++            Box(
++                modifier = Modifier
++                    .size(8.dp)
++                    .background(Color.Gray)
++                    // Aligns the middle of the box with the text baseline.
++                    .alignBy { it.measuredHeight / 2 }
++            )
++            Text(
++                "Label",
++                modifier = Modifier.alignByBaseline()
++            )
++        }
++    }
++}
++```
++
++<br />
++
++![Small gray square centered vertically on the baseline of Label text.](https://developer.android.com/static/develop/ui/compose/images/layouts/alignmentlines-align-block.png) **Figure 4.** A gray `Box` with its vertical center aligned to the baseline of the adjacent `Text`.
++
++The children that use these modifiers form one group. The `Row` places at least
++one child of the group as if it had `Alignment.Top`, and positions the others so
++that their lines match. A child that is alone in the group is placed as if it
++had `Alignment.Top`, so it doesn't align with anything. `alignBy` is a form of
++[`align`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/RowScope.md.txt#(androidx.compose.ui.Modifier).align(androidx.compose.ui.Alignment.Vertical)), so the two modifiers don't work together on the same child.
++
++`paddingFrom` and `alignBy` solve different problems: `paddingFrom` adds padding
++to one element based on its own alignment line, and `alignBy` aligns siblings
++with each other.
++
++In a [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable.md.txt#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)), `alignBy` takes a `VerticalAlignmentLine` or a block, and
++aligns the children horizontally. `ColumnScope` has no `alignByBaseline`.
++
+ ## Create custom alignment lines
+ 
+ When creating a custom [`Layout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/Layout.composable.md.txt#Layout(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.layout.MeasurePolicy)) composable or a custom
+@@ -78,7 +179,7 @@ alignment lines, `MaxChartValue` and `MinChartValue`, so that other composables
+ can align to the maximum and minimum data value of the chart. Two text elements,
+ *Max* and *Min*, have been aligned to the center of the custom alignment lines.
+ ![BarChart composable with Text aligned to the maximum and
+-minimum data value.](https://developer.android.com/static/develop/ui/compose/images/layouts/alignmentlines-chart.png) **Figure 2.** `BarChart` composable with Text aligned to the maximum and minimum data value.
++minimum data value.](https://developer.android.com/static/develop/ui/compose/images/layouts/alignmentlines-chart.png) **Figure 5.** `BarChart` composable with Text aligned to the maximum and minimum data value.
+ 
+ Custom alignment lines are defined as top-level variables in your project.
+ 
+@@ -161,7 +262,7 @@ private fun BarChart(
+ lines** . The following composable creates a custom layout that takes as a
+ parameter two `Text` slots and data points, and aligns the two texts to the
+ maximum and minimum chart data values. The preview of this composable is
+-what's shown in Figure 2.
++what's shown in Figure 5.
+ 
+ 
+ ```kotlin

@@ -1,0 +1,168 @@
+diff --git a/docs/develop/ui/compose/components/icon-button.md b/docs/develop/ui/compose/components/icon-button.md
+index 3d21373e..82cdd802 100644
+--- a/docs/develop/ui/compose/components/icon-button.md
++++ b/docs/develop/ui/compose/components/icon-button.md
+@@ -4,22 +4,28 @@ url: https://developer.android.com/develop/ui/compose/components/icon-button
+ source: md.txt
+ ---
+ 
+-Icon buttons display actions that users can take. Icon buttons must use an icon
+-with a clear meaning, and typically represent common or frequently used actions.
++> Documentation index: https://developer.android.com/develop/ui/compose/components/llms.txt
++
++[Icon buttons](https://m3.material.io/components/icon-buttons/guidelines#1f6f6121-e403-4d82-aa6a-5ab276f4bc4c) display actions that users can take. Icon buttons must use an
++icon with a clear meaning, and typically represent common or frequently used
++actions.
+ 
+ There are two types of icon buttons:
+ 
+ - **Default**: These buttons can open other elements, such as a menu or search.
+ - **Toggle**: These buttons can represent binary actions that can be toggled on or off, such as "favorite" or "bookmark".
+ 
+-![5 icon buttons with different icons (settings, more, etc). Some are filled, indicating selection, and some are outlined.](https://developer.android.com/static/develop/ui/compose/images/components/icon-buttons.png) **Figure 1.** Icon buttons, some of which are filled (indicating selection) and outlined.
++![Five icon buttons with different icons, such as settings and more. Some are filled, indicating selection, and some are outlined.](https://developer.android.com/static/develop/ui/compose/images/components/icon-buttons.png) **Figure 1.** Icon buttons; some are filled (indicating selection), and others are outlined.
+ 
+ ## API surface
+ 
+-Use the [`IconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/IconButton.composable.md.txt) composable to implement standard icon buttons. To
+-create different visual styles like filled, filled tonal, or outlined, use
+-[`FilledIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledIconButton.composable.md.txt#FilledIconButton(kotlin.Function0,androidx.compose.material3.IconButtonShapes,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), [`FilledTonalIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledTonalIconButton.composable.md.txt#FilledTonalIconButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), and
+-[`OutlinedIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedIconButton.composable.md.txt#OutlinedIconButton(kotlin.Function0,androidx.compose.material3.IconButtonShapes,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), respectively.
++Use the [`IconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/IconButton.composable.md.txt) composable to implement standard icon buttons, and
++[`IconToggleButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/IconToggleButton.composable.md.txt) for a button that toggles between selected and
++unselected states. To create different visual styles like filled, filled tonal,
++or outlined, use [`FilledIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledIconButton.composable.md.txt#FilledIconButton(kotlin.Function0,androidx.compose.material3.IconButtonShapes,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), [`FilledTonalIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledTonalIconButton.composable.md.txt#FilledTonalIconButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), and
++[`OutlinedIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedIconButton.composable.md.txt#OutlinedIconButton(kotlin.Function0,androidx.compose.material3.IconButtonShapes,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), or their toggleable counterparts
++`FilledIconToggleButton`, `FilledTonalIconToggleButton`, and
++`OutlinedIconToggleButton`.
+ 
+ The key parameters for `IconButton` include:
+ 
+@@ -27,10 +33,21 @@ The key parameters for `IconButton` include:
+ - `enabled`: A boolean that controls the enabled state of the button. When `false`, the button does not respond to user input.
+ - `content`: The composable content inside the button, typically an `Icon`.
+ 
++The key parameters for [`IconToggleButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/IconToggleButton.composable.md.txt) include:
++
++- `checked`: A boolean that controls the selected state of the button.
++- `onCheckedChange`: A lambda function that executes when the user taps the button, providing the new checked state.
++- `enabled`: A boolean that controls the enabled state of the button. When `false`, the button does not respond to user input.
++
+ ## Basic example: Toggle icon button
+ 
+-This example shows you how to implement a toggle icon button. A toggle icon
+-button changes its appearance based on whether it's selected or unselected.
++Toggle icon buttons allow a single choice to be selected or deselected, such as
++adding or removing something from favorites. [`IconToggleButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/IconToggleButton.composable.md.txt) and its
++variants are designed for this purpose.
++
++The following example shows you how to implement a toggle icon button that
++changes its appearance based on whether it's selected or unselected, by managing
++state with `IconButton`:
+ 
+ 
+ ```kotlin
+@@ -57,7 +74,7 @@ fun ToggleIconButtonExample() {
+ 
+ - The `ToggleIconButtonExample` composable defines a toggleable `IconButton`.
+   - `mutableStateOf(false)` creates a `MutableState` object that holds a boolean value, initially `false`. This makes `isToggled` a state holder, meaning Compose recomposes the UI whenever its value changes.
+-  - `rememberSaveable` ensures the `isToggled` state persists across configuration changes, like screen rotation.
++  - `rememberSaveable` makes sure that the `isToggled` state persists across configuration changes, like screen rotation.
+ - The `onClick` lambda of the `IconButton` defines the button's behavior when clicked, toggling the state between `true` and `false`.
+ - The [`Icon`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Icon.composable.md.txt#Icon(androidx.compose.ui.graphics.painter.Painter,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color)) composable's `painter` parameter conditionally loads a different `painterResource` based on the `isToggled` state. This changes the visual appearance of the icon.
+   - If `isToggled` is `true`, it loads the filled heart drawable.
+@@ -176,6 +193,93 @@ fun MomentaryIconButtonExample() {
+ The following video shows the UI with the icon buttons and the counter:
+ **Figure 3**. A counter UI with two icon buttons (plus and minus) that increment and decrement the counter.
+ 
++## M3 Expressive update
++
++With the M3 Expressive update, icon buttons support additional size, corner, and
++width options, and can change shape when pressed or selected. When placed in
++standard button groups, icon buttons also interact with neighboring buttons when
++pressed.
++
++### Animated shape
++
++Icon buttons can animate their shape when pressed, and toggle icon buttons can
++animate their shape based on their checked state. To enable shape animation,
++pass `IconButtonDefaults.shapes()` or `IconButtonDefaults.toggleableShapes()` to
++the `shapes` parameter of `IconButton` or `IconToggleButton`.
++
++#### Icon buttons
++
++![States of icon button](https://developer.android.com/static/develop/ui/compose/images/components/iconbutton_shape_morph.png) **Figure 4.** Icon button shape animation in round and square shapes.
++
++The following snippet demonstrates how to implement an icon button that animates
++its shape when pressed:
++
++
++```kotlin
++@Composable
++fun IconButtonWithAnimatedShapeSample() {
++    IconButton(
++        onClick = { /* doSomething() */ },
++        shapes = IconButtonDefaults.shapes(),
++    ) {
++        Icon(painter = rememberVectorPainter(AppIcons.LockFilled), contentDescription = "Localized description")
++    }
++}
++```
++![An icon button displaying a filled lock icon.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_expressive_components_animatediconbuttons.png)
++
++<br />
++
++#### Toggle icon buttons
++
++![States of toggle icon button](https://developer.android.com/static/develop/ui/compose/images/components/toggle_iconbutton.png) **Figure 5.** Toggle icon button shape animation in unselected and selected states.
++
++The following snippet demonstrates how to implement a toggle icon button that
++animates its shape based on its checked state:
++
++
++```kotlin
++@Composable
++fun IconToggleButtonWithAnimatedShapeSample() {
++    var checked by remember { mutableStateOf(false) }
++    IconToggleButton(
++        checked = checked,
++        onCheckedChange = { checked = it },
++        shapes = IconButtonDefaults.toggleableShapes(),
++    ) {
++        if (checked) {
++            Icon(painter = rememberVectorPainter(AppIcons.LockFilled), contentDescription = "Localized description")
++        } else {
++            Icon(painter = rememberVectorPainter(AppIcons.Lock), contentDescription = "Localized description")
++        }
++    }
++}
++```
++![A toggle icon button in its unselected state displaying an outlined lock icon.](https://developer.android.com/static/develop/ui/compose/images/components/previews/android_compose_expressive_components_animatedtoggleiconbuttons.png)
++
++<br />
++
++### Size, width, and shape variants
++
++Icon buttons are available in round and square shapes, five sizes, and three
++widths.
++![Examples of icon button sizes, shapes, and widths.](https://developer.android.com/static/develop/ui/compose/images/components/expressive_update.png) **Figure 6.** Expressive features include five sizes, two shapes, and three widths.
++
++For more information about the M3 Expressive updates for icon buttons, see the
++[Material Design 3 Icon buttons guidelines](https://m3.material.io/components/icon-buttons/guidelines#1f6f6121-e403-4d82-aa6a-5ab276f4bc4c).
++
++There are five icon button size variants: extra small, small, medium, large, and
++extra large. Each size supports three width options: uniform (default), narrow,
++and wide.
++![Five rows and three columns of icon buttons displaying a heart icon. Each row increases in size, and the three columns vary by width: uniform, narrow, and wide.](https://developer.android.com/static/develop/ui/compose/images/components/icon_button_Measurements.png) **Figure 7.** Icon buttons showing five sizes and three width options: uniform, narrow, and wide.
++
++Icon buttons are available in round or square corner variants, and toggle icon
++buttons change their shape when pressed or selected.
++![Two rows of five icon buttons with a heart icon, increasing in size from left to right; the top row has round corners and the bottom row has square corners.](https://developer.android.com/static/develop/ui/compose/images/components/iconButtonCornerRadius.png) **Figure 8.** Icon buttons available in round or square corner variants.
++
++For guidance on choosing between corner variants, see the [Material Design 3
++Icon buttons guidelines](https://m3.material.io/components/icon-buttons/guidelines#1f6f6121-e403-4d82-aa6a-5ab276f4bc4c).
++
+ ## Additional resources
+ 
+ - [Material 3 - Icon buttons](https://m3.material.io/components/icon-buttons/overview)
+\ No newline at end of file

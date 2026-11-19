@@ -1,0 +1,83 @@
+diff --git a/docs/jetpack/androidx/releases/biometric.md b/docs/jetpack/androidx/releases/biometric.md
+index 0ce76dd3..416c7fb6 100644
+--- a/docs/jetpack/androidx/releases/biometric.md
++++ b/docs/jetpack/androidx/releases/biometric.md
+@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/biometric
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
++
+ # Biometric
+ 
+ [User Guide](https://developer.android.com/training/sign-in/biometric-auth) [Code Sample](https://github.com/android/security-samples) Authenticate with biometrics or device credentials, and perform cryptographic operations.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| November 04, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/biometric#1.1.0) | - | [1.4.0-beta01](https://developer.android.com/jetpack/androidx/releases/biometric#1.4.0-beta01) | - |
++| November 18, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/biometric.md.txt#1.1.0) | [1.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/biometric.md.txt#1.4.0-rc01) | - | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -62,6 +64,17 @@ for more information.
+ 
+ ## Version 1.4
+ 
++### Version 1.4.0-rc01
++
++November 18, 2026
++
++`androidx.biometric:biometric:1.4.0-rc01` is released. Version 1.4.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a021adf44194ae86e596ae25ca43d5e4e18f6926..48b8e5b3109d82ad02584296c3c634d8f9b8ed3b/biometric/biometric).
++
++**Bug Fixes**
++
++- Fixed an issue where a completed or disposed `rememberAuthenticationLauncher` or `AuthenticationResultLauncher` re-subscribed on `ON_START` and intercepted results from subsequent authentication requests. ([I49420](https://android-review.googlesource.com/#/q/I494202ddcf765fb647e68febfe7137487dcdcde0), [b/555875039](https://issuetracker.google.com/issues/555875039))
++- Fixed an issue where R8 stripped `FingerprintManager.AuthenticationCallback` methods on API \< 28 when apps compiled with `compileSdk = 37`. ([I2c7e0](https://android-review.googlesource.com/#/q/I2c7e005315f384df4b8f19bf71a307120c755eb4), [b/516212633](https://issuetracker.google.com/issues/516212633))
++
+ ### Version 1.4.0-beta01
+ 
+ November 04, 2026
+@@ -110,7 +123,7 @@ December 17, 2025
+ 
+ **API Changes**
+ 
+-- The [activity-result-pattern Biometric library](https://developer.android.com/reference/androidx/biometric/AuthenticationUtils) introduces new API changes:
++- The [activity-result-pattern Biometric library](https://developer.android.com/reference/androidx/biometric/AuthenticationUtils.md.txt) introduces new API changes:
+   - The `onAuthFailure` callback has been moved to `AuthenticationResultCallback` and renamed to `onAuthAttemptFailed`. ([Ied96b](https://android-review.googlesource.com/#/q/Ied96b1a29c9e82347f08e947fb56da81356d5c5d), [/Id6a73](https://android-review.googlesource.com/#/q/Id6a7379e2ca6a2ad1a135ca751214957a2be8df7))
+   - Allow apps to provide an executor for their callbacks. ([Id6a73](https://android-review.googlesource.com/#/q/Id6a7379e2ca6a2ad1a135ca751214957a2be8df7))
+   - Support multiple authentication launchers in a single Activity/Fragment: This is enabled by a new internal tracking mechanism (`currentAuthenticationKey`) that correctly routes results to the specific launcher instance that requested them. ([I2848c](https://android-review.googlesource.com/q/I2848c6591f953b853f68efa152823ad959f1daee))
+@@ -233,7 +246,7 @@ November 17, 2021
+ 
+ **API Changes**
+ 
+-- Added support for the Android 12 [BiometricManager.Strings](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Strings) API ([I12f2d](https://android-review.googlesource.com/#/q/I12f2d943fcb69e7430f701338d5a392b63fe9923))
++- Added support for the Android 12 [BiometricManager.Strings](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Strings.md.txt) API ([I12f2d](https://android-review.googlesource.com/#/q/I12f2d943fcb69e7430f701338d5a392b63fe9923))
+ - Changed target and source compatibility from Java 7 to Java 8 ([I16129](https://android-review.googlesource.com/#/q/I16129eb28425183bc2f1f016c89ac6a96668574f))
+ 
+ **Bug Fixes**
+@@ -295,7 +308,7 @@ January 27, 2021
+ 
+ **Major changes since 1.0.0**
+ 
+-- Added backwards-compatible support for new biometric authentication [features and API updates](https://developer.android.com/about/versions/11/features#biometric-auth) introduced in Android 11.
++- Added backwards-compatible support for new biometric authentication [features and API updates](https://developer.android.com/about/versions/11/features.md.txt#biometric-auth) introduced in Android 11.
+ - Significantly reduced the app size footprint of the library (by \>100 KB, in some cases).
+ - Removed various sources of memory leaks that were previously caused by the library.
+ - Fixed class verification failures that could affect performance on older Android versions.
+@@ -346,11 +359,11 @@ August 19, 2020
+ **API Changes**
+ 
+ - Made it optional to provide an explicit `Executor` when constructing an instance of `BiometricPrompt`. ([I6bb8a](https://android-review.googlesource.com/#/q/I6bb8ad575f02611ca235fe1ff3123a032f2e6d1d))
+-- Added the [`BiometricManager#canAuthenticate(int)`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager#canAuthenticate(int)) method from Android 11. ([Ia3f1c](https://android-review.googlesource.com/#/q/Ia3f1c378e2d1638f872dfb0a18589d61d8ddb087))
+-- Updated `BiometricPrompt` to add support for [`BiometricManager.Authenticators`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Authenticators) constants from Android 11. ([I39bd8](https://android-review.googlesource.com/#/q/I39bd8917d35f8f38db52106a9a77d47af24a6d30))
+-- Added the [`BiometricPrompt.AuthenticationResult#getAuthenticationType()`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt.AuthenticationResult#getAuthenticationType()) method from Android 11. ([Icfad5](https://android-review.googlesource.com/#/q/Icfad54cdf7baa5719e54464e0d33fc6757bb12c2))
+-- Added the [`BiometricPrompt.ERROR_SECURITY_UPDATE_REQUIRED`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt#BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED) error code from Android 11. ([I6610b](https://android-review.googlesource.com/#/q/I6610b1602ef48de1e093c2dd58d742257eaeb268))
+-- Updated `BiometricPrompt.CryptoObject` to support [`IdentityCredential`](https://developer.android.com/reference/android/security/identity/IdentityCredential) on Android 11 (API level 30) and above *only* . ([I1d9f6](https://android-review.googlesource.com/#/q/I1d9f661240f8a5ce889ce5caef6c95933d60559d))
++- Added the [`BiometricManager#canAuthenticate(int)`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.md.txt#canAuthenticate(int)) method from Android 11. ([Ia3f1c](https://android-review.googlesource.com/#/q/Ia3f1c378e2d1638f872dfb0a18589d61d8ddb087))
++- Updated `BiometricPrompt` to add support for [`BiometricManager.Authenticators`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Authenticators.md.txt) constants from Android 11. ([I39bd8](https://android-review.googlesource.com/#/q/I39bd8917d35f8f38db52106a9a77d47af24a6d30))
++- Added the [`BiometricPrompt.AuthenticationResult#getAuthenticationType()`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt.AuthenticationResult.md.txt#getAuthenticationType()) method from Android 11. ([Icfad5](https://android-review.googlesource.com/#/q/Icfad54cdf7baa5719e54464e0d33fc6757bb12c2))
++- Added the [`BiometricPrompt.ERROR_SECURITY_UPDATE_REQUIRED`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt.md.txt#BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED) error code from Android 11. ([I6610b](https://android-review.googlesource.com/#/q/I6610b1602ef48de1e093c2dd58d742257eaeb268))
++- Updated `BiometricPrompt.CryptoObject` to support [`IdentityCredential`](https://developer.android.com/reference/android/security/identity/IdentityCredential.md.txt) on Android 11 (API level 30) and above *only* . ([I1d9f6](https://android-review.googlesource.com/#/q/I1d9f661240f8a5ce889ce5caef6c95933d60559d))
+ 
+ **Bug Fixes**
+ 

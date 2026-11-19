@@ -1,0 +1,22 @@
+diff --git a/docs/google/play/age-signals/handle-errors.md b/docs/google/play/age-signals/handle-errors.md
+index aee28cd3..26a59ba8 100644
+--- a/docs/google/play/age-signals/handle-errors.md
++++ b/docs/google/play/age-signals/handle-errors.md
+@@ -15,6 +15,7 @@ condition so that the error disrupts the user experience as little as possible.
+ The following table lists error codes for the Play Age Signals API.
+ 
+ | Code | Constant | Description | Retryable |
++|---|---|---|---|
+ | -1 | API_NOT_AVAILABLE | The Play Age Signals API is not available. The Play Store app version installed on the device might be old. Ask the user to update the Play Store. | Yes |
+ | -2 | PLAY_STORE_NOT_FOUND | No Play Store app is found on the device. Ask the user to install or enable the Play Store. | Yes |
+ | -3 | NETWORK_ERROR | No available network is found. Ask the user to check for a connection. | Yes |
+@@ -25,5 +26,5 @@ The following table lists error codes for the Play Age Signals API.
+ | -8 | CLIENT_TRANSIENT_ERROR | There was a transient error in the client device. Implement a retry strategy with a maximum number of attempts as an exit condition. If the issue still doesn't resolve, ask the user to try again later. | Yes |
+ | -9 | APP_NOT_OWNED | The app was not installed by Google Play. Ask the user to get your app from Google Play. | No |
+ | -10 | SDK_VERSION_OUTDATED | The Play Age Signals SDK version is no longer supported. Ask the user to update your app to a later version that uses a recent version of the Play Age Signals SDK. | No |
+-| -100 | INTERNAL_ERROR | Unknown internal error. Implement a retry strategy with a maximum number of attempts as an exit condition. If the issue still doesn't resolve, ask the user to try again later. If it fails consistently, [contact Google Play Developer support](https://support.google.com/googleplay/android-developer/gethelp), include Play Age Signals API in the subject, and include as much technical detail as possible (such as a bug report). | No |
+-|---|---|---|---|
+\ No newline at end of file
++| -11 | DEVICE_NOT_SUPPORTED | The Play Age Signals API doesn't support the user's device type. | No |
++| -100 | INTERNAL_ERROR | Unknown internal error. Implement a retry strategy with a maximum number of attempts as an exit condition. If the issue still doesn't resolve, ask the user to try again later. If it fails consistently, [contact Google Play Developer support](https://support.google.com/googleplay/android-developer/gethelp), include Play Age Signals API in the subject, and include as much technical detail as possible (such as a bug report). | No |
+\ No newline at end of file

@@ -1,0 +1,138 @@
+diff --git a/docs/jetpack/androidx/releases/appstate-transform.md b/docs/jetpack/androidx/releases/appstate-transform.md
+index 78eeaedc..2fbd38db 100644
+--- a/docs/jetpack/androidx/releases/appstate-transform.md
++++ b/docs/jetpack/androidx/releases/appstate-transform.md
+@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/appstate-transform
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
++
+ # Appstate Transform
+ 
+ --
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| November 04, 2026 | - | - | - | [1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/appstate-transform#1.0.0-alpha02) |
++| November 18, 2026 | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/appstate-transform.md.txt#1.0.0-alpha03) |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,40 +27,10 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.appstate.transform:transform:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-android:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-desktop:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-iosarm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-iossimulatorarm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-js:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-linuxarm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-linuxx64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-macosarm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-mingwx64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing-android:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing-desktop:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing-iosarm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing-iossimulatorarm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing-js:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing-linuxarm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing-linuxx64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing-macosarm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing-mingwx64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing-tvosarm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing-tvossimulatorarm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing-wasm-js:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing-watchosarm32:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing-watchosarm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing-watchosdevicearm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-testing-watchossimulatorarm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-tvosarm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-tvossimulatorarm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-wasm-js:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-watchosarm32:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-watchosarm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-watchosdevicearm64:1.0.0-alpha02"
+-    implementation "androidx.appstate.transform:transform-watchossimulatorarm64:1.0.0-alpha02"
++    implementation "androidx.appstate.transform:transform:1.0.0-alpha03"
++    implementation "androidx.appstate.transform:transform-testing:1.0.0-alpha03"
++    implementation "androidx.appstate.transform:transform-testing-wasm:1.0.0-alpha03"
++    implementation "androidx.appstate.transform:transform-wasm:1.0.0-alpha03"
+ }
+ ```
+ 
+@@ -66,40 +38,10 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.appstate.transform:transform:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-android:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-desktop:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-iosarm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-iossimulatorarm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-js:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-linuxarm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-linuxx64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-macosarm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-mingwx64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing-android:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing-desktop:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing-iosarm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing-iossimulatorarm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing-js:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing-linuxarm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing-linuxx64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing-macosarm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing-mingwx64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing-tvosarm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing-tvossimulatorarm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing-wasm-js:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing-watchosarm32:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing-watchosarm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing-watchosdevicearm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-testing-watchossimulatorarm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-tvosarm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-tvossimulatorarm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-wasm-js:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-watchosarm32:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-watchosarm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-watchosdevicearm64:1.0.0-alpha02")
+-    implementation("androidx.appstate.transform:transform-watchossimulatorarm64:1.0.0-alpha02")
++    implementation("androidx.appstate.transform:transform:1.0.0-alpha03")
++    implementation("androidx.appstate.transform:transform-testing:1.0.0-alpha03")
++    implementation("androidx.appstate.transform:transform-testing-wasm:1.0.0-alpha03")
++    implementation("androidx.appstate.transform:transform-wasm:1.0.0-alpha03")
+ }
+ ```
+ 
+@@ -120,6 +62,17 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha03
++
++November 18, 2026
++
++`androidx.appstate.transform:transform-*:1.0.0-alpha03` is released. Version 1.0.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a021adf44194ae86e596ae25ca43d5e4e18f6926..3e55c1ad889c6c0087b0bf6720b1a970b6e8ea3b/appstate/transform).
++
++**API Changes**
++
++- `AppState Transform` has added support for `SavedStateContainer` that enables the use of `rememberSaveable` inside of the `@Composable` lambda. The ensures that all of the state inside the transform is not saved across configuration changes and process death. ([Ia66ea](https://android-review.googlesource.com/#/q/Ia66eaca2bb23885fd8f7968275a54b9df8e76990))
++- `AppState Transform` now provides a `RunnableTransformScope` that provides a public `run` function to kick off the scope while the default `TransformScope` interface can continue to be used for `launchTransform` with the assumption that the scope is already running. ([Ia1f0d](https://android-review.googlesource.com/#/q/Ia1f0d4eff859ffa37b25d4fccf60d5f89b8214b9))
++
+ ### Version 1.0.0-alpha02
+ 
+ November 04, 2026
+@@ -134,7 +87,7 @@ October 28, 2026
+ 
+ **New Features**
+ 
+-[`AppState Transform`](https://developer.android.com/reference/kotlin/androidx/appstate/transform/package-summary) is a new library built on the Compose runtime that allows for running a composition outside of your UI. The `androidx.appstate.transform:transform` artifact provides the library APIs and it also comes with a `androidx.appstate.transform:transform-testing` artifact for testing. Developers can use Transform to manage their composition anywhere within their app.
++[`AppState Transform`](https://developer.android.com/reference/kotlin/androidx/appstate/transform/package-summary.md.txt) is a new library built on the Compose runtime that allows for running a composition outside of your UI. The `androidx.appstate.transform:transform` artifact provides the library APIs and it also comes with a `androidx.appstate.transform:transform-testing` artifact for testing. Developers can use Transform to manage their composition anywhere within their app.
+ 
+     // With helper function
+     var sourceState by mutableStateOf(0)

@@ -1,0 +1,319 @@
+diff --git a/docs/jetpack/androidx/releases/core.md b/docs/jetpack/androidx/releases/core.md
+index 683eb10f..94d71752 100644
+--- a/docs/jetpack/androidx/releases/core.md
++++ b/docs/jetpack/androidx/releases/core.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/jetpack/androidx/releases/core
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
++
+ # Core
+ 
+ [Code Sample](https://github.com/android/user-interface-samples/tree/main/Notifications) Target the latest platform features and APIs while also supporting older devices.
+@@ -13,15 +15,15 @@ This table lists all the artifacts in the `androidx.core` group.
+ 
+ | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| core | [1.19.1](https://developer.android.com/jetpack/androidx/releases/core#1.19.1) | - | - | - |
+-| core-animation | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core#core-animation-1.0.0) | - | - | - |
+-| core-google-shortcuts | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-google-shortcuts-1.1.0) | - | - | [1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core#core-google-shortcuts-1.2.0-alpha01) |
+-| core-performance | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core#1.0.0) | - | - | - |
+-| core-remoteviews | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-remoteviews-1.1.0) | - | - | - |
+-| core-role | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-role-1.1.0) | - | - | - |
+-| core-splashscreen | [1.2.0](https://developer.android.com/jetpack/androidx/releases/core#core-splashscreen-1.2.0) | - | - | - |
++| core | [1.19.1](https://developer.android.com/jetpack/androidx/releases/core.md.txt#1.19.1) | - | - | [1.20.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core.md.txt#1.20.0-alpha01) |
++| core-animation | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core.md.txt#core-animation-1.0.0) | - | - | - |
++| core-google-shortcuts | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core.md.txt#core-google-shortcuts-1.1.0) | - | - | [1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core.md.txt#core-google-shortcuts-1.2.0-alpha01) |
++| core-performance | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core.md.txt#1.0.0) | - | - | - |
++| core-remoteviews | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core.md.txt#core-remoteviews-1.1.0) | - | - | - |
++| core-role | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core.md.txt#core-role-1.1.0) | - | - | - |
++| core-splashscreen | [1.2.0](https://developer.android.com/jetpack/androidx/releases/core.md.txt#core-splashscreen-1.2.0) | - | - | - |
+ 
+-This library was last updated on: November 04, 2026
++This library was last updated on: November 18, 2026
+ 
+ ## Declaring dependencies
+ 
+@@ -115,6 +117,71 @@ for more information.
+ 
+ ## Core and Core-ktx
+ 
++### Version 1.20
++
++#### Version 1.20.0-alpha01
++
++November 18, 2026
++
++`androidx.core:core:1.20.0-alpha01`, `androidx.core:core-ktx:1.20.0-alpha01`, and `androidx.core:core-testing:1.20.0-alpha01` are released. Version 1.20.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ee9b3bd4e15861a649335dca51923b358357b151..3e55c1ad889c6c0087b0bf6720b1a970b6e8ea3b/core).
++
++**API Changes**
++
++- Added `ViewCompat.getSupplementalDescription` and `ViewCompat.setSupplementalDescription` to specify supplemental descriptions for `View` instances that complement existing text or content descriptions, and to work around a platform issue on API 36 and 37 where `View.setSupplementalDescription` was not propagated to `AccessibilityNodeInfo`. ([Iae481](https://android-review.googlesource.com/#/q/Iae481cf0e05cfd1e30e4d8e19160d9137fab57cb))
++- Added `CallAttributesCompat.contactUri` and `CallAttributesCompat.isGroupCall` to allow specifying a Contacts Provider or `VoIP` contact directory URI and indicating whether a call is a group call. ([Iddc59](https://android-review.googlesource.com/#/q/Iddc59d31efc92fc347b9db923e9bf0354e013b4e))
++- Added preview `AccessibilityNodeInfoCompat.PublicationInfoCompat` for describing digital publication elements, such as chapters, footnotes, and glossary entries, to accessibility services. ([I39c87](https://android-review.googlesource.com/#/q/I39c87080a4dbb21a0a43cc3d1a6571fb82f50bfb))
++- Added preview `MATH_TAG_ANNOTATION`, `MATH_TAG_ANNOTATION_XML`, `MATH_TAG_ERROR`, `MATH_TAG_PHANTOM`, `MATH_TAG_SEMANTICS`, and `MATH_TAG_SPACE` constants to `AccessibilityNodeInfoCompat.MathInfoCompat`. ([Idcbb8](https://android-review.googlesource.com/#/q/Idcbb8e2d5bcfa6a3a779751951c043f9e638b3a0))
++- Remove `NotificationCompat.ProjectedExtender#resetActions()`. ([Ief3fc](https://android-review.googlesource.com/#/q/Ief3fc164a23a251e8a7697c7c67f69ba786c9e99))
++- Add `FontRequest.Builder` and `fontProviderSystemCerts` attribute to font-family XML to verify system font providers. ([I2630b](https://android-review.googlesource.com/#/q/I2630b63660bb5850d5b0e855f0506760cbd150be))
++- Added `flush`, `notifyViewAppeared`, and `notifyViewDisappeared` methods to `ContentCaptureSessionCompat` in `androidx.core:core`. ([I50526](https://android-review.googlesource.com/#/q/I505262e92def0141f463831f22eade5325b34339))
++- `ContentPipCallback` methods are renamed to `onInit`, `onPrepare`, `onAttach` and `onFinish`; `onFinish` now takes a `FinishReason`. Added `onError(Throwable)`, which is called instead of `onFinish` when entering picture-in-picture fails. ([I14b44](https://android-review.googlesource.com/#/q/I14b44a9ff32ed68c5d10d4ef76566731cf7d2751))
++- Rename `NotificationCompat.ProjectedExtender#hasActions()` to `shouldUseExtenderActions()` and add `resetActions()` to reset projected actions back to the default unset state. ([Ic2baf](https://android-review.googlesource.com/#/q/Ic2baf00d6368e1c448f74a2c2fd1be06ef08551d))
++- Add `NotificationCompat.ProjectedExtender#hasActions()` to distinguish between unset projected actions and explicitly cleared actions. ([Ic47a8](https://android-review.googlesource.com/#/q/Ic47a8e3b9f12046d8e5a1739c2b480e615d9f2a4))
++- Added action management methods (`addAction`, `addActions`, `clearActions`, `getActions`) to `NotificationCompat.ProjectedExtender` to support notification actions on projected devices. ([Ia28c7](https://android-review.googlesource.com/#/q/Ia28c709e41d23948157630294857612394857612))
++- Added reified extension methods on Bundle for the `BundleCompat` methods supporting `Parcelable` and `Serializable`. ([Ib5bbf](https://android-review.googlesource.com/#/q/Ib5bbfaf5d4b08c3d95f8d6ce284969fdc51ed56c), [b/506684521](https://issuetracker.google.com/issues/506684521))
++- Added `isPortrait(Context, int)` and `isLandscape(Context, int)` helper methods to `ScreenOrientation`. ([Ieb543](https://android-review.googlesource.com/#/q/Ieb54303b3b5ff2ea0d1f5293034527f1ddec86bd))
++- Renamed `ScreenOrientationCompat` to `ScreenOrientation`. ([Ibfd04](https://android-review.googlesource.com/#/q/Ibfd044c49cbdcac9d2abb2dda4d4f711c4330a97))
++- Added `ScreenOrientationCompat` to resolve 4-way screen orientation constants from rotation angles. ([I1b29e](https://android-review.googlesource.com/#/q/I1b29e2da9d0ad1fd5baa80a6b8b4af0871e08687))
++- Add `disablePipOnAppSwitch` to `ContentPipExt` ([Ie5bad](https://android-review.googlesource.com/#/q/Ie5badea51bda65184ddd96d55986725f78fff275))
++- Added `any`, `all`, and `none` predicate extension functions to `SparseArray`, `SparseBooleanArray`, `SparseIntArray`, and `SparseLongArray`. ([I99a75](https://android-review.googlesource.com/#/q/I99a7566e9b4417c925bdce68587c188c0dc6f3fb))
++- Added `getOrPut` extension functions to `SparseArray`, `SparseBooleanArray`, `SparseIntArray`, and `SparseLongArray`. ([I0bc45](https://android-review.googlesource.com/#/q/I0bc458e22621847a09e9aa8431afb5dd42154f91))
++- Added `sparseArrayOf`, `sparseBooleanArrayOf`, `sparseIntArrayOf`, and `sparseLongArrayOf` builder functions. ([I23d5e](https://android-review.googlesource.com/#/q/I23d5ee8e601a6026d5b79b14efce93708dda5be8))
++- Introduced a fallback `PiP` solution in `androidx.core.pip` to maintain Picture-in-Picture functionality during navigation gestures (like quick switch) where native `PiP` may be suppressed. ([If289a](https://android-review.googlesource.com/#/q/If289a70b583cc87b323cf95e5cbc005dc3fb784a))
++- `BasicPictureInPicture` and `VideoPlaybackPictureInPicture` classes now require an Executor in their constructors. A new commit() method has been introduced and must be called to apply parameter changes. ([Ib9150](https://android-review.googlesource.com/#/q/Ib9150d2d4bba801dd10d279fc56dcfdbb5be5ef1))
++- Added preview `getOffsetType()` and `Builder` APIs to `AccessibilityNodeInfoCompat.SelectionPositionCompat` to support multi-node selection boundaries. ([Iddacd](https://android-review.googlesource.com/#/q/Iddacd7f5527e1a8b1bd524e8fc11887c4aac39b9))
++- Introduced `@PreviewAccessibilityApi` opt-in annotation for pre-release accessibility features. ([I80cbf](https://android-review.googlesource.com/#/q/I80cbfd19b440fb4cc4951157862a36cc312d33d7))
++- Add new APIs to get and set math info ([Ib5ad3](https://android-review.googlesource.com/#/q/Ib5ad3c55c42e0e7c294d9202a3125ff97c548bff))
++
++**Bug Fixes**
++
++- `compileSdk` for Compose UI and the Compose libraries that build against it (Animation, Foundation, Material 3, UI Test, UI Tooling, UI `ViewBinding` and Navigation3 UI) updated to 37.2. This will require transitively updating `compileSdk` for all apps and libraries using them. ([I2859d](https://android-review.googlesource.com/#/q/I2859d6c2a90dea97c73f0c19bb1558ee6d076166))
++- Fixed an issue on legacy (non-transactional) calls where `availableEndpoints` could remain empty when Telecom delays or withholds `onCallAudioStateChanged`. ([Ib46b0](https://android-review.googlesource.com/#/q/Ib46b07002647b7ea0987290f617c214227db9e0d))
++- Restored the `FingerprintManagerCompat` implementation that was made a no-op in core 1.18.0. That change caused `androidx.biometric` 1.1.0 and other callers to report no fingerprint hardware and fail fingerprint authentication on API 29 and lower. `isHardwareDetected()`, `hasEnrolledFingerprints()` and `authenticate()` now delegate to the platform `FingerprintManager` again. ([Id8c84](https://android-review.googlesource.com/#/q/Id8c842cf875bf41716bbcb2b0d96bac5aa0df460), [b/543076354](https://issuetracker.google.com/issues/543076354))
++- `AccessibilityNodeInfoCompat.MathInfoCompat` set with `AccessibilityNodeInfoCompat.setStructuredDataInfo` is now available to accessibility services through `AccessibilityNodeInfoCompat.getStructuredDataInfo` below API 37, where it's stored in the node's extras. ([If7e95](https://android-review.googlesource.com/#/q/If7e954bb5afded8440fab548d40fbf6924303fdd))
++- Normalized `DisconnectCause.UNKNOWN` to `DisconnectCause.LOCAL` and handled platform call aborts with `DisconnectCause.CANCELED` in `onDisconnect` so that platform-initiated disconnects report consistent causes across API levels. ([I3049f](https://android-review.googlesource.com/#/q/I3049fd3a4c97f3d44ac8ee244f05253abe499259))
++- Hardening the `ContentPipExt` fallback `PiP` solution. ([Id276b](https://android-review.googlesource.com/#/q/Id276b244541f2b43ebfcbd1a7223466c497aef5c))
++- Fixed an issue where video calls on a Bluetooth headset could unexpectedly switch to speakerphone during transient audio route updates. ([Ie435a](https://android-review.googlesource.com/#/q/Ie435aa53b036e1fdaa01c188be3321d7155a3d20))
++- Bump core-telecom to 1.1.0-rc01. ([Iba053](https://android-review.googlesource.com/#/q/Iba0530fd92731fbd4e31cd2d6ac903c229422f8d))
++- Added `@Rotation` `IntDef` to restrict rotation values in `ScreenOrientation`. ([I03bf0](https://android-review.googlesource.com/#/q/I03bf0c29d5b5ac17ed19a8dd323f44a9c4b693e2))
++- Fixed an issue where video calls started with a preferred audio endpoint (such as the phone earpiece) would erroneously revert to the device speaker shortly after connecting. ([I38ea6](https://android-review.googlesource.com/#/q/I38ea69d9b482e694f4032bc2b4e86eeffa7448fc))
++- Fixed an issue where video calls would incorrectly route audio to the device speaker instead of a connected wired headset on call start. ([I575a8](https://android-review.googlesource.com/#/q/I575a8437740b801903921abbf96abcab67904a9d))
++- Fixed an issue where manipulating `WindowInsetsCompat` could sometimes cause an `IllegalArgumentException` during screen rotation on Android 11 devices. ([I68aaf](https://android-review.googlesource.com/#/q/I68aaf81e6de4ecbf0e9c940a3aeffb91a092872e), [b/284078031](https://issuetracker.google.com/issues/284078031))
++- Allow `VoIP` apps to disconnect with `DisconnectCause.ERROR` starting in SDK 38, with automatic remapping to LOCAL on older platform versions. ([I5a58c](https://android-review.googlesource.com/#/q/I5a58cd455804532a8f605ab6ba34d4ef43075a13))
++- Bump core-telecom to 1.1.0-beta01. ([I5b514](https://android-review.googlesource.com/#/q/I5b514adb8020ba8cf672a1cb46ef7bbac9ce68a0))
++- Callback `onFinishContentPip` if `enterPip` fails ([I04b77](https://android-review.googlesource.com/#/q/I04b7761fb0b5ad379d16b9207771abad0f76d9e1))
++- Fixed an issue where `CallsManager#addCall` could delay `CallControlScope` entry by up to 2 seconds while waiting for starting audio endpoint resolution and Bluetooth stabilization. ([Ia1e89](https://android-review.googlesource.com/#/q/Ia1e89af7a3e18a9feaefc3a79d5e9ceaefa2e952))
++- Fixed a race condition where invoking `CallsManager#addCall` or `CallsManager#addCallWithExtensions` while another call setup is in progress could lead to deadlocks or silent failures in the OS `TransactionManager`. Overlapping call setups are now immediately rejected with `CallException(ERROR_CALL_NOT_PERMITTED_AT_PRESENT_TIME)`. ([If0ac8](https://android-review.googlesource.com/#/q/If0ac8aeefdff2ad4be661b6bff0df97b9c7a999e))
++- Fix video calls route to earpiece instead of speaker bug when using the backwards compat path on sdk=34+ ([I9f2bd](https://android-review.googlesource.com/#/q/I9f2bd0ac012555277e189543fe6eda3a6bbd0854))
++- Fixed an issue where incoming audio-only `VoIP` calls were incorrectly treated as video calls by the platform, causing them to route to the speakerphone instead of the earpiece ([I95902](https://android-review.googlesource.com/#/q/I959025dfd4231ca7beea7287a19e8094608a7d3a))
++- Catch exception in `setPictureInPictureParams` ([Ibfeb2](https://android-review.googlesource.com/#/q/Ibfeb29ee777d82e1ee6b2e3a82240bed3d21d61d))
++- Fixed a bug in Core-Telecom where an intentional user switch to speakerphone during call initialization would be incorrectly reverted to the earpiece. ([I9e251](https://android-review.googlesource.com/#/q/I9e251ce4c81b60e3e1712984483981682eb837e7))
++- Fixed an issue where redundant audio state updates in core-telecom could lead to main thread congestion and potential ANRs. ([Ibd794](https://android-review.googlesource.com/#/q/Ibd794ea1e1c326a7e17075293142170d35fc74e8))
++- Fix NPE in `BlueoothProfileListener#onServiceConnected` ([Idbd57](https://android-review.googlesource.com/#/q/Idbd57d31151d1d30f7190c305b91d13408e40485))
++
++**External Contribution**
++
++- Added `ObjectsCompat.requireNonNullElse` and `ObjectsCompat.requireNonNullElseGet`, backporting `java.util.Objects` API 30 methods down to `minSdk` 23. ([I6e564](https://android-review.googlesource.com/#/q/I6e564983bf924079f3759b2f1f0f2e8e4915fb98))
++
+ ### Version 1.19
+ 
+ #### Version 1.19.1
+@@ -238,7 +305,7 @@ January 14, 2026
+ - Add support for `IntentSender` into androidx-main
+ - Add support for `IntentSender` ([Ia998d](https://android-review.googlesource.com/#/q/Ia998d8afc5e52523f190aaf0c092c67bb9440c31), [b/445163724](https://issuetracker.google.com/issues/445163724))
+ - Add new APIs to get and set selection ([I05ec4](https://android-review.googlesource.com/#/q/I05ec4efb82a22cfa2994d1470bfbe5ca5d5a22f1), [b/362784540](https://issuetracker.google.com/issues/362784540))
+-- Add known issue 452390376 [Auto Exposure Mode Low Light Boost (LLB)](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#CONTROL_AE_MODE_ON_LOW_LIGHT_BOOST_BRIGHTNESS_PRIORITY) cannot be enabled for stream use cases such as VIDEO_CALL on Pixel 10 devices. ([Iba480](https://android-review.googlesource.com/#/q/Iba4803d52c9c93b88694aceb7d218b4c7a0e77f0), [b/452390376](https://issuetracker.google.com/issues/452390376))
++- Add known issue 452390376 [Auto Exposure Mode Low Light Boost (LLB)](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata.md.txt#CONTROL_AE_MODE_ON_LOW_LIGHT_BOOST_BRIGHTNESS_PRIORITY) cannot be enabled for stream use cases such as VIDEO_CALL on Pixel 10 devices. ([Iba480](https://android-review.googlesource.com/#/q/Iba4803d52c9c93b88694aceb7d218b4c7a0e77f0), [b/452390376](https://issuetracker.google.com/issues/452390376))
+ - Add new APIs to get and set sort direction ([I658de](https://android-review.googlesource.com/#/q/I658defcf8e0489fe98821132cb373f013a465219), [b/394670064](https://issuetracker.google.com/issues/394670064))
+ - Added new APIs to `CallControlScope` for video call management: `getVideoState()` to observe audio/video state and `requestVideoState(int)` to request changes to the video state. ([I51065](https://android-review.googlesource.com/#/q/I510657e4ebad6bc72c920543ee0e560e3f0984f9), [b/333074774](https://issuetracker.google.com/issues/333074774))
+ - Add missing `AccessibilityNodeInfoCompat` checked state constants. ([I40b4c](https://android-review.googlesource.com/#/q/I40b4cecf074bdbf59aecf3cbeb2fc72222a69816))
+@@ -299,7 +366,7 @@ June 18, 2025
+ 
+ **API Changes**
+ 
+-- Added `NotificationCompat.ProgressStyle` and `NotificationCompat.Builder.setRequestPromotedOngoing()`. See [Progress centric notifications](https://developer.android.com/about/versions/16/features/progress-centric-notifications) and [Live Updates](https://developer.android.com/develop/ui/views/notifications/live-update)
++- Added `NotificationCompat.ProgressStyle` and `NotificationCompat.Builder.setRequestPromotedOngoing()`. See [Progress centric notifications](https://developer.android.com/about/versions/16/features/progress-centric-notifications.md.txt) and [Live Updates](https://developer.android.com/develop/ui/views/notifications/live-update.md.txt)
+   for details.
+ 
+ - Added `Parcel.use` extension function for safe handling of `Parcel` resources. ([I436da](https://android-review.googlesource.com/#/q/I436da7bab59f43b3b0b8216612e769b52c0a3a99))
+@@ -558,7 +625,7 @@ November 29, 2023
+ 
+ **New Features**
+ 
+-- Adds the `OnUserLeaveHintProvider` interface to allow any component to receive `onUserLeaveHint` events necessary for implementing picture-in-picture. This is implemented by `ComponentActivity` in [Activity `1.9.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/activity#1.9.0-alpha01). ([I54892](https://android-review.googlesource.com/#/q/I54892c9ab5a8a002164b9f98cd31e02d56d73da7))
++- Adds the `OnUserLeaveHintProvider` interface to allow any component to receive `onUserLeaveHint` events necessary for implementing picture-in-picture. This is implemented by `ComponentActivity` in [Activity `1.9.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#1.9.0-alpha01). ([I54892](https://android-review.googlesource.com/#/q/I54892c9ab5a8a002164b9f98cd31e02d56d73da7))
+ 
+ **API Changes**
+ 
+@@ -568,7 +635,7 @@ November 29, 2023
+ 
+ **Dependency Update**
+ 
+-- Core now depends on [Lifecycle `2.6.2`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.6.2). ([I2d94c](https://android-review.googlesource.com/#/q/I2d94c8b7fc3fb3bb59547d56a5d2f06584f1b5a4))
++- Core now depends on [Lifecycle `2.6.2`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.6.2). ([I2d94c](https://android-review.googlesource.com/#/q/I2d94c8b7fc3fb3bb59547d56a5d2f06584f1b5a4))
+ 
+ #### Version 1.13.0-alpha01
+ 
+@@ -945,7 +1012,7 @@ May 18, 2022
+ 
+ April 27, 2022
+ 
+-`androidx.core:core:1.9.0-alpha03` and `androidx.core:core-ktx:1.9.0-alpha03` are released. Version 1.9.0-alpha04 contains all commits from [1.8.0-beta01](https://developer.android.com/jetpack/androidx/releases/core#1.8.0-beta01), but has been built against Android 13 Beta 1.
++`androidx.core:core:1.9.0-alpha03` and `androidx.core:core-ktx:1.9.0-alpha03` are released. Version 1.9.0-alpha04 contains all commits from [1.8.0-beta01](https://developer.android.com/jetpack/androidx/releases/core.md.txt#1.8.0-beta01), but has been built against Android 13 Beta 1.
+ 
+ This version requires Android 13 Beta 1 to compile and is not guaranteed to be runtime-compatible with future developer previews.
+ 
+@@ -1070,8 +1137,8 @@ February 9, 2022
+ 
+ **API Changes**
+ 
+-- Adds the `OnPictureInPictureModeChangedProvider` interface to allow any component to receive picture-in-picture mode change events. This is implemented by `ComponentActivity` in [Activity `1.5.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/activity#1.5.0-alpha02). ([I9f567](https://android-review.googlesource.com/#/q/I9f56767522d22873e0539a7f1a51257972619806))
+-- Adds the `OnMultiWindowModeChangedProvider` interface to allow any component to receive multi-window mode change events. This is implemented by `ComponentActivity` in [Activity `1.5.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/activity#1.5.0-alpha02). ([I62d91](https://android-review.googlesource.com/#/q/I62d91abd50bc3e1e3d51b924f5dc144c893b4250))
++- Adds the `OnPictureInPictureModeChangedProvider` interface to allow any component to receive picture-in-picture mode change events. This is implemented by `ComponentActivity` in [Activity `1.5.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#1.5.0-alpha02). ([I9f567](https://android-review.googlesource.com/#/q/I9f56767522d22873e0539a7f1a51257972619806))
++- Adds the `OnMultiWindowModeChangedProvider` interface to allow any component to receive multi-window mode change events. This is implemented by `ComponentActivity` in [Activity `1.5.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#1.5.0-alpha02). ([I62d91](https://android-review.googlesource.com/#/q/I62d91abd50bc3e1e3d51b924f5dc144c893b4250))
+ - Cleaned up nullability for a subset of androidx.core APIs. ([Ia0e2f](https://android-review.googlesource.com/#/q/Ia0e2fef924851e9f96dc316bdaff55c61e60400f), [b/206113818](https://issuetracker.google.com/issues/206113818))
+ 
+ #### Version 1.8.0-alpha03
+@@ -1131,8 +1198,8 @@ October 27, 2021
+ 
+ **Important changes since 1.6.0**
+ 
+-- Adds support for interacting with SDK 30 and later's permission revocation and app hibernation features, with backporting down to SDK 23 on supported devices. See [IntentCompat.createManageUnusedAppRestrictionsIntent](https://developer.android.com/reference/androidx/core/content/IntentCompat#createManageUnusedAppRestrictionsIntent(android.content.Context,%20java.lang.String)) for more information.
+-- Adds support for composing menu support in components, see [MenuProvider](https://developer.android.com/reference/kotlin/androidx/core/view/MenuProvider) for more information.
++- Adds support for interacting with SDK 30 and later's permission revocation and app hibernation features, with backporting down to SDK 23 on supported devices. See [IntentCompat.createManageUnusedAppRestrictionsIntent](https://developer.android.com/reference/androidx/core/content/IntentCompat.md.txt#createManageUnusedAppRestrictionsIntent(android.content.Context,%20java.lang.String)) for more information.
++- Adds support for composing menu support in components, see [MenuProvider](https://developer.android.com/reference/kotlin/androidx/core/view/MenuProvider.md.txt) for more information.
+ 
+ #### Version 1.7.0-rc01
+ 
+@@ -1456,7 +1523,7 @@ August 19, 2020
+ 
+ **New Features**
+ 
+-- The [`WindowInsetsCompat`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat) APIs have been updated to those in the platform in Android 11. This includes the new `ime()` inset type, which allows checking the visibility and size of the on-screen keyboard.
++- The [`WindowInsetsCompat`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat.md.txt) APIs have been updated to those in the platform in Android 11. This includes the new `ime()` inset type, which allows checking the visibility and size of the on-screen keyboard.
+ 
+   - Some caveats about the `ime()`type, it works very reliably on API 23+ when your Activity is using the `adjustResize` [window soft input mode](https://developer.android.com/training/keyboard-input/visibility#Respond). If you're instead using the `adjustPan` mode, it should work reliably back to API 14.
+ 
+@@ -1673,7 +1740,7 @@ September 5, 2019
+ 
+ **Bug fixes**
+ 
+-- Nested pre scrolling is no longer performed before the gesture exceeds touch slop ([b/139530818](https://issuetracker.google.com/issues/139530818), [aosp/1105373](https://android-review.googlesource.com/1105373)). This benefits [ViewPager2](https://developer.android.com/jetpack/androidx/releases/viewpager2) and other libraries.
++- Nested pre scrolling is no longer performed before the gesture exceeds touch slop ([b/139530818](https://issuetracker.google.com/issues/139530818), [aosp/1105373](https://android-review.googlesource.com/1105373)). This benefits [ViewPager2](https://developer.android.com/jetpack/androidx/releases/viewpager2.md.txt) and other libraries.
+ 
+ #### Version 1.2.0-alpha03
+ 
+@@ -1682,7 +1749,7 @@ August 7, 2019
+ `androidx.core:core:1.2.0-alpha03` and `androidx.core:core-ktx:1.2.0-alpha03` are released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/cd16b09b10c939184a8a47a3f85b758f16c08e85..ece690f1fdb4481b47c5128fd21d88da7d6850a6/core).
+ 
+ > [!NOTE]
+-> **Note:** The Kotlin dependant libraries of this version (`core-ktx`) target Java 8 bytecode. Please see our [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) page on using Java 8 in your project.
++> **Note:** The Kotlin dependant libraries of this version (`core-ktx`) target Java 8 bytecode. Please see our [Use Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt) page on using Java 8 in your project.
+ 
+ **New features**
+ 
+@@ -1709,7 +1776,7 @@ June 13, 2019
+ `androidx.core:core:1.2.0-alpha02` and `androidx.core:core-ktx:1.2.0-alpha02` are released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/f6d94c8b8adaf0edaff495c1e88e8ddc96060317..cd16b09b10c939184a8a47a3f85b758f16c08e85/core).
+ 
+ > [!NOTE]
+-> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
++> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt) to learn how to use it in your project.
+ 
+ **API changes**
+ 
+@@ -1754,7 +1821,7 @@ September 5, 2019
+ **Important Changes since 1.0.0**
+ 
+ - Updated accessibility APIs to match the Android 10 platform accessibility APIs
+-- Added improvements to Nested Scrolling; see [`NestedScrollingChild3`](https://developer.android.com/reference/androidx/core/view/NestedScrollingChild3) and [`NestedScrollingParent3`](https://developer.android.com/reference/androidx/core/view/NestedScrollingParent3).
++- Added improvements to Nested Scrolling; see [`NestedScrollingChild3`](https://developer.android.com/reference/androidx/core/view/NestedScrollingChild3.md.txt) and [`NestedScrollingParent3`](https://developer.android.com/reference/androidx/core/view/NestedScrollingParent3.md.txt).
+ - This library no longer exposes the `androidx.collection` dependency as part of its API. If you were depending on the `androidx.collection` types implicitly through a dependency on Core, you will need to add an explicit `androidx.collection` dependency to your library or app. This change is source-incompatible but retains binary compatibility. The Collection dependency is still a transitive dependency of Core but as an implementation detail instead of part of its API.
+ - Worked around an IPC compatibility issue caused by refactor to androidx ([aosp/948725](https://android-review.googlesource.com/948725), [aosp/938269](https://android-review.googlesource.com/938269))
+ - Added a variety of fixes for AppCompat DayNight ([aosp/942956](https://android-review.googlesource.com/942956))
+@@ -2035,7 +2102,7 @@ June 30, 2021
+ 
+ **Major features of 1.0.0**
+ 
+-Include this module to allow shortcuts saved using [ShortcutManagerCompat](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat) to also be donated to Google. This will unlock additional features with those shortcuts for users, such as displaying them as suggestions or allowing Google Assistant to fulfill them through voice query. There is no limit to the number of shortcuts that can be donated, and those that are donated this way are saved on-device. For more information, see the full documentation on [pushing dynamic shortcuts to Assistant](https://developers.google.com/assistant/app/dynamic-shortcuts).
++Include this module to allow shortcuts saved using [ShortcutManagerCompat](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat.md.txt) to also be donated to Google. This will unlock additional features with those shortcuts for users, such as displaying them as suggestions or allowing Google Assistant to fulfill them through voice query. There is no limit to the number of shortcuts that can be donated, and those that are donated this way are saved on-device. For more information, see the full documentation on [pushing dynamic shortcuts to Assistant](https://developers.google.com/assistant/app/dynamic-shortcuts).
+ 
+ #### Version 1.0.0-rc01
+ 
+@@ -2512,7 +2579,7 @@ May 1, 2024
+ - `ObjectAnimator.ofMultiInt`, `ObjectAnimator.ofMultiFloat` (API Level 21)
+ - `ValueAnimator#setCurrentFraction` (API Level 22)
+ - `AnimatorSet#setCurrentPlayTime` (API Level 26)
+-- `androidx.core:core-animation-testing` allows developers to test animators in a deterministic manner. See [`AnimatorTestRule`](https://developer.android.com/reference/androidx/core/animation/AnimatorTestRule) for the details.
++- `androidx.core:core-animation-testing` allows developers to test animators in a deterministic manner. See [`AnimatorTestRule`](https://developer.android.com/reference/androidx/core/animation/AnimatorTestRule.md.txt) for the details.
+ 
+ #### Version 1.0.0-rc01
+ 
+@@ -2554,7 +2621,7 @@ April 15, 2020
+ - `ObjectAnimator.ofMultiInt`, `ObjectAnimator.ofMultiFloat` (API Level 21)
+ - `ValueAnimator#setCurrentFraction` (API Level 22)
+ - `AnimatorSet#setCurrentPlayTime` (API Level 26)
+-- `androidx.core:core-animation-testing` allows developers to test animators in a deterministic manner. See [AnimatorTestRule](https://developer.android.com/reference/androidx/core/animation/AnimatorTestRule) for the details.
++- `androidx.core:core-animation-testing` allows developers to test animators in a deterministic manner. See [AnimatorTestRule](https://developer.android.com/reference/androidx/core/animation/AnimatorTestRule.md.txt) for the details.
+ 
+ ## Core-Backported-Fixes
+ 
+@@ -2584,7 +2651,7 @@ November 05, 2025
+ 
+ **API Changes**
+ 
+-- Add known issue b/452390376 ([Auto Exposure Mode Low Light Boost (LLB)](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#CONTROL_AE_MODE_ON_LOW_LIGHT_BOOST_BRIGHTNESS_PRIORITY)) cannot be enabled for stream use cases such as VIDEO_CALL on Pixel 10 devices. ([Iba480](https://android-review.googlesource.com/#/q/Iba4803d52c9c93b88694aceb7d218b4c7a0e77f0), [b/452390376](https://issuetracker.google.com/issues/452390376))
++- Add known issue b/452390376 ([Auto Exposure Mode Low Light Boost (LLB)](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata.md.txt#CONTROL_AE_MODE_ON_LOW_LIGHT_BOOST_BRIGHTNESS_PRIORITY)) cannot be enabled for stream use cases such as VIDEO_CALL on Pixel 10 devices. ([Iba480](https://android-review.googlesource.com/#/q/Iba4803d52c9c93b88694aceb7d218b4c7a0e77f0), [b/452390376](https://issuetracker.google.com/issues/452390376))
+ 
+ **Bug Fixes**
+ 
+@@ -2607,16 +2674,18 @@ August 13, 2025
+ 
+ - The Core Backported Fixes library lets you check if a critical bug fix has been applied to a device. This is useful because it can take a long time for bug fixes to be rolled out to all devices, and this API provides a way for you to know when it is safe to use features that depend on a fix.
+ 
+-      val fixManager = BackportedFixManager()
+-          if (fixManager.isFixed(KnownIssues.KI_1234)) {
+-            Offer_experience_that_needs_fix()
+-          } else {
+-            Offer_experience_that_avoids_the_bug()
+-        }
++  ```kotlin
++  val fixManager = BackportedFixManager()
++      if (fixManager.isFixed(KnownIssues.KI_1234)) {
++        Offer_experience_that_needs_fix()
++      } else {
++        Offer_experience_that_avoids_the_bug()
++    }
++  ```
+ 
+ This release includes
+ 
+-- [`KnownIssues.KI_398591036`](https://developer.android.com/reference/androidx/core/backported/fixes/KnownIssues#KI_398591036()): Abnormal color tone when capturing `JPEG-R` images on some Pixel devices. Fix by using `JPEG` outputs until this KI is resolved.
++- [`KnownIssues.KI_398591036`](https://developer.android.com/reference/androidx/core/backported/fixes/KnownIssues.md.txt#KI_398591036()): Abnormal color tone when capturing `JPEG-R` images on some Pixel devices. Fix by using `JPEG` outputs until this KI is resolved.
+ 
+ ## Core-i18n
+ 
+@@ -2631,7 +2700,7 @@ April 9, 2025
+ The component makes it easier to create properly internationalized applications, focusing on two main areas:
+ 
+ - Date and time formatting functionality following the best current practices, honoring user custom settings, and providing a unifying API that works properly on old and new Android versions.
+-- A backport of [`android.icu.text.MessageFormat`](https://developer.android.com/reference/android/icu/text/MessageFormat) that works on older APIs. But still useful on new Android versions because it integrates the date / time formatting mentioned above. That honors the user settings, which `android.icu.text.MessageFormat` does not do.
++- A backport of [`android.icu.text.MessageFormat`](https://developer.android.com/reference/android/icu/text/MessageFormat.md.txt) that works on older APIs. But still useful on new Android versions because it integrates the date / time formatting mentioned above. That honors the user settings, which `android.icu.text.MessageFormat` does not do.
+ 
+ The component will be the vehicle to backporting new i18n APIs, adding new i18n functionality or fixes, and in general making internationalization easier.
+ 
+@@ -2651,7 +2720,7 @@ March 12, 2025
+ 
+ - This is the first release of the `core-i18n` component. The component makes it easier to create properly internationalized applications, focusing on two main areas:
+   - Date and time formatting functionality following the best current practices, honoring user custom settings, and providing a unifying API that works properly on old and new Android versions.
+-  - A backport of [`android.icu.text.MessageFormat`](https://developer.android.com/reference/android/icu/text/MessageFormat) that works on older APIs. But still useful on new Android versions because it integrates the date / time formatting mentioned above. That honors the user settings, which `android.icu.text.MessageFormat` does not do.
++  - A backport of [`android.icu.text.MessageFormat`](https://developer.android.com/reference/android/icu/text/MessageFormat.md.txt) that works on older APIs. But still useful on new Android versions because it integrates the date / time formatting mentioned above. That honors the user settings, which `android.icu.text.MessageFormat` does not do.
+   - The component will be the vehicle to backporting new i18n APIs, adding new i18n functionality or fixes, and in general making internationalization easier.
+ 
+ #### Version 1.0.0-alpha01
+@@ -2876,7 +2945,7 @@ July 2, 2019
+ `androidx.core:core-role:1.0.0-alpha01` is released. This is the first release of `androidx.core:core-role`. The commits included in this initial version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/1b57674a04707e1adc076536377f967f62d2b68b/core/core-role).
+ 
+ > [!NOTE]
+-> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
++> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt) to learn how to use it in your project.
+ 
+ > [!NOTE]
+ > **Note:** This version will only work with the Q Beta 4 SDK.
+@@ -3159,7 +3228,7 @@ February 26, 2025
+ 
+ `androidx.core:core-viewtree:1.0.0` has been promoted to its first stable release with no changes since its previous RC version.
+ 
+-This library introduces the concept of a View being able to have a disjoint parent. A disjoint parent of a view is a separate `View` object that acts as the view's parent, but is not set via the `View.parent` property. Examples of Views with disjoint parents are `ViewOverlays`, popups, and dialogs, which all appear outside of the main view hierarchy. A View can only have a disjoint parent if it does not have a direct parent via the platform's `View.parent` property. Currently, androidx only sets the disjoint parent for `ViewOverlays` created by [Transition `1.6.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/transition#1.6.0-alpha01) and higher. You can also specify your own disjoint parents for views. See the documentation for more information.
++This library introduces the concept of a View being able to have a disjoint parent. A disjoint parent of a view is a separate `View` object that acts as the view's parent, but is not set via the `View.parent` property. Examples of Views with disjoint parents are `ViewOverlays`, popups, and dialogs, which all appear outside of the main view hierarchy. A View can only have a disjoint parent if it does not have a direct parent via the platform's `View.parent` property. Currently, androidx only sets the disjoint parent for `ViewOverlays` created by [Transition `1.6.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/transition.md.txt#1.6.0-alpha01) and higher. You can also specify your own disjoint parents for views. See the documentation for more information.
+ 
+ #### Version 1.0.0-rc01
+ 

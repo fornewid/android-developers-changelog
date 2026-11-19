@@ -1,0 +1,117 @@
+diff --git a/docs/jetpack/androidx/releases/xr-arcore.md b/docs/jetpack/androidx/releases/xr-arcore.md
+index 2d87da2f..f890710a 100644
+--- a/docs/jetpack/androidx/releases/xr-arcore.md
++++ b/docs/jetpack/androidx/releases/xr-arcore.md
+@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/xr-arcore
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
++
+ # ARCore for Jetpack XR
+ 
+ [User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-arcore) Bring digital content into the real world with perception capabilities.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| October 21, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0) | - | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.1.0-alpha01) |
++| November 18, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/xr-arcore.md.txt#1.0.0) | - | - | [1.1.0-alpha02](https://developer.android.com/jetpack/androidx/releases/xr-arcore.md.txt#1.1.0-alpha02) |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,7 +27,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.arcore:arcore:1.1.0-alpha01"
++    implementation "androidx.xr.arcore:arcore:1.1.0-alpha02"
+ }
+ ```
+ 
+@@ -33,7 +35,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.arcore:arcore:1.1.0-alpha01")
++    implementation("androidx.xr.arcore:arcore:1.1.0-alpha02")
+ }
+ ```
+ 
+@@ -54,6 +56,19 @@ for more information.
+ 
+ ## Version 1.1
+ 
++### Version 1.1.0-alpha02
++
++November 18, 2026
++
++`androidx.xr.arcore:arcore-*:1.1.0-alpha02` is released. Version 1.1.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4a7358de227958e6bfcfdd3e4782bd91091dfe44..dcd36387a217dbc6835a89e5ffbc212bacf5dcdb/xr/arcore).
++
++**Bug Fixes**
++
++- Fixed `unpersistAnchor()` to throw `AnchorInvalidUuidException` instead of `IllegalStateException` when an unknown UUID is provided. ([Ib046b](https://android-review.googlesource.com/#/q/Ib046bf966596c1e79a19df5b43be94ccde7170de))
++- Added validation to ensure `imageBuffer` is a direct `ByteBuffer` in `SpatialAnnotationTrackingOptions`. ([Ieb507](https://android-review.googlesource.com/q/Ieb507ef2a7431b75fe7fc91a3a3cf74dab680ef7))
++- Set tracking state to `STOPPED` for stopped spatial annotations and correctly handled cleanup. ([Ib685a](https://android-review.googlesource.com/q/Ib685a6d18e9f87a1bc420a63bcb5d3b5734178dc))
++- Fixed anchor `TrackingState` updates within `ArCoreTestRule`. ([I766b9](https://android-review.googlesource.com/q/I766b949b53c1eabaa6c87c130801118ac4f1f746))
++
+ ### Version 1.1.0-alpha01
+ 
+ October 21, 2026
+@@ -83,8 +98,8 @@ October 21, 2026
+ 
+ **Major features of 1.0.0:**
+ 
+-- ARCore for Jetpack XR is now stable! The ARCore for Jetpack XR library provides capabilities for blending digital content with the real world. This library includes motion tracking, persistent anchors, hit testing, plane identification with semantic labeling (for example, floor, walls, and tabletops), and [Geospatial poses](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/GeospatialPose) using Google's Visual Positioning System.
+-- For more information, see our [Developer Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore) and [API Reference](https://developer.android.com/reference/kotlin/androidx/xr/arcore/).
++- ARCore for Jetpack XR is now stable! The ARCore for Jetpack XR library provides capabilities for blending digital content with the real world. This library includes motion tracking, persistent anchors, hit testing, plane identification with semantic labeling (for example, floor, walls, and tabletops), and [Geospatial poses](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/GeospatialPose.md.txt) using Google's Visual Positioning System.
++- For more information, see our [Developer Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore.md.txt) and [API Reference](https://developer.android.com/reference/kotlin/androidx/xr/arcore/).
+ 
+ ### Version 1.0.0-rc02
+ 
+@@ -274,7 +289,7 @@ September 24, 2025
+ - Adding `ArDevice` and `RenderViewpoint` to allow applications to retrieve the device's pose and display configuration for rendering purposes. ([Ib7e3f](https://android-review.googlesource.com/#/q/Ib7e3f2ff3ca432cb335877fecd6bec391496ed6b))
+ - Rename `HandJointType` enums with `HAND_JOINT_TYPE_` prefix. ([I3f7cd](https://android-review.googlesource.com/#/q/I3f7cd85345c7c61baa72a79b11857a9a28437d04))
+ - `HandJointType` has been moved to `xr:arcore:arcore` from `xr:runtime:runtime`. ([Iadb9c](https://android-review.googlesource.com/#/q/Iadb9cd5da1d2a6025980c07999da7f24830f8623), [b/409058039](https://issuetracker.google.com/issues/409058039))
+-- `Hand.State` now exposes a [`java.nio.FloatBuffer`](https://developer.android.com/reference/java/nio/FloatBuffer) with the joint poses in a format that allows easy access to performance-oriented applications. ([I55e27](https://android-review.googlesource.com/#/q/I55e27c38b75af734304f3de665d0faaca58f1e57))
++- `Hand.State` now exposes a [`java.nio.FloatBuffer`](https://developer.android.com/reference/java/nio/FloatBuffer.md.txt) with the joint poses in a format that allows easy access to performance-oriented applications. ([I55e27](https://android-review.googlesource.com/#/q/I55e27c38b75af734304f3de665d0faaca58f1e57))
+ 
+ ### Version 1.0.0-alpha05
+ 
+@@ -349,26 +364,26 @@ December 12, 2024
+ Inspired by the existing ARCore library, the ARCore for Jetpack XR library provides capabilities for blending digital content with the real world. This library includes motion tracking, persistent anchors, hit testing, and plane identification with semantic labeling (for example, floor, walls, and tabletops). View the [developer guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-arcore)
+ to learn more about working with ARCore for Jetpack XR.
+ 
+-- [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session): ARCore for Jetpack XR uses the Jetpack XR Runtime under-the-hood to power its functionality. You will use a Session to interact with most ARCore for Jetpack XR APIs, so please take a look at its documentation.
++- [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session.md.txt): ARCore for Jetpack XR uses the Jetpack XR Runtime under-the-hood to power its functionality. You will use a Session to interact with most ARCore for Jetpack XR APIs, so please take a look at its documentation.
+ 
+-- [`Plane`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Plane): Use planes to understand the world around you. Each plane has a [`Label`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Plane.Label) that describes it semantically. You can use [`subscribe`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Plane#subscribe(androidx.xr.runtime.Session)) to be notified about the latest detected planes or [`state`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Plane#state()) to be notified about the changes to a specific plane.
++- [`Plane`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Plane.md.txt): Use planes to understand the world around you. Each plane has a [`Label`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Plane.Label) that describes it semantically. You can use [`subscribe`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Plane.md.txt#subscribe(androidx.xr.runtime.Session)) to be notified about the latest detected planes or [`state`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Plane.md.txt#state()) to be notified about the changes to a specific plane.
+ 
+-- [`Anchor`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor): A link between a virtual object and a real world location. Anchors can be attached to a specific location in space (using [`create`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor#create(androidx.xr.runtime.Session,androidx.xr.runtime.math.Pose))) or a [`Trackable`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Trackable) (using [`createAnchor`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Trackable#createAnchor(androidx.xr.runtime.math.Pose))).
++- [`Anchor`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor.md.txt): A link between a virtual object and a real world location. Anchors can be attached to a specific location in space (using [`create`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor.md.txt#create(androidx.xr.runtime.Session,androidx.xr.runtime.math.Pose))) or a [`Trackable`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Trackable.md.txt) (using [`createAnchor`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Trackable.md.txt#createAnchor(androidx.xr.runtime.math.Pose))).
+ 
+-  - Anchors can be reused across sessions. You can use [`persist`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor#persist()) to store them, [`getPersistedAnchorUuids`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor#getPersistedAnchorUuids(androidx.xr.runtime.Session)) to enumerate them and [`load`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor#load(androidx.xr.runtime.Session,java.util.UUID)) to retrieve them. Make sure that you [`unpersist`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor#unpersist(androidx.xr.runtime.Session,java.util.UUID)) them once they are no longer in use.
++  - Anchors can be reused across sessions. You can use [`persist`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor.md.txt#persist()) to store them, [`getPersistedAnchorUuids`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor.md.txt#getPersistedAnchorUuids(androidx.xr.runtime.Session)) to enumerate them and [`load`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor.md.txt#load(androidx.xr.runtime.Session,java.util.UUID)) to retrieve them. Make sure that you [`unpersist`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor.md.txt#unpersist(androidx.xr.runtime.Session,java.util.UUID)) them once they are no longer in use.
+ 
+   - Anchors are interoperable between ARCore for Jetpack XR and Jetpack SceneCore. You can create an [`AnchorEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/AnchorEntity) using an anchor or, if you have an existing AnchorEntity, you can use [`getAnchor`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/AnchorEntity#getAnchor(androidx.xr.runtime.Session)) to retrieve its backing anchor.
+ 
+-  - Offer natural user interactions using [`hitTest`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/package-summary#hitTest(androidx.xr.runtime.Session,androidx.xr.runtime.math.Ray)). A hitTest uses a [`Ray`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/Ray) to determine which contents it intersects and to create an [`Anchor`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor) from that location. Consider conducting a hitTest from an [`InputEvent`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/InputEvent).
++  - Offer natural user interactions using [`hitTest`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/package-summary.md.txt#hitTest(androidx.xr.runtime.Session,androidx.xr.runtime.math.Ray)). A hitTest uses a [`Ray`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/Ray.md.txt) to determine which contents it intersects and to create an [`Anchor`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor.md.txt) from that location. Consider conducting a hitTest from an [`InputEvent`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/InputEvent.md.txt).
+ 
+ **Known Issues**
+ 
+-- There might be a delay between calling [`unpersist`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor#unpersist(androidx.xr.runtime.Session,java.util.UUID)) and its UUID being removed from the results returned by [`getPersistedAnchorUuids`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor#getPersistedAnchorUuids(androidx.xr.runtime.Session)).
++- There might be a delay between calling [`unpersist`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor.md.txt#unpersist(androidx.xr.runtime.Session,java.util.UUID)) and its UUID being removed from the results returned by [`getPersistedAnchorUuids`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor.md.txt#getPersistedAnchorUuids(androidx.xr.runtime.Session)).
+ 
+-- [`create`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor#create(androidx.xr.runtime.Session,androidx.xr.runtime.math.Pose)) will not validate that the system has enough resources to return new anchors. Creating an excessive amount of anchors might lead to a crash.
++- [`create`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor.md.txt#create(androidx.xr.runtime.Session,androidx.xr.runtime.math.Pose)) will not validate that the system has enough resources to return new anchors. Creating an excessive amount of anchors might lead to a crash.
+ 
+ - Persisting an Anchor that was previously persisted and unpersisted is not currently supported.
+ 
+-- Usage in the emulator is supported, but the behavior might not be as stable as when running on an actual device. Particularly, calls to [`create`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor#create(androidx.xr.runtime.Session,androidx.xr.runtime.math.Pose)) might fail with a native code error and immediately terminate the activity.
++- Usage in the emulator is supported, but the behavior might not be as stable as when running on an actual device. Particularly, calls to [`create`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor.md.txt#create(androidx.xr.runtime.Session,androidx.xr.runtime.math.Pose)) might fail with a native code error and immediately terminate the activity.
+ 
+-- In certain circumstances, a `RuntimeException` might be erroneously thrown when calling [`persist`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor#persist()) with the message "Anchor was not persisted". In those circumstances, the function would still succeed and the anchor will be persisted. We recommend wrapping the call to `persist` with a `try` block as a workaround.
+\ No newline at end of file
++- In certain circumstances, a `RuntimeException` might be erroneously thrown when calling [`persist`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor.md.txt#persist()) with the message "Anchor was not persisted". In those circumstances, the function would still succeed and the anchor will be persisted. We recommend wrapping the call to `persist` with a `try` block as a workaround.
+\ No newline at end of file

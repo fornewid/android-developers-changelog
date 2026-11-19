@@ -1,0 +1,331 @@
+diff --git a/docs/jetpack/androidx/releases/paging.md b/docs/jetpack/androidx/releases/paging.md
+index 420270ca..51648187 100644
+--- a/docs/jetpack/androidx/releases/paging.md
++++ b/docs/jetpack/androidx/releases/paging.md
+@@ -4,19 +4,21 @@ url: https://developer.android.com/jetpack/androidx/releases/paging
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
++
+ # Paging
+ 
+-[User Guide](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) [Code Sample](https://github.com/android/architecture-components-samples) [Codelab](https://codelabs.developers.google.com/codelabs/android-paging) The Paging Library makes it easier for you to load data gradually and gracefully within your app's [RecyclerView](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView).
++[User Guide](https://developer.android.com/topic/libraries/architecture/paging/v3-overview.md.txt) [Code Sample](https://github.com/android/architecture-components-samples) [Codelab](https://codelabs.developers.google.com/codelabs/android-paging) The Paging Library makes it easier for you to load data gradually and gracefully within your app's [RecyclerView](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.md.txt).
+ 
+ 
+ This table lists all the artifacts in the `androidx.paging` group.
+ 
+ | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| paging-\* | [3.5.3](https://developer.android.com/jetpack/androidx/releases/paging#3.5.3) | - | - | - |
+-| paging-compose | [3.5.3](https://developer.android.com/jetpack/androidx/releases/paging#3.5.3) | - | - | - |
++| paging-\* | [3.5.3](https://developer.android.com/jetpack/androidx/releases/paging.md.txt#3.5.3) | - | - | [3.6.0-alpha01](https://developer.android.com/jetpack/androidx/releases/paging.md.txt#3.6.0-alpha01) |
++| paging-compose | [3.5.3](https://developer.android.com/jetpack/androidx/releases/paging.md.txt#3.5.3) | - | - | [3.6.0-alpha01](https://developer.android.com/jetpack/androidx/releases/paging.md.txt#3.6.0-alpha01) |
+ 
+-This library was last updated on: October 12, 2026
++This library was last updated on: November 18, 2026
+ 
+ ## Declaring dependencies
+ 
+@@ -48,7 +50,7 @@ dependencies {
+   implementation "androidx.paging:paging-guava:$paging_version"
+ 
+   // optional - Jetpack Compose integration
+-  implementation "androidx.paging:paging-compose:3.5.3"
++  implementation "androidx.paging:paging-compose:3.6.0-alpha01"
+ }
+ ```
+ 
+@@ -73,12 +75,12 @@ dependencies {
+   implementation("androidx.paging:paging-guava:$paging_version")
+ 
+   // optional - Jetpack Compose integration
+-  implementation("androidx.paging:paging-compose:3.5.3")
++  implementation("androidx.paging:paging-compose:3.6.0-alpha01")
+ }
+ ```
+ 
+ For information on using Kotlin extensions, see
+-[ktx documentation](https://developer.android.com/kotlin/ktx).
++[ktx documentation](https://developer.android.com/kotlin/ktx.md.txt).
+ 
+ For more information about dependencies, see [Add Build Dependencies](https://developer.android.com/studio/build/dependencies).
+ 
+@@ -95,6 +97,22 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 3.6
++
++### Version 3.6.0-alpha01
++
++November 18, 2026
++
++`androidx.paging:paging-*:3.6.0-alpha01` is released. Version 3.6.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0989c329f4dba2ac30bba57247e28fe6d99e1244..3e55c1ad889c6c0087b0bf6720b1a970b6e8ea3b/paging).
++
++**API Changes**
++
++- Added `ItemSnapshotList` extensions for Lazy foundations. You can now call `ItemSnapshotList#itemKey` and `ItemSnapshotList#itemContentType` to auto generate `itemKey` and `contentType` for Lazy foundation. ([I73455](https://android-review.googlesource.com/#/q/I7345578e82feb7e0d423ea63120a29289fb9bf57), [b/560754841](https://issuetracker.google.com/issues/560754841))
++
++**External Contribution**
++
++- Thank you [Kamal](https://github.com/kfaraj) for adding the `ItemSnapshotList` extensions.
++
+ ## Version 3.5
+ 
+ ### Version 3.5.3
+@@ -182,42 +200,44 @@ March 11, 2026
+   - modify paged data in memory
+   - expose paged data as part of a UI state
+ 
+-      // In your ViewModel
+-      val pager = Pager(pagingConfig, pagingSourceFactory)
+-      val pagerFlow = pager.flow.asState()
++  ```kotlin
++  // In your ViewModel
++  val pager = Pager(pagingConfig, pagingSourceFactory)
++  val pagerFlow = pager.flow.asState()
+ 
+-      // alterantively convert the flow to a SharedFlow
+-      val pagerFlow = pager.flow.asState().stateIn()
++  // alterantively convert the flow to a SharedFlow
++  val pagerFlow = pager.flow.asState().stateIn()
+ 
+-      // In presenter layer
+-      val snapshotFlow = viewModel.pagerFlow.collectAsStateWithLifecycle(initialList)
+-      val snapshot = itemsFlow.value
+-
+-      LazyColumn {
+-      items(items = snapshot.items) { ... }
+-      }
++  // In presenter layer
++  val snapshotFlow = viewModel.pagerFlow.collectAsStateWithLifecycle(initialList)
++  val snapshot = itemsFlow.value
+ 
++  LazyColumn {
++  items(items = snapshot.items) { ... }
++  }
++  ```
+ - The `paging-common` artifact has also added `Pager.append` and `Pager.prepend` APIs to manually trigger loads at either edge of loaded items.
+ 
+   - When used with `paging-runtime` or `paging-compose`, provides an alternative to load more data besides scrolling
+   - When used with the new `asState` API, it is the only way to load more data
+ 
+-      LazyColumn {
+-      item {
+-             /**
+-             * Load more items when users scroll near the top of loaded items.
+-             */
+-             LaunchedEffect(viewModel) { viewModel.prepend() }
+-          }
+-      items(snapshot.items) { item -> Text("Item: $item") }
+-      item {
+-              /**
+-              * Load more items when users scroll near the bottom of loaded items.
+-              */
+-            LaunchedEffect(viewModel) { viewModel.append() }
+-        }
++  ```kotlin
++  LazyColumn {
++  item {
++         /**
++         * Load more items when users scroll near the top of loaded items.
++         */
++         LaunchedEffect(viewModel) { viewModel.prepend() }
+       }
+-
++  items(snapshot.items) { item -> Text("Item: $item") }
++  item {
++          /**
++          * Load more items when users scroll near the bottom of loaded items.
++          */
++        LaunchedEffect(viewModel) { viewModel.append() }
++    }
++  }
++  ```
+ - Added `Pager.refresh` and `Pager.retry` to recover from load errors when using `asState` API. See [this document](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:paging/samples/src/main/java/androidx/paging/samples/PagerAsStateSamples.kt?q=pagerasstatesample) for more sample usages of the new APIs. ([I1e1e9](https://android-review.googlesource.com/#/q/I1e1e9544dd3786b9b778daed2995db04734defdf), [If3c87](https://android-review.googlesource.com/#/q/If3c8768f87a35e6271479b853b637fa60520bd9b), [Idbd48](https://android-review.googlesource.com/#/q/Idbd4853898c0c3d6199914c8c0637b97e337c1f0), [Id1e1d](https://android-review.googlesource.com/#/q/Id1e1d4de0a64ffa6297fa9e6d9901a5cacfaad2e), [I816fe](https://android-review.googlesource.com/#/q/I816febd0a51413c9e8102f9c32cf8dc4dc67892f))
+ 
+ ## Version 3.4
+@@ -536,7 +556,7 @@ June 7, 2023
+ 
+ **API Changes**
+ 
+-- Removed the deprecated `items(LazyPagingItems)` and `itemsIndexed(LazyPagingItems)` APIs from Paging Compose. See the [Paging Compose `1.0.0-alpha20` release notes](https://developer.android.com/jetpack/androidx/releases/paging#1.0.0-alpha20) for an example of their replacement APIs. ([I9626e](https://android-review.googlesource.com/#/q/I9626e55d070a11902952862c7663721f775503e4))
++- Removed the deprecated `items(LazyPagingItems)` and `itemsIndexed(LazyPagingItems)` APIs from Paging Compose. See the [Paging Compose `1.0.0-alpha20` release notes](https://developer.android.com/jetpack/androidx/releases/paging.md.txt#1.0.0-alpha20) for an example of their replacement APIs. ([I9626e](https://android-review.googlesource.com/#/q/I9626e55d070a11902952862c7663721f775503e4))
+ 
+ ### Version 3.2.0-alpha06
+ 
+@@ -592,23 +612,25 @@ February 8, 2023
+ 
+   This is done via the `asSnapshot` Kotlin extension on `Flow<PagingData<Value>>`, which translates the `Flow<PagingData<Value>>` into a direct `List<Value>`. The `asSnapshot` lambda allows you to mimic the UI of your app via APIs such as `scrollTo` or `appendScrollWhile` in a way that is repeatable and consistent so that you can verify the snapshot of data is correct at any point in your set of paged data.
+ 
+-      // Create your ViewModel instance
+-      val viewModel = ...
+-      // Get the Flow of PagingData from the ViewModel
+-      val data< Flow<PagingData<String>> = viewModel.data
+-      val snapshot: List<String> = data.asSnapshot {
+-        // Each operation inside the lambda waits for the data to settle before continuing
+-        scrollTo(index = 50)
+-
+-        // While you can't view the items within the asSnapshot call,
+-        // you can continuously scroll in a direction while some condition is true
+-        // i.e., in this case until you hit a placeholder item
+-        appendScrollWhile {  item: String -> item != "Header 1" }
+-      }
+-      // With the asSnapshot complete, you can now verify that the snapshot
+-      // has the expected values
+-
+-  `asSnapshot` is a `suspend` method that is expected to be run within `runTest`. See [Testing Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines/test) for more information. ([I55fd2](https://android-review.googlesource.com/#/q/I55fd2374b68f8e18a292865a92143f9de50bbad0), [I5bd26](https://android-review.googlesource.com/#/q/I5bd26ec7d66f52696a3d4ea6a610b0ccabd95a84), [I7ce34](https://android-review.googlesource.com/#/q/I7ce345200d07fa1eef9f5d1028fd88caab1477b3), [I51f4d](https://android-review.googlesource.com/#/q/I51f4d2bba2a98a829eeac3ed689ecc0ea0fc7a19), [I2249f](https://android-review.googlesource.com/#/q/I2249f7147213881bdef9acd42287d9fca0dfcc09), [Id6223](https://android-review.googlesource.com/#/q/Id6223b81ebf221456147e41c428a7718e9c494e6), [Ic4bab](https://android-review.googlesource.com/#/q/Ic4babf6783f51dbdab690693e176f65820fa3a38), [Ib29b9](https://android-review.googlesource.com/#/q/Ib29b92793c33a759b52d6b4881d3a3f812b26382), [Ic1238](https://android-review.googlesource.com/#/q/Ic1238184b82106a5ac6ec5f517819a489dd13218), [I96def](https://android-review.googlesource.com/#/q/I96def78b99fcc9ee088a0a912ba69866d8667715), [b/235528239](https://issuetracker.google.com/issues/235528239))
++  ```kotlin
++  // Create your ViewModel instance
++  val viewModel = ...
++  // Get the Flow of PagingData from the ViewModel
++  val data< Flow<PagingData<String>> = viewModel.data
++  val snapshot: List<String> = data.asSnapshot {
++    // Each operation inside the lambda waits for the data to settle before continuing
++    scrollTo(index = 50)
++
++    // While you can't view the items within the asSnapshot call,
++    // you can continuously scroll in a direction while some condition is true
++    // i.e., in this case until you hit a placeholder item
++    appendScrollWhile {  item: String -> item != "Header 1" }
++  }
++  // With the asSnapshot complete, you can now verify that the snapshot
++  // has the expected values
++  ```
++
++  `asSnapshot` is a `suspend` method that is expected to be run within `runTest`. See [Testing Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines/test.md.txt) for more information. ([I55fd2](https://android-review.googlesource.com/#/q/I55fd2374b68f8e18a292865a92143f9de50bbad0), [I5bd26](https://android-review.googlesource.com/#/q/I5bd26ec7d66f52696a3d4ea6a610b0ccabd95a84), [I7ce34](https://android-review.googlesource.com/#/q/I7ce345200d07fa1eef9f5d1028fd88caab1477b3), [I51f4d](https://android-review.googlesource.com/#/q/I51f4d2bba2a98a829eeac3ed689ecc0ea0fc7a19), [I2249f](https://android-review.googlesource.com/#/q/I2249f7147213881bdef9acd42287d9fca0dfcc09), [Id6223](https://android-review.googlesource.com/#/q/Id6223b81ebf221456147e41c428a7718e9c494e6), [Ic4bab](https://android-review.googlesource.com/#/q/Ic4babf6783f51dbdab690693e176f65820fa3a38), [Ib29b9](https://android-review.googlesource.com/#/q/Ib29b92793c33a759b52d6b4881d3a3f812b26382), [Ic1238](https://android-review.googlesource.com/#/q/Ic1238184b82106a5ac6ec5f517819a489dd13218), [I96def](https://android-review.googlesource.com/#/q/I96def78b99fcc9ee088a0a912ba69866d8667715), [b/235528239](https://issuetracker.google.com/issues/235528239))
+ 
+ **API Changes**
+ 
+@@ -627,7 +649,7 @@ This release contains a new artifact: `paging-testing`. This artifact provides A
+ 
+ For example, this first release includes a `TestPager` class that allows you to validate the behavior of your own custom `PagingSource` implementation independently from the `Pager` and real UI you would normally need to simulate the end-to-end Paging integration.
+ 
+-`TestPager` should be considered a **fake** - a [test double](https://training/testing/fundamentals/test-doubles) that mirrors the real implementation of `Pager` while providing a simplified API surface for testing a `PagingSource`. These APIs are `suspend` APIs and should be run within `runTest` as outlined in the guide for [Testing Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines/test).
++`TestPager` should be considered a **fake** - a [test double](https://training/testing/fundamentals/test-doubles) that mirrors the real implementation of `Pager` while providing a simplified API surface for testing a `PagingSource`. These APIs are `suspend` APIs and should be run within `runTest` as outlined in the guide for [Testing Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines/test.md.txt).
+ 
+ An example of these APIs in use can be found in the [`room-paging` tests](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:room/room-paging/src/androidTest/kotlin/androidx/room/paging/LimitOffsetPagingSourceTest.kt), which were refactored to use `TestPager`.
+ 
+@@ -869,26 +891,28 @@ To support more lazy layouts, we needed to build out APIs at a different layer -
+ 
+ This means that supporting a `LazyVerticalGrid` would look like:
+ 
+-    // This part is unchanged
+-    val lazyPagingItems = pager.collectAsLazyPagingItems()
+-
+-    LazyVerticalGrid(columns = GridCells.Fixed(2)) {
+-      // Here we use the standard items API
+-      items(
+-        count = lazyPagingItems.itemCount,
+-        // Here we use the new itemKey extension on LazyPagingItems to
+-        // handle placeholders automatically, ensuring you only need to provide
+-        // keys for real items
+-        key = lazyPagingItems.itemKey { it.uniqueId },
+-        // Similarly, itemContentType lets you set a custom content type for each item
+-        contentType = lazyPagingItems.itemContentType { "contentType" }
+-      ) { index ->
+-        // As the standard items call provides only the index, we get the item
+-        // directly from our lazyPagingItems
+-        val item = lazyPagingItems[index]
+-        PagingItem(item = item)
+-      }
+-    }
++```kotlin
++// This part is unchanged
++val lazyPagingItems = pager.collectAsLazyPagingItems()
++
++LazyVerticalGrid(columns = GridCells.Fixed(2)) {
++  // Here we use the standard items API
++  items(
++    count = lazyPagingItems.itemCount,
++    // Here we use the new itemKey extension on LazyPagingItems to
++    // handle placeholders automatically, ensuring you only need to provide
++    // keys for real items
++    key = lazyPagingItems.itemKey { it.uniqueId },
++    // Similarly, itemContentType lets you set a custom content type for each item
++    contentType = lazyPagingItems.itemContentType { "contentType" }
++  ) { index ->
++    // As the standard items call provides only the index, we get the item
++    // directly from our lazyPagingItems
++    val item = lazyPagingItems[index]
++    PagingItem(item = item)
++  }
++}
++```
+ 
+ For more examples of using these new APIs, please see [our samples](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:paging/paging-compose/samples/src/main/java/androidx/paging/compose/samples/PagingFoundationSample.kt?q=PagingFoundationSample).
+ 
+@@ -1079,16 +1103,18 @@ October 28, 2020
+ 
+ The `paging-compose` artifact provides integration between [The Paging Library](https://developer.android.com/paging) and [Jetpack Compose](https://developer.android.com/jetpack/compose). A simple usage example:
+ 
+-      @Composable
+-      @OptIn(ExperimentalLazyDsl::class)
+-      fun ItemsDemo(flow: Flow<PagingData<String>>) {
+-          val lazyPagingItems = flow.collectAsLazyPagingItems()
+-          LazyColumn {
+-              items(lazyPagingItems) {
+-                  Text("Item is $it")
+-              }
++```kotlin
++  @Composable
++  @OptIn(ExperimentalLazyDsl::class)
++  fun ItemsDemo(flow: Flow<PagingData<String>>) {
++      val lazyPagingItems = flow.collectAsLazyPagingItems()
++      LazyColumn {
++          items(lazyPagingItems) {
++              Text("Item is $it")
+           }
+       }
++  }
++```
+ 
+ ## Version 3.0.1
+ 
+@@ -1264,8 +1290,10 @@ December 2, 2020
+   as they are redundant with loadStateFlow / Listener updates. For
+   those migrating, the loadStateFlow equivalent is:
+ 
+-      loadStateFlow.distinctUntilChangedBy { it.refresh }
+-          .filter { it.refresh is NotLoading }
++  ```kotlin
++  loadStateFlow.distinctUntilChangedBy { it.refresh }
++      .filter { it.refresh is NotLoading }
++  ```
+ 
+   ([Ib5570](https://android-review.googlesource.com/#/q/Ib55709c3f560711200a9eac5a4931d57c76053af), [b/173530908](https://issuetracker.google.com/issues/173530908))
+ 
+@@ -1421,7 +1449,7 @@ June 24, 2020
+ - Added overloads for `PagingConfig`'s constructor with common default values ([I39c50](https://android-review.googlesource.com/#/q/I39c508a7403e0372b66d2f511843538e26e7cde7), [b/158576040](https://issuetracker.google.com/issues/158576040))
+ - Added overloads for constructors of `PagingDataAdapter` and `AsyncPagingDataDiffer` with common default values ([Ie91f5](https://android-review.googlesource.com/#/q/Ie91f55060e17102435525ef4e90f8d943df3c90b))
+ - The adapter APIs, `dataRefreshFlow` and `dataRefreshListener` now pass a Boolean to signal whether a `PagingData` is empty ([I6e37e](https://android-review.googlesource.com/#/q/I6e37e844cf9f947aeefaaa99d22b2672e04f207d), [b/159054196](https://issuetracker.google.com/issues/159054196))
+-- Added RxJava and Guava APIs for RemoteMediator - [RxRemoteMediator](https://developer.android.com/reference/kotlin/androidx/paging/RxRemoteMediator) and [ListenableFutureRemoteMediator](https://developer.android.com/reference/kotlin/androidx/paging/ListenableFutureRemoteMediator)
++- Added RxJava and Guava APIs for RemoteMediator - [RxRemoteMediator](https://developer.android.com/reference/kotlin/androidx/paging/RxRemoteMediator) and [ListenableFutureRemoteMediator](https://developer.android.com/reference/kotlin/androidx/paging/ListenableFutureRemoteMediator.md.txt)
+ - Added helpers to PagingState for common item access such as `isEmpty()` and `firstItemOrNull()` ([I3b5b6](https://android-review.googlesource.com/#/q/I3b5b687f5188e1408806c567417921fb8101bfdb), [b/158892717](https://issuetracker.google.com/issues/158892717))
+ 
+ **Bug Fixes**
+@@ -1442,16 +1470,16 @@ The Paging Library has updated to 3.0, to enable several major new features.
+ **New Features of 3.0**
+ 
+ - First-class support for Kotlin coroutines and Flow.
+-- Support for async loading with [coroutines suspend functions, RxJava Single or Guava ListenableFuture primitives](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#data-source).
+-- [Built-in load state and error signals](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#display-loading-state) for responsive UI design, including retry and refresh functionality.
++- Support for async loading with [coroutines suspend functions, RxJava Single or Guava ListenableFuture primitives](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data.md.txt#data-source).
++- [Built-in load state and error signals](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data.md.txt#display-loading-state) for responsive UI design, including retry and refresh functionality.
+ - Improvements to the repository layer
+-  - [Simplified data source interface](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#data-source)
++  - [Simplified data source interface](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data.md.txt#data-source)
+   - Simplified network + database pagination
+   - Cancellation support
+ - Improvements to the presentation layer
+-  - [Custom page transformations](https://developer.android.com/topic/libraries/architecture/paging/v3-transform)
+-  - [List separators](https://developer.android.com/topic/libraries/architecture/paging/v3-transform#handle-separators-ui)
+-  - [Loading state headers and footers](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#load-state-adapter)
++  - [Custom page transformations](https://developer.android.com/topic/libraries/architecture/paging/v3-transform.md.txt)
++  - [List separators](https://developer.android.com/topic/libraries/architecture/paging/v3-transform.md.txt#handle-separators-ui)
++  - [Loading state headers and footers](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data.md.txt#load-state-adapter)
+ 
+ **Known Issues**
+ 
