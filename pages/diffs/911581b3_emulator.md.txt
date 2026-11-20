@@ -1,0 +1,364 @@
+diff --git a/docs/studio/releases/emulator.md b/docs/studio/releases/emulator.md
+index 554d69fb..ce4f401c 100644
+--- a/docs/studio/releases/emulator.md
++++ b/docs/studio/releases/emulator.md
+@@ -4,25 +4,49 @@ url: https://developer.android.com/studio/releases/emulator
+ source: md.txt
+ ---
+ 
+-[Android Emulator](https://developer.android.com/studio/run/emulator) is included with Android Studio.
++> Documentation index: https://developer.android.com/studio/releases/llms.txt
++
++[Android Emulator](https://developer.android.com/studio/run/emulator.md.txt) is included with Android Studio.
+ 
+ Versions of the emulator prior to 25.3.0 were distributed as part of the Android
+ SDK Tools.
+ 
+ To ensure you have the latest version, check the
+-[SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) for updates.
++[SDK Manager](https://developer.android.com/studio/intro/update.md.txt#sdk-manager) for updates.
+ 
+ To download previous versions of Android Emulator, see the
+-[Emulator download archive](https://developer.android.com/studio/emulator_archive).
++[Emulator download archive](https://developer.android.com/studio/emulator_archive.md.txt).
+ 
+ For release notes for Emulator versions prior to 25.3.0, see the
+ [Android SDK Tools release notes](https://developer.android.com/studio/releases/sdk-tools).
+ 
+ To see what issues have been fixed in the most recent versions of Android
+ Emulator, see the
+-[closed issues](https://developer.android.com/studio/releases/fixed-bugs/emulator/37).
+-
+-For known issues and troubleshooting, please see [Emulator Troubleshooting](https://developer.android.com/studio/run/emulator-troubleshooting).
++[closed issues](https://developer.android.com/studio/releases/fixed-bugs/emulator/37.md.txt).
++
++For known issues and troubleshooting, please see [Emulator Troubleshooting](https://developer.android.com/studio/run/emulator-troubleshooting.md.txt).
++
++## 37.3.10 Stable (Nov 19, 2026)
++
++- Added support for the KosmicKrisp Vulkan-on-Metal graphics driver on macOS 26+
++- Enabled SD card support on ARM64 virtual devices in QEMU ([Issue #281967260](https://issuetracker.google.com/281967260))
++- \[Bug Fix\][Issue #568816248](https://issuetracker.google.com/568816248) Android Emulator hangs on Windows when the AVD or user directory path contains non-ASCII characters
++- \[Bug Fix\][Issue #568423542](https://issuetracker.google.com/568423542) Fatal crash (`Unsupported snapshot version: 0x2`) when loading a 37.2 Quick Boot snapshot after upgrading to 37.3
++- \[Bug Fix\][Issue #557246817](https://issuetracker.google.com/557246817) Quick Boot snapshot load restores wallpaper and launcher icon textures as black or corrupted noise on Windows (API 37.1)
++- \[Bug Fix\][Issue #562546399](https://issuetracker.google.com/562546399) Severe UI and performance lag on macOS caused by App Nap and process latency scheduling
++- \[Bug Fix\][Issue #572278410](https://issuetracker.google.com/572278410) Headless emulator on Windows with Intel hybrid CPUs is power-throttled onto E-cores, causing 2--3x slower cold boot and ANR storms
++- \[Bug Fix\][Issue #574875267](https://issuetracker.google.com/574875267) Emulator always starts with `GMT+00:00` time zone on non-English Windows 11 hosts instead of detecting the host time zone
++- \[Bug Fix\][Issue #532790747](https://issuetracker.google.com/532790747) Emulator resets time zone when performing a cold boot
++- \[Bug Fix\][Issue #532592079](https://issuetracker.google.com/532592079) Emulator fails to boot or hangs on startup due to netsim initialization deadlock
++- \[Bug Fix\][Issue #555286414](https://issuetracker.google.com/555286414) Emulator keyboard reports incorrect `InputDevice` properties (`isVirtual`, `source`) when `hw.dPad` is disabled
++- \[Bug Fix\][Issue #537617326](https://issuetracker.google.com/537617326) Android Studio emulator startup and stability impact on Windows 11 when hidden window creation interacts with host utilities
++- \[Bug Fix\][Issue #357855425](https://issuetracker.google.com/357855425) Android Emulator on macOS does not detect changes to the default audio hardware device
++- \[Bug Fix\][Issue #357859014](https://issuetracker.google.com/357859014) Race condition in the macOS CoreAudio backend
++- \[Bug Fix\][Issue #324995885](https://issuetracker.google.com/324995885) `SIGSEGV` crash while running the emulator
++- \[Bug Fix\][Issue #320819731](https://issuetracker.google.com/320819731) Android 14 emulator becomes inaccessible from ADB after repeated HTTP requests to an unreachable devtools socket
++- \[Bug Fix\][Issue #291804276](https://issuetracker.google.com/291804276) Concurrent emulator startup fails due to a race condition during `%TMP%\avd\running\pid_*.ini` discovery file cleanup
++- \[Bug Fix\][Issue #115396624](https://issuetracker.google.com/115396624) On exit, snapshot is saved to `default_boot` instead of the snapshot name specified using the `-snapshot` argument
++- \[Bug Fix\][Issue #333829166](https://issuetracker.google.com/333829166) Emulator fails to start on Linux when `libXdmcp` or `libbsd.so.0` is missing (now uses hermetic `libxcb-aemu.so`)
+ 
+ ## 37.2.13 Patch (Oct 28, 2026)
+ 
+@@ -66,7 +90,7 @@ classic emulator engine for now.
+   December 31, 2026.
+   To assist with the transition, Android Studio now helps Windows users convert
+   from AEHD to the Windows Hypervisor Platform (WHPX). See
+-  [Configure VM acceleration using WHPX](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-whpx)
++  [Configure VM acceleration using WHPX](https://developer.android.com/studio/run/emulator-acceleration.md.txt#vm-windows-whpx)
+   for information on configuring VM acceleration using WHPX.
+ 
+   ![Popup for updating to WHPX](https://developer.android.com/static/studio/images/releases/WHPX.png)
+@@ -131,7 +155,7 @@ This new networking stack offers several key advantages for developers:
+ - **Improved Stability** : Resolves long-standing stability issues, such as data loss ([Issue #150758736](https://issuetracker.google.com/150758736)) and connection drops ([Issue #449817856](https://issuetracker.google.com/449817856)) found in the legacy stack.
+ 
+ To get started, update to the latest Android Emulator version in Android Studio
+-SDK Manager. For more information, documentation is [here](https://developer.android.com/studio/run/emulator-networking).
++SDK Manager. For more information, documentation is [here](https://developer.android.com/studio/run/emulator-networking.md.txt).
+ 
+ ### Additional Features and Bug Fixes
+ 
+@@ -189,7 +213,7 @@ development environment.
+ 
+ The XR Glasses emulator and AI Glasses emulator are experimental tools. Expect
+ issues, specifically on some Windows GPU and driver configurations (see
+-[Windows system requirements](https://developer.android.com/studio/install#windows)).
++[Windows system requirements](https://developer.android.com/studio/install.md.txt#windows)).
+ 
+ **Known Issues**
+ 
+@@ -198,7 +222,7 @@ issues, specifically on some Windows GPU and driver configurations (see
+ - [AI Glasses issues](https://issuetracker.google.com/issues?q=componentid:1970526)
+ 
+ Your feedback will help us to improve and guide future feature
+-prioritization. See [Report a bug](https://developer.android.com/studio/report-bugs) for information on
++prioritization. See [Report a bug](https://developer.android.com/studio/report-bugs.md.txt) for information on
+ reporting bugs related
+ to Android Studio or Android Emulator.
+ 
+@@ -222,7 +246,7 @@ to Android Studio or Android Emulator.
+ 
+   ![Banner displayed when user tries to create a new AVD with HAXM](https://developer.android.com/static/studio/images/releases/HAXM.png)
+ 
+-  For information on uninstalling HAXM, see [HAXM Uninstall](https://developer.android.com/studio/run/emulator-acceleration#haxm-uninstall).
++  For information on uninstalling HAXM, see [HAXM Uninstall](https://developer.android.com/studio/run/emulator-acceleration.md.txt#haxm-uninstall).
+ - Fix to ensure Intel GPU uses OpenGL ES 3.0 to avoid driver crash
+ 
+ - \[Bug Fix\][Issue #340322888](https://issuetracker.google.com/340322888) Can't start AVD when there are not empty space on device
+@@ -239,7 +263,7 @@ to Android Studio or Android Emulator.
+ 
+ - **Note:** If you are experiencing issues with launching the emulator on X11,
+   then consider using software rendering. See
+-  [Configure graphics acceleration](https://developer.android.com/studio/run/emulator-acceleration#avd-gpu)
++  [Configure graphics acceleration](https://developer.android.com/studio/run/emulator-acceleration.md.txt#avd-gpu)
+   for how to configure software rendering.
+ 
+ ## 35.6.11 Stable (Jun 24, 2025)
+@@ -289,7 +313,7 @@ to Android Studio or Android Emulator.
+ **New Android XR Emulator**
+ 
+ We added a new, experimental Android XR emulator for developing and testing apps
+-built with the [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk) for headsets. See
++built with the [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk.md.txt) for headsets. See
+ [Jetpack XR SDK Setup](https://developer.android.com/develop/xr/jetpack-xr-sdk/setup) for information about
+ installing the Android XR emulator and setting up your development environment.
+ 
+@@ -312,7 +336,7 @@ configurations:
+ 
+ Emulator - Stability and performance:
+ 
+-- Critical system locks or crashes during boot or while running applications can happen on some Windows configurations. Please make sure the Windows Hypervisor Platform (WHPX) is enabled by following the [Android Studio Developer's Guide to enable WHPX](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-whpx).
++- Critical system locks or crashes during boot or while running applications can happen on some Windows configurations. Please make sure the Windows Hypervisor Platform (WHPX) is enabled by following the [Android Studio Developer's Guide to enable WHPX](https://developer.android.com/studio/run/emulator-acceleration.md.txt#vm-windows-whpx).
+ - Issues such as non-responsive AVD or UI elements on laptops after a suspend-resume cycle (such as closing a laptop and opening it).
+ - Occasional crashes when switching applications from "home screen mode" to "full screen mode"
+ - Gemini APIs are not yet available; the Gemini API starter template App will crash.
+@@ -340,7 +364,7 @@ Emulator - Simulating input and output:
+ 
+ - Click-and-drag scrolling on some UI elements might not work by design. If not, use the mouse wheel to scroll instead.
+ 
+-- Blurry text,UI, and other glitches in Chrome on some Windows system configurations. Likely workaround: [Enabling WHP](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-whpx).
++- Blurry text,UI, and other glitches in Chrome on some Windows system configurations. Likely workaround: [Enabling WHP](https://developer.android.com/studio/run/emulator-acceleration.md.txt#vm-windows-whpx).
+ 
+ Emulator - Simulating planes and anchors:
+ 
+@@ -494,7 +518,7 @@ Tested with Android Studio Hedgehog Canary 2, Giraffe Beta 1, and Flamingo Stabl
+ - Improve gLinux crash issue.
+ - \[Bug Fix\] [Issue #215231636](https://issuetracker.google.com/215231636) "Emulator with API above API 30 not working in Intel 12th gen processor".
+ - \[Bug Fix\] [Issue #275397905](https://issuetracker.google.com/275397905) Highlevel of crash on Android Emulator M1 when moving cursor focus in and out of the emulator repeatedly.
+-- Known issue with AVD launch when a crash report of a newer emulator exists. See [Emulator Troubleshooting](https://developer.android.com/studio/run/emulator-troubleshooting) for more information.
++- Known issue with AVD launch when a crash report of a newer emulator exists. See [Emulator Troubleshooting](https://developer.android.com/studio/run/emulator-troubleshooting.md.txt) for more information.
+ 
+ ## 32.1.12 (March 21, 2023)
+ 
+@@ -564,10 +588,10 @@ Tested with Android Studio Dolphin Beta 5 and Electric Eel Canary 9.
+ 
+ Standalone downloads of the emulator are now available. If you're experiencing
+ any issues or crashes with this latest stable release, please
+-[file a bug](https://developer.android.com/studio/report-bugs#emulator-bugs)
++[file a bug](https://developer.android.com/studio/report-bugs.md.txt#emulator-bugs)
+ and consider downloading a previously working version
+ from the
+-[emulator download archives](https://developer.android.com/studio/emulator_archive).
++[emulator download archives](https://developer.android.com/studio/emulator_archive.md.txt).
+ 
+ This update includes the following improvements and fixes:
+ 
+@@ -895,7 +919,7 @@ improved performance when compared to those with full ARM emulation.
+ This update includes the following improvements and fixes:
+ 
+ - Windows: The emulator now relies on the `libgcc` DLL that we ship instead of being compiled with `libgcc` statically.
+-- Linux: Added logcat support to the gRPC API. For more information about gRPC, see [gRPC streaming emulator (Linux)](https://developer.android.com/studio/releases/emulator#29.0.6-grpc).
++- Linux: Added logcat support to the gRPC API. For more information about gRPC, see [gRPC streaming emulator (Linux)](https://developer.android.com/studio/releases/emulator.md.txt#29.0.6-grpc).
+ - The emulator now includes a headless build for 32-bit x86 guests (`qemu-system-i386`). This feature enables x86 32-bit images for API levels 26 and lower to run with the headless build. Note that for 32-bit x86 guests with API 27 and later, the emulator uses the 64-bit engine (`qemu-system-x86_64`) because in these system images, while the userspace is 32-bit, the kernel is 64-bit. Android Studio uses the kernel to select emulation engines.
+ - You can now specify custom Qt library paths using the `ANDROID_QT_LIB_PATH` environment variable.
+ - You can now run the emulator with previous binaries that use QEMU1 if the QEMU1 executables (`emulator[64]-[x86|arm|etc]`) are placed in the emulator directory.
+@@ -955,7 +979,7 @@ included with this update:
+ 
+ #### Improvements for host audio behavior
+ 
+-Starting with version 28.0.3, the emulator [blocks audio input](https://developer.android.com/studio/releases/emulator#disable-host-audio)
++Starting with version 28.0.3, the emulator [blocks audio input](https://developer.android.com/studio/releases/emulator.md.txt#disable-host-audio)
+ from the host by default.
+ 
+ If you want to use the host audio data, you can enable that option by going to
+@@ -972,7 +996,7 @@ host audio data on or off, respectively:
+ 
+ #### Improvements for headless emulator builds
+ 
+-Starting with version 28.0.25, the emulator includes a [headless build option](https://developer.android.com/studio/releases/emulator#headless-build)
++Starting with version 28.0.25, the emulator includes a [headless build option](https://developer.android.com/studio/releases/emulator.md.txt#headless-build)
+ that can run without the UI. You can use headless builds to help you set up the
+ emulator for Docker and continuous integration (CI) workflows.
+ 
+@@ -1021,9 +1045,9 @@ boot after it receives a `boot complete` signal:
+     greatly reduces background CPU usage on the home screen and in the launcher when
+     the Google search app is active.
+ :   This command is run in addition to the emulator's default behavior of
+-    [disabling host audio](https://developer.android.com/studio/releases/emulator#disable-host-audio) for the host. Furthermore, this
++    [disabling host audio](https://developer.android.com/studio/releases/emulator.md.txt#disable-host-audio) for the host. Furthermore, this
+     automatically provides the CPU usage mitigation described for
+-    [hotword detection](https://developer.android.com/studio/releases/emulator#hotword-detection) from the 28.0.23 release.
++    [hotword detection](https://developer.android.com/studio/releases/emulator.md.txt#hotword-detection) from the 28.0.23 release.
+ 
+ > [!NOTE]
+ > **Note:** The emulator does not run these ADB commands when using system images with API level 25 and lower because those system images cannot communicate a reliable `boot complete` signal back to the host.
+@@ -1109,8 +1133,8 @@ There are two foldable hardware profiles that you can use to create an AVD:
+ - 8" Foldable: 2200x2480 unfolded, 6.6" 1480x2480 folded
+ 
+ When you run the emulator using one of these hardware profiles, you can fold and
+-unfold the device using the [fold and unfold actions](https://developer.android.com/studio/run/emulator#tasks)
+-in the emulator toolbar, [console commands](https://developer.android.com/studio/run/emulator-console#querycontrol),
++unfold the device using the [fold and unfold actions](https://developer.android.com/studio/run/emulator.md.txt#tasks)
++in the emulator toolbar, [console commands](https://developer.android.com/studio/run/emulator-console.md.txt#querycontrol),
+ or the following keyboard shortcuts:
+ 
+ - Fold: `Ctrl + F` (`Command + F` on macOS)
+@@ -1122,7 +1146,7 @@ The emulator now includes AR macros that can help you test common AR actions.
+ For example, you can use a macro to reset all the device's sensors to their
+ default state.
+ 
+-For more information, see [Test common AR actions with macros](https://developer.android.com/studio/run/advanced-emulator-usage#ar-macros).
++For more information, see [Test common AR actions with macros](https://developer.android.com/studio/run/advanced-emulator-usage.md.txt#ar-macros).
+ 
+ ### Vulkan support (Windows, Linux)
+ 
+@@ -1364,7 +1388,7 @@ In addition, we have also improved resource usage in the following areas:
+ - Fixed an issue where the QEMU AIO context could leak on Windows.
+ 
+ > [!NOTE]
+-> **Note:** Some Windows emulator users could not launch emulators due to exceeding the RAM commit charge. For help with this issue, see the [emulator Troubleshooting page](https://developer.android.com/studio/run/emulator-troubleshooting#windows_free_ram_and_commit_charge).
++> **Note:** Some Windows emulator users could not launch emulators due to exceeding the RAM commit charge. For help with this issue, see the [emulator Troubleshooting page](https://developer.android.com/studio/run/emulator-troubleshooting.md.txt#windows_free_ram_and_commit_charge).
+ 
+ ### Run multiple instances of a single AVD concurrently
+ 
+@@ -1380,7 +1404,7 @@ writable parts of the Android image. To help you manage disk space, we have also
+ bundled the `qemu-img` command line tool to allow you to pre-commit QCOW2
+ files before launching multiple instances.
+ 
+-In addition, when used in tandem with the [File-backed guest RAM snapshots](https://developer.android.com/studio/releases/emulator#file-backed-guest-RAM-snapshots) feature, multiple AVD instances share the
++In addition, when used in tandem with the [File-backed guest RAM snapshots](https://developer.android.com/studio/releases/emulator.md.txt#file-backed-guest-RAM-snapshots) feature, multiple AVD instances share the
+ primary AVD Quickboot snapshot as a common source of copy-on-write guest RAM.
+ This property means that the instances share much of their RAM in common. Use
+ this feature to run tests that require multiple devices to run in parallel.
+@@ -1413,7 +1437,7 @@ to discard changes after each session. You can do this in the following ways:
+   After you run this command, the emulator Quickboot snapshot will stay at that checkpoint. Run the same command again to load the emulator from your checkpoint.
+ 
+ > [!NOTE]
+-> **Note:** When you run [multiple concurrent instances of the same AVD](https://developer.android.com/studio/releases/emulator#concurrent-avd), the emulator disables auto-saving, but those instances then use any existing Quickboot RAM file as a common source of copy-on-write memory.
++> **Note:** When you run [multiple concurrent instances of the same AVD](https://developer.android.com/studio/releases/emulator.md.txt#concurrent-avd), the emulator disables auto-saving, but those instances then use any existing Quickboot RAM file as a common source of copy-on-write memory.
+ 
+ Snapshots that are taken and loaded through the Snapshots UI function as they
+ did before, with no file mapping.
+@@ -1492,7 +1516,7 @@ with a fresh Play Store AVD.
+ - Some users reported that the emulator has been running slow. We identified one possible cause where the temp directory for the emulator ends up with too many stale files inside. As a workaround, the emulator no longer stores ADB liveness check files in that directory. However, it may also help to delete the contents of that folder. The folder is located in one of the following locations, depending on your operating system:
+   - Windows: `C:\Users\<username>\AppData\Local\Temp\AndroidEmulator\*`
+   - macOS or Linux: `/tmp/android-<username>/*`
+-- If the emulator is unable to start due to insufficient free RAM, an error message is now displayed. If you are on Windows and notice that there is RAM free, but you are still unable to start the emulator, the commit charge may have been exceeded. For help with this issue, see the [emulator Troubleshooting page](https://developer.android.com/studio/run/emulator-troubleshooting#windows_free_ram_and_commit_charge).
++- If the emulator is unable to start due to insufficient free RAM, an error message is now displayed. If you are on Windows and notice that there is RAM free, but you are still unable to start the emulator, the commit charge may have been exceeded. For help with this issue, see the [emulator Troubleshooting page](https://developer.android.com/studio/run/emulator-troubleshooting.md.txt#windows_free_ram_and_commit_charge).
+ - The `-sysdir` command line option now properly overrides the inferred system image directory.
+ - Virtual modem now supports the model activity info `+MAI` query.
+ - Fixed various issues with memory leaks, memory corruption, and CPU usage. If you are experiencing crashes, memory leaks, or other high resource usage, please create an issue in [Issue Tracker](https://issuetracker.google.com/issues/new?component=192727&template=843117).
+@@ -1573,7 +1597,7 @@ the `-verbose` flag.
+ 
+ > [!NOTE]
+ > **Note:** For users with Hyper-V based setups, you must enable the **Windows
+-> Hypervisor Platform** feature before you can activate a WHPX emulator. For more information, see [Configuring VM acceleration with Windows HypervisorPlatform](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-hyperv-intel).
++> Hypervisor Platform** feature before you can activate a WHPX emulator. For more information, see [Configuring VM acceleration with Windows HypervisorPlatform](https://developer.android.com/studio/run/emulator-acceleration.md.txt#vm-windows-hyperv-intel).
+ 
+ ### General fixes
+ 
+@@ -1602,7 +1626,7 @@ for saving and loading the quick-boot snapshot that had previously been in the
+ 
+ You can edit the name and description of each saved snapshot.
+ 
+-For details, see [Snapshots](https://developer.android.com/studio/run/advanced-emulator-usage#snapshots).
++For details, see [Snapshots](https://developer.android.com/studio/run/advanced-emulator-usage.md.txt#snapshots).
+ 
+ ### HAXM 7.2.0
+ 
+@@ -1614,7 +1638,7 @@ contents into RAM on demand rather than loading the entire snapshot when the
+ virtual device starts. This change should greatly decrease the time needed to
+ load a snapshot.
+ 
+-For details, see [Configuring VM acceleration](https://developer.android.com/studio/run/emulator-acceleration#accel-vm).
++For details, see [Configuring VM acceleration](https://developer.android.com/studio/run/emulator-acceleration.md.txt#accel-vm).
+ 
+ ## 27.2.9 (May 2018)
+ 
+@@ -1667,7 +1691,7 @@ For information on using the virtual scene camera in the emulator, see
+ ### Google Play Store on Pixel device images
+ 
+ The Google Play Store is now enabled for Pixel and Pixel 2 device images. This
+-is indicated in the [AVD Manager](https://developer.android.com/studio/run/managing-avds) in Android Studio
++is indicated in the [AVD Manager](https://developer.android.com/studio/run/managing-avds.md.txt) in Android Studio
+ 3.2 and later with the Google Play logo in the **Play Store** column. AVDs with
+ Google Play Store enabled have a **Google Play** tab in the **Extended controls**
+ dialog that provides a convenient button for updating Google Play services on
+@@ -1675,9 +1699,9 @@ the device.
+ 
+ ### Snapshots
+ 
+-You can now load a [Quick Boot snapshot](https://developer.android.com/studio/run/emulator#quickboot)
++You can now load a [Quick Boot snapshot](https://developer.android.com/studio/run/emulator.md.txt#quickboot)
+ without restarting the emulator. To load a snapshot, open the
+-[**Extended Controls**](https://developer.android.com/studio/run/emulator#extended) window to the **Settings**
++[**Extended Controls**](https://developer.android.com/studio/run/emulator.md.txt#extended) window to the **Settings**
+ page and click the **Load Now** button.
+ 
+ We have made many improvements to the loading and saving of snapshots to
+@@ -1786,10 +1810,10 @@ If you are still experiencing hangs or other instabilities, please
+   Controls](https://developer.android.com/studio/run/emulator#extended) window.
+ - Quick Boot improvements to make working with AVD snapshots more efficient:
+ 
+-  - You can save an AVD snapshot at any time using the **Save Now** button in the Settings pane of the [Extended Controls](https://developer.android.com/studio/run/emulator#extended) dialog box.
++  - You can save an AVD snapshot at any time using the **Save Now** button in the Settings pane of the [Extended Controls](https://developer.android.com/studio/run/emulator.md.txt#extended) dialog box.
+   - The emulator reduces the time that it takes to save a snapshot in many cases by saving only the difference between the current state and the previously saved snapshot.
+ 
+-  For details, see the [Quick Boot](https://developer.android.com/studio/run/emulator#quickboot)
++  For details, see the [Quick Boot](https://developer.android.com/studio/run/emulator.md.txt#quickboot)
+   documentation.
+ - The emulator has been updated to use QEMU 2.9.
+ 
+@@ -1803,7 +1827,7 @@ If you are still experiencing hangs or other instabilities, please
+ 
+   The emulator's Swiftshader renderer now conforms fully with OpenGL ES 3.0.
+   For details of the Swiftshader renderer, see the **Settings \> Advanced**
+-  section of [Extended Controls](https://developer.android.com/studio/run/emulator#extended).
++  section of [Extended Controls](https://developer.android.com/studio/run/emulator.md.txt#extended).
+ - Fixes
+ 
+   - Fixed an issue where clipboard sharing was not working unless the **Enable
+@@ -1831,7 +1855,7 @@ If you are still experiencing hangs or other instabilities, please
+   which you closed the emulator (similar to waking a device).
+ 
+   If you want to control when the emulator saves a snapshot, open the
+-  emulator's [Extended controls window](https://developer.android.com/studio/run/emulator#extended)
++  emulator's [Extended controls window](https://developer.android.com/studio/run/emulator.md.txt#extended)
+   and click **Settings** . Here, you can select one of the following settings
+   for **Save quick boot state on exit**:
+   - **Yes**: Always save quick boot snapshot when you close the emulator. This is the default.
+@@ -1840,7 +1864,7 @@ If you are still experiencing hangs or other instabilities, please
+ 
+   Your selection applies only to the currently open AVD.
+ 
+-  For more information, see the [Quick Boot documentation](https://developer.android.com/studio/run/emulator#quickboot).
++  For more information, see the [Quick Boot documentation](https://developer.android.com/studio/run/emulator.md.txt#quickboot).
+ - Added support for Mac OpenGL ES 3 (for system images using API level 24 and
+   higher, Google APIs, and the x86 ABI).
+ 
+@@ -1932,7 +1956,7 @@ This release includes new features and performance improvements.
+   opens a dialog where you can see the bug report details such as the
+   screenshot, the AVD configuration info,
+   and a bug report log. You can then save the report for yourself or
+-  [report emulator issues](https://developer.android.com/studio/report-bugs#emulator-bugs).
++  [report emulator issues](https://developer.android.com/studio/report-bugs.md.txt#emulator-bugs).
+ 
+ - Added gyroscope sensor to emulator and virtual sensors panel. This requires
+   a system image with gyroscope support to work (currently API level 24
+@@ -1974,7 +1998,7 @@ performance improvements and bug fixes.
+ 
+ **Minor revision 26.0.3 (May 2017)**
+ 
+-- Adds online-updateable feature flags for quickly addressing issues stemming from problematic hardware configurations. This allows Google to roll out fixes and features that are dependent on user configurations by updating server-side flags. If you notice issues with specific hardware, please [report a bug](https://developer.android.com/studio/report-bugs) so we can investigate the problem.
++- Adds online-updateable feature flags for quickly addressing issues stemming from problematic hardware configurations. This allows Google to roll out fixes and features that are dependent on user configurations by updating server-side flags. If you notice issues with specific hardware, please [report a bug](https://developer.android.com/studio/report-bugs.md.txt) so we can investigate the problem.
+ - New support for [rotary
+   input](https://developer.android.com/training/wearables/ui/rotary-input) for Android Wear API level 25 system images. To emulate the rotary input dial on a Wear device, click the **Rotary Input** tab on the extended window.
+ - The Crash Reporting dialog is now resizable and no longer resets **When to send crash reports** to **Ask** without input.

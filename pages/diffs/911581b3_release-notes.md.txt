@@ -1,0 +1,13 @@
+diff --git a/docs/google/play/age-signals/release-notes.md b/docs/google/play/age-signals/release-notes.md
+index 461835fb..c2190b4a 100644
+--- a/docs/google/play/age-signals/release-notes.md
++++ b/docs/google/play/age-signals/release-notes.md
+@@ -7,7 +7,7 @@ source: md.txt
+ This page explains what's in the recent updates to the [Maven repository](https://maven.google.com/web/index.html#com.google.android.play:age-signals) for
+ the [Play Age Signals Library](https://developer.android.com/google/play/age-signals/overview.md.txt).
+ 
+-## 0.0.5 (November 2026)
++## 0.0.6 (November 2026)
+ 
+ - **New method for applicable age features** : Introduced
+   `getApplicableAgeFeatures()` to check which age-related features (such as

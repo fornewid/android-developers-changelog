@@ -1,0 +1,36 @@
+diff --git a/docs/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md b/docs/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md
+index 72cb8d06..43f990aa 100644
+--- a/docs/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md
++++ b/docs/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md
+@@ -82,6 +82,13 @@ Continue reading
+   - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+   - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
+   - +2 ↩
++- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) 19 Nov 2026 19 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_139_Android_developer_verification_Going_global_together_Strapi_01_png_12aa1e5aae_ZkNaef.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
++
++  ## [Expanding Android developer verification in 2027](https://developer.android.com/blog/posts/android-developer-verification-2027.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-2027.md.txt) After over a year of joint preparation with industry leaders, regional partners, app distributors, and Android communities, our user protections successfully went live on September 30 for participating stores across Brazil, Indonesia, Singapore, and Thailand.
++  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) • 2 min read
++  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+ - [![View Aurash Mahbod's profile](https://developer.android.com/static/blog/assets/image3_98854eb3dd_Z2kItkm.webp)](https://developer.android.com/blog/authors/aurash-mahbod.md.txt) 18 Nov 2026 18 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_162_2000x1000_1_ce7dba8d2a_72W03.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+   ## [Elevating games: New large screens and foldables quality standards on Google Play](https://developer.android.com/blog/posts/elevating-game-quality-foldables-large-screens-google-play.md.txt)
+@@ -94,17 +101,6 @@ Continue reading
+   - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+   - [#Large Screens](https://developer.android.com/blog/topics/large-screens.md.txt)
+   - +3 ↩
+-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) 05 Nov 2026 05 Nov 2026 ![Dark promotional banner with the phrase 'intelligent apps' displayed in bold white font in the center. In the bottom-right corner, a glossy, metallic 3D Android robot head peaks upward. The dark background is filled with repeating technical terms and API names related to Android artificial intelligence, including 'A2UI', 'Android MCP', 'Gemini Nano', 'ML Kit', 'AICore', and 'Connected Apps Platform'.](https://developer.android.com/static/blog/assets/ADS_Intelligent_Aps_df6b69d7ef_HGStR.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+-
+-  ## [What's new in intelligent apps at the Android Developer Summit](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads.md.txt) In the intelligence era, users are no longer just tapping through apps, they express high-level goals and expect AI agents like Gemini to complete multi-step workflows, sometimes across multiple apps on their devices.
+-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) • 4 min read
+-  - [#Android MCP](https://developer.android.com/blog/topics/android-mcp.md.txt)
+-  - [#Gemini Nano](https://developer.android.com/blog/topics/gemini-nano.md.txt)
+-  - [#ML Kit](https://developer.android.com/blog/topics/ml-kit.md.txt)
+-  - [#Connected Apps](https://developer.android.com/blog/topics/connected-apps.md.txt)
+-  - +2 ↩
+ Stay in the loop
+ 
+ 

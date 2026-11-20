@@ -1,0 +1,303 @@
+diff --git a/docs/media/optimize/audio-focus.md b/docs/media/optimize/audio-focus.md
+index b7a9dca7..ab812688 100644
+--- a/docs/media/optimize/audio-focus.md
++++ b/docs/media/optimize/audio-focus.md
+@@ -179,17 +179,18 @@ The `FocusGain` field is required; all the other fields are optional.
+ The following example shows how to use an `AudioFocusRequest.Builder` to build
+ an `AudioFocusRequest` and request and abandon audio focus:
+ 
+-### Kotlin
+ 
+ ```kotlin
+-// initializing variables for audio focus and playback management
++// initializing variables for audio focus and playback management.
+ audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+ focusRequest = AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN).run {
+-    setAudioAttributes(AudioAttributes.Builder().run {
+-        setUsage(AudioAttributes.USAGE_GAME)
+-        setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+-        build()
+-    })
++    setAudioAttributes(
++        AudioAttributes.Builder().run {
++            setUsage(AudioAttributes.USAGE_GAME)
++            setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
++            build()
++        }
++    )
+     setAcceptsDelayedFocusGain(true)
+     setOnAudioFocusChangeListener(afChangeListener, handler)
+     build()
+@@ -199,7 +200,7 @@ val focusLock = Any()
+ var playbackDelayed = false
+ var playbackNowAuthorized = false
+ 
+-// requesting audio focus and processing the response
++// requesting audio focus and processing the response.
+ val res = audioManager.requestAudioFocus(focusRequest)
+ synchronized(focusLock) {
+     playbackNowAuthorized = when (res) {
+@@ -216,7 +217,7 @@ synchronized(focusLock) {
+     }
+ }
+ 
+-// implementing OnAudioFocusChangeListener to react to focus changes
++// implementing OnAudioFocusChangeListener to react to focus changes.
+ override fun onAudioFocusChange(focusChange: Int) {
+     when (focusChange) {
+         AudioManager.AUDIOFOCUS_GAIN ->
+@@ -236,87 +237,20 @@ override fun onAudioFocusChange(focusChange: Int) {
+         }
+         AudioManager.AUDIOFOCUS_LOSS_TRANSIENT -> {
+             synchronized(focusLock) {
+-                // only resume if playback is being interrupted
++                // only resume if playback is being interrupted.
+                 resumeOnFocusGain = isPlaying()
+                 playbackDelayed = false
+             }
+             pausePlayback()
+         }
+         AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK -> {
+-            // ... pausing or ducking depends on your app
++            // ... pausing or ducking depends on your app.
+         }
+     }
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-// initializing variables for audio focus and playback management
+-audioManager = (AudioManager) Context.getSystemService(Context.AUDIO_SERVICE);
+-playbackAttributes = new AudioAttributes.Builder()
+-        .setUsage(AudioAttributes.USAGE_GAME)
+-        .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+-        .build();
+-focusRequest = new AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN)
+-        .setAudioAttributes(playbackAttributes)
+-        .setAcceptsDelayedFocusGain(true)
+-        .setOnAudioFocusChangeListener(afChangeListener, handler)
+-        .build();
+-final Object focusLock = new Object();
+-
+-boolean playbackDelayed = false;
+-boolean playbackNowAuthorized = false;
+-
+-// requesting audio focus and processing the response
+-int res = audioManager.requestAudioFocus(focusRequest);
+-synchronized(focusLock) {
+-    if (res == AudioManager.AUDIOFOCUS_REQUEST_FAILED) {
+-        playbackNowAuthorized = false;
+-    } else if (res == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+-        playbackNowAuthorized = true;
+-        playbackNow();
+-    } else if (res == AudioManager.AUDIOFOCUS_REQUEST_DELAYED) {
+-        playbackDelayed = true;
+-        playbackNowAuthorized = false;
+-    }
+-}
+-
+-// implementing OnAudioFocusChangeListener to react to focus changes
+-@Override
+-public void onAudioFocusChange(int focusChange) {
+-    switch (focusChange) {
+-        case AudioManager.AUDIOFOCUS_GAIN:
+-            if (playbackDelayed || resumeOnFocusGain) {
+-                synchronized(focusLock) {
+-                    playbackDelayed = false;
+-                    resumeOnFocusGain = false;
+-                }
+-                playbackNow();
+-            }
+-            break;
+-        case AudioManager.AUDIOFOCUS_LOSS:
+-            synchronized(focusLock) {
+-                resumeOnFocusGain = false;
+-                playbackDelayed = false;
+-            }
+-            pausePlayback();
+-            break;
+-        case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
+-            synchronized(focusLock) {
+-                // only resume if playback is being interrupted
+-                resumeOnFocusGain = isPlaying();
+-                playbackDelayed = false;
+-            }
+-            pausePlayback();
+-            break;
+-        case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:
+-            // ... pausing or ducking depends on your app
+-            break;
+-        }
+-    }
+-}
+-```
++<br />
+ 
+ ### Automatic ducking
+ 
+@@ -375,61 +309,37 @@ The following snippet requests permanent audio focus on the stream
+ subsequent changes in audio focus. (The change listener is discussed in
+ [Responding to an audio focus change](https://developer.android.com/media/optimize/audio-focus.md.txt#audio-focus-change).)
+ 
+-### Kotlin
+ 
+ ```kotlin
+ audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+-lateinit var afChangeListener AudioManager.OnAudioFocusChangeListener
++lateinit var afChangeListener: AudioManager.OnAudioFocusChangeListener
+ 
+-...
+-// Request audio focus for playback
++// ...
++// Request audio focus for playback.
+ val result: Int = audioManager.requestAudioFocus(
+-        afChangeListener,
+-        // Use the music stream.
+-        AudioManager.STREAM_MUSIC,
+-        // Request permanent focus.
+-        AudioManager.AUDIOFOCUS_GAIN
++    afChangeListener,
++    // Use the music stream.
++    AudioManager.STREAM_MUSIC,
++    // Request permanent focus.
++    AudioManager.AUDIOFOCUS_GAIN
+ )
+ 
+ if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+-    // Start playback
++    // Start playback.
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+-AudioManager.OnAudioFocusChangeListener afChangeListener;
+-
+-...
+-// Request audio focus for playback
+-int result = audioManager.requestAudioFocus(afChangeListener,
+-                             // Use the music stream.
+-                             AudioManager.STREAM_MUSIC,
+-                             // Request permanent focus.
+-                             AudioManager.AUDIOFOCUS_GAIN);
+-
+-if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+-    // Start playback
+-}
+-```
++<br />
+ 
+ When you finish playback, call
+ [`abandonAudioFocus()`](https://developer.android.com/reference/android/media/AudioManager.md.txt#abandonAudioFocus(android.media.AudioManager.OnAudioFocusChangeListener)).
+ 
+-### Kotlin
+ 
+ ```kotlin
+ audioManager.abandonAudioFocus(afChangeListener)
+ ```
+ 
+-### Java
+-
+-```java
+-// Abandon audio focus when playback complete
+-audioManager.abandonAudioFocus(afChangeListener);
+-```
++<br />
+ 
+ This notifies the system that you no longer require focus and unregisters the
+ associated `OnAudioFocusChangeListener`. If you requested transient focus,
+@@ -491,63 +401,36 @@ The following code snippet demonstrates how to implement the
+ use of a `Handler` to delay the stop callback on a permanent loss of audio
+ focus.
+ 
+-### Kotlin
+ 
+ ```kotlin
+-private val handler = Handler()
++private val handler = Handler(Looper.getMainLooper())
+ private val afChangeListener = AudioManager.OnAudioFocusChangeListener { focusChange ->
+     when (focusChange) {
+         AudioManager.AUDIOFOCUS_LOSS -> {
+-            // Permanent loss of audio focus
+-            // Pause playback immediately
++            // Permanent loss of audio focus.
++            // Pause playback immediately.
+             mediaController.transportControls.pause()
+-            // Wait 30 seconds before stopping playback
++            // Wait 30 seconds before stopping playback.
+             handler.postDelayed(delayedStopRunnable, TimeUnit.SECONDS.toMillis(30))
+         }
+         AudioManager.AUDIOFOCUS_LOSS_TRANSIENT -> {
+-            // Pause playback
++            // Pause playback.
+         }
+         AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK -> {
+-            // Lower the volume, keep playing
++            // Lower the volume, keep playing.
+         }
+         AudioManager.AUDIOFOCUS_GAIN -> {
+-            // Your app has been granted audio focus again
+-            // Raise volume to normal, restart playback if necessary
++            // Your app has been granted audio focus again.
++            // Raise volume to normal, restart playback if necessary.
+         }
+     }
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-private Handler handler = new Handler();
+-AudioManager.OnAudioFocusChangeListener afChangeListener =
+-  new AudioManager.OnAudioFocusChangeListener() {
+-    public void onAudioFocusChange(int focusChange) {
+-      if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
+-        // Permanent loss of audio focus
+-        // Pause playback immediately
+-        mediaController.getTransportControls().pause();
+-        // Wait 30 seconds before stopping playback
+-        handler.postDelayed(delayedStopRunnable,
+-          TimeUnit.SECONDS.toMillis(30));
+-      }
+-      else if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT) {
+-        // Pause playback
+-      } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
+-        // Lower the volume, keep playing
+-      } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
+-        // Your app has been granted audio focus again
+-        // Raise volume to normal, restart playback if necessary
+-      }
+-    }
+-  };
+-```
++<br />
+ 
+ The handler uses a `Runnable` that looks like this:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ private var delayedStopRunnable = Runnable {
+@@ -555,16 +438,7 @@ private var delayedStopRunnable = Runnable {
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-private Runnable delayedStopRunnable = new Runnable() {
+-    @Override
+-    public void run() {
+-        getMediaController().getTransportControls().stop();
+-    }
+-};
+-```
++<br />
+ 
+ To ensure the delayed stop does not kick in if the user restarts playback, call
+ `mHandler.removeCallbacks(mDelayedStopRunnable)` in response to any state

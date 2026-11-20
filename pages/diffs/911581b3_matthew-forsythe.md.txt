@@ -1,0 +1,50 @@
+diff --git a/docs/blog/authors/matthew-forsythe.md b/docs/blog/authors/matthew-forsythe.md
+index a612c523..9e9f0118 100644
+--- a/docs/blog/authors/matthew-forsythe.md
++++ b/docs/blog/authors/matthew-forsythe.md
+@@ -4,15 +4,22 @@ url: https://developer.android.com/blog/authors/matthew-forsythe
+ source: md.txt
+ ---
+ 
+-> Documentation index: https://developer.android.com/blog/authors/llms.txt
++> Documentation index: https://developer.android.com/blog/authors/matthew-forsythe/llms.txt
+ 
+-6 posts ![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)
++7 posts ![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)
+ 
+ # Matthew Forsythe
+ 
+ Director, Product Management
+ 
+ Android App Safety
++- 19 Nov 2026 19 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_139_Android_developer_verification_Going_global_together_Strapi_01_png_12aa1e5aae_ZkNaef.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
++
++  ## [Expanding Android developer verification in 2027](https://developer.android.com/blog/posts/android-developer-verification-2027.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-2027.md.txt) After over a year of joint preparation with industry leaders, regional partners, app distributors, and Android communities, our user protections successfully went live on September 30 for participating stores across Brazil, Indonesia, Singapore, and Thailand.
++  2 min read
++  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+ - 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_KDejo.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+   ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together.md.txt)
+@@ -44,15 +51,13 @@ Android App Safety
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-early-access-starts-now-as-we-continue-to-build-with-your-feedback.md.txt) We recently announced new developer verification requirements, which serve as an additional layer of defense in our ongoing effort to keep Android users safe. We know that security works best when it accounts for the diverse ways people use our tools.
+   3 min read
+-- 30 Sep 2025 30 Sep 2025 ![](https://developer.android.com/static/blog/assets/lets_Talk_Security_3e0a595955_ZQycm0.webp) [Community](https://developer.android.com/blog/categories/community.md.txt)
++<button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
+ 
+-  ## [Let's talk security: Answering your top questions about Android developer verification](https://developer.android.com/blog/posts/lets-talk-security-answering-your-top.md.txt)
++#### Page 1
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/lets-talk-security-answering-your-top.md.txt) Android recently announced developer verification, an extra layer of security that deters bad actors and makes it harder for them to spread harm.
+-  2 min read
+-  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+-  - [#identity](https://developer.android.com/blog/topics/identity.md.txt)
+-Stay in the loop
++###### of 2
++
++[arrow_forward](https://developer.android.com/blog/authors/matthew-forsythe/2.md.txt) Stay in the loop
+ 
+ 
+ Get the latest Android development insights delivered to your inbox

@@ -1,0 +1,158 @@
+diff --git a/docs/media/grow/spatial-audio.md b/docs/media/grow/spatial-audio.md
+index 93dd0a59..8ae6144d 100644
+--- a/docs/media/grow/spatial-audio.md
++++ b/docs/media/grow/spatial-audio.md
+@@ -25,17 +25,12 @@ query the device's spatialization capabilities and behavior. Start by retrieving
+ an instance of the `Spatializer` from the
+ [`AudioManager`](https://developer.android.com/reference/android/media/AudioManager.md.txt#getSpatializer()):
+ 
+-### Kotlin
+ 
+ ```kotlin
+ val spatializer = audioManager.spatializer
+ ```
+ 
+-### Java
+-
+-```java
+-Spatializer spatializer = AudioManager.getSpatializer();
+-```
++<br />
+ 
+ After you get the `Spatializer`, check for the four conditions that must hold
+ true for the device to output spatialized audio:
+@@ -149,50 +144,29 @@ rebuffering period.
+ To disable audio channel count constraints, set the track selection parameters
+ on the player as shown below:
+ 
+-### Kotlin
+ 
+ ```kotlin
+-exoPlayer.trackSelectionParameters = DefaultTrackSelector.Parameters.Builder(context)
+-  .setConstrainAudioChannelCountToDeviceCapabilities(false)
+-  .build()
+-```
+-
+-### Java
+-
+-```java
+-exoPlayer.setTrackSelectionParameters(
+-  new DefaultTrackSelector.Parameters.Builder(context)
++exoPlayer.trackSelectionParameters = DefaultTrackSelector.Parameters.Builder()
+     .setConstrainAudioChannelCountToDeviceCapabilities(false)
+     .build()
+-);
+ ```
+ 
++<br />
++
+ Similarly, you can update an existing track selector's parameters to disable
+ audio channel count constraints as follows:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ val trackSelector = DefaultTrackSelector(context)
+-...
++// ...
+ trackSelector.parameters = trackSelector.buildUponParameters()
+-  .setConstrainAudioChannelCountToDeviceCapabilities(false)
+-  .build()
+-```
+-
+-### Java
+-
+-```java
+-DefaultTrackSelector trackSelector = new DefaultTrackSelector(context);
+-...
+-trackSelector.setParameters(
+-  trackSelector
+-    .buildUponParameters()
+     .setConstrainAudioChannelCountToDeviceCapabilities(false)
+     .build()
+-);
+ ```
+ 
++<br />
++
+ With audio channel count constraints disabled, if content has multiple audio
+ tracks, ExoPlayer initially selects the track that has the highest number of channels and
+ is playable from the device. For example, if the content contains a
+@@ -218,26 +192,16 @@ Likewise, you can get ExoPlayer's current parameters with
+ [`Player.getTrackSelectionParameters()`](https://github.com/androidx/media/blob/50475814f700d08519c88585c9583f2aba5d702e/libraries/common/src/main/java/androidx/media3/common/Player.java#L2127).
+ For example, to select a stereo audio track mid-playback:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ exoPlayer.trackSelectionParameters = exoPlayer.trackSelectionParameters
+-  .buildUpon()
+-  .setMaxAudioChannelCount(2)
+-  .build()
+-```
+-
+-### Java
+-
+-```java
+-exoPlayer.setTrackSelectionParameters(
+-  exoPlayer.getTrackSelectionParameters()
+     .buildUpon()
+     .setMaxAudioChannelCount(2)
+     .build()
+-);
+ ```
+ 
++<br />
++
+ Note that changing the track selection parameters mid-playback may cause an
+ interruption in the playback. More information on tuning the player's track
+ selection parameters is available in the
+@@ -255,19 +219,13 @@ that may be customized by OEMs:
+   that can be output by an audio decoder to a large number. This ensures that
+   the audio decoder outputs multi-channel PCM for the platform to spatialize.
+ 
+-  ### Kotlin
+ 
+   ```kotlin
+   val mediaFormat = MediaFormat()
+   mediaFormat.setInteger(MediaFormat.KEY_MAX_OUTPUT_CHANNEL_COUNT, 99)
+   ```
+ 
+-  ### Java
+-
+-  ```java
+-  MediaFormat mediaFormat = new MediaFormat();
+-  mediaFormat.setInteger(MediaFormat.KEY_MAX_OUTPUT_CHANNEL_COUNT, 99);
+-  ```
++  <br />
+ 
+   For an example in action, see ExoPlayer's [`MediaCodecAudioRenderer.java`](https://github.com/androidx/media/blob/50475814f700d08519c88585c9583f2aba5d702e/libraries/exoplayer/src/main/java/androidx/media3/exoplayer/audio/MediaCodecAudioRenderer.java#L859). To turn spatialization off yourself, regardless of OEM
+   customization, see [Disabling spatial audio](https://developer.android.com/media/grow/spatial-audio.md.txt#disable).
+@@ -288,23 +246,15 @@ that may be customized by OEMs:
+   In addition, set the encoding to [`AudioFormat.ENCODING_PCM_16BIT`](https://developer.android.com/reference/android/media/AudioFormat.md.txt#ENCODING_PCM_16BIT)
+   if you have configured the decoder to output multi-channel PCM.
+ 
+-  ### Kotlin
+ 
+   ```kotlin
+   val audioFormat = AudioFormat.Builder()
+-    .setEncoding(AudioFormat.ENCODING_PCM_16BIT)
+-    .setChannelMask(AudioFormat.CHANNEL_OUT_5POINT1)
+-    .build()
++      .setEncoding(AudioFormat.ENCODING_PCM_16BIT)
++      .setChannelMask(AudioFormat.CHANNEL_OUT_5POINT1)
++      .build()
+   ```
+ 
+-  ### Java
+-
+-  ```java
+-  AudioFormat audioFormat = new AudioFormat.Builder()
+-    .setEncoding(AudioFormat.ENCODING_PCM_16BIT)
+-    .setChannelMask(AudioFormat.CHANNEL_OUT_5POINT1)
+-    .build();
+-  ```
++  <br />
+ 
+ ## Test spatial audio
+ 

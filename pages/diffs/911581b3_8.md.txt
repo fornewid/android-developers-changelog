@@ -1,0 +1,32 @@
+diff --git a/docs/blog/latest/8.md b/docs/blog/latest/8.md
+index 6c76e89e..c993f8ea 100644
+--- a/docs/blog/latest/8.md
++++ b/docs/blog/latest/8.md
+@@ -9,6 +9,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/Brighten_Real_Time_0d4c07ef35_ZnMjzn.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
++
++  ## [Brighten Your Real-Time Camera Feeds with Low Light Boost](https://developer.android.com/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md.txt) Today, we're diving into Low Light Boost (LLB), a powerful feature designed to brighten real-time camera streams
++  [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray.md.txt) • 7 min read
+ - [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan.md.txt) 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_2pRpOz.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+   ## [Build smarter apps with Gemini 3 Flash](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash.md.txt)
+@@ -123,14 +129,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api.md.txt) In the mobile ecosystem, abuse can threaten your revenue, growth, and user trust. To help developers thrive, Google Play offers a resilient threat detection service, Play Integrity API.
+   [Dom Elliott](https://developer.android.com/blog/authors/dom-elliott.md.txt), [Eric Lynch](https://developer.android.com/blog/authors/eric-lynch.md.txt) • 5 min read
+-- [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp)](https://developer.android.com/blog/authors/don-turner.md.txt) 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/jetpack_navigation_d1257f9ca2_Z16ze9q.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+-
+-  ## [Jetpack Navigation 3 is stable](https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable.md.txt)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable.md.txt) Jetpack Navigation 3 version 1.0 is stable!
+-  [Don Turner](https://developer.android.com/blog/authors/don-turner.md.txt) • 3 min read
+-  - [#Nav3](https://developer.android.com/blog/topics/nav3.md.txt)
+-  - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation.md.txt)
+ [arrow_back](https://developer.android.com/blog/latest/7.md.txt)
+ 
+ #### Page 8

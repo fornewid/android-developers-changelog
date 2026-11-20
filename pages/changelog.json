@@ -1,5 +1,1063 @@
 [
   {
+    "date": "2026-11-20T15:09:55Z",
+    "commit_hash": "911581b3",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/identity/digital-credentials/credential-verifier/skill\" target=\"_blank\">Request and verify digital credentials in an Android app</a>",
+        "path": "agents/skills/identity/digital-credentials/credential-verifier/skill.md",
+        "summary": "Updated documentation references and internal links to point directly to markdown file equivalents (`.md.txt`), adjusted frontmatter configuration, and cleaned up markdown formatting throughout the credential verifier skill guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/identity/digital-credentials/phone-number-verification/skill\" target=\"_blank\">Verify phone numbers without SMS using digital credentials in Android</a>",
+        "path": "agents/skills/identity/digital-credentials/phone-number-verification/skill.md",
+        "summary": "Updated internal documentation links from relative paths to absolute markdown file paths (appending `.md.txt` extensions) and adjusted Markdown list formatting for consistency. These changes ensure proper resolution of documentation references and improve source mapping.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/play/engage-sdk-integration/references/patterns\" target=\"_blank\">Engage SDK code patterns</a>",
+        "path": "agents/skills/play/engage-sdk-integration/references/patterns.md",
+        "summary": "Updated the WorkManager dependency version from 2.11.2 to 2.12.0 in the Engage SDK integration patterns. This ensures developers use a more recent version of WorkManager with the latest bug fixes, performance improvements, and API enhancements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_patterns.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog\" target=\"_blank\">The Android Developers' Blog</a>",
+        "path": "blog.md",
+        "summary": "Added a new blog post regarding the expansion of Android developer verification in 2027 by Matthew Forsythe, and removed an older case study post about SmileID scaling identity verification with CameraX.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_blog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/9\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/9.md",
+        "summary": "Updated the post count for author Matthew Forsythe from 6 to 7 posts, reflecting the publication of a new article.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/matthew-forsythe\" target=\"_blank\">Matthew Forsythe</a>",
+        "path": "blog/authors/matthew-forsythe.md",
+        "summary": "The author documentation for Matthew Forsythe was updated to include a new blog post regarding the expansion of Android developer verification in 2027, along with pagination updates and a corrected documentation index URL.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_matthew-forsythe.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/matthew-forsythe/2\" target=\"_blank\">Matthew Forsythe</a>",
+        "path": "blog/authors/matthew-forsythe/2.md",
+        "summary": "Added a new author documentation page for Matthew Forsythe, Director of Product Management for Android App Safety, listing his community and security posts.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news.md",
+        "summary": "The product news documentation was updated to include a new blog post entry regarding the expansion of Android developer verification planned for 2027, while an older entry concerning Android XR devices was removed from this page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_product-news.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/10\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/10.md",
+        "summary": "Updated the Product News blog category page (page 10) by adding a new post entry for \"What's New in Wear OS 7\" by John Zoeller and removing an older post (\"A look ahead: Making it easier and faster to publish safer apps\" by Vijaya Kaza). This keeps the product news feed current with the latest developer announcements regarding Wear OS, AppFunctions, and Compose.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/11\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/11.md",
+        "summary": "Updated the Product News category page by adding a new blog post entry regarding safer app publishing by Vijaya Kaza and removing an older entry about testing multi-device interactions with the Android Emulator by Steven Jenkins. This keeps the product news feed current with the latest platform and security updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/12\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/12.md",
+        "summary": "Updated the Product News category page by adding a new blog post entry regarding multi-device interactions with the Android Emulator by Steven Jenkins and removing an older post about Android developer verification. This keeps the product news feed current with the latest developer content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_12.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/13\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/13.md",
+        "summary": "The product news category page has been updated to replace an older post regarding Android developer verification with a newer announcement about its rollout to all developers on the Play Console and Android Developer Console. This change ensures that developers have access to the most up-to-date information and requirements regarding platform safety and verification.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_13.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/14\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/14.md",
+        "summary": "The product news category page has been updated to include a new blog post regarding Android developer verification and safety, while removing an older entry about connected displays in Android 16 QPR3. This keeps the developer blog index current with the latest platform announcements and security updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_14.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/15\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/15.md",
+        "summary": "The product news blog index was updated to include a new post about connected display support reaching general availability in Android 16 QPR3, while an older post regarding Android 17 resizability and orientation changes was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_15.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/16\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/16.md",
+        "summary": "The product news documentation was updated to include a new blog post entry regarding app resizability and orientation changes in Android 17 by Miguel Montemayor, while removing an older post about the Play Console's 'Save for later' feature. This matters as it keeps developers informed about the latest Android 17 guidelines and documentation listings.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_16.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/17\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/17.md",
+        "summary": "Added a new product news post regarding the Google Play Console's 'Save for later' feature and removed an older post about 'Low Light Boost' for camera feeds. These updates keep the product news category current with the latest announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/18\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/18.md",
+        "summary": "The product news blog index was updated to include a new post regarding the \"Low Light Boost\" camera feature by Donovan McMurray, and an older entry about the Android Studio Otter 2 Feature Drop was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_18.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/19\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/19.md",
+        "summary": "Updated the Product News category page to include the newly released Android Studio Otter 2 Feature Drop announcement by Sandhya Mohan and Trevor Johns, while removing an older post about configuring and troubleshooting R8 keep rules to keep the feed current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_19.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/2\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/2.md",
+        "summary": "The product news blog category page was updated to include a new post about building for Android XR devices with production-ready tools from the Android Developer Summit, while an older post regarding Google Play discovery and engagement growth was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/20\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/20.md",
+        "summary": "The product news blog index was updated to include a new post regarding the configuration and troubleshooting of R8 keep rules by Ajesh Pai and Ben Weiss, while an older post about Material 3 Adaptive 1.2.0 stability by Rob Orgiu was removed. These updates keep the developer news feed current with the latest technical guidance and announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_20.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/21\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/21.md",
+        "summary": "Updated the product news blog index to include the announcement for the stable release of Material 3 Adaptive 1.2.0, while removing the older entry for Jetpack WindowManager 1.5. This matters because developers browsing the product news categories are directed to the most current stable library releases and adaptive UI guidance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_21.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/22\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/22.md",
+        "summary": "Updated the Product News category page to include the announcement of the stable release of Jetpack WindowManager 1.5, while removing an older guide entry regarding multi-device app adaptation. This ensures developers have access to the latest library stabilization updates and adaptive UI resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_22.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/23\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/23.md",
+        "summary": "Added a new blog post entry titled 'A product manager's guide to adapting Android apps across devices' by Fahd Imtiaz, dated June 10, 2025. This addition highlights the Android 16 rollout, desktop experiences with connected displays, Google app updates, and the June Pixel Drop, helping product managers and developers keep track of the latest ecosystem updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_23.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/3\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/3.md",
+        "summary": "Updated the Product News blog category page by adding a new post from Paul Feng regarding Google Play discovery, engagement, and growth features, while removing an older post about bringing Android games to car screens.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/4\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/4.md",
+        "summary": "Updated the Product News category page by adding a new blog post entry regarding the general availability of games for Android Auto and Android Automotive OS, and removed an older post about ensuring safety in the generative AI ecosystem. This keeps the product news feed current with the latest developer announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/5\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/5.md",
+        "summary": "Updated the Product News category page by adding a new post about ensuring safety in the generative AI ecosystem regarding non-consensual intimate content by Ron Aquino, and removing an older post about bringing one-handed gestures to Wear OS apps by Chiara Chiappini. This keeps the product news listings current with the latest platform guidelines and announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/6\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/6.md",
+        "summary": "Updated the Product News category page by adding a new blog post entry about bringing one-handed gestures to Wear OS apps (by Chiara Chiappini) and removing an older post regarding Eclipsa Video HDR. This keeps the product news feed current with the latest developer updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/7\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/7.md",
+        "summary": "The product news blog category page was updated to include a new post about Eclipsa Video HDR capabilities by Tibian Elsheikh and Jeffrey Jose, while an older post regarding Android developer productivity by Simona Milanovic was removed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/8\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/8.md",
+        "summary": "The product news blog index was updated to add a new post by Simona Milanovic titled 'Top 3 updates for Android developer productivity' focusing on AI and agent-assisted tooling from Google I/O, while simultaneously removing an older post by Paul Lammertsma regarding app discovery and engagement on Google TV.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/9\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/9.md",
+        "summary": "The product news blog category page was updated to include a new post regarding app discovery and engagement on Google TV by Paul Lammertsma, while removing a previously listed post about Wear OS 7 by John Zoeller. This matters as it keeps the developer blog listings accurate and up-to-date with current content releases.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest.md",
+        "summary": "The Android blog updates page added a new announcement regarding the expansion of Android developer verification for 2027 by Matthew Forsythe and removed an older post about Android CLI device streaming and skills by Simona Milanovic, keeping the latest feed current with recent product news.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_latest.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/10\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/10.md",
+        "summary": "Updated the latest blog feed by adding a new post on CameraX 1.5 high-speed capture and slow-motion video by Leo Huang, while removing an older security post by Matthew Forsythe to keep the page current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/11\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/11.md",
+        "summary": "Added a new blog post entry by Matthew Forsythe titled 'Let's talk security: Answering your top questions about Android developer verification' to the latest announcements page. This addition informs developers about the newly announced developer verification security layer designed to deter bad actors and protect the ecosystem.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/2\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/2.md",
+        "summary": "Added a new blog post entry regarding Device Streaming and Android skills available in the Android CLI by Simona Milanovic, and removed an older post about Media3 1.11 from the latest announcements page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/3\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/3.md",
+        "summary": "The latest Android blog documentation was updated to include an announcement for Media3 1.11 detailing new playback, editing, and UI improvements, while an older post regarding the Android 17 release was removed from the feed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/4\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/4.md",
+        "summary": "Updated the latest blog posts list by adding the announcement for the official release of Android 17 and removing an older post regarding building native Android apps in Google AI Studio. This keeps the developer documentation current with the latest platform rollouts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/5\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/5.md",
+        "summary": "Added a new blog post announcement regarding building native Android apps using Kotlin and Jetpack Compose directly in Google AI Studio, alongside the removal of an older post about preparing Wear OS apps for 64-bit requirements. This update keeps developers informed about the latest AI integration tools and feature rollouts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/6\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/6.md",
+        "summary": "Added a new blog post announcement regarding Wear OS 64-bit architecture requirements and removed an older post about Android Studio Panda 2 to keep the latest updates feed current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/7\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/7.md",
+        "summary": "Added a new blog post announcement for Android Studio Panda 2's stable release, detailing its prompt-to-prototype features by author Matt Dyor, while older entries like the Low Light Boost camera post were removed to manage pagination.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/8\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/8.md",
+        "summary": "The latest blog updates page was modified to include a new post regarding Low Light Boost (LLB) for real-time camera feeds by Donovan McMurray, while an older post about Jetpack Navigation 3 stability by Don Turner was removed. These updates ensure developers stay informed about the newest platform features and tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/9\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/9.md",
+        "summary": "The latest Android documentation updates add an announcement regarding the stable release of Jetpack Navigation 3 (version 1.0) by Don Turner and remove an older entry for CameraX 1.5 high-speed capture and slow-motion video. This keeps the blog feed current with the most recent architectural milestones.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/a-new-era-for-choice-and-openness\" target=\"_blank\">A new era for choice and openness</a>",
+        "path": "blog/posts/a-new-era-for-choice-and-openness.md",
+        "summary": "The blog post list was updated to include a new entry about expanding Android developer verification in 2027 by Matthew Forsythe, while removing a previous entry regarding Google Play's adaptive app quality standards by Mekka Okereke. This keeps the 'Continue reading' section current with recent Android product news.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_a-new-era-for-choice-and-openness.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations\" target=\"_blank\">Accelerating your insights with faster, smarter monetization data and recommendations</a>",
+        "path": "blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to add a reference to the new article on expanding Android developer verification in 2027 by Matthew Forsythe, while removing the older reference to the Jetpack Compose November '26 release post. This keeps the recommended reading list current with recent developer-focused announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-developer-verification-2027\" target=\"_blank\">Expanding Android developer verification in 2027</a>",
+        "path": "blog/posts/android-developer-verification-2027.md",
+        "summary": "This new blog post outlines Android's global rollout of developer verification starting in January 2027 in partnership with major app distributors. It details new feedback-driven features like expanded device limits for limited distribution accounts and new registration automation APIs.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-developer-verification-rolling-out-to-all-developers-on-play-console-and-android-developer-console\" target=\"_blank\">Android developer verification: Rolling out to all developers on Play Console and Android Developer Console</a>",
+        "path": "blog/posts/android-developer-verification-rolling-out-to-all-developers-on-play-console-and-android-developer-console.md",
+        "summary": "Updated the \"Continue reading\" section of the blog post to include a new related article about expanding Android developer verification in 2027, while removing an older post from December 2025 to keep the reading recommendations current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_android-developer-verification-rolling-out-to-all-developers-on-play-console-and-android-developer-console.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-devices-extend-seamlessly-to-connected-displays\" target=\"_blank\">Android devices extend seamlessly to connected displays</a>",
+        "path": "blog/posts/android-devices-extend-seamlessly-to-connected-displays.md",
+        "summary": "The 'Continue reading' blog recommendations section at the end of the document was updated. It now includes a post about expanding Android developer verification in 2027 by Matthew Forsythe, while removing the previous recommendation for the Jetpack Compose November '26 release post.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_android-devices-extend-seamlessly-to-connected-displays.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-intelligence-system-in-app-agents-ads\" target=\"_blank\">What's new in intelligent apps at the Android Developer Summit</a>",
+        "path": "blog/posts/android-intelligence-system-in-app-agents-ads.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to remove a reference to the Jetpack Compose November '26 release article and add a new entry regarding the expansion of Android developer verification in 2027.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_android-intelligence-system-in-app-agents-ads.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable\" target=\"_blank\">Android Studio Otter 2 Feature Drop is stable!</a>",
+        "path": "blog/posts/android-studio-otter-2-feature-drop-is-stable.md",
+        "summary": "Updated the 'Continue reading' section at the bottom of the Android Studio Otter 2 Feature Drop stable release post to replace a related article about game quality standards on foldables and large screens with a new post covering Android developer verification updates for 2027.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_android-studio-otter-2-feature-drop-is-stable.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/beyond-the-app-google-play-buyer-reach\" target=\"_blank\">Beyond the app: Expanding buyer reach across new surfaces with Google Play</a>",
+        "path": "blog/posts/beyond-the-app-google-play-buyer-reach.md",
+        "summary": "Updated the \"Continue reading\" section at the end of the blog post to replace a Jetpack Compose release article with a new post regarding the expansion of Android developer verification in 2027 by Matthew Forsythe.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_beyond-the-app-google-play-buyer-reach.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation\" target=\"_blank\">Boost user engagement with AI Image Generation</a>",
+        "path": "blog/posts/boost-user-engagement-with-ai-image-generation.md",
+        "summary": "Updated the 'Continue reading' section at the end of the blog post to replace a recommended article about large screen gaming quality standards with a new post concerning Android developer verification expansions for 2027. This keeps the related reading links current with recent Android platform announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_boost-user-engagement-with-ai-image-generation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies\" target=\"_blank\">Boosting user privacy and business protection with updated Play policies</a>",
+        "path": "blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to add a reference to the new article on expanding Android developer verification in 2027 by Matthew Forsythe, while removing the older reference to the Jetpack Compose November '26 release. This keeps the recommended reading list current with recent security and policy updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_boosting-user-privacy-and-business-protection-with-updated-play-policies.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development\" target=\"_blank\">Agentic and Flexible: A next era of Android development</a>",
+        "path": "blog/posts/build-it-your-way-a-next-era-of-android-development.md",
+        "summary": "Updated the \"Continue reading\" recommended blog posts section at the bottom of the article, replacing a post about game quality standards on foldables with a new post covering the expansion of Android developer verification in 2027.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_build-it-your-way-a-next-era-of-android-development.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-native-android-apps-in-google-ai-studio\" target=\"_blank\">Build native Android apps in Google AI Studio</a>",
+        "path": "blog/posts/build-native-android-apps-in-google-ai-studio.md",
+        "summary": "The recommended blog posts section at the bottom of the article was updated. Specifically, a post about Android developer verification in 2027 by Matthew Forsythe was added, while a post regarding adaptive app quality standards on Google Play by Mekka Okereke was removed, keeping the related reading list current with recent Android product news.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_build-native-android-apps-in-google-ai-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash\" target=\"_blank\">Build smarter apps with Gemini 3 Flash</a>",
+        "path": "blog/posts/build-smarter-apps-with-gemini-3-flash.md",
+        "summary": "Updated the 'Continue reading' section at the end of the blog post to replace a related article about game quality on foldables and large screens with a new post regarding Android developer verification plans for 2027 by Matthew Forsythe.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_build-smarter-apps-with-gemini-3-flash.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/dynamic-app-links-elevating-your-android-deep-linking\" target=\"_blank\">Dynamic App Links: Elevating your Android deep linking</a>",
+        "path": "blog/posts/dynamic-app-links-elevating-your-android-deep-linking.md",
+        "summary": "Updated the related blog posts section at the bottom of the article to include a new entry on expanding Android developer verification in 2027 by Matthew Forsythe, while removing a previous entry regarding adaptive app quality standards on Google Play.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_dynamic-app-links-elevating-your-android-deep-linking.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration\" target=\"_blank\">Elevating app quality: Reducing memory usage and improving device migration</a>",
+        "path": "blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration.md",
+        "summary": "Updated the 'Related Posts' or 'Continue reading' section at the end of the blog post by removing an entry about adaptive app quality standards on Google Play and adding a new entry regarding the expansion of Android developer verification in 2027. This keeps the recommended reading list current with the latest product news.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_elevating-app-quality-reducing-memory-usage-and-improving-device-migration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content\" target=\"_blank\">Ensuring Safety in the Generative AI Ecosystem: Protecting Users from Non-Consensual Intimate Content</a>",
+        "path": "blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content.md",
+        "summary": "Updated the \"Continue reading\" section at the end of the blog post by adding a reference to the new article \"Expanding Android developer verification in 2027\" and removing the older Jetpack Compose November '26 release post reference.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/get-inspired-and-take-your-apps-to-desktop\" target=\"_blank\">Get inspired and take your apps to desktop</a>",
+        "path": "blog/posts/get-inspired-and-take-your-apps-to-desktop.md",
+        "summary": "The blog index/related posts section was updated to include a new post regarding Android developer verification for 2027 by Matthew Forsythe, while removing an older post about adaptive app quality standards by Mekka Okereke.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_get-inspired-and-take-your-apps-to-desktop.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2\" target=\"_blank\">Go from prompt to working prototype with Android Studio Panda 2</a>",
+        "path": "blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2.md",
+        "summary": "Updated the 'Continue reading' section recommendations at the end of the post, replacing a related article on large screen game quality with a newer post regarding Android developer verification plans for 2027.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_go-from-prompt-to-working-prototype-with-android-studio-panda-2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm\" target=\"_blank\">Introducing the Googlebook Linux Terminal Preview: A VM-Backed Environment for AI and Development</a>",
+        "path": "blog/posts/googlebook-linux-terminal-preview-vm.md",
+        "summary": "The 'Continue reading' section of the documentation was updated to include a reference to the new Android developer verification post for 2027 by Matthew Forsythe, while removing the older reference to the November 2026 Jetpack Compose release post by Meghan Mehta. This keeps the related reading recommendations up to date with the latest platform announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_googlebook-linux-terminal-preview-vm.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api\" target=\"_blank\">How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API</a>",
+        "path": "blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the bottom of the blog post to replace a related article about game quality on large screens and foldables with a newer post regarding Android developer verification plans for 2027. This ensures readers are directed to the most current and relevant Android development news.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4\" target=\"_blank\">Level up your development with Planning Mode and Next Edit Prediction in Android Studio Panda 4</a>",
+        "path": "blog/posts/level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4.md",
+        "summary": "Updated the 'Continue reading' section at the end of the Android Studio Panda 4 blog post to feature a different related article, replacing the post about game quality standards on foldables with an update on Android developer verification for 2027.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop\" target=\"_blank\">LLM flexibility, Agent Mode improvements, and new agentic experiences in Android Studio Otter 3 Feature Drop</a>",
+        "path": "blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop.md",
+        "summary": "Updated the 'Continue reading' section at the end of the blog post to replace a recommended post about large screen game quality standards with a new post regarding Android developer verification plans for 2027.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/media3-whats-new\" target=\"_blank\">Media3 1.9.0 - What's new</a>",
+        "path": "blog/posts/media3-whats-new.md",
+        "summary": "The media3-whats-new.md documentation was updated to reflect recent Android blog post additions and removals, specifically adding an entry for expanding Android developer verification in 2027 by Matthew Forsythe and removing an older post regarding Google Play adaptive quality standards.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_media3-whats-new.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences\" target=\"_blank\">ML Kit's Prompt API: Unlock Custom On-Device Gemini Nano Experiences</a>",
+        "path": "blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md",
+        "summary": "Updated the \"Continue reading\" related articles section at the bottom of the blog post to replace an older post about game quality standards with a newer post regarding Android developer verification expansions for 2027.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/modernizing-the-room\" target=\"_blank\">Room 3.0 - Modernizing the Room</a>",
+        "path": "blog/posts/modernizing-the-room.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the bottom of the blog post by adding a post regarding Android developer verification for 2027 by Matthew Forsythe, and removing the post about Google Play's new adaptive quality standards by Mekka Okereke. This keeps the related reading links current with recent Android news.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_modernizing-the-room.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025\" target=\"_blank\">Notes from Google Play: A look back at the tools that powered your growth in 2025</a>",
+        "path": "blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025.md",
+        "summary": "Updated the 'Continue reading' section of the Google Play 2025 growth tools post by adding a reference to the new 'Expanding Android developer verification in 2027' article by Matthew Forsythe, and removing the reference to Mekka Okereke's article on adaptive app quality standards.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/open-source-google-sign-in-unity\" target=\"_blank\">Powering Seamless Player Sign-In: Introducing the Open-Source Sign in with Google Plugin for Unity</a>",
+        "path": "blog/posts/open-source-google-sign-in-unity.md",
+        "summary": "Updated the 'Continue reading' sidebar section of the blog post to remove a reference to adaptive app quality standards and add a new entry regarding Android developer verification for 2027. This keeps the recommended reading list current with recent Android developer announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_open-source-google-sign-in-unity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17\" target=\"_blank\">Prepare your app for the resizability and orientation changes in Android 17</a>",
+        "path": "blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17.md",
+        "summary": "Updated the 'Continue reading' section at the end of the post to replace a related article about game quality standards on foldables with a new recommended post regarding Android developer verification plans for 2027.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio\" target=\"_blank\">Supercharge your Android development with 6 expert tips for Gemini in Android Studio</a>",
+        "path": "blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio.md",
+        "summary": "Updated the \"Continue reading\" related blog post section at the bottom of the article. Replaced a recommendation for a post on game quality standards for large screens and foldables with a new recommendation focusing on the 2027 Android developer verification expansion by Matthew Forsythe.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/the-fourth-beta-of-android-17\" target=\"_blank\">The Fourth Beta of Android 17</a>",
+        "path": "blog/posts/the-fourth-beta-of-android-17.md",
+        "summary": "Updated the 'Continue reading' section of the Android 17 fourth beta blog post to remove an older entry about adaptive app quality standards and replace it with a new related post regarding the expansion of Android developer verification in 2027 by Matthew Forsythe.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_the-fourth-beta-of-android-17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/top-3-updates-for-android-developer-productivity\" target=\"_blank\">Top 3 updates for Android developer productivity</a>",
+        "path": "blog/posts/top-3-updates-for-android-developer-productivity.md",
+        "summary": "Updated the \"Continue reading\" section at the end of the blog post to replace a recommended article about large screen and foldable game quality standards with a new post covering the expansion of Android developer verification in 2027.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_top-3-updates-for-android-developer-productivity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26\" target=\"_blank\">Top AI on Android updates for building intelligent experiences from Google I/O '26</a>",
+        "path": "blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the bottom of the post by adding a new related article on expanding Android developer verification in 2027 by Matthew Forsythe, and removing a previous article regarding intelligent apps from the Android Developer Summit.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/upcoming-changes-to-the-nearby-connections-api\" target=\"_blank\">Upcoming Changes to the Nearby Connections API</a>",
+        "path": "blog/posts/upcoming-changes-to-the-nearby-connections-api.md",
+        "summary": "The git diff shows updates to the 'Continue reading' section recommendations list on the blog post, removing an entry for the Jetpack Compose November '26 release and adding a new entry regarding the expansion of Android developer verification in 2027. These changes are editorial updates to related reading links and do not affect the technical content of the Nearby Connections API documentation itself.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_upcoming-changes-to-the-nearby-connections-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-april-26-release\" target=\"_blank\">What's new in the Jetpack Compose April '26 release</a>",
+        "path": "blog/posts/whats-new-in-the-jetpack-compose-april-26-release.md",
+        "summary": "The 'Continue reading' section of the Jetpack Compose release notes was updated to include a recent blog post about expanding Android developer verification in 2027 while removing an older post regarding Google Play's adaptive quality standards.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_whats-new-in-the-jetpack-compose-april-26-release.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/android\" target=\"_blank\">#Android</a>",
+        "path": "blog/topics/android.md",
+        "summary": "The Android blog topic page has been updated to include a new post regarding the expansion of Android developer verification in 2027, along with pagination adjustments reflecting an increase in total pages.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_android.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/android/2\" target=\"_blank\">#Android</a>",
+        "path": "blog/topics/android/2.md",
+        "summary": "The Android blog topics listing has been updated to include a new case study on Datadog utilizing ProfilingManager, remove an older post regarding Karrot and Firebase AI, and update the total page count from 3 to 4.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/android/3\" target=\"_blank\">#Android</a>",
+        "path": "blog/topics/android/3.md",
+        "summary": "Updated the Android blog topic page by adding a new case study about Karrot using Gemini and Firebase AI Logic, removing an older post about Compose test waitUntil APIs, and updating pagination from 3 to 4 pages to include a new forward navigation link.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/android/4\" target=\"_blank\">#Android</a>",
+        "path": "blog/topics/android/4.md",
+        "summary": "This new documentation page indexes Android developer blog posts, specifically highlighting an updated guide on using waitUntil APIs as an alternative to Idling Resources in Jetpack Compose tests.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/courses/pathways/android-week5-languages\" target=\"_blank\">Android 11 - Week 5 - Languages</a>",
+        "path": "courses/pathways/android-week5-languages.md",
+        "summary": "The documentation index link was added at the top of the file, and an article link for the CPU Profiler was updated to point directly to its markdown text source (`cpu-profiler.md.txt`). These updates improve resource navigation for automated tools and LLMs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_android-week5-languages.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/services/aidl\" target=\"_blank\">Android Interface Definition Language (AIDL)</a>",
+        "path": "develop/background-work/services/aidl.md",
+        "summary": "Updated the AIDL documentation to remove all Java code snippets, standardizing the examples to Kotlin only. Additionally, modernized certain API usages, such as using `BundleCompat.getParcelable` for parcelable retrieval from bundles.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_aidl.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/network-ops/connecting\" target=\"_blank\">Connect to the network</a>",
+        "path": "develop/connectivity/network-ops/connecting.md",
+        "summary": "The documentation was updated to remove all Java code snippets, standardizing the examples strictly to Kotlin and coroutines. Additionally, internal links were appended with '.md.txt' extensions, and a documentation index link was added at the top.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_connecting.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/connectivity/ranging\" target=\"_blank\">Range between devices</a>",
+        "path": "develop/connectivity/ranging.md",
+        "summary": "Updated documentation formatting, reference links to include `.md.txt` extensions, and fixed code block syntax for better readability and integration.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_ranging.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/guidelines\" target=\"_blank\">Google Play Games</a>",
+        "path": "games/guidelines.md",
+        "summary": "Updated the Google Play Games Level Up program documentation to clarify requirements for achievements, game stats, and rewards. Key updates include specifying that achievements must be unlockable by recently active players, refining the criteria for repetitive game stats, restructuring reward offer timelines, and updating documentation links to include '.md.txt' extensions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_guidelines.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/release-notes\" target=\"_blank\">Play Age Signals release notes</a>",
+        "path": "google/play/age-signals/release-notes.md",
+        "summary": "Updated the Play Age Signals Library release notes to version 0.0.6 (November 2026), documenting the introduction of the new `getApplicableAgeFeatures()` method for checking applicable age-related features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/test-age-signals-api\" target=\"_blank\">Test your Play Age Signals API (beta) integration</a>",
+        "path": "google/play/age-signals/test-age-signals-api.md",
+        "summary": "Updated the Play Age Signals API SDK version reference from 0.0.5 to 0.0.6 in the test documentation. This ensures developers use the correct versioning context when referencing response simulation examples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_test-age-signals-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/use-age-signals-api\" target=\"_blank\">Use Play Age Signals API (beta)</a>",
+        "path": "google/play/age-signals/use-age-signals-api.md",
+        "summary": "Updated the Play Age Signals API dependency version from 0.0.5 to 0.0.6 in the integration guide. This ensures developers use the latest library version containing bug fixes and improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_use-age-signals-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/v4/notify-significant-changes\" target=\"_blank\">Notify Google Play of significant changes</a>",
+        "path": "google/play/age-signals/v4/notify-significant-changes.md",
+        "summary": "Updated the Play Age Signals version 0.0.4 documentation to remove the specific January 2027 effective date for Alabama, changing it to an exact date to be determined. This ensures developers have accurate compliance timelines for regional age verification requirements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_notify-significant-changes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/v4/overview\" target=\"_blank\">Play Age Signals overview</a>",
+        "path": "google/play/age-signals/v4/overview.md",
+        "summary": "Updated the deprecation caution notice for Play Age Signals version 0.0.4, specifically changing the effective date for Alabama to 'exact date to be determined' instead of a fixed timeline. This helps maintain accurate compliance communication for developers relying on older API versions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/v4/request-age-signals\" target=\"_blank\">Request age signals</a>",
+        "path": "google/play/age-signals/v4/request-age-signals.md",
+        "summary": "Updated the Play Age Signals v0.0.4 documentation to remove the specific January 2027 effective date for Alabama, changing it to an exact date to be determined. This clarifies regional rollout timelines for developers referencing the deprecated version of the API.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_request-age-signals.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/v4/revoked-app-approval\" target=\"_blank\">Review revoked app approvals</a>",
+        "path": "google/play/age-signals/v4/revoked-app-approval.md",
+        "summary": "Updated the Play Age Signals version 0.0.4 documentation to remove the specific January 2027 effective date for Alabama, changing it to an exact date to be determined. This ensures developers have accurate timeline expectations for age verification signal changes in that jurisdiction.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_revoked-app-approval.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/v4/test-age-signals-api\" target=\"_blank\">Test your Play Age Signals API (beta) integration</a>",
+        "path": "google/play/age-signals/v4/test-age-signals-api.md",
+        "summary": "Updated the Play Age Signals version 0.0.4 documentation to remove the specific January 2027 effective date for Alabama, changing it to an exact date to be determined. This is important for developers tracking compliance timelines for age verification requirements in the region.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_test-age-signals-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/v4/understand-age-signals-responses\" target=\"_blank\">Understand age signals responses</a>",
+        "path": "google/play/age-signals/v4/understand-age-signals-responses.md",
+        "summary": "Updated the Play Age Signals version 0.0.4 documentation caution notice to change the effective date for Alabama to be determined ('exact date to be determined'), removing the previous January 2027 timeline. This ensures developers have accurate regional rollout information for the deprecated API version.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_understand-age-signals-responses.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/age-signals/v4/use-age-signals-api\" target=\"_blank\">Use Play Age Signals API (beta)</a>",
+        "path": "google/play/age-signals/v4/use-age-signals-api.md",
+        "summary": "Updated the deprecation caution notice for Play Age Signals version 0.0.4 by changing the effective date for Alabama to an exact date to be determined, clarifying regional availability timelines for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_use-age-signals-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/play-developer-apis-release-notes\" target=\"_blank\">Google Play Developer API release notes</a>",
+        "path": "google/play/billing/play-developer-apis-release-notes.md",
+        "summary": "Added release notes for November 19, 2026, introducing retention offers APIs for subscription cancellation management, targeting options, per-user offer activation methods, plan transition notifications, and ETag validation support for subscription cancellation and revocation requests.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_play-developer-apis-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/retention-offers\" target=\"_blank\">Retain subscribers with retention offers</a>",
+        "path": "google/play/billing/retention-offers.md",
+        "summary": "Introduces retention offers to help reduce voluntary subscriber churn by showing configured discounts in Google Play when users attempt to cancel. This feature requires backend integration with Real-time developer notifications and the Google Play Developer API, but requires no client-side app changes.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/rtdn-reference\" target=\"_blank\">Real-time developer notifications reference guide</a>",
+        "path": "google/play/billing/rtdn-reference.md",
+        "summary": "Added a new subscription notification type (SUBSCRIPTION_PLAN_TRANSITION_UPDATED, value 21) to handle scheduled plan transition updates, such as accepting retention offers. Internal markdown links were updated to target relative file paths with `.md.txt` extensions, and standard Markdown code block formatting was applied to JSON snippets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_rtdn-reference.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/subscriptions\" target=\"_blank\">About subscriptions</a>",
+        "path": "google/play/billing/subscriptions.md",
+        "summary": "The subscriptions documentation has been updated to include a link to the documentation index, guidance on configuring retention offers to reduce user cancellations in Google Play, and a new note regarding the addition of an optional `etag` field in the `purchases.subscriptionsv2.cancel` and `purchases.subscriptionsv2.revoke` API methods to prevent race condition conflicts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_subscriptions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/test\" target=\"_blank\">Test your Google Play Billing Library integration</a>",
+        "path": "google/play/billing/test.md",
+        "summary": "Added documentation for testing retention offers in Google Play Billing. It details how to use per-user retention offers via backend activation and cohort retention offers with zero minimum duration for license testers, helping developers verify cancellation flow behavior.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_test.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/integrity/error-codes\" target=\"_blank\">Handle Play Integrity API error codes</a>",
+        "path": "google/play/integrity/error-codes.md",
+        "summary": "Updated the error resolution guidelines across multiple Play Integrity error codes. The documentation now directs developers to report persistent failures using the official Play Integrity API support form instead of filing general bug reports.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_error-codes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/topics/resources/animation-resource\" target=\"_blank\">Animation resources</a>",
+        "path": "guide/topics/resources/animation-resource.md",
+        "summary": "Cleaned up absolute reference URLs for Android SDK classes throughout the animation resource documentation, converting them to clean class names and fixing code block formatting for Kotlin and Java examples.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_animation-resource.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack\" target=\"_blank\">Android Jetpack Dev Resources - Android Developers</a>",
+        "path": "jetpack.md",
+        "summary": "Updated the description for the Jetpack 'ink' library to reflect expanded multiplatform support, including iOS (version 15.0+) and additional JVM architectures (Linux ARM64 and Mac ARM64) alongside the existing Android and Linux x86-64 targets. This matters for developers looking to build cross-platform, high-performance inking experiences.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_jetpack.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/explorer\" target=\"_blank\">Explore the Jetpack libraries by type</a>",
+        "path": "jetpack/androidx/explorer.md",
+        "summary": "Updated the description for the 'ink' Jetpack library in the AndroidX explorer documentation. The change broadens the stated platform support from just Android and server-side JVM to now officially include iOS (v15.0+) as well as expanded JVM support on Linux (x86-64, ARM64) and Mac ARM64, reflecting the library's cross-platform expansion.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_explorer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/ink\" target=\"_blank\">ink</a>",
+        "path": "jetpack/androidx/releases/ink.md",
+        "summary": "Updated the platform support description for the Jetpack Ink library to include iOS (version 15.0+) and expanded JVM architecture support (including Linux ARM64 and Mac ARM64), reflecting broader cross-platform capabilities.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_ink.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/ai-enhancement/bitmap-mode-lifecycle\" target=\"_blank\">Understand the media enhancement lifecycle in Bitmap mode</a>",
+        "path": "media/ai-enhancement/bitmap-mode-lifecycle.md",
+        "summary": "Updated the bitmap mode lifecycle documentation to include an LLM documentation index reference, add `installStatusCallback` parameter for module installation, handle `onCancelled` callback status in the processing wrapper, and format code snippets using standard markdown code blocks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_bitmap-mode-lifecycle.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/ai-enhancement/get-started\" target=\"_blank\">Get started with Media Enhancement APIs</a>",
+        "path": "media/ai-enhancement/get-started.md",
+        "summary": "Updated the Media Enhancement library dependency version to beta09 (play-services-media-effect-enhancement:16.0.0-beta09) and added proper code block formatting (Markdown syntax highlighting) for Gradle dependencies, Android manifest declarations, and Kotlin coroutine snippets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_get-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/ai-enhancement/surface-mode-lifecycle\" target=\"_blank\">Understand the media enhancement lifecycle in Surface mode</a>",
+        "path": "media/ai-enhancement/surface-mode-lifecycle.md",
+        "summary": "Updated the documentation for the Media Enhancement API by wrapping code snippets in proper Markdown code blocks, adding a documentation index reference link, and updating the `installModule` call to include an `installStatusCallback` parameter.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_surface-mode-lifecycle.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/grow/hdr-playback\" target=\"_blank\">HDR video playback</a>",
+        "path": "media/grow/hdr-playback.md",
+        "summary": "The HDR playback documentation was updated to remove all Java code snippets, streamlining the guide to focus exclusively on Kotlin. Additionally, minor formatting improvements and syntax cleanups were applied to the remaining Kotlin code samples for MediaCodec.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_hdr-playback.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/grow/media-projection\" target=\"_blank\">Media projection</a>",
+        "path": "media/grow/media-projection.md",
+        "summary": "The media-projection documentation was updated to remove Java code examples, consolidating the implementation guide strictly around Kotlin. Additionally, markdown links to reference documentation were updated with '.md.txt' extensions, code blocks for XML manifests were properly formatted, and minor null-safety improvements were applied to the Kotlin snippet.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_media-projection.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/grow/spatial-audio\" target=\"_blank\">Spatial Audio</a>",
+        "path": "media/grow/spatial-audio.md",
+        "summary": "The spatial audio documentation was updated to remove Java code snippets throughout the guide, leaving only Kotlin examples. This streamlines the code examples for developers implementing spatial audio features using ExoPlayer and Media3.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_spatial-audio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/implement/surfaces/android-tv\" target=\"_blank\">Extend your media app to Android TV</a>",
+        "path": "media/implement/surfaces/android-tv.md",
+        "summary": "The Android TV implementation documentation was updated to remove the Java code snippet for initializing `MediaSession` and `ExoPlayer`, leaving only the Kotlin example and simplifying the code implementation section.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_android-tv.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/implement/surfaces/mobile\" target=\"_blank\">Media controls</a>",
+        "path": "media/implement/surfaces/mobile.md",
+        "summary": "Removed the Java implementation code snippet for MediaSession setup and custom commands in the mobile implementation guide, leaving only the Kotlin example. This streamlines the documentation to focus on Kotlin/Media3 best practices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_mobile.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/optimize/audio-focus\" target=\"_blank\">Manage audio focus</a>",
+        "path": "media/optimize/audio-focus.md",
+        "summary": "Removed all Java code snippets from the audio focus documentation, standardizing the guide to use Kotlin exclusively. Minor updates were also made to Kotlin snippets, such as using `Looper.getMainLooper()` for Handler initialization and fixing type declarations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_audio-focus.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/routing/mediarouter\" target=\"_blank\">MediaRouter overview</a>",
+        "path": "media/routing/mediarouter.md",
+        "summary": "The `mediarouter.md` documentation has been updated to remove Java code examples, retaining only Kotlin code snippets. Additionally, long URLs embedded in markdown links for Android reference classes and methods have been simplified to use plain text names, and Java-specific sections and instructions were stripped down to streamline the guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_mediarouter.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/security/fraud-prevention/environment\" target=\"_blank\">Secure the environment</a>",
+        "path": "security/fraud-prevention/environment.md",
+        "summary": "Updated documentation links to include `.md.txt` extensions, added a documentation index reference, formatted code snippet blocks properly, and clarified the daily request limits and tracking behavior for the Play Integrity API.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_environment.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/profile/chart-glossary/events-table\" target=\"_blank\">Events table</a>",
+        "path": "studio/profile/chart-glossary/events-table.md",
+        "summary": "Added a documentation index link and improved accessibility by providing descriptive alt text for the events table screenshot in the Android Studio profiler documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_events-table.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/profile/cpu-profiler\" target=\"_blank\">Record a system trace</a>",
+        "path": "studio/profile/cpu-profiler.md",
+        "summary": "Updated internal documentation links to include file extensions (such as .md.txt) and added descriptive alt text to images in the CPU Profiler system trace guide, improving accessibility and link resolution.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_cpu-profiler.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/profile/inspect-app-live\" target=\"_blank\">Inspect your app live</a>",
+        "path": "studio/profile/inspect-app-live.md",
+        "summary": "Updated internal links within the documentation to point to markdown files (.md.txt) and added descriptive alt text to the live telemetry view image to improve accessibility and navigation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_inspect-app-live.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/profile/record-java-kotlin-methods\" target=\"_blank\">Record Java/Kotlin methods</a>",
+        "path": "studio/profile/record-java-kotlin-methods.md",
+        "summary": "The documentation for recording Java/Kotlin methods was updated to include a documentation index link, improve accessibility by adding alt text to the method recording screenshot, and update internal documentation links to point to their corresponding '.md.txt' files for consistency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_record-java-kotlin-methods.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/profile/record-native-allocations\" target=\"_blank\">Record native allocations</a>",
+        "path": "studio/profile/record-native-allocations.md",
+        "summary": "Updated documentation links to internal markdown files (.md.txt), added a documentation index reference, and improved accessibility by adding descriptive alt text to images used in the native allocations profiling guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_record-native-allocations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/profile/sample-callstack\" target=\"_blank\">Sample the callstack</a>",
+        "path": "studio/profile/sample-callstack.md",
+        "summary": "The changes update documentation links to use local markdown references (.md.txt), add descriptive alt text and captions to images for better accessibility, and include a documentation index reference link.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_sample-callstack.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/emulator\" target=\"_blank\">Emulator release notes</a>",
+        "path": "studio/releases/emulator.md",
+        "summary": "Updated the documentation file references across internal links to point to their corresponding '.md.txt' formats, and added release notes for Android Emulator version 37.3.10 Stable, which includes support for the KosmicKrisp graphics driver on macOS, ARM64 SD card support, and numerous stability fixes for Windows and macOS.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_emulator.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/emulator/37\" target=\"_blank\">Android Emulator 37 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/emulator/37.md",
+        "summary": "Added release notes for Android Emulator 37.3.10 Stable, documenting a fix for Issue #281967260 where SD cards were not supported on arm64 architectures.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_37.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/tools/releases/platform-tools\" target=\"_blank\">SDK Platform Tools release notes</a>",
+        "path": "tools/releases/platform-tools.md",
+        "summary": "The platform-tools documentation was updated to add an LLM documentation index link, refine the version header formatting for release 37.0.3, and document important adb updates. These adb changes reduce debug log spam by lowering high-frequency data-plane logs to verbose level and add support for syncing additional partitions (`system_dlkm`, `vendor_dlkm`, and `odm_dlkm`) via `adb sync`, which matters for developers debugging device issues and managing specialized partition images.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_platform-tools.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing/custom-events-native\" target=\"_blank\">Convenience tips</a>",
+        "path": "topic/performance/tracing/custom-events-native.md",
+        "summary": "The documentation was updated to add a reference to the LLMs documentation index, clarify the legacy support instructions for Android 4.3 (API level 18) by explicitly mentioning Java Native Interface calls to Trace methods, and update the recommended reading links to point to their corresponding .md.txt files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_custom-events-native.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/testing/espresso/accessibility-checking\" target=\"_blank\">Accessibility checking</a>",
+        "path": "training/testing/espresso/accessibility-checking.md",
+        "summary": "The changes in the accessibility-checking documentation primarily consist of formatting improvements, such as adding proper Markdown code block syntax for Kotlin and Java snippets, and updating reference links. These updates enhance readability and ensure code examples are correctly formatted for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_accessibility-checking.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/testing/espresso/basics\" target=\"_blank\">Espresso basics</a>",
+        "path": "training/testing/espresso/basics.md",
+        "summary": "Updated documentation links across the Espresso testing guide to point directly to local markdown (.md.txt) files and LLM-friendly resources, while updating references for ViewMatchers, ViewActions, and AdapterViewProtocol classes to improve developer workflows and AI integration.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_basics.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/testing/espresso/recipes\" target=\"_blank\">Espresso recipes</a>",
+        "path": "training/testing/espresso/recipes.md",
+        "summary": "Updated reference links in the Espresso recipes documentation to point to local markdown/text paths (e.g., .md.txt) and improved descriptions for RootMatchers with direct references to the Espresso cheat sheet.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_recipes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/accessibility\" target=\"_blank\">Accessibility on Wear OS</a>",
+        "path": "training/wearables/accessibility.md",
+        "summary": "Added a new guideline on using hyphenation (`Hyphens.Auto` and soft hyphens) to improve text readability and accessibility when words wrap across multiple lines in Wear OS apps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_accessibility.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/apps/standalone-apps\" target=\"_blank\">Standalone versus non-standalone Wear OS apps</a>",
+        "path": "training/wearables/apps/standalone-apps.md",
+        "summary": "Updated documentation links related to the CapabilityClient and device discovery to point to the new 'Discover specific devices using a capability client' guide, and added a documentation index reference for LLMs at the top of the file.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_standalone-apps.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose/navigation\" target=\"_blank\">Navigation with Compose for Wear OS</a>",
+        "path": "training/wearables/compose/navigation.md",
+        "summary": "Added documentation on how to display dialogs (such as AlertDialog and ConfirmationDialog) using Material 3 for Compose on Wear OS. It explains how to manage dialog visibility using state variables and highlights the important guideline not to add dialogs as separate destinations in SwipeDismissableNavHost to ensure proper animations and swipe-to-dismiss behavior.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_navigation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/watch-face-designer/export\" target=\"_blank\">Export your watch face</a>",
+        "path": "training/wearables/watch-face-designer/export.md",
+        "summary": "Updated documentation links for wireless debugging on Wear OS devices in the Watch Face Designer export guide. The changes point developers to the updated 'connect-wifi' section for clearer instructions on connecting and debugging watches over Wi-Fi.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/911581b3_export.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-19T15:10:43Z",
     "commit_hash": "ecf59ae8",
     "entries": [

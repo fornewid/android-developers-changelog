@@ -1,0 +1,30 @@
+diff --git a/docs/blog/latest/6.md b/docs/blog/latest/6.md
+index de36aabf..d7a3ab52 100644
+--- a/docs/blog/latest/6.md
++++ b/docs/blog/latest/6.md
+@@ -9,6 +9,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/michael-stillwell.md.txt)[![View Dimitris Kosmidis's profile](https://developer.android.com/static/blog/assets/dimitris_kosmidis_08bb21b8a2_Z2oix8v.webp)](https://developer.android.com/blog/authors/dimitris-kosmidis.md.txt) 01 Apr 2026 01 Apr 2026 ![](https://developer.android.com/static/blog/assets/wear_os_64_1de6378905_Z2fNN6j.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
++
++  ## [Get your Wear OS apps ready for the 64-bit requirement](https://developer.android.com/blog/posts/get-your-wear-os-apps-ready-for-the-64-bit-requirement.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/get-your-wear-os-apps-ready-for-the-64-bit-requirement.md.txt) 64-bit architectures provide performance improvements and a foundation for future innovation, delivering faster and richer experiences for your users. We've supported 64-bit CPUs since Android 5.
++  [Michael Stillwell](https://developer.android.com/blog/authors/michael-stillwell.md.txt), [Dimitris Kosmidis](https://developer.android.com/blog/authors/dimitris-kosmidis.md.txt) • 2 min read
+ - [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Verification2_40caaf2e67_Z10Vf7G.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+   ## [Android developer verification: Rolling out to all developers on Play Console and Android Developer Console](https://developer.android.com/blog/posts/android-developer-verification-rolling-out-to-all-developers-on-play-console-and-android-developer-console.md.txt)
+@@ -128,12 +134,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/a-new-era-for-choice-and-openness.md.txt) Android has always driven innovation in the industry through its unique flexibility and openness.
+   [Sameer Samat](https://developer.android.com/blog/authors/sameer-samat.md.txt) • 3 min read
+-- [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z1zsAdP.webp)](https://developer.android.com/blog/authors/matt-dyor.md.txt) 03 Mar 2026 03 Mar 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_ZcKD0l.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+-
+-  ## [Go from prompt to working prototype with Android Studio Panda 2](https://developer.android.com/blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2.md.txt)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2.md.txt) Android Studio Panda 2 is now stable and ready for you to use in production.
+-  [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor.md.txt) • 3 min read
+ [arrow_back](https://developer.android.com/blog/latest/5.md.txt)
+ 
+ #### Page 6

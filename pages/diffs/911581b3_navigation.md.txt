@@ -1,0 +1,29 @@
+diff --git a/docs/training/wearables/compose/navigation.md b/docs/training/wearables/compose/navigation.md
+index 485ddd23..f036aa40 100644
+--- a/docs/training/wearables/compose/navigation.md
++++ b/docs/training/wearables/compose/navigation.md
+@@ -118,6 +118,24 @@ fun MessageDetail(id: String) {
+         // ...
+ ```
+ 
++## Display dialogs
++
++To display a dialog using Material 3 for Compose on Wear OS---such as
++[`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/AlertDialog.composable.md.txt), [`ConfirmationDialog`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/ConfirmationDialog.composable.md.txt), [`OpenOnPhoneDialog`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/OpenOnPhoneDialog.composable.md.txt),
++or [`Dialog`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/Dialog.composable.md.txt)---declare the dialog composable directly inside the screen
++composable destination that opens it. To do so, complete these steps:
++
++1. Control the dialog's visibility using a boolean state variable, and pass that state to the dialog's `visible` parameter. Use either `rememberSaveable` or a state that's hoisted to a `ViewModel`.
++2. In the `onDismissRequest` callback, and in any other confirmation or dismissal action callbacks, set the state variable to `false`. That way, the dialog animates out and returns to the underlying screen when the user swipes to dismiss or chooses an action.
++
++For more information, see the [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/AlertDialog.composable.md.txt), [`ConfirmationDialog`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/ConfirmationDialog.composable.md.txt),
++and [`OpenOnPhoneDialog`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/OpenOnPhoneDialog.composable.md.txt) API reference documentation.
++
++> [!NOTE]
++> **Note:** To show a smooth animation in your app, don't add dialogs as separate `composable` destinations in [`SwipeDismissableNavHost`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation/SwipeDismissableNavHost.composable.md.txt#SwipeDismissableNavHost(androidx.navigation.NavHostController,androidx.navigation.NavGraph,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.wear.compose.navigation.SwipeDismissableNavHostState)).  
++>
++> When using Material 3 for Compose on Wear OS, dialog components are full-screen overlays that provide their own entry and exit animations. The system also scales the parent window when launched inside an [`AppScaffold`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/package-summary.md.txt#AppScaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1)), and the system handles the swipe-to-dismiss gesture.
++
+ To learn more about Jetpack Navigation, see
+ [Navigating with Compose](https://developer.android.com/jetpack/compose/navigation) or take the
+ [Jetpack Compose Navigation code lab](https://developer.android.com/codelabs/jetpack-compose-navigation).

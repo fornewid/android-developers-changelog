@@ -1,0 +1,73 @@
+diff --git a/docs/training/testing/espresso/basics.md b/docs/training/testing/espresso/basics.md
+index ebf3336c..7bb1fcd6 100644
+--- a/docs/training/testing/espresso/basics.md
++++ b/docs/training/testing/espresso/basics.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/training/testing/espresso/basics
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/training/testing/espresso/llms.txt
++
+ This document explains how to complete common automated testing tasks using the
+ Espresso API.
+ 
+@@ -144,12 +146,13 @@ onView(allOf(withId(R.id.my_view), not(withText("Unwanted"))))
+ onView(allOf(withId(R.id.my_view), not(withText("Unwanted"))));
+ ```
+ 
+-See [`ViewMatchers`](https://developer.android.com/reference/androidx/test/espresso/matcher/ViewMatchers)
+-for the view matchers provided by Espresso.
++For common view matchers provided by Espresso, inspect
++`androidx.test.espresso.matcher.ViewMatchers` in your IDE or see the
++[Espresso cheat sheet](https://developer.android.com/training/testing/espresso/cheat-sheet.md.txt).
+ 
+ ### Considerations
+ 
+-- In a well-behaved application, all views that a user can interact with should either contain descriptive text or have a content description. See [Making apps more accessible](https://developer.android.com/guide/topics/ui/accessibility/apps) for more details. If you are not able to narrow down a search using `withText()` or `withContentDescription()`, consider treating it as an accessibility bug.
++- In a well-behaved application, all views that a user can interact with should either contain descriptive text or have a content description. See [Making apps more accessible](https://developer.android.com/guide/topics/ui/accessibility/apps.md.txt) for more details. If you are not able to narrow down a search using `withText()` or `withContentDescription()`, consider treating it as an accessibility bug.
+ - Use the least descriptive matcher that finds the one view you're looking for. Do not over-specify as this will force the framework to do more work than is necessary. For example, if a view is uniquely identifiable by its text, you need not specify that the view is also assignable from `TextView`. For a lot of views the `R.id` of the view should be sufficient.
+ - If the target view is inside an `AdapterView`---such as `ListView`, `GridView`, or `Spinner`---the `onView()` method might not work. In these cases, you should use `onData()` instead.
+ 
+@@ -206,8 +209,9 @@ onView(...).perform(scrollTo(), click());
+ > [!NOTE]
+ > **Note:** The `scrollTo()` method will have no effect if the view is already displayed so you can safely use it in cases when the view is displayed due to larger screen size, such as when your tests run on both smaller and larger screen resolutions.
+ 
+-See [`ViewActions`](https://developer.android.com/reference/androidx/test/espresso/action/ViewActions)
+-for the view actions provided by Espresso.
++For common view actions provided by Espresso, inspect
++`androidx.test.espresso.action.ViewActions` in your IDE or see the
++[Espresso cheat sheet](https://developer.android.com/training/testing/espresso/cheat-sheet.md.txt).
+ 
+ ## Check view assertions
+ 
+@@ -343,9 +347,10 @@ operating on it or any of its children.
+ method if they break inheritance contracts, particularly the
+ `getItem()` API. In such cases, the best course of action is to
+ refactor your application code. If you cannot do so, you can implement a
+-matching custom `AdapterViewProtocol`. For more information, take a
+-look at the default
+-[`AdapterViewProtocols`](https://developer.android.com/reference/androidx/test/espresso/action/AdapterViewProtocols) class provided by Espresso.
++matching custom `AdapterViewProtocol`. For more information, see
++[`DataInteraction.usingAdapterViewProtocol()`](https://developer.android.com/reference/androidx/test/espresso/DataInteraction.md.txt#usingadapterviewprotocol)
++and inspect `androidx.test.espresso.action.AdapterViewProtocols` in
++`androidx.test.espresso:espresso-core`.
+ 
+ ### Adapter view simple test
+ 
+@@ -454,7 +459,7 @@ root-is-layout-requested=false, x=0.0, y=0.0, child-count=1}
+ 
+ When dealing with a complicated view hierarchy or unexpected behavior of widgets
+ it is always helpful to use the
+-[Hierarchy Viewer](https://developer.android.com/studio/profile/hierarchy-viewer) in Android Studio for
++[Hierarchy Viewer](https://developer.android.com/studio/profile/hierarchy-viewer.md.txt) in Android Studio for
+ an explanation.
+ 
+ ### Adapter view warnings
+@@ -474,4 +479,4 @@ following resources.
+ 
+ - [CustomMatcherSample](https://github.com/android/testing-samples/tree/main/ui/espresso/CustomMatcherSample): Shows how to extend Espresso to match the hint property of an `EditText` object.
+ - [RecyclerViewSample](https://github.com/android/testing-samples/tree/main/ui/espresso/RecyclerViewSample): `RecyclerView` actions for Espresso.
+-- [(more...)](https://developer.android.com/training/testing/espresso/additional-resources#samples)
+\ No newline at end of file
++- [(more...)](https://developer.android.com/training/testing/espresso/additional-resources.md.txt#samples)
+\ No newline at end of file

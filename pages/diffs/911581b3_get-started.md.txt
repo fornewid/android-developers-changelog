@@ -1,0 +1,118 @@
+diff --git a/docs/media/ai-enhancement/get-started.md b/docs/media/ai-enhancement/get-started.md
+index 5b2fd570..d5244a56 100644
+--- a/docs/media/ai-enhancement/get-started.md
++++ b/docs/media/ai-enhancement/get-started.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/media/ai-enhancement/get-started
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/media/llms.txt
++
+ The Media Enhancement API is a powerful tool that uses on-device GPU
+ acceleration to perform high-quality, low-latency image enhancements. This
+ includes features like automatic tone mapping, de-blurring, de-noising, and
+@@ -19,10 +21,12 @@ Add the following dependencies to your `app/build.gradle.kts` file. To
+ facilitate asynchronous, non-blocking execution, include Kotlin coroutines and
+ Jetpack Media3 for hardware surface handling.
+ 
+-    dependencies {
+-        // Google Play services Media Enhancement Library (Beta)
+-        implementation("com.google.android.gms:play-services-media-effect-enhancement:16.0.0-beta04")
+-    }
++```kotlin
++dependencies {
++    // Google Play services Media Enhancement Library (Beta)
++    implementation("com.google.android.gms:play-services-media-effect-enhancement:16.0.0-beta09")
++}
++```
+ 
+ See package details for [`play-services-media-effect-enhancement`](https://maven.google.com/web/index.html?q=com.google.android.gms#com.google.android.gms:play-services-media-effect-enhancement) in
+ Google's Maven repository.
+@@ -30,30 +34,34 @@ Google's Maven repository.
+ We also recommend using Kotlin coroutines for managing the enhancement sessions
+ async.
+ 
+-    // Kotlin coroutines for asynchronous API handling
+-      implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+-      implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
++```kotlin
++// Kotlin coroutines for asynchronous API handling
++  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
++  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
++```
+ 
+ ## Android manifest requirements
+ 
+ Add the following elements inside the `<application>` tag of your
+ `AndroidManifest.xml` file:
+ 
+-    <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+-        <application>
+-            <!-- 1. Google Play services version for runtime compatibility checks -->
+-            <meta-data
+-                android:name="com.google.android.gms.version"
+-                android:value="@integer/google_play_services_version" />
+-            <!-- 2. Declare OpenCL compute libraries for NPU/GPU neural acceleration -->
+-            <uses-native-library android:name="libOpenCL.so" android:required="false" />
+-            <uses-native-library android:name="libOpenCL-car.so" android:required="false" />
+-            <uses-native-library android:name="libOpenCL-pixel.so" android:required="false" />
+-            <!-- 3. Declare OpenGL ES for high-performance graphics rendering -->
+-            <uses-native-library android:name="libGLESv2.so" android:required="false" />
+-            <uses-native-library android:name="libGLESv3.so" android:required="false" />
+-        </application>
+-    </manifest>
++```xml
++<manifest xmlns:android="http://schemas.android.com/apk/res/android">
++    <application>
++        <!-- 1. Google Play services version for runtime compatibility checks -->
++        <meta-data
++            android:name="com.google.android.gms.version"
++            android:value="@integer/google_play_services_version" />
++        <!-- 2. Declare OpenCL compute libraries for NPU/GPU neural acceleration -->
++        <uses-native-library android:name="libOpenCL.so" android:required="false" />
++        <uses-native-library android:name="libOpenCL-car.so" android:required="false" />
++        <uses-native-library android:name="libOpenCL-pixel.so" android:required="false" />
++        <!-- 3. Declare OpenGL ES for high-performance graphics rendering -->
++        <uses-native-library android:name="libGLESv2.so" android:required="false" />
++        <uses-native-library android:name="libGLESv3.so" android:required="false" />
++    </application>
++</manifest>
++```
+ 
+ OpenCL provides the native compute libraries required to enable NPU and GPU
+ neural acceleration for Media Enhancement tasks. Declaring these libraries in
+@@ -83,15 +91,20 @@ Using `suspendCancellableCoroutine`, you can wrap the task-based client
+ callbacks in standard Kotlin suspending functions for cleaner, sequential
+ execution:
+ 
+-    // Verifies if host hardware supports NPU/GPU acceleration
+-    suspend fun EnhancementClient.isDeviceSupportedAsync(): Boolean = suspendCancellableCoroutine { continuation ->
+-        this.isDeviceSupported()
+-            .addOnSuccessListener { result -> continuation.resume(result) }
+-            .addOnFailureListener { exception -> continuation.resumeWithException(exception) }
+-    }
+-    // Verifies the presence of required neural network models
+-    suspend fun EnhancementClient.isModuleInstalledAsync(): Boolean = suspendCancellableCoroutine { continuation ->
+-        this.isModuleInstalled()
+-            .addOnSuccessListener { result -> continuation.resume(result) }
+-            .addOnFailureListener { exception -> continuation.resumeWithException(exception) }
+-    }
+\ No newline at end of file
++
++```kotlin
++// Verifies if host hardware supports NPU/GPU acceleration.
++suspend fun EnhancementClient.isDeviceSupportedAsync(): Boolean = suspendCancellableCoroutine { continuation ->
++    this.isDeviceSupported()
++        .addOnSuccessListener { result -> continuation.resume(result) }
++        .addOnFailureListener { exception -> continuation.resumeWithException(exception) }
++}
++// Verifies the presence of required neural network models.
++suspend fun EnhancementClient.isModuleInstalledAsync(): Boolean = suspendCancellableCoroutine { continuation ->
++    this.isModuleInstalled()
++        .addOnSuccessListener { result -> continuation.resume(result) }
++        .addOnFailureListener { exception -> continuation.resumeWithException(exception) }
++}
++```
++
++<br />
+\ No newline at end of file

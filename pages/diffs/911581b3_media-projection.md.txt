@@ -1,0 +1,354 @@
+diff --git a/docs/media/grow/media-projection.md b/docs/media/grow/media-projection.md
+index f7dc1f95..b0c7583d 100644
+--- a/docs/media/grow/media-projection.md
++++ b/docs/media/grow/media-projection.md
+@@ -4,7 +4,9 @@ url: https://developer.android.com/media/grow/media-projection
+ source: md.txt
+ ---
+ 
+-The [`android.media.projection`](https://developer.android.com/reference/kotlin/android/media/projection/package-summary) APIs introduced in Android 5 (API level 21)
++> Documentation index: https://developer.android.com/media/grow/llms.txt
++
++The [`android.media.projection`](https://developer.android.com/reference/kotlin/android/media/projection/package-summary.md.txt) APIs introduced in Android 5 (API level 21)
+ enable you to capture the contents of a device display as a media stream that
+ you can play back, record, or cast to other devices, such as TVs.
+ 
+@@ -23,12 +25,12 @@ content sharing to just a single app.
+ 
+ A media projection captures the contents of a device display or app window and
+ then projects the captured image to a virtual display that renders the image on
+-a [`Surface`](https://developer.android.com/reference/kotlin/android/view/Surface).
++a [`Surface`](https://developer.android.com/reference/kotlin/android/view/Surface.md.txt).
+ ![Real device display projected onto virtual display. Contents of
+ virtual display written to application-provided `Surface`.](https://developer.android.com/static/media/images/grow/media-projection.png) **Figure 1.** Real device screen or app window projected onto virtual display. Virtual display written to application-provided `Surface`.
+ 
+-The application provides the `Surface` by means of a [`MediaRecorder`](https://developer.android.com/reference/kotlin/android/media/MediaRecorder),
+-[`SurfaceTexture`](https://developer.android.com/reference/kotlin/android/graphics/SurfaceTexture), or [`ImageReader`](https://developer.android.com/reference/kotlin/android/media/ImageReader), which consumes the contents of the
++The application provides the `Surface` by means of a [`MediaRecorder`](https://developer.android.com/reference/kotlin/android/media/MediaRecorder.md.txt),
++[`SurfaceTexture`](https://developer.android.com/reference/kotlin/android/graphics/SurfaceTexture.md.txt), or [`ImageReader`](https://developer.android.com/reference/kotlin/android/media/ImageReader.md.txt), which consumes the contents of the
+ captured display and enables you to manage images rendered on the `Surface` in
+ real time. You can save the images as a recording or cast them to a TV or other
+ device.
+@@ -37,26 +39,26 @@ device.
+ 
+ Begin a media projection session by obtaining a token that grants your app the
+ ability to capture the contents of the device display or app window. The token
+-is represented by an instance of the [`MediaProjection`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjection) class.
++is represented by an instance of the [`MediaProjection`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjection.md.txt) class.
+ 
+-Use the [`getMediaProjection()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionManager#getmediaprojection) method of the [`MediaProjectionManager`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionManager)
++Use the [`getMediaProjection()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionManager.md.txt#getmediaprojection) method of the [`MediaProjectionManager`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionManager.md.txt)
+ system service to create a `MediaProjection` instance when you start a new
+ activity. Start the activity with an intent from the
+-[`createScreenCaptureIntent()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionManager#createscreencaptureintent) method to specify a screen capture operation:
+-
+-### Kotlin
++[`createScreenCaptureIntent()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionManager.md.txt#createscreencaptureintent) method to specify a screen capture operation:
+ 
+ 
+ ```kotlin
+ val mediaProjectionManager = getSystemService(MediaProjectionManager::class.java)
+-var mediaProjection : MediaProjection
++var mediaProjection: MediaProjection?
+ 
+ val startMediaProjection = registerForActivityResult(
+     StartActivityForResult()
+ ) { result ->
+     if (result.resultCode == RESULT_OK) {
+-        mediaProjection = mediaProjectionManager
+-            .getMediaProjection(result.resultCode, result.data!!)
++        result.data?.let { data ->
++            mediaProjection = mediaProjectionManager
++                .getMediaProjection(result.resultCode, data)
++        }
+     }
+ }
+ 
+@@ -65,76 +67,36 @@ startMediaProjection.launch(mediaProjectionManager.createScreenCaptureIntent())
+ 
+ <br />
+ 
+-### Java
+-
+-
+-```java
+-final MediaProjectionManager mediaProjectionManager =
+-    getSystemService(MediaProjectionManager.class);
+-final MediaProjection[] mediaProjection = new MediaProjection[1];
+-
+-ActivityResultLauncher startMediaProjection = registerForActivityResult(
+-    new StartActivityForResult(),
+-    result -> {
+-        if (result.getResultCode() == Activity.RESULT_OK) {
+-            mediaProjection[0] = mediaProjectionManager
+-                .getMediaProjection(result.getResultCode(), result.getData());
+-        }
+-    }
+-);
+-
+-startMediaProjection.launch(mediaProjectionManager.createScreenCaptureIntent());
+-```
+-
+-<br />
+-
+ > [!NOTE]
+-> **Note:** Apps that use the [`android.media.projection`](https://developer.android.com/reference/kotlin/android/media/projection/package-summary) APIs are capable of app screen sharing automatically through the call to `createScreenCaptureIntent()`.
++> **Note:** Apps that use the [`android.media.projection`](https://developer.android.com/reference/kotlin/android/media/projection/package-summary.md.txt) APIs are capable of app screen sharing automatically through the call to `createScreenCaptureIntent()`.
+ 
+ ### Virtual display
+ 
+ The centerpiece of a media projection is the virtual display, which you create
+-by calling [`createVirtualDisplay()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjection#createvirtualdisplay) on a `MediaProjection` instance:
+-
+-### Kotlin
++by calling [`createVirtualDisplay()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjection.md.txt#createvirtualdisplay) on a `MediaProjection` instance:
+ 
+ 
+ ```kotlin
+ virtualDisplay = mediaProjection.createVirtualDisplay(
+-                     "ScreenCapture",
+-                     width,
+-                     height,
+-                     screenDensity,
+-                     DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
+-                     surface,
+-                     null, null)
+-```
+-
+-<br />
+-
+-### Java
+-
+-
+-```java
+-virtualDisplay = mediaProjection.createVirtualDisplay(
+-                     "ScreenCapture",
+-                     width,
+-                     height,
+-                     screenDensity,
+-                     DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
+-                     surface,
+-                     null, null);
++    "ScreenCapture",
++    width,
++    height,
++    screenDensity,
++    DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
++    surface,
++    null, null
++)
+ ```
+ 
+ <br />
+ 
+ The `width` and `height` parameters specify the dimensions of the virtual
+-display. To obtain values for width and height, use the [`WindowMetrics`](https://developer.android.com/reference/kotlin/android/view/WindowMetrics) APIs
++display. To obtain values for width and height, use the [`WindowMetrics`](https://developer.android.com/reference/kotlin/android/view/WindowMetrics.md.txt) APIs
+ introduced in Android 11 (API level 30). (For details, see the [Media projection
+ size](https://developer.android.com/media/grow/media-projection#media_projection_size) section.)
+ 
+ > [!NOTE]
+-> **Note:** The screen density parameter of the `createVirtualDisplay()` method enables adjustment of the resolution of the captured display for sharing or casting to a lower resolution external display. Use [`Configuration#densityDpi`](https://developer.android.com/reference/kotlin/android/content/res/Configuration#densitydpi) rather than [`Display#getRealMetrics()`](https://developer.android.com/reference/kotlin/android/view/Display#getrealmetrics) (which is deprecated) to obtain the value for the screen density argument.
++> **Note:** The screen density parameter of the `createVirtualDisplay()` method enables adjustment of the resolution of the captured display for sharing or casting to a lower resolution external display. Use [`Configuration#densityDpi`](https://developer.android.com/reference/kotlin/android/content/res/Configuration.md.txt#densitydpi) rather than [`Display#getRealMetrics()`](https://developer.android.com/reference/kotlin/android/view/Display.md.txt#getrealmetrics) (which is deprecated) to obtain the value for the screen density argument.
+ 
+ ### Surface
+ 
+@@ -155,27 +117,29 @@ the proper aspect ratio.
+ ## Foreground service permission
+ 
+ If your app targets Android 14 or higher, the app manifest must include a
+-permission declaration for the [`mediaProjection`](https://developer.android.com/about/versions/14/changes/fgs-types-required#media-projection)
++permission declaration for the [`mediaProjection`](https://developer.android.com/about/versions/14/changes/fgs-types-required.md.txt#media-projection)
+ foreground service type:
+ 
+-    <manifest ...>
+-        <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+-        <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+-        <application ...>
+-            <service
+-                android:name=".MyMediaProjectionService"
+-                android:foregroundServiceType="mediaProjection"
+-                android:exported="false">
+-            </service>
+-        </application>
+-    </manifest>
++```xml
++<manifest ...>
++    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
++    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
++    <application ...>
++        <service
++            android:name=".MyMediaProjectionService"
++            android:foregroundServiceType="mediaProjection"
++            android:exported="false">
++        </service>
++    </application>
++</manifest>
++```
+ 
+-Start the media projection service with a call to [`startForeground()`](https://developer.android.com/reference/kotlin/androidx/core/app/ServiceCompat#startForeground(android.app.Service,int,android.app.Notification,int)).
++Start the media projection service with a call to [`startForeground()`](https://developer.android.com/reference/kotlin/androidx/core/app/ServiceCompat.md.txt#startForeground(android.app.Service,int,android.app.Notification,int)).
+ 
+ If you don't specify the foreground service type in the call, the type defaults
+ to a bitwise integer of the foreground service types defined in the manifest. If
+ the manifest doesn't specify any service types, the system throws
+-[`MissingForegroundServiceTypeException`](https://developer.android.com/reference/kotlin/android/app/MissingForegroundServiceTypeException).
++[`MissingForegroundServiceTypeException`](https://developer.android.com/reference/kotlin/android/app/MissingForegroundServiceTypeException.md.txt).
+ 
+ ## User consent
+ 
+@@ -184,7 +148,7 @@ session is a single call to `createVirtualDisplay()`. A `MediaProjection` token
+ must be used only once to make the call.
+ 
+ On Android 14 or higher, the `createVirtualDisplay()` method throws a
+-[`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException) if your app does either of the following:
++[`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException.md.txt) if your app does either of the following:
+ 
+ - Passes an `Intent` instance returned from `createScreenCaptureIntent()` to `getMediaProjection()` more than once
+ - Calls `createVirtualDisplay()` more than once on the same `MediaProjection` instance
+@@ -201,16 +165,16 @@ device screen. In app screen sharing, your app won't be able to determine the
+ size of the captured display until the user has selected the capture region. So,
+ the initial size of any media projection is the size of the device screen.
+ 
+-Use the platform `WindowManager` [`getMaximumWindowMetrics()`](https://developer.android.com/reference/kotlin/android/view/WindowManager#getmaximumwindowmetrics) method to
+-return a [`WindowMetrics`](https://developer.android.com/reference/kotlin/android/view/WindowMetrics) object for the device screen even if the media
++Use the platform `WindowManager` [`getMaximumWindowMetrics()`](https://developer.android.com/reference/kotlin/android/view/WindowManager.md.txt#getmaximumwindowmetrics) method to
++return a [`WindowMetrics`](https://developer.android.com/reference/kotlin/android/view/WindowMetrics.md.txt) object for the device screen even if the media
+ projection host app is in multi‑window mode, occupying only part of the
+ display.
+ 
+ For compatibility down to API level 14, use the `WindowMetricsCalculator`
+-[`computeMaximumWindowMetrics()`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowMetricsCalculator#computeMaximumWindowMetrics(android.app.Activity)) method from the Jetpack `WindowManager`
++[`computeMaximumWindowMetrics()`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowMetricsCalculator.md.txt#computeMaximumWindowMetrics(android.app.Activity)) method from the Jetpack `WindowManager`
+ library.
+ 
+-Call the `WindowMetrics` [`getBounds()`](https://developer.android.com/reference/kotlin/android/view/WindowMetrics#getbounds) method to get the width and height of
++Call the `WindowMetrics` [`getBounds()`](https://developer.android.com/reference/kotlin/android/view/WindowMetrics.md.txt#getbounds) method to get the width and height of
+ the device display.
+ 
+ ### Size changes
+@@ -224,14 +188,14 @@ up.
+ To ensure the media projection precisely aligns with the size of the captured
+ content for any captured region and across device rotations, use the
+ `onCapturedContentResize()` callback to resize the capture. (For more
+-information, see the [Customization](https://developer.android.com/media/grow/media-projection#customization) section, which follows).
++information, see the [Customization](https://developer.android.com/media/grow/media-projection.md.txt#customization) section, which follows).
+ 
+ ## Customization
+ 
+ Your app can customize the media projection user experience with the following
+-[`MediaProjection.Callback`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjection.Callback) APIs:
++[`MediaProjection.Callback`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjection.Callback.md.txt) APIs:
+ 
+-- [`onCapturedContentVisibilityChanged()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjection.Callback#oncapturedcontentvisibilitychanged): Enables the host app (the app
++- [`onCapturedContentVisibilityChanged()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjection.Callback.md.txt#oncapturedcontentvisibilitychanged): Enables the host app (the app
+   that started the media projection) to show or hide the shared content.
+ 
+   Use this callback to customize your app's UI based on whether the captured
+@@ -241,7 +205,7 @@ Your app can customize the media projection user experience with the following
+   callback), the user sees the same content twice. Use the callback to update
+   your app's UI to hide the captured content and free up layout space in your
+   app for other content.
+-- [`onCapturedContentResize()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjection.Callback#oncapturedcontentresize): Enables the host app to change the size of
++- [`onCapturedContentResize()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjection.Callback.md.txt#oncapturedcontentresize): Enables the host app to change the size of
+   the media projection on the virtual display and media projection `Surface`
+   based on the size of the captured display region.
+ 
+@@ -253,7 +217,7 @@ Your app can customize the media projection user experience with the following
+ 
+ ## Resource recovery
+ 
+-Your app should register the `MediaProjection` [`onStop()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjection.Callback#onstop) callback to be
++Your app should register the `MediaProjection` [`onStop()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjection.Callback.md.txt#onstop) callback to be
+ informed when the media projection session is stopped and becomes invalid. When
+ the session is stopped, your app should release the resources that it holds,
+ such as the virtual display and projection surface. A stopped media projection
+@@ -271,7 +235,7 @@ termination can happen for several reasons, such as:
+ - the app process is killed
+ 
+ If your app doesn't register the callback, any call to `createVirtualDisplay()`
+-throws [`IllegalStateException`](https://developer.android.com/reference/java/lang/IllegalStateException).
++throws [`IllegalStateException`](https://developer.android.com/reference/java/lang/IllegalStateException.md.txt).
+ 
+ ## Opt out
+ 
+@@ -280,54 +244,42 @@ projection session gives users the option of sharing an app window or the entire
+ display.
+ 
+ Your app can opt out of app screen sharing by calling the
+-[`createScreenCaptureIntent(MediaProjectionConfig)`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionManager#createscreencaptureintent_1) method with a
+-[`MediaProjectionConfig`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionConfig) argument returned from a call to
+-[`createConfigForDefaultDisplay()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionConfig#createconfigfordefaultdisplay).
++[`createScreenCaptureIntent(MediaProjectionConfig)`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionManager.md.txt#createscreencaptureintent_1) method with a
++[`MediaProjectionConfig`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionConfig.md.txt) argument returned from a call to
++[`createConfigForDefaultDisplay()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionConfig.md.txt#createconfigfordefaultdisplay).
+ 
+ A call to `createScreenCaptureIntent(MediaProjectionConfig)` with a
+ `MediaProjectionConfig` argument returned from a call to
+-[`createConfigForUserChoice()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionConfig#createconfigforuserchoice) is the same as the default behavior, that is,
+-a call to [`createScreenCaptureIntent()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionManager#createscreencaptureintent).
++[`createConfigForUserChoice()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionConfig.md.txt#createconfigforuserchoice) is the same as the default behavior, that is,
++a call to [`createScreenCaptureIntent()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionManager.md.txt#createscreencaptureintent).
+ 
+ > [!WARNING]
+-> **Warning:** Device manufacturers can override your app's opt out of app screen sharing if the app misuses the opt out to show private user data from an app window that shouldn't be shared. See [Device compatibility mode](https://developer.android.com/guide/practices/device-compatibility-mode#override_disable_media_projection_single_app_option).
++> **Warning:** Device manufacturers can override your app's opt out of app screen sharing if the app misuses the opt out to show private user data from an app window that shouldn't be shared. See [Device compatibility mode](https://developer.android.com/guide/practices/device-compatibility-mode.md.txt#override_disable_media_projection_single_app_option).
+ 
+ ## Resizable apps
+ 
+ Always make your media projection apps resizable
+-([`resizeableActivity="true"`](https://developer.android.com/guide/topics/manifest/application-element#resizeableActivity)). Resizable apps support device configuration
++([`resizeableActivity="true"`](https://developer.android.com/guide/topics/manifest/application-element.md.txt#resizeableActivity)). Resizable apps support device configuration
+ changes and multi‑window mode (see [Multi-window support](https://developer.android.com/guide/topics/ui/multi-window)).
+ 
+ If your app is not resizable, it must query the display bounds from a window
+ context and use `getMaximumWindowMetrics()` to retrieve the `WindowMetrics` of
+ the maximum display area available to the app :
+ 
+-### Kotlin
+-
+ 
+ ```kotlin
+-val windowContext = context.createWindowContext(context.display!!,
+-      WindowManager.LayoutParams.TYPE_APPLICATION, null)
++val windowContext = context.createWindowContext(
++    context.display,
++    WindowManager.LayoutParams.TYPE_APPLICATION, null
++)
+ val projectionMetrics = windowContext.getSystemService(WindowManager::class.java)
+-      .maximumWindowMetrics
+-```
+-
+-<br />
+-
+-### Java
+-
+-
+-```java
+-Context windowContext = context.createWindowContext(context.getDisplay(),
+-      WindowManager.LayoutParams.TYPE_APPLICATION, null);
+-WindowMetrics projectionMetrics = windowContext.getSystemService(WindowManager.class)
+-      .getMaximumWindowMetrics();
++    .maximumWindowMetrics
+ ```
+ 
+ <br />
+ 
+ > [!CAUTION]
+-> **Caution:** [`Display#getRealSize()`](https://developer.android.com/reference/kotlin/android/view/Display#getrealsize) and [`Display#getRealMetrics()`](https://developer.android.com/reference/kotlin/android/view/Display#getrealmetrics) are deprecated as of API level 31. For non-resizable apps (`resizeableActivity="false"`), the methods return the bounds of the app window rather than the bounds of the device display.
++> **Caution:** [`Display#getRealSize()`](https://developer.android.com/reference/kotlin/android/view/Display.md.txt#getrealsize) and [`Display#getRealMetrics()`](https://developer.android.com/reference/kotlin/android/view/Display.md.txt#getrealmetrics) are deprecated as of API level 31. For non-resizable apps (`resizeableActivity="false"`), the methods return the bounds of the app window rather than the bounds of the device display.
+ 
+ ## Status bar chip and auto stop
+ 
+@@ -348,9 +300,9 @@ To ensure your app releases resources and updates its UI when screen projection
+ is stopped by user interaction with the status bar chip or by lock screen
+ activation, do the following:
+ 
+-- Create an instance of [`MediaProjection.Callback`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjection.Callback).
++- Create an instance of [`MediaProjection.Callback`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjection.Callback.md.txt).
+ 
+-- Implement the callback [`onStop()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjection.Callback#onstop) method. The method is called when
++- Implement the callback [`onStop()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjection.Callback.md.txt#onstop) method. The method is called when
+   screen projection stops. Release any resources your app is holding and
+   update the app UI as needed.
+ 

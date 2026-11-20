@@ -1,0 +1,562 @@
+diff --git a/docs/develop/background-work/services/aidl.md b/docs/develop/background-work/services/aidl.md
+index c2248a4e..ec22b349 100644
+--- a/docs/develop/background-work/services/aidl.md
++++ b/docs/develop/background-work/services/aidl.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/background-work/services/aidl
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/develop/background-work/services/llms.txt
++
+ The Android Interface Definition Language (AIDL) is similar to other
+ [IDLs](https://en.wikipedia.org/wiki/Interface_description_language):
+ it lets you define the programming interface that both
+@@ -131,7 +133,7 @@ package com.example.android;
+ 
+ // Declare any non-default types here with import statements.
+ 
+-/** Example service interface */
++/** Example service interface. */
+ interface IRemoteService {
+     /** Request the process ID of this service. */
+     int getPid();
+@@ -173,41 +175,25 @@ inherited from the `.aidl` file.
+ Here is an example implementation of an interface called `IRemoteService`, defined by the preceding
+ `IRemoteService.aidl` example, using an anonymous instance:
+ 
+-### Kotlin
+-
+ ```kotlin
+ private val binder = object : IRemoteService.Stub() {
+ 
+     override fun getPid(): Int =
+-            Process.myPid()
++        Process.myPid()
+ 
+     override fun basicTypes(
+-            anInt: Int,
+-            aLong: Long,
+-            aBoolean: Boolean,
+-            aFloat: Float,
+-            aDouble: Double,
+-            aString: String
++        anInt: Int,
++        aLong: Long,
++        aBoolean: Boolean,
++        aFloat: Float,
++        aDouble: Double,
++        aString: String
+     ) {
+         // Does nothing.
+     }
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-private final IRemoteService.Stub binder = new IRemoteService.Stub() {
+-    public int getPid(){
+-        return Process.myPid();
+-    }
+-    public void basicTypes(int anInt, long aLong, boolean aBoolean,
+-        float aFloat, double aDouble, String aString) {
+-        // Does nothing.
+-    }
+-};
+-```
+-
+ Now the `binder` is an instance of the `Stub` class (a `Binder`),
+ which defines the IPC interface for the service. In the next step, this instance is exposed to
+ clients so they can interact with the service.
+@@ -226,8 +212,6 @@ for your service, extend `Service` and implement `onBind()` to return an instanc
+ the generated `Stub`, as discussed in the preceding section. Here's an example
+ service that exposes the `IRemoteService` example interface to clients.
+ 
+-### Kotlin
+-
+ ```kotlin
+ class RemoteService : Service() {
+ 
+@@ -240,19 +224,18 @@ class RemoteService : Service() {
+         return binder
+     }
+ 
+-
+     private val binder = object : IRemoteService.Stub() {
+         override fun getPid(): Int {
+             return Process.myPid()
+         }
+ 
+         override fun basicTypes(
+-                anInt: Int,
+-                aLong: Long,
+-                aBoolean: Boolean,
+-                aFloat: Float,
+-                aDouble: Double,
+-                aString: String
++            anInt: Int,
++            aLong: Long,
++            aBoolean: Boolean,
++            aFloat: Float,
++            aDouble: Double,
++            aString: String
+         ) {
+             // Does nothing.
+         }
+@@ -260,33 +243,6 @@ class RemoteService : Service() {
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-public class RemoteService extends Service {
+-    @Override
+-    public void onCreate() {
+-        super.onCreate();
+-    }
+-
+-    @Override
+-    public IBinder onBind(Intent intent) {
+-        // Return the interface.
+-        return binder;
+-    }
+-
+-    private final IRemoteService.Stub binder = new IRemoteService.Stub() {
+-        public int getPid(){
+-            return Process.myPid();
+-        }
+-        public void basicTypes(int anInt, long aLong, boolean aBoolean,
+-            float aFloat, double aDouble, String aString) {
+-            // Does nothing.
+-        }
+-    };
+-}
+-```
+-
+ Now, when a client, such as an activity, calls `bindService()` to connect to this service, the client's `onServiceConnected()` callback receives the
+ `binder` instance returned by the service's `onBind()`
+ method.
+@@ -301,8 +257,6 @@ in the `onServiceConnected()` callback, it must call
+ `YourServiceInterface.Stub.asInterface(service)` to cast the returned
+ parameter to `YourServiceInterface` type:
+ 
+-### Kotlin
+-
+ ```kotlin
+ var iRemoteService: IRemoteService? = null
+ 
+@@ -323,26 +277,6 @@ val mConnection = object : ServiceConnection {
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-IRemoteService iRemoteService;
+-private ServiceConnection mConnection = new ServiceConnection() {
+-    // Called when the connection with the service is established.
+-    public void onServiceConnected(ComponentName className, IBinder service) {
+-        // Following the preceding example for an AIDL interface,
+-        // this gets an instance of the IRemoteInterface, which we can use to call on the service.
+-        iRemoteService = IRemoteService.Stub.asInterface(service);
+-    }
+-
+-    // Called when the connection with the service disconnects unexpectedly.
+-    public void onServiceDisconnected(ComponentName className) {
+-        Log.e(TAG, "Service has unexpectedly disconnected");
+-        iRemoteService = null;
+-    }
+-};
+-```
+-
+ For more sample code, see the
+ [`RemoteService.java`](https://android.googlesource.com/platform/development/+/master/samples/ApiDemos/src/com/example/android/apis/app/RemoteService.java) class in
+ [ApiDemos](https://android.googlesource.com/platform/development/+/master/samples/ApiDemos).
+@@ -409,11 +343,9 @@ parcelable Rect;
+ And here is an example of how the `Rect` class implements the
+ `Parcelable` protocol.
+ 
+-### Kotlin
+-
+ ```kotlin
+-import android.os.Parcel
+-import android.os.Parcelable
++// import android.os.Parcel
++// import android.os.Parcelable
+ 
+ class Rect() : Parcelable {
+     var left: Int = 0
+@@ -426,7 +358,7 @@ class Rect() : Parcelable {
+             return Rect(parcel)
+         }
+ 
+-        override fun newArray(size: Int): Ar<rayRect?> {
++        override fun newArray(size: Int): Array<Rect?> {
+             return Array(size) { null }
+         }
+     }
+@@ -455,55 +387,6 @@ class Rect() : Parcelable {
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-import android.os.Parcel;
+-import android.os.Parcelable;
+-
+-public final class Rect implements Parcelable {
+-    public int left;
+-    public int top;
+-    public int right;
+-    public int bottom;
+-
+-    public static final Parcelable.Creator<Rect> CREATOR = new Parcelable.Crea<torRect>() {
+-        public Rect createFromParcel(Parcel in) {
+-            return new Rect(in);
+-        }
+-
+-        public Rect[] newArray(int size) {
+-            return new Rect[size];
+-        }
+-    };
+-
+-    public Rect() {
+-    }
+-
+-    private Rect(Parcel in) {
+-        readFromParcel(in);
+-    }
+-
+-    public void writeToParcel(Parcel out, int flags) {
+-        out.writeInt(left);
+-        out.writeInt(top);
+-        out.writeInt(right);
+-        out.writeInt(bottom);
+-    }
+-
+-    public void readFromParcel(Parcel in) {
+-        left = in.readInt();
+-        top = in.readInt();
+-        right = in.readInt();
+-        bottom = in.readInt();
+-    }
+-
+-    public int describeContents() {
+-        return 0;
+-    }
+-}
+-```
+-
+ The marshalling in the `Rect` class is straightforward. Take a look at the other
+ methods on `Parcel` to see the other kinds of values you can write
+ to a `Parcel`.
+@@ -522,7 +405,7 @@ For example, consider the following sample `.aidl` file:
+ // IRectInsideBundle.aidl
+ package com.example.android;
+ 
+-/** Example service interface */
++/** Example service interface. */
+ interface IRectInsideBundle {
+     /** Rect parcelable is stored in the bundle with key "rect". */
+     void saveRect(in Bundle bundle);
+@@ -530,30 +413,16 @@ interface IRectInsideBundle {
+ ```
+ As shown in the following implementation, the `ClassLoader` is explicitly set in the `Bundle` before reading `Rect`:
+ 
+-### Kotlin
+-
+ ```kotlin
+ private val binder = object : IRectInsideBundle.Stub() {
+     override fun saveRect(bundle: Bundle) {
+-      bundle.classLoader = classLoader
+-      val rect = bundle.getParcelable<Rect>("rect")
+-      process(rect) // Do more with the parcelable.
++        bundle.classLoader = classLoader
++        val rect = BundleCompat.getParcelable(bundle, "rect", Rect::class.java)
++        process(rect) // Do more with the parcelable.
+     }
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-private final IRectInsideBundle.Stub binder = new IRectInsideBundle.Stub() {
+-    public void saveRect(Bundle bundle){
+-        bundle.setClassLoader(getClass().getClassLoader());
+-        Rect rect = bundle.getParcelable("rect");
+-        process(rect); // Do more with the parcelable.
+-    }
+-};
+-```
+-
+ ## Calling an IPC method
+ 
+ To call a remote interface defined with AIDL, take the following steps in
+@@ -577,8 +446,6 @@ For more information about binding to a service, read the [Bound services overvi
+ Here is some sample code that demonstrates calling an AIDL-created service, taken
+ from the Remote Service sample in the ApiDemos project.
+ 
+-### Kotlin
+-
+ ```kotlin
+ private const val BUMP_MSG = 1
+ 
+@@ -632,7 +499,7 @@ class Binding : Activity() {
+ 
+         override fun onServiceDisconnected(className: ComponentName) {
+             // This is called when the connection with the service is
+-            // unexpectedly di&sconnectedmdash;that is, its process crashed.
++            // unexpectedly disconnected&mdash;that is, its process crashed.
+             mService = null
+             killButton.isEnabled = false
+             callbackText.text = "Disconnected."
+@@ -703,7 +570,7 @@ class Binding : Activity() {
+         // PID.  Conveniently, the service has a call that returns
+         // that information.
+         try {
+-       >     secondaryService?.pid?.also { pid -
++            secondaryService?.pid?.also { pid ->
+                 // Note that, though this API lets us request to
+                 // kill any process based on its PID, the kernel
+                 // still imposes standard restrictions on which PIDs you
+@@ -768,231 +635,13 @@ class Binding : Activity() {
+     }
+ 
+     private class InternalHandler(
+-            textVie<w: TextV>iew,
+-            private val weakTextView: WeakReferenceTextView = WeakReference(textView)
++            textView: TextView,
++            private val weakTextView: WeakReference<TextView> = WeakReference(textView)
+     ) : Handler() {
+-        override fun handleMessage(msg: Mes>sage) {
++        override fun handleMessage(msg: Message) {
+             when (msg.what) {
+-                BUMP_MSG - weakTextView.get()?.te>xt = "Received from service: ${msg.arg1}"
+-                else - super.handleMessage(msg)
+-            }
+-        }
+-    }
+-}
+-```
+-
+-### Java
+-
+-```java
+-public static class Binding extends Activity {
+-    /** The primary interface we are calling on the service. */
+-    IRemoteService mService = null;
+-    /** Another interface we use on the service. */
+-    ISecondary secondaryService = null;
+-
+-    Button killButton;
+-    TextView callbackText;
+-
+-    private InternalHandler handler;
+-    private boolean isBound;
+-
+-    /**
+-     * Standard initialization of this activity. Set up the UI, then wait
+-     * for the user to interact with it before doing anything.
+-     */
+-    @Override
+-    protected void onCreate(Bundle savedInstanceState) {
+-        super.onCreate(savedInstanceState);
+-
+-        setContentView(R.layout.remote_service_binding);
+-
+-        // Watch for button taps.
+-        Button button = (Button)findViewById(R.id.bind);
+-        button.setOnClickListener(mBindListener);
+-        button = (Button)findViewById(R.id.unbind);
+-        button.setOnClickListener(unbindListener);
+-        killButton = (Button)findViewById(R.id.kill);
+-        killButton.setOnClickListener(killListener);
+-        killButton.setEnabled(false);
+-
+-        callbackText = (TextView)findViewById(R.id.callback);
+-        callbackText.setText("Not attached.");
+-        handler = new InternalHandler(callbackText);
+-    }
+-
+-    /**
+-     * Class for interacting with the main interface of the service.
+-     */
+-    private ServiceConnection mConnection = new ServiceConnection() {
+-        public void onServiceConnected(ComponentName className,
+-                IBinder service) {
+-            // This is called when the connection with the service is
+-            // established, giving us the service object we can use to
+-            // interact with the service.  We are communicating with our
+-            // service through an IDL interface, so get a client-side
+-            // representation of that from the raw service object.
+-            mService = IRemoteService.Stub.asInterface(service);
+-            killButton.setEnabled(true);
+-            callbackText.setText("Attached.");
+-
+-            // We want to monitor the service for as long as we are
+-            // connected to it.
+-            try {
+-                mService.registerCallback(mCallback);
+-            } catch (RemoteException e) {
+-                // In this case the service crashes before we can even
+-                // do anything with it. We can count on soon being
+-                // disconnected (and then reconnected if it can be restarted)
+-                // so there is no need to do anything here.
+-            }
+-
+-            // As part of the sample, tell the user what happened.
+-            Toast.makeText(Binding.this, R.string.remote_service_connected,
+-                    Toast.LENGTH_SHORT).show();
+-        }
+-
+-        public void onServiceDisconnected(ComponentName className) {
+-            // This is called when the connection with the service is
+-            // unexp&ectedly disconnectedmdash;that is, its process crashed.
+-            mService = null;
+-            killButton.setEnabled(false);
+-            callbackText.setText("Disconnected.");
+-
+-            // As part of the sample, tell the user what happened.
+-            Toast.makeText(Binding.this, R.string.remote_service_disconnected,
+-                    Toast.LENGTH_SHORT).show();
+-        }
+-    };
+-
+-    /**
+-     * Class for interacting with the secondary interface of the service.
+-     */
+-    private ServiceConnection secondaryConnection = new ServiceConnection() {
+-        public void onServiceConnected(ComponentName className,
+-                IBinder service) {
+-            // Connecting to a secondary interface is the same as any
+-            // other interface.
+-            secondaryService = ISecondary.Stub.asInterface(service);
+-            killButton.setEnabled(true);
+-        }
+-
+-        public void onServiceDisconnected(ComponentName className) {
+-            secondaryService = null;
+-            killButton.setEnabled(false);
+-        }
+-    };
+-
+-    private OnClickListener mBindListener = new OnClickListener() {
+-        public void onClick(View v) {
+-            // Establish a couple connections with the service, binding
+-            // by interface names. This lets other applications be
+-            // installed that replace the remote service by implementing
+-            // the same interface.
+-            Intent intent = new Intent(Binding.this, RemoteService.class);
+-            intent.setAction(IRemoteService.class.getName());
+-            bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+-            intent.setAction(ISecondary.class.getName());
+-            bindService(intent, secondaryConnection, Context.BIND_AUTO_CREATE);
+-            isBound = true;
+-            callbackText.setText("Binding.");
+-        }
+-    };
+-
+-    private OnClickListener unbindListener = new OnClickListener() {
+-        public void onClick(View v) {
+-            if (isBound) {
+-                // If we have received the service, and hence registered with
+-                // it, then now is the time to unregister.
+-                if (mService != null) {
+-                    try {
+-                        mService.unregisterCallback(mCallback);
+-                    } catch (RemoteException e) {
+-                        // There is nothing special we need to do if the service
+-                        // crashes.
+-                    }
+-                }
+-
+-                // Detach our existing connection.
+-                unbindService(mConnection);
+-                unbindService(secondaryConnection);
+-                killButton.setEnabled(false);
+-                isBound = false;
+-                callbackText.setText("Unbinding.");
+-            }
+-        }
+-    };
+-
+-    private OnClickListener killListener = new OnClickListener() {
+-        public void onClick(View v) {
+-            // To kill the process hosting our service, we need to know its
+-            // PID.  Conveniently, our service has a call that returns
+-            // that information.
+-            if (secondaryService != null) {
+-                try {
+-                    int pid = secondaryService.getPid();
+-                    // Note that, though this API lets us request to
+-                    // kill any process based on its PID, the kernel
+-                    // still imposes standard restrictions on which PIDs you
+-                    // can actually kill.  Typically this means only
+-                    // the process running your application and any additional
+-                    // processes created by that app as shown here. Packages
+-                    // sharing a common UID are also able to kill each
+-                    // other's processes.
+-                    Process.killProcess(pid);
+-                    callbackText.setText("Killed service process.");
+-                } catch (RemoteException ex) {
+-                    // Recover gracefully from the process hosting the
+-                    // server dying.
+-                    // For purposes of this sample, put up a notification.
+-                    Toast.makeText(Binding.this,
+-                            R.string.remote_call_failed,
+-                            Toast.LENGTH_SHORT).show();
+-                }
+-            }
+-        }
+-    };
+-
+-    // ---
+-    // Code showing how to deal with callbacks.
+-    // ---
+-
+-    /**
+-     * This implementation is used to receive callbacks from the remote
+-     * service.
+-     */
+-    private IRemoteServiceCallback mCallback = new IRemoteServiceCallback.Stub() {
+-        /**
+-         * This is called by the remote service regularly to tell us about
+-         * new values.  Note that IPC calls are dispatched through a thread
+-         * pool running in each process, so the code executing here is
+-         * NOT running in our main thread like most other things. So,
+-         * to update the UI, we need to use a Handler to hop over there.
+-         */
+-        public void valueChanged(int value) {
+-            handler.sendMessage(handler.obtainMessage(BUMP_MSG, value, 0));
+-        }
+-    };
+-
+-    private static final int BUMP_MSG = 1;
+-
+-    private static class Inter<nalHandl>er extends Handler {
+-        private final WeakReferenceTextView weakTextView;
+-
+-        InternalHandler(T<>extView textView) {
+-            weakTextView = new WeakReference(textView);
+-        }
+-
+-        @Override
+-        public void handleMessage(Message msg) {
+-            switch (msg.what) {
+-                case BUMP_MSG:
+-                    TextView textView = weakTextView.get();
+-                    if (textView != null) {
+-                        textView.setText("Received from service: " + msg.arg1);
+-                    }
+-                    break;
+-                default:
+-                    super.handleMessage(msg);
++                BUMP_MSG -> weakTextView.get()?.text = "Received from service: ${msg.arg1}"
++                else -> super.handleMessage(msg)
+             }
+         }
+     }

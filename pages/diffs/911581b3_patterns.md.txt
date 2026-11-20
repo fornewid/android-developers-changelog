@@ -1,0 +1,13 @@
+diff --git a/docs/agents/skills/play/engage-sdk-integration/references/patterns.md b/docs/agents/skills/play/engage-sdk-integration/references/patterns.md
+index e6d413a6..38662341 100644
+--- a/docs/agents/skills/play/engage-sdk-integration/references/patterns.md
++++ b/docs/agents/skills/play/engage-sdk-integration/references/patterns.md
+@@ -447,7 +447,7 @@ project.
+ engage-core = "1.6.0"
+ engage-tv = "1.1.0"
+ playServicesOssLicenses = "17.5.1"
+-workManager = "2.11.2"
++workManager = "2.12.0"
+ coroutines = "1.10.2"
+ 
+ [libraries]

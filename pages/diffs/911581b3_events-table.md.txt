@@ -1,0 +1,19 @@
+diff --git a/docs/studio/profile/chart-glossary/events-table.md b/docs/studio/profile/chart-glossary/events-table.md
+index dc32efcb..d6747c30 100644
+--- a/docs/studio/profile/chart-glossary/events-table.md
++++ b/docs/studio/profile/chart-glossary/events-table.md
+@@ -4,9 +4,11 @@ url: https://developer.android.com/studio/profile/chart-glossary/events-table
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/studio/profile/llms.txt
++
+ The **events table** lists all calls in the selected thread. You can
+ sort them by clicking on the column headers. By selecting a row in the table,
+ you can navigate the timeline to the start and end time of the selected call.
+ This lets you accurately locate events on the timeline.
+ 
+-![](https://developer.android.com/static/studio/images/profile/system-trace-events-table.png)
+\ No newline at end of file
++![Events table for the main thread, sorted by CPU self time.](https://developer.android.com/static/studio/images/profile/system-trace-events-table.png)
+\ No newline at end of file

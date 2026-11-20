@@ -1,0 +1,341 @@
+diff --git a/docs/guide/topics/resources/animation-resource.md b/docs/guide/topics/resources/animation-resource.md
+index c35992b8..5a215f10 100644
+--- a/docs/guide/topics/resources/animation-resource.md
++++ b/docs/guide/topics/resources/animation-resource.md
+@@ -6,16 +6,16 @@ source: md.txt
+ 
+ An animation resource can define one of two types of animations:
+ 
+-[Property animation](https://developer.android.com/guide/topics/resources/animation-resource#Property)
++[Property animation](https://developer.android.com/guide/topics/resources/animation-resource.md.txt#Property)
+ :   Creates an animation by modifying an object's property values over a set period
+-    with an `https://developer.android.com/reference/android/animation/Animator`.
++    with an `Animator`.
+ 
+-[View animation](https://developer.android.com/guide/topics/resources/animation-resource#View)
++[View animation](https://developer.android.com/guide/topics/resources/animation-resource.md.txt#View)
+ 
+ :   There are two types of animations that you can do with the view animation framework:
+ 
+-    - [Tween animation](https://developer.android.com/guide/topics/resources/animation-resource#Tween): creates an animation by performing a series of transformations on a single image with an `https://developer.android.com/reference/android/view/animation/Animation`.
+-    - [Frame animation](https://developer.android.com/guide/topics/resources/animation-resource#Frame): creates an animation by showing a sequence of images in order with an `https://developer.android.com/reference/android/graphics/drawable/AnimationDrawable`.
++    - [Tween animation](https://developer.android.com/guide/topics/resources/animation-resource.md.txt#Tween): creates an animation by performing a series of transformations on a single image with an `Animation`.
++    - [Frame animation](https://developer.android.com/guide/topics/resources/animation-resource.md.txt#Frame): creates an animation by showing a sequence of images in order with an `AnimationDrawable`.
+ 
+ ## Property animation
+ 
+@@ -28,8 +28,8 @@ file location:
+     The filename is used as the resource ID.
+ 
+ compiled resource datatype:
+-:   Resource pointer to a `https://developer.android.com/reference/android/animation/ValueAnimator`, `https://developer.android.com/reference/android/animation/ObjectAnimator`,
+-    or `https://developer.android.com/reference/android/animation/AnimatorSet`
++:   Resource pointer to a `ValueAnimator`, `ObjectAnimator`,
++    or `AnimatorSet`
+ 
+ resource reference:
+ :
+@@ -81,7 +81,7 @@ elements:
+     `<set>`
+     :   A container that holds other animation elements (`<objectAnimator>`,
+         `<valueAnimator>`, or other `<set>` elements). Represents
+-        an `https://developer.android.com/reference/android/animation/AnimatorSet`.
++        an `AnimatorSet`.
+ 
+         You can specify nested `<set>` tags to further
+         group animations. Each `<set>` can define its own
+@@ -103,10 +103,7 @@ elements:
+ 
+     `<objectAnimator>`
+     :   Animates a specific property of an object over a specific amount of time. Represents
+-        an `https://developer.android.com/reference/android/animation/ObjectAnimator`.
+-
+-        <br />
+-
++        an `ObjectAnimator`.
+ 
+         Attributes:
+ 
+@@ -117,7 +114,7 @@ elements:
+             `"alpha"` or `"backgroundColor"` for a `View` object.
+             The `objectAnimator` element doesn't expose a `target`
+             attribute, however, so you can't set the object to animate in the XML declaration. You have to
+-            inflate your animation XML resource by calling `https://developer.android.com/reference/android/animation/AnimatorInflater#loadAnimator(android.content.Context, int)`, and call `https://developer.android.com/reference/android/animation/ObjectAnimator#setTarget(java.lang.Object)` to set
++            inflate your animation XML resource by calling `loadAnimator()`, and call `setTarget()` to set
+             the target object that contains this property.
+ 
+ 
+@@ -142,7 +139,7 @@ elements:
+         `android:startOffset`
+         :
+             *int* . The amount of milliseconds the animation delays after
+-            `https://developer.android.com/reference/android/animation/ObjectAnimator#start()` is called.
++            `start()` is called.
+ 
+ 
+         `android:repeatCount`
+@@ -174,7 +171,7 @@ elements:
+ 
+     `<animator>`
+     :   Performs an animation over a specified amount of time.
+-        Represents a `https://developer.android.com/reference/android/animation/ValueAnimator`.
++        Represents a `ValueAnimator`.
+ 
+         Attributes:
+ 
+@@ -199,7 +196,7 @@ elements:
+         `android:startOffset`
+         :
+             *int* . The amount of milliseconds the animation delays after
+-            `https://developer.android.com/reference/android/animation/ValueAnimator#start()` is called.
++            `start()` is called.
+ 
+ 
+         `android:repeatCount`
+@@ -254,8 +251,8 @@ example:
+     </set>
+     ```
+ 
+-    To run this animation, inflate the XML resources in your code to an `https://developer.android.com/reference/android/animation/AnimatorSet` object, and then set the target objects for all the animations
+-    before starting the animation set. Calling `https://developer.android.com/reference/android/animation/AnimatorSet#setTarget(java.lang.Object)` sets a single target object for all children of the `AnimatorSet` as a convenience. The following code shows how to do this:
++    To run this animation, inflate the XML resources in your code to an `AnimatorSet` object, and then set the target objects for all the animations
++    before starting the animation set. Calling `setTarget()` sets a single target object for all children of the `AnimatorSet` as a convenience. The following code shows how to do this:
+ 
+     ### Kotlin
+ 
+@@ -297,7 +294,7 @@ file location:
+     The filename is used as the resource ID.
+ 
+ compiled resource datatype:
+-:   Resource pointer to an `https://developer.android.com/reference/android/view/animation/Animation`
++:   Resource pointer to an `Animation`
+ 
+ resource reference:
+ :
+@@ -351,24 +348,24 @@ elements:
+     `<set>`
+     :   A container that holds other animation elements
+         (`<alpha>`, `<scale>`, `<translate>`,
+-        `<rotate>`) or other `<set>` elements. Represents an `https://developer.android.com/reference/android/view/animation/AnimationSet`.
++        `<rotate>`) or other `<set>` elements. Represents an `AnimationSet`.
+ 
+         Attributes:
+ 
+         `android:interpolator`
+         :   *Interpolator resource* .
+-            An `https://developer.android.com/reference/android/view/animation/Interpolator` to apply on the animation.
++            An `Interpolator` to apply on the animation.
+             The value must be a reference to a resource that specifies an interpolator,
+             not an interpolator class name. There are default interpolator
+             resources available from the platform or you can create your own interpolator resource.
+-            See the following discussion for more information about [interpolators](https://developer.android.com/guide/topics/resources/animation-resource#Interpolators).
++            See the following discussion for more information about [interpolators](https://developer.android.com/guide/topics/resources/animation-resource.md.txt#Interpolators).
+ 
+         `android:shareInterpolator`
+         :   *Boolean* . `"true"` if you want to share the same interpolator among all child
+             elements.
+ 
+     `<alpha>`
+-    :   A fade-in or fade-out animation. Represents an `https://developer.android.com/reference/android/view/animation/AlphaAnimation`.
++    :   A fade-in or fade-out animation. Represents an `AlphaAnimation`.
+ 
+         Attributes:
+ 
+@@ -381,12 +378,12 @@ elements:
+             is opaque.
+ 
+         For more attributes supported by `<alpha>`, see the class reference for
+-        `https://developer.android.com/reference/android/view/animation/Animation`, whose XML attributes are inherited by this element.
++        `Animation`, whose XML attributes are inherited by this element.
+ 
+     `<scale>`
+     :   A resizing animation. You can specify the center point of the image from which it grows
+         outward or inward by specifying `pivotX` and `pivotY`. For example, if these values
+-        are 0,0 (the top-left corner), all growth is down and to the right. Represents a `https://developer.android.com/reference/android/view/animation/ScaleAnimation`.
++        are 0,0 (the top-left corner), all growth is down and to the right. Represents a `ScaleAnimation`.
+ 
+         Attributes:
+ 
+@@ -409,11 +406,11 @@ elements:
+         :   *Float*. The Y coordinate to remain fixed when the object is scaled.
+ 
+         For more attributes supported by `<scale>`, see the class reference for
+-        `https://developer.android.com/reference/android/view/animation/Animation`, whose XML attributes are inherited by this element.
++        `Animation`, whose XML attributes are inherited by this element.
+ 
+     `<translate>`
+     :   A vertical and/or horizontal motion. Represents a
+-        `https://developer.android.com/reference/android/view/animation/TranslateAnimation`.
++        `TranslateAnimation`.
+         Supports the following attributes in any of these three formats:
+ 
+         - Values from -100 to 100 ending with "%", indicating a percentage relative to itself.
+@@ -444,10 +441,10 @@ elements:
+             `"5%"`; or in percentage relative to the parent height, such as `"5%p"`.
+ 
+         For more attributes supported by `<translate>`, see the class reference for
+-        `https://developer.android.com/reference/android/view/animation/Animation`, whose XML attributes are inherited by this element.
++        `Animation`, whose XML attributes are inherited by this element.
+ 
+     `<rotate>`
+-    :   A rotation animation. Represents a `https://developer.android.com/reference/android/view/animation/RotateAnimation`.
++    :   A rotation animation. Represents a `RotateAnimation`.
+ 
+         Attributes:
+ 
+@@ -470,7 +467,7 @@ elements:
+             container's top edge, such as `"5%p"`.
+ 
+         For more attributes supported by `<rotate>`, see the class reference for
+-        `https://developer.android.com/reference/android/view/animation/Animation`, whose XML attributes are inherited by this element.
++        `Animation`, whose XML attributes are inherited by this element.
+ 
+ 
+ example:
+@@ -512,20 +509,24 @@ example:
+     </set>
+     ```
+ 
+-    The following application code applies the animation to an `https://developer.android.com/reference/android/widget/ImageView` and
++    The following application code applies the animation to an `ImageView` and
+     starts the animation:
+ 
+     ### Kotlin
+ 
+-        val image: ImageView = findViewById(R.id.image)
+-        val hyperspaceJump: Animation = AnimationUtils.https://developer.android.com/reference/android/view/animation/AnimationUtils#loadAnimation(android.content.Context, int)(this, R.anim.hyperspace_jump)
+-        image.https://developer.android.com/reference/android/view/View#startAnimation(android.view.animation.Animation)(hyperspaceJump)
++    ```kotlin
++    val image: ImageView = findViewById(R.id.image)
++    val hyperspaceJump: Animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump)
++    image.startAnimation(hyperspaceJump)
++    ```
+ 
+     ### Java
+ 
+-        ImageView image = (ImageView) findViewById(R.id.image);
+-        Animation hyperspaceJump = AnimationUtils.https://developer.android.com/reference/android/view/animation/AnimationUtils#loadAnimation(android.content.Context, int)(this, R.anim.hyperspace_jump);
+-        image.https://developer.android.com/reference/android/view/View#startAnimation(android.view.animation.Animation)(hyperspaceJump);
++    ```java
++    ImageView image = (ImageView) findViewById(R.id.image);
++    Animation hyperspaceJump = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump);
++    image.startAnimation(hyperspaceJump);
++    ```
+ 
+ see also:
+ :
+@@ -540,22 +541,22 @@ bounced, etc.
+ An interpolator is applied to an animation element with the `android:interpolator`
+ attribute, the value of which is a reference to an interpolator resource.
+ 
+-All interpolators available in Android are subclasses of the `https://developer.android.com/reference/android/view/animation/Interpolator` class. For each interpolator class, Android
++All interpolators available in Android are subclasses of the `Interpolator` class. For each interpolator class, Android
+ includes a public resource you can reference to apply the interpolator to an animation
+ using the `android:interpolator` attribute.
+ The following table specifies the resource to use for each interpolator:
+ 
+ | Interpolator class | Resource ID |
+ |---|---|
+-| `https://developer.android.com/reference/android/view/animation/AccelerateDecelerateInterpolator` | `@android:anim/accelerate_decelerate_interpolator` |
+-| `https://developer.android.com/reference/android/view/animation/AccelerateInterpolator` | `@android:anim/accelerate_interpolator` |
+-| `https://developer.android.com/reference/android/view/animation/AnticipateInterpolator` | `@android:anim/anticipate_interpolator` |
+-| `https://developer.android.com/reference/android/view/animation/AnticipateOvershootInterpolator` | `@android:anim/anticipate_overshoot_interpolator` |
+-| `https://developer.android.com/reference/android/view/animation/BounceInterpolator` | `@android:anim/bounce_interpolator` |
+-| `https://developer.android.com/reference/android/view/animation/CycleInterpolator` | `@android:anim/cycle_interpolator` |
+-| `https://developer.android.com/reference/android/view/animation/DecelerateInterpolator` | `@android:anim/decelerate_interpolator` |
+-| `https://developer.android.com/reference/android/view/animation/LinearInterpolator` | `@android:anim/linear_interpolator` |
+-| `https://developer.android.com/reference/android/view/animation/OvershootInterpolator` | `@android:anim/overshoot_interpolator` |
++| `AccelerateDecelerateInterpolator` | `@android:anim/accelerate_decelerate_interpolator` |
++| `AccelerateInterpolator` | `@android:anim/accelerate_interpolator` |
++| `AnticipateInterpolator` | `@android:anim/anticipate_interpolator` |
++| `AnticipateOvershootInterpolator` | `@android:anim/anticipate_overshoot_interpolator` |
++| `BounceInterpolator` | `@android:anim/bounce_interpolator` |
++| `CycleInterpolator` | `@android:anim/cycle_interpolator` |
++| `DecelerateInterpolator` | `@android:anim/decelerate_interpolator` |
++| `LinearInterpolator` | `@android:anim/linear_interpolator` |
++| `OvershootInterpolator` | `@android:anim/overshoot_interpolator` |
+ 
+ Here's how you can apply one of these with the `android:interpolator` attribute:
+ 
+@@ -569,8 +570,8 @@ Here's how you can apply one of these with the `android:interpolator` attribute:
+ 
+ If you're not satisfied with the interpolators provided by the platform, you can create a custom interpolator resource with modified attributes.
+ For example, you can adjust the rate of
+-acceleration for the `https://developer.android.com/reference/android/view/animation/AnticipateInterpolator` or adjust the number of
+-cycles for the `https://developer.android.com/reference/android/view/animation/CycleInterpolator`. To do so, you
++acceleration for the `AnticipateInterpolator` or adjust the number of
++cycles for the `CycleInterpolator`. To do so, you
+ create your own interpolator resource in an XML file.
+ 
+ file location:
+@@ -599,12 +600,9 @@ syntax:
+     those provided by the platform, listed in the preceding table.
+ 
+ elements:
+-:   Notice that each `https://developer.android.com/reference/android/view/animation/Interpolator` implementation, when
++:   Notice that each `Interpolator` implementation, when
+     defined in XML, has a name that begins with a lowercase letter.
+ 
+-    <br />
+-
+-
+     `<accelerateDecelerateInterpolator>`
+ 
+     :   The rate of change starts and ends slowly but accelerates through the middle. No attributes.
+@@ -663,7 +661,6 @@ elements:
+         `android:tension`
+         :   *Float*. The amount of tension to apply. The default is 2.
+ 
+-
+ example:
+ 
+ :   XML file saved at `res/anim/my_overshoot_interpolator.xml`:
+@@ -699,7 +696,7 @@ file location:
+     The filename is used as the resource ID.
+ 
+ compiled resource datatype:
+-:   Resource pointer to an `https://developer.android.com/reference/android/graphics/drawable/AnimationDrawable`
++:   Resource pointer to an `AnimationDrawable`
+ 
+ resource reference:
+ :
+@@ -764,23 +761,27 @@ example:
+ 
+     ### Kotlin
+ 
+-        val rocketImage: ImageView = findViewById(R.id.rocket_image)
+-        rocketImage.https://developer.android.com/reference/android/view/View#setBackgroundResource(int)(R.drawable.rocket_thrust)
++    ```kotlin
++    val rocketImage: ImageView = findViewById(R.id.rocket_image)
++    rocketImage.setBackgroundResource(R.drawable.rocket_thrust)
+ 
+-        val rocketAnimation = rocketImage.https://developer.android.com/reference/android/view/View#getBackground()
+-        if (rocketAnimation is https://developer.android.com/reference/android/graphics/drawable/Animatable) {
+-            rocketAnimation.https://developer.android.com/reference/android/graphics/drawable/Animatable#start()
+-        }
++    val rocketAnimation = rocketImage.background
++    if (rocketAnimation is Animatable) {
++        rocketAnimation.start()
++    }
++    ```
+ 
+     ### Java
+ 
+-        ImageView rocketImage = (ImageView) findViewById(R.id.rocket_image);
+-        rocketImage.https://developer.android.com/reference/android/view/View#setBackgroundResource(int)(R.drawable.rocket_thrust);
++    ```java
++    ImageView rocketImage = (ImageView) findViewById(R.id.rocket_image);
++    rocketImage.setBackgroundResource(R.drawable.rocket_thrust);
+ 
+-        rocketAnimation = rocketImage.https://developer.android.com/reference/android/view/View#getBackground();
+-        if (rocketAnimation instanceof https://developer.android.com/reference/android/graphics/drawable/Animatable) {
+-            ((Animatable)rocketAnimation).https://developer.android.com/reference/android/graphics/drawable/Animatable#start();
+-        }
++    rocketAnimation = rocketImage.getBackground();
++    if (rocketAnimation instanceof Animatable) {
++        ((Animatable)rocketAnimation).start();
++    }
++    ```
+ 
+ see also:
+ :

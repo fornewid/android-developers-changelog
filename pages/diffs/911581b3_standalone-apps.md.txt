@@ -1,0 +1,31 @@
+diff --git a/docs/training/wearables/apps/standalone-apps.md b/docs/training/wearables/apps/standalone-apps.md
+index 58d61b68..4226454d 100644
+--- a/docs/training/wearables/apps/standalone-apps.md
++++ b/docs/training/wearables/apps/standalone-apps.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/apps/standalone-apps
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/training/wearables/apps/llms.txt
++
+ We recommend that Wear OS apps work independently of a phone so users can
+ complete tasks on a watch without access to an Android or iOS phone.
+ If your watch app
+@@ -131,7 +133,7 @@ When an app
+ is on a node in a user's Wear OS network, such as on a phone, paired watch, or
+ in the cloud, the `CapabilityClient` lets other
+ apps detect it. For more information, see
+-[Advertise capabilities](https://developer.android.com/training/wearables/data-layer/messages#advertise-capabilities).
++[Discover specific devices using a capability client](https://developer.android.com/training/wearables/data/discover-devices.md.txt#capability-client).
+ 
+ 
+ If one of your apps can't detect the other, you can prompt
+@@ -197,7 +199,7 @@ such as the following:
+ ```
+ 
+ 
+-For more information, see [Advertise capabilities](https://developer.android.com/training/wearables/data-layer/messages#advertise-capabilities).
++For more information, see [Discover specific devices using a capability client](https://developer.android.com/training/wearables/data/discover-devices.md.txt#capability-client).
+ 
+ ### App detection and opening a URL from a watch
+ 

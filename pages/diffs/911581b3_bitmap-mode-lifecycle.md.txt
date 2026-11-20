@@ -1,0 +1,459 @@
+diff --git a/docs/media/ai-enhancement/bitmap-mode-lifecycle.md b/docs/media/ai-enhancement/bitmap-mode-lifecycle.md
+index 5da5ef1d..b4bac2bb 100644
+--- a/docs/media/ai-enhancement/bitmap-mode-lifecycle.md
++++ b/docs/media/ai-enhancement/bitmap-mode-lifecycle.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/media/ai-enhancement/bitmap-mode-lifecycle
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/media/llms.txt
++
+ The Media Enhancement API provides a low-latency, privacy-preserving, on-device
+ AI solution that leverages hardware acceleration to deliver high-quality media
+ improvements with zero APK bloat. For more information, see [Understand the
+@@ -45,88 +47,99 @@ are present.
+ Running this as a prerequisite step prevents runtime initialization failures by
+ validating capabilities before your app attempts to process media.
+ 
+-    class MediaSetupViewModel(application: Application) : AndroidViewModel(application) {
+-        private val enhancementClient = Enhancement.getClient(application)
+-        fun initializeEnhancementEngine() {
+-            viewModelScope.launch {
+-                try {
+-                    // 1. Verify hardware capability
+-                    val isSupported = enhancementClient.isDeviceSupportedAsync()
+-                    if (!isSupported) {
+-                        notifyUiDeviceIncompatible()
+-                        return@launch
+-                    }
+-                    // 2. Verify and download the Google Play services ML modules
+-                    val isInstalled = enhancementClient.isModuleInstalledAsync()
+-                    if (!isInstalled) {
+-                        notifyUiDownloadingModels()
+-                        enhancementClient.installModule().await()
+-                    }
+-                    notifyUiEngineReady()
+-                } catch (e: Exception) {
+-
+-                    // Handle potential errors during session creation or image processing.
+-                    handleInitializationError(e)
++
++```kotlin
++class MediaSetupViewModel(application: Application) : AndroidViewModel(application) {
++    private val enhancementClient = Enhancement.getClient(application)
++    fun initializeEnhancementEngine() {
++        viewModelScope.launch {
++            try {
++                // 1. Verify hardware capability.
++                val isSupported = enhancementClient.isDeviceSupportedAsync()
++                if (!isSupported) {
++                    notifyUiDeviceIncompatible()
++                    return@launch
+                 }
++                // 2. Verify and download the Google Play services ML modules.
++                val isInstalled = enhancementClient.isModuleInstalledAsync()
++                if (!isInstalled) {
++                    notifyUiDownloadingModels()
++                    enhancementClient.installModule(installStatusCallback).await()
++                }
++                notifyUiEngineReady()
++            } catch (e: Exception) {
++
++                // Handle potential errors during session creation or image processing.
++                handleInitializationError(e)
+             }
+         }
+     }
++}
++```
++
++<br />
+ 
+ ## Create session and bitmap process wrappers
+ 
+ Use these Kotlin coroutine wrappers to convert task-based client callbacks into
+ standard suspending functions, enabling cleaner and sequential execution.
+ 
+-    // Wraps the task-based createSession callback into a suspending function.
+-    suspend fun EnhancementClient.createSessionAsync(
+-        options: EnhancementOptions,
+-        executor: Executor
+-    ): EnhancementSession = withContext(Dispatchers.Main) {
+-        suspendCancellableCoroutine { continuation ->
+-
+-            // EnhancementSessionCallback handles session success or failure.
+-            val callback = object : EnhancementSessionCallback {
+-                override fun onSessionCreated(session: EnhancementSession) {
+-                    continuation.resume(session)
+-                }
+-                override fun onSessionCreationFailed(status: Status) {
+-                    continuation.resumeWithException(
+-                        Exception("Session creation failed: ${status.statusMessage} (${status.statusCode})")
+-                    )
+-                }
+-                override fun onSessionDestroyed() {}
+-                override fun onSessionDisconnected(status: Status) {}
+-            }
+-
+-            // Handles errors during the initial request trigger.
+-            this@createSessionAsync.createSession(options, callback).addOnFailureListener(executor) { e ->
+-                if (continuation.isActive) {
+-                    continuation.resumeWithException(e)
+-                }
+-            }
+-        }
+-    }
+ 
+-    // Wraps this process in a suspending function for cleaner execution.
+-    suspend fun EnhancementSession.processBitmapAsync(
+-        bitmap: Bitmap,
+-        options: EnhancementOptions
+-    ): Bitmap = suspendCancellableCoroutine { continuation ->
++```kotlin
++// Wraps the task-based createSession callback into a suspending function.
++suspend fun EnhancementClient.createSessionAsync(
++    options: EnhancementOptions,
++    executor: Executor
++): EnhancementSession = withContext(Dispatchers.Main) {
++    suspendCancellableCoroutine { continuation ->
+ 
+-        // EnhancementCallback returns the processed bitmap or an error code.
+-        val callback = object : EnhancementCallback {
+-            override fun onBitmapProcessed(enhancedBitmap: Bitmap) {
+-                continuation.resume(enhancedBitmap)
++        // EnhancementSessionCallback handles session success or failure.
++        val callback = object : EnhancementSessionCallback {
++            override fun onSessionCreated(session: EnhancementSession) {
++                continuation.resume(session)
+             }
+-            override fun onError(statusCode: Int) {
++            override fun onSessionCreationFailed(status: Status) {
+                 continuation.resumeWithException(
+-                    Exception("Bitmap processing failed with status code: $statusCode")
++                    Exception("Session creation failed: ${status.statusMessage} (${status.statusCode})")
+                 )
+             }
+-            override fun onSurfaceProcessed(timestamp: Long) {}
++            override fun onSessionDestroyed() {}
++            override fun onSessionDisconnected(status: Status) {}
++        }
++
++        // Handles errors during the initial request trigger.
++        this@createSessionAsync.createSession(options, callback).addOnFailureListener(executor) { e ->
++            if (continuation.isActive) {
++                continuation.resumeWithException(e)
++            }
++        }
++    }
++}
++
++// Wraps this process in a suspending function for cleaner execution.
++suspend fun EnhancementSession.processBitmapAsync(
++    bitmap: Bitmap,
++    options: EnhancementOptions
++): Bitmap = suspendCancellableCoroutine { continuation ->
++
++    // EnhancementCallback returns the processed bitmap or an error code.
++    val callback = object : EnhancementCallback {
++        override fun onBitmapProcessed(enhancedBitmap: Bitmap) {
++            continuation.resume(enhancedBitmap)
++        }
++        override fun onError(statusCode: Int) {
++            continuation.resumeWithException(
++                Exception("Bitmap processing failed with status code: $statusCode")
++            )
+         }
+-        this.process(bitmap, options, callback)
++        override fun onSurfaceProcessed(timestamp: Long) {}
++        override fun onCancelled(statusCode: Int) {}
+     }
++    this.process(bitmap, options, callback)
++}
++```
++
++<br />
+ 
+ ## Execute the bitmap pipeline in a `ViewModel`
+ 
+@@ -134,82 +147,87 @@ To integrate the enhancement pipeline into your application architecture, use a
+ `ViewModel` to manage the session lifecycle. This approach ensures that the
+ heavy GPU resources are released when the `ViewModel` is cleared.
+ 
+-    // Define a data class to hold image information.
+-    data class ImageInfo(val bitmap: Bitmap)
+-    // Define a UI state class to hold loading status, errors, and enhanced image.
+-    data class EnhancementUiState(
+-        val isLoading: Boolean = false,
+-        val enhancementError: String? = null,
+-        val enhancedImage: ImageInfo? = null
+-    )
+ 
+-    class EnhancementViewModel(application: Application) : AndroidViewModel(application) {
++```kotlin
++// Define a data class to hold image information.
++data class ImageInfo(val bitmap: Bitmap)
++// Define a UI state class to hold loading status, errors, and enhanced image.
++data class EnhancementUiState(
++    val isLoading: Boolean = false,
++    val enhancementError: String? = null,
++    val enhancedImage: ImageInfo? = null
++)
++
++class EnhancementViewModel(application: Application) : AndroidViewModel(application) {
+ 
+-        // Backing field for UI state, initialized with default values.
+-        private val _uiState = MutableStateFlow(EnhancementUiState())
+-        // Publicly exposed UI state flow for observation.
+-        val uiState: StateFlow<EnhancementUiState> = _uiState.asStateFlow()
++    // Backing field for UI state, initialized with default values.
++    private val _uiState = MutableStateFlow(EnhancementUiState())
++    // Publicly exposed UI state flow for observation.
++    val uiState: StateFlow<EnhancementUiState> = _uiState.asStateFlow()
+ 
+     // Initialize client to interact with the Media Enhancement service.
+-        private val enhancementClient: EnhancementClient = Enhancement.getClient(application)
++    private val enhancementClient: EnhancementClient = Enhancement.getClient(application)
+ 
+     // Single-thread executor for processing background enhancement tasks.
+-        private val enhancementExecutor = Executors.newSingleThreadExecutor()
++    private val enhancementExecutor = Executors.newSingleThreadExecutor()
+ 
+     // Track session state to enable reuse across multiple processing calls.
+-        private var enhancementSession: EnhancementSession? = null
+-        private var sessionOptions: EnhancementOptions? = null
++    private var enhancementSession: EnhancementSession? = null
++    private var sessionOptions: EnhancementOptions? = null
+ 
+     // Primary function to trigger the enhancement workflow for a provided bitmap.
+-        fun enhanceImage(bitmap: Bitmap) {
+-            viewModelScope.launch(Dispatchers.IO) {
+-                _uiState.update { it.copy(isLoading = true, enhancementError = null) }
+-                try {
+-                    // Define enhancement options (for example, enable upscale, tonemapping) based
+-                    // on bitmap dimensions.
+-                    val options = EnhancementOptions(
+-                        bitmap.width,
+-                        bitmap.height,
+-                        EnhancementMode.BITMAP,
+-                        isTonemappingEnabled = true,
+-                        isDeblurAndDenoisePhotoEnabled = true,
+-                        isUpscalePhotoEnabled = false,
+-                    )
+-                    // 1. Establish the session lazily on demand. A session is configured for
+-                    // specific input dimensions, so replace it when the bitmap size changes.
+-                    if (enhancementSession == null ||
+-                        sessionOptions?.width != options.width ||
+-                        sessionOptions?.height != options.height
+-                    ) {
+-                        enhancementSession?.release()
+-                        enhancementSession = null
+-                        enhancementSession = enhancementClient.createSessionAsync(options, enhancementExecutor)
+-                        sessionOptions = options
+-                    }
+-                    val session = enhancementSession ?: throw IllegalStateException("Session unavailable.")
+-                    // 2. Dispatch image through the neural pipeline
+-                    val enhancedBitmap = session.processBitmapAsync(bitmap, options)
+-                    // 3. Render output to UI
+-                    _uiState.update {
+-                        it.copy(enhancedImage = ImageInfo(bitmap = enhancedBitmap))
+-                    }
+-                } catch (e: Exception) {
+-                    _uiState.update { it.copy(enhancementError = e.message) }
+-                } finally {
+-
+-    // Ensure loading state is reset regardless of the outcome.
+-                    _uiState.update { it.copy(isLoading = false) }
++    fun enhanceImage(bitmap: Bitmap) {
++        viewModelScope.launch(Dispatchers.IO) {
++            _uiState.update { it.copy(isLoading = true, enhancementError = null) }
++            try {
++                // Define enhancement options (for example, enable upscale, tonemapping) based
++                // on bitmap dimensions.
++                val options = EnhancementOptions(
++                    bitmap.width,
++                    bitmap.height,
++                    EnhancementMode.BITMAP,
++                    isTonemappingEnabled = true,
++                    isDeblurAndDenoisePhotoEnabled = true,
++                    isUpscalePhotoEnabled = false,
++                )
++                // 1. Establish the session lazily on demand. A session is configured for
++                // specific input dimensions, so replace it when the bitmap size changes.
++                if (enhancementSession == null ||
++                    sessionOptions?.width != options.width ||
++                    sessionOptions?.height != options.height
++                ) {
++                    enhancementSession?.release()
++                    enhancementSession = null
++                    enhancementSession = enhancementClient.createSessionAsync(options, enhancementExecutor)
++                    sessionOptions = options
++                }
++                val session = enhancementSession ?: throw IllegalStateException("Session unavailable.")
++                // 2. Dispatch image through the neural pipeline.
++                val enhancedBitmap = session.processBitmapAsync(bitmap, options)
++                // 3. Render output to UI.
++                _uiState.update {
++                    it.copy(enhancedImage = ImageInfo(bitmap = enhancedBitmap))
+                 }
++            } catch (e: Exception) {
++                _uiState.update { it.copy(enhancementError = e.message) }
++            } finally {
++
++                // Ensure loading state is reset regardless of the outcome.
++                _uiState.update { it.copy(isLoading = false) }
+             }
+         }
+-        override fun onCleared() {
+-            // 4. Critical: Release native GPU hardware resources
+-            enhancementSession?.release()
+-            enhancementSession = null
+-            enhancementExecutor.shutdown()
+-            super.onCleared()
+-        }
+     }
++    override fun onCleared() {
++        // 4. Critical: Release native GPU hardware resources.
++        enhancementSession?.release()
++        enhancementSession = null
++        enhancementExecutor.shutdown()
++        super.onCleared()
++    }
++}
++```
++
++<br />
+ 
+ ## Load images progressively on slow networks
+ 
+@@ -249,69 +267,74 @@ Install the module ahead of time, as shown in [Initialize the enhancement
+ engine](https://developer.android.com/media/ai-enhancement/bitmap-mode-lifecycle#initialize-enhancement-engine). If `isDeviceSupportedAsync()` and `isModuleInstalledAsync()` return
+ `true`, call `enhance()`.
+ 
+-    class ProgressiveImageEnhancer(
+-        private val enhancementClient: EnhancementClient,
+-        private val executor: Executor,
+-    ) {
+-        // Callers can request enhancements concurrently, but they all share one
+-        // session, so process one image at a time.
+-        private val mutex = Mutex()
+-        private var session: EnhancementSession? = null
+-        private var sessionOptions: EnhancementOptions? = null
+-
+-        // Enhancement is optional for this pattern, so return null instead of
+-        // throwing. The caller can keep the low-resolution image without extra
+-        // error handling.
+-        suspend fun enhance(lowResBitmap: Bitmap): Bitmap? = mutex.withLock {
+-            val options = EnhancementOptions(
+-                width = lowResBitmap.width,
+-                height = lowResBitmap.height,
+-                enhancementMode = EnhancementMode.BITMAP,
+-                isDeblurAndDenoisePhotoEnabled = true,
+-                isUpscalePhotoEnabled = true,
+-            )
+-            try {
+-                getOrCreateSession(options).processBitmapAsync(lowResBitmap, options)
+-            } catch (e: CancellationException) {
+-                // A cancelled request (for example, the user scrolled away) isn't
+-                // an enhancement failure, so let the caller's scope handle it.
+-                throw e
+-            } catch (e: Exception) {
+-                null
+-            }
++
++```kotlin
++class ProgressiveImageEnhancer(
++    private val enhancementClient: EnhancementClient,
++    private val executor: Executor,
++) {
++    // Callers can request enhancements concurrently, but they all share one
++    // session, so process one image at a time.
++    private val mutex = Mutex()
++    private var session: EnhancementSession? = null
++    private var sessionOptions: EnhancementOptions? = null
++
++    // Enhancement is optional for this pattern, so return null instead of
++    // throwing. The caller can keep the low-resolution image without extra
++    // error handling.
++    suspend fun enhance(lowResBitmap: Bitmap): Bitmap? = mutex.withLock {
++        val options = EnhancementOptions(
++            width = lowResBitmap.width,
++            height = lowResBitmap.height,
++            enhancementMode = EnhancementMode.BITMAP,
++            isDeblurAndDenoisePhotoEnabled = true,
++            isUpscalePhotoEnabled = true,
++        )
++        try {
++            getOrCreateSession(options).processBitmapAsync(lowResBitmap, options)
++        } catch (e: CancellationException) {
++            // A cancelled request (for example, the user scrolled away) isn't
++            // an enhancement failure, so let the caller's scope handle it.
++            throw e
++        } catch (e: Exception) {
++            null
+         }
++    }
+ 
+-        // Sessions are expensive to create and are configured for specific input
+-        // dimensions, so reuse the current one until the image size changes.
+-        private suspend fun getOrCreateSession(options: EnhancementOptions): EnhancementSession {
+-            val currentSession = session
+-            val currentOptions = sessionOptions
+-            if (currentSession != null &&
+-                currentOptions != null &&
+-                currentOptions.width == options.width &&
+-                currentOptions.height == options.height
+-            ) {
+-                return currentSession
+-            }
+-            releaseSession()
+-            return enhancementClient.createSessionAsync(options, executor).also {
+-                session = it
+-                sessionOptions = options
+-            }
++    // Sessions are expensive to create and are configured for specific input
++    // dimensions, so reuse the current one until the image size changes.
++    private suspend fun getOrCreateSession(options: EnhancementOptions): EnhancementSession {
++        val currentSession = session
++        val currentOptions = sessionOptions
++        if (currentSession != null &&
++            currentOptions != null &&
++            currentOptions.width == options.width &&
++            currentOptions.height == options.height
++        ) {
++            return currentSession
++        }
++        releaseSession()
++        return enhancementClient.createSessionAsync(options, executor).also {
++            session = it
++            sessionOptions = options
+         }
++    }
+ 
+-        // A session holds GPU memory until it's released, so free it as soon as
+-        // the images it enhances are no longer on screen. Taking the lock first
+-        // waits for any in-progress enhancement, so a session that's still being
+-        // created isn't leaked.
+-        suspend fun release() = mutex.withLock { releaseSession() }
++    // A session holds GPU memory until it's released, so free it as soon as
++    // the images it enhances are no longer on screen. Taking the lock first
++    // waits for any in-progress enhancement, so a session that's still being
++    // created isn't leaked.
++    suspend fun release() = mutex.withLock { releaseSession() }
+ 
+-        private fun releaseSession() {
+-            session?.release()
+-            session = null
+-            sessionOptions = null
+-        }
++    private fun releaseSession() {
++        session?.release()
++        session = null
++        sessionOptions = null
+     }
++}
++```
++
++<br />
+ 
+ When you use this pattern, follow these guidelines:
+ 
