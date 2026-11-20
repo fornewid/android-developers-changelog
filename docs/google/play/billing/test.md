@@ -299,6 +299,22 @@ period for testing is as follows:
 | First notification | 3 minutes |
 | Second (final) notification | 1 minute |
 
+### Retention offers
+
+Google Play shows only active [retention offers](https://developer.android.com/google/play/billing/retention-offers.md.txt) in the cancellation flow,
+and it evaluates eligibility rules, such as the minimum paid subscription
+duration, in real calendar time. To test retention offers with a [license
+tester](https://developer.android.com/google/play/billing/test#license-testers) account, use one of the following methods:
+
+- **Per-user retention offer** : Create and activate a per-user retention offer by setting `targeting` to a `retentionPerUserRule` object. After the license tester purchases the base plan, call [`purchases.subscriptionsv2.activateOfferTargeting`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/activateoffertargeting) from your backend with the license tester's `purchaseToken` and the `offerId` of the retention offer. Google Play shows a per-user retention offer only to the subscriptions that you target, so production users can't see the offer.
+- **Cohort retention offer** : In a non-production test app or on a test base plan that production users can't access, create and activate a cohort retention offer by setting `targeting` to a `retentionRule` object with `minDuration` set to `P0D` (0 days). Because the offer doesn't require a minimum paid subscription duration, the license tester can open the cancellation flow right after purchasing the test base plan.
+
+For each method, in the Google Play Store app, go to **Payments \&
+subscriptions \> Subscriptions** , select the subscription, and click **Cancel
+subscription** . The retention offer appears in the cancellation flow. For
+step-by-step instructions and troubleshooting tips, see [Test retention
+offers](https://developer.android.com/google/play/billing/retention-offers#test).
+
 ### Test cases
 
 Expand the following section by clicking **Show/Hide** to show testing scenarios

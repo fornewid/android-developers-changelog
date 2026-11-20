@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/notifications
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/notifications/llms.txt
+
 A notification is a message that Android displays outside your app's UI to
 provide the user with reminders, communication from other people, or other
 timely information from your app. Users can tap the notification to open your
@@ -340,7 +342,7 @@ state.
 
 For more information, read [Foreground
 services](https://developer.android.com/guide/components/foreground-services). If you are building a media
-player, also read [Playing media in the background](https://developer.android.com/media/implement/playback-app.md.txt#playing_media_in_the_background).
+player, also read [Playing media in the background](https://developer.android.com/media/implement/playback-app.md.txt#playing-media).
 
 ## Notification behaviors
 

@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/testing/apis
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/testing/llms.txt
+
 There are three main ways to interact with UI elements:
 
 - **Finders** let you select one or multiple elements (or *nodes* in the semantics tree) to make assertions or perform actions on them.
@@ -30,11 +32,14 @@ searches, such as [`onNodeWithText`](https://developer.android.com/reference/kot
 composeTestRule.onNode(<<SemanticsMatcher>>, useUnmergedTree = false): SemanticsNodeInteraction
 ```
 
+
 ```kotlin
 // Example
 composeTestRule
     .onNode(hasText("Button")) // Equivalent to onNodeWithText("Button")
 ```
+
+<br />
 
 #### Select multiple nodes
 
@@ -43,16 +48,20 @@ composeTestRule
     .onAllNodes(<<SemanticsMatcher>>): SemanticsNodeInteractionCollection
 ```
 
+
 ```kotlin
 // Example
 composeTestRule
     .onAllNodes(hasText("Button")) // Equivalent to onAllNodesWithText("Button")
 ```
 
+<br />
+
 #### Unmerged tree
 
 Some nodes merge the semantics information of their children. For example, a
 button with two text elements merges the text element labels:
+
 
 ```kotlin
 MyButton {
@@ -61,11 +70,16 @@ MyButton {
 }
 ```
 
+<br />
+
 From a test, use [`printToLog()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/package-summary.md.txt#(androidx.compose.ui.test.SemanticsNodeInteraction).printToLog(kotlin.String,kotlin.Int)) to show the semantics tree:
+
 
 ```kotlin
 composeTestRule.onRoot().printToLog("TAG")
 ```
+
+<br />
 
 This code prints the following output:
 
@@ -79,9 +93,12 @@ This code prints the following output:
 If you need to match a node of what would be the *unmerged* tree, you can set
 `useUnmergedTree` to `true`:
 
+
 ```kotlin
 composeTestRule.onRoot(useUnmergedTree = true).printToLog("TAG")
 ```
+
+<br />
 
 This code prints the following output:
 
@@ -97,26 +114,32 @@ This code prints the following output:
 The `useUnmergedTree` parameter is available in all finders. For example, here
 it's used in an `onNodeWithText` finder.
 
+
 ```kotlin
 composeTestRule
     .onNodeWithText("World", useUnmergedTree = true).assertIsDisplayed()
 ```
+
+<br />
 
 ### Assertions
 
 Check assertions by calling `assert()` on the [`SemanticsNodeInteraction`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/SemanticsNodeInteraction.md.txt)
 returned by a finder with one or multiple matchers:
 
+
 ```kotlin
 // Single matcher:
 composeTestRule
     .onNode(matcher)
-    .assert(hasText("Button")) // hasText is a SemanticsMatcher
+    .assert(hasText("Button")) // hasText is a SemanticsMatcher.
 
-// Multiple matchers can use and / or
+// Multiple matchers can use and / or.
 composeTestRule
     .onNode(matcher).assert(hasText("Button") or hasText("Button2"))
 ```
+
+<br />
 
 You can also use convenience functions for the most common assertions, such as
 [`assertExists`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/SemanticsNodeInteraction.md.txt#assertExists(kotlin.String)), [`assertIsDisplayed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/SemanticsNodeInteraction.md.txt#(androidx.compose.ui.test.SemanticsNodeInteraction).assertIsDisplayed()), and [`assertTextEquals`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/SemanticsNodeInteraction.md.txt#(androidx.compose.ui.test.SemanticsNodeInteraction).assertTextEquals(kotlin.Array,kotlin.Boolean)).
@@ -124,17 +147,20 @@ You can browse the complete list in the [Compose Testing cheat sheet](https://de
 
 There are also functions to check assertions on a collection of nodes:
 
+
 ```kotlin
-// Check number of matched nodes
+// Check number of matched nodes.
 composeTestRule
     .onAllNodesWithContentDescription("Beatle").assertCountEquals(4)
-// At least one matches
+// At least one matches.
 composeTestRule
     .onAllNodesWithContentDescription("Beatle").assertAny(hasTestTag("Drummer"))
-// All of them match
+// All of them match.
 composeTestRule
     .onAllNodesWithContentDescription("Beatle").assertAll(hasClickAction())
 ```
+
+<br />
 
 ### Actions
 
@@ -178,15 +204,19 @@ fun hasAnyDescendant(matcher: SemanticsMatcher):  SemanticsMatcher
 
 Here are some examples of these matchers being used:
 
+
 ```kotlin
 composeTestRule.onNode(hasParent(hasText("Button")))
     .assertIsDisplayed()
 ```
 
+<br />
+
 #### Selectors
 
 An alternative way to create tests is to use *selectors* which can make some
 tests more readable.
+
 
 ```kotlin
 composeTestRule.onNode(hasTestTag("Players"))
@@ -196,6 +226,8 @@ composeTestRule.onNode(hasTestTag("Players"))
     .onFirst()
     .assert(hasText("John"))
 ```
+
+<br />
 
 You can browse the complete list in the [Compose Testing cheat sheet](https://developer.android.com/develop/ui/compose/testing-cheatsheet).
 

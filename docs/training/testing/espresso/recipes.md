@@ -4,6 +4,8 @@ url: https://developer.android.com/training/testing/espresso/recipes
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/testing/espresso/llms.txt
+
 This document describes how to set up a variety of common Espresso tests.
 
 ## Match a view next to another view
@@ -498,8 +500,8 @@ public void setUp() throws Exception {
 ```
 
 For more information, see the
-[`FailureHandler`](https://developer.android.com/reference/androidx/test/espresso/FailureHandler)
-interface and [`Espresso.setFailureHandler()`](https://developer.android.com/reference/androidx/test/espresso/Espresso#setFailureHandler(androidx.test.espresso.FailureHandler)).
+[`FailureHandler`](https://developer.android.com/reference/androidx/test/espresso/FailureHandler.md.txt)
+interface and [`Espresso.setFailureHandler()`](https://developer.android.com/reference/androidx/test/espresso/Espresso.md.txt#setFailureHandler(androidx.test.espresso.FailureHandler)).
 
 ## Target non-default windows
 
@@ -528,11 +530,12 @@ onView(withText("South China Sea"))
     .perform(click());
 ```
 
-As is the case with
-[`ViewMatchers`](https://developer.android.com/reference/androidx/test/espresso/matcher/ViewMatchers),
-we provide a set of pre-provided
-[`RootMatchers`](https://developer.android.com/reference/androidx/test/espresso/matcher/RootMatchers).
-Of course, you can always implement your own `Matcher` object.
+Similar to `androidx.test.espresso.matcher.ViewMatchers`, Espresso provides
+built-in root matchers in `androidx.test.espresso.matcher.RootMatchers`, such as
+`withDecorView()`, `isDialog()`, and `isPlatformPopup()`. For a quick visual
+summary of built-in matchers, see the
+[Espresso cheat sheet](https://developer.android.com/training/testing/espresso/cheat-sheet.md.txt), or implement your own
+`Matcher<Root>` object.
 
 Take a look at the [MultipleWindowTest
 sample](https://github.com/android/android-test/blob/7e834ce37faf52f2a65a73b0a6d83ab148707cbb/testapps/ui_testapp/javatests/androidx/test/ui/app/MultipleWindowTest.java)

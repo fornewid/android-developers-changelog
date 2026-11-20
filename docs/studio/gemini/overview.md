@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/gemini/overview
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/llms.txt
+
 > [!NOTE]
 > **Note:** AI in Android Studio is only available in the latest stable channel version of Android Studio and major versions released in the previous 10 months. If you are using an older version of Android Studio, you will need to update to use AI in Android Studio. For more information, see [Android Studio and Cloud
 > services compatibility](https://developer.android.com/studio/releases#service-compat).
@@ -21,11 +23,11 @@ integrations with Logcat and App Quality Insights, and more.
 Android Studio's Gemini-based agents are available for individual developers and
 businesses:
 
-- [Individual tier](https://developer.android.com/studio/gemini/feature-comparison#individuals)
+- [Individual tier](https://developer.android.com/studio/gemini/feature-comparison.md.txt#individual)
   - Free
-  - [API key](https://developer.android.com/studio/gemini/add-api-key)
+  - [API key](https://developer.android.com/studio/gemini/add-api-key.md.txt)
   - [Google One membership](https://one.google.com/intl/en_us/about/google-ai-plans/)
-- [Business tier](https://developer.android.com/studio/gemini/feature-comparison#businesses)
+- [Business tier](https://developer.android.com/studio/gemini/feature-comparison.md.txt#business)
 
   Available through a subscription to [Gemini Enterprise](https://cloud.google.com/gemini-enterprise) or membership in
   the [Google Developer Program](https://developers.google.com/program).
@@ -35,7 +37,7 @@ coding agent because it provides you with more quota and access to the latest
 models.
 
 > [!NOTE]
-> **Note:** If you're interested in agent-driven development for Android using agents outside of Android Studio, use [Android CLI](https://developer.android.com/tools/agents/android-cli).
+> **Note:** If you're interested in agent-driven development for Android using agents outside of Android Studio, use [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt).
 
 ### What is the right tier for me?
 
@@ -44,10 +46,10 @@ Choose the product tier and edition that are right for you.
 #### Individuals
 
 If you're an individual freelance developer, student, or hobbyist using Gemini,
-we recommend the [free edition](https://developer.android.com/studio/gemini/feature-comparison#individuals). At no cost, you get access to a lightweight
+we recommend the [free edition](https://developer.android.com/studio/gemini/feature-comparison.md.txt#individual). At no cost, you get access to a lightweight
 version of Gemini with a small context window, which is appropriate for most
 tasks. If you need to execute more complex tasks that would benefit from Gemini
-Pro's full 1M token context window, you can [add a Gemini API key](https://developer.android.com/studio/gemini/add-api-key) and pay
+Pro's full 1M token context window, you can [add a Gemini API key](https://developer.android.com/studio/gemini/add-api-key.md.txt) and pay
 per token.
 
 Or you can [subscribe to Google One](https://one.google.com/about/) and get 2 TB or more of cloud
@@ -61,7 +63,7 @@ Banana and NotebookLM. [Find the right Google One plan for you](https://one.goog
 #### Businesses
 
 If you're a professional developer who works as part of a team, ask your admin
-to consider subscribing to the [business tier](https://developer.android.com/studio/gemini/feature-comparison#businesses). The business tier includes
+to consider subscribing to the [business tier](https://developer.android.com/studio/gemini/feature-comparison.md.txt#business). The business tier includes
 additional features that make it easier to collaborate with your teammates while
 incorporating your company's best practices and standards, including but not
 limited to:
@@ -70,15 +72,15 @@ limited to:
 - Centralized administrative controls
 - Data residency and security, including VPC Service Controls
 
-For more details about the different offerings, see [Feature comparison](https://developer.android.com/studio/gemini/feature-comparison).
+For more details about the different offerings, see [Feature comparison](https://developer.android.com/studio/gemini/feature-comparison.md.txt).
 
 ## What's new with AI in Android Studio
 
 AI in Android Studio is under active development and the features update
 frequently. You can learn about the latest AI features and other preview
-features by checking out the [Android Studio preview release notes](https://developer.android.com/studio/preview/features) and by
+features by checking out the [Android Studio preview release notes](https://developer.android.com/studio/preview/features.md.txt) and by
 [downloading a preview](https://developer.android.com/studio/preview).
 
 ## Permissions
 
-See [service permissions](https://developer.android.com/studio/services#service-permissions).
+See [service permissions](https://developer.android.com/studio/services.md.txt#service-permissions).

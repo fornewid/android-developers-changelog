@@ -4,18 +4,41 @@ url: https://developer.android.com/google/play/billing/play-developer-apis-relea
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/billing/llms.txt
+
 This document contains release notes for the Google Play Developer APIs.
+
+## November 19, 2026
+
+### New features
+
+- **Retention offers** : You can now create [retention offers](https://developer.android.com/google/play/billing/retention-offers.md.txt) that Google
+  Play shows to eligible subscribers when they try to cancel.
+
+  - **Retention targeting** : To create or update a retention offer with the [`monetization.subscriptions.basePlans.offers.create`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions.basePlans.offers/create), [`monetization.subscriptions.basePlans.offers.patch`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions.basePlans.offers/patch), or [`monetization.subscriptions.basePlans.offers.batchUpdate`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions.basePlans.offers/batchUpdate) method, set `retentionRule` in the offer's `targeting` field to a [`RetentionTargetingRule`](https://developer.android.com/google/play/billing/retention-offers.md.txt#retention-targeting-rule) object. Use the `scope`, `minDuration`, `allowMultipleClaims`, and `minOfferCooldownDuration` fields to define which subscribers are eligible and whether they can claim the offer more than once.
+  - **Offer availability window** : The [`SubscriptionOffer`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions.basePlans.offers#SubscriptionOffer) resource now includes optional `startTime` and `endTime` fields that set when an offer, such as a retention offer, becomes available and when it stops being available.
+  - **Per-user targeting** : To make a retention offer available only to specific subscribers, set `retentionPerUserRule` ([`RetentionPerUserTargetingRule`](https://developer.android.com/google/play/billing/retention-offers.md.txt#per-user-targeting)) in the offer's `targeting` field. To target the offer to a subscription, call the [`purchases.subscriptionsv2.activateOfferTargeting`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/activateoffertargeting) method with the `purchaseToken` and `offerId`. To remove the targeting, call the [`purchases.subscriptionsv2.deactivateOfferTargeting`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/deactivateoffertargeting) method. The [SubscriptionPurchaseV2](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2) resource lists the offers that are targeted to each line item in the `developerTargetedOffers` field, including the `offerId` and `activateTime` of each offer.
+  - **Plan transition notifications** : A new subscription RTDN type, [`SUBSCRIPTION_PLAN_TRANSITION_UPDATED`](https://developer.android.com/google/play/billing/rtdn-reference.md.txt#sub) (`21`), is sent when a subscriber accepts a retention offer.
+  - **Plan transition details** : The [SubscriptionPurchaseV2](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2) resource now includes a `planTransitionDetails` object in `autoRenewingPlan`. It identifies the accepted retention offer in `offerId`, and reports the transition state in `transitionInfo`.
+- **ETag validation for subscription cancellation and revocation** : The
+  [`purchases.subscriptionsv2.cancel`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/cancel) and
+  [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke) methods now support an optional
+  `etag` field in `CancellationContext` and `RevocationContext`. Use the
+  `etag` field to prevent conflicts when multiple requests modify the same
+  subscription at the same time. Get the `etag` value from the top-level
+  `etag` field returned by your most recent
+  [`purchases.subscriptionsv2.get`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) call.
 
 ## July 06, 2026
 
 ### New features
 
 - **Updates to chargeback cost responsibility** : Google Play now
-  supports a [collaborative chargeback](https://developer.android.com/google/play/billing/provide-refund-and-chargeback-suggestions)
+  supports a [collaborative chargeback](https://developer.android.com/google/play/billing/provide-refund-and-chargeback-suggestions.md.txt)
   dispute process.
 
   - **Pending refund review notifications** : A new real-time developer
-    notification (RTDN) type, [`PendingRefundReviewNotification`](https://developer.android.com/google/play/billing/rtdn-reference#pending-refund-review), is
+    notification (RTDN) type, [`PendingRefundReviewNotification`](https://developer.android.com/google/play/billing/rtdn-reference.md.txt#pending-refund-review), is
     sent when a user requests a chargeback that requires your
     review. Pending reviews support only `CHARGEBACK` as the refund reason.
 
@@ -58,7 +81,7 @@ This document contains release notes for the Google Play Developer APIs.
 
 ### New features
 
-- [Enhanced Resubscribe handling](https://developer.android.com/google/play/billing/lifecycle/subscriptions#resubscribe_after_expiration).
+- [Enhanced Resubscribe handling](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#resubscribe_after_expiration).
 
   - The `outOfAppPurchaseContext` field is now available in [SubscriptionPurchaseV2](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get), which helps link resubscription purchases made from the Play Store by providing details from the expired subscription.
   - The [purchases.subscriptions.acknowledge](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/acknowledge) method now accepts optional `externalAccountId` in the request body, which lets you associate the resubscription purchase with your user identifiers.
@@ -78,13 +101,13 @@ This document contains release notes for the Google Play Developer APIs.
   This method provides an enhancement over the existing
   [purchases.subscriptions.cancel](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/cancel) functionality by introducing support
   for the `cancellationType` parameter in client libraries.
-- [Price step-up consent](https://developer.android.com/google/play/billing/lifecycle/subscriptions#price-stepup-consent) features are available:
+- [Price step-up consent](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#price-stepup-consent) features are available:
 
   - A new field is added in the [SubscriptionPurchaseV2](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get):
     `SubscriptionPurchaseLineItem.auto_renewing_plan.price_step_up_consent_details`.
 
   - A new real time developer notification type
-    [SUBSCRIPTION_PRICE_STEP_UP_CONSENT_UPDATED](https://developer.android.com/google/play/billing/rtdn-reference#sub) is available.
+    [SUBSCRIPTION_PRICE_STEP_UP_CONSENT_UPDATED](https://developer.android.com/google/play/billing/rtdn-reference.md.txt#sub) is available.
 
 ## June 30, 2025
 
@@ -97,7 +120,7 @@ This document contains release notes for the Google Play Developer APIs.
 
 ### Deprecations
 
-- Some of the subscription APIs are deprecated. For more information, see [Subscription API deprecation](https://developer.android.com/google/play/billing/play-developer-apis-deprecations#may21-api-deprecation).
+- Some of the subscription APIs are deprecated. For more information, see [Subscription API deprecation](https://developer.android.com/google/play/billing/play-developer-apis-deprecations.md.txt#may21-api-deprecation).
 
 ### New features
 

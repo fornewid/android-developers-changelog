@@ -67,114 +67,61 @@ controllers accordingly:
 3. In [`MediaSession.Callback.onCustomCommand()`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaSession.Callback.md.txt#onCustomCommand(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,androidx.media3.session.SessionCommand,android.os.Bundle)),
    respond to the custom command being selected by the user.
 
-### Kotlin
 
 ```kotlin
 class PlaybackService : MediaSessionService() {
-  private val customCommandFavorites = SessionCommand(ACTION_FAVORITES, Bundle.EMPTY)
-  private var mediaSession: MediaSession? = null
+    private val customCommandFavorites = SessionCommand(ACTION_FAVORITES, Bundle.EMPTY)
+    private var mediaSession: MediaSession? = null
 
-  override fun onCreate() {
-    super.onCreate()
-    val favoriteButton =
-      CommandButton.Builder(CommandButton.ICON_HEART_UNFILLED)
-        .setDisplayName("Save to favorites")
-        .setSessionCommand(customCommandFavorites)
-        .build()
-    val player = ExoPlayer.Builder(this).build()
-    // Build the session with a custom layout.
-    mediaSession =
-      MediaSession.Builder(this, player)
-        .setCallback(MyCallback())
-        .setMediaButtonPreferences(ImmutableList.of(favoriteButton))
-        .build()
-  }
-
-  private inner class MyCallback : MediaSession.Callback {
-    override fun onConnect(
-      session: MediaSession,
-      controller: MediaSession.ControllerInfo
-    ): ConnectionResult {
-    // Set available player and session commands.
-    return AcceptedResultBuilder(session)
-      .setAvailableSessionCommands(
-        ConnectionResult.DEFAULT_SESSION_COMMANDS.buildUpon()
-          .add(customCommandFavorites)
-          .build()
-      )
-      .build()
+    override fun onCreate() {
+        super.onCreate()
+        val favoriteButton =
+            CommandButton.Builder(CommandButton.ICON_HEART_UNFILLED)
+                .setDisplayName("Save to favorites")
+                .setSessionCommand(customCommandFavorites)
+                .build()
+        val player = ExoPlayer.Builder(this).build()
+        // Build the session with a custom layout.
+        mediaSession =
+            MediaSession.Builder(this, player)
+                .setCallback(MyCallback())
+                .setMediaButtonPreferences(ImmutableList.of(favoriteButton))
+                .build()
     }
 
-    override fun onCustomCommand(
-      session: MediaSession,
-      controller: MediaSession.ControllerInfo,
-      customCommand: SessionCommand,
-      args: Bundle
-    ): ListenableFuture {
-      if (customCommand.customAction == ACTION_FAVORITES) {
-        // Do custom logic here
-        saveToFavorites(session.player.currentMediaItem)
-        return Futures.immediateFuture(SessionResult(SessionResult.RESULT_SUCCESS))
-      }
-      return super.onCustomCommand(session, controller, customCommand, args)
+    private inner class MyCallback : MediaSession.Callback {
+        override fun onConnect(
+            session: MediaSession,
+            controller: MediaSession.ControllerInfo
+        ): ConnectionResult {
+            // Set available player and session commands.
+            return AcceptedResultBuilder(session)
+                .setAvailableSessionCommands(
+                    ConnectionResult.DEFAULT_SESSION_COMMANDS.buildUpon()
+                        .add(customCommandFavorites)
+                        .build()
+                )
+                .build()
+        }
+
+        override fun onCustomCommand(
+            session: MediaSession,
+            controller: MediaSession.ControllerInfo,
+            customCommand: SessionCommand,
+            args: Bundle
+        ): ListenableFuture<SessionResult> {
+            if (customCommand.customAction == ACTION_FAVORITES) {
+                // Do custom logic here.
+                saveToFavorites(session.player.currentMediaItem)
+                return Futures.immediateFuture(SessionResult(SessionResult.RESULT_SUCCESS))
+            }
+            return super.onCustomCommand(session, controller, customCommand, args)
+        }
     }
-  }
 }
 ```
 
-### Java
-
-```java
-public class PlaybackService extends MediaSessionService {
-  private static final SessionCommand CUSTOM_COMMAND_FAVORITES =
-      new SessionCommand("ACTION_FAVORITES", Bundle.EMPTY);
-  @Nullable private MediaSession mediaSession;
-
-  public void onCreate() {
-    super.onCreate();
-    CommandButton favoriteButton =
-        new CommandButton.Builder(CommandButton.ICON_HEART_UNFILLED)
-            .setDisplayName("Save to favorites")
-            .setSessionCommand(CUSTOM_COMMAND_FAVORITES)
-            .build();
-    Player player = new ExoPlayer.Builder(this).build();
-    // Build the session with a custom layout.
-    mediaSession =
-        new MediaSession.Builder(this, player)
-            .setCallback(new MyCallback())
-            .setMediaButtonPreferences(ImmutableList.of(favoriteButton))
-            .build();
-  }
-
-  private static class MyCallback implements MediaSession.Callback {
-    @Override
-    public ConnectionResult onConnect(
-        MediaSession session, MediaSession.ControllerInfo controller) {
-      // Set available player and session commands.
-      return new AcceptedResultBuilder(session)
-          .setAvailableSessionCommands(
-              ConnectionResult.DEFAULT_SESSION_COMMANDS.buildUpon()
-                .add(CUSTOM_COMMAND_FAVORITES)
-                .build())
-          .build();
-    }
-
-    public ListenableFuture onCustomCommand(
-        MediaSession session,
-        MediaSession.ControllerInfo controller,
-        SessionCommand customCommand,
-        Bundle args) {
-      if (customCommand.customAction.equals(CUSTOM_COMMAND_FAVORITES.customAction)) {
-        // Do custom logic here
-        saveToFavorites(session.getPlayer().getCurrentMediaItem());
-        return Futures.immediateFuture(new SessionResult(SessionResult.RESULT_SUCCESS));
-      }
-      return MediaSession.Callback.super.onCustomCommand(
-          session, controller, customCommand, args);
-    }
-  }
-}
-```
+<br />
 
 To learn more about configuring your `MediaSession` so that clients like the
 system can connect to your media app, see

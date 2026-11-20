@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/gemini/data-and-privacy
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/llms.txt
+
 **Gemini in Android Studio is built with your privacy in mind.**
 
 We know that verifying the privacy of your code is critical to earning and
@@ -32,7 +34,7 @@ features, providing Gemini with the ability to offer project-specific responses.
 Here's how your data may be collected and used:
 
 - Your feedback data, such as thumbs up and thumbs down signals, may be used to train Gemini.
-- If you're using the Gemini in Android Studio [free edition](https://developer.android.com/studio/gemini/feature-comparison#individuals), the code you explicitly enter into the chat experience may be used to train Gemini. If you opt in to context awareness, the information collected---including code--- may be used to improve our products and services, such as machine learning technologies. See our [privacy notice](https://developer.android.com/studio/gemini/privacy-notice) for more details.
+- If you're using the Gemini in Android Studio [free edition](https://developer.android.com/studio/gemini/feature-comparison.md.txt#individual), the code you explicitly enter into the chat experience may be used to train Gemini. If you opt in to context awareness, the information collected---including code--- may be used to improve our products and services, such as machine learning technologies. See our [privacy notice](https://developer.android.com/studio/gemini/privacy-notice.md.txt) for more details.
 - If you're using a personal API key, a Google One membership, or Gemini Enterprise, the code you enter into the chat experience in Android Studio is never used to train Gemini. If you opt in to context awareness, the information collected---including code---is never used to improve our products and services, such as machine learning technologies. See the [Google Cloud
   Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice) for more details.
 
@@ -49,7 +51,7 @@ certain portions of your codebase, see [Configure context sharing with
 
 The data is stored in a way where Google can't tell who provided it, and it's
 not possible to delete upon request. The data is retained for up to 18 months.
-For more information, see the [Gemini Privacy Notice](https://developer.android.com/studio/gemini/privacy-notice).
+For more information, see the [Gemini Privacy Notice](https://developer.android.com/studio/gemini/privacy-notice.md.txt).
 
 ## Data submitted and received
 
@@ -121,4 +123,4 @@ Adding an `.aiexclude` file into your project's source code directory provides
 more granular control over which files are eligible to be used as context for AI
 models.
 
-[Learn more about the .aiexclude format.](https://developer.android.com/studio/gemini/aiexclude)
+[Learn more about the .aiexclude format.](https://developer.android.com/studio/gemini/aiexclude.md.txt)

@@ -13,9 +13,9 @@ Integrity API as part of your anti-abuse strategy.
 
 The [Play status dashboard](https://status.play.google.com) shows
 status information for the Play Integrity API. The dashboard posts service
-status information, including any disruptions and outages. If you're experiencing an
-issue not listed on the page, contact [Google Play developer
-support](https://support.google.com/googleplay/android-developer/contact/piaqr).
+status information, including any disruptions and outages. If you're
+experiencing an issue not listed on the page, contact
+[Google Play developer support](https://support.google.com/googleplay/android-developer/contact/piaqr).
 
 ## Test different Play Integrity API responses within your app
 
@@ -131,15 +131,9 @@ apps where Play Integrity API is not available.
 
 ## Get support
 
-To report an unexpected Play Integrity API verdict, [submit an
-issue](https://issuetracker.google.com/issues/new?component=1152695) with all of
-the information requested.
-
-To ask questions or to provide feedback about the Play Integrity API, you can
-either:
-
-- Contact Google Play developer support directly from your Play Console.
-- Complete the [Play Integrity API support form](https://support.google.com/googleplay/android-developer/contact/piaqr) in the Play Console Help Center.
+To report an unexpected Play Integrity API verdict, request a quota increase,
+ask questions, or provide feedback, complete the
+[Play Integrity API support form](https://support.google.com/googleplay/android-developer/contact/piaqr) in the Play Console.
 
 If you're requesting to increase the number of daily requests your app makes, it
 can take up to a week. We strongly recommend monitoring your Play Integrity API

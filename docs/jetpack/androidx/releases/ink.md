@@ -8,7 +8,7 @@ source: md.txt
 
 # ink
 
-Inspire best-in-class pen apps. Lower the developer barrier to entry for high performance, beautiful inking experiences. Supports Inking on Android and server-side JVM (currently supported on Linux for x86_64).
+Inspire best-in-class pen apps. Lower the developer barrier to entry for high performance, beautiful inking experiences. Supports Android, iOS (version 15.0+), and JVM (on Linux x86-64 and ARM64 and on Mac ARM64).
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|

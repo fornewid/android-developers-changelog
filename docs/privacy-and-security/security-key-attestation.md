@@ -24,7 +24,7 @@ to the `StrongBox` security level.
 
 In addition, it's important to verify the signatures in the certificate chain
 and to confirm that none of the keys in the chain have been revoked by checking
-the [certificate revocation status list](https://developer.android.com/privacy-and-security/security-key-attestation#certificate_status).
+the [certificate revocation status list](https://developer.android.com/privacy-and-security/security-key-attestation.md.txt#certificate_status).
 Unless all are valid and the root is the Google root key, don't
 fully trust the attestation.
 
@@ -40,12 +40,12 @@ within this chain is signed using an attestation root key that is securely
 provisioned to the device's hardware-backed keystore.
 
 > [!NOTE]
-> **Note:** On devices that ship with hardware-level key attestation, Android 7.0 (API level 24) or higher, and Google Play services, the root certificate is signed with the Google attestation root key. Verify that this root certificate is among those listed in the section on [root certificates](https://developer.android.com/privacy-and-security/security-key-attestation#root_certificate).
+> **Note:** On devices that ship with hardware-level key attestation, Android 7.0 (API level 24) or higher, and Google Play services, the root certificate is signed with the Google attestation root key. Verify that this root certificate is among those listed in the section on [root certificates](https://developer.android.com/privacy-and-security/security-key-attestation.md.txt#root_certificate).
 
 
 To implement key attestation, complete the following steps:
 
-1. Use a `https://developer.android.com/reference/java/security/KeyStore` object's `https://developer.android.com/reference/java/security/KeyStore#getCertificateChain(java.lang.String)` method to get a reference to the chain of X.509 certificates associated with the hardware-backed keystore.
+1. Use a `KeyStore` object's `getCertificateChain()` method to get a reference to the chain of X.509 certificates associated with the hardware-backed keystore.
 2.
    Send the certificates to a separate server that you trust for validation.
 
@@ -61,7 +61,7 @@ To implement key attestation, complete the following steps:
    the next certificate in the chain.
 
 4.
-   Check each certificate's [revocation status](https://developer.android.com/privacy-and-security/security-key-attestation#certificate_status)
+   Check each certificate's [revocation status](https://developer.android.com/privacy-and-security/security-key-attestation.md.txt#certificate_status)
    to ensure that none of the certificates have been revoked.
 
 5.
@@ -284,7 +284,7 @@ mD/vFDkzF+wm7cyWpQpCVQ==
 
 
 If the root certificate in the attestation chain you receive contains this public key and
-none of the certificates in the chain have been [revoked](https://developer.android.com/privacy-and-security/security-key-attestation#certificate_status), you
+none of the certificates in the chain have been [revoked](https://developer.android.com/privacy-and-security/security-key-attestation.md.txt#certificate_status), you
 know that:
 
 1. Your key is in hardware that Google believes to be secure; and
@@ -344,7 +344,7 @@ have a normal valid status. The format of the JSON file adheres to the following
   "type": "object",
   "properties": {
     "entries": {
-      "description" : "Each entry represents the status of an attestation key. The dictionary-key is the certificate serial number in lowercase hex.",
+      "description": "Each entry represents the status of an attestation key. The dictionary key is the certificate's X.509 serialNumber integer formatted as a lowercase hexadecimal string with leading zeros stripped.",
       "type": "object",
       "propertyNames": {
         "pattern": "^[a-f1-9][a-f0-9]*$"
@@ -382,6 +382,9 @@ have a normal valid status. The format of the JSON file adheres to the following
   "additionalProperties": false
 }
 ```
+
+> [!NOTE]
+> **Note:** To match CRL entries, convert the certificate's top-level X.509 `serialNumber` integer---not the subject `SERIALNUMBER` attribute---to lowercase base-16 hexadecimal with leading zeros stripped. For example, call `X509Certificate.getSerialNumber()` followed by `BigInteger.toString(16)`. Some factory-provisioned attestation certificates have hexadecimal serial numbers that contain only digits `0` through `9`. Convert the `serialNumber` integer for these certificates in base 16, not base 10.
 
 
 Example CRL:

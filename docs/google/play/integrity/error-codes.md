@@ -115,8 +115,8 @@ Unknown internal Google server error.
 
 #### Possible resolution
 
-Retry with an exponential backoff. Consider [filing a bug](https://issuetracker.google.com/issues/new?component=1152695&template=1655477) if it
-fails consistently.
+Retry with an exponential backoff. If it fails consistently, consider reporting
+the issue using the [Play Integrity API support form](https://support.google.com/googleplay/android-developer/contact/piaqr).
 
 #### See also
 
@@ -148,8 +148,8 @@ Unknown internal error.
 
 #### Possible resolution
 
-Retry with an exponential backoff.
-Consider filing a bug if it fails consistently.
+Retry with an exponential backoff. If it fails consistently, consider reporting
+the issue using the [Play Integrity API support form](https://support.google.com/googleplay/android-developer/contact/piaqr).
 
 #### See also
 
@@ -161,8 +161,8 @@ Unknown internal error.
 
 #### Possible resolution
 
-Retry with an exponential backoff.
-Consider filing a bug if it fails consistently.
+Retry with an exponential backoff. If it fails consistently, consider reporting
+the issue using the [Play Integrity API support form](https://support.google.com/googleplay/android-developer/contact/piaqr).
 
 #### See also
 
@@ -174,8 +174,8 @@ There was an error initializing the Standard Integrity API.
 
 #### Possible resolution
 
-Retry with an exponential backoff.
-Consider filing a bug if it fails consistently.
+Retry with an exponential backoff. If it fails consistently, consider reporting
+the issue using the [Play Integrity API support form](https://support.google.com/googleplay/android-developer/contact/piaqr).
 
 #### See also
 

@@ -4,7 +4,9 @@ url: https://developer.android.com/guide/topics/ui/accessibility/views/testing-v
 source: md.txt
 ---
 
-[Concepts and Jetpack Compose implementation](https://developer.android.com/guide/topics/ui/accessibility/testing)
+> Documentation index: https://developer.android.com/guide/topics/ui/accessibility/llms.txt
+
+[Concepts and Jetpack Compose implementation](https://developer.android.com/guide/topics/ui/accessibility/testing.md.txt)
 
 Testing for accessibility lets you experience your app from the user's
 perspective and find usability issues that you might miss. Accessibility testing
@@ -87,7 +89,7 @@ your app.
 
 ### Espresso
 
-[Espresso](https://developer.android.com/training/testing/espresso) is an Android testing library designed to
+[Espresso](https://developer.android.com/training/testing/espresso.md.txt) is an Android testing library designed to
 make UI testing fast and easy. It lets you interact with UI components under
 test in your app and assert that certain behaviors occur or that specific
 conditions are met.
@@ -102,37 +104,42 @@ This section describes how to run accessibility checks using Espresso.
 #### Enable checks
 
 You can enable and configure accessibility testing using the
-[`AccessibilityChecks`](https://developer.android.com/reference/androidx/test/espresso/accessibility/AccessibilityChecks)
+[`AccessibilityChecks`](https://developer.android.com/reference/androidx/test/espresso/accessibility/AccessibilityChecks.md.txt)
 class:
 
 ### Kotlin
 
-    import androidx.test.espresso.accessibility.AccessibilityChecks
+```kotlin
+import androidx.test.espresso.accessibility.AccessibilityChecks
 
-    @RunWith(AndroidJUnit4::class)
-    @LargeTest
-    class MyWelcomeWorkflowIntegrationTest {
-        init {
-            AccessibilityChecks.enable()
-        }
+@RunWith(AndroidJUnit4::class)
+@LargeTest
+class MyWelcomeWorkflowIntegrationTest {
+    init {
+        AccessibilityChecks.enable()
     }
+}
+```
 
 ### Java
 
-    import androidx.test.espresso.accessibility.AccessibilityChecks;
+```java
+import androidx.test.espresso.accessibility.AccessibilityChecks;
 
-    @RunWith(AndroidJUnit4.class)
-    @LargeTest
-    public class MyWelcomeWorkflowIntegrationTest {
-        @BeforeClass
-        public void enableAccessibilityChecks() {
-            AccessibilityChecks.enable();
-        }
+@RunWith(AndroidJUnit4.class)
+@LargeTest
+public class MyWelcomeWorkflowIntegrationTest {
+    @BeforeClass
+    public void enableAccessibilityChecks() {
+        AccessibilityChecks.enable();
     }
+}
+```
 
-By default, the checks run when you perform any view action defined in
-[`ViewActions`](https://developer.android.com/reference/androidx/test/espresso/action/ViewActions). Each
-check includes the view on which the action is performed as well as all
+By default, the checks run when you perform any
+[view action](https://developer.android.com/reference/androidx/test/espresso/ViewAction.md.txt) defined in
+`androidx.test.espresso.action.ViewActions`, such as `click()` or `scrollTo()`.
+Each check includes the view on which the action is performed as well as all
 descendant views. You can evaluate the entire view hierarchy of a screen during
 each check by passing `true` into
 [`setRunChecksFromRootView()`](https://github.com/google/Accessibility-Test-Framework-for-Android/blob/a6117fe0059c82dd764fa628d3817d724570f69e/src/main/java/com/google/android/apps/common/testing/accessibility/framework/integrations/espresso/AccessibilityValidator.java#L82),
@@ -140,11 +147,15 @@ as shown in the following code snippet:
 
 ### Kotlin
 
-    AccessibilityChecks.enable().setRunChecksFromRootView(true)
+```kotlin
+AccessibilityChecks.enable().setRunChecksFromRootView(true)
+```
 
 ### Java
 
-    AccessibilityChecks.enable().setRunChecksFromRootView(true);
+```java
+AccessibilityChecks.enable().setRunChecksFromRootView(true);
+```
 
 #### Suppress subsets of results
 
@@ -179,20 +190,24 @@ element's color contrast. The element's ID is `countTV`.
 
 ### Kotlin
 
-    AccessibilityChecks.enable().apply {
-            setSuppressingResultMatcher(
-                    allOf(
-                        matchesCheck(TextContrastCheck::class.java),
-                        matchesViews(withId(R.id.countTV))
-                    )
-            )
-    }
+```kotlin
+AccessibilityChecks.enable().apply {
+        setSuppressingResultMatcher(
+                allOf(
+                    matchesCheck(TextContrastCheck::class.java),
+                    matchesViews(withId(R.id.countTV))
+                )
+        )
+}
+```
 
 ### Java
 
-    AccessibilityValidator myChecksValidator =
-        AccessibilityChecks.enable()
-            .setSuppressingResultMatcher(
-                allOf(
-                    matchesCheck(TextContrastCheck.class),
-                    matchesViews(withId(R.id.countTV))));
+```java
+AccessibilityValidator myChecksValidator =
+    AccessibilityChecks.enable()
+        .setSuppressingResultMatcher(
+            allOf(
+                matchesCheck(TextContrastCheck.class),
+                matchesViews(withId(R.id.countTV))));
+```

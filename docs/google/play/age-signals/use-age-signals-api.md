@@ -18,5 +18,5 @@ Android 6.0 (API level 23) and higher. To integrate the Play Age Signals API
 into your app, add the following dependency to your app's `build.gradle` file:
 
 ```java
-implementation 'com.google.android.play:age-signals:0.0.5'
+implementation 'com.google.android.play:age-signals:0.0.6'
 ```

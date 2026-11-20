@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/watch-face-push/wear-os-ap
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/watch-face-push/llms.txt
+
 > [!NOTE]
 > **Note:** The Watch Face Push library is meant for watch face developers who prefer to publish to their own marketplace stores.  
 >
@@ -337,7 +339,7 @@ the Wear OS component of your marketplace app:
 4. **Do not schedule jobs to check the active watch face** :
    1. Periodically checking whether your marketplace still has the active watch face and which watch face it is places a drain on the battery. Avoid this approach.
 5. **Do not use notifications on the watch** :
-   1. If your app uses notifications, focus these on the phone, where the user action opens the phone app to continue the journey. Configure notifications not to bridge across to the watch app using [`setLocalOnly`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setLocalOnly(boolean))().
+   1. If your app uses notifications, focus these on the phone, where the user action opens the phone app to continue the journey. Configure notifications not to bridge across to the watch app using [`setLocalOnly`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setLocalOnly(boolean)).
 
 ### Caching
 

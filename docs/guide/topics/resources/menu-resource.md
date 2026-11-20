@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 A menu resource defines an application menu---an options menu, context menu, or submenu---that
-can be inflated with `https://developer.android.com/reference/android/view/MenuInflater`.
+can be inflated with `MenuInflater`.
 
 For a guide to using menus, see [Add menus](https://developer.android.com/guide/topics/ui/menus).
 
@@ -15,7 +15,7 @@ file location:
     The filename is used as the resource ID
 
 compiled resource datatype:
-:   Resource pointer to a `https://developer.android.com/reference/android/view/Menu` (or subclass) resource
+:   Resource pointer to a `Menu` (or subclass) resource
 
 resource reference:
 :
@@ -99,9 +99,9 @@ elements:
 
         `android:onClick`
         :   *Method name* . The method to call when this menu item is clicked. The
-            method must be declared in the activity as public. It accepts a `https://developer.android.com/reference/android/view/MenuItem` as its
+            method must be declared in the activity as public. It accepts a `MenuItem` as its
             only parameter, which indicates the item clicked. This method takes precedence over the standard
-            callback to `https://developer.android.com/reference/android/app/Activity#onOptionsItemSelected(android.view.MenuItem)`. See the
+            callback to `onOptionsItemSelected()`. See the
             example at the end of this page.
 
             **Warning:** If you obfuscate your code using [ProGuard](https://developer.android.com/tools/help/proguard) or a similar tool,
@@ -138,9 +138,9 @@ elements:
             Introduced in API level 11.
 
         `android:actionViewClass`
-        :   *Class name* . A fully-qualified class name for the `https://developer.android.com/reference/android/view/View`
+        :   *Class name* . A fully-qualified class name for the `View`
             to use as the action view. For example,
-            `"android.widget.SearchView"` to use `https://developer.android.com/reference/android/widget/SearchView` as an action view.
+            `"android.widget.SearchView"` to use `SearchView` as an action view.
 
             For more information, see [Use action
             views and action providers](https://developer.android.com/training/appbar/action-views).
@@ -152,8 +152,8 @@ elements:
             Introduced in API level 11.
 
         `android:actionProviderClass`
-        :   *Class name* . A fully qualified class name for the `https://developer.android.com/reference/android/view/ActionProvider` to use in place of the action item. For example,
-            `"android.widget.ShareActionProvider"` to use `https://developer.android.com/reference/android/widget/ShareActionProvider`.
+        :   *Class name* . A fully qualified class name for the `ActionProvider` to use in place of the action item. For example,
+            `"android.widget.ShareActionProvider"` to use `ShareActionProvider`.
 
             For more information, see [Use action
             views and action providers](https://developer.android.com/training/appbar/action-views).
@@ -195,7 +195,7 @@ elements:
             You can use the `setAlphabeticShortcut()` method to
             set the attribute values programmatically. For more information
             about the `alphabeticModifier` attribute, see
-            `https://developer.android.com/reference/android/R.attr#alphabeticModifiers`.
+            `alphabeticModifiers`.
 
         `android:numericModifiers`
         :   *Keyword* . A modifier for the menu item's numeric shortcut.
@@ -222,8 +222,7 @@ elements:
             You can use the `setNumericShortcut()` method to set
             the attribute values programmatically. For more information about
             the `numericModifier` attribute, see
-            `https://developer.android.com/reference/android/R.attr#numericModifiers`.
-
+            `numericModifiers`.
 
         `android:checkable`
         :   *Boolean*. True if the item is checkable.
@@ -238,7 +237,7 @@ elements:
         :   *Boolean*. True if the item is enabled by default.
 
         `android:menuCategory`
-        :   *Keyword* . Value corresponding to the `https://developer.android.com/reference/android/view/Menu` `CATEGORY_*`
+        :   *Keyword* . Value corresponding to the `Menu` `CATEGORY_*`
             constants, which define the item's priority. Valid values:
 
             | Value | Description |
@@ -282,7 +281,7 @@ elements:
         :   *Boolean*. True if the group is enabled.
 
         `android:menuCategory`
-        :   *Keyword* . Value corresponding to the `https://developer.android.com/reference/android/view/Menu` `CATEGORY_*`
+        :   *Keyword* . Value corresponding to the `Menu` `CATEGORY_*`
             constants, which define the group's priority. Valid values:
 
             | Value | Description |
@@ -328,7 +327,7 @@ example:
     </menu>
     ```
 
-    The following application code inflates the menu from the `https://developer.android.com/reference/android/app/Activity#onCreateOptionsMenu(android.view.Menu)` callback and also declares the on-click
+    The following application code inflates the menu from the `onCreateOptionsMenu(Menu)` callback and also declares the on-click
     callback for two of the items:
 
     ### Kotlin

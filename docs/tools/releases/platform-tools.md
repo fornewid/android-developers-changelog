@@ -4,6 +4,8 @@ url: https://developer.android.com/tools/releases/platform-tools
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/tools/llms.txt
+
 <br />
 
 Android SDK Platform-Tools is a component for the Android SDK.
@@ -43,11 +45,9 @@ of the tools.
 
 ## Revisions
 
-#### 37.0.3
+#### 37.0.3 (November 2026)
 
-**Canary: November 2026**
-
-##### adb
+**adb**
 
 - Reduce debug log spam. Demote high-frequency data-plane logs (such as reads and writes) to verbose level (for example: `usb:v, transport:v`) to prevent large log files.
 - Add support for syncing the `system_dlkm`, `vendor_dlkm`, and `odm_dlkm` partitions in the `adb sync` command.

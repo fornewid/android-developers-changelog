@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 > [!CAUTION]
-> **Caution:** You are viewing the documentation for Play Age Signals version 0.0.4. Although this version continues to return responses in Australia, Brazil, Canada, and US states like Alabama (starting January 2027), California (starting January 2027) and Texas, it is no longer receiving new updates. To view the active and supported version, refer to [Play Age Signals documentation](https://developer.android.com/google/play/age-signals/overview.md.txt).
+> **Caution:** You are viewing the documentation for Play Age Signals version 0.0.4. Although this version continues to return responses in Australia, Brazil, Canada, and US states like Alabama (exact date to be determined), California (starting January 2027) and Texas, it is no longer receiving new updates. To view the active and supported version, refer to [Play Age Signals documentation](https://developer.android.com/google/play/age-signals/overview.md.txt).
 
 This guide explains how to use the Play Age Signals API (beta) to retrieve
 age-related signals for users, how to notify Google Play of significant changes

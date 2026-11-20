@@ -4,6 +4,8 @@ url: https://developer.android.com/courses/pathways/android-week5-languages
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/courses/llms.txt
+
 # Android 11 - Week 5 - Languages
 
 
@@ -66,7 +68,7 @@ Learn about Android 11 adding support for a number of APIs all the way up to ver
 
 This article walks you through how you can use the CPU Profiler to inspect and optimize your app's CPU usage and thread activity in real time while interacting with your app.
 
-<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/studio/profile/cpu-profiler)
+<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button> [Read article](https://developer.android.com/studio/profile/cpu-profiler.md.txt)
 
 ## Converting to Kotlin
 

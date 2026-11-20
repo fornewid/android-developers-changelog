@@ -4,6 +4,8 @@ url: https://developer.android.com/design/ui/mobile/guides/layout-and-content/ed
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/design/ui/mobile/llms.txt
+
 ![](https://developer.android.com/static/images/design/ui/mobile/e2e-hero.png)
 
 An edge-to-edge app takes advantage of the entire screen by drawing UI under the
@@ -47,7 +49,7 @@ following section discusses additional status bar considerations.
 Top app bars should collapse while scrolling. Learn how to [collapse](https://developer.android.com/develop/ui/compose/components/app-bars.md.txt#scroll) the
 Material 3 TopAppBar. In Material 3, small top app bars can collapse to status
 bar height or scroll offscreen. Medium and large top app bars can collapse to a
-smaller app bar. See the \[Material guidance\]\[10\].
+smaller app bar. See the [Material guidance](https://m3.material.io/components/app-bars/guidelines).
 ![](https://developer.android.com/static/images/design/ui/mobile/e2e-collapse-bar.gif)
 
 ### Do
@@ -96,7 +98,7 @@ The following section includes additional navigation bar considerations.
 
 #### Scrolling content
 
-\[`BottomAppBar`\]\[10\] should collapse while scrolling using the `scrollBehavior`
+[`BottomAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/BottomAppBar.composable.md.txt#BottomAppBar) should collapse while scrolling using the `scrollBehavior`
 parameter.
 ![](https://developer.android.com/static/images/design/ui/mobile/e2e-scrim-do.gif)
 
@@ -108,7 +110,8 @@ Add system bar scrim for three-button navigation when the bottom app bar animate
 
 Keep gesture navigation transparent and don't add an additional scrim.
 
-However, keep \[`NavigationBar`\][11](https://developer.android.com/design/ui/mobile/guides/layout-and-content/and%20the%20%60NavigationBar%60%20used%20in%20the%0A%60NavigationSuiteScaffold%60%20while%20folded) visible while scrolling because it
+However, keep [`NavigationBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationBar.composable.md.txt) (and the `NavigationBar` used in the
+`NavigationSuiteScaffold` while folded) visible while scrolling because it
 doesn't have a `scrollBehavior` parameter.
 
 ### Display cutouts

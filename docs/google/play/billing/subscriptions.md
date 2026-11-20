@@ -4,6 +4,8 @@ url: https://developer.android.com/google/play/billing/subscriptions
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/billing/llms.txt
+
 This document describes how to handle subscription lifecycle events, such as
 renewals and expirations. It also describes additional subscription features
 such as offering promotions and allowing your users to manage their own
@@ -562,7 +564,7 @@ BillingFlowParams billingFlowParams = BillingFlowParams.newBuilder()
     .setProductDetailsParamsList(
         ImmuableList.of(
             ProductDetailsParams.newBuilder()
-                // fetched via queryProductDetailsAsync
+                // fetched using queryProductDetailsAsync
                 .setProductDetails(productDetails)
                 // offerToken can be found in
                 // ProductDetails=>SubscriptionOfferDetails
@@ -654,6 +656,11 @@ Using Real-time developer notifications, you can detect in real time when a
 user decides to cancel. When a user cancels, but before their subscription has
 expired, you can send them push notifications or in-app messages to ask them to
 resubscribe.
+
+To reduce cancellations that start in Google Play, you can configure
+[retention offers](https://developer.android.com/google/play/billing/retention-offers.md.txt). Google Play shows a retention offer to eligible
+subscribers when they try to cancel, and if they accept, their subscription
+continues at a discounted price.
 
 After a user has cancelled their subscription, you can try to win them back
 either in your app, or through the Play store. The following table describes
@@ -954,6 +961,9 @@ a subscription. This functionality is also available in the [Google Play Console
   want to continue using the product. Your app should handle these
   cancellations as described in
   [Revocations](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#revoke).
+
+> [!NOTE]
+> **Note:** The [`purchases.subscriptionsv2.cancel`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/cancel) and [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke) methods support an optional `etag` field in `CancellationContext` and `RevocationContext`. Use the `etag` field to prevent conflicts when multiple requests modify the same subscription at the same time. Get the `etag` value from the top-level `etag` field returned by your most recent [`purchases.subscriptionsv2.get`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) call.
 
 The following table illustrates the differences between cancel and revoke.
 

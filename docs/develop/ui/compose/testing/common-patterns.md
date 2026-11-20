@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/testing/common-patterns
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/testing/llms.txt
+
 [Video](https://www.youtube.com/watch?v=Y9GWnwi9D0I)
 
 You can test your Compose app with well-established approaches and patterns.
@@ -29,6 +31,7 @@ the activity already calls it.
 A common pattern to achieve this is to create an `AndroidComposeTestRule` using
 an empty activity such as [`ComponentActivity`](https://developer.android.com/reference/androidx/activity/ComponentActivity.md.txt).
 
+
 ```kotlin
 class MyComposeTest {
 
@@ -37,7 +40,7 @@ class MyComposeTest {
 
     @Test
     fun myTest() {
-        // Start the app
+        // Start the app.
         composeTestRule.setContent {
             MyAppTheme {
                 MainScreen(uiState = exampleUiState, /*...*/)
@@ -48,6 +51,8 @@ class MyComposeTest {
     }
 }
 ```
+
+<br />
 
 Note that `ComponentActivity` needs to be added to your app's
 `AndroidManifest.xml` file. Enable that by adding this dependency to your
@@ -63,13 +68,17 @@ You can create custom [semantics](https://developer.android.com/develop/ui/compo
 To do this, define a new `SemanticsPropertyKey` and make it available using the
 `SemanticsPropertyReceiver`.
 
+
 ```kotlin
 // Creates a semantics property of type Long.
 val PickedDateKey = SemanticsPropertyKey<Long>("PickedDate")
 var SemanticsPropertyReceiver.pickedDate by PickedDateKey
 ```
 
+<br />
+
 Now use that property in the `semantics` modifier:
+
 
 ```kotlin
 val datePickerValue by remember { mutableStateOf(0L) }
@@ -78,14 +87,19 @@ MyCustomDatePicker(
 )
 ```
 
+<br />
+
 From tests, use `SemanticsMatcher.expectValue` to assert the value of the
 property:
+
 
 ```kotlin
 composeTestRule
     .onNode(SemanticsMatcher.expectValue(PickedDateKey, 1445378400)) // 2015-10-21
     .assertExists()
 ```
+
+<br />
 
 > [!WARNING]
 > **Warning:** You should only use custom Semantics properties when it's hard to match a specific item using the given finders and matchers. Using custom Semantics properties to expose visual properties such as colors, font size or rounded corner radius is not recommended, as it can pollute production code and wrong implementations can lead to bugs that are hard to find.
@@ -99,8 +113,8 @@ activity recreation with the [`StateRestorationTester`](https://developer.androi
 This class lets you simulate the recreation of a composable. It's especially
 useful to verify the implementation of [`rememberSaveable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/rememberSaveable.composable.md.txt#rememberSaveable(kotlin.Array,androidx.compose.runtime.saveable.Saver,kotlin.String,kotlin.Function0)).
 
-```kotlin
 
+```kotlin
 class MyStateRestorationTests {
 
     @get:Rule
@@ -114,13 +128,15 @@ class MyStateRestorationTests {
 
         // TODO: Run actions that modify the state
 
-        // Trigger a recreation
+        // Trigger a recreation.
         restorationTester.emulateSavedInstanceStateRestore()
 
         // TODO: Verify that state has been correctly restored.
     }
 }
 ```
+
+<br />
 
 ## Test different device configurations
 

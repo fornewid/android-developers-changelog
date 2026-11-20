@@ -10,7 +10,7 @@ status, use the [FakeAgeSignalsManager](https://developer.android.com/google/pla
 testing by replacing your production AgeSignalsManager instance.
 
 To simulate different response types using the Play Age Signals API SDK
-version 0.0.5, see the following examples:
+version 0.0.6, see the following examples:
 
 ## Example 1: Check applicable age features (mandatory sharing)
 

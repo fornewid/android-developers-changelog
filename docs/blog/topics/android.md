@@ -8,6 +8,13 @@ source: md.txt
 
 # #Android
 
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) 19 Nov 2026 19 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_139_Android_developer_verification_Going_global_together_Strapi_01_png_12aa1e5aae_ZkNaef.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [Expanding Android developer verification in 2027](https://developer.android.com/blog/posts/android-developer-verification-2027.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-2027.md.txt) After over a year of joint preparation with industry leaders, regional partners, app distributors, and Android communities, our user protections successfully went live on September 30 for participating stores across Brazil, Indonesia, Singapore, and Thailand.
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) • 2 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
 - [![View Aurash Mahbod's profile](https://developer.android.com/static/blog/assets/image3_98854eb3dd_Z2kItkm.webp)](https://developer.android.com/blog/authors/aurash-mahbod.md.txt) 18 Nov 2026 18 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_162_2000x1000_1_ce7dba8d2a_72W03.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
   ## [Elevating games: New large screens and foldables quality standards on Google Play](https://developer.android.com/blog/posts/elevating-game-quality-foldables-large-screens-google-play.md.txt)
@@ -48,21 +55,11 @@ source: md.txt
   [arrow_forward](https://developer.android.com/blog/posts/reliable-way-to-add-and-edit-contacts-android.md.txt) Apps that target the upcoming Android release will no longer be able to directly write to contacts with the WRITE_CONTACTS permission.
   [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker.md.txt) • 6 min read
   - [#Android](https://developer.android.com/blog/topics/android.md.txt)
-- 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_prXkK.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
-
-  ## [Datadog delivers millions of in-depth performance insights with ProfilingManager](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager.md.txt)
-
-  [arrow_forward](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager.md.txt) Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers.
-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt), [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov.md.txt), [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov.md.txt) • 4 min read
-  - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager.md.txt)
-  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
-  - [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
-  - +1 ↩
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
 
-###### of 3
+###### of 4
 
 [arrow_forward](https://developer.android.com/blog/topics/android/2.md.txt) Stay in the loop
 

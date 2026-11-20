@@ -4,7 +4,7 @@ url: https://developer.android.com/design/ui/mobile/guides/foundations/accessibi
 source: md.txt
 ---
 
-# Accessibility
+> Documentation index: https://developer.android.com/design/ui/mobile/llms.txt
 
 ![Greenish decorative hero image design](https://developer.android.com/static/images/design/ui/mobile/accessibility-hero.png)
 
@@ -14,7 +14,8 @@ about one in six people--experience a significant or temporary disability in
 their lifetime. Accessibility in design, then, is *fundamental* to creating an
 inclusive, usable, and high-quality app--it leads to the best results for users
 and can prevent costly rework. Android ships with a variety of features to help
-you build your app to support accessibility options by default.  
+you build your app to support accessibility options by default.
+[Video](https://www.youtube.com/watch?v=-xvnsa-1R1Q)
 
 ## Design for vision
 
@@ -51,7 +52,7 @@ your app with TalkBack](https://developer.android.com/guide/topics/ui/accessibil
 
 Follow these guidelines to ensure your app is prepared for screen readers:
 
-- [Describe UI elements](https://developer.android.com/guide/topics/ui/accessibility/apps#describe-ui-element) in your code. Compose uses [Semantics
+- [Describe UI elements](https://developer.android.com/guide/topics/ui/accessibility/apps.md.txt#describe-ui-element) in your code. Compose uses [Semantics
   properties](https://developer.android.com/jetpack/compose/semantics#properties) to inform accessibility services about the information shown in UI elements.
 - To satisfy Android framework requirements, provide additional textual description of icons and images.
 - Set decorative item descriptions to null.
@@ -77,17 +78,13 @@ hands-free.
 using one or more devices, which can be helpful for users with limited dexterity
 who have trouble interacting directly with a touch screen.
 
-Manually test by [exploring switch access](https://developer.android.com/guide/topics/ui/accessibility/testing#explore_your_app_using_switch_access).
+Manually test by [exploring switch access](https://developer.android.com/guide/topics/ui/accessibility/testing.md.txt#explore_your_app_using_switch_access).
 
 - Don't rely on gestures to complete all actions; [create accessibility
   actions](https://developer.android.com/guide/topics/ui/accessibility/principles#accessibility-actions) to support all user flows in your app.
 - Ensure all touch targets are at least 48 dp, even if this extends past the UI element visual.
-- Consider [haptic feedback](https://developer.android.com/develop/ui/views/haptics/haptics-principles) to help inform the user with additional, real-time sensory input.
-
-<br />
+- Consider [haptic feedback](https://developer.android.com/develop/ui/views/haptics/haptics-principles.md.txt) to help inform the user with additional, real-time sensory input.
 
 ![The UI on the left lets the user delete only by swiping,
 while the UI on the right also provides an additional affordance in the form
 of a trash icon button.](https://developer.android.com/static/images/design/ui/mobile/accessibility-motor-skill.png) **Figure 3:**The UI on the left lets the user delete only by swiping, while the UI on the right also provides an additional affordance in the form of a trash icon button.
-
-<br />

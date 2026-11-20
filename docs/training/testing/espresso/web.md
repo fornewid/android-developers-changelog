@@ -4,20 +4,22 @@ url: https://developer.android.com/training/testing/espresso/web
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/testing/espresso/llms.txt
+
 Espresso-Web is an entry point to work with Android WebView UI components.
 Espresso-Web reuses Atoms from the popular [WebDriver API](https://www.selenium.dev/documentation/webdriver/) to examine and control the behavior of a WebView.
 
 > [!NOTE]
-> **Note:** If you aren't familiar with Espresso, you should first read the main [Espresso documentation](https://developer.android.com/training/testing/espresso).
+> **Note:** If you aren't familiar with Espresso, you should first read the main [Espresso documentation](https://developer.android.com/training/testing/espresso.md.txt).
 
 ## When to use Espresso-Web
 
 Use Espresso-Web to test your hybrid apps, especially the integration of your
-app's native UI components with its `https://developer.android.com/reference/android/webkit/WebView`
+app's native UI components with its `WebView`
 UI components. You can use the Espresso-Web API in conjunction with other
 Espresso APIs to fully interact with web elements inside `WebView` objects.
 
-If you need to test only the `https://developer.android.com/reference/android/webkit/WebView` itself, and not the
+If you need to test only the `WebView` itself, and not the
 interactions between the `WebView` and native components in your app, consider
 writing a general web test using a framework like [WebDriver](https://www.selenium.dev/documentation/webdriver/). If you use a web testing framework, you don't
 need to use an Android device or a Java Virtual Machine, which makes your tests
@@ -28,33 +30,34 @@ apps that include an Android UI.
 
 ## How it works
 
-Similarly to Espresso's [`onData()`](https://developer.android.com/reference/androidx/test/espresso/Espresso#onData(org.hamcrest.Matcher%3C?%20extends%20java.lang.Object%3E))
-method, a `https://developer.android.com/reference/android/webkit/WebView` interaction comprises several Atoms.
+Similarly to Espresso's [`onData()`](https://developer.android.com/reference/androidx/test/espresso/Espresso.md.txt#onData(org.hamcrest.Matcher%3C?%20extends%20java.lang.Object%3E))
+method, a `WebView` interaction comprises several Atoms.
 `WebView` interactions use a combination of the Java programming language and a
 JavaScript bridge to do their work. Because there is no chance of introducing
 race conditions by exposing data from the JavaScript environment---everything
 Espresso sees on the Java-based side is an isolated copy---returning data from
-[`Web.WebInteraction`](https://developer.android.com/reference/androidx/test/espresso/web/sugar/Web.WebInteraction)
-objects is fully supported, allowing you to verify all data that's returned from
-a request.
+`Web.WebInteraction` objects is fully supported, allowing you to verify all
+data that's returned from a request.
 
 ### What is a WebDriver Atom?
 
 The WebDriver framework uses Atoms to find and manipulate web elements
 programmatically. Atoms are used by WebDriver to allow browser manipulation. An
 Atom is conceptually similar to a
-[`ViewAction`](https://developer.android.com/reference/androidx/test/espresso/ViewAction), a self-contained
+[`ViewAction`](https://developer.android.com/reference/androidx/test/espresso/ViewAction.md.txt), a self-contained
 unit that performs an action in your UI. You expose Atoms using a list of
 defined methods, such as `findElement()` and `getElement()`, to drive the
 browser from the user's point of view. However, if you use the WebDriver
 framework directly, Atoms need to be properly orchestrated, requiring logic that
 is quite verbose.
 
-Within Espresso, the classes [`Web`](https://developer.android.com/reference/androidx/test/espresso/web/sugar/Web)
-and [`Web.WebInteraction`](https://developer.android.com/reference/androidx/test/espresso/web/sugar/Web.WebInteraction)
+Within Espresso, the classes `Web` and `Web.WebInteraction` (in the
+`androidx.test.espresso.web.sugar` package)
 wrap this boilerplate and give an Espresso-like feel to interacting with WebView
-objects. So in a context of a `https://developer.android.com/reference/android/webkit/WebView`, Atoms are used as
-a substitution to traditional Espresso [`ViewMatchers`](https://developer.android.com/reference/androidx/test/espresso/matcher/ViewMatchers) and [`ViewActions`](https://developer.android.com/reference/androidx/test/espresso/action/ViewActions).
+objects. So in a context of a `WebView`, Atoms are used as
+a substitution to traditional Espresso `ViewMatchers` and `ViewActions` (see
+the [Espresso cheat sheet](https://developer.android.com/training/testing/espresso/cheat-sheet.md.txt) for standard matchers and
+actions).
 
 The API then looks quite simple:
 
@@ -81,7 +84,7 @@ To learn more, read [Selenium's documentation on Atoms](https://github.com/Selen
 ## Implement WebView
 
 Follow the guidance shown in the following sections to work with
-[`WebView`](https://developer.android.com/reference/android/webkit/WebView) in your app's tests.
+[`WebView`](https://developer.android.com/reference/android/webkit/WebView.md.txt) in your app's tests.
 
 ### Packages
 
@@ -127,10 +130,9 @@ To include Espresso-Web in your project, complete the following steps:
 
 ### Common API usage
 
-The [`onWebView()`](https://developer.android.com/reference/androidx/test/espresso/web/sugar/Web#onWebView(org.hamcrest.Matcher%3Candroid.view.View%3E))
-method is the main entry point when working with WebView on Android using
-Espresso. You use this method to perform Espresso-Web tests, such as the
-following:
+The `onWebView()` method is the main entry point when working with WebView on
+Android using Espresso. You use this method to perform Espresso-Web tests, such
+as the following:
 
 ### Kotlin
 
@@ -164,14 +166,13 @@ When executing your tests, the system performs all WebView interactions using
 JavaScript. Therefore, to support JavaScript evaluation, the WebView under test
 must have JavaScript enabled.
 
-You can force JavaScript to be enabled by calling
-[`forceJavascriptEnabled()`](https://developer.android.com/reference/androidx/test/espresso/web/sugar/Web.WebInteraction#forceJavascriptEnabled())
+You can force JavaScript to be enabled by calling `forceJavascriptEnabled()`
 as an [action in your activity under
 test](https://developer.android.com/guide/components/activities/testing#trigger-actions), as shown in the
 following code snippet.
 
 > [!NOTE]
-> **Note:** Enabling JavaScript may cause the WebView under test to be reloaded. This is necessary to ensure that [AndroidJUnitRunner](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/runner) loads all needed test infrastructure, including JavaScript interactions.
+> **Note:** Enabling JavaScript may cause the WebView under test to be reloaded. This is necessary to ensure that [AndroidJUnitRunner](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/runner.md.txt) loads all needed test infrastructure, including JavaScript interactions.
 
 ```kotlin
 @RunWith(AndroidJUnit4::class)
@@ -189,8 +190,8 @@ class MyTestSuite {
 
 Common interactions with `Web.WebInteraction` objects include the following:
 
-- `https://developer.android.com/reference/androidx/test/espresso/web/sugar/Web.WebInteraction#withElement(androidx.test.espresso.web.model.ElementReference)`
-  references a DOM element within the WebView.
+- `withElement()` references a DOM element within the
+  WebView.
 
   Example:
 
@@ -205,7 +206,7 @@ Common interactions with `Web.WebInteraction` objects include the following:
   ```java
   onWebView().withElement(findElement(Locator.ID, "teacher"));
   ```
-- [`withContextualElement()`](https://developer.android.com/reference/androidx/test/espresso/web/sugar/Web.WebInteraction#withcontextualelement) references a scoped DOM element
+- `withContextualElement()` references a scoped DOM element
   within the WebView, relative to another DOM element. You should call
   `withElement()` first to establish the reference
   `Web.WebInteraction` object (DOM element).
@@ -225,7 +226,7 @@ Common interactions with `Web.WebInteraction` objects include the following:
   .withElement(findElement(Locator.ID, "teacher"))
       .withContextualElement(findElement(Locator.ID, "person_name"));
   ```
-- [`check()`](https://developer.android.com/reference/androidx/test/espresso/web/sugar/Web.WebInteraction#check) evaluates a condition, making sure that it resolves
+- `check()` evaluates a condition, making sure that it resolves
   to `true`.
 
   Example:
@@ -247,7 +248,7 @@ Common interactions with `Web.WebInteraction` objects include the following:
       .withContextualElement(findElement(Locator.ID, "person_name"))
       .check(webMatches(getText(), containsString("Socrates")));
   ```
-- [`perform()`](https://developer.android.com/reference/androidx/test/espresso/web/sugar/Web.WebInteraction#perform) executes an action within a WebView, such as
+- `perform()` executes an action within a WebView, such as
   clicking on an element.
 
   Example:
@@ -267,10 +268,10 @@ Common interactions with `Web.WebInteraction` objects include the following:
       .withElement(findElement(Locator.ID, "teacher"))
       .perform(webClick());
   ```
-- `https://developer.android.com/reference/androidx/test/espresso/web/sugar/Web.WebInteraction#reset()`
-  reverts the WebView to its initial state. This is necessary when a prior
-  action, such as a click, introduces a navigation change that makes
-  ElementReference and WindowReference objects inaccessible.
+- `reset()` reverts the WebView to its initial state. This is
+  necessary when a prior action, such as a click, introduces a navigation
+  change that makes ElementReference and WindowReference objects
+  inaccessible.
 
   **Note:** Although using `reset()` is useful when
   making assertions against multi-page workflows, such as form submissions,

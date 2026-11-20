@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/testing/interoperability
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/testing/llms.txt
+
 Compose integrates with common testing frameworks.
 
 ## Interoperability with Espresso
@@ -13,6 +15,7 @@ views inside Compose composables (via the [`AndroidView`](https://developer.andr
 
 There are no special steps needed to match either type. You match views with
 Espresso's [`onView`](https://developer.android.com/reference/androidx/test/espresso/Espresso.md.txt#onView(org.hamcrest.Matcher%3Candroid.view.View%3E)), and Compose elements with the [`ComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule.md.txt).
+
 
 ```kotlin
 @Test
@@ -25,6 +28,8 @@ fun androidViewInteropTest() {
     Espresso.onView(withText("Hello Compose")).check(matches(isDisplayed()))
 }
 ```
+
+<br />
 
 ## Add View-scoped semantics for Compose interop testing
 
@@ -122,6 +127,7 @@ Enable the semantic property only once high in your composables hierarchy to
 ensure all nested composables with `Modifier.testTag` are accessible from
 UiAutomator.
 
+
 ```kotlin
 Scaffold(
     // Enables for all composables in the hierarchy.
@@ -138,11 +144,14 @@ Scaffold(
 }
 ```
 
+<br />
+
 Any composable with the `Modifier.testTag(tag)` can be accessible with the use
 of [`By.res(resourceName)`](https://developer.android.com/reference/androidx/test/uiautomator/BySelector.md.txt#res) using the same `tag` as the `resourceName`.
 
 > [!CAUTION]
 > **Caution:** Make sure you don't use [`By.res(resourcePackage, resourceId)`](https://developer.android.com/reference/androidx/test/uiautomator/BySelector.md.txt#res_1) as this formats the argument as `$resourcePackage:id/$resourceId`, which is different from `Modifier.testTag`.
+
 
 ```kotlin
 val device = UiDevice.getInstance(getInstrumentation())
@@ -150,6 +159,8 @@ val device = UiDevice.getInstance(getInstrumentation())
 val lazyColumn: UiObject2 = device.findObject(By.res("myLazyColumn"))
 // Some interaction with the lazyColumn.
 ```
+
+<br />
 
 ## Additional Resources
 

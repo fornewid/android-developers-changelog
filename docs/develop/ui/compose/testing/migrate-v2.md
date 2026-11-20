@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/testing/migrate-v2
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/testing/llms.txt
+
 v2 versions of the Compose testing APIs ([`createComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary.md.txt#createComposeRule()),
 [`createAndroidComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary.md.txt#createAndroidComposeRule(java.lang.Class,androidx.compose.ui.test.ComposeUiTestConfig)), [`runComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary.md.txt#runComposeUiTest(kotlin.coroutines.SuspendFunction1)),
 [`runAndroidComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary.md.txt#runAndroidComposeUiTest(java.lang.Class,androidx.compose.ui.test.ComposeUiTestConfig,kotlin.coroutines.SuspendFunction1)), etc) are now available to improve control over
@@ -213,26 +215,32 @@ asserting.
 **Option 1** : Using `waitForIdle` advances the clock until the UI is idle,
 verifying the coroutine has run.
 
+
 ```kotlin
 viewModel.loadData()
 
-// Explicitly run all queued tasks
+// Explicitly run all queued tasks.
 composeTestRule.waitForIdle()
 
 assertEquals(Success, viewModel.state.value)
 ```
 
+<br />
+
 **Option 2** : Using `runOnIdle` executes the code block on the UI thread after
 the UI has become idle.
+
 
 ```kotlin
 viewModel.loadData()
 
-// Run the assertion after the UI is idle
+// Run the assertion after the UI is idle.
 composeTestRule.runOnIdle {
     assertEquals(Success, viewModel.state.value)
 }
 ```
+
+<br />
 
 ### Manual synchronization
 
@@ -242,9 +250,12 @@ the test clock is paused. To execute coroutines in the queue without
 advancing the virtual clock, use the [`runCurrent()`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/run-current.html) API. This runs tasks
 scheduled for the current virtual time.
 
+
 ```kotlin
 composeTestRule.mainClock.scheduler.runCurrent()
 ```
+
+<br />
 
 In contrast to `waitForIdle()`, which advances the test clock until the UI
 stabilizes, `runCurrent()` executes pending tasks while maintaining the current

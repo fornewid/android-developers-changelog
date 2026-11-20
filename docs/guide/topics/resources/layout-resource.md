@@ -13,7 +13,7 @@ file location:
     The filename is used as the resource ID.
 
 compiled resource datatype:
-:   Resource pointer to a `https://developer.android.com/reference/android/view/View` (or subclass) resource
+:   Resource pointer to a `View` (or subclass) resource
 
 resource reference:
 :
@@ -47,7 +47,7 @@ syntax:
     ```
 
     **Note:** The root element can be a
-    `https://developer.android.com/reference/android/view/ViewGroup`, a `https://developer.android.com/reference/android/view/View`, or a [`<merge>`](https://developer.android.com/guide/topics/resources/layout-resource#merge-element) element, but there can be only
+    `ViewGroup`, a `View`, or a [`<merge>`](https://developer.android.com/guide/topics/resources/layout-resource.md.txt#merge-element) element, but there can be only
     one root element and it must contain the `xmlns:android` attribute with the `android`
     namespace as shown in the preceding syntax example.
 
@@ -55,28 +55,28 @@ elements:
 :
 
     `<ViewGroup>`
-    :   A container for other `https://developer.android.com/reference/android/view/View` elements. There are many
-        different kinds of `https://developer.android.com/reference/android/view/ViewGroup` objects, and each one lets you
+    :   A container for other `View` elements. There are many
+        different kinds of `ViewGroup` objects, and each one lets you
         specify the layout of the child elements in different ways. Different kinds of
-        `ViewGroup` objects include `https://developer.android.com/reference/android/widget/LinearLayout`,
-        `https://developer.android.com/reference/android/widget/RelativeLayout`, and `https://developer.android.com/reference/android/widget/FrameLayout`.
+        `ViewGroup` objects include `LinearLayout`,
+        `RelativeLayout`, and `FrameLayout`.
 
         Don't assume that any derivation of `ViewGroup`
         accepts nested views. Some view groups
-        are implementations of the `https://developer.android.com/reference/android/widget/AdapterView` class, which determines
-        its children only from an `https://developer.android.com/reference/android/widget/Adapter`.
+        are implementations of the `AdapterView` class, which determines
+        its children only from an `Adapter`.
 
         Attributes:
 
         `android:id`
         :   *Resource ID* . A unique resource name for the element, which you can
             use to obtain a reference to the `ViewGroup` from your application. For more
-            information, see the [Value for android:id](https://developer.android.com/guide/topics/resources/layout-resource#idvalue) section.
+            information, see the [Value for android:id](https://developer.android.com/guide/topics/resources/layout-resource.md.txt#idvalue) section.
 
         `android:layout_height`
         :   *Dimension or keyword* . **Required** . The height for the group, as a
             dimension value (or
-            [dimension resource](https://developer.android.com/guide/topics/resources/more-resources#Dimension)) or a keyword
+            [dimension resource](https://developer.android.com/guide/topics/resources/more-resources.md.txt#Dimension)) or a keyword
             (`"match_parent"` or `"wrap_content"`). For more information,
             see the [Values for android:layout_height and
             android:layout_width](https://developer.android.com/guide/topics/resources/layout-resource#layoutvalues) section.
@@ -84,7 +84,7 @@ elements:
         `android:layout_width`
         :   *Dimension or keyword* . **Required** . The width for the group, as a
             dimension value (or
-            [dimension resource](https://developer.android.com/guide/topics/resources/more-resources#Dimension)) or a keyword
+            [dimension resource](https://developer.android.com/guide/topics/resources/more-resources.md.txt#Dimension)) or a keyword
             (`"match_parent"` or `"wrap_content"`). For more information,
             see the [Values for android:layout_height and
             android:layout_width](https://developer.android.com/guide/topics/resources/layout-resource#layoutvalues) section.
@@ -92,26 +92,26 @@ elements:
         The `ViewGroup`
         base class supports more attributes, and many more are supported by each implementation of
         `ViewGroup`. For a reference of all available attributes,
-        see the corresponding reference documentation for the `https://developer.android.com/reference/android/view/ViewGroup` class,
+        see the corresponding reference documentation for the `ViewGroup` class,
         for example, the [`LinearLayout` XML
         attributes](https://developer.android.com/reference/android/widget/LinearLayout#lattrs).
 
     `<View>`
     :   An individual UI component, generally referred to as a *widget* . Different
-        kinds of `https://developer.android.com/reference/android/view/View` objects include `https://developer.android.com/reference/android/widget/TextView`,
-        `https://developer.android.com/reference/android/widget/Button`, and `https://developer.android.com/reference/android/widget/CheckBox`.
+        kinds of `View` objects include `TextView`,
+        `Button`, and `CheckBox`.
 
         Attributes:
 
         `android:id`
         :   *Resource ID* . A unique resource name for the element, which you can use to
             obtain a reference to the `View` from your application. For more
-            information, see the [Value for android:id](https://developer.android.com/guide/topics/resources/layout-resource#idvalue) section.
+            information, see the [Value for android:id](https://developer.android.com/guide/topics/resources/layout-resource.md.txt#idvalue) section.
 
         `android:layout_height`
         :   *Dimension or keyword* . **Required** . The height for the element, as
             a dimension value (or
-            [dimension resource](https://developer.android.com/guide/topics/resources/more-resources#Dimension)) or a keyword
+            [dimension resource](https://developer.android.com/guide/topics/resources/more-resources.md.txt#Dimension)) or a keyword
             (`"match_parent"` or `"wrap_content"`). For more information,
             see the [Values for android:layout_height and
             android:layout_width](https://developer.android.com/guide/topics/resources/layout-resource#layoutvalues) section.
@@ -119,7 +119,7 @@ elements:
         `android:layout_width`
         :   *Dimension or keyword* . **Required** . The width for the element, as
             a dimension value (or
-            [dimension resource](https://developer.android.com/guide/topics/resources/more-resources#Dimension)) or a keyword
+            [dimension resource](https://developer.android.com/guide/topics/resources/more-resources.md.txt#Dimension)) or a keyword
             (`"match_parent"` or `"wrap_content"`). For more information,
             see the [Values for android:layout_height and
             android:layout_width](https://developer.android.com/guide/topics/resources/layout-resource#layoutvalues) section.
@@ -128,10 +128,10 @@ elements:
         base class supports more attributes, and many more are supported by each implementation of
         `View`. For more information, read [Layouts](https://developer.android.com/guide/topics/ui/declaring-layout). For
         a reference of all available attributes,
-        see the corresponding reference documentation, for example, the [`TextView` XML attributes](https://developer.android.com/reference/android/widget/TextView#lattrs).
+        see the corresponding reference documentation, for example, the [`TextView` XML attributes](https://developer.android.com/reference/android/widget/TextView.md.txt#lattrs).
 
     `<requestFocus>`
-    :   Any element representing a `https://developer.android.com/reference/android/view/View` object can include this empty element,
+    :   Any element representing a `View` object can include this empty element,
         which gives its parent initial focus on the screen. You can have only one of these
         elements per file.
 
@@ -163,7 +163,7 @@ elements:
         `android:layout_height` and `android:layout_width` in order for
         other layout attributes to take effect.
 
-        Another way to include a layout is to use `https://developer.android.com/reference/android/view/ViewStub`: a lightweight
+        Another way to include a layout is to use `ViewStub`: a lightweight
         view that consumes no layout space until you explicitly inflate it. When you do, it includes a
         layout file defined by its `android:layout` attribute. For more information about using `ViewStub`, read [Load
         views on demand](https://developer.android.com/develop/ui/views/layout/improving-layouts/loading-ondemand).
@@ -174,13 +174,10 @@ elements:
         that already contains the appropriate parent `View` to contain the children of the
         `<merge>` element.
 
-        <br />
-
-
         This is particularly useful when you plan to include this layout
-        in another layout file using [`<include>`](https://developer.android.com/guide/topics/resources/layout-resource#include-element) and
-        this layout doesn't require a different `https://developer.android.com/reference/android/view/ViewGroup` container. For more
-        information about merging layouts, read [Reuse layouts with \<include\>](https://developer.android.com/develop/ui/views/layout/improving-layouts/reusing-layouts).
+        in another layout file using [`<include>`](https://developer.android.com/guide/topics/resources/layout-resource.md.txt#include-element) and
+        this layout doesn't require a different `ViewGroup` container. For more
+        information about merging layouts, read [Reuse layouts with \<include\>](https://developer.android.com/develop/ui/views/layout/improving-layouts/reusing-layouts.md.txt).
 
 
     #### Value for android:id
@@ -195,7 +192,7 @@ elements:
     ```
 
     The `nameTextbox` name is now a resource ID attached to this element. You can then
-    refer to the `https://developer.android.com/reference/android/widget/TextView` to which the ID is associated in Java:
+    refer to the `TextView` to which the ID is associated in Java:
 
     ### Kotlin
 
@@ -212,7 +209,7 @@ elements:
     This code returns the `TextView` object.
 
 
-    However, if you have already defined an [ID resource](https://developer.android.com/guide/topics/resources/drawable-resource#Id), and it isn't
+    However, if you have already defined an [ID resource](https://developer.android.com/guide/topics/resources/drawable-resource.md.txt#Id), and it isn't
     already used, then you can apply that ID to a `View` element by excluding the
     plus symbol in the `android:id` value.
 
@@ -234,7 +231,7 @@ elements:
     #### Custom view elements
 
 
-    You can create custom `https://developer.android.com/reference/android/view/View` and `https://developer.android.com/reference/android/view/ViewGroup`
+    You can create custom `View` and `ViewGroup`
     elements and apply them to your layout the same as a standard layout
     element. You can also specify the attributes supported in the XML element. For more information,
     see [Create custom view components](https://developer.android.com/guide/topics/ui/custom-components).
@@ -260,9 +257,8 @@ example:
     </LinearLayout>
     ```
 
-    This application code loads the layout for an `https://developer.android.com/reference/android/app/Activity` in the
-    `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)` method:
-:
+    This application code loads the layout for an `Activity` in the
+    `onCreate()` method:
 
     ### Kotlin
 
@@ -285,5 +281,5 @@ example:
 see also:
 :
     - [Layouts](https://developer.android.com/guide/topics/ui/declaring-layout)
-    - `https://developer.android.com/reference/android/view/View`
-    - `https://developer.android.com/reference/android/view/ViewGroup`
+    - `View`
+    - `ViewGroup`

@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/building-a-safer-android-and-googl
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Building a safer Android and Google Play, together
 
-3 min read ![](https://developer.android.com/static/blog/assets/251210_Header_v01_de706a19ce_11Dc1K.webp) 11 Dec 2025 [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe)[![View Ron Aquino's profile](https://developer.android.com/static/blog/assets/unnamed_18_8bd07de9bd_ZRiq2s.webp)](https://developer.android.com/blog/authors/ron-aquino) [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) \& [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino) Earlier this year, we reiterated our commitment to [keeping Android and Google Play safe](https://android-developers.googleblog.com/2025/03/keeping-google-play-safe.html) for everyone and maintaining a thriving environment where users can trust the apps they download and your business can flourish. We've heard your feedback clearly, from excited conversations at Play events around the world to the honest concerns on social media. You want simpler ways to make sure your apps are compliant and pass review, and need strong protections for your business so you can focus on growth and innovation. We are proud of the steps we've taken together this year, but know this is ongoing work in a complex, ever-changing market.
+3 min read ![](https://developer.android.com/static/blog/assets/251210_Header_v01_de706a19ce_11Dc1K.webp) 11 Dec 2025 [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe.md.txt)[![View Ron Aquino's profile](https://developer.android.com/static/blog/assets/unnamed_18_8bd07de9bd_ZRiq2s.webp)](https://developer.android.com/blog/authors/ron-aquino.md.txt) [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) \& [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino.md.txt) Earlier this year, we reiterated our commitment to [keeping Android and Google Play safe](https://android-developers.googleblog.com/2025/03/keeping-google-play-safe.html) for everyone and maintaining a thriving environment where users can trust the apps they download and your business can flourish. We've heard your feedback clearly, from excited conversations at Play events around the world to the honest concerns on social media. You want simpler ways to make sure your apps are compliant and pass review, and need strong protections for your business so you can focus on growth and innovation. We are proud of the steps we've taken together this year, but know this is ongoing work in a complex, ever-changing market.
 
 Here are key actions we've taken this year to simplify your development journey and strengthen protection.
 
@@ -16,18 +18,18 @@ Here are key actions we've taken this year to simplify your development journey 
 
 This year, we focused on making improvements to the app publishing experience by reducing friction points, from the moment you write code to submitting your app for review.
 
-- **Policy guidance right where you code** : We rolled out [Play Policy Insights](https://developer.android.com/studio/publish/insights) to all developers using Android Studio. This feature provides real-time, in-context guidance and policy warnings as you code, helping you proactively identify and resolve potential issues before you even submit your app for review.
+- **Policy guidance right where you code** : We rolled out [Play Policy Insights](https://developer.android.com/studio/publish/insights.md.txt) to all developers using Android Studio. This feature provides real-time, in-context guidance and policy warnings as you code, helping you proactively identify and resolve potential issues before you even submit your app for review.
 - **Pre-review checks to help prevent app review surprises: Last year, we launched pre-review checks in Play Console so you can identify issues early, like incomplete policy declarations or crashes, and avoid rejections. This year, we expanded these checks for privacy policy links, login credential requirements, data deletion request links, inaccuracies in your Data safety form, and more.**
 
 ### Stronger protection for your business and users
 
 We are committed to providing you with powerful ways to protect your apps and users from abuse. Beyond existing [tools](https://support.google.com/googleplay/android-developer/answer/9867159#zippy=%2Cages-and-over), [programs](https://play.google.com/console/about/programs/teacherapproved/), and the performance and security enhancement that comes with every Android [release](https://android-developers.googleblog.com/2025/06/android-16-is-here.html), we've also launched:
 
-- **Advanced abuse and fraud protection** : We made the Play Integrity API [faster and more resilient](https://android-developers.googleblog.com/2024/12/making-play-integrity-api-faster-resilient-private.html), and introduced new features like [Play remediation prompts](https://android-developers.googleblog.com/2025/10/stronger-threat-detection-simpler.html) and [device recall](https://developer.android.com/google/play/integrity/device-recall) in beta. Device recall is a powerful new tool that lets you store and recall limited data associated with a device, even if the device is reset, helping protect your business model from repeat bad actors.
+- **Advanced abuse and fraud protection** : We made the Play Integrity API [faster and more resilient](https://android-developers.googleblog.com/2024/12/making-play-integrity-api-faster-resilient-private.html), and introduced new features like [Play remediation prompts](https://android-developers.googleblog.com/2025/10/stronger-threat-detection-simpler.html) and [device recall](https://developer.android.com/google/play/integrity/device-recall.md.txt) in beta. Device recall is a powerful new tool that lets you store and recall limited data associated with a device, even if the device is reset, helping protect your business model from repeat bad actors.
 - **Tools to keep kids safe** :
   - We continued to [invest](https://blog.google/technology/safety-security/age-assurance-measures-safer-online-kids-teens-us/) in protecting children across Google products, including Google Play. New Play [policy](https://support.google.com/googleplay/android-developer/answer/16302250?sjid=17958105945234987629-NC) helps keep our youngest users safe globally by requiring apps with dating and gambling features to use Play Console tools to prevent minors from accessing them. Our enhanced Restrict Minor Access feature now blocks the users who we determine to be minors from searching for, downloading, or making purchases in apps that they shouldn't have access to.
   - We've also been [providing tools](https://support.google.com/googleplay/android-developer/answer/16569691) to developers to help meet significant new age verification regulatory requirements in applicable US states.
-- **More ways to stop malware from snooping on your app:** Android 16 provides a [new, powerful defense](https://android-developers.googleblog.com/2025/12/enhancing-android-security-stop-malware.html) in a single line of code: `accessibilityDataSensitive`. This flag lets you explicitly mark views in your app as containing sensitive data and block malicious apps from seeing or performing interactions on it. If you already use [`setFilterTouchesWhenObscured(true)`](https://developer.android.com/privacy-and-security/risks/tapjacking#mitigations) to protect your app from tapjacking, your views are automatically treated as sensitive data for accessibility for an instant additional layer of defense with no extra work.
+- **More ways to stop malware from snooping on your app:** Android 16 provides a [new, powerful defense](https://android-developers.googleblog.com/2025/12/enhancing-android-security-stop-malware.html) in a single line of code: `accessibilityDataSensitive`. This flag lets you explicitly mark views in your app as containing sensitive data and block malicious apps from seeing or performing interactions on it. If you already use [`setFilterTouchesWhenObscured(true)`](https://developer.android.com/privacy-and-security/risks/tapjacking.md.txt#mitigations) to protect your app from tapjacking, your views are automatically treated as sensitive data for accessibility for an instant additional layer of defense with no extra work.
 
 ### Smoother policy compliance experience
 
@@ -47,7 +49,7 @@ Written by:
 
 -
 
-  ## [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe)
+  ## [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt)
 
   ###### Director, Product Management
 
@@ -55,31 +57,32 @@ Written by:
   View profile](https://developer.android.com/blog/authors/matthew-forsythe) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)
 -
 
-  ## [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino)
+  ## [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino.md.txt)
 
   ###### Sr. Director
 
   [read_more
   View profile](https://developer.android.com/blog/authors/ron-aquino) ![View Ron Aquino's profile](https://developer.android.com/static/blog/assets/unnamed_18_8bd07de9bd_ZRiq2s.webp) ![View Ron Aquino's profile](https://developer.android.com/static/blog/assets/unnamed_18_8bd07de9bd_ZRiq2s.webp)
 Continue reading
-- [![View Ron Aquino's profile](https://developer.android.com/static/blog/assets/unnamed_18_8bd07de9bd_ZRiq2s.webp)](https://developer.android.com/blog/authors/ron-aquino) 25 Aug 2026 25 Aug 2026 ![](https://developer.android.com/static/blog/assets/Ensuring_a_safe_Gen_AI_ecosystem_on_Google_Play_Scrapi_a8fa6da415_1HFCG4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) 19 Nov 2026 19 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_139_Android_developer_verification_Going_global_together_Strapi_01_png_12aa1e5aae_ZkNaef.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Ensuring Safety in the Generative AI Ecosystem: Protecting Users from Non-Consensual Intimate Content](https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content)
+  ## [Expanding Android developer verification in 2027](https://developer.android.com/blog/posts/android-developer-verification-2027.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content) At Google Play, user safety and developer success go hand in hand. We continue to see growth in apps with AI generated features, and indeed, adding generative AI into your apps is a great way to unlock incredible creative possibilities.
-  [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino) • 4 min read
-- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_KDejo.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-2027.md.txt) After over a year of joint preparation with industry leaders, regional partners, app distributors, and Android communities, our user protections successfully went live on September 30 for participating stores across Brazil, Indonesia, Singapore, and Thailand.
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) • 2 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Ron Aquino's profile](https://developer.android.com/static/blog/assets/unnamed_18_8bd07de9bd_ZRiq2s.webp)](https://developer.android.com/blog/authors/ron-aquino.md.txt) 25 Aug 2026 25 Aug 2026 ![](https://developer.android.com/static/blog/assets/Ensuring_a_safe_Gen_AI_ecosystem_on_Google_Play_Scrapi_a8fa6da415_1HFCG4.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
+  ## [Ensuring Safety in the Generative AI Ecosystem: Protecting Users from Non-Consensual Intimate Content](https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
-  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
-- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Verification2_40caaf2e67_Z10Vf7G.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content.md.txt) At Google Play, user safety and developer success go hand in hand. We continue to see growth in apps with AI generated features, and indeed, adding generative AI into your apps is a great way to unlock incredible creative possibilities.
+  [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino.md.txt) • 4 min read
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_KDejo.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android developer verification: Rolling out to all developers on Play Console and Android Developer Console](https://developer.android.com/blog/posts/android-developer-verification-rolling-out-to-all-developers-on-play-console-and-android-developer-console)
+  ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-rolling-out-to-all-developers-on-play-console-and-android-developer-console) Android is for everyone. It's built on a commitment to an open and safe platform. Users should feel confident installing apps, no matter where they get them from.
-  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 3 min read
+  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together.md.txt) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) • 2 min read
 Stay in the loop
 
 

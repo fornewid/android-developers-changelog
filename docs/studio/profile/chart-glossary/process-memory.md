@@ -4,10 +4,12 @@ url: https://developer.android.com/studio/profile/chart-glossary/process-memory
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/profile/llms.txt
+
 For apps deployed to devices running Android 9 or higher, the **Process Memory
 (RSS)** section shows the amount of physical memory in use by the app.
 
-![](https://developer.android.com/static/studio/images/profile/system-trace-process-memory.png)
+![Process Memory rows for total, allocated, file mappings, shared, and swapped-out memory.](https://developer.android.com/static/studio/images/profile/system-trace-process-memory.png)
 
 **Figure 1.** Viewing physical memory in the profiler.
 

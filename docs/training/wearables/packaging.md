@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/packaging
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/llms.txt
+
 This document contains directions and best practices for distributing Wear OS
 apps on the Play Store.
 
@@ -130,14 +132,14 @@ games. To publish a kid-friendly experience for your app or watch face on the
 Play Store, it must meet the following additional requirements:
 
 - **Age and content rating:** Apps and watch faces that are designed for kids must meet the [age and content requirements](https://support.google.com/googleplay/android-developer/answer/9867159#declare_target_age_group) that are appropriate to their functionality.
-- **Standalone functionality:** Apps must set `com.google.android.wearable.standalone` to `true`, as described in the section about [specifying an app's standalone setting](https://developer.android.com/training/wearables/packaging.md.txt#specifying-app-as-standalone). They must also meet all [associated requirements for standalone apps](https://developer.android.com/training/wearables/apps/standalone-apps.md.txt#identify), which take effect when the watch is set up with a [child account](https://support.google.com/families/answer/7103338).
+- **Standalone functionality:** Apps must set `com.google.android.wearable.standalone` to `true`, as described in the section about [specifying an app's standalone setting](https://developer.android.com/training/wearables/packaging.md.txt#specifying-standalone). They must also meet all [associated requirements for standalone apps](https://developer.android.com/training/wearables/apps/standalone-apps.md.txt#identify), which take effect when the watch is set up with a [child account](https://support.google.com/families/answer/7103338).
 - **Watch Face Format:** If you are developing a watch face for kids, it must be created using [Watch Face Format](https://developer.android.com/training/wearables/wff.md.txt).
 
 For more information about creating kid-friendly experiences, see the
 [development guidelines](https://developer.android.com/training/wearables/kids/develop.md.txt).
 
 > [!CAUTION]
-> **Caution:** If you implement an authentication solution in a kid-friendly experience, you cannot use [Google Sign-in](https://developer.android.com/training/wearables/apps/auth-wear.md.txt#Google-Sign-in) because it's not compatible with child accounts.
+> **Caution:** If you implement an authentication solution in a kid-friendly experience, you cannot use [Google Sign-in](https://developer.android.com/training/wearables/apps/auth-wear.md.txt) because it's not compatible with child accounts.
 
 ## Distribution
 
@@ -215,4 +217,4 @@ The following table contains the most common reasons for Play Store rejections.
 | **Basic functionality is broken** | The app doesn't function as advertised, or the screenshots are inaccurate and don't reflect the actual app. Thoroughly test your app with an emulator and a physical device. |
 | **No Wear screenshot** | You must upload at least one screenshot that shows the app running on a Wear OS device. This can be done [from Android Studio](https://developer.android.com/studio/debug/am-screenshot.md.txt). |
 | **Not formatted for round displays** | The app's layout renders incorrectly on a round display, and the Play Store listing doesn't specify this limitation. Use the [Open the Layout Inspector](https://developer.android.com/studio/debug/layout-inspector.md.txt) in Android Studio to make sure that layouts render correctly |
-| **Missing functionality requirements** | Commonly missed functionality requirements, such as malformatted Wear OS notifications or missing [`RemoteInput`](https://developer.android.com/reference/androidx/core/app/RemoteInput.md.txt) for [messaging apps](https://developer.android.com/training/wearables/notifications.md.txt#wearable-only-actions) replies. |
+| **Missing functionality requirements** | Commonly missed functionality requirements, such as malformatted Wear OS notifications or missing [`RemoteInput`](https://developer.android.com/reference/androidx/core/app/RemoteInput.md.txt) for [messaging apps](https://developer.android.com/training/wearables/notifications.md.txt#add-wearable-features) replies. |

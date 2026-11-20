@@ -30,7 +30,7 @@ has few periods of rest where the radio could switch to a standby, low-power
 mode. The network access behavior of this app is likely to keep the radio on for
 extended periods of time, which is battery-inefficient.
 
-![](https://developer.android.com/static/images/topic/performance/power/network/suboptimal_network_traffic_pattern.png)
+![Network traffic graph with frequent data spikes and few idle periods.](https://developer.android.com/static/images/topic/performance/power/network/suboptimal_network_traffic_pattern.png)
 **Figure 1.** Battery-inefficient network activity measured from an app.
 
 Figure 2 shows an optimal network traffic pattern. The app sends network
@@ -39,7 +39,7 @@ switch to standby. This chart shows the same amount of work being done as
 figure 1, but the requests have been shifted and grouped to allow the radio to
 be in standby most of the time.
 
-![](https://developer.android.com/static/images/topic/performance/power/network/optimal_network_traffic_pattern.png)
+![Network traffic graph with two short bursts separated by a long idle period.](https://developer.android.com/static/images/topic/performance/power/network/optimal_network_traffic_pattern.png)
 **Figure 2.** Battery-efficient network activity measured from an app.
 
 If the network traffic for your app looks similar to the graph in figure 2, you
@@ -65,7 +65,7 @@ In the previous lesson, you tagged your app code for different traffic types and
 used the Network Traffic tool to collect data on your app and produce a graph of
 activity, as shown in figure 3.
 
-![](https://developer.android.com/static/images/topic/performance/power/network/network_traffic_colors.png)
+![Network Statistics tab with traffic in three colors and a table of totals by tag.](https://developer.android.com/static/images/topic/performance/power/network/network_traffic_colors.png)
 **Figure 3.** Network traffic tagged for the three categories: user, app, and server.
 
 The Network Traffic tool colors traffic based on the tags you created in the

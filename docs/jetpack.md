@@ -135,7 +135,7 @@ Explore how modern Android architecture is implemented in a real world app [View
 | [health](https://developer.android.com/jetpack/androidx/releases/health.md.txt) | Create performant health applications in a platform agnostic way. |
 | [health.connect](https://developer.android.com/jetpack/androidx/releases/health-connect.md.txt) | Allows developers to read or write user's health and fitness records. |
 | [heifwriter](https://developer.android.com/jetpack/androidx/releases/heifwriter.md.txt) | Encode an image or image collection in HEIF format using the available codecs on the Android device. |
-| [ink](https://developer.android.com/jetpack/androidx/releases/ink.md.txt) | Inspire best-in-class pen apps. Lower the developer barrier to entry for high performance, beautiful inking experiences. Supports Inking on Android and server-side JVM (currently supported on Linux for x86_64). |
+| [ink](https://developer.android.com/jetpack/androidx/releases/ink.md.txt) | Inspire best-in-class pen apps. Lower the developer barrier to entry for high performance, beautiful inking experiences. Supports Android, iOS (version 15.0+), and JVM (on Linux x86-64 and ARM64 and on Mac ARM64). |
 | [input](https://developer.android.com/jetpack/androidx/releases/input.md.txt) | Reduce the latency of input interactions by predicting future MotionEvents |
 | [interpolator](https://developer.android.com/jetpack/androidx/releases/interpolator.md.txt) | Use animation interpolators on older platforms. |
 | [javascriptengine](https://developer.android.com/jetpack/androidx/releases/javascriptengine.md.txt) | Enable your Android app to evaluate JavaScript. |

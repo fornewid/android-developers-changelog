@@ -251,8 +251,8 @@ Based on the signature, it looks like the broadcast intent is
 `android.accounts.LOG_ACCOUNTS_CHANGED` and the receiver class is
 `com.example.app.MyReceiver`.
 
-From the receiver code, you can determine that the thread pool "BG Thread
-\[0,1,2,3\]" does the main work to process this broadcast. Looking at the stack
+From the receiver code, you can determine that the `BG Thread [0,1,2,3]`
+thread pool does the main work to process this broadcast. Looking at the stack
 dumps, you can see that all four background (BG) threads have the same pattern:
 they run a blocking call, `getDataSync`. Since all the BG threads were busy, the
 broadcast couldn't be processed in time, which led to an ANR.

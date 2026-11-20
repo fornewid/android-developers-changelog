@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/testing/semantics
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/testing/llms.txt
+
 UI tests in Compose use *semantics* to interact with the UI hierarchy.
 Semantics, as the name implies, give meaning to a piece of UI. In this context,
 a "piece of UI" (or element) can mean anything from a single composable to a
@@ -30,11 +32,14 @@ because some composables, such as `Text`, already expose some properties to the
 semantics tree. You can add properties to the semantics tree by using a
 `Modifier`.
 
+
 ```kotlin
 MyButton(
     modifier = Modifier.semantics { contentDescription = "Add to favorites" }
 )
 ```
+
+<br />
 
 ## Additional Resources
 

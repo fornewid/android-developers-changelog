@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/system/shortcuts/creating-
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/system/shortcuts/llms.txt
+
 Shortcuts deliver specific types of content to your users by helping them
 quickly access parts of your app.
 ![The contrast between app shortcuts and pinned shortcuts](https://developer.android.com/static/images/guide/topics/ui/shortcuts/pinned-shortcuts.png) **Figure 1.** App shortcuts and pinned shortcuts.
@@ -168,7 +170,7 @@ inner element for each static shortcut that you define.
     > **Note:** This `intent` element can't include string resources.
 
     You can provide multiple intents for a single shortcut. See [Manage multiple
-    intents and activities](https://developer.android.com/develop/ui/compose/system/shortcuts/managing-shortcuts#multiple-intents-activities), [Set an intent](https://developer.android.com/develop/ui/views/components/settings/customize-your-settings.md.txt#set-an-intent), and the
+    intents and activities](https://developer.android.com/develop/ui/compose/system/shortcuts/managing-shortcuts#manage-multiple), [Set an intent](https://developer.android.com/develop/ui/views/components/settings/customize-your-settings.md.txt#set-an-intent), and the
     [`TaskStackBuilder`](https://developer.android.com/reference/kotlin/android/app/TaskStackBuilder.md.txt) class reference for details.
 
 `categories`
@@ -314,7 +316,7 @@ steps:
    > **Note:** `ShortcutInfoCompat.Builder` requires a short label and an intent, also when you use the ID of an existing shortcut. If you don't set them, `build()` throws an `IllegalArgumentException`.
 
    > [!NOTE]
-   > **Note:** Because the system performs [backup and restore](https://developer.android.com/develop/ui/compose/system/shortcuts/managing-shortcuts.md.txt#backup-restore) on pinned shortcuts automatically, these shortcuts' IDs must contain stable, constant strings or server-side identifiers, rather than identifiers generated locally that might not make sense on other devices.
+   > **Note:** Because the system performs [backup and restore](https://developer.android.com/develop/ui/compose/system/shortcuts/managing-shortcuts.md.txt#backup-and) on pinned shortcuts automatically, these shortcuts' IDs must contain stable, constant strings or server-side identifiers, rather than identifiers generated locally that might not make sense on other devices.
 
 3. Pin the shortcut to the device's launcher by calling
    [`requestPinShortcut()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat.md.txt#requestPinShortcut(android.content.Context,androidx.core.content.pm.ShortcutInfoCompat,android.content.IntentSender)). During this process, you can pass in a

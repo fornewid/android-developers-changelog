@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/connectivity/minimize-effect-regular-
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/connectivity/llms.txt
+
 Requests that your app makes to the network are a major cause of battery drain
 because they turn on power-consuming cellular or Wi-Fi radios. Beyond the power
 needed to send and receive packets, these radios expend extra power just
@@ -83,10 +85,10 @@ consider the effect of your prefetching on the available local storage and flush
 your prefetch cache regularly.
 
 You can use the
-[`ConnectivityManager`](https://developer.android.com/reference/android/net/ConnectivityManager) to register
+[`ConnectivityManager`](https://developer.android.com/reference/android/net/ConnectivityManager.md.txt) to register
 a listener for the default network, and the
-[`TelephonyManager`](https://developer.android.com/reference/android/telephony/TelephonyManager) to register
-a [`PhoneStateListener`](https://developer.android.com/reference/android/telephony/PhoneStateListener) to
+[`TelephonyManager`](https://developer.android.com/reference/android/telephony/TelephonyManager.md.txt) to register
+a [`PhoneStateListener`](https://developer.android.com/reference/android/telephony/PhoneStateListener.md.txt) to
 determine the current device connection type. Once the connection type is known,
 you can modify your prefetching routines accordingly:
 
@@ -272,7 +274,7 @@ requests, consider the priority of those requests, whether they can be batched
 together, and whether they can be deferred until the device is charging or
 connected to an unmetered network. These requests can be optimized with careful
 scheduling and by using libraries such as
-[WorkManager](https://developer.android.com/jetpack/androidx/releases/work).
+[WorkManager](https://developer.android.com/jetpack/androidx/releases/work.md.txt).
 
 ### Batch network requests
 
@@ -289,13 +291,12 @@ an app.
 You can use the `WorkManager` library to perform work on an efficient schedule
 that considers whether specific conditions are met, such as network availability
 and power status. For example, suppose you have a
-[`Worker`](https://developer.android.com/reference/androidx/work/Worker) subclass called
+[`Worker`](https://developer.android.com/reference/androidx/work/Worker.md.txt) subclass called
 `DownloadHeadlinesWorker` that retrieves the latest news headlines. This worker
 can be scheduled to run every hour, provided the device is connected to an
 unmetered network and device's battery isn't low, with a custom retry strategy
 if there are any problems retrieving the data, as shown below:
 
-### Kotlin
 
 ```kotlin
 val constraints = Constraints.Builder()
@@ -310,18 +311,7 @@ val request =
 WorkManager.getInstance(context).enqueue(request)
 ```
 
-### Java
-
-```java
-Constraints constraints = new Constraints.Builder()
-        .setRequiredNetworkType(NetworkType.UNMETERED)
-        .setRequiresBatteryNotLow(true)
-        .build();
-WorkRequest request = new PeriodicWorkRequest.Builder(DownloadHeadlinesWorker.class, 1, TimeUnit.HOURS)
-        .setBackoffCriteria(BackoffPolicy.LINEAR, 1L, TimeUnit.MINUTES)
-        .build();
-WorkManager.getInstance(this).enqueue(request);
-```
+<br />
 
 In addition to WorkManager, the Android platform provides several other tools
 to help you create an efficient schedule for completing networking tasks, such

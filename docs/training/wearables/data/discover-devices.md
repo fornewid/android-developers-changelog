@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/data/discover-devices
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/llms.txt
+
 Devices may establish a connection to the internet either
 directly using a Wi-Fi or cellular connection, or indirectly through a paired
 Bluetooth device.
@@ -23,7 +25,7 @@ Under certain circumstances, devices may require up to 4 minutes to re-establish
 a connection. These scenarios include the following:
 
 - **Wear OS device inactivity:** If a Wear OS device is removed from the user's wrist or otherwise isn't actively used for an extended period, the reconnection time might be extended.
-- **Doze state:** A handheld's [power-saving Doze state](https://developer.android.com/training/monitoring-device-state/doze-standby#understand_doze) can limit background processes, potentially increasing the device's reconnection time.
+- **Doze state:** A handheld's [power-saving Doze state](https://developer.android.com/training/monitoring-device-state/doze-standby.md.txt#understand_doze) can limit background processes, potentially increasing the device's reconnection time.
 - **User interaction:** If the user starts interacting with both a handheld device and a Wear OS device at approximately the same time, it often expedites the reconnection process.
 
 ## Discover all devices using a node client
@@ -46,7 +48,7 @@ information from both `NodeClient` and `CapabilityClient` into a single object.
 
 A `CapabilityClient` object provides information about which devices on the
 Wear OS network support specific app capabilities. A *capability* is a feature
-that an app either [defines at build time](https://developer.android.com/training/wearables/data/messages#advertise-capabilities) or
+that an app either [defines at build time](https://developer.android.com/training/wearables/apps/standalone-apps.md.txt#capability-names) or
 [configures dynamically at runtime](https://developers.google.com/android/reference/com/google/android/gms/wearable/CapabilityClient#addLocalCapability(java.lang.String)).
 
 For example, a mobile Android app could advertise that it supports remote
@@ -57,6 +59,15 @@ show play and pause buttons so that users can control a video, which is playing
 on their mobile device, from their Wear OS device. The capability broadcast
 works in the opposite direction, too; Wear OS apps can list the capabilities
 that they support.
+
+To define capabilities at build time, declare a `string-array` resource named
+`android_wear_capabilities` in `res/values/wear.xml`, as shown in
+[Specify capability names for detecting your apps](https://developer.android.com/training/wearables/apps/standalone-apps.md.txt#capability-names). To prevent resource
+shrinking from removing `android_wear_capabilities` as unused, specify
+[`tools:keep="@array/android_wear_capabilities"`](https://developer.android.com/studio/write/tool-attributes.md.txt#toolskeep) in a separate keep file in
+the `res/raw/` directory (for example, `res/raw/keep.xml`) rather than in
+`res/values/wear.xml`. For keep file syntax, see
+[Customize which resources to keep](https://developer.android.com/topic/performance/app-optimization/customize-which-resources-to-keep.md.txt).
 
 ## Check for your app's new capabilities
 

@@ -4,6 +4,8 @@ url: https://developer.android.com/media/ai-enhancement/surface-mode-lifecycle
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/llms.txt
+
 The Media Enhancement API provides a low-latency, privacy-preserving, on-device
 AI solution that leverages hardware acceleration to deliver high-quality media
 improvements with zero APK bloat. For more information, see [Understand the
@@ -67,32 +69,37 @@ are present.
 Running this as a prerequisite step prevents runtime initialization failures by
 validating capabilities before your app attempts to process media.
 
-    class MediaSetupViewModel(application: Application) : AndroidViewModel(application) {
-        private val enhancementClient = Enhancement.getClient(application)
-        fun initializeEnhancementEngine() {
-            viewModelScope.launch {
-                try {
-                    // 1. Verify hardware capability
-                    val isSupported = enhancementClient.isDeviceSupportedAsync()
-                    if (!isSupported) {
-                        notifyUiDeviceIncompatible()
-                        return@launch
-                    }
-                    // 2. Verify and download the Google Play services ML modules
-                    val isInstalled = enhancementClient.isModuleInstalledAsync()
-                    if (!isInstalled) {
-                        notifyUiDownloadingModels()
-                        enhancementClient.installModule().await()
-                    }
-                    notifyUiEngineReady()
-                } catch (e: Exception) {
-                    // Handle potential errors during session creation or image
-                    // processing.
-                    handleInitializationError(e)
+
+```kotlin
+class MediaSetupViewModel(application: Application) : AndroidViewModel(application) {
+    private val enhancementClient = Enhancement.getClient(application)
+    fun initializeEnhancementEngine() {
+        viewModelScope.launch {
+            try {
+                // 1. Verify hardware capability.
+                val isSupported = enhancementClient.isDeviceSupportedAsync()
+                if (!isSupported) {
+                    notifyUiDeviceIncompatible()
+                    return@launch
                 }
+                // 2. Verify and download the Google Play services ML modules.
+                val isInstalled = enhancementClient.isModuleInstalledAsync()
+                if (!isInstalled) {
+                    notifyUiDownloadingModels()
+                    enhancementClient.installModule(installStatusCallback).await()
+                }
+                notifyUiEngineReady()
+            } catch (e: Exception) {
+                // Handle potential errors during session creation or image
+                // processing.
+                handleInitializationError(e)
             }
         }
     }
+}
+```
+
+<br />
 
 ## Implementation: Surface mode (surface in, surface out)
 
@@ -107,25 +114,27 @@ Surface.
 This method is used to efficiently apply effects to a single hardware-decoded
 image frame.
 
-    // Provisions input Surface (for example, ImageReader) and output Surface (for
-    // example, SurfaceView)
-    val inputSurface: Surface = imageReader.surface
-    val outputSurface: Surface = surfaceView.holder.surface
-    // 1. Configure parameters for SURFACE mode
-    val surfaceOptions = EnhancementOptions(
-        imageReader.width,
-        imageReader.height,
-        EnhancementMode.SURFACE,
-        enableTonemap = true,
-        enableDeblurDenoise = true,
-        enableFaceDetection = false
-    ).also {
-        // 2. Bind hardware surfaces
-        it.setInputSurface(inputSurface)
-        it.setOutputSurface(outputSurface)
-    }
+```kotlin
+// Provisions input Surface (for example, ImageReader) and output Surface (for
+// example, SurfaceView)
+val inputSurface: Surface = imageReader.surface
+val outputSurface: Surface = surfaceView.holder.surface
+// 1. Configure parameters for SURFACE mode
+val surfaceOptions = EnhancementOptions(
+    imageReader.width,
+    imageReader.height,
+    EnhancementMode.SURFACE,
+    enableTonemap = true,
+    enableDeblurDenoise = true,
+    enableFaceDetection = false
+).also {
+    // 2. Bind hardware surfaces
+    it.setInputSurface(inputSurface)
+    it.setOutputSurface(outputSurface)
+}
 
-    // 3. Create the session to process the hardware frame
-    val singleFrameSession = enhancementClient.createSessionAsync(surfaceOptions, executor)
-    // The API processes the single frame. Upon completion, release the session.
-    singleFrameSession.release()
+// 3. Create the session to process the hardware frame
+val singleFrameSession = enhancementClient.createSessionAsync(surfaceOptions, executor)
+// The API processes the single frame. Upon completion, release the session.
+singleFrameSession.release()
+```

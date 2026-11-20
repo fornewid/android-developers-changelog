@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/watch-face-designer/export
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/watch-face-designer/llms.txt
+
 Watch Face Designer offers several options for seeing your watch face creation
 come to life on a physical watch or using the [Android emulator](https://developer.android.com/studio/run/emulator.md.txt).
 
@@ -47,7 +49,7 @@ To export using one-click deploy, complete the following steps:
    included charging cable.
 
    For devices that don't support direct USB connections, such as
-   Pixel Watch (1), see [Wirelessly debugging a Wear OS app](https://developer.android.com/training/wearables/get-started/debugging.md.txt#wifi-debugging).
+   Pixel Watch (1), see [Wirelessly debugging a Wear OS app](https://developer.android.com/training/wearables/get-started/debugging.md.txt#connect-wifi).
 
    See the manufacturer's advice for other watches.
 2. Press **Export** in Watch Face Designer, then select **One-click deploy**,
@@ -71,7 +73,7 @@ about packaging and preparing your APK for you.
 To deploy your APK, do the following:
 
 1. Install [ADB](https://developer.android.com/tools/adb.md.txt).
-2. Connect your watch over USB or [over Wi-Fi](https://developer.android.com/training/wearables/get-started/debugging.md.txt#wifi-pair).
+2. Connect your watch over USB or [over Wi-Fi](https://developer.android.com/training/wearables/get-started/debugging.md.txt#connect-wifi).
 3. Use the [`adb install`](https://developer.android.com/tools/adb.md.txt#move) command.
 
 ### Raw resources

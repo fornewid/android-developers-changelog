@@ -4,11 +4,13 @@ url: https://developer.android.com/media/routing/mediarouter
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/routing/llms.txt
+
 In order to use the MediaRouter framework within your app, you must get an instance
-of the `https://developer.android.com/reference/androidx/mediarouter/media/MediaRouter` object and attach a
-`https://developer.android.com/reference/androidx/mediarouter/media/MediaRouter.Callback` object to listen for routing events.
+of the `MediaRouter` object and attach a
+`MediaRouter.Callback` object to listen for routing events.
 Content sent over a media route passes through the route's
-associated `https://developer.android.com/reference/androidx/mediarouter/media/MediaRouteProvider` (except in a few special cases,
+associated `MediaRouteProvider` (except in a few special cases,
 such as a Bluetooth output device). Figure 1 provides a high-level view of the
 classes used to route content between devices.
 ![](https://developer.android.com/static/images/mediarouter/mediarouter-framework.png)
@@ -54,26 +56,24 @@ This section describes the first four steps. The next section describes Callback
 ### Use an AppCompatActivity
 
 When you use the media router framework in an activity you should extend
-the activity from `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity` and import the
-package `https://developer.android.com/reference/androidx/appcompat/app/package-summary`. You must add the
-[androidx.appcompat:appcompat](https://developer.android.com/jetpack/androidx/releases/appcompat)
-and [androidx.mediarouter:mediarouter](https://developer.android.com/jetpack/androidx/releases/mediarouter)
+the activity from `AppCompatActivity` and import the
+package `androidx.appcompat.app`. You must add the
+[androidx.appcompat:appcompat](https://developer.android.com/jetpack/androidx/releases/appcompat.md.txt)
+and [androidx.mediarouter:mediarouter](https://developer.android.com/jetpack/androidx/releases/mediarouter.md.txt)
 support libraries to your app development project. For more information on adding support libraries
-to your project, see [Getting started with Android Jetpack](https://developer.android.com/jetpack/getting-started).
+to your project, see [Getting started with Android Jetpack](https://developer.android.com/jetpack/getting-started.md.txt).
 
 
-**Caution:** Be sure to use the `https://developer.android.com/reference/androidx/classes`
-implementation of the media router framework. Do not use the older `https://developer.android.com/reference/android/media/package-summary` package.
+**Caution:** Be sure to use the `androidx`
+implementation of the media router framework. Do not use the older `android.media` package.
 
 ### Define the media route button menu item
 
 Create an xml file that defines a menu item for the media route button.
-The item's action should be the `https://developer.android.com/reference/androidx/mediarouter/app/MediaRouteActionProvider` class.
+The item's action should be the `MediaRouteActionProvider` class.
 Here is an example file:
 
 ```xml
-// myMediaRouteButtonMenuItem.xml
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       >
@@ -88,14 +88,12 @@ Here is an example file:
 
 ### Create a MediaRouteSelector
 
-The routes that appear in the media route button menu are determined by a `https://developer.android.com/reference/androidx/mediarouter/media/MediaRouteSelector`.
-Extend your activity from `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity`
-and build the selector when the activity is created calling `https://developer.android.com/reference/androidx/mediarouter/media/MediaRouteSelector.Builder`
+The routes that appear in the media route button menu are determined by a `MediaRouteSelector`.
+Extend your activity from `AppCompatActivity`
+and build the selector when the activity is created calling `MediaRouteSelector.Builder`
 from the onCreate() method as shown
 in the following code sample. Note that the selector is saved in a class variable, and the allowable route types are specified
-by adding `https://developer.android.com/reference/androidx/mediarouter/media/MediaControlIntent` objects:
-
-### Kotlin
+by adding `MediaControlIntent` objects:
 
 ```kotlin
 class MediaRouterPlaybackActivity : AppCompatActivity() {
@@ -108,35 +106,15 @@ class MediaRouterPlaybackActivity : AppCompatActivity() {
 
         // Create a route selector for the type of routes your app supports.
         mSelector = MediaRouteSelector.Builder()
-                // These are the framework-supported intents
-                .addControlCategory(MediaControlIntent.CATEGORY_REMOTE_PLAYBACK)
-                .build()
-    }
-}
-```
-
-### Java
-
-```java
-public class MediaRouterPlaybackActivity extends AppCompatActivity {
-    private MediaRouteSelector mSelector;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // Create a route selector for the type of routes your app supports.
-        mSelector = new MediaRouteSelector.Builder()
-                // These are the framework-supported intents
-                .addControlCategory(MediaControlIntent.CATEGORY_REMOTE_PLAYBACK)
-                .build();
+            // These are the framework-supported intents.
+            .addControlCategory(MediaControlIntent.CATEGORY_REMOTE_PLAYBACK)
+            .build()
     }
 }
 ```
 
 For most applications, the only
-route type needed is `https://developer.android.com/reference/androidx/mediarouter/media/MediaControlIntent#CATEGORY_REMOTE_PLAYBACK`. This route type treats the device running your app as a remote control.
+route type needed is `CATEGORY_REMOTE_PLAYBACK`. This route type treats the device running your app as a remote control.
 The connected receiver device handles all content data retrieval, decoding, and playback.
 This is how apps that support [Google Cast](https://developers.google.com/cast/), like
 [Chromecast](http://www.google.com/chromecast), work.
@@ -145,17 +123,15 @@ A few manufacturers support a special routing option called "secondary output." 
 media app retrieves, renders, and streams video or music directly to the screen and/or speakers on the selected remote receiver device.
 Use secondary output to send content to wireless-enabled music systems or video displays. To enable the discovery and
 selection of these devices, you need to add the
-`https://developer.android.com/reference/androidx/mediarouter/media/MediaControlIntent#CATEGORY_LIVE_AUDIO` or
-`https://developer.android.com/reference/androidx/mediarouter/media/MediaControlIntent#CATEGORY_LIVE_VIDEO`
-control categories to the MediaRouteSelector. You also need to create and handle your own `https://developer.android.com/reference/android/app/Presentation` dialog.
+`CATEGORY_LIVE_AUDIO` or
+`CATEGORY_LIVE_VIDEO`
+control categories to the MediaRouteSelector. You also need to create and handle your own `Presentation` dialog.
 
 ### Add the media route button to the action bar
 
 With the media route menu and MediaRouteSelector defined, you can now add the media route button to an activity.
-Override the `https://developer.android.com/reference/android/app/Activity#onCreateOptionsMenu(android.view.Menu)` method for each of your activities to add an options
+Override the `onCreateOptionsMenu()` method for each of your activities to add an options
 menu.
-
-### Kotlin
 
 ```kotlin
 override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -164,12 +140,12 @@ override fun onCreateOptionsMenu(menu: Menu): Boolean {
     // Inflate the menu and configure the media router action provider.
     menuInflater.inflate(R.menu.sample_media_router_menu, menu)
 
-    // Attach the MediaRouteSelector to the menu item
+    // Attach the MediaRouteSelector to the menu item.
     val mediaRouteMenuItem = menu.findItem(R.id.media_route_menu_item)
     val mediaRouteActionProvider =
-            MenuItemCompat.getActionProvider(mediaRouteMenuItem) as MediaRouteActionProvider
+        MenuItemCompat.getActionProvider(mediaRouteMenuItem) as MediaRouteActionProvider
 
-    // Attach the MediaRouteSelector that you built in onCreate()
+    // Attach the MediaRouteSelector that you built in onCreate().
     selector?.also(mediaRouteActionProvider::setRouteSelector)
 
     // Return true to show the menu.
@@ -177,64 +153,39 @@ override fun onCreateOptionsMenu(menu: Menu): Boolean {
 }
 ```
 
-### Java
-
-```java
-@Override
-public boolean onCreateOptionsMenu(Menu menu) {
-    super.onCreateOptionsMenu(menu);
-
-    // Inflate the menu and configure the media router action provider.
-    getMenuInflater().inflate(R.menu.sample_media_router_menu, menu);
-
-    // Attach the MediaRouteSelector to the menu item
-    MenuItem mediaRouteMenuItem = menu.findItem(R.id.media_route_menu_item);
-    MediaRouteActionProvider mediaRouteActionProvider =
-            (MediaRouteActionProvider)MenuItemCompat.getActionProvider(
-            mediaRouteMenuItem);
-    // Attach the MediaRouteSelector that you built in onCreate()
-    mediaRouteActionProvider.setRouteSelector(selector);
-
-    // Return true to show the menu.
-    return true;
-}
-```
-
 For more information about implementing the action bar in your app,
 see the [Action Bar](https://developer.android.com/guide/topics/ui/actionbar)
 developer guide.
 
-You can also add a media route button as a `https://developer.android.com/reference/androidx/mediarouter/app/MediaRouteButton` in any
-view. You must attach a MediaRouteSelector to the button using the `https://developer.android.com/reference/androidx/mediarouter/app/MediaRouteButton#setRouteSelector(androidx.mediarouter.media.MediaRouteSelector)` method. See the
+You can also add a media route button as a `MediaRouteButton` in any
+view. You must attach a MediaRouteSelector to the button using the `setRouteSelector()` method. See the
 [Google Cast Design Checklist](https://developers.google.com/cast/docs/design_checklist)
 for guidelines on incorporating the media route button into your application.
 
 ## MediaRouter callbacks
 
-All the apps running on the same device share a single `https://developer.android.com/reference/androidx/mediarouter/media/MediaRouter` instance and its routes
+All the apps running on the same device share a single `MediaRouter` instance and its routes
 (filtered per app by the app's MediaRouteSelector). Each activity communicates with the MediaRouter
-using its own implementation of `https://developer.android.com/reference/androidx/mediarouter/media/MediaRouter.Callback`
+using its own implementation of `MediaRouter.Callback`
 methods. The MediaRouter calls the callback methods whenever the user selects, changes, or disconnects a route.
 
 There are several methods in the callback that you can override to receive information about
-routing events. At a minimum, your implementation of the `https://developer.android.com/reference/androidx/mediarouter/media/MediaRouter.Callback` class should override
-`https://developer.android.com/reference/androidx/mediarouter/media/MediaRouter.Callback#onRouteSelected(androidx.mediarouter.media.MediaRouter,%20androidx.mediarouter.media.MediaRouter.RouteInfo,%20int)` and
-`https://developer.android.com/reference/androidx/mediarouter/media/MediaRouter.Callback#onRouteUnselected(androidx.mediarouter.media.MediaRouter,%20androidx.mediarouter.media.MediaRouter.RouteInfo,%20int)`.
+routing events. At a minimum, your implementation of the `MediaRouter.Callback` class should override
+`onRouteSelected()` and
+`onRouteUnselected()`.
 
 Since the MediaRouter is a shared resource, your app needs to manage its MediaRouter callbacks
 in response to the usual activity lifecycle callbacks:
 
-- When the activity is created (`https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)`) grab a pointer to the `https://developer.android.com/reference/androidx/mediarouter/media/MediaRouter` and hold onto it for the lifetime of the app.
-- Attach callbacks to MediaRouter when the activity becomes visible (`https://developer.android.com/reference/android/app/Activity#onStart()`), and detach them when it is hidden (`https://developer.android.com/reference/android/app/Activity#onStop()`).
+- When the activity is created (`onCreate(Bundle)`) grab a pointer to the `MediaRouter` and hold onto it for the lifetime of the app.
+- Attach callbacks to MediaRouter when the activity becomes visible (`onStart()`), and detach them when it is hidden (`onStop()`).
 
 The following code sample demonstrates how to
 create and save the callback object, how to
-obtain an instance of `https://developer.android.com/reference/androidx/mediarouter/media/MediaRouter`, and how to manage callbacks.
-Note the use of the `https://developer.android.com/reference/androidx/mediarouter/media/MediaRouter#CALLBACK_FLAG_REQUEST_DISCOVERY` flag when attaching the callbacks in `https://developer.android.com/reference/android/app/Activity#onStart()`.
+obtain an instance of `MediaRouter`, and how to manage callbacks.
+Note the use of the `CALLBACK_FLAG_REQUEST_DISCOVERY` flag when attaching the callbacks in `onStart()`.
 This allows your MediaRouteSelector to refresh the media route button's
 list of available routes.
-
-### Kotlin
 
 ```kotlin
 class MediaRouterPlaybackActivity : AppCompatActivity() {
@@ -242,51 +193,55 @@ class MediaRouterPlaybackActivity : AppCompatActivity() {
     private var mediaRouter: MediaRouter? = null
     private var mSelector: MediaRouteSelector? = null
 
-    // Variables to hold the currently selected route and its playback client
+    // Variables to hold the currently selected route and its playback client.
     private var mRoute: MediaRouter.RouteInfo? = null
     private var remotePlaybackClient: RemotePlaybackClient? = null
 
-    // Define the Callback object and its methods, save the object in a class variable
+    // Define the Callback object and its methods, save the object in a class variable.
     private val mediaRouterCallback = object : MediaRouter.Callback() {
 
-        override fun onRouteSelected(router: MediaRouter, route: MediaRouter.RouteInfo) {
+        override fun onRouteSelected(
+            router: MediaRouter,
+            route: MediaRouter.RouteInfo,
+            reason: Int
+        ) {
             Log.d(TAG, "onRouteSelected: route=$route")
             if (route.supportsControlCategory(MediaControlIntent.CATEGORY_REMOTE_PLAYBACK)) {
-                // Stop local playback (if necessary)
+                // Stop local playback (if necessary).
                 // ...
 
-                // Save the new route
+                // Save the new route.
                 mRoute = route
 
-                // Attach a new playback client
+                // Attach a new playback client.
                 remotePlaybackClient =
-                    RemotePlaybackClient(this@MediaRouterPlaybackActivity, mRoute)
+                    RemotePlaybackClient(this@MediaRouterPlaybackActivity, route)
 
-                // Start remote playback (if necessary)
+                // Start remote playback (if necessary).
                 // ...
             }
         }
 
         override fun onRouteUnselected(
-                router: MediaRouter,
-                route: MediaRouter.RouteInfo,
-                reason: Int
+            router: MediaRouter,
+            route: MediaRouter.RouteInfo,
+            reason: Int
         ) {
             Log.d(TAG, "onRouteUnselected: route=$route")
             if (route.supportsControlCategory(MediaControlIntent.CATEGORY_REMOTE_PLAYBACK)) {
 
-                // Changed route: tear down previous client
+                // Changed route: tear down previous client.
                 mRoute?.also {
                     remotePlaybackClient?.release()
                     remotePlaybackClient = null
                 }
 
-                // Save the new route
+                // Save the new route.
                 mRoute = route
 
-                when (reason) {
-                    MediaRouter.UNSELECT_REASON_ROUTE_CHANGED -> {
-                        // Resume local playback (if necessary)
+                when {
+                    reason != MediaRouter.UNSELECT_REASON_ROUTE_CHANGED -> {
+                        // Resume local playback (if necessary).
                         // ...
                     }
                 }
@@ -294,23 +249,24 @@ class MediaRouterPlaybackActivity : AppCompatActivity() {
         }
     }
 
-
-    // Retain a pointer to the MediaRouter
+    // Retain a pointer to the MediaRouter.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // Get the media router service.
         mediaRouter = MediaRouter.getInstance(this)
-        ...
+        // ...
     }
 
     // Use this callback to run your MediaRouteSelector to generate the
-    // list of available media routes
+    // list of available media routes.
     override fun onStart() {
         mSelector?.also { selector ->
-            mediaRouter?.addCallback(selector, mediaRouterCallback,
-                    MediaRouter.CALLBACK_FLAG_REQUEST_DISCOVERY)
+            mediaRouter?.addCallback(
+                selector, mediaRouterCallback,
+                MediaRouter.CALLBACK_FLAG_REQUEST_DISCOVERY
+            )
         }
         super.onStart()
     }
@@ -321,131 +277,41 @@ class MediaRouterPlaybackActivity : AppCompatActivity() {
         mediaRouter?.removeCallback(mediaRouterCallback)
         super.onStop()
     }
-    ...
-}
-```
-
-### Java
-
-```java
-public class MediaRouterPlaybackActivity extends AppCompatActivity {
-    private MediaRouter mediaRouter;
-    private MediaRouteSelector mSelector;
-
-    // Variables to hold the currently selected route and its playback client
-    private MediaRouter.RouteInfo mRoute;
-    private RemotePlaybackClient remotePlaybackClient;
-
-    // Define the Callback object and its methods, save the object in a class variable
-    private final MediaRouter.Callback mediaRouterCallback =
-            new MediaRouter.Callback() {
-
-        @Override
-        public void onRouteSelected(MediaRouter router, RouteInfo route) {
-            Log.d(TAG, "onRouteSelected: route=" + route);
-
-            if (route.supportsControlCategory(
-                MediaControlIntent.CATEGORY_REMOTE_PLAYBACK)){
-                // Stop local playback (if necessary)
-                // ...
-
-                // Save the new route
-                mRoute = route;
-
-                // Attach a new playback client
-                remotePlaybackClient = new RemotePlaybackClient(this, mRoute);
-
-                // Start remote playback (if necessary)
-                // ...
-            }
-        }
-
-        @Override
-        public void onRouteUnselected(MediaRouter router, RouteInfo route, int reason) {
-            Log.d(TAG, "onRouteUnselected: route=" + route);
-
-            if (route.supportsControlCategory(
-                MediaControlIntent.CATEGORY_REMOTE_PLAYBACK)){
-
-                // Changed route: tear down previous client
-                if (mRoute != null && remotePlaybackClient != null) {
-                    remotePlaybackClient.release();
-                    remotePlaybackClient = null;
-                }
-
-                // Save the new route
-                mRoute = route;
-
-                if (reason != MediaRouter.UNSELECT_REASON_ROUTE_CHANGED) {
-                    // Resume local playback  (if necessary)
-                    // ...
-                }
-            }
-        }
-    }
-
-
-    // Retain a pointer to the MediaRouter
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // Get the media router service.
-        mediaRouter = MediaRouter.getInstance(this);
-        ...
-    }
-
-    // Use this callback to run your MediaRouteSelector to generate the list of available media routes
-    @Override
-    public void onStart() {
-        mediaRouter.addCallback(mSelector, mediaRouterCallback,
-                MediaRouter.CALLBACK_FLAG_REQUEST_DISCOVERY);
-        super.onStart();
-    }
-
-    // Remove the selector on stop to tell the media router that it no longer
-    // needs to discover routes for your app.
-    @Override
-    public void onStop() {
-        mediaRouter.removeCallback(mediaRouterCallback);
-        super.onStop();
-    }
-    ...
+    // ...
 }
 ```
 
 
 The media router framework also provides a
-`https://developer.android.com/reference/androidx/mediarouter/app/MediaRouteDiscoveryFragment` class, which takes care of adding and
+`MediaRouteDiscoveryFragment` class, which takes care of adding and
 removing the callback for an activity.
 
 
 **Note:** If you are writing a music playback app and want the app to play
-music while it is in the background, you must build a `https://developer.android.com/reference/android/app/Service` for playback
+music while it is in the background, you must build a `Service` for playback
 and call the media router framework from the Service's lifecycle callbacks.
 
 ## Controlling a remote playback route
 
 When you select a remote playback route your app acts as a remote control. The device at the other end of the route
 handles all content data retrieval, decoding, and playback functions. The controls in your app's UI communicate with the receiver device using a
-`https://developer.android.com/reference/androidx/mediarouter/media/RemotePlaybackClient` object.
+`RemotePlaybackClient` object.
 
-The `https://developer.android.com/reference/androidx/mediarouter/media/RemotePlaybackClient` class provides additional methods
-for managing content playback. Here are a few of the key playback methods from the `https://developer.android.com/reference/androidx/mediarouter/media/RemotePlaybackClient` class:
+The `RemotePlaybackClient` class provides additional methods
+for managing content playback. Here are a few of the key playback methods from the `RemotePlaybackClient` class:
 
-- `https://developer.android.com/reference/androidx/mediarouter/media/RemotePlaybackClient#play(android.net.Uri,%20java.lang.String,%20android.os.Bundle,%20long,%20android.os.Bundle,%20androidx.mediarouter.media.RemotePlaybackClient.ItemActionCallback)` --- Play a specific media file, specified by a `https://developer.android.com/reference/android/net/Uri`.
-- `https://developer.android.com/reference/androidx/mediarouter/media/RemotePlaybackClient#pause(android.os.Bundle,%20androidx.mediarouter.media.RemotePlaybackClient.SessionActionCallback)` --- Pause the currently playing media track.
-- `https://developer.android.com/reference/androidx/mediarouter/media/RemotePlaybackClient#resume(android.os.Bundle,%20androidx.mediarouter.media.RemotePlaybackClient.SessionActionCallback)` --- Continue playing the current track after a pause command.
-- `https://developer.android.com/reference/androidx/mediarouter/media/RemotePlaybackClient#seek(java.lang.String,%20long,%20android.os.Bundle,%20androidx.mediarouter.media.RemotePlaybackClient.ItemActionCallback)` --- Move to a specific position in the current track.
-- `https://developer.android.com/reference/androidx/mediarouter/media/RemotePlaybackClient#release()` --- Tear down the connection from your app to the remote playback device.
+- `play()` --- Play a specific media file, specified by a `Uri`.
+- `pause()` --- Pause the currently playing media track.
+- `resume()` --- Continue playing the current track after a pause command.
+- `seek()` --- Move to a specific position in the current track.
+- `release()` --- Tear down the connection from your app to the remote playback device.
 
 You can use these methods to attach actions to the playback controls that you provide in your
 app. Most of these methods also allow you to include a callback object so you can monitor
 the progress of the playback task or control request.
 
 
-The `https://developer.android.com/reference/androidx/mediarouter/media/RemotePlaybackClient` class also supports queueing of
+The `RemotePlaybackClient` class also supports queueing of
 multiple media items for playback and management of the media queue.
 
 ## Sample code

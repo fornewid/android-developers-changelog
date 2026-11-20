@@ -4,10 +4,10 @@ url: https://developer.android.com/guide/topics/resources/color-list-resource
 source: md.txt
 ---
 
-A `https://developer.android.com/reference/android/content/res/ColorStateList`
+A `ColorStateList`
 is an object you can define in XML and apply as a color that actually changes colors depending on
-the state of the `https://developer.android.com/reference/android/view/View` object it is
-applied to. For example, a `https://developer.android.com/reference/android/widget/Button`
+the state of the `View` object it is
+applied to. For example, a `Button`
 widget can exist in one of several states: pressed, focused, or neither. Using a color state list,
 you can provide a different color for each state.
 
@@ -19,7 +19,7 @@ matches the current state is used. The selection is *isn't* based on the "best"
 match, but rather the first item that meets the minimum criteria of the state.
 
 **Note:** If you want to provide a static color resource, use a
-simple [color](https://developer.android.com/guide/topics/resources/more-resources#Color) value.
+simple [color](https://developer.android.com/guide/topics/resources/more-resources.md.txt#Color) value.
 
 file location:
 :   `res/color/filename.xml`  
@@ -27,7 +27,7 @@ file location:
     The filename is used as the resource ID.
 
 compiled resource datatype:
-:   Resource pointer to a `https://developer.android.com/reference/android/content/res/ColorStateList`
+:   Resource pointer to a `ColorStateList`
 
 resource reference:
 :
@@ -157,6 +157,6 @@ example:
 
 see also:
 :
-    - [Color (simple value)](https://developer.android.com/guide/topics/resources/more-resources#Color)
-    - `https://developer.android.com/reference/android/content/res/ColorStateList`
-    - [State list drawable](https://developer.android.com/guide/topics/resources/drawable-resource#StateList)
+    - [Color (simple value)](https://developer.android.com/guide/topics/resources/more-resources.md.txt#Color)
+    - `ColorStateList`
+    - [State list drawable](https://developer.android.com/guide/topics/resources/drawable-resource.md.txt#StateList)

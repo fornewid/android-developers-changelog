@@ -4,8 +4,10 @@ url: https://developer.android.com/topic/performance/tracing/navigate-report
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/topic/performance/tracing/llms.txt
+
 This guide explains how to navigate around and interpret a
-[Systrace](https://developer.android.com/topic/performance/tracing) report. To interpret a Perfetto report,
+[Systrace](https://developer.android.com/topic/performance/tracing.md.txt) report. To interpret a Perfetto report,
 see the [Trace Processor](https://perfetto.dev/#/trace-processor.md)
 documentation.
 
@@ -102,10 +104,10 @@ viewing a Systrace report:
 | **D** | Pan right on the trace timeline. ||
 | **E** | Center the trace timeline on the current mouse location. ||
 | **M** | Frame the current selection. ||
-| **1** | Change the currently-active selection model to the "select" mode. Corresponds to the 1st button that appears in the mouse selector toolbar (see image to the right). | ![Screenshot of mouse selector toolbar in Systrace report](https://developer.android.com/static/topic/performance/images/tracing/mouse-selection-toolbar-1.svg) |
-| **2** | Change the currently-active selection model to the "pan" mode. Corresponds to the 2nd button that appears in the mouse selector toolbar (see image to the right). | ![Screenshot of mouse selector toolbar in Systrace report](https://developer.android.com/static/topic/performance/images/tracing/mouse-selection-toolbar-2.svg) |
-| **3** | Change the currently-active selection model to the "zoom" mode. Corresponds to the 3rd button that appears in the mouse selector toolbar (see image to the right). | ![Screenshot of mouse selector toolbar in Systrace report](https://developer.android.com/static/topic/performance/images/tracing/mouse-selection-toolbar-3.svg) |
-| **4** | Change the currently-active selection model to the "timing" mode. Corresponds to the 4th button that appears in the mouse selector toolbar (see image to the right). | ![Screenshot of mouse selector toolbar in Systrace report](https://developer.android.com/static/topic/performance/images/tracing/mouse-selection-toolbar-4.svg) |
+| **1** | Change the active selection mode to select mode. Corresponds to the first button in the mouse selector toolbar. | ![Screenshot of mouse selector toolbar in Systrace report](https://developer.android.com/static/topic/performance/images/tracing/mouse-selection-toolbar-1.svg) |
+| **2** | Change the active selection mode to pan mode. Corresponds to the second button in the mouse selector toolbar. | ![Screenshot of mouse selector toolbar in Systrace report](https://developer.android.com/static/topic/performance/images/tracing/mouse-selection-toolbar-2.svg) |
+| **3** | Change the active selection mode to zoom mode. Corresponds to the third button in the mouse selector toolbar. | ![Screenshot of mouse selector toolbar in Systrace report](https://developer.android.com/static/topic/performance/images/tracing/mouse-selection-toolbar-3.svg) |
+| **4** | Change the active selection mode to timing mode. Corresponds to the fourth button in the mouse selector toolbar. | ![Screenshot of mouse selector toolbar in Systrace report](https://developer.android.com/static/topic/performance/images/tracing/mouse-selection-toolbar-4.svg) |
 | **G** | Show grid at the start of the currently-selected task. ||
 | **Shift + G** | Show grid at the end of the currently-selected task. ||
 | **Left Arrow** | Select the previous event on the currently-selected timeline. ||
@@ -115,7 +117,7 @@ viewing a Systrace report:
 
 When interacting with a Systrace report, you can inspect device CPU usage over
 the duration of the recording. For help navigating the HTML report, see the
-[keyboard shortcuts](https://developer.android.com/topic/performance/tracing/navigate-report#keyboard-shortcuts) section, or click the **?** button in
+[keyboard shortcuts](https://developer.android.com/topic/performance/tracing/navigate-report.md.txt#keyboard-shortcuts) section, or click the **?** button in
 the top-right corner of the report.
 
 The sections below explain how to inspect information in the report to find and
@@ -158,7 +160,7 @@ frame selected](https://developer.android.com/static/topic/performance/images/tr
 After you select a slow frame, you may see an alert in the bottom pane of the
 report. The alert shown in Figure 5 calls out that the primary problem with the
 frame is that too much time is spent inside
-[`ListView`](https://developer.android.com/reference/android/widget/ListView) recycling and rebinding. There
+[`ListView`](https://developer.android.com/reference/android/widget/ListView.md.txt) recycling and rebinding. There
 are links to the relevant events in the trace that explain more about what the
 system is doing during this time.
 
@@ -176,4 +178,4 @@ approaches to help determine which methods are consuming too much CPU time:
 - If you have an idea as to which methods could be causing bottlenecks, add trace markers to these methods. To learn more, see the guide on how to [define
   custom events in your code](https://developer.android.com/topic/performance/tracing/custom-events).
 - If you're unsure as to the source of UI bottlenecks, use the [CPU
-  Profiler](https://developer.android.com/studio/profile/cpu-profiler) that's available in Android Studio. You can [generate trace logs](https://developer.android.com/studio/profile/generate-trace-logs), and then import and inspect them using the CPU Profiler.
+  Profiler](https://developer.android.com/studio/profile/cpu-profiler) that's available in Android Studio. You can [generate trace logs](https://developer.android.com/studio/profile/generate-trace-logs.md.txt), and then import and inspect them using the CPU Profiler.

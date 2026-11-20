@@ -59,19 +59,13 @@ To create the best experience for the end users of your media app, you need to
 implement `MediaSession`. To do so, initialize a `Player` and supply it to
 `MediaSession.Builder` like this:
 
-### Kotlin
 
 ```kotlin
 val player = ExoPlayer.Builder(context).build()
 val mediaSession = MediaSession.Builder(context, player).build()
 ```
 
-### Java
-
-```java
-ExoPlayer player = new ExoPlayer.Builder(context).build();
-MediaSession mediaSession = new MediaSession.Builder(context, player).build();
-```
+<br />
 
 #### Automatic state handling
 

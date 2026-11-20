@@ -23,11 +23,12 @@ Distribution) accounts in Android Developer Console.
 
 ### What if my app store package name is already registered in my Play Console account?
 
-If your app store package name is currently managed in a Play Console account, create an [Android Developer Console](https://developer.android.com/developer-verification/guides/android-developer-console.md.txt) organization account
-and transfer that package name to your Android Developer Console account before
-proceeding. A package name transfer requires both the source and target accounts
-to be fully verified Organization accounts in good standing.
-[Contact support](https://support.google.com/android-developer-console/contact/registered_app_store_enrollment_inquiries) to request the package name transfer.
+If your app store package name is currently managed in a Play Console account,
+create an [Android Developer Console](https://developer.android.com/developer-verification/guides/android-developer-console.md.txt) organization account and transfer that
+package name to your Android Developer Console account before proceeding. A
+package name transfer requires both the source and target accounts to be fully
+verified Organization accounts in good standing. [Contact support](https://support.google.com/android-developer-console/contact/registered_app_store_enrollment_inquiries) to request
+the package name transfer.
 
 ### How does the Registered App Store program differ from the Third-Party App Store on Play program?
 
@@ -54,7 +55,7 @@ Starting December 1, 2026, Registered App Store status is available on Android
 
 <br />
 
-View supported regions Albania, Algeria, Angola, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, The Bahamas, Bahrain, Bangladesh, Belarus, Belgium, Belize, Benin, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Bulgaria, Burkina Faso, Cambodia, Cameroon, Canada, Cape Verde, Chile, Colombia, Costa Rica, Côte d'Ivoire, Croatia, Cuba, Cyprus, Czech Republic, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Fiji, Finland, France, Gabon, Germany, Ghana, Greece, Guatemala, Guinea-Bissau, Haiti, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Iran, Republic of Ireland, Israel, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Kyrgyzstan, Laos, Latvia, Lebanon, Liechtenstein, Lithuania, Luxembourg, Macau, Republic of Macedonia, Malaysia, Mali, Malta, Mauritius, Mexico, Moldova, Morocco, Mozambique, Myanmar, Namibia, Nepal, Netherland Antilles, Netherlands, New Zealand, Nicaragua, Niger, Nigeria, Norway, Oman, Pakistan, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saudi Arabia, Senegal, Serbia, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Tajikistan, Tanzania, Thailand, Togo, Trinidad and Tobago, Tunisia, Turkey, Turkmenistan, Uganda, Ukraine, United Arab Emirates, United Kingdom, Uruguay, Uzbekistan, Venezuela, Vietnam, Yemen, Zambia, Zimbabwe
+View supported regions Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antarctica, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, The Bahamas, Bahrain, Bangladesh, Barbados, Belarus, Belgium, Belize, Benin, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Bouvet Island, Brazil, British Indian Ocean Territory, Brunei, Bulgaria, Burkina Faso, Burundi, Cambodia, Cameroon, Canada, Cape Verde, Central African Republic, Chile, Christmas Island, Cocos (Keeling) Islands, Colombia, Cook Islands, Costa Rica, Côte d'Ivoire, Croatia, Cuba, Curaçao, Cyprus, Czech Republic, Denmark, Dominican Republic, East Timor, Ecuador, Egypt, El Salvador, Equatorial Guinea, Estonia, Eswatini, Falkland Islands (Islas Malvinas), Fiji, Finland, France, French Southern and Antarctic Lands, Gabon, Germany, Ghana, Greece, Guatemala, Guernsey, Guinea-Bissau, Guyana, Haiti, Heard Island and McDonald Islands, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Iran, Republic of Ireland, Isle of Man, Israel, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kiribati, Kosovo, Kuwait, Kyrgyzstan, Laos, Latvia, Lebanon, Lesotho, Liechtenstein, Lithuania, Luxembourg, Macau, Republic of Macedonia, Madagascar, Malawi, Malaysia, Mali, Malta, Mauritania, Mauritius, Mexico, Moldova, Montenegro, Montserrat, Morocco, Mozambique, Myanmar, Namibia, Nauru, Nepal, Netherland Antilles, Netherlands, New Zealand, Nicaragua, Niger, Nigeria, Niue, Norfolk Island, Norway, Oman, Pakistan, Palestinian Territory, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Pitcairn, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saba, Saint Helena Ascension and Tristan da Cunha, São Tomé and Príncipe, Saudi Arabia, Senegal, Serbia, Singapore, Slovakia, Slovenia, South Africa, South Georgia and The Sandwich Islands, South Korea, South Sudan, Spain, Sri Lanka, St. Vincent and Grenadines, Sweden, Switzerland, Taiwan, Tajikistan, Tanzania, Thailand, Togo, Tokelau, Trinidad and Tobago, Tunisia, Turkey, Turkmenistan, Tuvalu, Uganda, Ukraine, United Arab Emirates, United Kingdom, Uruguay, US Minor Outlying Islands, Uzbekistan, Venezuela, Vietnam, Western Sahara, Yemen, Zambia, Zimbabwe
 
 <br />
 

@@ -4,13 +4,15 @@ url: https://developer.android.com/training/basics/intents/sending
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/basics/intents/llms.txt
+
 [Video](https://www.youtube.com/watch?v=HGElAW224dE)
 
 One of Android's most important features is an app's ability to send the user to another app
 based on an "action" it would like to perform. For example, if
 your app has the address of a business that you'd like to show on a map, you don't have to build
 an activity in your app that shows a map. Instead, you can create a request to view the address
-using an `https://developer.android.com/reference/android/content/Intent`. The Android system then starts an app that's able to show
+using an `Intent`. The Android system then starts an app that's able to show
 the address on a map.
 
 As explained in the first class, [Building
@@ -33,13 +35,13 @@ action to perform. The action specifies the thing you want to do, such as *view*
 
 Intents often also include data associated
 with the action, such as the address you want to view, or the email message you want to send.
-Depending on the intent you want to create, the data might be a `https://developer.android.com/reference/android/net/Uri`,
+Depending on the intent you want to create, the data might be a `Uri`,
 one of several other data types, or the intent might not need data at all.
 
-If your data is a `https://developer.android.com/reference/android/net/Uri`, there's a simple `https://developer.android.com/reference/android/content/Intent#Intent(java.lang.String, android.net.Uri)` constructor you can use to define the action and
+If your data is a `Uri`, there's a simple `Intent()` constructor you can use to define the action and
 data.
 
-For example, here's how to create an intent to initiate a phone call using the `https://developer.android.com/reference/android/net/Uri` data to specify the telephone number:
+For example, here's how to create an intent to initiate a phone call using the `Uri` data to specify the telephone number:
 
 ### Kotlin
 
@@ -56,9 +58,9 @@ Uri number = Uri.parse("tel:5551234");
 Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
 ```
 
-When your app invokes this intent by calling `https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent)`, the Phone app initiates a call to the given phone number.
+When your app invokes this intent by calling `startActivity()`, the Phone app initiates a call to the given phone number.
 
-Here are a couple other intents and their action and `https://developer.android.com/reference/android/net/Uri` data
+Here are a couple other intents and their action and `Uri` data
 pairs:
 
 #### View a map
@@ -106,11 +108,11 @@ Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
 ### Add extras to an intent
 
 Other kinds of implicit intents require "extra" data that provide different data types,
-such as a string. You can add one or more pieces of extra data using the various `https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String, java.lang.String)` methods.
+such as a string. You can add one or more pieces of extra data using the various `putExtra()` methods.
 
 By default, the system determines the appropriate MIME type required by an intent based on the
-`https://developer.android.com/reference/android/net/Uri` data that's included. If you don't include a `https://developer.android.com/reference/android/net/Uri` in the
-intent, you should usually use `https://developer.android.com/reference/android/content/Intent#setType(java.lang.String)` to specify the type
+`Uri` data that's included. If you don't include a `Uri` in the
+intent, you should usually use `setType()` to specify the type
 of data associated with the intent. Setting the MIME type further specifies which kinds of
 activities should receive the intent.
 
@@ -183,14 +185,14 @@ calendarIntent.putExtra(Events.TITLE, "Ninja class");
 calendarIntent.putExtra(Events.EVENT_LOCATION, "Secret dojo");
 ```
 
-**Note:** It's important that you define your `https://developer.android.com/reference/android/content/Intent` to be as specific as possible. For example, if you want to display an image
-using the `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW` intent, you should specify a MIME type of
+**Note:** It's important that you define your `Intent` to be as specific as possible. For example, if you want to display an image
+using the `ACTION_VIEW` intent, you should specify a MIME type of
 `image/*`. This prevents apps that can "view" other types of data (like a map app) from being
 triggered by the intent.
 
 ## Start an activity with the intent
 
-Once you have created your `https://developer.android.com/reference/android/content/Intent` and set the extra info, call `https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent)` to send it to the system:
+Once you have created your `Intent` and set the extra info, call `startActivity()` to send it to the system:
 
 ### Kotlin
 
@@ -210,7 +212,7 @@ Although many intents are successfully handled by another app that's installed
 on the device---such as a phone, email, or calendar app---your app should prepare
 for the situation where no activity can handle your app's intent. Whenever you
 invoke an intent, be ready to catch an
-[`ActivityNotFoundException`](https://developer.android.com/reference/android/content/ActivityNotFoundException),
+[`ActivityNotFoundException`](https://developer.android.com/reference/android/content/ActivityNotFoundException.md.txt),
 which occurs if there's no other activity that can handle your app's intent:
 
 ### Kotlin
@@ -237,7 +239,7 @@ After you catch this exception, decide what your app should do next. This next
 step depends on the specific characteristics of the intent that you tried to
 invoke. For example, if you know of a specific app that can handle the intent,
 provide a link for the user to download the app. Learn more about how to
-[link to your product on Google Play](https://developer.android.com/distribute/marketing-tools/linking-to-google-play).
+[link to your product on Google Play](https://developer.android.com/distribute/marketing-tools/linking-to-google-play.md.txt).
 
 ### Disambiguation dialog
 
@@ -245,9 +247,6 @@ If the system identifies more than one activity that can handle the intent, it
 displays a dialog (sometimes referred to as the "disambiguation dialog") for the
 user to select which app to use, as shown in figure 1. If there is only one
 activity that handles the intent, the system immediately starts it.
-
-<br />
-
 ![A panel appears
 near the bottom of the screen. This panel lists the different apps that could
 handle the intent.](https://developer.android.com/static/images/training/basics/intents-choice.png)
@@ -296,7 +295,7 @@ try {
 
 **Figure 2.** A chooser dialog.
 
-Notice that when you start an activity by passing your `https://developer.android.com/reference/android/content/Intent` to `https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent)` and there is more than one app that responds to
+Notice that when you start an activity by passing your `Intent` to `startActivity()` and there is more than one app that responds to
 the intent, the user can select which app to use by default (by selecting a checkbox at the bottom
 of the dialog; see figure 1). This is nice when performing an action for which the user
 generally wants to use the same app every time, such as when opening a web page (users
@@ -309,7 +308,7 @@ as shown in figure 2. The chooser dialog
 forces the user to select which app to use for the action every time (the user cannot select a
 default app for the action).
 
-To show the chooser, create an `https://developer.android.com/reference/android/content/Intent` using `https://developer.android.com/reference/android/content/Intent#createChooser(android.content.Intent, java.lang.CharSequence)` and pass it to `https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent)`. For example:
+To show the chooser, create an `Intent` using `createChooser()` and pass it to `startActivity()`. For example:
 
 ### Kotlin
 
@@ -344,5 +343,8 @@ try {
 ```
 
 This displays a dialog with a list of apps that respond to the intent passed
-to the `https://developer.android.com/reference/android/content/Intent#createChooser(android.content.Intent, java.lang.CharSequence)` method. The `title` parameter may be
-supplied if the action is not `https://developer.android.com/reference/android/content/Intent#ACTION_SEND` or `https://developer.android.com/reference/android/content/Intent#ACTION_SEND_MULTIPLE`
+to the `
+createChooser()` method. The `title` parameter may be
+supplied if the action is not `
+ACTION_SEND` or `
+ACTION_SEND_MULTIPLE`

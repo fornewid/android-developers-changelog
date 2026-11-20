@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/notifications/expanded
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/notifications/llms.txt
+
 A basic notification usually includes a title, a line of text, and actions the
 user can perform in response. To provide more information, you can create large,
 expandable notifications by applying one of several notification templates as
@@ -186,7 +188,7 @@ reply action](https://developer.android.com/develop/ui/compose/notifications/cre
 ## Create a notification with media controls
 
 > [!NOTE]
-> **Note:** When using AndroidX Media3, the [media notification is created automatically](https://developer.android.com/media/implement/playback-app.md.txt#publishing_a_notification).
+> **Note:** When using AndroidX Media3, the [media notification is created automatically](https://developer.android.com/media/implement/playback-app.md.txt#publishing-notification).
 
 Apply [`MediaStyleNotificationHelper.MediaStyle`](https://developer.android.com/reference/androidx/media3/session/MediaStyleNotificationHelper.MediaStyle.md.txt) to display media playback
 controls and track information.
@@ -235,5 +237,5 @@ notification = NotificationCompat.Builder(context, CHANNEL_ID)
 See the following references for more information about `MediaStyle` and
 expandable notifications.
 
-- [Using MediaStyle notifications with a foreground service](https://developer.android.com/media/implement/playback-app.md.txt#implementing_a_mediasessionservice)
+- [Using MediaStyle notifications with a foreground service](https://developer.android.com/media/implement/playback-app.md.txt#implementing-mediasessionservice)
 - [SociaLite sample app](https://github.com/android/socialite)

@@ -4,6 +4,8 @@ url: https://developer.android.com/distribute/aep/aep-req-stability
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/distribute/aep/llms.txt
+
 Implement specific quality standards to ensure a premium user experience across
 different hardware categories. This approach accounts for technical limitations,
 ensuring that stability benchmarks like Crash, ANR, and Jank are applied only to
@@ -17,14 +19,14 @@ To qualify for AEP, your app must adhere to the following requirements:
 
 | ID | Android vitals | Device category | Threshold |
 |---|---|---|---|
-| AEP-SR-GAA | [**Crashes**](https://developer.android.com/google/play/vitals/crash) | [Reference Devices](https://developer.android.com/distribute/aep/aep-req-stability#reference-device) ([Check metrics in Play Console](https://play.google.com/console/developers/app/vitals/metrics/details?days=28&metric=USER_PERCEIVED_CRASHES&device=google/tegu,google/tokay,google/komodo,google/caiman,google/stallion,google/comet,google/frankel,google/blazer,google/mustang,google/rango,Xiaomi/klimt,samsung/gts11wifi,samsung/gts11uwifi,samsung/gts11u,samsung/gts11,vivo/PD2415,vivo/PD2405,vivo/V2561,OPPO/OP5A3DL1,OPPO/OP5A41L1,Aocwei/X300,vivo/PD2502,OPPO/OP5E11L1,OPPO/OP5E17L1,OPPO/OP5E03L1,Xiaomi/yupei,OnePlus/OP6135L1,samsung/SC-52F,samsung/SC-51F,samsung/pa2q,samsung/SC-56F,samsung/psq,samsung/q7mq,OnePlus/OP5D0DL1,OnePlus/OP612BL1,OnePlus/OP6190L1,Xiaomi/dada,Xiaomi/xuanyuan,docomo/SO-51F,motorola/leap,iQOO/I2401,realme/RE605FL1,OPPO/OP5DC1L1,OnePlus/OP612DL1,motorola/vantage,samsung/m3q,samsung/m1q,samsung/m2q,OnePlus/OP60FFL1,Xiaomi/pudding,Xiaomi/nezha,Xiaomi/popsicle,realme/RE60C8L1,OPPO/OP61A9L1,samsung/SC-55F)) info | \<1% average crash rate |
-| AEP-SR-GAB | [**Crashes**](https://developer.android.com/google/play/vitals/crash) | 4GB+ RAM Android Devices ([Check metrics in Play Console](https://play.google.com/console/developers/app/vitals/metrics/details?days=28&metric=USER_PERCEIVED_CRASHES&ramBucket=8192,12288,6144,4096,16384,20480)) info | \<2% average crash rate |
-| AEP-SR-GAC | [**ANRs**](https://developer.android.com/google/play/vitals/anr) | [Reference Devices](https://developer.android.com/distribute/aep/aep-req-stability#reference-device) ([Check metrics in Play Console](https://play.google.com/console/developers/app/vitals/metrics/details?days=28&metric=USER_PERCEIVED_ANRS&device=google/tegu,google/tokay,google/komodo,google/caiman,google/stallion,google/comet,google/frankel,google/blazer,google/mustang,google/rango,Xiaomi/klimt,samsung/gts11wifi,samsung/gts11uwifi,samsung/gts11u,samsung/gts11,vivo/PD2415,vivo/PD2405,vivo/V2561,OPPO/OP5A3DL1,OPPO/OP5A41L1,Aocwei/X300,vivo/PD2502,OPPO/OP5E11L1,OPPO/OP5E17L1,OPPO/OP5E03L1,Xiaomi/yupei,OnePlus/OP6135L1,samsung/SC-52F,samsung/SC-51F,samsung/pa2q,samsung/SC-56F,samsung/psq,samsung/q7mq,OnePlus/OP5D0DL1,OnePlus/OP612BL1,OnePlus/OP6190L1,Xiaomi/dada,Xiaomi/xuanyuan,docomo/SO-51F,motorola/leap,iQOO/I2401,realme/RE605FL1,OPPO/OP5DC1L1,OnePlus/OP612DL1,motorola/vantage,samsung/m3q,samsung/m1q,samsung/m2q,OnePlus/OP60FFL1,Xiaomi/pudding,Xiaomi/nezha,Xiaomi/popsicle,realme/RE60C8L1,OPPO/OP61A9L1,samsung/SC-55F)) info | \<2% average ANR rate |
-| AEP-SR-GAD | [**ANRs**](https://developer.android.com/google/play/vitals/anr) | 4GB+ RAM Android Devices ([Check metrics in Play Console](https://play.google.com/console/developers/app/vitals/metrics/details?days=28&metric=USER_PERCEIVED_ANRS&ramBucket=8192,12288,6144,4096,16384,20480)) info | \<3% average ANR rate |
-| AEP-SR-GAE | [**Jank**](https://developer.android.com/google/play/vitals/render) | [Reference Devices](https://developer.android.com/distribute/aep/aep-req-stability#reference-device) | \<2% Excessive Slow Frames |
+| AEP-SR-GAA | [**Crashes**](https://developer.android.com/google/play/vitals/crash.md.txt) | [Reference Devices](https://developer.android.com/distribute/aep/aep-req-stability.md.txt#reference-device) ([Check metrics in Play Console](https://play.google.com/console/developers/app/vitals/metrics/details?days=28&metric=USER_PERCEIVED_CRASHES&device=google/tegu,google/tokay,google/komodo,google/caiman,google/stallion,google/comet,google/frankel,google/blazer,google/mustang,google/rango,Xiaomi/klimt,samsung/gts11wifi,samsung/gts11uwifi,samsung/gts11u,samsung/gts11,vivo/PD2415,vivo/PD2405,vivo/V2561,OPPO/OP5A3DL1,OPPO/OP5A41L1,Aocwei/X300,vivo/PD2502,OPPO/OP5E11L1,OPPO/OP5E17L1,OPPO/OP5E03L1,Xiaomi/yupei,OnePlus/OP6135L1,samsung/SC-52F,samsung/SC-51F,samsung/pa2q,samsung/SC-56F,samsung/psq,samsung/q7mq,OnePlus/OP5D0DL1,OnePlus/OP612BL1,OnePlus/OP6190L1,Xiaomi/dada,Xiaomi/xuanyuan,docomo/SO-51F,motorola/leap,iQOO/I2401,realme/RE605FL1,OPPO/OP5DC1L1,OnePlus/OP612DL1,motorola/vantage,samsung/m3q,samsung/m1q,samsung/m2q,OnePlus/OP60FFL1,Xiaomi/pudding,Xiaomi/nezha,Xiaomi/popsicle,realme/RE60C8L1,OPPO/OP61A9L1,samsung/SC-55F)) info | \<1% average crash rate |
+| AEP-SR-GAB | [**Crashes**](https://developer.android.com/google/play/vitals/crash.md.txt) | 4GB+ RAM Android Devices ([Check metrics in Play Console](https://play.google.com/console/developers/app/vitals/metrics/details?days=28&metric=USER_PERCEIVED_CRASHES&ramBucket=8192,12288,6144,4096,16384,20480)) info | \<2% average crash rate |
+| AEP-SR-GAC | [**ANRs**](https://developer.android.com/google/play/vitals/anr.md.txt) | [Reference Devices](https://developer.android.com/distribute/aep/aep-req-stability.md.txt#reference-device) ([Check metrics in Play Console](https://play.google.com/console/developers/app/vitals/metrics/details?days=28&metric=USER_PERCEIVED_ANRS&device=google/tegu,google/tokay,google/komodo,google/caiman,google/stallion,google/comet,google/frankel,google/blazer,google/mustang,google/rango,Xiaomi/klimt,samsung/gts11wifi,samsung/gts11uwifi,samsung/gts11u,samsung/gts11,vivo/PD2415,vivo/PD2405,vivo/V2561,OPPO/OP5A3DL1,OPPO/OP5A41L1,Aocwei/X300,vivo/PD2502,OPPO/OP5E11L1,OPPO/OP5E17L1,OPPO/OP5E03L1,Xiaomi/yupei,OnePlus/OP6135L1,samsung/SC-52F,samsung/SC-51F,samsung/pa2q,samsung/SC-56F,samsung/psq,samsung/q7mq,OnePlus/OP5D0DL1,OnePlus/OP612BL1,OnePlus/OP6190L1,Xiaomi/dada,Xiaomi/xuanyuan,docomo/SO-51F,motorola/leap,iQOO/I2401,realme/RE605FL1,OPPO/OP5DC1L1,OnePlus/OP612DL1,motorola/vantage,samsung/m3q,samsung/m1q,samsung/m2q,OnePlus/OP60FFL1,Xiaomi/pudding,Xiaomi/nezha,Xiaomi/popsicle,realme/RE60C8L1,OPPO/OP61A9L1,samsung/SC-55F)) info | \<2% average ANR rate |
+| AEP-SR-GAD | [**ANRs**](https://developer.android.com/google/play/vitals/anr.md.txt) | 4GB+ RAM Android Devices ([Check metrics in Play Console](https://play.google.com/console/developers/app/vitals/metrics/details?days=28&metric=USER_PERCEIVED_ANRS&ramBucket=8192,12288,6144,4096,16384,20480)) info | \<3% average ANR rate |
+| AEP-SR-GAE | [**Jank**](https://developer.android.com/google/play/vitals/render.md.txt) | [Reference Devices](https://developer.android.com/distribute/aep/aep-req-stability.md.txt#reference-device) | \<2% Excessive Slow Frames |
 
 > [!NOTE]
-> **Note:** The [bad behaviour thresholds](https://developer.android.com/google/play/vitals#what_are_the_bad_behavior_thresholds) that affect visibility within the Play Store are **not** the same as the Apps Experience program. The values documented here are used to determine eligibility of the Apps Experience program. To reduce volatility, these thresholds will be enforced based on the trailing 28 days of data considering only devices within the approved set for which your app has at least 1,500 sessions in the last 28 days.
+> **Note:** The [bad behaviour thresholds](https://developer.android.com/google/play/vitals.md.txt#what_are_the_bad_behavior_thresholds) that affect visibility within the Play Store are **not** the same as the Apps Experience program. The values documented here are used to determine eligibility of the Apps Experience program. To reduce volatility, these thresholds will be enforced based on the trailing 28 days of data considering only devices within the approved set for which your app has at least 1,500 sessions in the last 28 days.
 
 ### Memory usage requirements
 
@@ -53,8 +55,8 @@ The following resources provide implementation guidance for the **Stability**
 guideline. These resources are for your reference only and don't contain
 additional program requirements.
 
-- [Android Vitals - Diagnose and fix vital issues](https://developer.android.com/google/play/vitals/lmk)
-- [Managing your app's memory - Proactively reduce memory used by your app](https://developer.android.com/topic/performance/memory)
+- [Android Vitals - Diagnose and fix vital issues](https://developer.android.com/google/play/vitals/lmk.md.txt)
+- [Managing your app's memory - Proactively reduce memory used by your app](https://developer.android.com/topic/performance/memory.md.txt)
 - [Play Console Technical Quality Requirements](https://support.google.com/googleplay/android-developer/answer/17492799)
 - [Elevating app quality: Reducing memory usage and improving device
   migration](https://android-developers.googleblog.com/2026/08/app-quality-memory-optimization-secure-onboarding.html)
@@ -66,6 +68,8 @@ Android hardware and features evolve, this list can be updated to ensure
 comprehensive coverage.
 
 ### Device list
+
+Filter this table:
 
 | Year | System on a Chip vendor | System on a Chip model | Manufacturer | Marketing name | Form factor |
 |---|---|---|---|---|---|
@@ -122,6 +126,7 @@ they have successfully verified requirements on at least one device from each
 listed SoCs:
 
 **Phones**
+Filter this table:
 
 | Year | System on a Chip | Devices |
 |---|---|---|
@@ -134,6 +139,7 @@ listed SoCs:
 | **2026** | **Exynos S5E9965** | **GALAXY S26** |
 
 **Tablet**
+Filter this table:
 
 | **Year** | **System on a Chip** | **Devices** |
 |---|---|---|

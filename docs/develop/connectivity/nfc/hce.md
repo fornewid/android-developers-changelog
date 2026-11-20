@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/connectivity/nfc/hce
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/connectivity/nfc/llms.txt
+
 Many Android-powered devices that offer NFC functionality already support NFC
 card emulation. In most cases, the card is emulated by a separate chip in the
 device, called a *secure element*. Many SIM cards provided by wireless carriers
@@ -56,7 +58,7 @@ Android 4.4 and higher supports several protocols that are common in the market
 today. Many existing contactless cards are already based on these protocols,
 such as contactless payment cards. These protocols are also supported by many
 NFC readers in the market today, including Android NFC devices functioning as
-readers themselves (see the [`IsoDep`](https://developer.android.com/reference/android/nfc/tech/IsoDep)
+readers themselves (see the [`IsoDep`](https://developer.android.com/reference/android/nfc/tech/IsoDep.md.txt)
 class). This allows you to build and deploy an end-to-end NFC solution around
 HCE using only Android-powered devices.
 
@@ -71,7 +73,7 @@ specifications.
 ## HCE services
 
 The HCE architecture in Android is based around Android
-[`Service`](https://developer.android.com/reference/android/app/Service) components (known as *HCE
+[`Service`](https://developer.android.com/reference/android/app/Service.md.txt) components (known as *HCE
 services*). One of the key advantages of a service is that it can run in the
 background without any user interface. This is a natural fit for many HCE
 applications, like loyalty or transit cards, which the user shouldn't need to
@@ -121,8 +123,8 @@ to the average user.
 
 Android 4.4 and higher supports two categories:
 
-- [`CATEGORY_PAYMENT`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation#CATEGORY_PAYMENT) (covering industry-standard payment apps)
-- [`CATEGORY_OTHER`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation#CATEGORY_OTHER) (for all other HCE apps)
+- [`CATEGORY_PAYMENT`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation.md.txt#CATEGORY_PAYMENT) (covering industry-standard payment apps)
+- [`CATEGORY_OTHER`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation.md.txt#CATEGORY_OTHER) (for all other HCE apps)
 
 > [!NOTE]
 > **Note:** Only one AID group in the `CATEGORY_PAYMENT` category can be enabled in the system at any given time. Typically, this is an app that understands major credit card payment protocols and which can work at any merchant.  
@@ -133,7 +135,7 @@ Apps registering AIDs under `CATEGORY_PAYMENT` can only process a transaction
 if:
 
 - The user sets the app as the default payment app (Wallet role holder on Android 15+ devices), OR
-- The app is in the foreground and invokes [`setPreferredService`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation#setPreferredService(android.app.Activity,%20android.content.ComponentName)).
+- The app is in the foreground and invokes [`setPreferredService`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation.md.txt#setPreferredService(android.app.Activity,%20android.content.ComponentName)).
 
 ## Implement an HCE service
 
@@ -143,7 +145,7 @@ To emulate an NFC card using host-based card emulation, you need to create a
 ### Check for HCE support
 
 Your application can check whether a device supports HCE by checking for the
-[`FEATURE_NFC_HOST_CARD_EMULATION`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_NFC_HOST_CARD_EMULATION)
+[`FEATURE_NFC_HOST_CARD_EMULATION`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#FEATURE_NFC_HOST_CARD_EMULATION)
 feature. Use the [`<uses-feature>`](https://developer.android.com/develop/manifest/uses-feature-element)
 tag in the manifest of your application to declare that your app uses the HCE
 feature, and whether it is required for the app to function or not.
@@ -152,44 +154,30 @@ feature, and whether it is required for the app to function or not.
 
 Android 4.4 and higher provides a convenience `Service` class that you can use
 as a basis for implementing an HCE service: the
-[`HostApduService`](https://developer.android.com/reference/android/nfc/cardemulation/HostApduService) class.
+[`HostApduService`](https://developer.android.com/reference/android/nfc/cardemulation/HostApduService.md.txt) class.
 
 The first step is to extend `HostApduService`, as shown in the following code
 sample:
 
-### Kotlin
 
 ```kotlin
 class MyHostApduService : HostApduService() {
 
     override fun processCommandApdu(commandApdu: ByteArray, extras: Bundle?): ByteArray {
-       ...
+        // ...
     }
 
     override fun onDeactivated(reason: Int) {
-       ...
+        // ...
     }
 }
 ```
 
-### Java
-
-```java
-public class MyHostApduService extends HostApduService {
-    @Override
-    public byte[] processCommandApdu(byte[] apdu, Bundle extras) {
-       ...
-    }
-    @Override
-    public void onDeactivated(int reason) {
-       ...
-    }
-}
-```
+<br />
 
 `HostApduService` declares two abstract methods that you must override and
 implement. One of those,
-[`processCommandApdu()`](https://developer.android.com/reference/android/nfc/cardemulation/HostApduService#processCommandApdu(byte%5B%5D,%20android.os.Bundle)),
+[`processCommandApdu()`](https://developer.android.com/reference/android/nfc/cardemulation/HostApduService.md.txt#processCommandApdu(byte%5B%5D,%20android.os.Bundle)),
 is called whenever a NFC reader sends an Application Protocol Data Unit (APDU)
 to your service. APDUs are defined in the ISO/IEC 7816-4 specification. APDUs
 are the application-level packets being exchanged between the NFC reader and
@@ -211,7 +199,7 @@ You can send a response APDU by returning the bytes of the response APDU from
 of your application, which you shouldn't block. If you can't compute and return
 a response APDU immediately, return null. You can then do the necessary work on
 another thread and use the
-[`sendResponseApdu()`](https://developer.android.com/reference/android/nfc/cardemulation/HostApduService#sendResponseApdu(byte%5B%5D))
+[`sendResponseApdu()`](https://developer.android.com/reference/android/nfc/cardemulation/HostApduService.md.txt#sendResponseApdu(byte%5B%5D))
 method defined in the `HostApduService` class to send the response when you are
 done.
 
@@ -222,7 +210,7 @@ of the following happens:
 - The NFC link between the NFC reader and your device is broken.
 
 In both of these cases, your class's
-[`onDeactivated()`](https://developer.android.com/reference/android/nfc/cardemulation/HostApduService#onDeactivated(int))
+[`onDeactivated()`](https://developer.android.com/reference/android/nfc/cardemulation/HostApduService.md.txt#onDeactivated(int))
 implementation is called with an argument indicating which of the two happened.
 
 If you are working with existing reader infrastructure, you must implement the
@@ -242,12 +230,12 @@ additional pieces to the service declaration as well:
 
 1. To tell the platform that it is a HCE service implementing a
    `HostApduService` interface, add an intent filter for the
-   [`SERVICE_INTERFACE`](https://developer.android.com/reference/android/nfc/cardemulation/HostApduService#SERVICE_INTERFACE)
+   [`SERVICE_INTERFACE`](https://developer.android.com/reference/android/nfc/cardemulation/HostApduService.md.txt#SERVICE_INTERFACE)
    action to your service declaration.
 
 2. To tell the platform which AIDs groups are requested by this service, include
    a
-   [`SERVICE_META_DATA`](https://developer.android.com/reference/android/nfc/cardemulation/HostApduService#SERVICE_META_DATA)
+   [`SERVICE_META_DATA`](https://developer.android.com/reference/android/nfc/cardemulation/HostApduService.md.txt#SERVICE_META_DATA)
    `<meta-data>` tag in the declaration of the service, pointing to an XML
    resource with additional information about the HCE service.
 
@@ -301,7 +289,7 @@ The `<host-apdu-service>` must contain one or more `<aid-group>` tags. Each
 - Contain one or more `<aid-filter>` tags, each of which contains a single AID. Specify the AID in hexadecimal format, and make sure it contains an even number of characters.
 
 Your application also needs to hold the
-[`NFC`](https://developer.android.com/reference/android/Manifest.permission#NFC) permission to register as an
+[`NFC`](https://developer.android.com/reference/android/Manifest.permission.md.txt#NFC) permission to register as an
 HCE service.
 
 ## AID conflict resolution
@@ -310,13 +298,13 @@ Multiple `HostApduService` components may be installed on a single device, and
 the same AID can be registered by more than one service. Android determines
 which service to invoke using the following steps:
 
-1. If the user's selected [default wallet app](https://developer.android.com/develop/connectivity/nfc/hce#check-if-default) has registered the AID, then that app is invoked.
+1. If the user's selected [default wallet app](https://developer.android.com/develop/connectivity/nfc/hce.md.txt#check-if-default) has registered the AID, then that app is invoked.
 2. If the default wallet app hasn't registed the AID, then the service that has registered the AID is invoked.
 3. If more than one service has registered the AID, then Android asks the user which service to invoke.
 
 ### Foreground service preference
 
-Apps in the foreground can invoke [`setPreferredService`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation#setPreferredService(android.app.Activity,%20android.content.ComponentName))
+Apps in the foreground can invoke [`setPreferredService`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation.md.txt#setPreferredService(android.app.Activity,%20android.content.ComponentName))
 to specify which card emulation service should be preferred while a specific
 activity is in the foreground. This foreground app preference overrides the AID
 conflict resolution. This is recommended practice when the app anticipates
@@ -359,13 +347,13 @@ that have declared an AID group with the payment category as *wallet application
 ### Check if your app is the default wallet app
 
 Apps can check whether they are the default wallet app by passing
-[`RoleManager.ROLE_WALLET`](https://developer.android.com/reference/android/app/role/RoleManager#ROLE_WALLET)
+[`RoleManager.ROLE_WALLET`](https://developer.android.com/reference/android/app/role/RoleManager.md.txt#ROLE_WALLET)
 to
-[`RoleManager.isRoleHeld()`](https://developer.android.com/reference/android/app/role/RoleManager#isRoleHeld%28java.lang.String%29).
+[`RoleManager.isRoleHeld()`](https://developer.android.com/reference/android/app/role/RoleManager.md.txt#isRoleHeld%28java.lang.String%29).
 
 If your app isn't the default, you can request the default wallet role by
 passing `RoleManager.ROLE_WALLET` to
-[`RoleManager.createRequestRoleIntent()`](https://developer.android.com/reference/android/app/role/RoleManager#createRequestRoleIntent(java.lang.String)).
+[`RoleManager.createRequestRoleIntent()`](https://developer.android.com/reference/android/app/role/RoleManager.md.txt#createRequestRoleIntent(java.lang.String)).
 
 ### Required assets for wallet applications
 
@@ -379,7 +367,7 @@ allows the device to observe NFC polling loops and send notifications about them
 to the appropriate `HostApduService` components so that they can prepare to
 interact with a given NFC terminal. A `HostApduService` can put the device in
 Observe Mode by passing `true` to
-[`setObserveModeEnabled()`](https://developer.android.com/reference/android/nfc/NfcAdapter#setObserveModeEnabled(boolean)).
+[`setObserveModeEnabled()`](https://developer.android.com/reference/android/nfc/NfcAdapter.md.txt#setObserveModeEnabled(boolean)).
 This instructs the NFC stack to not allow NFC transactions and instead passively
 observe polling loops.
 
@@ -388,13 +376,13 @@ observe polling loops.
 You can register polling loop filters for a `HostApduService` using either of
 the following methods:
 
-- [`registerPollingLoopFilterForService()`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation#registerPollingLoopFilterForService(android.content.ComponentName,%20java.lang.String,%20boolean)) for filters that must exactly match a polling frame.
-- [`registerPollingLoopPatternFilterForService()`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation#registerPollingLoopPatternFilterForService(android.content.ComponentName,%20java.lang.String,%20boolean)) for filters that match a regular expression against polling frames.
+- [`registerPollingLoopFilterForService()`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation.md.txt#registerPollingLoopFilterForService(android.content.ComponentName,%20java.lang.String,%20boolean)) for filters that must exactly match a polling frame.
+- [`registerPollingLoopPatternFilterForService()`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation.md.txt#registerPollingLoopPatternFilterForService(android.content.ComponentName,%20java.lang.String,%20boolean)) for filters that match a regular expression against polling frames.
 
 When a polling loop filter matches to nonstandard polling frames, the NFC stack
 routes those polling frames to the corresponding `HostApduService` by calling
 its
-[`processPollingFrames()`](https://developer.android.com/reference/android/nfc/cardemulation/HostApduService#processPollingFrames(java.util.List%3Candroid.nfc.cardemulation.PollingFrame%3E))
+[`processPollingFrames()`](https://developer.android.com/reference/android/nfc/cardemulation/HostApduService.md.txt#processPollingFrames(java.util.List%3Candroid.nfc.cardemulation.PollingFrame%3E))
 method. This allows the service to take any necessary steps to ensure that the
 user is ready to transact and intends to do so---for example, authenticating the
 user. If an NFC reader is using only standard frames in its polling loop, the
@@ -404,7 +392,7 @@ otherwise.
 
 Polling frame notifications also include a vendor-specific measurement of field
 strength that you can retrieve by calling
-[`getVendorSpecificGain()`](https://developer.android.com/reference/android/nfc/cardemulation/PollingFrame#getVendorSpecificGain()).
+[`getVendorSpecificGain()`](https://developer.android.com/reference/android/nfc/cardemulation/PollingFrame.md.txt#getVendorSpecificGain()).
 Vendors can provide measurements using their own scale as long as it fits within
 a single byte.
 
@@ -417,7 +405,7 @@ to proceed.
 `HostApduService` components can indicate that Observe Mode should be enabled
 whenever they are the preferred payment service by setting
 `shouldDefaultToObserveMode` to `true` in the manifest or by calling
-[`CardEmulation.setShouldDefaultToObserveModeForService()`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation#setShouldDefaultToObserveModeForService(android.content.ComponentName,%20boolean)).
+[`CardEmulation.setShouldDefaultToObserveModeForService()`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation.md.txt#setShouldDefaultToObserveModeForService(android.content.ComponentName,%20boolean)).
 
 `HostApduService` and `OffHostApduService` components can also indicate that
 polling loop filters that match received polling loop frames should
@@ -426,7 +414,7 @@ automatically disable Observe Mode and allow transactions to proceed by setting
 
 ### Foreground service preference
 
-Apps in the foreground can invoke [`setPreferredService`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation#setPreferredService(android.app.Activity,%20android.content.ComponentName))
+Apps in the foreground can invoke [`setPreferredService`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation.md.txt#setPreferredService(android.app.Activity,%20android.content.ComponentName))
 to specify which card emulation service should be preferred while a specific
 activity is in the foreground. This foreground app preference overrides the
 Observe Mode state of the device corresponding to the value of
@@ -434,7 +422,7 @@ Observe Mode state of the device corresponding to the value of
 the following ways:
 
 - Setting the state of `shouldDefaultToObserveMode` in the manifest for that service.
-- Invoking [`CardEmulation.setShouldDefaultToObserveModeForService()`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation#setShouldDefaultToObserveModeForService(android.content.ComponentName,%20boolean)) with the corresponding service and state.
+- Invoking [`CardEmulation.setShouldDefaultToObserveModeForService()`](https://developer.android.com/reference/android/nfc/cardemulation/CardEmulation.md.txt#setShouldDefaultToObserveModeForService(android.content.ComponentName,%20boolean)) with the corresponding service and state.
 
 ## Screen off and lock-screen behavior
 
@@ -457,7 +445,7 @@ patterns](https://developer.android.com/develop/connectivity/nfc/hce#polling-loo
 
 In apps that target Android 12 (API level 31) and higher, you can enable NFC
 payments without the device's screen on by setting
-[`requireDeviceScreenOn`](https://developer.android.com/reference/android/R.attr#requireDeviceScreenOn) to
+[`requireDeviceScreenOn`](https://developer.android.com/reference/android/R.attr.md.txt#requireDeviceScreenOn) to
 `false`.
 
 ### Android 10 and higher
@@ -469,7 +457,7 @@ NFC is on, all card emulators (host applications and off-host applications) are
 unavailable when the device screen is off. While Secure NFC is off, off-host
 applications are available when the device screen is off. You can check for
 Secure NFC support using
-[`isSecureNfcSupported()`](https://developer.android.com/reference/android/nfc/NfcAdapter#isSecureNfcSupported()).
+[`isSecureNfcSupported()`](https://developer.android.com/reference/android/nfc/NfcAdapter.md.txt#isSecureNfcSupported()).
 
 On devices running Android 10 and higher, the same functionality for setting
 `android:requireDeviceUnlock` to `true` applies as with devices
@@ -553,8 +541,8 @@ Applications using a secure element for card emulation can declare an
 almost identical to the declaration of an HCE service. The exceptions are as
 follows:
 
-- The action used in the intent filter must be set to [`SERVICE_INTERFACE`](https://developer.android.com/reference/android/nfc/cardemulation/OffHostApduService#SERVICE_INTERFACE).
-- The meta-data name attribute must be set to [`SERVICE_META_DATA`](https://developer.android.com/reference/android/nfc/cardemulation/OffHostApduService#SERVICE_META_DATA).
+- The action used in the intent filter must be set to [`SERVICE_INTERFACE`](https://developer.android.com/reference/android/nfc/cardemulation/OffHostApduService.md.txt#SERVICE_INTERFACE).
+- The meta-data name attribute must be set to [`SERVICE_META_DATA`](https://developer.android.com/reference/android/nfc/cardemulation/OffHostApduService.md.txt#SERVICE_META_DATA).
 - The meta-data XML file must use the `<offhost-apdu-service>` root tag.
 
   ```xml
@@ -601,7 +589,7 @@ register AIDs present on the secure element.
 
 The HCE architecture provides one core piece of security: because your
 service is protected by the
-[`BIND_NFC_SERVICE`](https://developer.android.com/reference/android/Manifest.permission#BIND_NFC_SERVICE)
+[`BIND_NFC_SERVICE`](https://developer.android.com/reference/android/Manifest.permission.md.txt#BIND_NFC_SERVICE)
 system permission, only the OS can bind to and communicate with your service.
 This ensures that any APDU you receive is actually an APDU that was received by
 the OS from the NFC controller, and that any APDU you send back only goes to

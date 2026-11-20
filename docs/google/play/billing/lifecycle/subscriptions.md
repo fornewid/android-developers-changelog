@@ -4,6 +4,8 @@ url: https://developer.android.com/google/play/billing/lifecycle/subscriptions
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/billing/lifecycle/llms.txt
+
 Subscription purchases can go through several different states throughout their
 lifecycle, depending on many factors including auto-renewal behavior, payment
 decline situations, and developer management actions.
@@ -11,7 +13,7 @@ decline situations, and developer management actions.
 ## Handle lifecycle for auto-renewing subscriptions
 
 When a user's subscription state changes, your backend server receives a
-[`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference#sub) message.
+[`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference.md.txt#sub) message.
 ![subs-auto-renew-state](https://developer.android.com/static/images/google/play/billing/lifecycle/auto-renew-state-flow.svg) **Figure 1.** Lifecycle states and transition events for auto-renewing subscription purchases.
 
 To update the state in your backend, call the
@@ -25,23 +27,23 @@ expiration. After this date, the purchase token is no longer valid to use to
 call the Google Play Developer API.
 
 > [!NOTE]
-> **Note:** The [`purchases.subscriptions.get`](https://developers.google.com/android-publisher/deprecated-apis/purchases.subscriptions/get) method is deprecated and present for backward compatibility reasons. This method shouldn't be used to obtain subscription states for new integrations. If you have an existing integration that uses this method, see [API deprecations](https://developer.android.com/google/play/billing/play-developer-apis-deprecations) for alternatives. Other methods in the `purchases.subscriptions` endpoint are still in use.
+> **Note:** The [`purchases.subscriptions.get`](https://developers.google.com/android-publisher/deprecated-apis/purchases.subscriptions/get) method is deprecated and present for backward compatibility reasons. This method shouldn't be used to obtain subscription states for new integrations. If you have an existing integration that uses this method, see [API deprecations](https://developer.android.com/google/play/billing/play-developer-apis-deprecations.md.txt) for alternatives. Other methods in the `purchases.subscriptions` endpoint are still in use.
 
 ### New auto-renewing subscription purchases
 
 When a user purchases a subscription, a `SubscriptionNotification` message with
 type `SUBSCRIPTION_PURCHASED` is sent to your RTDN client. Whether you receive
 this notification or you register a new purchase in-app through
-[`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener)
-or [manually fetching purchases](https://developer.android.com/google/play/billing/integrate#process) in your
+[`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener.md.txt)
+or [manually fetching purchases](https://developer.android.com/google/play/billing/integrate.md.txt#process) in your
 app's `onResume()` method, you should process the new purchase in your secure
 backend. To do this, follow these steps:
 
 1. Query the [`purchases.subscriptionsv2.get`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) endpoint to get a [subscription
    resource](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2) that contains the latest subscription state.
 2. Make sure that the value of the [`subscriptionState`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2#subscriptionstate) field is `SUBSCRIPTION_STATE_ACTIVE`.
-3. [Verify the purchase](https://developer.android.com/google/play/billing/security#verify).
-4. Give the user access to the content. The user account associated with the purchase can be identified with the [`ExternalAccountIdentifiers`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2#externalaccountidentifiers) object from the subscription resource if identifiers were set at purchase time using [`setObfuscatedAccountId`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setObfuscatedAccountId(java.lang.String)) and [`setObfuscatedProfileId`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setObfuscatedProfileId(java.lang.String)).
+3. [Verify the purchase](https://developer.android.com/google/play/billing/security.md.txt#verify).
+4. Give the user access to the content. The user account associated with the purchase can be identified with the [`ExternalAccountIdentifiers`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2#externalaccountidentifiers) object from the subscription resource if identifiers were set at purchase time using [`setObfuscatedAccountId`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder.md.txt#setObfuscatedAccountId(java.lang.String)) and [`setObfuscatedProfileId`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder.md.txt#setObfuscatedProfileId(java.lang.String)).
 
 The `offerPhase` field in the `SubscriptionPurchaseLineItem` provides details
 about the current phase of the subscription, such as free trial or introductory
@@ -52,35 +54,37 @@ price.
 > rejected or unfulfilled purchases](https://developer.android.com/google/play/billing/integrate#rejected-purchases)).
 
 The Play Billing Library also includes a method to acknowledge a subscription,
-[`acknowledgePurchase()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#acknowledgepurchase),
+[`acknowledgePurchase()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#acknowledgepurchase),
 and a method to check acknowledgement status,
-[`isAcknowledged()`](https://developer.android.com/reference/com/android/billingclient/api/Purchase#isacknowledged).
+[`isAcknowledged()`](https://developer.android.com/reference/com/android/billingclient/api/Purchase.md.txt#isacknowledged).
 However, we recommend that you handle purchase processing in your backend for
 better security.
 
 The subscription resource for new purchases looks similar to the following
 example:
 
+```json
+{
+  "kind": "androidpublisher#subscriptionPurchaseV2",
+  "startTime": "2022-04-22T18:39:58.270Z",
+  "regionCode": "US",
+  "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+  "latestOrderId": "GPA.3333-4137-0319-36762",
+  "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING", // need to acknowledge new purchases
+  "lineItems": [
     {
-      "kind": "androidpublisher#subscriptionPurchaseV2",
-      "startTime": "2022-04-22T18:39:58.270Z",
-      "regionCode": "US",
-      "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
-      "latestOrderId": "GPA.3333-4137-0319-36762",
-      "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING", // need to acknowledge new purchases
-      "lineItems": [
-        {
-          "productId": "sub_variant_plan01",
-          "expiryTime": next_renewal_date,
-          "autoRenewingPlan": {
-            "autoRenewEnabled": true
-          },
-          "offerPhase": {
-            "freeTrial": {}
-          }
-        }
-      ],
+      "productId": "sub_variant_plan01",
+      "expiryTime": next_renewal_date,
+      "autoRenewingPlan": {
+        "autoRenewEnabled": true
+      },
+      "offerPhase": {
+        "freeTrial": {}
+      }
     }
+  ],
+}
+```
 
 ### Subscription renewals
 
@@ -93,26 +97,28 @@ entitled to the subscription and then update the subscription state with the new
 resource](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2) returned from the Google Play
 Developer API. The subscription resource looks similar to the following example:
 
+```json
+{
+  "kind": "androidpublisher#subscriptionPurchaseV2",
+  "startTime": "2022-04-22T18:39:58.270Z",
+  "regionCode": "US",
+  "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+  "latestOrderId": "GPA.3333-4137-0319-36762",
+  "acknowledgementState": "ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED",
+  "lineItems": [
     {
-      "kind": "androidpublisher#subscriptionPurchaseV2",
-      "startTime": "2022-04-22T18:39:58.270Z",
-      "regionCode": "US",
-      "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
-      "latestOrderId": "GPA.3333-4137-0319-36762",
-      "acknowledgementState": "ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED",
-      "lineItems": [
-        {
-          "productId": "sub_variant_plan01",
-          "expiryTime": next_renewal_date,
-          "autoRenewingPlan": {
-            "autoRenewEnabled": true
-          },
-          "offerPhase": {
-            "basePrice": {}
-          }
-        }
-      ]
+      "productId": "sub_variant_plan01",
+      "expiryTime": next_renewal_date,
+      "autoRenewingPlan": {
+        "autoRenewEnabled": true
+      },
+      "offerPhase": {
+        "basePrice": {}
+      }
     }
+  ]
+}
+```
 
 You don't need to acknowledge subscription renewals.
 
@@ -132,7 +138,7 @@ followed by an account hold period. During a grace period, the user should
 still have access to their subscription entitlement.
 
 The
-[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener))
+[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener))
 method continues to return purchases that are in the grace period. If your app
 relies solely on `queryPurchasesAsync` to check whether a user is entitled to a
 subscription, then your app should automatically handle grace periods, because
@@ -141,7 +147,7 @@ these subscriptions are shown as active through the Play Billing Library.
 Synchronizing subscription state with your backend lets you to be more aware
 of payment declines and gives you more context as you try to reduce involuntary
 churn. Listen for
-[`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference#sub) messages
+[`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference.md.txt#sub) messages
 with type `SUBSCRIPTION_IN_GRACE_PERIOD` to be notified when the user enters a
 grace period. While the user is in a grace period, the [subscription
 resource](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2)
@@ -152,21 +158,23 @@ maximum length. The value of the `subscriptionState` field during this period is
 `SUBSCRIPTION_STATE_IN_GRACE_PERIOD`. The subscription resource looks similar to
 the following example:
 
+```json
+{
+  "kind": "androidpublisher#subscriptionPurchaseV2",
+  ...
+  "subscriptionState": "SUBSCRIPTION_STATE_IN_GRACE_PERIOD",
+  ...
+  "lineItems": [
     {
-      "kind": "androidpublisher#subscriptionPurchaseV2",
-      ...
-      "subscriptionState": "SUBSCRIPTION_STATE_IN_GRACE_PERIOD",
-      ...
-      "lineItems": [
-        {
-          "productId": "sub_variant_plan01",
-          "expiryTime": timestamp_in_future,
-          "autoRenewingPlan": {
-            "autoRenewEnabled": true
-          }
-        }
-      ],
+      "productId": "sub_variant_plan01",
+      "expiryTime": timestamp_in_future,
+      "autoRenewingPlan": {
+        "autoRenewEnabled": true
+      }
     }
+  ],
+}
+```
 
 Play informs users that are in a grace period that their payment was declined
 and prompts them to fix their payment method issues in the Play Store. When a
@@ -181,10 +189,10 @@ Play.
 
 As soon as the user fixes their payment method, the subscription renews with its
 original renewal date, and you can handle the renewal as described in
-[Renewals](https://developer.android.com/google/play/billing/lifecycle/subscriptions#renewal).
+[Renewals](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#renewal).
 
 If the user does not fix their payment method during the grace period, the
-subscription enters [account hold](https://developer.android.com/google/play/billing/lifecycle/subscriptions#account-hold), and they lose entitlement.
+subscription enters [account hold](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#account-hold), and they lose entitlement.
 
 #### Grace period access and recovery
 
@@ -235,8 +243,8 @@ period](https://developer.android.com/google/play/billing/lifecycle/subscription
 subscription enters account hold, you should block access to the subscription
 entitlement.
 
-During account hold, you should continue to handle any [cancellations](https://developer.android.com/google/play/billing/lifecycle/subscriptions#cancel),
-restorations, or [repurchases of your subscriptions](https://developer.android.com/google/play/billing/lifecycle/subscriptions#resubscribe) as needed,
+During account hold, you should continue to handle any [cancellations](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#cancel),
+restorations, or [repurchases of your subscriptions](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#resubscribe) as needed,
 because it's possible for the user to make these changes while the subscription
 is on hold.
 
@@ -254,13 +262,13 @@ send a push notification or an email to the user to let them know that their
 subscription is no longer active due to payment decline.
 
 The subscription is not returned by the
-[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener))
+[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener))
 method during account hold, so if your app relies on this method to display
 existing purchases, you should support account hold by default.
 
 With [real-time developer
 notifications](https://developer.android.com/google/play/billing/getting-ready#configure-rtdn), you receive a
-[`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference#sub) message
+[`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference.md.txt#sub) message
 with type `SUBSCRIPTION_ON_HOLD` when a subscription enters account hold. Call
 the
 [`purchases.subscriptionsv2.get`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get)
@@ -270,19 +278,21 @@ resource](https://developers.google.com/android-publisher/api-ref/rest/v3/purcha
 is set to a past timestamp, and the `subscriptionState` field is set to
 `SUBSCRIPTION_STATE_ON_HOLD`:
 
+```json
+{
+  "kind": "androidpublisher#subscriptionPurchaseV2",
+  ...
+  "subscriptionState": "SUBSCRIPTION_STATE_ON_HOLD",
+  ...
+  "lineItems": [
     {
-      "kind": "androidpublisher#subscriptionPurchaseV2",
+      "productId": "sub_variant_plan01",
+      "expiryTime": timestamp_in_past,
       ...
-      "subscriptionState": "SUBSCRIPTION_STATE_ON_HOLD",
-      ...
-      "lineItems": [
-        {
-          "productId": "sub_variant_plan01",
-          "expiryTime": timestamp_in_past,
-          ...
-        }
-      ],
     }
+  ],
+}
+```
 
 To restore access, users must fix their payment method. Play informs users in
 account hold of their payment decline, and you should also encourage them to fix
@@ -306,51 +316,55 @@ a user is entitled to a subscription, then your app should automatically handle
 the subscription recovering from account hold.
 
 Listen for a
-[`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference#sub) message
+[`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference.md.txt#sub) message
 with type `SUBSCRIPTION_RECOVERED` to be notified when a subscription is
 recovered and the user should regain access. If you query for a subscription
 after receiving this notification, the `expiryTime` field is set to a timestamp
 in the future and the `subscriptionState` field is set to
 `SUBSCRIPTION_STATE_ACTIVE` again:
 
+```json
+{
+  "kind": "androidpublisher#subscriptionPurchaseV2",
+  ...
+  "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+  ...
+  "lineItems": [
     {
-      "kind": "androidpublisher#subscriptionPurchaseV2",
+      "productId": "sub_variant_plan01",
+      "expiryTime": next_renewal_date,
       ...
-      "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
-      ...
-      "lineItems": [
-        {
-          "productId": "sub_variant_plan01",
-          "expiryTime": next_renewal_date,
-          ...
-        }
-      ],
     }
+  ],
+}
+```
 
 If the user does not fix their payment method before the end of the account hold
 period, you instead receive an RTDN with type `SUBSCRIPTION_CANCELED`. For
-instructions on handling a cancellation, see [Cancellations](https://developer.android.com/google/play/billing/lifecycle/subscriptions#cancel). When you
+instructions on handling a cancellation, see [Cancellations](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#cancel). When you
 query for a subscription that was canceled in this way, the returned
 `expiryTime` field is set to a past timestamp:
 
+```json
+{
+  "kind": "androidpublisher#subscriptionPurchaseV2",
+  ...
+  "subscriptionState": "SUBSCRIPTION_STATE_CANCELED",
+  ...
+  "lineItems": [
     {
-      "kind": "androidpublisher#subscriptionPurchaseV2",
+      "productId": "sub_variant_plan01",
+      "expiryTime": timestamp_in_past,
       ...
-      "subscriptionState": "SUBSCRIPTION_STATE_CANCELED",
-      ...
-      "lineItems": [
-        {
-          "productId": "sub_variant_plan01",
-          "expiryTime": timestamp_in_past,
-          ...
-        }
-      ],
     }
+  ],
+}
+```
 
 Immediately after you are notified of the cancellation during account hold, you
 will also receive an RTDN with type `SUBSCRIPTION_EXPIRED` because the user is
 out of paid entitlement and the subscription has churned with the cancellation.
-You can [handle this expiration](https://developer.android.com/google/play/billing/lifecycle/subscriptions#expiration) the way you normally would.
+You can [handle this expiration](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#expiration) the way you normally would.
 
 The user can regain access by repurchasing the same subscription plan or any
 other plan that you offer through the app during their account hold period from
@@ -386,25 +400,27 @@ After you confirm that the `subscriptionState` is `SUBSCRIPTION_STATE_EXPIRED`,
 remove the entitlement and register the purchase state as invalid in your
 backend. The subscription resource looks similar to the following example:
 
+```json
+{
+  "kind": "androidpublisher#subscriptionPurchaseV2",
+  ...
+  "subscriptionState": "SUBSCRIPTION_STATE_EXPIRED",
+  ...
+  "lineItems": [
     {
-      "kind": "androidpublisher#subscriptionPurchaseV2",
+      "productId": "sub_variant_plan01",
+      "expiryTime": expiration_time_in_past,
       ...
-      "subscriptionState": "SUBSCRIPTION_STATE_EXPIRED",
-      ...
-      "lineItems": [
-        {
-          "productId": "sub_variant_plan01",
-          "expiryTime": expiration_time_in_past,
-          ...
-        }
-      ],
     }
+  ],
+}
+```
 
 ### Cancellations
 
 A user can voluntarily cancel a subscription from the Play subscriptions center
 or have their subscription automatically canceled if they don't recover after
-being in [account hold](https://developer.android.com/google/play/billing/lifecycle/subscriptions#account-hold). Developers can also trigger a
+being in [account hold](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#account-hold). Developers can also trigger a
 cancellation with
 [`purchases.subscriptionsv2.cancel`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/cancel)
 When a subscription is canceled, the user retains access to the content until
@@ -428,19 +444,24 @@ hold](https://developer.android.com/google/play/billing/lifecycle/subscriptions#
 The subscription resource for a canceled purchase looks similar to the following
 example:
 
+```json
+{
+  "kind": "androidpublisher#subscriptionPurchaseV2",
+  ...
+  "subscriptionState": "SUBSCRIPTION_STATE_CANCELED",
+  ...
+  "lineItems": [
     {
-      "kind": "androidpublisher#subscriptionPurchaseV2",
+      "productId": "sub_variant_plan01",
+      "expiryTime": expiration_time,
       ...
-      "subscriptionState": "SUBSCRIPTION_STATE_CANCELED",
-      ...
-      "lineItems": [
-        {
-          "productId": "sub_variant_plan01",
-          "expiryTime": expiration_time,
-          ...
-        }
-      ],
     }
+  ],
+}
+```
+
+> [!NOTE]
+> **Note:** If a user accepts a [retention offer](https://developer.android.com/google/play/billing/retention-offers.md.txt) during the cancellation flow, the subscription isn't canceled. It stays active and auto-renewing, and you receive a `SUBSCRIPTION_PLAN_TRANSITION_UPDATED` notification instead of `SUBSCRIPTION_CANCELED`.
 
 For installment subscriptions, a `SUBSCRIPTION_CANCELLATION_SCHEDULED`
 notification gets sent upon a user-initiated cancellation when payments remain
@@ -456,32 +477,34 @@ A `SUBSCRIPTION_CANCELED` notification gets sent followed by a
 The subscription resource for a installment subscription purchase that is
 pending cancellation looks similar to the following example:
 
+```json
+{
+  "kind": "androidpublisher#subscriptionPurchaseV2",
+  ...
+  "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+  ...
+  "lineItems": [
     {
-      "kind": "androidpublisher#subscriptionPurchaseV2",
+      "productId": "sub_plan01",
+      "expiryTime": expiration_time,
+      "autoRenewingPlan": {
+        "autoRenewEnabled": true,
+        "recurringPrice": {
+          "currencyCode": "USD",
+          "units": "1",
+          "nanos": 990000000
+        },
+        "installmentDetails": {
+          "initialCommittedPaymentsCount": 6,
+          "remainingCommittedPaymentsCount": 5,
+          "pendingCancellation": {}
       ...
-      "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
-      ...
-      "lineItems": [
-        {
-          "productId": "sub_plan01",
-          "expiryTime": expiration_time,
-          "autoRenewingPlan": {
-            "autoRenewEnabled": true,
-            "recurringPrice": {
-              "currencyCode": "USD",
-              "units": "1",
-              "nanos": 990000000
-            },
-            "installmentDetails": {
-              "initialCommittedPaymentsCount": 6,
-              "remainingCommittedPaymentsCount": 5,
-              "pendingCancellation": {}
-          ...
-            }
-          }
         }
-      ],
+      }
     }
+  ],
+}
+```
 
 You can look at the `canceledStateContext` field in the subscription resource to
 learn why the subscription was canceled (for example, whether the subscription
@@ -490,9 +513,9 @@ canceled by the user, you can look at the `userInitiatedCancellation` field to
 learn why the user canceled the subscription. This can help inform communication
 strategies.
 
-When a subscription is canceled but has not yet [expired](https://developer.android.com/google/play/billing/lifecycle/subscriptions#expiration), it is
+When a subscription is canceled but has not yet [expired](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#expiration), it is
 still returned from
-[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)).
+[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)).
 You might want to display a message in your app informing the user that their
 subscription was canceled and giving them the date of expiration.
 
@@ -516,19 +539,21 @@ set to `SUBSCRIPTION_STATE_EXPIRED`.
 The subscription resource for a revoked purchase looks similar to the following
 example:
 
+```json
+{
+  "kind": "androidpublisher#subscriptionPurchaseV2",
+  ...
+  "subscriptionState": "SUBSCRIPTION_STATE_EXPIRED",
+  ...
+  "lineItems": [
     {
-      "kind": "androidpublisher#subscriptionPurchaseV2",
+      "productId": "sub_variant_plan01",
+      "expiryTime": expiration_time,
       ...
-      "subscriptionState": "SUBSCRIPTION_STATE_EXPIRED",
-      ...
-      "lineItems": [
-        {
-          "productId": "sub_variant_plan01",
-          "expiryTime": expiration_time,
-          ...
-        }
-      ]
     }
+  ]
+}
+```
 
 ### Deferred subscriptions
 
@@ -551,19 +576,21 @@ time.
 The subscription resource for a deferred subscription looks similar to the
 following example:
 
+```json
+{
+  "kind": "androidpublisher#subscriptionPurchaseV2",
+  ...
+  "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+  ...
+  "lineItems": [
     {
-      "kind": "androidpublisher#subscriptionPurchaseV2",
+      "productId": "sub_variant_plan01",
+      "expiryTime": timestamp_in_future,
       ...
-      "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
-      ...
-      "lineItems": [
-        {
-          "productId": "sub_variant_plan01",
-          "expiryTime": timestamp_in_future,
-          ...
-        }
-      ],
     }
+  ],
+}
+```
 
 ### Paused subscriptions
 
@@ -596,7 +623,7 @@ pause period, as shown in figure 6. When a user resumes manually, the billing
 date changes to the manual resume date.
 
 When a user's subscription is paused, the Play Billing Library doesn't return
-the subscription through the [`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) method unless the
+the subscription through the [`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener)) method unless the
 `includeSuspendedSubscriptions` parameter is set to true in the
 `QueryPurchasesParams`. If the subscription is resumed, the
 `queryPurchasesAsync()` method returns it again.
@@ -605,9 +632,9 @@ Listen for RTDNs to be aware of when a user pauses their subscription. These
 notifications also allow you to notify your users in your app that they have
 paused their subscription and don't have access to it. You should also provide a
 way for the user to manually resume their subscription at any time by using a
-[deep link to Google Play](https://developer.android.com/google/play/billing/subscriptions#use-deep).
+[deep link to Google Play](https://developer.android.com/google/play/billing/subscriptions.md.txt#use-deep).
 
-A [`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference#sub) message
+A [`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference.md.txt#sub) message
 with type `SUBSCRIPTION_PAUSE_SCHEDULE_CHANGED` is sent when your user initiates
 a pause of their subscription. At this time, the user should keep access to
 their subscription until the next renewal date, and the [subscription
@@ -630,7 +657,7 @@ or if the user chose to manually resume the subscription.
 A `SubscriptionNotification` message with type `SUBSCRIPTION_ON_HOLD` is sent if
 there was a payment failure while trying to resume the subscription after pause.
 
-Both situations should be handled as described in [Account hold](https://developer.android.com/google/play/billing/lifecycle/subscriptions#account-hold).
+Both situations should be handled as described in [Account hold](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#account-hold).
 
 ### Resubscribe
 
@@ -664,32 +691,34 @@ or using the API.
 > **Note:** All developer apps are required to support Restore.
 
 If your app relies solely on the
-[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener))
+[`queryPurchasesAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.md.txt#queryPurchasesAsync(com.android.billingclient.api.QueryPurchasesParams,%20com.android.billingclient.api.PurchasesResponseListener))
 method to determine whether a user is entitled to a subscription, then your app
 should automatically handle restorations because the `queryPurchasesAsync()`
 method continues to return canceled purchases before their expiration dates. A
 restored subscription continues to renew as if it were not canceled.
 
 If your app synchronizes subscription state with a backend, you should listen
-for a [`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference#sub)
+for a [`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference.md.txt#sub)
 message with the type `SUBSCRIPTION_RESTARTED`. After you receive this RTDN,
 your app can respond to the notification, record that the subscription is now
 set to renew, and stop displaying restoration messages in your app. The
 subscription resource looks similar to the following example:
 
+```json
+{
+  "kind": "androidpublisher#subscriptionPurchaseV2",
+  ...
+  "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+  ...
+  "lineItems": [
     {
-      "kind": "androidpublisher#subscriptionPurchaseV2",
+      "productId": "sub_variant_plan01",
+      "expiryTime": next_renewal_date
       ...
-      "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
-      ...
-      "lineItems": [
-        {
-          "productId": "sub_variant_plan01",
-          "expiryTime": next_renewal_date
-          ...
-        }
-      ],
     }
+  ],
+}
+```
 
 > [!NOTE]
 > **Note:** A restored subscription uses the same purchase token from when the subscription was canceled. All cancellation fields are cleared from the subscription resource.
@@ -697,7 +726,7 @@ subscription resource looks similar to the following example:
 Restoring a subscription doesn't generate a new order. If you see a $0.00 order
 for a subscription that the user previously canceled, the user likely signed up
 again from your app before the subscription expired. For more information, see
-[Upgrades, downgrades, and resubscribe](https://developer.android.com/google/play/billing/lifecycle/subscriptions#upgrades-downgrades).
+[Upgrades, downgrades, and resubscribe](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#upgrades-downgrades).
 
 #### Resubscribe after expiration
 
@@ -721,7 +750,7 @@ To ensure accurate user association for the re-purchased subscriptions and preve
    Use either of these identifiers to look up and link the new purchase to the correct user account in your backend.
 2. Call [`purchases.subscriptions.acknowledge`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/acknowledge) to acknowledge the purchase.
 
-   - Optionally, you can send the user's `obfuscatedAccountId` and `obfuscatedProfileId` if you had configured them using [`setObfuscatedAccountId`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setObfuscatedAccountId(java.lang.String)) and [`setObfuscatedProfileId`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setObfuscatedProfileId(java.lang.String)) during the in-app billing flow.
+   - Optionally, you can send the user's `obfuscatedAccountId` and `obfuscatedProfileId` if you had configured them using [`setObfuscatedAccountId`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder.md.txt#setObfuscatedAccountId(java.lang.String)) and [`setObfuscatedProfileId`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder.md.txt#setObfuscatedProfileId(java.lang.String)) during the in-app billing flow.
 
 This server-side approach lets you acknowledge the purchase within three days from the date of purchase, even if the user doesn't open your app.
 
@@ -729,7 +758,7 @@ This server-side approach lets you acknowledge the purchase within three days fr
 
 When a user upgrades, downgrades, or [signs up after
 cancellation from your app before the subscription expires](https://developer.android.com/google/play/billing/subscriptions#before-in-app), the old
-subscription is invalidated and a [new subscription](https://developer.android.com/google/play/billing/lifecycle/subscriptions#new-auto) is created with
+subscription is invalidated and a [new subscription](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#new-auto) is created with
 a new purchase token.
 
 In addition, the [subscription
@@ -757,26 +786,28 @@ this is a new purchase which you must acknowledge. The recommended way
 to do this is to use the [Google Play Developer API](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/acknowledge).
 The subscription resource looks similar to the following example:
 
+```json
+{
+  "kind": "androidpublisher#subscriptionPurchaseV2",
+  ...
+  "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+  "linkedPurchaseToken": old_purchase_token,
+  ...
+  "lineItems": [
     {
-      "kind": "androidpublisher#subscriptionPurchaseV2",
-      ...
-      "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
-      "linkedPurchaseToken": old_purchase_token,
-      ...
-      "lineItems": [
-        {
-          "productId": "sub_variant_plan01",
-          "expiryTime": next_renewal_date,
-          "autoRenewingPlan": {
-            "autoRenewEnabled": true
-          }
-        }
-      ],
+      "productId": "sub_variant_plan01",
+      "expiryTime": next_renewal_date,
+      "autoRenewingPlan": {
+        "autoRenewEnabled": true
+      }
     }
+  ],
+}
+```
 
 ### Price changes
 
-See the [price change best practices guide](https://developer.android.com/google/play/billing/price-changes)
+See the [price change best practices guide](https://developer.android.com/google/play/billing/price-changes.md.txt)
 to learn about changing auto-renewing subscription prices and notifying users
 when appropriate.
 
@@ -792,26 +823,26 @@ received an RTDN if the user takes action to confirm or reject the new price.
 #### Handle user confirmation of an opt-in price change
 
 When a user accepts your subscription price increase, you receive a
-[SubscriptionNotification](https://developer.android.com/google/play/billing/rtdn-reference#sub) message with type
+[SubscriptionNotification](https://developer.android.com/google/play/billing/rtdn-reference.md.txt#sub) message with type
 `SUBSCRIPTION_PRICE_CHANGE_UPDATED`.
 
 > [!NOTE]
-> **Note:** For subscriptions without addons `SUBSCRIPTION_PRICE_CHANGE_CONFIRMED` notifications will also be sent. However, this notification is deprecated. For more information, see [Deprecations](https://developer.android.com/google/play/billing/play-developer-apis-deprecations#may21-api-deprecation).
+> **Note:** For subscriptions without addons `SUBSCRIPTION_PRICE_CHANGE_CONFIRMED` notifications will also be sent. However, this notification is deprecated. For more information, see [Deprecations](https://developer.android.com/google/play/billing/play-developer-apis-deprecations.md.txt#may21-api-deprecation).
 
 #### Handle renewals after price change is applied
 
 With a price decrease, or when the subscription price increase renews,
 you will receive a `SubscriptionNotification` message with type
-`SUBSCRIPTION_RENEWED`. Treat this notification like any other [renewal](https://developer.android.com/google/play/billing/lifecycle/subscriptions#renewal).
+`SUBSCRIPTION_RENEWED`. Treat this notification like any other [renewal](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#renewal).
 
 #### Handle cases where an opt-in price increase is not accepted
 
 If a user hasn't accepted your opt-in price increase before they need
 to renew at the higher price, they are automatically unsubscribed
 and you receive a
-[SubscriptionNotification](https://developer.android.com/google/play/billing/rtdn-reference#sub) message
+[SubscriptionNotification](https://developer.android.com/google/play/billing/rtdn-reference.md.txt#sub) message
 with type `SUBSCRIPTION_CANCELED`. Handle this event as described in
-[Cancellations](https://developer.android.com/google/play/billing/lifecycle/subscriptions#cancel).
+[Cancellations](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#cancel).
 
 Users can also cancel their subscriptions for an opt-out price increase
 following the same mechanism.
@@ -831,7 +862,7 @@ price step-up notifications to your users, and can provide [link to
 specific management page](https://developer.android.com/google/play/billing/subscriptions#link-specific) in your notifications.
 
 When the consent period has begun or the user has provided
-consent, you will receive a [SubscriptionNotification](https://developer.android.com/google/play/billing/rtdn-reference#sub) message with type
+consent, you will receive a [SubscriptionNotification](https://developer.android.com/google/play/billing/rtdn-reference.md.txt#sub) message with type
 `SUBSCRIPTION_PRICE_STEP_UP_CONSENT_UPDATED`.
 
 > [!NOTE]
@@ -852,7 +883,7 @@ opt-in price increase or opt-out price increase.
 ## Handle lifecycle for prepaid plans
 
 As with auto-renewing subscriptions, you must acknowledge prepaid plans after
-each [new purchase](https://developer.android.com/google/play/billing/lifecycle/subscriptions#new-auto). In the case of prepaid plans, you must fully
+each [new purchase](https://developer.android.com/google/play/billing/lifecycle/subscriptions.md.txt#new-auto). In the case of prepaid plans, you must fully
 process both the initial purchase and any top-ups, because the user has to go
 through the purchase flow every time.
 
@@ -868,7 +899,7 @@ three-day prepaid plan.
 
 ![](https://developer.android.com/static/images/google/play/billing/lifecycle/prepaid-states.svg) **Figure 8.** Lifecycle states and transition events for subscription purchases.
 
-A [`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference#sub) message
+A [`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference.md.txt#sub) message
 with type `SUBSCRIPTION_PURCHASED` is sent to your RTDN client whenever a
 prepaid plan subscription is purchased, including every top-up. Call the
 [`purchases.subscriptionsv2.get`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get)
@@ -883,23 +914,25 @@ no longer valid to use to call the Google Play Developer API.
 The subscription resource for a prepaid plan purchase looks similar to the
 following example:
 
+```json
+{
+  "kind": "androidpublisher#subscriptionPurchaseV2",
+  "startTime": "2022-04-22T18:39:58.270Z",
+  "regionCode": "US",
+  "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+  "latestOrderId": "GPA.3333-4137-0319-36762",
+  "acknowledgementState": "ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED",
+  "lineItems": [
     {
-      "kind": "androidpublisher#subscriptionPurchaseV2",
-      "startTime": "2022-04-22T18:39:58.270Z",
-      "regionCode": "US",
-      "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
-      "latestOrderId": "GPA.3333-4137-0319-36762",
-      "acknowledgementState": "ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED",
-      "lineItems": [
-        {
-          "productId": "prepaid_plan01",
-          "expiryTime": expiry_date,
-          "prepaidPlan": {
-            "allowExtendAfterTime": timestamp_after_which_topups_are_allowed
-          }
-        }
-      ]
+      "productId": "prepaid_plan01",
+      "expiryTime": expiry_date,
+      "prepaidPlan": {
+        "allowExtendAfterTime": timestamp_after_which_topups_are_allowed
+      }
     }
+  ]
+}
+```
 
 You can see when the entitlement ends in the `expiryTime` field. Top-up
 purchases increase the entitlement time by accumulating it. That means that if

@@ -6,7 +6,7 @@ source: md.txt
 
 > Documentation index: https://developer.android.com/develop/ui/llms.txt
 
-The [Picture-in-Picture (PiP) Jetpack Library](https://developer.android.com/jetpack/androidx/releases/core.md.txt#core-pip-1.0.0-alpha) offers a streamlined and
+The [Picture-in-Picture (PiP) Jetpack Library](https://developer.android.com/jetpack/androidx/releases/core.md.txt#core-pip_2) offers a streamlined and
 robust solution for Android app developers to implement PiP functionality,
 particularly for media playback, video communication, and navigation apps. By
 providing a unified API, the library helps eliminate boilerplate code, common

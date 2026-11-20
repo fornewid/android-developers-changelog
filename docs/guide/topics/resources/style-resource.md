@@ -5,8 +5,8 @@ source: md.txt
 ---
 
 A style resource defines the format and look for a UI.
-A style can be applied to an individual `https://developer.android.com/reference/android/view/View` (from within a layout file) or to
-an entire `https://developer.android.com/reference/android/app/Activity` or application (from within the manifest file).
+A style can be applied to an individual `View` (from within a layout file) or to
+an entire `Activity` or application (from within the manifest file).
 
 For more information about creating and applying styles, please read
 [Styles and Themes](https://developer.android.com/guide/topics/ui/themes).
@@ -67,9 +67,6 @@ elements:
     :   Defines a single property for the style. Must be a child of a
         `<style>` element.
 
-        <br />
-
-
         attributes:
 
         `name`
@@ -93,7 +90,7 @@ example:
         </resources>
         ```
 
-    XML file that applies the style to a `https://developer.android.com/reference/android/widget/TextView`
+    XML file that applies the style to a `TextView`
     (saved in `res/layout/`):
     :
 

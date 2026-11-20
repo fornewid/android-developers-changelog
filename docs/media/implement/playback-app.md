@@ -4,6 +4,8 @@ url: https://developer.android.com/media/implement/playback-app
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/implement/llms.txt
+
 Jetpack Media3 defines a `Player` interface that outlines basic functionality
 for playback of video and audio files. `ExoPlayer` is the default implementation
 of this interface in Media3. We recommend using ExoPlayer, as it provides a
@@ -27,15 +29,19 @@ Jetpack Media3:
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-exoplayer:1.11.1")
-    implementation("androidx.media3:media3-ui:1.11.1")
-    implementation("androidx.media3:media3-common:1.11.1")
+```kotlin
+implementation("androidx.media3:media3-exoplayer:1.11.1")
+implementation("androidx.media3:media3-ui:1.11.1")
+implementation("androidx.media3:media3-common:1.11.1")
+```
 
 ### Groovy
 
-    implementation "androidx.media3:media3-exoplayer:1.11.1"
-    implementation "androidx.media3:media3-ui:1.11.1"
-    implementation "androidx.media3:media3-common:1.11.1"
+```groovy
+implementation "androidx.media3:media3-exoplayer:1.11.1"
+implementation "androidx.media3:media3-ui:1.11.1"
+implementation "androidx.media3:media3-common:1.11.1"
+```
 
 Depending on your use-case, you may also need additional modules from Media3,
 such as `exoplayer-dash` to play streams in the DASH format.
@@ -53,23 +59,22 @@ interface, `ExoPlayer`, or you can build your own custom implementation.
 
 The simplest way to create an `ExoPlayer` instance is as follows:
 
-### Kotlin
 
-    val player = ExoPlayer.Builder(context).build()
+```kotlin
+val player = ExoPlayer.Builder(context).build()
+```
 
-### Java
-
-    ExoPlayer player = new ExoPlayer.Builder(context).build();
+<br />
 
 You can create your media player in the `onCreate()` lifecycle method of the
 `Activity`, `Fragment`, or `Service` where it lives.
 
-The [`Builder`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer.Builder) includes a range of customization options you may be interested
+The [`Builder`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer.Builder.md.txt) includes a range of customization options you may be interested
 in, such as:
 
-- [`setAudioAttributes()`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer.Builder#setAudioAttributes(androidx.media3.common.AudioAttributes,boolean)) to configure [audio focus](https://developer.android.com/media/optimize/audio-focus) handling
-- [`setHandleAudioBecomingNoisy()`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer.Builder#setHandleAudioBecomingNoisy(boolean)) to configure playback behavior when an audio output device is disconnected
-- [`setTrackSelector()`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer.Builder#setTrackSelector(androidx.media3.exoplayer.trackselection.TrackSelector)) to configure [track selection](https://developer.android.com/guide/topics/media/exoplayer/track-selection)
+- [`setAudioAttributes()`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer.Builder.md.txt#setAudioAttributes(androidx.media3.common.AudioAttributes,boolean)) to configure [audio focus](https://developer.android.com/media/optimize/audio-focus.md.txt) handling
+- [`setHandleAudioBecomingNoisy()`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer.Builder.md.txt#setHandleAudioBecomingNoisy(boolean)) to configure playback behavior when an audio output device is disconnected
+- [`setTrackSelector()`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer.Builder.md.txt#setTrackSelector(androidx.media3.exoplayer.trackselection.TrackSelector)) to configure [track selection](https://developer.android.com/guide/topics/media/exoplayer/track-selection)
 
 Media3 provides a `PlayerView` UI component that you can include in your app's
 layout file. This component encapsulates a `PlayerControlView` for playback
@@ -79,7 +84,7 @@ video.
 ### Preparing the player
 
 Add [media items](https://developer.android.com/guide/topics/media/exoplayer/media-items) to a playlist for playback with methods like
-[`setMediaItem()`](https://developer.android.com/reference/androidx/media3/common/Player#setMediaItem(androidx.media3.common.MediaItem)) and [`addMediaItem()`](https://developer.android.com/reference/androidx/media3/common/Player#addMediaItem(androidx.media3.common.MediaItem)). Then, call [`prepare()`](https://developer.android.com/reference/androidx/media3/common/Player#prepare()) to start
+[`setMediaItem()`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#setMediaItem(androidx.media3.common.MediaItem)) and [`addMediaItem()`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#addMediaItem(androidx.media3.common.MediaItem)). Then, call [`prepare()`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#prepare()) to start
 loading media and acquire the necessary resources.
 
 You shouldn't perform these steps before the app is in the foreground. If your
@@ -94,9 +99,9 @@ example of how to implement lifecycle methods.
 After the player has been prepared, you can control playback by calling methods
 on the player such as:
 
-- [`play()`](https://developer.android.com/reference/androidx/media3/common/Player#play()) and [`pause()`](https://developer.android.com/reference/androidx/media3/common/Player#pause()) to start and pause playback
-- [`seekTo()`](https://developer.android.com/reference/androidx/media3/common/Player#seekTo(long)) to seek to a position within the current media item
-- [`seekToNextMediaItem()`](https://developer.android.com/reference/androidx/media3/common/Player#seekToNextMediaItem()) and [`seekToPreviousMediaItem()`](https://developer.android.com/reference/androidx/media3/common/Player#seekToPreviousMediaItem()) to navigate through the playlist
+- [`play()`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#play()) and [`pause()`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#pause()) to start and pause playback
+- [`seekTo()`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#seekTo(long)) to seek to a position within the current media item
+- [`seekToNextMediaItem()`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#seekToNextMediaItem()) and [`seekToPreviousMediaItem()`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#seekToPreviousMediaItem()) to navigate through the playlist
 
 UI components such as the `PlayerView` or `PlayerControlView` will update
 accordingly when bound to a player.
@@ -104,7 +109,7 @@ accordingly when bound to a player.
 ### Release the player
 
 Playback can require resources that are in limited supply, such as video
-decoders, so it's important to call [`release()`](https://developer.android.com/reference/androidx/media3/common/Player#release()) on your player to free up
+decoders, so it's important to call [`release()`](https://developer.android.com/reference/androidx/media3/common/Player.md.txt#release()) on your player to free up
 resources when the player is no longer needed.
 
 If your player is in an `Activity` or `Fragment`, release the player in the
@@ -125,39 +130,41 @@ To use media sessions, add a dependency on the Media3 Session module:
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-session:1.11.1")
+```kotlin
+implementation("androidx.media3:media3-session:1.11.1")
+```
 
 ### Groovy
 
-    implementation "androidx.media3:media3-session:1.11.1"
+```groovy
+implementation "androidx.media3:media3-session:1.11.1"
+```
 
 ### Create a media session
 
 You can create a `MediaSession` after initializing a player as follows:
 
-### Kotlin
 
-    val player = ExoPlayer.Builder(context).build()
-    val mediaSession = MediaSession.Builder(context, player).build()
+```kotlin
+val player = ExoPlayer.Builder(context).build()
+val mediaSession = MediaSession.Builder(context, player).build()
+```
 
-### Java
-
-    ExoPlayer player = new ExoPlayer.Builder(context).build();
-    MediaSession mediaSession = new MediaSession.Builder(context, player).build();
+<br />
 
 Media3 automatically syncs the state of the `Player` with the state of the
 `MediaSession`. This works with any `Player` implementation, including
-`ExoPlayer`, [`CastPlayer`](https://developer.android.com/reference/androidx/media3/cast/CastPlayer), or a custom implementation.
+`ExoPlayer`, [`CastPlayer`](https://developer.android.com/reference/androidx/media3/cast/CastPlayer.md.txt), or a custom implementation.
 
 ### Grant control to other clients
 
-Client apps can implement a [media controller](https://developer.android.com/reference/androidx/media3/session/MediaController) to control playback of your media
-session. To receive these requests, set a [callback](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback) object when building your
+Client apps can implement a [media controller](https://developer.android.com/reference/androidx/media3/session/MediaController.md.txt) to control playback of your media
+session. To receive these requests, set a [callback](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback.md.txt) object when building your
 `MediaSession`.
 
-When a controller is about to connect to your media session, the [`onConnect()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onConnect(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo))
-method is called. You can use the provided [`ControllerInfo`](https://developer.android.com/reference/androidx/media3/session/MediaSession.ControllerInfo) to decide whether
-to [accept](https://developer.android.com/reference/androidx/media3/session/MediaSession.ConnectionResult#accept(androidx.media3.session.SessionCommands,androidx.media3.common.Player.Commands)) or [reject](https://developer.android.com/reference/androidx/media3/session/MediaSession.ConnectionResult#reject()) the request. See an example of this in the [Media3
+When a controller is about to connect to your media session, the [`onConnect()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback.md.txt#onConnect(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo))
+method is called. You can use the provided [`ControllerInfo`](https://developer.android.com/reference/androidx/media3/session/MediaSession.ControllerInfo.md.txt) to decide whether
+to [accept](https://developer.android.com/reference/androidx/media3/session/MediaSession.ConnectionResult.md.txt#accept(androidx.media3.session.SessionCommands,androidx.media3.common.Player.Commands)) or [reject](https://developer.android.com/reference/androidx/media3/session/MediaSession.ConnectionResult.md.txt#reject()) the request. See an example of this in the [Media3
 Session demo app](https://github.com/androidx/media/blob/release/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt).
 
 Once connected, a controller can send playback commands to the session. The
@@ -166,12 +173,12 @@ commands defined in the `Player` interface are automatically handled by the
 session.
 
 Other callback methods allow you to handle, for example, requests for [custom
-playback commands](https://developer.android.com/guide/topics/media/media3/getting-started/mediasession#adding-custom) and [modifying the playlist](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onAddMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E)). These callbacks similarly
-include a [`ControllerInfo`](https://developer.android.com/reference/androidx/media3/session/MediaSession.ControllerInfo) object so you can determine access control on a
+playback commands](https://developer.android.com/guide/topics/media/media3/getting-started/mediasession#adding-custom) and [modifying the playlist](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback.md.txt#onAddMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E)). These callbacks similarly
+include a [`ControllerInfo`](https://developer.android.com/reference/androidx/media3/session/MediaSession.ControllerInfo.md.txt) object so you can determine access control on a
 request-by-request basis.
 
 > [!NOTE]
-> **Note:** If you want to allow controllers to add media items to the player, implement the [`onAddMediaItems()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onAddMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E)) callback. In addition to handling `setMediaItems()` and `addMediaItems()` requests from a Media3 `MediaController`, this method is backward compatible with legacy APIs such as `TransportControls.prepareFrom*` and `TransportControls.playFrom*`. A sample implementation of [`onAddMediaItems()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback#onAddMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E)) can be found in the [`PlaybackService`](https://github.com/androidx/media/blob/main/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt) of the session demo app.
+> **Note:** If you want to allow controllers to add media items to the player, implement the [`onAddMediaItems()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback.md.txt#onAddMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E)) callback. In addition to handling `setMediaItems()` and `addMediaItems()` requests from a Media3 `MediaController`, this method is backward compatible with legacy APIs such as `TransportControls.prepareFrom*` and `TransportControls.playFrom*`. A sample implementation of [`onAddMediaItems()`](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback.md.txt#onAddMediaItems(androidx.media3.session.MediaSession,androidx.media3.session.MediaSession.ControllerInfo,java.util.List%3Candroidx.media3.common.MediaItem%3E)) can be found in the [`PlaybackService`](https://github.com/androidx/media/blob/main/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt) of the session demo app.
 
 ## Playing media in the background
 
@@ -187,81 +194,82 @@ Create a class that extends `MediaSessionService` and instantiate your
 
 ### Kotlin
 
-    class PlaybackService : MediaSessionService() {
-        private var mediaSession: MediaSession? = null
+```kotlin
+class PlaybackService : MediaSessionService() {
+    private var mediaSession: MediaSession? = null
 
-        // Create your Player and MediaSession in the onCreate lifecycle event
-        override fun onCreate() {
-            super.onCreate()
-            val player = ExoPlayer.Builder(this).build()
-            mediaSession = MediaSession.Builder(this, player).build()
-        }
-
-        // Remember to release the player and media session in onDestroy
-        override fun onDestroy() {
-            mediaSession?.run {
-                player.release()
-                release()
-                mediaSession = null
-            }
-            super.onDestroy()
-        }
+    // Create your Player and MediaSession in the onCreate lifecycle event
+    override fun onCreate() {
+        super.onCreate()
+        val player = ExoPlayer.Builder(this).build()
+        mediaSession = MediaSession.Builder(this, player).build()
     }
+
+    // Remember to release the player and media session in onDestroy
+    override fun onDestroy() {
+        mediaSession?.run {
+            player.release()
+            release()
+            mediaSession = null
+        }
+        super.onDestroy()
+    }
+}
+```
 
 ### Java
 
-    public class PlaybackService extends MediaSessionService {
-        private MediaSession mediaSession = null;
+```java
+public class PlaybackService extends MediaSessionService {
+    private MediaSession mediaSession = null;
 
-        @Override
-        public void onCreate() {
-            super.onCreate();
-            ExoPlayer player = new ExoPlayer.Builder(this).build();
-            mediaSession = new MediaSession.Builder(this, player).build();
-        }
-
-        @Override
-        public void onDestroy() {
-            mediaSession.getPlayer().release();
-            mediaSession.release();
-            mediaSession = null;
-            super.onDestroy();
-        }
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        ExoPlayer player = new ExoPlayer.Builder(this).build();
+        mediaSession = new MediaSession.Builder(this, player).build();
     }
+
+    @Override
+    public void onDestroy() {
+        mediaSession.getPlayer().release();
+        mediaSession.release();
+        mediaSession = null;
+        super.onDestroy();
+    }
+}
+```
 
 In your manifest, declare your `Service` class with a `MediaSessionService`
 intent filter and request the `FOREGROUND_SERVICE` permission to run a
 foreground service:
 
-    <service
-        android:name=".PlaybackService"
-        android:foregroundServiceType="mediaPlayback"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="androidx.media3.session.MediaSessionService"/>
-        </intent-filter>
-    </service>
+```xml
+<service
+    android:name=".PlaybackService"
+    android:foregroundServiceType="mediaPlayback"
+    android:exported="true">
+    <intent-filter>
+        <action android:name="androidx.media3.session.MediaSessionService"/>
+    </intent-filter>
+</service>
 
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+```
 
 Lastly, in the class you created, override the `onGetSession()` method to
 control client access to your media session. Return a `MediaSession` to accept
 the connection request, or return `null` to reject the request.
 
-### Kotlin
 
-    // This example always accepts the connection request
-    override fun onGetSession(
-        controllerInfo: MediaSession.ControllerInfo
-    ): MediaSession? = mediaSession
+```kotlin
+// This example always accepts the connection request.
+override fun onGetSession(
+    controllerInfo: MediaSession.ControllerInfo
+): MediaSession? = mediaSession
+```
 
-### Java
-
-    @Override
-    public MediaSession onGetSession(MediaSession.ControllerInfo controllerInfo) {
-      // This example always accepts the connection request
-      return mediaSession;
-    }
+<br />
 
 ### Connecting to your UI
 
@@ -274,57 +282,61 @@ happens asynchronously.
 
 ### Kotlin
 
-    override fun onStart() {
-      val sessionToken = SessionToken(this, ComponentName(this, PlaybackService::class.java))
-      val controllerFuture = MediaController.Builder(this, sessionToken).buildAsync()
-      controllerFuture.addListener(
-        {
-            // Call controllerFuture.get() to retrieve the MediaController.
-            // MediaController implements the Player interface, so it can be
-            // attached to the PlayerView UI component.
-            playerView.setPlayer(controllerFuture.get())
-          },
-        MoreExecutors.directExecutor()
-      )
-    }
-
-### Java
-
-    @Override
-    public void onStart() {
-      SessionToken sessionToken =
-        new SessionToken(this, new ComponentName(this, PlaybackService.class));
-      ListenableFuture<MediaController> controllerFuture =
-        new MediaController.Builder(this, sessionToken).buildAsync();
-      controllerFuture.addListener(() -> {
+```kotlin
+override fun onStart() {
+  val sessionToken = SessionToken(this, ComponentName(this, PlaybackService::class.java))
+  val controllerFuture = MediaController.Builder(this, sessionToken).buildAsync()
+  controllerFuture.addListener(
+    {
         // Call controllerFuture.get() to retrieve the MediaController.
         // MediaController implements the Player interface, so it can be
         // attached to the PlayerView UI component.
-        playerView.setPlayer(controllerFuture.get());
-      }, MoreExecutors.directExecutor())
-    }
+        playerView.setPlayer(controllerFuture.get())
+      },
+    MoreExecutors.directExecutor()
+  )
+}
+```
+
+### Java
+
+```java
+@Override
+public void onStart() {
+  SessionToken sessionToken =
+    new SessionToken(this, new ComponentName(this, PlaybackService.class));
+  ListenableFuture<MediaController> controllerFuture =
+    new MediaController.Builder(this, sessionToken).buildAsync();
+  controllerFuture.addListener(() -> {
+    // Call controllerFuture.get() to retrieve the MediaController.
+    // MediaController implements the Player interface, so it can be
+    // attached to the PlayerView UI component.
+    playerView.setPlayer(controllerFuture.get());
+  }, MoreExecutors.directExecutor())
+}
+```
 
 `MediaController` implements the `Player` interface, so you can use the same
 methods such as `play()` and `pause()` to control playback. Similar to other
 components, remember to release the `MediaController` when it is no longer
 needed in the `onStop()` lifecycle method of an `Activity`, by calling
-[`MediaController.releaseFuture()`](https://developer.android.com/reference/androidx/media3/session/MediaController#releaseFuture(java.util.concurrent.Future%3C?%20extends%20androidx.media3.session.MediaController%3E)).
+[`MediaController.releaseFuture()`](https://developer.android.com/reference/androidx/media3/session/MediaController.md.txt#releaseFuture(java.util.concurrent.Future%3C?%20extends%20androidx.media3.session.MediaController%3E)).
 
 ### Publishing a notification
 
 Foreground services are required to publish a notification while active. A
-`MediaSessionService` will automatically create a [`MediaStyle` notification](https://developer.android.com/reference/android/app/Notification.MediaStyle)
-for you in the form of a [`MediaNotification`](https://developer.android.com/reference/androidx/media3/session/MediaNotification). To provide a custom
-notification, create a [`MediaNotification.Provider`](https://developer.android.com/reference/androidx/media3/session/MediaNotification.Provider) with
-[`DefaultMediaNotificationProvider.Builder`](https://developer.android.com/reference/androidx/media3/session/DefaultMediaNotificationProvider) or by creating a custom
+`MediaSessionService` will automatically create a [`MediaStyle` notification](https://developer.android.com/reference/android/app/Notification.MediaStyle.md.txt)
+for you in the form of a [`MediaNotification`](https://developer.android.com/reference/androidx/media3/session/MediaNotification.md.txt). To provide a custom
+notification, create a [`MediaNotification.Provider`](https://developer.android.com/reference/androidx/media3/session/MediaNotification.Provider.md.txt) with
+[`DefaultMediaNotificationProvider.Builder`](https://developer.android.com/reference/androidx/media3/session/DefaultMediaNotificationProvider.md.txt) or by creating a custom
 implementation of the provider interface. Add your provider to your
-`MediaSession` with [`setMediaNotificationProvider`](https://developer.android.com/reference/androidx/media3/session/MediaSessionService#setMediaNotificationProvider(androidx.media3.session.MediaNotification.Provider)).
+`MediaSession` with [`setMediaNotificationProvider`](https://developer.android.com/reference/androidx/media3/session/MediaSessionService.md.txt#setMediaNotificationProvider(androidx.media3.session.MediaNotification.Provider)).
 
 ## Advertising your content library
 
 A `MediaLibraryService` builds on a `MediaSessionService` by allowing client
 apps to browse the media content provided by your app. Client apps implement a
-[`MediaBrowser`](https://developer.android.com/reference/androidx/media3/session/MediaBrowser) to interact with your `MediaLibraryService`.
+[`MediaBrowser`](https://developer.android.com/reference/androidx/media3/session/MediaBrowser.md.txt) to interact with your `MediaLibraryService`.
 
 Implementing a `MediaLibraryService` is similar to implementing a
 `MediaSessionService`, except that in `onGetSession()` you should return a
@@ -337,17 +349,19 @@ Similar to the `MediaSessionService`, declare the `MediaLibraryService` in your
 manifest and request the `FOREGROUND_SERVICE` permission to run a foreground
 service:
 
-    <service
-        android:name=".PlaybackService"
-        android:foregroundServiceType="mediaPlayback"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="androidx.media3.session.MediaLibraryService"/>
-            <action android:name="android.media.browse.MediaBrowserService"/>
-        </intent-filter>
-    </service>
+```xml
+<service
+    android:name=".PlaybackService"
+    android:foregroundServiceType="mediaPlayback"
+    android:exported="true">
+    <intent-filter>
+        <action android:name="androidx.media3.session.MediaLibraryService"/>
+        <action android:name="android.media.browse.MediaBrowserService"/>
+    </intent-filter>
+</service>
 
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+```
 
 The example above includes an intent filter for both the `MediaLibraryService`
 and, for backward compatibility, the legacy `MediaBrowserService`. The
@@ -365,14 +379,14 @@ content.
 
 ### Creating a `MediaLibrarySession`
 
-A [`MediaLibrarySession`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession) extends the `MediaSession` API to add content browsing
-APIs. Compared to the [`MediaSession` callback](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback), the [`MediaLibrarySession`
+A [`MediaLibrarySession`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.md.txt) extends the `MediaSession` API to add content browsing
+APIs. Compared to the [`MediaSession` callback](https://developer.android.com/reference/androidx/media3/session/MediaSession.Callback.md.txt), the [`MediaLibrarySession`
 callback](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback) adds methods such as:
 
-- [`onGetLibraryRoot()`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback#onGetLibraryRoot(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,androidx.media3.session.MediaLibraryService.LibraryParams)) for when a client requests the root `MediaItem` of a content tree
-- [`onGetChildren()`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback#onGetChildren(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,java.lang.String,int,int,androidx.media3.session.MediaLibraryService.LibraryParams)) for when a client requests the children of a `MediaItem` in the content tree
-- [`onGetSearchResult()`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback#onGetSearchResult(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,java.lang.String,int,int,androidx.media3.session.MediaLibraryService.LibraryParams)) for when a client requests search results from the content tree for a given query
+- [`onGetLibraryRoot()`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback.md.txt#onGetLibraryRoot(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,androidx.media3.session.MediaLibraryService.LibraryParams)) for when a client requests the root `MediaItem` of a content tree
+- [`onGetChildren()`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback.md.txt#onGetChildren(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,java.lang.String,int,int,androidx.media3.session.MediaLibraryService.LibraryParams)) for when a client requests the children of a `MediaItem` in the content tree
+- [`onGetSearchResult()`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.MediaLibrarySession.Callback.md.txt#onGetSearchResult(androidx.media3.session.MediaLibraryService.MediaLibrarySession,androidx.media3.session.MediaSession.ControllerInfo,java.lang.String,int,int,androidx.media3.session.MediaLibraryService.LibraryParams)) for when a client requests search results from the content tree for a given query
 
-Relevant callback methods will include a [`LibraryParams`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.LibraryParams) object with
+Relevant callback methods will include a [`LibraryParams`](https://developer.android.com/reference/androidx/media3/session/MediaLibraryService.LibraryParams.md.txt) object with
 additional signals about the type of content tree that a client app is
 interested in.
