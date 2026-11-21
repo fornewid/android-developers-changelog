@@ -1,0 +1,28 @@
+diff --git a/docs/jetpack/androidx/releases/compose-ui.md b/docs/jetpack/androidx/releases/compose-ui.md
+index fe696cfc..83fdd0c8 100644
+--- a/docs/jetpack/androidx/releases/compose-ui.md
++++ b/docs/jetpack/androidx/releases/compose-ui.md
+@@ -57,8 +57,9 @@ android {
+         compose true
+     }
+ 
+-    kotlinOptions {
+-        jvmTarget = "1.8"
++    compileOptions {
++        sourceCompatibility JavaVersion.VERSION_11
++        targetCompatibility JavaVersion.VERSION_11
+     }
+ }
+ ```
+@@ -79,8 +80,9 @@ android {
+         compose = true
+     }
+ 
+-    kotlinOptions {
+-        jvmTarget = "1.8"
++    compileOptions {
++        sourceCompatibility = JavaVersion.VERSION_11
++        targetCompatibility = JavaVersion.VERSION_11
+     }
+ }
+ ```

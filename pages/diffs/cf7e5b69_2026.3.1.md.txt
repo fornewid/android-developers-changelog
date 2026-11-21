@@ -1,0 +1,19 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2026.3.1.md b/docs/studio/releases/fixed-bugs/studio/2026.3.1.md
+index df19203d..912c1f84 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2026.3.1.md
++++ b/docs/studio/releases/fixed-bugs/studio/2026.3.1.md
+@@ -6,6 +6,14 @@ source: md.txt
+ 
+ > Documentation index: https://developer.android.com/studio/releases/llms.txt
+ 
++### Android Studio Stingray 1 \| 2026.3.1 Canary 2
++
++**Released together with:**
++
++- Android Gradle Plugin 9.6.0-alpha05
++
++Fixed Issues **Android CLI** [Issue #579926613](https://issuetracker.google.com/issues/579926613) Add (re-)composition tracing to \`android profiler systemtrace\` **Android Gradle Plugin** [Issue #548701041](https://issuetracker.google.com/issues/548701041) Enabling \`testFixtures\` breaks minified UI tests **Database Inspector** [Issue #553479937](https://issuetracker.google.com/issues/553479937) Database Inspector still corrupts the SQLite heap with Room + BundledSQLiteDriver **Fused Library Plugin** [Issue #501324958](https://issuetracker.google.com/issues/501324958) \[fused library\] Including a module which depends on a BOM artifacts incorrectly references said BOM in generated POM / Gradle module metadata **Gradle Integration** [Issue #576728239](https://issuetracker.google.com/issues/576728239) Managed-device instrumented tests ignore ANDROID_ADB_SERVER_PORT (UTP worker gets an empty environment on Windows); the test task passes with 0 tests **Running Devices** [Issue #356907813](https://issuetracker.google.com/issues/356907813) Feature request: integrate DPAD (aka Extended Controls) near TV emulator UI **Scroll** [Issue #40482504](https://issuetracker.google.com/issues/40482504) scroll anchoring breaks scrolling in the devtools sources panel **UI Tools** [Issue #144825999](https://issuetracker.google.com/issues/144825999) Request: allow to convert SVG that has text, by converting the text to vectors
++
+ ### Android Studio Stingray 1 \| 2026.3.1 Canary 1
+ 
+ **Released together with:**

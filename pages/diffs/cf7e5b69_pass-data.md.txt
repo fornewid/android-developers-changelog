@@ -1,0 +1,16 @@
+diff --git a/docs/guide/navigation/use-graph/pass-data.md b/docs/guide/navigation/use-graph/pass-data.md
+index a8a66370..80a52525 100644
+--- a/docs/guide/navigation/use-graph/pass-data.md
++++ b/docs/guide/navigation/use-graph/pass-data.md
+@@ -411,10 +411,6 @@ in the following example:
+ To learn more about navigation, consult the following
+ additional resources.
+ 
+-### Codelabs
+-
+-- [Learn Jetpack Navigation](https://codelabs.developers.google.com/codelabs/android-navigation/)
+-
+ ### Videos
+ 
+ - [Android Jetpack: Manage UI navigation with navigation controller (Google I/O '18)](https://www.youtube.com/watch?v=8GCXtCjtg40%22)
+\ No newline at end of file

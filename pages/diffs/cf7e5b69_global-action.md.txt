@@ -1,0 +1,62 @@
+diff --git a/docs/guide/navigation/design/global-action.md b/docs/guide/navigation/design/global-action.md
+index 1993b673..65ffb444 100644
+--- a/docs/guide/navigation/design/global-action.md
++++ b/docs/guide/navigation/design/global-action.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/navigation/design/global-action
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/guide/navigation/design/llms.txt
++
+ You can use a *global action* to create a common action that multiple
+ destinations can use. For example, you might want buttons in
+ different destinations to navigate to the same main app screen.
+@@ -22,24 +24,26 @@ To create a global action, do the following:
+ 4. Click the **Text** tab to navigate to the XML text view. The XML for the
+    global action looks similar to the following:
+ 
+-       <?xml version="1.0" encoding="utf-8"?>
+-       <navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+-                   xmlns:tools="http://schemas.android.com/tools"
+-                   xmlns:android="http://schemas.android.com/apk/res/android"
+-                   android:id="@+id/main_nav"
+-                   app:startDestination="@id/mainFragment">
++   ```xml
++   <?xml version="1.0" encoding="utf-8"?>
++   <navigation xmlns:app="http://schemas.android.com/apk/res-auto"
++               xmlns:tools="http://schemas.android.com/tools"
++               xmlns:android="http://schemas.android.com/apk/res/android"
++               android:id="@+id/main_nav"
++               app:startDestination="@id/mainFragment">
+ 
+-         ...
++     ...
+ 
+-         <action android:id="@+id/action_global_mainFragment"
+-                 app:destination="@id/mainFragment"/>
++     <action android:id="@+id/action_global_mainFragment"
++             app:destination="@id/mainFragment"/>
+ 
+-       </navigation>
++   </navigation>
++   ```
+ 
+ ## Use a global action
+ 
+ To use a global action in your code, pass the resource ID of the global action
+-to the [`navigate()`](https://developer.android.com/reference/androidx/navigation/NavController#navigate(int))
++to the [`navigate()`](https://developer.android.com/reference/androidx/navigation/NavController.md.txt#navigate(int))
+ method for each UI element, as shown in the following example:
+ 
+ ### Kotlin
+@@ -71,10 +75,6 @@ For information on using Safe Args with global actions, see
+ To learn more about navigation, consult the following
+ additional resources.
+ 
+-### Codelabs
+-
+-- [Navigation Codelab](https://codelabs.developers.google.com/codelabs/android-navigation/index.html?index=../../index#0)
+-
+ ### Videos
+ 
+ - [Android Jetpack:

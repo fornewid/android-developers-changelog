@@ -1,0 +1,28 @@
+diff --git a/docs/jetpack/androidx/releases/compose-material.md b/docs/jetpack/androidx/releases/compose-material.md
+index 67ad5578..b084abf5 100644
+--- a/docs/jetpack/androidx/releases/compose-material.md
++++ b/docs/jetpack/androidx/releases/compose-material.md
+@@ -57,8 +57,9 @@ android {
+         compose true
+     }
+ 
+-    kotlinOptions {
+-        jvmTarget = "1.8"
++    compileOptions {
++        sourceCompatibility JavaVersion.VERSION_11
++        targetCompatibility JavaVersion.VERSION_11
+     }
+ }
+ ```
+@@ -79,8 +80,9 @@ android {
+         compose = true
+     }
+ 
+-    kotlinOptions {
+-        jvmTarget = "1.8"
++    compileOptions {
++        sourceCompatibility = JavaVersion.VERSION_11
++        targetCompatibility = JavaVersion.VERSION_11
+     }
+ }
+ ```

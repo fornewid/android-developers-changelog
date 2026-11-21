@@ -1,0 +1,55 @@
+diff --git a/docs/media/camera/camerax/camera1-to-camerax.md b/docs/media/camera/camerax/camera1-to-camerax.md
+index d7853d18..ea317858 100644
+--- a/docs/media/camera/camerax/camera1-to-camerax.md
++++ b/docs/media/camera/camerax/camera1-to-camerax.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/media/camera/camerax/camera1-to-camerax
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/media/camera/camerax/llms.txt
++
+ ## Android skills
+ 
+ [View on GitHub](https://github.com/android/skills/tree/main/camera/camerax)
+@@ -19,7 +21,7 @@ Use the CameraX [Android skill](https://developer.android.com/tools/agents/andro
+ If your app uses the original [`Camera`](https://developer.android.com/reference/android/hardware/Camera.md.txt) class ("Camera1"), which has been
+ deprecated since [Android 5.0 (API level 21)](https://developer.android.com/about/versions/lollipop.md.txt), we highly recommend updating
+ to a modern Android camera API. Android offers [CameraX](https://developer.android.com/training/camerax) (a standardized,
+-robust [Jetpack](https://developer.android.com/jetpack) camera API) and [Camera2](https://developer.android.com/training/camera2) (a low-level, framework API).
++robust [Jetpack](https://developer.android.com/jetpack.md.txt) camera API) and [Camera2](https://developer.android.com/training/camera2) (a low-level, framework API).
+ For most cases, we recommend migrating your app to CameraX. Here's why:
+ 
+ - **Ease of use:** CameraX handles the low-level details, so that you can focus less on building a camera experience from scratch and more on differentiating your app.
+@@ -586,15 +588,17 @@ tap-to-focus automatically. You can enable and disable tap-to-focus with
+ [`setTapToFocusEnabled()`](https://developer.android.com/reference/androidx/camera/view/CameraController.md.txt#setTapToFocusEnabled(boolean)), and check the value with the corresponding
+ getter [`isTapToFocusEnabled()`](https://developer.android.com/reference/androidx/camera/view/CameraController.md.txt#isTapToFocusEnabled()).
+ 
+-The [`getTapToFocusState()`](https://developer.android.com/reference/androidx/camera/view/CameraController.md.txt#getTapToFocusState()) method returns a [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata.md.txt) object for
+-tracking changes to the focus state on the `CameraController`.
++[`getTapToFocusInfoState()`](https://developer.android.com/reference/androidx/camera/view/CameraController.md.txt#getTapToFocusInfoState()) returns a [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata.md.txt) object that emits
++[`TapToFocusInfo`](https://developer.android.com/reference/androidx/camera/view/TapToFocusInfo.md.txt) updates from `CameraController`. Each `TapToFocusInfo`
++provides the focus state and tap location.
+ 
+ ```kotlin
+-// CameraX: track the state of tap-to-focus over the Lifecycle of a PreviewView,
+-// with handlers you can define for focused, not focused, and failed states.
++// Observe with a LifecycleOwner so focus UI updates stop when inactive.
++// Use tapToFocusInfo.tapPoint to place a focus indicator; it's null when
++// no focus action is active (initially or after the 5-second auto-cancel).
+ 
+-val tapToFocusStateObserver = Observer { state ->
+-    when (state) {
++val tapToFocusInfoStateObserver = Observer<TapToFocusInfo> { tapToFocusInfo ->
++    when (tapToFocusInfo.focusState) {
+         CameraController.TAP_TO_FOCUS_NOT_STARTED ->
+             Log.d(TAG, "tap-to-focus init")
+         CameraController.TAP_TO_FOCUS_STARTED ->
+@@ -608,7 +612,7 @@ val tapToFocusStateObserver = Observer { state ->
+     }
+ }
+ 
+-cameraController.getTapToFocusState().observe(this, tapToFocusStateObserver)
++cameraController.getTapToFocusInfoState().observe(this, tapToFocusInfoStateObserver)
+ ```
+ 
+ #### CameraX: CameraProvider

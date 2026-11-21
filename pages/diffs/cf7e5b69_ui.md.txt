@@ -1,0 +1,15 @@
+diff --git a/docs/guide/navigation/integrations/ui.md b/docs/guide/navigation/integrations/ui.md
+index 19baed00..8edf5351 100644
+--- a/docs/guide/navigation/integrations/ui.md
++++ b/docs/guide/navigation/integrations/ui.md
+@@ -815,10 +815,6 @@ about the containing `Activity` and the UI components that it owns.
+ 
+ To learn more about navigation, see the following additional resources.
+ 
+-### Codelabs
+-
+-- [Navigation codelab](https://codelabs.developers.google.com/codelabs/android-navigation/index.html?index=../../index#0)
+-
+ ### Blog posts
+ 
+ - [LiveData with SnackBar, Navigation and other events (the SingleLiveEvent

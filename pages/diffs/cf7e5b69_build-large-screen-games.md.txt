@@ -1,0 +1,17 @@
+diff --git a/docs/games/large-screen/build-large-screen-games.md b/docs/games/large-screen/build-large-screen-games.md
+index 785e5d67..f7fb329b 100644
+--- a/docs/games/large-screen/build-large-screen-games.md
++++ b/docs/games/large-screen/build-large-screen-games.md
+@@ -113,9 +113,5 @@ configurations:
+   | 2025 | Samsung | Galaxy Tab S11 Ultra |
+   | 2025 | Samsung | Galaxy Tab S11 Ultra 5G |
+   | 2025 | Samsung | Galaxy Tab S11 5G |
+-  | 2025 | Xiaomi | Xiaomi Pad 8 |
+-  | 2025 | OnePlus | Pad 3 |
+   | 2026 | Samsung | Galaxy Tab S12 Ultra |
+-  | 2026 | Samsung | Galaxy Tab S12+ |
+-  | 2026 | Xiaomi | Xiaomi Pad 9 |
+-  | 2026 | OnePlus | Pad 4 |
+\ No newline at end of file
++  | 2026 | Samsung | Galaxy Tab S12+ |
+\ No newline at end of file

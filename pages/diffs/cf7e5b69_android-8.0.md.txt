@@ -1,0 +1,13 @@
+diff --git a/docs/about/versions/oreo/android-8.0.md b/docs/about/versions/oreo/android-8.0.md
+index 1fb8a6ac..a1898401 100644
+--- a/docs/about/versions/oreo/android-8.0.md
++++ b/docs/about/versions/oreo/android-8.0.md
+@@ -986,7 +986,7 @@ packages, see the API reference documentation.
+ 
+ 
+ If you want to [use Java 8 language features](https://developer.android.com/studio/preview/features/java8-support) in Android Studio, you should
+-[download the latest preview version](https://developer.android.com/studio/preview).
++[download the latest preview version](https://developer.android.com/studio/preview.md.txt).
+ 
+ ### Updated ICU4J Android Framework APIs
+ 

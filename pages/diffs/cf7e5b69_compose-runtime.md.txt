@@ -1,0 +1,28 @@
+diff --git a/docs/jetpack/androidx/releases/compose-runtime.md b/docs/jetpack/androidx/releases/compose-runtime.md
+index fb0e509e..65f01d67 100644
+--- a/docs/jetpack/androidx/releases/compose-runtime.md
++++ b/docs/jetpack/androidx/releases/compose-runtime.md
+@@ -59,8 +59,9 @@ android {
+         compose true
+     }
+ 
+-    kotlinOptions {
+-        jvmTarget = "1.8"
++    compileOptions {
++        sourceCompatibility JavaVersion.VERSION_11
++        targetCompatibility JavaVersion.VERSION_11
+     }
+ }
+ ```
+@@ -83,8 +84,9 @@ android {
+         compose = true
+     }
+ 
+-    kotlinOptions {
+-        jvmTarget = "1.8"
++    compileOptions {
++        sourceCompatibility = JavaVersion.VERSION_11
++        targetCompatibility = JavaVersion.VERSION_11
+     }
+ }
+ ```

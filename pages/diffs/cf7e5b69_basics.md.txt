@@ -1,0 +1,305 @@
+diff --git a/docs/training/testing/espresso/basics.md b/docs/training/testing/espresso/basics.md
+index 7bb1fcd6..b5b4b9da 100644
+--- a/docs/training/testing/espresso/basics.md
++++ b/docs/training/testing/espresso/basics.md
+@@ -29,27 +29,17 @@ The main components of Espresso include the following:
+ 
+ Example:
+ 
+-### Kotlin
+ 
+ ```kotlin
+-// withId(R.id.my_view) is a ViewMatcher
+-// click() is a ViewAction
+-// matches(isDisplayed()) is a ViewAssertion
++// withId(R.id.my_view) is a ViewMatcher.
++// click() is a ViewAction.
++// matches(isDisplayed()) is a ViewAssertion.
+ onView(withId(R.id.my_view))
+     .perform(click())
+     .check(matches(isDisplayed()))
+ ```
+ 
+-### Java
+-
+-```java
+-// withId(R.id.my_view) is a ViewMatcher
+-// click() is a ViewAction
+-// matches(isDisplayed()) is a ViewAssertion
+-onView(withId(R.id.my_view))
+-    .perform(click())
+-    .check(matches(isDisplayed()));
+-```
++<br />
+ 
+ ## Find a view
+ 
+@@ -75,17 +65,12 @@ using either existing `ViewMatcher` objects or your own custom ones.
+ 
+ Finding a view by its `R.id` is as simple as calling `onView()`:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ onView(withId(R.id.my_view))
+ ```
+ 
+-### Java
+-
+-```java
+-onView(withId(R.id.my_view));
+-```
++<br />
+ 
+ Sometimes, `R.id` values are shared between multiple views. When this happens an
+ attempt to use a particular `R.id` gives you an exception, such as
+@@ -120,31 +105,21 @@ identifiable properties. In the example above, one of the views has the text
+ `"Hello!"`. You can use this to narrow down your search by using combination
+ matchers:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ onView(allOf(withId(R.id.my_view), withText("Hello!")))
+ ```
+ 
+-### Java
+-
+-```java
+-onView(allOf(withId(R.id.my_view), withText("Hello!")));
+-```
++<br />
+ 
+ You can also choose not to reverse any of the matchers:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ onView(allOf(withId(R.id.my_view), not(withText("Unwanted"))))
+ ```
+ 
+-### Java
+-
+-```java
+-onView(allOf(withId(R.id.my_view), not(withText("Unwanted"))));
+-```
++<br />
+ 
+ For common view matchers provided by Espresso, inspect
+ `androidx.test.espresso.matcher.ViewMatchers` in your IDE or see the
+@@ -163,49 +138,25 @@ perform instances of `ViewAction` on it using the perform method.
+ 
+ For example, to click on the view:
+ 
+-### Kotlin
+-
+ ```kotlin
+ onView(...).perform(click())
+ ```
+ 
+-### Java
+-
+-```java
+-onView(...).perform(click());
+-```
+-
+ You can execute more than one action with one perform call:
+ 
+-### Kotlin
+-
+ ```kotlin
+ onView(...).perform(typeText("Hello"), click())
+ ```
+ 
+-### Java
+-
+-```java
+-onView(...).perform(typeText("Hello"), click());
+-```
+-
+ If the view you are working with is located inside a `ScrollView` (vertical or
+ horizontal), consider preceding actions that require the view to be
+ displayed---such as `click()` and `typeText()`---with `scrollTo()`. This
+ ensures that the view is displayed before proceeding to the other action:
+ 
+-### Kotlin
+-
+ ```kotlin
+ onView(...).perform(scrollTo(), click())
+ ```
+ 
+-### Java
+-
+-```java
+-onView(...).perform(scrollTo(), click());
+-```
+-
+ > [!NOTE]
+ > **Note:** The `scrollTo()` method will have no effect if the view is already displayed so you can safely use it in cases when the view is displayed due to larger screen size, such as when your tests run on both smaller and larger screen resolutions.
+ 
+@@ -221,37 +172,20 @@ method. The most used assertion is the `matches()` assertion. It uses a
+ 
+ For example, to check that a view has the text `"Hello!"`:
+ 
+-### Kotlin
+-
+ ```kotlin
+ onView(...).check(matches(withText("Hello!")))
+ ```
+ 
+-### Java
+-
+-```java
+-onView(...).check(matches(withText("Hello!")));
+-```
+-
+ > [!NOTE]
+ > **Note:** Do not put "assertions" into the `onView()` argument. Instead, clearly specify what you are checking inside the check block.
+ 
+ If you want to assert that `"Hello!"` is content of the view, the following is considered bad practice:
+ 
+-### Kotlin
+-
+ ```kotlin
+ // Don't use assertions like withText inside onView.
+ onView(allOf(withId(...), withText("Hello!"))).check(matches(isDisplayed()))
+ ```
+ 
+-### Java
+-
+-```kotlin
+-// Don't use assertions like withText inside onView.
+-onView(allOf(withId(...), withText("Hello!"))).check(matches(isDisplayed()));
+-```
+-
+ On the other hand, if you want to assert that a view with the text `"Hello!"` is
+ visible---for example after a change of the views visibility flag---the
+ code is fine.
+@@ -271,61 +205,41 @@ Here's how to test this with Espresso:
+ The first step is to look for a property that helps to find the button. The
+ button in the `SimpleActivity` has a unique `R.id`, as expected.
+ 
+-### Kotlin
+ 
+ ```kotlin
+ onView(withId(R.id.button_simple))
+ ```
+ 
+-### Java
+-
+-```java
+-onView(withId(R.id.button_simple));
+-```
++<br />
+ 
+ Now to perform the click:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ onView(withId(R.id.button_simple)).perform(click())
+ ```
+ 
+-### Java
+-
+-```java
+-onView(withId(R.id.button_simple)).perform(click());
+-```
++<br />
+ 
+ #### Verify the TextView text
+ 
+ The `TextView` with the text to verify has a unique `R.id` too:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ onView(withId(R.id.text_simple))
+ ```
+ 
+-### Java
+-
+-```java
+-onView(withId(R.id.text_simple));
+-```
++<br />
+ 
+ Now to verify the content text:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ onView(withId(R.id.text_simple)).check(matches(withText("Hello Espresso!")))
+ ```
+ 
+-### Java
+-
+-```java
+-onView(withId(R.id.text_simple)).check(matches(withText("Hello Espresso!")));
+-```
++<br />
+ 
+ ## Check data loading in adapter views
+ 
+@@ -366,17 +280,12 @@ matching the item.
+ 
+ #### Open the item selection
+ 
+-### Kotlin
+ 
+ ```kotlin
+ onView(withId(R.id.spinner_simple)).perform(click())
+ ```
+ 
+-### Java
+-
+-```java
+-onView(withId(R.id.spinner_simple)).perform(click());
+-```
++<br />
+ 
+ #### Select an item
+ 
+@@ -386,34 +295,27 @@ hierarchy. By using `onData()` we force our desired element into the view
+ hierarchy. The items in the `Spinner` are strings, so we want to match an item
+ that is equal to the String `"Americano"`:
+ 
+-### Kotlin
+ 
+ ```kotlin
+-onData(allOf(`is`(instanceOf(String::class.java)),
+-        `is`("Americano"))).perform(click())
++onData(
++    allOf(
++        `is`(instanceOf(String::class.java)),
++        `is`("Americano")
++    )
++).perform(click())
+ ```
+ 
+-### Java
+-
+-```java
+-onData(allOf(is(instanceOf(String.class)), is("Americano"))).perform(click());
+-```
++<br />
+ 
+ #### Verify text is correct
+ 
+-### Kotlin
+ 
+ ```kotlin
+ onView(withId(R.id.spinnertext_simple))
+     .check(matches(withText(containsString("Americano"))))
+ ```
+ 
+-### Java
+-
+-```kotlin
+-onView(withId(R.id.spinnertext_simple))
+-    .check(matches(withText(containsString("Americano"))));
+-```
++<br />
+ 
+ ## Debugging
+ 

@@ -1,0 +1,46 @@
+diff --git a/docs/training/testing/espresso/setup.md b/docs/training/testing/espresso/setup.md
+index fb005f3c..b41a1dc6 100644
+--- a/docs/training/testing/espresso/setup.md
++++ b/docs/training/testing/espresso/setup.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/training/testing/espresso/setup
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/training/testing/espresso/llms.txt
++
+ This guide covers installing Espresso using the SDK Manager and building it
+ using Gradle. Android Studio is recommended.
+ 
+@@ -137,7 +139,6 @@ Android Studio creates tests by default in
+ 
+ Example JUnit4 test using Rules:
+ 
+-### Kotlin
+ 
+ ```kotlin
+ @RunWith(AndroidJUnit4::class)
+@@ -153,23 +154,7 @@ class HelloWorldEspressoTest {
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-@RunWith(AndroidJUnit4.class)
+-@LargeTest
+-public class HelloWorldEspressoTest {
+-
+-    @Rule
+-    public ActivityScenarioRule<MainActivity> activityRule =
+-            new ActivityScenarioRule<>(MainActivity.class);
+-
+-    @Test
+-    public void listGoesOverTheFold() {
+-        onView(withText("Hello world!")).check(matches(isDisplayed()));
+-    }
+-}
+-```
++<br />
+ 
+ ## Run tests
+ 
