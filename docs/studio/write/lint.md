@@ -62,7 +62,7 @@ Android Studio. You can view warnings and errors in two ways:
 
 **Note:** When your code is compiled in Android Studio, additional
 [IntelliJ code inspections](https://www.jetbrains.com/help/idea/2026.2/code-inspection.html) run to streamline code
-review. Keep [Android Studio](https://developer.android.com/studio) as up-to-date as possible to ensure
+review. Keep [Android Studio](https://developer.android.com/studio.md.txt) as up-to-date as possible to ensure
 the latest lint rules and inspections are available.
 
 Figure 1 shows how the lint tool processes app source files.

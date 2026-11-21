@@ -79,7 +79,7 @@ For more details about the different offerings, see [Feature comparison](https:/
 AI in Android Studio is under active development and the features update
 frequently. You can learn about the latest AI features and other preview
 features by checking out the [Android Studio preview release notes](https://developer.android.com/studio/preview/features.md.txt) and by
-[downloading a preview](https://developer.android.com/studio/preview).
+[downloading a preview](https://developer.android.com/studio/preview.md.txt).
 
 ## Permissions
 

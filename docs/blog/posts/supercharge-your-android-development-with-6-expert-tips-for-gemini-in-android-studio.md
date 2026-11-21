@@ -65,7 +65,7 @@ Alternatively, in Android Studio settings, you can also opt out of context shari
 
 Remember, paid plans never use your code for model training. This includes both users using an AI Studio API Key, and businesses who are subscribed to Gemini Code Assist. - Trevor Johns, Developer Relations Engineer.
 
-Hear more from the Android team and Google Developer Experts about Gemini in Android Studio in our recent [fireside chat](https://www.youtube.com/watch?v=9caMeFQYCLk) and download [Android Studio](https://developer.android.com/studio?utm_source=blog&utm_medium=referral&utm_campaign=gias_firesidediscordfeb26_blog) to get started.
+Hear more from the Android team and Google Developer Experts about Gemini in Android Studio in our recent [fireside chat](https://www.youtube.com/watch?v=9caMeFQYCLk) and download [Android Studio](https://developer.android.com/studio.md.txt?utm_source=blog&utm_medium=referral&utm_campaign=gias_firesidediscordfeb26_blog) to get started.
 Written by:
 
 -

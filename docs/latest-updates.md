@@ -132,19 +132,19 @@ The latest updated popular libraries. [See all Jetpack library updates](https://
 
 ## ![](https://developer.android.com/static/images/logos/android-studio.svg) Android Studio
 
-Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio) Canary
+Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio.md.txt) Canary
 
-### [Stingray 1 \| 2026.3.1 Canary 1](https://developer.android.com/studio/preview)
+### [Stingray 1 \| 2026.3.1 Canary 2](https://developer.android.com/studio/preview.md.txt)
 
-November 16, 2026 Stable
+November 20, 2026 Stable
 
-### [Rabbit 2 \| 2026.2.2 Patch 1](https://developer.android.com/studio/releases.md.txt)
+### [Rabbit 2 \| 2026.2.2 Patch 2](https://developer.android.com/studio/releases.md.txt)
 
-November 5, 2026 Stable
+November 20, 2026 Stable
 
 ### [Android Gradle Plugin 9.5.0](https://developer.android.com/build/releases/gradle-plugin)
 
-November 5, 2026
+November 20, 2026
 
 ## ![](https://developer.android.com/static/images/picto-icons/platform.svg) Platform
 

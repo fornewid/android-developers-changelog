@@ -4,8 +4,10 @@ url: https://developer.android.com/topic/libraries/architecture/viewmodel/viewmo
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/topic/libraries/architecture/viewmodel/llms.txt
+
 # Saved State module for ViewModel
-Part of [Android Jetpack](https://developer.android.com/jetpack).
+Part of [Android Jetpack](https://developer.android.com/jetpack.md.txt).
 
 As mentioned in [Saving UI States](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt#use_onsaveinstancestate_as_backup_to_handle_system-initiated_process_death), [`ViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel.md.txt) objects can handle
 configuration changes, so you don't need to worry about state in rotations
@@ -363,10 +365,6 @@ class MyViewModelTest {
 
 For further information about the Saved State module for `ViewModel`, see the
 following resources.
-
-### Codelabs
-
-- [Android lifecycle-aware components codelab](https://codelabs.developers.google.com/codelabs/android-lifecycles/#6)
 
 ### Views content
 

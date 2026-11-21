@@ -4,8 +4,10 @@ url: https://developer.android.com/develop/background-work/background-tasks/uidt
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/background-work/background-tasks/llms.txt
+
 If you need to perform a data transfer that may take a long time, you can create
-a [JobScheduler](https://developer.android.com/reference/android/app/job/JobScheduler) job and identify it as a *user-initiated data
+a [JobScheduler](https://developer.android.com/reference/android/app/job/JobScheduler.md.txt) job and identify it as a *user-initiated data
 transfer (UIDT)* job. UIDT jobs are intended for longer-duration data transfers
 that are initiated by the device user, such as downloading a file from a remote
 server. UIDT jobs were introduced with Android 14 (API level 34).
@@ -16,7 +18,7 @@ of time as system conditions allow. You can run several user-initiated data
 transfer jobs concurrently.
 
 User initiated jobs must be scheduled while the application is visible to the
-user (or in one of the [allowed conditions](https://developer.android.com/develop/background-work/background-tasks/uidt#conditions-that-allow-scheduling)). After all constraints are met,
+user (or in one of the [allowed conditions](https://developer.android.com/develop/background-work/background-tasks/uidt.md.txt#conditions-that-allow-scheduling)). After all constraints are met,
 user initiated jobs can be executed by the OS, subject to system health
 restrictions. The system may also use the provided estimated payload size to
 determine how long the job executes.
@@ -29,119 +31,98 @@ determine how long the job executes.
 
 To run a user initiated data-transfer job, do the following:
 
-1. Make sure your app has declared the [`JobService`](https://developer.android.com/reference/android/app/job/JobService) and associated
+1. Make sure your app has declared the [`JobService`](https://developer.android.com/reference/android/app/job/JobService.md.txt) and associated
    permissions in its manifest:
 
-       <service android:name="com.example.app.CustomTransferService"
-               android:permission="android.permission.BIND_JOB_SERVICE"
-               android:exported="false">
-               ...
-       </service>
+   ```xml
+   <service android:name="com.example.app.CustomTransferService"
+           android:permission="android.permission.BIND_JOB_SERVICE"
+           android:exported="false">
+           ...
+   </service>
+   ```
 
    Also, define a concrete subclass of `JobService` for your data transfer:
 
-   ### Kotlin
 
    ```kotlin
    class CustomTransferService : JobService() {
-     ...
+       // ...
    }
    ```
 
-   ### Java
+   <br />
 
-   ```java
-   class CustomTransferService extends JobService() {
-
-       ....
-
-   }
-   ```
 2. Declare the `RUN_USER_INITIATED_JOBS` permission in the manifest:
 
-       <manifest ...>
-           <uses-permission android:name="android.permission.RUN_USER_INITIATED_JOBS" />
-           <application ...>
-               ...
-           </application>
-       </manifest>
-
-3. Call the [`setUserInitiated()`](https://developer.android.com/reference/android/app/job/JobInfo.Builder#setUserInitiated(boolean)) method when building a
+   ```xml
+   <manifest ...>
+       <uses-permission android:name="android.permission.RUN_USER_INITIATED_JOBS" />
+       <application ...>
+           ...
+       </application>
+   </manifest>
+   ```
+3. Call the [`setUserInitiated()`](https://developer.android.com/reference/android/app/job/JobInfo.Builder.md.txt#setUserInitiated(boolean)) method when building a
    `JobInfo` object. (This method is available beginning with
    Android 14.) We also recommend that you offer a payload size
-   estimate by calling [`setEstimatedNetworkBytes()`](https://developer.android.com/reference/android/app/job/JobInfo.Builder#setEstimatedNetworkBytes(long,%20long))
+   estimate by calling [`setEstimatedNetworkBytes()`](https://developer.android.com/reference/android/app/job/JobInfo.Builder.md.txt#setEstimatedNetworkBytes(long,%20long))
    while creating your job.
 
-   ### Kotlin
 
    ```kotlin
    val networkRequestBuilder = NetworkRequest.Builder()
-           // Add or remove capabilities based on your requirements.
-           // For example, this code specifies that the job won't run
-           // unless there's a connection to the internet (not just a local
-           // network), and the connection doesn't charge per-byte.
-           .addCapability(NET_CAPABILITY_INTERNET)
-           .addCapability(NET_CAPABILITY_NOT_METERED)
-           .build()
-
-   val jobInfo = JobInfo.Builder(jobId,
-                 ComponentName(mContext, CustomTransferService::class.java))
-           // ...
-           .setUserInitiated(true)
-           .setRequiredNetwork(networkRequestBuilder)
-           // Provide your estimate of the network traffic here
-           .setEstimatedNetworkBytes(1024 * 1024 * 1024, 1024 * 1024 * 1024)
-           // ...
-           .build()
-   ```
-
-   ### Java
-
-   ```java
-   NetworkRequest networkRequest = new NetworkRequest.Builder()
        // Add or remove capabilities based on your requirements.
        // For example, this code specifies that the job won't run
        // unless there's a connection to the internet (not just a local
        // network), and the connection doesn't charge per-byte.
        .addCapability(NET_CAPABILITY_INTERNET)
        .addCapability(NET_CAPABILITY_NOT_METERED)
-       .build();
+       .build()
 
-   JobInfo jobInfo = JobInfo.Builder(jobId,
-           new ComponentName(mContext, CustomTransferService.class))
+   val jobInfo = JobInfo.Builder(
+       jobId,
+       ComponentName(mContext, CustomTransferService::class.java)
+   )
        // ...
        .setUserInitiated(true)
-       .setRequiredNetwork(networkRequest)
-       // Provide your estimate of the network traffic here
+       .setRequiredNetwork(networkRequestBuilder)
+       // Provide your estimate of the network traffic here.
        .setEstimatedNetworkBytes(1024 * 1024 * 1024, 1024 * 1024 * 1024)
        // ...
-       .build();
+       .build()
    ```
+
+   <br />
+
 4. While the job is being executed, call
-   [`setNotification()`](https://developer.android.com/reference/android/app/job/JobService#setNotification(android.app.job.JobParameters,%20int,%20android.app.Notification,%20int)) on the `JobService` object. Calling
+   [`setNotification()`](https://developer.android.com/reference/android/app/job/JobService.md.txt#setNotification(android.app.job.JobParameters,%20int,%20android.app.Notification,%20int)) on the `JobService` object. Calling
    `setNotification()` makes the user aware that the job is running, both in
    the Task Manager and in the status bar notification area.
 
    When execution is complete, call `jobFinished()` to signal to the system
    that the job is complete, or that the job should be rescheduled.
 
-   ### Kotlin
 
    ```kotlin
-   class CustomTransferService: JobService() {
+   class CustomTransferService : JobService() {
        private val scope = CoroutineScope(Dispatchers.IO)
 
        @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
        override fun onStartJob(params: JobParameters): Boolean {
-           val notification = Notification.Builder(applicationContext,
-                                 NOTIFICATION_CHANNEL_ID)
+           val notification = Notification.Builder(
+               applicationContext,
+               NOTIFICATION_CHANNEL_ID
+           )
                .setContentTitle("My user-initiated data transfer job")
-               .setSmallIcon(android.R.mipmap.myicon)
+               .setSmallIcon(android.R.mipmap.sym_def_app_icon)
                .setContentText("Job is running")
                .build()
 
-           setNotification(params, notification.id, notification,
-                   JobService.JOB_END_NOTIFICATION_POLICY_DETACH)
+           setNotification(
+               params, NOTIFICATION_ID, notification,
+               JobService.JOB_END_NOTIFICATION_POLICY_DETACH
+           )
            // Execute the work associated with this job asynchronously.
            scope.launch {
                doDownload(params)
@@ -159,47 +140,13 @@ To run a user initiated data-transfer job, do the following:
        override fun onStopJob(params: JobParameters?): Boolean {
            // Asynchronously record job-related data, such as the
            // stop reason.
-           return true // or return false if job should end entirely
+           return true // or return false if job should end entirely.
        }
    }
    ```
 
-   ### Java
+   <br />
 
-   ```java
-   class CustomTransferService extends JobService{
-       @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
-       @Override
-       public boolean onStartJob(JobParameters params) {
-           Notification notification = Notification.Builder(getBaseContext(),
-                                           NOTIFICATION_CHANNEL_ID)
-                   .setContentTitle("My user-initiated data transfer job")
-                   .setSmallIcon(android.R.mipmap.myicon)
-                   .setContentText("Job is running")
-                   .build();
-
-           setNotification(params, notification.id, notification,
-                             JobService.JOB_END_NOTIFICATION_POLICY_DETACH)
-           // Execute the work associated with this job asynchronously.
-           new Thread(() -> doDownload(params)).start();
-           return true;
-       }
-
-       private void doDownload(JobParameters params) {
-           // Run the relevant async download task, then call
-           // jobFinished once the task is completed.
-           jobFinished(params, false);
-       }
-
-       // Called when the system stops the job.
-       @Override
-       public boolean onStopJob(JobParameters params) {
-           // Asynchronously record job-related data, such as the
-           // stop reason.
-           return true; // or return false if job should end entirely
-       }
-   }
-   ```
 5. Periodically update the notification to keep the user informed of the job's
    status and progress. If you cannot determine the transfer size ahead of
    scheduling the job, or need to update the estimated transfer size,
@@ -214,27 +161,26 @@ To run UIDT jobs effectively, do the following:
    when the job should be executed.
 
 2. Execute the task asynchronously in `onStartJob()`; for example, you can do
-   this by using a [coroutine](https://developer.android.com/kotlin/coroutines). If you don't run the task asynchronously, the
+   this by using a [coroutine](https://developer.android.com/kotlin/coroutines.md.txt). If you don't run the task asynchronously, the
    work runs on the main thread and might block it, which can cause an ANR.
 
 3. To avoid running the job longer than necessary, call
-   [`jobFinished()`](https://developer.android.com/reference/android/app/job/JobService#jobFinished(android.app.job.JobParameters,%20boolean)) when the transfer finishes, whether it
+   [`jobFinished()`](https://developer.android.com/reference/android/app/job/JobService.md.txt#jobFinished(android.app.job.JobParameters,%20boolean)) when the transfer finishes, whether it
    succeeds or fails. That way, the job doesn't run longer than necessary. To
    discover why a job was stopped, implement the
-   [`onStopJob()`](https://developer.android.com/reference/android/app/job/JobService#onStopJob(android.app.job.JobParameters)) callback method and call
-   [`JobParameters.getStopReason()`](https://developer.android.com/reference/android/app/job/JobParameters#getStopReason()).
+   [`onStopJob()`](https://developer.android.com/reference/android/app/job/JobService.md.txt#onStopJob(android.app.job.JobParameters)) callback method and call
+   [`JobParameters.getStopReason()`](https://developer.android.com/reference/android/app/job/JobParameters.md.txt#getStopReason()).
 
 ## Backward compatibility
 
 There is currently no Jetpack library that supports UIDT jobs. For this reason,
 we recommend that you gate your change with code that verifies that you're
 running on Android 14 or higher. On lower Android versions, you
-can use [WorkManager's foreground service implementation](https://developer.android.com/develop/background-work/background-tasks/persistent/how-to/long-running) as a
+can use [WorkManager's foreground service implementation](https://developer.android.com/develop/background-work/background-tasks/persistent/how-to/long-running.md.txt) as a
 fallback approach.
 
 Here's an example of code that checks for the appropriate system version:
 
-### Kotlin
 
 ```kotlin
 fun beginTask() {
@@ -246,7 +192,7 @@ fun beginTask() {
 }
 
 private fun scheduleDownloadUIDTJob(context: Context) {
-    // build jobInfo
+    // build jobInfo.
     val jobScheduler: JobScheduler =
         context.getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
     jobScheduler.schedule(jobInfo)
@@ -258,29 +204,7 @@ private fun scheduleDownloadFGSWorker(context: Context) {
 }
 ```
 
-### Java
-
-```java
-public void beginTask() {
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-        scheduleDownloadFGSWorker(context);
-    } else {
-        scheduleDownloadUIDTJob(context);
-    }
-}
-
-private void scheduleDownloadUIDTJob(Context context) {
-    // build jobInfo
-    JobScheduler jobScheduler =
-            (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
-    jobScheduler.schedule(jobInfo);
-}
-
-private void scheduleDownloadFGSWorker(Context context) {
-    OneTimeWorkRequest myWorkRequest = OneTimeWorkRequest.from(DownloadWorker.class);
-    WorkManager.getInstance(context).enqueue(myWorkRequest)
-}
-```
+<br />
 
 ## Stop UIDT jobs
 
@@ -343,7 +267,7 @@ constraints to each job type. These constraints are available as of
 Android 13.
 
 **Note** : The following table only compares the constraints that vary between
-each job type. See [JobScheduler developer page](https://developer.android.com/reference/android/app/job/JobInfo.Builder) or [work constraints](https://developer.android.com/reference/androidx/work/Constraints.Builder) for
+each job type. See [JobScheduler developer page](https://developer.android.com/reference/android/app/job/JobInfo.Builder.md.txt) or [work constraints](https://developer.android.com/reference/androidx/work/Constraints.Builder.md.txt) for
 all constraints.
 
 The following table shows the different job types that support a given job
@@ -385,8 +309,8 @@ The following list shows some steps on how to test your app's jobs manually:
 
 ## See also
 
-- [Background tasks overview](https://developer.android.com/develop/background-work/background-tasks)
-- [Data transfer background task options](https://developer.android.com/develop/background-work/background-tasks/data-transfer-options)
+- [Background tasks overview](https://developer.android.com/develop/background-work/background-tasks.md.txt)
+- [Data transfer background task options](https://developer.android.com/develop/background-work/background-tasks/data-transfer-options.md.txt)
 
 ## Additional resources
 

@@ -4,11 +4,13 @@ url: https://developer.android.com/topic/libraries/data-binding/binding-adapters
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/topic/libraries/data-binding/llms.txt
+
 Binding adapters are responsible for making the appropriate framework calls to
 set values. One example is setting a property value, like calling the
-[`setText()`](https://developer.android.com/reference/android/widget/TextView#setText(int)) method. Another
+[`setText()`](https://developer.android.com/reference/android/widget/TextView.md.txt#setText(int)) method. Another
 example is setting an event listener, like calling the
-[`setOnClickListener()`](https://developer.android.com/reference/android/view/View#setOnClickListener(android.view.View.OnClickListener))
+[`setOnClickListener()`](https://developer.android.com/reference/android/view/View.md.txt#setOnClickListener(android.view.View.OnClickListener))
 method.
 
 The Data Binding Library lets you specify the method called to set a value,
@@ -40,20 +42,22 @@ cast the return value if necessary.
 Data binding works even if no attribute exists with the given name. You can
 create attributes for any setter by using data binding. For example, the support
 class
-[`DrawerLayout`](https://developer.android.com/reference/androidx/drawerlayout/widget/DrawerLayout)
+[`DrawerLayout`](https://developer.android.com/reference/androidx/drawerlayout/widget/DrawerLayout.md.txt)
 doesn't have attributes, but it has plenty of setters. The following layout
 automatically uses the
-[`setScrimColor(int)`](https://developer.android.com/reference/androidx/drawerlayout/widget/DrawerLayout#setScrimColor(int))
+[`setScrimColor(int)`](https://developer.android.com/reference/androidx/drawerlayout/widget/DrawerLayout.md.txt#setScrimColor(int))
 and
-[`addDrawerListener(DrawerListener)`](https://developer.android.com/reference/androidx/drawerlayout/widget/DrawerLayout#addDrawerListener(androidx.drawerlayout.widget.DrawerLayout.DrawerListener))
+[`addDrawerListener(DrawerListener)`](https://developer.android.com/reference/androidx/drawerlayout/widget/DrawerLayout.md.txt#addDrawerListener(androidx.drawerlayout.widget.DrawerLayout.DrawerListener))
 methods as the setter for the `app:scrimColor` and `app:drawerListener`
 attributes, respectively:
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:scrimColor="@{@color/scrim}"
-        app:drawerListener="@{fragment.drawerListener}">
+```xml
+<androidx.drawerlayout.widget.DrawerLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:scrimColor="@{@color/scrim}"
+    app:drawerListener="@{fragment.drawerListener}">
+```
 
 ### Specify a custom method name
 
@@ -66,7 +70,7 @@ annotations, one for each renamed method. Binding methods are annotations that
 you can add to any class in your app.
 
 In the following example, the `android:tint` attribute is associated with the
-[`setImageTintList(ColorStateList)`](https://developer.android.com/reference/android/widget/ImageView#setImageTintList(android.content.res.ColorStateList))
+[`setImageTintList(ColorStateList)`](https://developer.android.com/reference/android/widget/ImageView.md.txt#setImageTintList(android.content.res.ColorStateList))
 method---not with the `setTint()` method:
 
 ### Kotlin
@@ -161,15 +165,17 @@ You can use the adapter in your layout, as shown in the following example. Note
 that `@drawable/venueError` refers to a resource in your app. Surrounding the
 resource with `@{}` makes it a valid binding expression.
 
-    <ImageView app:imageUrl="@{venue.imageUrl}" app:error="@{@drawable/venueError}" />
+```xml
+<ImageView app:imageUrl="@{venue.imageUrl}" app:error="@{@drawable/venueError}" />
+```
 
 > [!NOTE]
 > **Note:** The Data Binding Library ignores custom namespaces for matching purposes.
 
 The adapter is called if `imageUrl` and `error` are used for an
-[`ImageView`](https://developer.android.com/reference/android/widget/ImageView) object, `imageUrl` is a
+[`ImageView`](https://developer.android.com/reference/android/widget/ImageView.md.txt) object, `imageUrl` is a
 string, and `error` is a
-[`Drawable`](https://developer.android.com/reference/android/graphics/drawable/Drawable). If you want
+[`Drawable`](https://developer.android.com/reference/android/graphics/drawable/Drawable.md.txt). If you want
 the adapter to be called when any of the attributes are set, set the optional
 [`requireAll`](https://developer.android.com/reference/androidx/databinding/BindingAdapter#requireAll())
 flag of the adapter to `false`, as shown in the following example:
@@ -277,15 +283,17 @@ public static void setOnLayoutChangeListener(View view, View.OnLayoutChangeListe
 
 Use this event handler in your layout as follows:
 
-    <View android:onLayoutChange="@{() -> handler.layoutChanged()}"/>
+```xml
+<View android:onLayoutChange="@{() -> handler.layoutChanged()}"/>
+```
 
 When a listener has multiple methods, it must be split into multiple listeners.
 For example,
-[`View.OnAttachStateChangeListener`](https://developer.android.com/reference/android/view/View.OnAttachStateChangeListener)
+[`View.OnAttachStateChangeListener`](https://developer.android.com/reference/android/view/View.OnAttachStateChangeListener.md.txt)
 has two methods:
-[`onViewAttachedToWindow(View)`](https://developer.android.com/reference/android/view/View.OnAttachStateChangeListener#onViewAttachedToWindow(android.view.View))
+[`onViewAttachedToWindow(View)`](https://developer.android.com/reference/android/view/View.OnAttachStateChangeListener.md.txt#onViewAttachedToWindow(android.view.View))
 and
-[`onViewDetachedFromWindow(View)`](https://developer.android.com/reference/android/view/View.OnAttachStateChangeListener#onViewDetachedFromWindow(android.view.View)).
+[`onViewDetachedFromWindow(View)`](https://developer.android.com/reference/android/view/View.OnAttachStateChangeListener.md.txt#onViewDetachedFromWindow(android.view.View)).
 The library provides two interfaces to differentiate the attributes and handlers
 for them:
 
@@ -399,12 +407,12 @@ public static void setListener(View view, OnViewDetachedFromWindow detach, OnVie
 ```
 
 The above example is slightly complicated because the
-[`View`](https://developer.android.com/reference/android/view/View) class uses the
-[`addOnAttachStateChangeListener()`](https://developer.android.com/reference/android/view/View#addOnAttachStateChangeListener(android.view.View.OnAttachStateChangeListener))
+[`View`](https://developer.android.com/reference/android/view/View.md.txt) class uses the
+[`addOnAttachStateChangeListener()`](https://developer.android.com/reference/android/view/View.md.txt#addOnAttachStateChangeListener(android.view.View.OnAttachStateChangeListener))
 and
-[`removeOnAttachStateChangeListener()`](https://developer.android.com/reference/android/view/View#removeOnAttachStateChangeListener(android.view.View.OnAttachStateChangeListener))
+[`removeOnAttachStateChangeListener()`](https://developer.android.com/reference/android/view/View.md.txt#removeOnAttachStateChangeListener(android.view.View.OnAttachStateChangeListener))
 methods instead of a setter method for
-[`OnAttachStateChangeListener`](https://developer.android.com/reference/android/view/View.OnAttachStateChangeListener).
+[`OnAttachStateChangeListener`](https://developer.android.com/reference/android/view/View.OnAttachStateChangeListener.md.txt).
 The `android.databinding.adapters.ListenerUtil` class helps keep track of these
 listeners so that they can be removed in the binding adapter.
 
@@ -412,17 +420,19 @@ listeners so that they can be removed in the binding adapter.
 
 ### Automatic object conversion
 
-When an [`Object`](https://developer.android.com/reference/java/lang/Object) is returned from a binding
+When an [`Object`](https://developer.android.com/reference/java/lang/Object.md.txt) is returned from a binding
 expression, the library selects the method used to set the value of the
 property. The `Object` is cast to a parameter type of the chosen method. This
 behavior is convenient in apps using the
 [`ObservableMap`](https://developer.android.com/reference/androidx/databinding/ObservableMap) class to
 store data, as shown in the following example:
 
-    <TextView
-       android:text='@{userMap["lastName"]}'
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content" />
+```xml
+<TextView
+   android:text='@{userMap["lastName"]}'
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content" />
+```
 
 > [!NOTE]
 > **Note:** You can also refer to a value in the map using the `object.key` notation. For example, you can replace `@{userMap["lastName"]}` in the previous example with `@{userMap.lastName}`.
@@ -439,13 +449,15 @@ example, the `android:background` attribute of a view expects a `Drawable`, but
 the `color` value specified is an integer. The following example shows an
 attribute that expects a `Drawable`, but an integer is provided instead:
 
-    <View
-       android:background="@{isError ? @color/red : @color/white}"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"/>
+```xml
+<View
+   android:background="@{isError ? @color/red : @color/white}"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"/>
+```
 
 Whenever a `Drawable` is expected and an integer is returned, convert the `int`
-to a [`ColorDrawable`](https://developer.android.com/reference/android/graphics/drawable/ColorDrawable).
+to a [`ColorDrawable`](https://developer.android.com/reference/android/graphics/drawable/ColorDrawable.md.txt).
 To perform the conversion, use a static method with a
 [`BindingConversion`](https://developer.android.com/reference/androidx/databinding/BindingConversion)
 annotation, as follows:
@@ -470,12 +482,14 @@ However, the value types provided in the binding expression must be consistent.
 You can't use different types in the same expression, as shown in the following
 example:
 
-    // The @drawable and @color represent different value types in the same
-    // expression, which causes a build error.
-    <View
-       android:background="@{isError ? @drawable/error : @color/white}"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"/>
+```xml
+// The @drawable and @color represent different value types in the same
+// expression, which causes a build error.
+<View
+   android:background="@{isError ? @drawable/error : @color/white}"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"/>
+```
 
 <br />
 
@@ -489,10 +503,6 @@ To learn more about data binding, see the following resources.
 
 - [Android Data Binding Library samples](https://github.com/android/databinding-samples)
 
-### Codelabs
-
-- [Data Binding in Android](https://codelabs.developers.google.com/codelabs/android-databinding)
-
 ### Blog posts
 
 - [Data Binding --- lessons learnt](https://medium.com/androiddevelopers/data-binding-lessons-learnt-4fd16576b719)
@@ -500,6 +510,6 @@ To learn more about data binding, see the following resources.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Data Binding Library](https://developer.android.com/topic/libraries/data-binding)
-- [Layouts and binding expressions](https://developer.android.com/topic/libraries/data-binding/expressions)
-- [View binding](https://developer.android.com/topic/libraries/view-binding)
+- [Data Binding Library](https://developer.android.com/topic/libraries/data-binding.md.txt)
+- [Layouts and binding expressions](https://developer.android.com/topic/libraries/data-binding/expressions.md.txt)
+- [View binding](https://developer.android.com/topic/libraries/view-binding.md.txt)

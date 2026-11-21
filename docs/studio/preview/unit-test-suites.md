@@ -19,7 +19,7 @@ the Android Gradle plugin (AGP) [test suites](https://developer.android.com/stud
 To use unit test suites, make sure that your project meets the following
 requirements:
 
-- [Android Studio](https://developer.android.com/studio/preview) Rabbit 3 Canary 3 or higher
+- [Android Studio](https://developer.android.com/studio/preview.md.txt) Rabbit 3 Canary 3 or higher
 - AGP 9.6.0-alpha03 or higher
 - Gradle 9.7.1 or higher and JDK 17 or higher
 - A `com.android.application` or `com.android.library` module

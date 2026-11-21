@@ -4,10 +4,12 @@ url: https://developer.android.com/develop/background-work/services/fgs/launch
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/background-work/services/fgs/llms.txt
+
 There are two steps to launching a foreground service from your app. First, you
 must start the service by calling
-[`context.startForegroundService()`](https://developer.android.com/reference/android/content/Context#startForegroundService(android.content.Intent)). Then, have the
-service call [`ServiceCompat.startForeground()`](https://developer.android.com/reference/androidx/core/app/ServiceCompat#startForeground(android.app.Service,int,android.app.Notification,int)) to promote
+[`context.startForegroundService()`](https://developer.android.com/reference/android/content/Context.md.txt#startForegroundService(android.content.Intent)). Then, have the
+service call [`ServiceCompat.startForeground()`](https://developer.android.com/reference/androidx/core/app/ServiceCompat.md.txt#startForeground(android.app.Service,int,android.app.Notification,int)) to promote
 itself into a foreground service.
 
 ## Prerequisites
@@ -25,11 +27,11 @@ when an app can launch a foreground service.
   appropriate
   permissions for the foreground service type. When the app attempts to
   promote a service to the foreground, the system checks for the appropriate
-  permissions and throws throws [`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException) if
+  permissions and throws throws [`SecurityException`](https://developer.android.com/reference/java/lang/SecurityException.md.txt) if
   the app is missing any. For example, if you try to launch a foreground
   service of type `location`, the system checks to make sure your app already
   has either the `ACCESS_COARSE_LOCATION` or `ACCESS_FINE_LOCATION`
-  permission. The [foreground service type](https://developer.android.com/develop/background-work/services/fgs/service-types) documentation lists the
+  permission. The [foreground service type](https://developer.android.com/develop/background-work/services/fgs/service-types.md.txt) documentation lists the
   required prerequisites for each foreground service type.
 
 ## Launch a service
@@ -37,20 +39,13 @@ when an app can launch a foreground service.
 In order to launch a foreground service, you must first launch it as an
 ordinary (non-foreground) service:
 
-### Kotlin
 
 ```kotlin
-val intent = Intent(...) // Build the intent for the service
+val intent = Intent(/* ... */) // Build the intent for the service.
 context.startForegroundService(intent)
 ```
 
-### Java
-
-```java
-Context context = getApplicationContext();
-Intent intent = new Intent(...); // Build the intent for the service
-context.startForegroundService(intent);
-```
+<br />
 
 ### Key points about the code
 
@@ -59,22 +54,22 @@ context.startForegroundService(intent);
 ## Promote a service to the foreground
 
 Once a service is running, you need to call
-[`ServiceCompat.startForeground()`](https://developer.android.com/reference/androidx/core/app/ServiceCompat#startForeground(android.app.Service,int,android.app.Notification,int)) to request that the service
+[`ServiceCompat.startForeground()`](https://developer.android.com/reference/androidx/core/app/ServiceCompat.md.txt#startForeground(android.app.Service,int,android.app.Notification,int)) to request that the service
 run in the foreground. Ordinarily you would call this method in the service's
-[`onStartCommand()`](https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent,%20int,%20int)) method.
+[`onStartCommand()`](https://developer.android.com/reference/android/app/Service.md.txt#onStartCommand(android.content.Intent,%20int,%20int)) method.
 
 `ServiceCompat.startForeground()` takes the following parameters:
 
 - The service.
 - A positive integer that uniquely identifies the service's notification in the status bar.
-- The [`Notification`](https://developer.android.com/reference/android/app/Notification) object itself.
-- The [foreground service type or types](https://developer.android.com/develop/background-work/services/fgs/service-types) identifying the work done by the service
+- The [`Notification`](https://developer.android.com/reference/android/app/Notification.md.txt) object itself.
+- The [foreground service type or types](https://developer.android.com/develop/background-work/services/fgs/service-types.md.txt) identifying the work done by the service
 
 > [!NOTE]
 > **Note:** If you pass a foreground service type to `startForeground` that you did not declare in the manifest, the system throws `IllegalArgumentException`.
 
 The foreground service types you pass to `startForeground()`
-[types declared in the manifest](https://developer.android.com/develop/background-work/services/fgs/service-types#declare-fgs), depending on the specific
+[types declared in the manifest](https://developer.android.com/develop/background-work/services/fgs/service-types.md.txt#declare-fgs), depending on the specific
 use case. Then, if you need to add more service types, you can call
 `startForeground()` again.
 
@@ -88,105 +83,57 @@ pass the bitwise combination of all the foreground service types (in this case,
 `ACCESS_FINE_LOCATION|FOREGROUND_SERVICE_MEDIA_PLAYBACK`).
 
 > [!NOTE]
-> **Note:** The status bar notification must use a priority of [`PRIORITY_LOW`](https://developer.android.com/reference/androidx/core/app/NotificationCompat#PRIORITY_LOW) or higher. If your app attempts to use a notification that has a lower priority than `PRIORITY_LOW`, the system adds a message to the notification drawer, alerting the user to the app's use of a foreground service.
+> **Note:** The status bar notification must use a priority of [`PRIORITY_LOW`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.md.txt#PRIORITY_LOW) or higher. If your app attempts to use a notification that has a lower priority than `PRIORITY_LOW`, the system adds a message to the notification drawer, alerting the user to the app's use of a foreground service.
 
 The following example shows the code a camera service would use to promote
 itself to a foreground service:
 
-### Kotlin
 
 ```kotlin
-class MyCameraService: Service() {
+class MyCameraService : Service() {
 
-  private fun startForeground() {
-    // Before starting the service as foreground check that the app has the
-    // appropriate runtime permissions. In this case, verify that the user has
-    // granted the CAMERA permission.
-    val cameraPermission =
-            PermissionChecker.checkSelfPermission(this, Manifest.permission.CAMERA)
-    if (cameraPermission != PermissionChecker.PERMISSION_GRANTED) {
-        // Without camera permissions the service cannot run in the foreground
-        // Consider informing user or updating your app UI if visible.
-        stopSelf()
-        return
-    }
-
-    try {
-        val notification = NotificationCompat.Builder(this, "CHANNEL_ID")
-            // Create the notification to display while the service is running
-            .build()
-        ServiceCompat.startForeground(
-            /* service = */ this,
-            /* id = */ 100, // Cannot be 0
-            /* notification = */ notification,
-            /* foregroundServiceType = */
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                ServiceInfo.FOREGROUND_SERVICE_TYPE_CAMERA
-            } else {
-                0
-            },
-        )
-    } catch (e: Exception) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
-                && e is ForegroundServiceStartNotAllowedException) {
-            // App not in a valid state to start foreground service
-            // (e.g. started from bg)
-        }
-        // ...
-    }
-  }
-}
-```
-
-### Java
-
-```java
-public class MyCameraService extends Service {
-
-    private void startForeground() {
+    private fun startForeground() {
         // Before starting the service as foreground check that the app has the
-        // appropriate runtime permissions. In this case, verify that the user
-        // has granted the CAMERA permission.
-        int cameraPermission =
-            ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
-        if (cameraPermission == PackageManager.PERMISSION_DENIED) {
-            // Without camera permissions the service cannot run in the
-            // foreground. Consider informing user or updating your app UI if
-            // visible.
-            stopSelf();
-            return;
+        // appropriate runtime permissions. In this case, verify that the user has
+        // granted the CAMERA permission.
+        val cameraPermission =
+            PermissionChecker.checkSelfPermission(this, Manifest.permission.CAMERA)
+        if (cameraPermission != PermissionChecker.PERMISSION_GRANTED) {
+            // Without camera permissions the service cannot run in the foreground.
+            // Consider informing user or updating your app UI if visible.
+            stopSelf()
+            return
         }
 
         try {
-            Notification notification =
-                new NotificationCompat.Builder(this, "CHANNEL_ID")
-                    // Create the notification to display while the service
-                    // is running
-                    .build();
-            int type = 0;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                type = ServiceInfo.FOREGROUND_SERVICE_TYPE_CAMERA;
-            }
+            val notification = NotificationCompat.Builder(this, "CHANNEL_ID")
+                // Create the notification to display while the service is running.
+                .build()
             ServiceCompat.startForeground(
-                    /* service = */ this,
-                    /* id = */ 100, // Cannot be 0
-                    /* notification = */ notification,
-                    /* foregroundServiceType = */ type
-            );
-        } catch (Exception e) {
+                /* service = */ this,
+                /* id = */ 100, // Cannot be 0.
+                /* notification = */ notification,
+                /* foregroundServiceType = */
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    ServiceInfo.FOREGROUND_SERVICE_TYPE_CAMERA
+                } else {
+                    0
+                },
+            )
+        } catch (e: Exception) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
-                    e instanceof ForegroundServiceStartNotAllowedException
+                e is ForegroundServiceStartNotAllowedException
             ) {
                 // App not in a valid state to start foreground service
-                // (e.g started from bg)
+                // (e.g. started from bg).
             }
             // ...
         }
     }
-
-    //...
 }
 ```
+
+<br />
 
 ### Key points about the code
 

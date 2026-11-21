@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/room
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Room
 
-[User Guide](https://developer.android.com/training/data-storage/room) [Codelab](https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin/#0) The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite.
+[User Guide](https://developer.android.com/training/data-storage/room.md.txt) The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [2.8.5](https://developer.android.com/jetpack/androidx/releases/room#2.8.5) | - | - | - |
+| September 09, 2026 | [2.8.5](https://developer.android.com/jetpack/androidx/releases/room.md.txt#2.8.5) | - | - | - |
 
 ## Declaring dependencies
 
@@ -19,8 +21,8 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
 for more information.
 
 Dependencies for Room include
-[testing Room migrations](https://developer.android.com/training/data-storage/room#db-migration-testing) and
-[Room RxJava](https://developer.android.com/training/data-storage/room/accessing-data#query-rxjava)
+[testing Room migrations](https://developer.android.com/training/data-storage/room.md.txt#db-migration-testing) and
+[Room RxJava](https://developer.android.com/training/data-storage/room/accessing-data.md.txt#query-rxjava)
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
 your app or module:
@@ -34,7 +36,7 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
 
     // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
-    // See https://developer.android.com/build/migrate-to-ksp#add-ksp
+    // See Add the KSP plugin to your project
     ksp("androidx.room:room-compiler:$room_version")
 
     // If this project only uses Java source, use the Java annotationProcessor
@@ -70,7 +72,7 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
 
     // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
-    // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
+    // See KSP Quickstart to add KSP to your build
     ksp "androidx.room:room-compiler:$room_version"
 
     // If this project only uses Java source, use the Java annotationProcessor
@@ -98,7 +100,7 @@ For information on using the KAPT plugin, see the [KAPT documentation](https://k
 
 For information on using the KSP plugin, see the [KSP quick-start documentation](https://kotlinlang.org/docs/ksp-quickstart.html).
 
-For information on using Kotlin extensions, see the [ktx documentation](https://developer.android.com/kotlin/ktx).
+For information on using Kotlin extensions, see the [ktx documentation](https://developer.android.com/kotlin/ktx.md.txt).
 
 For more information about dependencies, see [Add Build Dependencies](https://developer.android.com/studio/build/dependencies).
 
@@ -110,9 +112,9 @@ you can depend on `androidx.room:room-common` to use Room annotations.
 Room has the following annotation processor options.
 
 |---|---|
-| `room.schemaLocation` | `directory` Enables exporting database schemas into JSON files in the given directory. See [Room Migrations](https://developer.android.com/training/data-storage/room/migrating-db-versions#test) for more information. |
+| `room.schemaLocation` | `directory` Enables exporting database schemas into JSON files in the given directory. See [Room Migrations](https://developer.android.com/training/data-storage/room/migrating-db-versions.md.txt#test) for more information. |
 | `room.incremental` | `boolean` Enables Gradle incremental annotation processor. Default value is `true`. |
-| `room.generateKotlin` | `boolean` Generate Kotlin source files instead of Java. Requires KSP. Default value is `true` as of [version 2.7.0](https://developer.android.com/jetpack/androidx/releases/room#2.7.0). See [version 2.6.0](https://developer.android.com/jetpack/androidx/releases/room#2.6.0) notes, when it was introduced, for more details. |
+| `room.generateKotlin` | `boolean` Generate Kotlin source files instead of Java. Requires KSP. Default value is `true` as of [version 2.7.0](https://developer.android.com/jetpack/androidx/releases/room.md.txt#2.7.0). See [version 2.6.0](https://developer.android.com/jetpack/androidx/releases/room.md.txt#2.6.0) notes, when it was introduced, for more details. |
 
 ### Use the Room Gradle Plugin
 
@@ -185,7 +187,7 @@ even though they are supported by the Room compiler. The table below lists each
 option and shows the version of the Room Gradle Plugin that added support for
 configuring that option using the `room` extension. If your version is lower,
 or if the option is not supported yet, you can use
-[annotation processor options](https://developer.android.com/jetpack/androidx/releases/room#annotation-processor-options) instead.
+[annotation processor options](https://developer.android.com/jetpack/androidx/releases/room.md.txt#annotation-processor-options) instead.
 
 | Option | Since version |
 |---|---|
@@ -198,7 +200,7 @@ or if the option is not supported yet, you can use
 If you aren't using the Room Gradle Plugin, or if the option you want isn't
 supported by your version of the plugin, you can configure Room using
 annotation processor options, as described in
-[Add build dependencies](https://developer.android.com/build/dependencies#processor-arguments). How you
+[Add build dependencies](https://developer.android.com/build/dependencies.md.txt#processor-arguments). How you
 specify annotation options depends on whether you use KSP or KAPT for Room.
 
 ### Groovy
@@ -256,7 +258,7 @@ android {
 Because `room.schemaLocation` is a directory and not a primitive type, it is
 necessary to use a `CommandLineArgumentsProvider` when adding this option so
 that Gradle knows about this directory when conducting up-to-date checks.
-[Migrate your Room database](https://developer.android.com/training/data-storage/room/migrating-db-versions#set_schema_location_using_annotation_processor_option)
+[Migrate your Room database](https://developer.android.com/training/data-storage/room/migrating-db-versions.md.txt#set_schema_location_using_annotation_processor_option)
 shows a complete implementation of `CommandLineArgumentsProvider` that provides
 the schema location.
 
@@ -337,7 +339,7 @@ September 10, 2025
 
 **Important changes since 2.7.0:**
 
-- Added a new artifact `androidx.room:room-sqlite-wrapper` which contains APIs to get a `SupportSQLiteDatabase` wrapper from a `RoomDatabase` with a configured `SQLiteDriver`. To get the wrapper use the new extension function `RoomDatabase.getSupportWrapper()`. This is a compatibility artifact to maintain usages of `SupportSQLiteDatabase`, usually obtained from `roomDatabase.openHelper.writableDatabase`, even if the Room database is configured with a `SQLiteDriver`. This wrapper is useful for incremental migration of codebases who wish to adopt SQLiteDriver APIs but have extensive usages of the SupportSQLite APIs yet they want to take advantage of the `BundledSQLiteDriver`. Checkout the [migration guide](https://developer.android.com/kotlin/multiplatform/room#migrate-from-support-sqlite) for more information.
+- Added a new artifact `androidx.room:room-sqlite-wrapper` which contains APIs to get a `SupportSQLiteDatabase` wrapper from a `RoomDatabase` with a configured `SQLiteDriver`. To get the wrapper use the new extension function `RoomDatabase.getSupportWrapper()`. This is a compatibility artifact to maintain usages of `SupportSQLiteDatabase`, usually obtained from `roomDatabase.openHelper.writableDatabase`, even if the Room database is configured with a `SQLiteDriver`. This wrapper is useful for incremental migration of codebases who wish to adopt SQLiteDriver APIs but have extensive usages of the SupportSQLite APIs yet they want to take advantage of the `BundledSQLiteDriver`. Checkout the [migration guide](https://developer.android.com/kotlin/multiplatform/room.md.txt#migrate-from-support-sqlite) for more information.
 - Added support for KMP targets Watch OS and Tv OS.
 - Updated the library's Android minSDK from API 21 to API 23
 
@@ -429,7 +431,7 @@ April 9, 2025
 
 **Important changes since 2.6.0**
 
-- **Kotlin Multiplatform (KMP) Support:** In this release, Room has been refactored to become a Kotlin Multiplatform (KMP) library. Current supported platforms are Android, iOS, JVM (Desktop), native Mac and native Linux. For more information on how to get started using Room KMP, please refer to the [official Room KMP documentation](https://developer.android.com/kotlin/multiplatform/room). As part of the KMP support, Room can also be configured with an [`SQLiteDriver`](https://developer.android.com/kotlin/multiplatform/sqlite), for information on how to migrate an existing app to the driver APIs and to Room KMP, see the [migration documentation](https://developer.android.com/kotlin/multiplatform/sqlite).
+- **Kotlin Multiplatform (KMP) Support:** In this release, Room has been refactored to become a Kotlin Multiplatform (KMP) library. Current supported platforms are Android, iOS, JVM (Desktop), native Mac and native Linux. For more information on how to get started using Room KMP, please refer to the [official Room KMP documentation](https://developer.android.com/kotlin/multiplatform/room.md.txt). As part of the KMP support, Room can also be configured with an [`SQLiteDriver`](https://developer.android.com/kotlin/multiplatform/sqlite.md.txt), for information on how to migrate an existing app to the driver APIs and to Room KMP, see the [migration documentation](https://developer.android.com/kotlin/multiplatform/sqlite.md.txt).
 - **Kotlin Code Generation on KSP** has been turned ON by default if processing is done via KSP. For KAPT or Java only projects, Room will still generate Java sources.
 - **Kotlin 2.0 and KSP2:** Room now targets Kotlin language 2.0 and will require projects to also compile with Kotlin 2.0 and equivalent or higher language version. Support for KSP2 is also added and is recommended when using Room with Kotlin 2.0 or higher.
 
@@ -683,7 +685,7 @@ May 1, 2024
 
 - **Kotlin Multiplatform (KMP) Support**: In this release, Room has been refactored to become a Kotlin Multiplatform (KMP) library. Although there is still some work to be done, this release introduces a new version of Room where the majority of the functionality has been "common-ized" (made to be multiplatform). Current supported platforms are Android, iOS, JVM (Desktop), native Mac and native Linux. Any missing functionality in the newly supported platforms will be made "feature-complete" in upcoming Room releases.
 
-For more information on how to get started using Room KMP, please refer to the [official Room KMP documentation](https://developer.android.com/kotlin/multiplatform/room).
+For more information on how to get started using Room KMP, please refer to the [official Room KMP documentation](https://developer.android.com/kotlin/multiplatform/room.md.txt).
 
 - **Kotlin Code Generation on KSP** has been turned ON by default if processing is done via KSP. For KAPT or Java only projects, Room will still generate Java sources.
 
@@ -691,14 +693,16 @@ For more information on how to get started using Room KMP, please refer to the [
 
 - An overload of `Room.databaseBuilder()` has been added that takes a lambda parameter that is meant to be used with a Room generated function to avoid using reflection when instantiating the generated `RoomDatabase` implementation. Example usage is:
 
-    Room.databaseBuilder<MyDatabase>(
-        context = appContext,
-        name = dbFilePath,
-        factory =  { MyDatabase::class.instantiateImpl() }
-    )
+```kotlin
+Room.databaseBuilder<MyDatabase>(
+    context = appContext,
+    name = dbFilePath,
+    factory =  { MyDatabase::class.instantiateImpl() }
+)
+```
 
 - An API for configuring a Room with a `CoroutineContext` has been added to the builder: `RoomDatabase.Builder.setQueryCoroutineContext`. Note that a `RoomDatabase` can only be configured with either executors using `setQueryExecutor` or with a Coroutine context but not both.
-- An API for configuring Room with a `SQLite` Driver has been added: `RoomDatabase.Builder.setDriver()`. For more information about the `SQLite` Driver API refer to the [SQLite KMP documentation](https://developer.android.com/kotlin/multiplatform/sqlite)
+- An API for configuring Room with a `SQLite` Driver has been added: `RoomDatabase.Builder.setDriver()`. For more information about the `SQLite` Driver API refer to the [SQLite KMP documentation](https://developer.android.com/kotlin/multiplatform/sqlite.md.txt)
 - APIs for accessing the underlying `SQLiteConnection` from driver APIs have been added: `RoomDatabase.useReaderConnection` and `RoomDatabase.useWriterConnection`.
 - Varios Room related callbacks now have an overloaded version that receive `SQLiteConnection` instead of `SupportSQLiteDatabase`. These are intended to be overridden when migrating to a KMP project. For more information about migrating Room usages in an Android app to a common KMP module refer to the [migration guide](https://developer.android.com/training/data-storage/room/room-kmp-migration). The callbacks are:
   - `Migration.migrate(SQLiteConnection)`
@@ -735,7 +739,7 @@ October 18, 2023
 
 **Warning:** You may find that your projects are more strict in terms of nullability when using Kotlin CodeGen. In Kotlin CodeGen, the nullability of type arguments is important, wheras in Java this is mostly ignored. For example, let's say you have a \`Flow\` return type and the table is empty. In Java CodeGen, this will not cause any issues, but in Kotlin CodeGen, you will get an error. To avoid this, you will need to use \`Flow\`, assuming a null is emitted.
 
-- The new artifact for the Room Gradle Plugin has been added to Room with the id `androidx.room`, which solves various existing issues in Room regarding having inputs and outputs of schemas via Gradle annotation processor options. For more details, refer to the [Room Version 2.6.0-alpha02 release notes](https://developer.android.com/jetpack/androidx/releases/room#2.6.0-alpha02).
+- The new artifact for the Room Gradle Plugin has been added to Room with the id `androidx.room`, which solves various existing issues in Room regarding having inputs and outputs of schemas via Gradle annotation processor options. For more details, refer to the [Room Version 2.6.0-alpha02 release notes](https://developer.android.com/jetpack/androidx/releases/room.md.txt#2.6.0-alpha02).
 - Value classes in Room Entities are now supported for KSP. ([4194095](https://android.googlesource.com/platform/frameworks/support/+/4194095366032c1c06d9e472e4e78b822c82cbe6))
 - Nested Map return types in DAO functions are now supported in Room. ([I13f48](https://android.googlesource.com/platform/frameworks/support/+/3c46fef7382077611c9d9b4cb330bc52373ccc6d), [203008711](https://issuetracker.google.com/issues/203008711))
 
@@ -1072,13 +1076,15 @@ September 29, 2021
 
 `@MapInfo` will be required when the key or value column of the map are from a single column. See example:
 
-    @MapInfo(valueColumn = "songCount")
-    @Query("""
-           SELECT *, COUNT(mSongId) as songCount
-           FROM Artist JOIN Song ON Artist.artistName = Song.artist
-           GROUP BY artistName
-           """)
-    fun getArtistAndSongCounts(): Map<Artist, Integer>
+```kotlin
+@MapInfo(valueColumn = "songCount")
+@Query("""
+       SELECT *, COUNT(mSongId) as songCount
+       FROM Artist JOIN Song ON Artist.artistName = Song.artist
+       GROUP BY artistName
+       """)
+fun getArtistAndSongCounts(): Map<Artist, Integer>
+```
 
 - Make `room-paging` a required artifact when using Paging3 with Room. ([Ieaffe](https://android-review.googlesource.com/#/q/Ieaffeb61c176fae19663544d7f891e2c328172ca))
 
@@ -1104,13 +1110,17 @@ July 21, 2021
 
   *One-to-One Relation Map*
 
-      @Query("SELECT * FROM Song JOIN Artist ON Song.artistId = Artist.artistId")
-      fun getSongAndArtist(): Map<Song, Artist>
+  ```kotlin
+  @Query("SELECT * FROM Song JOIN Artist ON Song.artistId = Artist.artistId")
+  fun getSongAndArtist(): Map<Song, Artist>
+  ```
 
   *One-to-Many Relation Map (Standard multimap)*
 
-      @Query("SELECT * FROM Artist JOIN Album ON Artist.id = Album.artistId")
-      fun getArtistAndAlbums(): Map<Artist, List<Album>>
+  ```kotlin
+  @Query("SELECT * FROM Artist JOIN Album ON Artist.id = Album.artistId")
+  fun getArtistAndAlbums(): Map<Artist, List<Album>>
+  ```
 
   The multimap result can also be wrapped in the supported async return types, such as `LiveData`, Rx's `Observable`, or coroutines `Flow`.
 
@@ -1121,19 +1131,22 @@ July 21, 2021
 
 - `androidx.room:room-paging` is released, providing native Paging 3.0 support for Room queries returning `androidx.paging.PagingSource`.
 
-      @Dao
-      interface UserDao {
-        @Query("SELECT * FROM users ORDER BY id ASC")
-        fun loadUsers(): PagingSource<Int, User>
-      }
-
+  ```kotlin
+  @Dao
+  interface UserDao {
+    @Query("SELECT * FROM users ORDER BY id ASC")
+    fun loadUsers(): PagingSource<Int, User>
+  }
+  ```
 - This artifact replaces the `androidx.paging.PagingSource` implementation generated by Room with one built on top of Paging 3.0 APIs. The new PagingSource implementation parses keys differently, so any key manually supplied to Room's PagingSource would need to account for this behavior change, including the initialKey passed via Pager's constructor. Pages will start loading from the `Key` with `Key` being the first loaded item. This deviates from existing behavior where `LoadParams.Refresh.Key` is treated as the user's scroll position and items are loaded both before and after the key.
 
 - The artifact is optional and opting out will fallback to existing support for Paging 3.0 that was introduced in Room 2.3. However, this artifact will become non-optional in future release for those using Room with Paging 3.0. To opt-in, add the new room-paging artifact to your classpath. If you are using Gradle, you can add the following snippet to your build.gradle:
 
-      dependency {
-        implementation("androidx.room:room-paging:2.4.0-alpha04")
-      }
+  ```kotlin
+  dependency {
+    implementation("androidx.room:room-paging:2.4.0-alpha04")
+  }
+  ```
 
 **Bug Fixes**
 
@@ -1187,7 +1200,7 @@ April 21, 2021
 
 **New Features**
 
-- **Auto Migrations** : Room now offers an API for automatically generating migrations as long as schemas are exported. To let Room know that it should generate an auto-migration a new property `@Database#autoMigrations` can be used to declare the versions to auto-migrate from and to. When Room needs additional information regarding tables and column renames or deletes, then the `@AutoMigration` annotation can declare a specification class containing such inputs. See the [`@AutoMigration`](https://developer.android.com/reference/androidx/room/AutoMigration) documentation for more details.
+- **Auto Migrations** : Room now offers an API for automatically generating migrations as long as schemas are exported. To let Room know that it should generate an auto-migration a new property `@Database#autoMigrations` can be used to declare the versions to auto-migrate from and to. When Room needs additional information regarding tables and column renames or deletes, then the `@AutoMigration` annotation can declare a specification class containing such inputs. See the [`@AutoMigration`](https://developer.android.com/reference/androidx/room/AutoMigration.md.txt) documentation for more details.
 
 **Bug Fixes**
 
@@ -1356,11 +1369,13 @@ June 10, 2020
 
 - **Paging 3.0 Support** : Room will now support generating implementations for`@Query` annotated methods whose return type is `androidx.paging.PagingSource`.
 
-      @Dao
-      interface UserDao {
-        @Query("SELECT * FROM users ORDER BY id ASC")
-        fun pagingSource(): PagingSource<Int, User>
-      }
+  ```kotlin
+  @Dao
+  interface UserDao {
+    @Query("SELECT * FROM users ORDER BY id ASC")
+    fun pagingSource(): PagingSource<Int, User>
+  }
+  ```
 
 **API Changes**
 
@@ -1465,7 +1480,7 @@ October 9, 2019
 - **One-to-One Relations** : The restriction in POJO fields annotated with `@Relation` to be of type `List` or `Set` has been lifted, effectively allowing single-value relations to be represented. [b/62905145](https://issuetracker.google.com/issues/62905145)
 - **Target Entity** : The DAO annnotations `@Insert`, `@Update` and `@Delete` now has a new property `targetEntity`, that allows specifying the target table the DAO method is meant to act on. This allows for the parameters of those DAO methods to be arbitrary POJOs which will be interpreted as partial entities. In practice, this allows partial inserts, deletes and updates. [b/127549506](https://issuetracker.google.com/issues/127549506)
 - **Coroutines Flow** : `@Query` DAO methods can now be of return type `Flow<T>`. The returned Flow will re-emit a new set of values if the observing tables in the query are invalidated. Declaring a DAO function with a `Channel<T>` return type is an error, Room instead encourages you to use `Flow` and then use the neighboring functions to convert the `Flow` into a `Channel`. [b/130428884](https://issuetracker.google.com/issues/130428884)
-- **Gradle Incremental Annotation Processor** : Room is now a Gradle isolating annotation processor and incrementability can be enabled via the processor option `room.incremental`. See [Room Compiler Options](https://developer.android.com/jetpack/androidx/releases/room#compiler-options) for more information. If you encounter any issues please file a bug [here](https://issuetracker.google.com/issues/new?component=413107&template=1096568). We plan to enable incrementability by default in a future, stable version. [b/112110217](https://issuetracker.google.com/issues/112110217)
+- **Gradle Incremental Annotation Processor** : Room is now a Gradle isolating annotation processor and incrementability can be enabled via the processor option `room.incremental`. See [Room Compiler Options](https://developer.android.com/jetpack/androidx/releases/room.md.txt#compiler-options) for more information. If you encounter any issues please file a bug [here](https://issuetracker.google.com/issues/new?component=413107&template=1096568). We plan to enable incrementability by default in a future, stable version. [b/112110217](https://issuetracker.google.com/issues/112110217)
 - **Expanding Projections** : A new experimental compiler option `room.expandProjection` was added that causes Room to rewrite a query with a star projection to only contain the columns in the returning type POJO. For example, for a DAO method with `@Query("SELECT * FROM Song")` that returns a POJO named `SongIdAndTitle` with only two fields. Then Room will rewrite the query to `SELECT id, title FROM Song` such that the minimum set of columns to satisfy the return type are fetched. This essentially eliminates the `CURSOR_MISMATCH` warning that is presented when the query returns extra columns that do not match any field in the returning POJO type.
 
 ### Version 2.2.0-rc01
@@ -1523,12 +1538,12 @@ July 10, 2019
   DEFAULT z`, and you decide to define default values via `@ColumnInfo` to the
   same columns, then you might need to provide a migration to validate the
   unaccounted default values. See
-  [Room Migrations](https://developer.android.com/training/data-storage/room/migrating-db-versions#handle-default-values-migrations)
+  [Room Migrations](https://developer.android.com/training/data-storage/room/migrating-db-versions.md.txt#handle-default-values-migrations)
   for more information.
 - **Many-to-Many Relations** : `@Relation` now has a new property `associateBy`, that takes in a new annotation `@Junction`, used to declare a relation that needs to be satisfied via a junction table (also known as a join table). [b/69201917](https://issuetracker.google.com/issues/69201917)
 - **One-to-One Relations** : The restriction in POJO fields annotated with `@Relation` to be of type `List` or `Set` has been lifted, effectively allowing single-value relations to be represented. [b/62905145](https://issuetracker.google.com/issues/69201917)
 - **Target Entity** : The DAO annnotations `@Insert`, `@Update` and `@Delete` now has a new property `targetEntity`, that allows specifying the target table the DAO method is meant to act on. This allows for the parameters of those DAO methods to be arbitrary POJOs which will be interpreted as partial entities. In practice, this allows partial inserts, deletes and updates. [b/127549506](https://issuetracker.google.com/issues/127549506)
-- **Gradle Incremental Annotation Processor** : Room is now a Gradle isolating annotation processor and incrementability can be enabled via the processor option `room.incremental`. See [Room Compiler Options](https://developer.android.com/jetpack/androidx/releases/room#compiler-options) for more information. If you encounter any issues please file a bug [here](https://issuetracker.google.com/issues/new?component=413107&template=1096568). We plan to enable incrementability by default in a future, stable version. [b/112110217](https://issuetracker.google.com/issues/112110217)
+- **Gradle Incremental Annotation Processor** : Room is now a Gradle isolating annotation processor and incrementability can be enabled via the processor option `room.incremental`. See [Room Compiler Options](https://developer.android.com/jetpack/androidx/releases/room.md.txt#compiler-options) for more information. If you encounter any issues please file a bug [here](https://issuetracker.google.com/issues/new?component=413107&template=1096568). We plan to enable incrementability by default in a future, stable version. [b/112110217](https://issuetracker.google.com/issues/112110217)
 
 **Bug Fixes**
 

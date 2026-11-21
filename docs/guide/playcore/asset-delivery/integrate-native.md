@@ -16,9 +16,6 @@ Sample [integration code](https://github.com/android/app-bundle-samples/tree/mai
 Use the following steps to build Play Asset Delivery into your project's Android
 App Bundle. You don't need to use Android Studio to perform these steps.
 
-> [!NOTE]
-> **Note:** For a guided tutorial, see the [Using Play Asset Delivery in Native games Codelab](https://codelabs.developers.google.com/codelabs/native-gamepad).
-
 1. Update the version of the Android Gradle plugin in your project's
    `build.gradle` file to `4.0.0` or later.
 

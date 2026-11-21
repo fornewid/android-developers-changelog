@@ -411,10 +411,6 @@ in the following example:
 To learn more about navigation, consult the following
 additional resources.
 
-### Codelabs
-
-- [Learn Jetpack Navigation](https://codelabs.developers.google.com/codelabs/android-navigation/)
-
 ### Videos
 
 - [Android Jetpack: Manage UI navigation with navigation controller (Google I/O '18)](https://www.youtube.com/watch?v=8GCXtCjtg40%22)

@@ -195,7 +195,7 @@ The new Fused Library plugin bundled with Android Gradle Plugin 9.0 allows you t
 
 ### **Get started**
 
-Ready to dive in and accelerate your development? [Download](https://developer.android.com/studio) Android Studio Otter 3 Feature Drop and start exploring these powerful new features today!
+Ready to dive in and accelerate your development? [Download](https://developer.android.com/studio.md.txt) Android Studio Otter 3 Feature Drop and start exploring these powerful new features today!
 
 As always, your feedback is crucial to us. [Check known issues](https://developer.android.com/studio/known-issues.md.txt), [report bugs](https://developer.android.com/studio/report-bugs.md.txt), and be part of our vibrant community on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all), [Medium](https://medium.com/androiddevelopers), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), or [X](https://twitter.com/androidstudio). Let's build the future of Android apps together!
 Written by:

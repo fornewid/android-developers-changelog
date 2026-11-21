@@ -4,9 +4,11 @@ url: https://developer.android.com/kotlin/multiplatform/migrate
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/kotlin/multiplatform/llms.txt
+
 To create a Kotlin Multiplatform (KMP) module within your Android project, use
 the **Kotlin Multiplatform Shared Module** template, available in Android Studio
-Meerkat and [Android Gradle Plugin 8.8.0](https://developer.android.com/build/releases/agp-8-8-0-release-notes) and higher.
+Meerkat and [Android Gradle Plugin 8.8.0](https://developer.android.com/build/releases/agp-8-8-0-release-notes.md.txt) and higher.
 
 The module template automates the creation of a new module with the minimum
 configuration targeting Android and iOS platforms. KMP also supports other
@@ -49,10 +51,12 @@ The module wizard doesn't add the newly created module as a dependency to any
 existing module. As a next step, you need to link the shared module to one of
 your existing Gradle modules similarly to other Android dependencies:
 
-    dependencies {
-        ...
-        implementation(project(":shared"))
-    }
+```kotlin
+dependencies {
+    ...
+    implementation(project(":shared"))
+}
+```
 
 > [!NOTE]
 > **Note:** If your project enabled Gradle's [Type-safe project
@@ -77,25 +81,27 @@ The new module template in Android Studio configures the shared module to
 produce a framework for each of the iOS architectures. You can find the
 following code in the shared module's `build.gradle.kts` file:
 
-    val xcfName = "sharedKit"
+```kotlin
+val xcfName = "sharedKit"
 
-    iosX64 {
-      binaries.framework {
-        baseName = xcfName
-      }
-    }
+iosX64 {
+  binaries.framework {
+    baseName = xcfName
+  }
+}
 
-    iosArm64 {
-      binaries.framework {
-        baseName = xcfName
-      }
-    }
+iosArm64 {
+  binaries.framework {
+    baseName = xcfName
+  }
+}
 
-    iosSimulatorArm64 {
-      binaries.framework {
-        baseName = xcfName
-      }
-    }
+iosSimulatorArm64 {
+  binaries.framework {
+    baseName = xcfName
+  }
+}
+```
 
 See [Hierarchical project structure](https://kotlinlang.org/docs/multiplatform-hierarchy.html) for information on defining
 other architecture types.

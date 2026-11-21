@@ -986,7 +986,7 @@ packages, see the API reference documentation.
 
 
 If you want to [use Java 8 language features](https://developer.android.com/studio/preview/features/java8-support) in Android Studio, you should
-[download the latest preview version](https://developer.android.com/studio/preview).
+[download the latest preview version](https://developer.android.com/studio/preview.md.txt).
 
 ### Updated ICU4J Android Framework APIs
 

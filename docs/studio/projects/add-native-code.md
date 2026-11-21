@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/projects/add-native-code
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/studio/projects/llms.txt
+
 Add C and C++ code to your Android project by placing the code into a
 `cpp` directory in your project module. When you build your project, this
 code is compiled into a native library that Gradle can package with your app.
@@ -13,26 +15,26 @@ framework, read [JNI tips for
 Android](https://developer.android.com/training/articles/perf-jni).
 
 Android Studio supports CMake, which is useful for cross-platform projects.
-Android Studio also supports [`ndk-build`](https://developer.android.com/ndk/guides/ndk-build), which
+Android Studio also supports [`ndk-build`](https://developer.android.com/ndk/guides/ndk-build.md.txt), which
 can be faster than CMake but only supports Android. Using both CMake and
 `ndk-build` in the same module is not currently supported.
 
 To import an existing `ndk-build` library into your Android Studio
 project, learn how to
-[link Gradle to your native library project](https://developer.android.com/studio/projects/gradle-external-native-builds).
+[link Gradle to your native library project](https://developer.android.com/studio/projects/gradle-external-native-builds.md.txt).
 
-This page shows you how to [set up Android Studio](https://developer.android.com/studio/projects/add-native-code#download-ndk) with the
-necessary build tools, [create a new project](https://developer.android.com/studio/projects/add-native-code#new-project) with C/C++
-support, and [add new C/C++ files](https://developer.android.com/studio/projects/add-native-code#create-sources) to your project.
+This page shows you how to [set up Android Studio](https://developer.android.com/studio/projects/add-native-code.md.txt#download-ndk) with the
+necessary build tools, [create a new project](https://developer.android.com/studio/projects/add-native-code.md.txt#new-project) with C/C++
+support, and [add new C/C++ files](https://developer.android.com/studio/projects/add-native-code.md.txt#create-sources) to your project.
 
 
 If instead you want to add native code to an existing project,
 follow these steps:
 
-1. [Create new native source files](https://developer.android.com/studio/projects/add-native-code#create-sources) and add the files to your Android Studio project.
+1. [Create new native source files](https://developer.android.com/studio/projects/add-native-code.md.txt#create-sources) and add the files to your Android Studio project.
    - Skip this step if you already have native code or want to import a prebuilt native library.
-2. [Configure CMake](https://developer.android.com/studio/projects/configure-cmake) to build your native source code into a library. This build script is required if you are importing and linking against prebuilt or platform libraries.
-   - If you have an existing native library that already has a `CMakeLists.txt` build script or uses `ndk-build` and includes an [`Android.mk`](https://developer.android.com/ndk/guides/android_mk) build script, skip this step.
+2. [Configure CMake](https://developer.android.com/studio/projects/configure-cmake.md.txt) to build your native source code into a library. This build script is required if you are importing and linking against prebuilt or platform libraries.
+   - If you have an existing native library that already has a `CMakeLists.txt` build script or uses `ndk-build` and includes an [`Android.mk`](https://developer.android.com/ndk/guides/android_mk.md.txt) build script, skip this step.
 3. [Configure
    Gradle](https://developer.android.com/studio/projects/gradle-external-native-builds) by providing a path to your CMake or `ndk-build` script file. Gradle uses the build script to import source code into your Android Studio project and package your native library into the app.
 
@@ -55,10 +57,10 @@ components:
 - [The Android Native Development Kit
   (NDK)](https://developer.android.com/ndk): a toolset that lets you use C and C++ code with Android. NDK provides platform libraries that let you manage native activities and access physical device components, such as sensors and touch input.
 - [CMake](https://cmake.org/): an external build tool that works alongside Gradle to build your native library. You don't need this component if you only plan to use `ndk-build`.
-- [LLDB](http://lldb.llvm.org/): the debugger in Android Studio that [debugs native code](https://developer.android.com/studio/debug).
+- [LLDB](http://lldb.llvm.org/): the debugger in Android Studio that [debugs native code](https://developer.android.com/studio/debug.md.txt).
 
 
-For information on installing these components, see [Install and configure the NDK and CMake](https://developer.android.com/studio/projects/install-ndk).
+For information on installing these components, see [Install and configure the NDK and CMake](https://developer.android.com/studio/projects/install-ndk.md.txt).
 
 ## Create a new project with C/C++ support
 
@@ -102,14 +104,14 @@ in the `src/main/cpp/` directory of your app module. This sample
 code provides a simple C++ function, `stringFromJNI()`, that
 returns the string `"Hello from C++"`. Learn how to add additional
 source files to your project in the section about how to
-[create new native source files](https://developer.android.com/studio/projects/add-native-code#create-sources).
+[create new native source files](https://developer.android.com/studio/projects/add-native-code.md.txt#create-sources).
 
 Similar to how `build.gradle` files instruct Gradle how to build
 your app, CMake and `ndk-build` require a build script to know how to build
 your native library. For new projects, Android Studio creates a CMake build
 script,`CMakeLists.txt`, and places it in your module's root directory.
 To learn more about the contents of this build script, read
-[Configure CMake](https://developer.android.com/studio/projects/configure-cmake).
+[Configure CMake](https://developer.android.com/studio/projects/configure-cmake.md.txt).
 
 ### Build and run the sample app
 
@@ -121,12 +123,12 @@ occur to build and run the sample app:
 
 1. Gradle calls on your external build script, `CMakeLists.txt`.
 2. CMake follows commands in the build script to compile a C++ source file, `native-lib.cpp`, into a shared object library and names it `libnative-lib.so`. Gradle then packages it into the app.
-3. During runtime, the app's `MainActivity` loads the native library using [`System.loadLibrary()`](https://developer.android.com/reference/java/lang/System#loadLibrary(java.lang.String)). The library's native function, `stringFromJNI()`, is now available to the app.
-4. `MainActivity.onCreate()` calls `stringFromJNI()`, which returns `"Hello from C++"` and uses it to update the [`TextView`](https://developer.android.com/reference/android/widget/TextView).
+3. During runtime, the app's `MainActivity` loads the native library using [`System.loadLibrary()`](https://developer.android.com/reference/java/lang/System.md.txt#loadLibrary(java.lang.String)). The library's native function, `stringFromJNI()`, is now available to the app.
+4. `MainActivity.onCreate()` calls `stringFromJNI()`, which returns `"Hello from C++"` and uses it to update the [`TextView`](https://developer.android.com/reference/android/widget/TextView.md.txt).
 
 
 To verify that Gradle packages the native library in the app, use the
-[APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer):
+[APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer.md.txt):
 
 1. Select **Build \> Build Bundles(s) / APK(s) \> Build APK(s)**.
 2. Select **Build \> Analyze APK**.
@@ -165,14 +167,5 @@ To add new C/C++ source files to an existing project, proceed as follows:
 <br />
 
 After you add new C/C++ files to you project, you still need to
-[configure CMake](https://developer.android.com/studio/projects/configure-cmake) to include the files in
+[configure CMake](https://developer.android.com/studio/projects/configure-cmake.md.txt) to include the files in
 your native library.
-
-## Additional resources
-
-To learn more about supporting C/C++ code in your app, try the following
-resource.
-
-### Codelabs
-
-- [Create Hello-CMake with Android Studio](https://codelabs.developers.google.com/codelabs/android-studio-cmake/) This codelab shows you how to use the Android Studio CMake template to start Android NDK project development.

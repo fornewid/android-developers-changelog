@@ -8,7 +8,7 @@ source: md.txt
 
 # Paging
 
-[User Guide](https://developer.android.com/topic/libraries/architecture/paging/v3-overview.md.txt) [Code Sample](https://github.com/android/architecture-components-samples) [Codelab](https://codelabs.developers.google.com/codelabs/android-paging) The Paging Library makes it easier for you to load data gradually and gracefully within your app's [RecyclerView](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.md.txt).
+[User Guide](https://developer.android.com/topic/libraries/architecture/paging/v3-overview.md.txt) [Code Sample](https://github.com/android/architecture-components-samples) The Paging Library makes it easier for you to load data gradually and gracefully within your app's [RecyclerView](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.md.txt).
 
 
 This table lists all the artifacts in the `androidx.paging` group.

@@ -815,10 +815,6 @@ about the containing `Activity` and the UI components that it owns.
 
 To learn more about navigation, see the following additional resources.
 
-### Codelabs
-
-- [Navigation codelab](https://codelabs.developers.google.com/codelabs/android-navigation/index.html?index=../../index#0)
-
 ### Blog posts
 
 - [LiveData with SnackBar, Navigation and other events (the SingleLiveEvent

@@ -197,10 +197,6 @@ To learn more about the Paging Library, consult the following resources.
 - [Android Architecture Components Paging sample](https://github.com/android/architecture-components-samples/tree/paging2/PagingSample)
 - [Paging With Network Sample](https://github.com/android/architecture-components-samples/tree/paging2/PagingWithNetworkSample)
 
-### Codelabs
-
-- [Android Paging codelab](https://codelabs.developers.google.com/codelabs/android-paging/index.html?index=../../index#0)
-
 ### Videos
 
 - [Android Jetpack: manage infinite lists with RecyclerView and Paging (Google

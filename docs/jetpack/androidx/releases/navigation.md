@@ -4,16 +4,18 @@ url: https://developer.android.com/jetpack/androidx/releases/navigation
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Navigation
 
-[User Guide](https://developer.android.com/guide/navigation) [Code Sample](https://github.com/android/architecture-components-samples) [Codelab](https://codelabs.developers.google.com/codelabs/android-navigation) Navigation is a framework for navigating between 'destinations' within an Android application that provides a consistent API whether destinations are implemented as Fragments, Activities, or other components.
+[User Guide](https://developer.android.com/guide/navigation.md.txt) [Code Sample](https://github.com/android/architecture-components-samples) Navigation is a framework for navigating between 'destinations' within an Android application that provides a consistent API whether destinations are implemented as Fragments, Activities, or other components.
 
 > [!CAUTION]
-> **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
+> **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first.md.txt) for more information.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 23, 2026 | [2.10.2](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.2) | - | - | - |
+| September 23, 2026 | [2.10.2](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.10.2) | - | - | - |
 
 ## Declaring dependencies
 
@@ -156,9 +158,9 @@ plugins {
 
 You must have `android.useAndroidX=true` in your
 [`gradle.properties` file](https://developer.android.com/studio/build#properties-files) as per
-[Migrating to AndroidX](https://developer.android.com/jetpack/androidx/migrate#migrate)).
+[Migrating to AndroidX](https://developer.android.com/jetpack/androidx/migrate.md.txt#migrate)).
 
-For information on using Kotlin extensions, see the [ktx documentation](https://developer.android.com/kotlin/ktx).
+For information on using Kotlin extensions, see the [ktx documentation](https://developer.android.com/kotlin/ktx.md.txt).
 
 For more information about dependencies, see [Add Build Dependencies](https://developer.android.com/studio/build/dependencies).
 
@@ -458,7 +460,7 @@ March 12, 2025
 
 **Bug Fixes**
 
-- From [Navigation `2.8.9`](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.9): Fixed a regression found in [Navigation 2.8.8](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.8) that required a deep link to match all of the fields of a deep link request or intent exactly in order to be considered a match. This caused deep links that contained partial field matches and did not have others to no longer work. ([Ie5e36](https://android-review.googlesource.com/#/q/Ie5e36911112218baf8c53ee142f1366caa31a8b2), [b/399826566](https://issuetracker.google.com/issues/399826566))
+- From [Navigation `2.8.9`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.9): Fixed a regression found in [Navigation 2.8.8](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.8) that required a deep link to match all of the fields of a deep link request or intent exactly in order to be considered a match. This caused deep links that contained partial field matches and did not have others to no longer work. ([Ie5e36](https://android-review.googlesource.com/#/q/Ie5e36911112218baf8c53ee142f1366caa31a8b2), [b/399826566](https://issuetracker.google.com/issues/399826566))
 
 **External Contribution**
 
@@ -473,8 +475,8 @@ February 26, 2025
 **Bug Fixes**
 
 - Fixed an issue where attempting to `saveState` with non-inclusive pop would result in a null savedState that could cause a crash on restoration. ([I9f3e8](https://android-review.googlesource.com/#/q/I9f3e8d272db222041c7e611932e4c2b7b4fa50c1), [b/395091644](https://issuetracker.google.com/issues/395091644))
-- From [Navigation 2.8.8](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.8): `NavDeepLink` matching has been fixed where a deeplink and a deeplink request have to match exactly on uri, action, and mime. Matching is no longer allowed if only one or two fields match. ([I3b029](https://android-review.googlesource.com/#/q/I3b0295caa6324cc707d080856e88e62b4c3cd4d5), [b/395712033](https://issuetracker.google.com/issues/395712033))
-- From [Navigation 2.8.8](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.8): Fixed a bug where routes with wildcard paths do not match with an added deeplink ([I7ea92](https://android-review.googlesource.com/#/q/I7ea9206cbecb6ca3d74fbca7721bd2e40e3f915d), [b/389970341](https://issuetracker.google.com/issues/389970341))
+- From [Navigation 2.8.8](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.8): `NavDeepLink` matching has been fixed where a deeplink and a deeplink request have to match exactly on uri, action, and mime. Matching is no longer allowed if only one or two fields match. ([I3b029](https://android-review.googlesource.com/#/q/I3b0295caa6324cc707d080856e88e62b4c3cd4d5), [b/395712033](https://issuetracker.google.com/issues/395712033))
+- From [Navigation 2.8.8](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.8): Fixed a bug where routes with wildcard paths do not match with an added deeplink ([I7ea92](https://android-review.googlesource.com/#/q/I7ea9206cbecb6ca3d74fbca7721bd2e40e3f915d), [b/389970341](https://issuetracker.google.com/issues/389970341))
 
 **External Contribution**
 
@@ -497,7 +499,7 @@ February 12, 2025
 **Bug Fixes**
 
 - Fixed an error in `NavController` where the backStack states were incorrectly attempted to be restored into an array when they were saved into a list. ([Idfb9b](https://android-review.googlesource.com/#/q/Idfb9bebc9d733a3e55f00f48c357cfe1e00e27b4))
-- From [Navigation `2.8.7`](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.7): Navigation Safe Args now provides support for composable destinations. ([I35320](https://android-review.googlesource.com/#/q/I353205e72fe2896cae7ca1f563bfe58798e59578), [b/362791955](https://issuetracker.google.com/issues/362791955))
+- From [Navigation `2.8.7`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.7): Navigation Safe Args now provides support for composable destinations. ([I35320](https://android-review.googlesource.com/#/q/I353205e72fe2896cae7ca1f563bfe58798e59578), [b/362791955](https://issuetracker.google.com/issues/362791955))
 
 ### Version 2.9.0-alpha05
 
@@ -508,9 +510,9 @@ January 29, 2025
 **Bug Fixes**
 
 - Fix an issue that caused an unexpected scale animation when using Navigation Compose. ([I480f4](https://android-review.googlesource.com/#/q/I480f4d89ffc7e2dfa536a592a8fc7b6c759be1a4), [b/353294030](https://issuetracker.google.com/issues/353294030))
-- From [Navigation `2.8.6`](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.6): `NavDestination` labels provided through XML will be parsed via `NavType.get` to ensure custom `NavType` logic is respected. ([I7ec2f](https://android-review.googlesource.com/#/q/I7ec2f3e410b616e8933c8f5dd8015869906fb263), [b/388100796](https://issuetracker.google.com/issues/388100796))
-- From [Navigation `2.8.6`](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.6): When navigating to activity with `dataPattern`, `ActivityNavigator` will now try to encode the arg value with the argument's `NavType`. ([I16376](https://android-review.googlesource.com/#/q/I163763c46090ae9b4c8ee75d52142986e507c0c3), [b/383616432](https://issuetracker.google.com/issues/383616432))
-- From [Navigation `2.8.5`](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.5): Fixed an issue that caused an unexpected scale animation when using Navigation Compose and calling navigate in the same frame that the current animation is ending. ([I26cb1](https://android-review.googlesource.com/#/q/I26cb142affb046e94b34b9501e5405ddcf276fcf), [b/353294030](https://issuetracker.google.com/issues/353294030))
+- From [Navigation `2.8.6`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.6): `NavDestination` labels provided through XML will be parsed via `NavType.get` to ensure custom `NavType` logic is respected. ([I7ec2f](https://android-review.googlesource.com/#/q/I7ec2f3e410b616e8933c8f5dd8015869906fb263), [b/388100796](https://issuetracker.google.com/issues/388100796))
+- From [Navigation `2.8.6`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.6): When navigating to activity with `dataPattern`, `ActivityNavigator` will now try to encode the arg value with the argument's `NavType`. ([I16376](https://android-review.googlesource.com/#/q/I163763c46090ae9b4c8ee75d52142986e507c0c3), [b/383616432](https://issuetracker.google.com/issues/383616432))
+- From [Navigation `2.8.5`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.5): Fixed an issue that caused an unexpected scale animation when using Navigation Compose and calling navigate in the same frame that the current animation is ending. ([I26cb1](https://android-review.googlesource.com/#/q/I26cb142affb046e94b34b9501e5405ddcf276fcf), [b/353294030](https://issuetracker.google.com/issues/353294030))
 
 ### Version 2.9.0-alpha04
 
@@ -548,12 +550,12 @@ The table below provides the reified and KClass APIs.
 
 **Bug Fixes**
 
-- From [Navigation `2.8.5`](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.5): Fixed an issue where `NavHost` could throw an exception inside of the `PredictiveBackHandler` if the back stack is popped down to 1 entry and a system back are triggered in the same frame. ([I1a429](https://android-review.googlesource.com/#/q/I1a4297a10f2d0da8c8477644b9250c61e4792923), [b/375343407](https://issuetracker.google.com/issues/375343407))
-- From [Navigation `2.8.5`](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.5): Fixed `NavDestination` `NullPointerException` when updating a graph's `startDestination`. ([I99421](https://android-review.googlesource.com/#/q/I99421bf1e4aef9802873d9d78fbc6fafc15a21ba), [b/361560785](https://issuetracker.google.com/issues/361560785))
+- From [Navigation `2.8.5`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.5): Fixed an issue where `NavHost` could throw an exception inside of the `PredictiveBackHandler` if the back stack is popped down to 1 entry and a system back are triggered in the same frame. ([I1a429](https://android-review.googlesource.com/#/q/I1a4297a10f2d0da8c8477644b9250c61e4792923), [b/375343407](https://issuetracker.google.com/issues/375343407))
+- From [Navigation `2.8.5`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.5): Fixed `NavDestination` `NullPointerException` when updating a graph's `startDestination`. ([I99421](https://android-review.googlesource.com/#/q/I99421bf1e4aef9802873d9d78fbc6fafc15a21ba), [b/361560785](https://issuetracker.google.com/issues/361560785))
 
 **External Contribution**
 
-- From [Navigation `2.8.5`](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.5): Navigation type safety now supports `List<Enum>` as an argument type of a route without requiring any custom `NavType`. Thanks [Csaba Kozák](https://github.com/WonderCsabo)! ([GH-725](https://github.com/androidx/androidx/pull/725), [b/375559962](https://issuetracker.google.com/375559962))
+- From [Navigation `2.8.5`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.5): Navigation type safety now supports `List<Enum>` as an argument type of a route without requiring any custom `NavType`. Thanks [Csaba Kozák](https://github.com/WonderCsabo)! ([GH-725](https://github.com/androidx/androidx/pull/725), [b/375559962](https://issuetracker.google.com/375559962))
 
 ### Version 2.9.0-alpha03
 
@@ -588,8 +590,8 @@ October 16, 2024
 **New Features**
 
 - Custom Navigators can now mark their destinations as implementing the `SupportingPane` interface which indicates to the `NavController` that these destinations will be shown alongside other destinations. By using this interface, multiple destinations can be `RESUMED` at the same time, for instance. ([Id5559](https://android-review.googlesource.com/#/q/Id5559bdaf3e31fb6d6fb66be0b451627c075d342))
-- From [Navigation `2.8.3`](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.3): Added new lint checks for the `navigation-common`, `navigation-runtime`, and `navigation-compose` modules to help identify any type-safe routes that are not correctly annotated with `@Serializable`. This check is applied to all `NavGraphBuilder` and `NavDeepLinkBuilder` extension functions. ([I4a259](https://android-review.googlesource.com/#/q/I4a259b5544e4e4655c4bdee812d64f3b2a1947bd), [I95402](https://android-review.googlesource.com/#/q/I954023cd0cb4a5ee7d08647cf9a8139b0c8ae9d9), [Ie601a](https://android-review.googlesource.com/#/q/Ie601a15449b1561154bd3ae5d990e006a371c7c6), [Id8c6e](https://android-review.googlesource.com/#/q/Id8c6ef1ee0839a43864afac58a5437ad1379e25f), [I28bda](https://android-review.googlesource.com/#/q/I28bda5541ec144f17668302d56ecaef4011becb3), [b/362725816](https://issuetracker.google.com/issues/362725816))
-- From [Navigation `2.8.3`](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.3): Added new lint checks for the `navigation-common`, `navigation-runtime`, and `navigation-compose` modules to help identify any type-safe routes with Enum arguments that are not correctly annotated with `@Keep`. This check is applied to all `NavGraphBuilder` and `NavDeepLinkBuilder` extension functions. ([I4a259](https://android-review.googlesource.com/#/q/I4a259b5544e4e4655c4bdee812d64f3b2a1947bd), [I95402](https://android-review.googlesource.com/#/q/I954023cd0cb4a5ee7d08647cf9a8139b0c8ae9d9), [Ie601a](https://android-review.googlesource.com/#/q/Ie601a15449b1561154bd3ae5d990e006a371c7c6), [Id8c6e](https://android-review.googlesource.com/#/q/Id8c6ef1ee0839a43864afac58a5437ad1379e25f), [I2b46f](https://android-review.googlesource.com/#/q/I2b46fbc3b5be6251d89e902e315f50f20c46ce19), [b/358687142](https://issuetracker.google.com/issues/358687142))
+- From [Navigation `2.8.3`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.3): Added new lint checks for the `navigation-common`, `navigation-runtime`, and `navigation-compose` modules to help identify any type-safe routes that are not correctly annotated with `@Serializable`. This check is applied to all `NavGraphBuilder` and `NavDeepLinkBuilder` extension functions. ([I4a259](https://android-review.googlesource.com/#/q/I4a259b5544e4e4655c4bdee812d64f3b2a1947bd), [I95402](https://android-review.googlesource.com/#/q/I954023cd0cb4a5ee7d08647cf9a8139b0c8ae9d9), [Ie601a](https://android-review.googlesource.com/#/q/Ie601a15449b1561154bd3ae5d990e006a371c7c6), [Id8c6e](https://android-review.googlesource.com/#/q/Id8c6ef1ee0839a43864afac58a5437ad1379e25f), [I28bda](https://android-review.googlesource.com/#/q/I28bda5541ec144f17668302d56ecaef4011becb3), [b/362725816](https://issuetracker.google.com/issues/362725816))
+- From [Navigation `2.8.3`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.3): Added new lint checks for the `navigation-common`, `navigation-runtime`, and `navigation-compose` modules to help identify any type-safe routes with Enum arguments that are not correctly annotated with `@Keep`. This check is applied to all `NavGraphBuilder` and `NavDeepLinkBuilder` extension functions. ([I4a259](https://android-review.googlesource.com/#/q/I4a259b5544e4e4655c4bdee812d64f3b2a1947bd), [I95402](https://android-review.googlesource.com/#/q/I954023cd0cb4a5ee7d08647cf9a8139b0c8ae9d9), [Ie601a](https://android-review.googlesource.com/#/q/Ie601a15449b1561154bd3ae5d990e006a371c7c6), [Id8c6e](https://android-review.googlesource.com/#/q/Id8c6ef1ee0839a43864afac58a5437ad1379e25f), [I2b46f](https://android-review.googlesource.com/#/q/I2b46fbc3b5be6251d89e902e315f50f20c46ce19), [b/358687142](https://issuetracker.google.com/issues/358687142))
 
 **Behavior Changes**
 
@@ -613,7 +615,7 @@ March 12, 2025
 
 **Bug Fixes**
 
-- Fixed a regression found in [Navigation 2.8.8](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.8) that required a deep link to match all of the fields of a deep link request or intent exactly in order to be considered a match. This caused deep links that contained partial field matches and did not have others to no longer work. ([Ie5e36](https://android-review.googlesource.com/#/q/Ie5e36911112218baf8c53ee142f1366caa31a8b2), [b/399826566](https://issuetracker.google.com/issues/399826566))
+- Fixed a regression found in [Navigation 2.8.8](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.8) that required a deep link to match all of the fields of a deep link request or intent exactly in order to be considered a match. This caused deep links that contained partial field matches and did not have others to no longer work. ([Ie5e36](https://android-review.googlesource.com/#/q/Ie5e36911112218baf8c53ee142f1366caa31a8b2), [b/399826566](https://issuetracker.google.com/issues/399826566))
 
 ### Version 2.8.8
 
@@ -676,11 +678,11 @@ November 13, 2024
 
 **New Features**
 
-- From [Navigation `2.9.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.0-alpha03): Navigation type safety now supports value class as route or as the argument type of a route ([I9344a](https://android-review.googlesource.com/#/q/I9344a33fe10d53701e53635af93176654957afb2), [b/374347483](https://issuetracker.google.com/issues/374347483))
+- From [Navigation `2.9.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.9.0-alpha03): Navigation type safety now supports value class as route or as the argument type of a route ([I9344a](https://android-review.googlesource.com/#/q/I9344a33fe10d53701e53635af93176654957afb2), [b/374347483](https://issuetracker.google.com/issues/374347483))
 
 **Bug Fixes**
 
-- From [Navigation `2.9.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.0-alpha01): Attempting to use a `NavController` that has been previously `DESTROYED` will now cause an `IllegalStateException`. ([I520da](https://android-review.googlesource.com/#/q/I520da520adf9f99d887e63c0255afe97ecefdab5), [b/369616172](https://issuetracker.google.com/issues/369616172))
+- From [Navigation `2.9.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.9.0-alpha01): Attempting to use a `NavController` that has been previously `DESTROYED` will now cause an `IllegalStateException`. ([I520da](https://android-review.googlesource.com/#/q/I520da520adf9f99d887e63c0255afe97ecefdab5), [b/369616172](https://issuetracker.google.com/issues/369616172))
 
 ### Version 2.8.3
 
@@ -734,7 +736,7 @@ September 18, 2024
 **Dependency Update**
 
 - Navigation Safe Args now depends on Kotlin 1.9.24, rather than Kotlin 2.X, ensuring that developers are not forced to update. ([a4129a](https://android.googlesource.com/platform/frameworks/support/+/a4129ad752cb16484a021f26d63126381ffa5392))
-- Navigation Compose now depends on [Compose `1.7.2`](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.7.2).
+- Navigation Compose now depends on [Compose `1.7.2`](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt#1.7.2).
 
 ### Version 2.8.0
 
@@ -908,30 +910,32 @@ May 1, 2024
 
 **Safe Args in Navigation Compose**
 
-- The work to support compile time type safety for [Navigation Compose](https://developer.android.com/develop/ui/compose/navigation) and users of the [Navigation Kotlin DSL](https://developer.android.com/guide/navigation/design/kotlin-dsl) based on Kotlin Serialization has completed and previously experimental APIs are now stable. ([Iea94d](https://android-review.googlesource.com/#/q/Iea94de164795b79e99b8f1c2661e06ca6639b2bc), [I0eb0d](https://android-review.googlesource.com/#/q/I0eb0db9fe1dc51c25545d5ef2e915e181d3a9dae), [I873b7](https://android-review.googlesource.com/#/q/I873b7d2beee8a589858e84f8e6f95f295c51e6b9), [I3a64b](https://android-review.googlesource.com/#/q/I3a64b21c11307c1cb409e2bb47e292021d55c0b7), [I6c3a2](https://android-review.googlesource.com/#/q/I6c3a2109d99a3c40102b8a81d7a8bc17746c6a93), [I11f0b](https://android-review.googlesource.com/#/q/I11f0bb08a3f2f220f3ba8ba2d72890cd16e56ef3), [Ic3032](https://android-review.googlesource.com/#/q/Ic30322fdcc6ab6abd383758d996d4007e1bf6375), [I8d394](https://android-review.googlesource.com/#/q/I8d3948948e68b65f05c5bb943daba3deda64db2e), [I95710](https://android-review.googlesource.com/#/q/I95710b70ebbfa839f1809df21049d5c50ab74c4c), [Ice060](https://android-review.googlesource.com/#/q/Ice0608f7b128f367760d4617d6b7f770d46618c7), [Id0e55](https://android-review.googlesource.com/#/q/Id0e55c3e938d28c034aa2b6f2a23e815b0d8bfb9), [I45f8b](https://android-review.googlesource.com/#/q/I45f8b649fc3f5e9d738c432c4a53f23db7ab931e), [Idcdaf](https://android-review.googlesource.com/#/q/Idcdaf353295d64d8162a8e2f792ccd2cdaccee4a), [If5380](https://android-review.googlesource.com/#/q/If5380f1943f2a3dc1ff733ed3cfab5f1328c618a), [I08b23](https://android-review.googlesource.com/#/q/I08b231168eaedeabcd4add210daa96a99dc5807e), [Ia5c59](https://android-review.googlesource.com/#/q/Ia5c59da2d7d4e40db08e4fe29167ecc543df8a95), [b/188693139](https://issuetracker.google.com/issues/188693139))
+- The work to support compile time type safety for [Navigation Compose](https://developer.android.com/develop/ui/compose/navigation) and users of the [Navigation Kotlin DSL](https://developer.android.com/guide/navigation/design/kotlin-dsl.md.txt) based on Kotlin Serialization has completed and previously experimental APIs are now stable. ([Iea94d](https://android-review.googlesource.com/#/q/Iea94de164795b79e99b8f1c2661e06ca6639b2bc), [I0eb0d](https://android-review.googlesource.com/#/q/I0eb0db9fe1dc51c25545d5ef2e915e181d3a9dae), [I873b7](https://android-review.googlesource.com/#/q/I873b7d2beee8a589858e84f8e6f95f295c51e6b9), [I3a64b](https://android-review.googlesource.com/#/q/I3a64b21c11307c1cb409e2bb47e292021d55c0b7), [I6c3a2](https://android-review.googlesource.com/#/q/I6c3a2109d99a3c40102b8a81d7a8bc17746c6a93), [I11f0b](https://android-review.googlesource.com/#/q/I11f0bb08a3f2f220f3ba8ba2d72890cd16e56ef3), [Ic3032](https://android-review.googlesource.com/#/q/Ic30322fdcc6ab6abd383758d996d4007e1bf6375), [I8d394](https://android-review.googlesource.com/#/q/I8d3948948e68b65f05c5bb943daba3deda64db2e), [I95710](https://android-review.googlesource.com/#/q/I95710b70ebbfa839f1809df21049d5c50ab74c4c), [Ice060](https://android-review.googlesource.com/#/q/Ice0608f7b128f367760d4617d6b7f770d46618c7), [Id0e55](https://android-review.googlesource.com/#/q/Id0e55c3e938d28c034aa2b6f2a23e815b0d8bfb9), [I45f8b](https://android-review.googlesource.com/#/q/I45f8b649fc3f5e9d738c432c4a53f23db7ab931e), [Idcdaf](https://android-review.googlesource.com/#/q/Idcdaf353295d64d8162a8e2f792ccd2cdaccee4a), [If5380](https://android-review.googlesource.com/#/q/If5380f1943f2a3dc1ff733ed3cfab5f1328c618a), [I08b23](https://android-review.googlesource.com/#/q/I08b231168eaedeabcd4add210daa96a99dc5807e), [Ia5c59](https://android-review.googlesource.com/#/q/Ia5c59da2d7d4e40db08e4fe29167ecc543df8a95), [b/188693139](https://issuetracker.google.com/issues/188693139))
 
 This functionality uses [Kotlin Serialization](https://kotlinlang.org/docs/serialization.html) to allow you to define destinations in your navigation graph via type safe objects and data classes:
 
-      // Define a home destination that doesn't take any arguments
-      @Serializable
-      object Home
+```kotlin
+  // Define a home destination that doesn't take any arguments
+  @Serializable
+  object Home
 
-      // Define a profile destination that takes an ID
-      @Serializable
-      data class Profile(val id: String)
+  // Define a profile destination that takes an ID
+  @Serializable
+  data class Profile(val id: String)
 
-      // Now define your NavHost using type safe objects
-      NavHost(navController, startDestination = Home) {
-          composable<Home> {
-              HomeScreen(onNavigateToProfile = { id ->
-                  navController.navigate(Profile(id))
-              })
-          }
-          composable<Profile> { backStackEntry ->
-              val profile: Profile = backStackEntry.toRoute()
-              ProfileScreen(profile)
-          }
+  // Now define your NavHost using type safe objects
+  NavHost(navController, startDestination = Home) {
+      composable<Home> {
+          HomeScreen(onNavigateToProfile = { id ->
+              navController.navigate(Profile(id))
+          })
       }
+      composable<Profile> { backStackEntry ->
+          val profile: Profile = backStackEntry.toRoute()
+          ProfileScreen(profile)
+      }
+  }
+```
 
 See the [Navigation Compose meet Type Safety blog post](https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8) for more information.
 
@@ -950,16 +954,20 @@ April 17, 2024
 
 - Adds a new `navigation-fragment-compose` artifact that includes a `ComposableNavHostFragment` alternative to `NavHostFragment` that allows you to add `composable` destinations to your Navigation XML files. Each `composable` destination must be expressed as a top-level, no argument `@Composable` method whose fully qualified name is used as the `android:name` attribute on each destination. When navigating to one of these destinations, a containing fragment is created to display the composable content. ([I0ef2e](https://android-review.googlesource.com/#/q/I0ef2e5897128d18d1b374f3617c7095022ca7c0e), [b/265480755](https://issuetracker.google.com/issues/265480755))
 
-      // In HomeScreen.kt
-      @Composable
-      fun HomeScreen() {
-        // Your Composable content here
-      }
+  ```kotlin
+  // In HomeScreen.kt
+  @Composable
+  fun HomeScreen() {
+    // Your Composable content here
+  }
+  ```
 
-      // In your navigation.xml
-      <composable
-        android:id="@+id/home_screen"
-        android:name="com.example.HomeScreenKt\$HomeScreen" />
+  ```xml
+  // In your navigation.xml
+  <composable
+    android:id="@+id/home_screen"
+    android:name="com.example.HomeScreenKt\$HomeScreen" />
+  ```
 
 **API Changes**
 
@@ -1056,7 +1064,7 @@ January 24, 2024
 
 **Dependency Update**
 
-- Navigation Compose now depends on [Compose `1.7.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.7.0-alpha01) fixing an issue that could cause an unexpected scale animation. ([b/297258205](https://issuetracker.google.com/issues/297258205))
+- Navigation Compose now depends on [Compose `1.7.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/compose-animation.md.txt#1.7.0-alpha01) fixing an issue that could cause an unexpected scale animation. ([b/297258205](https://issuetracker.google.com/issues/297258205))
 
 **External Contribution**
 
@@ -1072,8 +1080,8 @@ February 7, 2024
 
 **Bug Fixes**
 
-- Backported from [Navigation `2.8.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.0-alpha01): Fixed `BackStackState` leak where multiple `saveState()` calls on a single `NavBackStackEntry` would result in multiple states being saved, but only the first saved state could be restored. ([I598b0](https://android-review.googlesource.com/#/q/I598b01c379f61818e96126fb8e3d3ef1f9d084cd), [b/309559751](https://issuetracker.google.com/issues/309559751))
-- Backported from [Navigation `2.8.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation#2.8.0-alpha01): Fixed an issue where non-String arguments would not be properly displayed when using the `NavigationUI` helpers to populate the title of app bars. ([#636](https://github.com/androidx/androidx/pull/636), [b/316676794](https://issuetracker.google.com/316676794))
+- Backported from [Navigation `2.8.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.0-alpha01): Fixed `BackStackState` leak where multiple `saveState()` calls on a single `NavBackStackEntry` would result in multiple states being saved, but only the first saved state could be restored. ([I598b0](https://android-review.googlesource.com/#/q/I598b01c379f61818e96126fb8e3d3ef1f9d084cd), [b/309559751](https://issuetracker.google.com/issues/309559751))
+- Backported from [Navigation `2.8.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.8.0-alpha01): Fixed an issue where non-String arguments would not be properly displayed when using the `NavigationUI` helpers to populate the title of app bars. ([#636](https://github.com/androidx/androidx/pull/636), [b/316676794](https://issuetracker.google.com/316676794))
 
 **External Contribution**
 
@@ -1113,7 +1121,7 @@ November 1, 2023
 
 **Dependency Updates**
 
-- Navigation with Fragments now depends on [Fragment 1.6.2](https://developer.android.com/jetpack/androidx/releases/fragment#1.6.2), fixing an issue where the `ViewModel` instances of nested fragments would not be cleared when calling `clearBackStack`.
+- Navigation with Fragments now depends on [Fragment 1.6.2](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.6.2), fixing an issue where the `ViewModel` instances of nested fragments would not be cleared when calling `clearBackStack`.
 
 ## Version 2.7.4
 
@@ -1156,7 +1164,7 @@ September 6, 2023
 
 **Bug Fixes**
 
-- Navigation now depends on [Lifecycle `2.6.2`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.6.2), fixing an interaction between `rememberSaveable` and Navigation Compose's `NavHost` that would cause the `rememberSaveable` state of destinations and any `ViewModel` owned `SavedStateHandle` instances from being properly restored after process death and recreation. ([b/298059596](https://issuetracker.google.com/issues/298059596), [b/289436035](https://issuetracker.google.com/issues/289436035))
+- Navigation now depends on [Lifecycle `2.6.2`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.6.2), fixing an interaction between `rememberSaveable` and Navigation Compose's `NavHost` that would cause the `rememberSaveable` state of destinations and any `ViewModel` owned `SavedStateHandle` instances from being properly restored after process death and recreation. ([b/298059596](https://issuetracker.google.com/issues/298059596), [b/289436035](https://issuetracker.google.com/issues/289436035))
 - Fixed an issue when showing multiple dialogs in Navigation Compose simultaneously where the partially obscured dialogs (e.g., not the topmost dialog) would be in the `CREATED` Lifecycle state rather than the `STARTED` state. ([aosp/2728520](https://android-review.googlesource.com/c/platform/frameworks/support/+/2728520), [b/289257213](https://issuetracker.google.com/issues/289257213))
 - Fixed an issue when showing multiple dialogs in Navigation Compose simultaneously where dismissing the topmost dialog would cause the new topmost dialog to be stuck in the `STARTED` Lifecycle state rather than correctly moving to `RESUMED`. ([aosp/2629401](https://android-review.googlesource.com/c/platform/frameworks/support/+/2629401), [b/286371387](https://issuetracker.google.com/issues/286371387))
 - Navigation Safe Args no longer instantiates its task eagerly if it is not actually being executed. ([I0e385](https://android-review.googlesource.com/#/q/I0e385ae46f667c2b72cad31ca8c8c84aa8965605), [b/260322841](https://issuetracker.google.com/issues/260322841))
@@ -1253,7 +1261,7 @@ No additional changes will be made to Accompanist Navigation Animation and we'll
 
 **Bug Fixes**
 
-- From [Navigation `2.6.0-rc02`](https://developer.android.com/jetpack/androidx/releases/navigation#2.6.0-rc02): Fixed an issue with Navigation in Fragments where navigating with `popUpTo` and popping a fragment off the back stack without recreating its view would cause system back to stop working. ([Ieb8d4](https://android-review.googlesource.com/#/q/Ieb8d4e6a18f8c223ff3193ea4348fb6065e9de94), [b/281726455](https://issuetracker.google.com/issues/281726455))
+- From [Navigation `2.6.0-rc02`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.6.0-rc02): Fixed an issue with Navigation in Fragments where navigating with `popUpTo` and popping a fragment off the back stack without recreating its view would cause system back to stop working. ([Ieb8d4](https://android-review.googlesource.com/#/q/Ieb8d4e6a18f8c223ff3193ea4348fb6065e9de94), [b/281726455](https://issuetracker.google.com/issues/281726455))
 
 **Dependency Updates**
 
@@ -1281,7 +1289,7 @@ June 7, 2023
 
 **Important changes to Navigation with Fragments since 2.5.0**
 
-- `NavHostFragment` no longer intercepts the system back button itself. This allows the underlying `FragmentManager` to handle system back. This allows [Fragment `1.7.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/fragment#1.7.0-alpha01) and higher to provide an In-App Predictive Back animation on Android U devices.
+- `NavHostFragment` no longer intercepts the system back button itself. This allows the underlying `FragmentManager` to handle system back. This allows [Fragment `1.7.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.7.0-alpha01) and higher to provide an In-App Predictive Back animation on Android U devices.
 - When using Navigation with Fragments, attempting to manually do a `FragmentTransaction` that adds a fragment to the `FragmentManager`'s back stack will now throw an `IllegalArgumentException`. You should always add fragments via the `navigate()` API.
 - When using the exact string `${applicationId}` as the placeholder in the `app:data` and `app:dataPattern` attributes in the activity element of a navigation XML file, the placeholder will be automatically filled in with the `packageName` of the context upon inflation.
 - The `FragmentNavigator` now uses the transition APIs when navigating and popping `NavBackStackEntries`. This means that the `NavBackStackEntry` `Lifecycle` will now wait for the entering and exiting fragment special effects to complete before moving their final `Lifecycle.State`.
@@ -1362,9 +1370,9 @@ March 22, 2023
 
 **Dependency Updates**
 
-- Navigation now depends on [Lifecycle `2.6.1`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.6.1). ([586fe7](https://android.googlesource.com/platform/frameworks/support/+/586fe7d84e657d9bbc6d3cb3cbb8954f715df557))
-- Navigation now depends on [SavedState `1.2.1`](https://developer.android.com/jetpack/androidx/releases/savedstate#1.2.1). ([078e4e](https://android.googlesource.com/platform/frameworks/support/+/078e4ef4d6b3475ed3a453ea7ba0d03e6bdc02c3))
-- Navigation now depends on [ProfileInstaller `1.3.0`](https://developer.android.com/jetpack/androidx/releases/profileinstaller#1.3.0). ([512f0c](https://android.googlesource.com/platform/frameworks/support/+/512f0c047e135deb054d7764677f981ffdbb1817))
+- Navigation now depends on [Lifecycle `2.6.1`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.6.1). ([586fe7](https://android.googlesource.com/platform/frameworks/support/+/586fe7d84e657d9bbc6d3cb3cbb8954f715df557))
+- Navigation now depends on [SavedState `1.2.1`](https://developer.android.com/jetpack/androidx/releases/savedstate.md.txt#1.2.1). ([078e4e](https://android.googlesource.com/platform/frameworks/support/+/078e4ef4d6b3475ed3a453ea7ba0d03e6bdc02c3))
+- Navigation now depends on [ProfileInstaller `1.3.0`](https://developer.android.com/jetpack/androidx/releases/profileinstaller.md.txt#1.3.0). ([512f0c](https://android.googlesource.com/platform/frameworks/support/+/512f0c047e135deb054d7764677f981ffdbb1817))
 
 ### Version 2.6.0-alpha07
 
@@ -1400,7 +1408,7 @@ February 22, 2023
 
 **Known Issues**
 
-- When using Navigation with Fragments, the `NavBackStackEntry`'s Lifecycle fails to reach `RESUMED` when using [`Animation`](https://developer.android.com/reference/android/view/animation/Animation) APIs. ([b/269646882](https://issuetracker.google.com/269646882))
+- When using Navigation with Fragments, the `NavBackStackEntry`'s Lifecycle fails to reach `RESUMED` when using [`Animation`](https://developer.android.com/reference/android/view/animation/Animation.md.txt) APIs. ([b/269646882](https://issuetracker.google.com/269646882))
 - When using Navigation with Fragments, and navigating with `BottomNavigation`, if you attempt to restore a back stack with multiple entries, the `BottomMenuItem` is not correctly updated. ([b/270447657](https://issuetracker.google.com/270447657))
 - When using Navigation with Fragments, after restoring the state the `NavBackStackEntry` `Lifecycle` does not get `DESTROYED` when its fragment is `DESTROYED` . ([b/270610768](https://issuetracker.google.com/270610768))
 
@@ -1457,12 +1465,12 @@ October 24, 2022
 
 **Bug Fixes**
 
-- From [Navigation `2.5.3`](https://developer.android.com/jetpack/androidx/releases/navigation#2.5.3): `NavHost` will no longer cause a `NoSuchElementException` when there is no destination available for the `Crossfade` to compose. It will now just skip the composition. ([Ieb46e](https://android-review.googlesource.com/#/q/Ieb46e8bbcbcde6183a2ab07fba24b18756a4ae2f), [b/253299416](https://issuetracker.google.com/issues/253299416))
-- From [Navigation `2.5.3`](https://developer.android.com/jetpack/androidx/releases/navigation#2.5.3): Fixed an issue where saved Compose state (e.g., usages of `rememberSaveable`) were not being forgotten and removed when a destination was popped off the back stack. ([I64949](https://android-review.googlesource.com/#/q/I649492142419b56d9ef5ab768a2cfe7662f026e2))
+- From [Navigation `2.5.3`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.5.3): `NavHost` will no longer cause a `NoSuchElementException` when there is no destination available for the `Crossfade` to compose. It will now just skip the composition. ([Ieb46e](https://android-review.googlesource.com/#/q/Ieb46e8bbcbcde6183a2ab07fba24b18756a4ae2f), [b/253299416](https://issuetracker.google.com/issues/253299416))
+- From [Navigation `2.5.3`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.5.3): Fixed an issue where saved Compose state (e.g., usages of `rememberSaveable`) were not being forgotten and removed when a destination was popped off the back stack. ([I64949](https://android-review.googlesource.com/#/q/I649492142419b56d9ef5ab768a2cfe7662f026e2))
 
 **Dependency Updates**
 
-- Navigation now depends on [Fragment `1.5.4`](https://developer.android.com/jetpack/androidx/releases/fragment#1.5.4). ([Icd424](https://android-review.googlesource.com/#/q/Icd424c6aefb33f1517d47f4a5b9327ef38711b13))
+- Navigation now depends on [Fragment `1.5.4`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.5.4). ([Icd424](https://android-review.googlesource.com/#/q/Icd424c6aefb33f1517d47f4a5b9327ef38711b13))
 
 ### Version 2.6.0-alpha02
 
@@ -1502,9 +1510,9 @@ September 7, 2022
 
 **Bug Fixes**
 
-- From [Navigation `2.5.2`](https://developer.android.com/jetpack/androidx/releases/navigation#2.5.2): Dynamic Navigation now properly attempts to install Activity destinations from other modules before navigating to them. ([Ia2c16](https://android-review.googlesource.com/#/q/Ia2c1645426d2f6a5958a10379a99f2aade3dd03a), [b/240292838](https://issuetracker.google.com/issues/240292838))
-- From [Navigation `2.5.2`](https://developer.android.com/jetpack/androidx/releases/navigation#2.5.2): Navigation will now properly replace the Fragment instance when navigating to the same destination and setting the `launchSingleTop` flag to true. ([I5a2f1](https://android-review.googlesource.com/#/q/I5a2f15e1c2a9a4bc5bae6f5d016a9b06b76aa448), [b/237374580](https://issuetracker.google.com/issues/237374580))
-- From [Navigation `2.5.2`](https://developer.android.com/jetpack/androidx/releases/navigation#2.5.2): Fixed `IllegalStateException` caused by navigating to a double nested graph that shares a parent with a new popped start destination. ([I9f7cb](https://android-review.googlesource.com/#/q/I9f7cb2445e6021c6ab4cb81d62612411249c1257), [b/243778589](https://issuetracker.google.com/issues/243778589))
+- From [Navigation `2.5.2`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.5.2): Dynamic Navigation now properly attempts to install Activity destinations from other modules before navigating to them. ([Ia2c16](https://android-review.googlesource.com/#/q/Ia2c1645426d2f6a5958a10379a99f2aade3dd03a), [b/240292838](https://issuetracker.google.com/issues/240292838))
+- From [Navigation `2.5.2`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.5.2): Navigation will now properly replace the Fragment instance when navigating to the same destination and setting the `launchSingleTop` flag to true. ([I5a2f1](https://android-review.googlesource.com/#/q/I5a2f15e1c2a9a4bc5bae6f5d016a9b06b76aa448), [b/237374580](https://issuetracker.google.com/issues/237374580))
+- From [Navigation `2.5.2`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.5.2): Fixed `IllegalStateException` caused by navigating to a double nested graph that shares a parent with a new popped start destination. ([I9f7cb](https://android-review.googlesource.com/#/q/I9f7cb2445e6021c6ab4cb81d62612411249c1257), [b/243778589](https://issuetracker.google.com/issues/243778589))
 
 ## Version 2.5
 
@@ -1533,7 +1541,7 @@ September 7, 2022
 
 **Dependency Update**
 
-- Navigation `2.5.2` now depends on [Fragment `1.5.2`](https://developer.android.com/jetpack/androidx/releases/fragment#1.5.2). ([aosp/2178734](https://android-review.googlesource.com/c/platform/frameworks/support/+/2178734))
+- Navigation `2.5.2` now depends on [Fragment `1.5.2`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.5.2). ([aosp/2178734](https://android-review.googlesource.com/c/platform/frameworks/support/+/2178734))
 
 ### Version 2.5.1
 
@@ -1547,9 +1555,9 @@ July 27, 2022
 
 **Dependency Updates**
 
-- The Navigation library now depends on [Lifecycle `2.5.1`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.5.1). ([Ib4451](https://android-review.googlesource.com/#/q/Ib44513cf0c7f96fe996b23ced62ab82da0146f21))
-- The Navigation library now depends on [Activity `1.5.1`](https://developer.android.com/jetpack/androidx/releases/activity#1.5.1). ([I3efe8](https://android-review.googlesource.com/#/q/I3efe89a890713d7c9c8ecb9344c48ba4e4b881b7))
-- The Navigation library now depends on [Fragment `1.5.1`](https://developer.android.com/jetpack/androidx/releases/fragment#1.5.1). ([I56177](https://android-review.googlesource.com/#/q/I561770ed155317788b7179540d336c5abf24b71b))
+- The Navigation library now depends on [Lifecycle `2.5.1`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.5.1). ([Ib4451](https://android-review.googlesource.com/#/q/Ib44513cf0c7f96fe996b23ced62ab82da0146f21))
+- The Navigation library now depends on [Activity `1.5.1`](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#1.5.1). ([I3efe8](https://android-review.googlesource.com/#/q/I3efe89a890713d7c9c8ecb9344c48ba4e4b881b7))
+- The Navigation library now depends on [Fragment `1.5.1`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.5.1). ([I56177](https://android-review.googlesource.com/#/q/I561770ed155317788b7179540d336c5abf24b71b))
 
 ### Version 2.5.0
 
@@ -1559,7 +1567,7 @@ June 29, 2022
 
 **Important changes since 2.4.0**
 
-- **CreationExtras Integration** - `Navigation` now has the ability to provide a stateless `ViewModelProvider.Factory` via [Lifecycle `2.5.0`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.5.0)'s `CreationExtras`.
+- **CreationExtras Integration** - `Navigation` now has the ability to provide a stateless `ViewModelProvider.Factory` via [Lifecycle `2.5.0`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.5.0)'s `CreationExtras`.
 
 **Navigation SafeArgs**
 
@@ -1610,7 +1618,7 @@ April 20, 2022
 
 **Dependency Updates**
 
-- Navigation now depends on [Lifecycle `2.5.0-beta01`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.5.0-beta01), fixing an `IllegalStateException` when nesting one `NavHost` within another `NavHost` in a non-primary bottom navigation tab when using multiple back stacks.
+- Navigation now depends on [Lifecycle `2.5.0-beta01`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.5.0-beta01), fixing an `IllegalStateException` when nesting one `NavHost` within another `NavHost` in a non-primary bottom navigation tab when using multiple back stacks.
 
 ### Version 2.5.0-alpha04
 
@@ -1655,8 +1663,8 @@ February 9, 2022
 
 **Bug Fixes**
 
-- From [Navigation `2.4.1`](https://developer.android.com/jetpack/androidx/releases/navigation#2.4.1): The `NavHostFragment` will now properly set the `OnBackPressedDispatcher` when using viewbinding with nested graphs. ([Ifbb51](https://android-review.googlesource.com/#/q/Ifbb512720e49b4cd49b1ba337f5aa6bcebd1a303), [b/214577959](https://issuetracker.google.com/issues/214577959))
-- From [Navigation `2.4.1`](https://developer.android.com/jetpack/androidx/releases/navigation#2.4.1): When deep linking through multiple nested `NavGraph`s the back stack will now properly include intermediate start destinations. ([I504c0](https://android-review.googlesource.com/#/q/I504c04d2cc4381af22405266192ea0f5094f9c16), [b/214383060](https://issuetracker.google.com/issues/214383060))
+- From [Navigation `2.4.1`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.4.1): The `NavHostFragment` will now properly set the `OnBackPressedDispatcher` when using viewbinding with nested graphs. ([Ifbb51](https://android-review.googlesource.com/#/q/Ifbb512720e49b4cd49b1ba337f5aa6bcebd1a303), [b/214577959](https://issuetracker.google.com/issues/214577959))
+- From [Navigation `2.4.1`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.4.1): When deep linking through multiple nested `NavGraph`s the back stack will now properly include intermediate start destinations. ([I504c0](https://android-review.googlesource.com/#/q/I504c04d2cc4381af22405266192ea0f5094f9c16), [b/214383060](https://issuetracker.google.com/issues/214383060))
 
 ### Version 2.5.0-alpha01
 
@@ -1666,7 +1674,7 @@ January 26, 2022
 
 **New Features**
 
-- `NavBackStackEntry` now integrates with ViewModel CreationExtras, introduced as part of [Lifecycle `2.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.5.0-alpha01). ([Ib9fe2](https://android-review.googlesource.com/#/q/Ib9fe2eadbad3bb89e1685e3f3409acca92ab5b95), [b/207012490](https://issuetracker.google.com/issues/207012490))
+- `NavBackStackEntry` now integrates with ViewModel CreationExtras, introduced as part of [Lifecycle `2.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.5.0-alpha01). ([Ib9fe2](https://android-review.googlesource.com/#/q/Ib9fe2eadbad3bb89e1685e3f3409acca92ab5b95), [b/207012490](https://issuetracker.google.com/issues/207012490))
 
 **Bug Fixes**
 
@@ -1687,10 +1695,10 @@ April 6, 2022
 
 **Bug Fixes**
 
-- Backported from [Navigation `2.5.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/navigation#2.5.0-alpha03): `NavDeepLinks` now properly support encoded new line characters embedded in routes/deep link URIs. ([I513d1](https://android-review.googlesource.com/#/q/I513d1fca7c3921bb3c3b006e3d88853a210bd204), [b/217815060](https://issuetracker.google.com/issues/217815060))
-- Backported from [Navigation `2.5.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/navigation#2.5.0-alpha03): Navigation SafeArgs now supports using the namespace defined in the `build.gradle` in place of the package in the AndroidManifest. ([I659ef](https://android-review.googlesource.com/#/q/I659efc0f5b74619f5fe3ffb882c96ccb360670b7), [b/217414933](https://issuetracker.google.com/issues/217414933))
-- Backported from [Navigation `2.5.0-alpha04`](https://developer.android.com/jetpack/androidx/releases/navigation#2.5.0-alpha04): `Navigation Safe Args` will no longer crash when using namespaces and no `AndroidManifest.xml` is present. ([I17ccf](https://android-review.googlesource.com/#/q/I17ccf95b5f4137762d7c3db0503ec394812e89e8), [b/227229815](https://issuetracker.google.com/issues/227229815))
-- Backported from [Navigation `2.5.0-alpha04`](https://developer.android.com/jetpack/androidx/releases/navigation#2.5.0-alpha04): Empty string are now considered as valid arguments in deep links. ([I70a0d](https://android-review.googlesource.com/#/q/I70a0d1b47db028d829014f21763f95bb76fa8e3c), [b/217399862](https://issuetracker.google.com/issues/217399862))
+- Backported from [Navigation `2.5.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.5.0-alpha03): `NavDeepLinks` now properly support encoded new line characters embedded in routes/deep link URIs. ([I513d1](https://android-review.googlesource.com/#/q/I513d1fca7c3921bb3c3b006e3d88853a210bd204), [b/217815060](https://issuetracker.google.com/issues/217815060))
+- Backported from [Navigation `2.5.0-alpha03`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.5.0-alpha03): Navigation SafeArgs now supports using the namespace defined in the `build.gradle` in place of the package in the AndroidManifest. ([I659ef](https://android-review.googlesource.com/#/q/I659efc0f5b74619f5fe3ffb882c96ccb360670b7), [b/217414933](https://issuetracker.google.com/issues/217414933))
+- Backported from [Navigation `2.5.0-alpha04`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.5.0-alpha04): `Navigation Safe Args` will no longer crash when using namespaces and no `AndroidManifest.xml` is present. ([I17ccf](https://android-review.googlesource.com/#/q/I17ccf95b5f4137762d7c3db0503ec394812e89e8), [b/227229815](https://issuetracker.google.com/issues/227229815))
+- Backported from [Navigation `2.5.0-alpha04`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.5.0-alpha04): Empty string are now considered as valid arguments in deep links. ([I70a0d](https://android-review.googlesource.com/#/q/I70a0d1b47db028d829014f21763f95bb76fa8e3c), [b/217399862](https://issuetracker.google.com/issues/217399862))
 
 ## Version 2.4.1
 
@@ -1704,9 +1712,9 @@ February 9, 2022
 
 - The `NavHostFragment` will now properly set the `OnBackPressedDispatcher` when using viewbinding with nested graphs. ([Ifbb51](https://android-review.googlesource.com/#/q/Ifbb512720e49b4cd49b1ba337f5aa6bcebd1a303), [b/214577959](https://issuetracker.google.com/issues/214577959))
 - When deep linking through multiple nested `NavGraph`s the back stack will now properly include intermediate start destinations. ([I504c0](https://android-review.googlesource.com/#/q/I504c04d2cc4381af22405266192ea0f5094f9c16), [b/214383060](https://issuetracker.google.com/issues/214383060))
-- Backported from [Navigation `2.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation#2.5.0-alpha01): Fixed an issue where accessing a ViewModel created via `by navGraphViewModels()` from a Fragment's `onCreate()` would fail with an `IllegalStateException`. ([I8a14d](https://android-review.googlesource.com/#/q/I8a14dd596195d4ddfa8199c8023a7aedcd286113))
-- Backported from [Navigation `2.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation#2.5.0-alpha01): `NavDeepLink`s no longer unnecessarily decode args twice, meaning that the properly decoded args are now passed to your final destination. ([I31b0a](https://android-review.googlesource.com/#/q/I31b0aa2e770650f483a3f75257c57035af298d9f), [b/210711399](https://issuetracker.google.com/issues/210711399))
-- Backported from [Navigation `2.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation#2.5.0-alpha01): Safe Args now depends on Android Gradle Plugin version 7.0.4. This means that Navigation Safe Args will no longer be compatible with Android Studio versions prior to 7.0, but is now compatible with Android Gradle Plugin 7.1.0 and higher. ([I41c88](https://android-review.googlesource.com/#/q/I41c88ee06ad827c61cb1bbdc5ba58b3d56155caf), [b/213086135](https://issuetracker.google.com/issues/213086135), [b/207670704](https://issuetracker.google.com/issues/207670704))
+- Backported from [Navigation `2.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.5.0-alpha01): Fixed an issue where accessing a ViewModel created via `by navGraphViewModels()` from a Fragment's `onCreate()` would fail with an `IllegalStateException`. ([I8a14d](https://android-review.googlesource.com/#/q/I8a14dd596195d4ddfa8199c8023a7aedcd286113))
+- Backported from [Navigation `2.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.5.0-alpha01): `NavDeepLink`s no longer unnecessarily decode args twice, meaning that the properly decoded args are now passed to your final destination. ([I31b0a](https://android-review.googlesource.com/#/q/I31b0aa2e770650f483a3f75257c57035af298d9f), [b/210711399](https://issuetracker.google.com/issues/210711399))
+- Backported from [Navigation `2.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.5.0-alpha01): Safe Args now depends on Android Gradle Plugin version 7.0.4. This means that Navigation Safe Args will no longer be compatible with Android Studio versions prior to 7.0, but is now compatible with Android Gradle Plugin 7.1.0 and higher. ([I41c88](https://android-review.googlesource.com/#/q/I41c88ee06ad827c61cb1bbdc5ba58b3d56155caf), [b/213086135](https://issuetracker.google.com/issues/213086135), [b/207670704](https://issuetracker.google.com/issues/207670704))
 
 ## Version 2.4.0
 
@@ -1725,19 +1733,22 @@ January 26, 2022
 - It is now possible to extend the `NavType` class to create custom NavTypes. Custom types are supported only when building your navigation graph programmatically, such as via the [Navigation Graph Kotlin DSL](https://developer.android.com/guide/navigation/navigation-kotlin-dsl).
 - Navigation now provides`findStartDestination()` and `getHierarchy()` APIs that can be used to help implement custom NavigationUI. `findStartDestination()` is an extension function on `NavGraph` that will locate the actual start destination that will be displayed when you navigate to the graph, even if the `startDestination` is itself a nested `NavGraph`. `getHierarchy()` is a function on `NavDestination` that can be used to verify if a given destination is within the hierarchy of another.
 
-      val matchingRoute: Boolean = destination.hierarchy.any { it.route == routeToFind }
-
+  ```kotlin
+  val matchingRoute: Boolean = destination.hierarchy.any { it.route == routeToFind }
+  ```
 - `NavigationUI` methods that took a `BottomNavigationView` have been updated to instead take its superclass introduced in Material `1.4.0`, `NavigationBarView`. This allows these methods to be used with the `NavigationRailView`.
 
 - When inflating an `<action>` element via XML, animation attributes can use attributes pulled from your theme using the `app:enterAnim="?attr/transitionEnter"` syntax.
 
 - Safe Args now generates a `fromSavedStateHandle()` method for each `NavArgs` class. ([#122](https://github.com/androidx/androidx/pull/122), [b/136967621](https://issuetracker.google.com/136967621))
 
-      class HomeViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
-        // Create a HomeDestinationArgs class with type safe accessors for each argument
-        // defined on your destination
-        private val args = HomeDestinationArgs.fromSavedStateHandle(savedStateHandle)
-      }
+  ```kotlin
+  class HomeViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    // Create a HomeDestinationArgs class with type safe accessors for each argument
+    // defined on your destination
+    private val args = HomeDestinationArgs.fromSavedStateHandle(savedStateHandle)
+  }
+  ```
 
 **Navigation Routes and the Kotlin DSL**
 
@@ -1765,7 +1776,7 @@ This release provides:
 - A `NavHost` composable that allows you to construct your navigation graph via a Kotlin DSL, using `composable` and `dialog` destinations, plus support for optional Navigators such as those from [Accompanist Navigation Material](https://google.github.io/accompanist/navigation-material/).
 - Mandatory support for crossfading between destinations. [Accompanist Navigation Animation](https://google.github.io/accompanist/navigation-animation/) can be used to control the enter and exit transitions using experimental Compose APIs.
 - Scoping of a `Lifecycle` to each composable destination. Each destination only reaches the `RESUMED` state when any entering transitions finish and immediately drops to `STARTED` when any exiting transitions start, thus allowing you to avoid all `IllegalStateException` and multi-touch issues by only triggering a `navigate` call when the `Lifecycle` is `RESUMED`.
-- Scoping of `ViewModel` (via the `viewModel()` API of [Lifecycle ViewModel Compose `2.4.0`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.4.0) or `hiltViewModel()` of [Hilt Navigation Compose `1.0.0`](https://developer.android.com/jetpack/androidx/releases/hilt#hilt-navigation-compose-1.0.0) at the destination level, providing a scope that survives configuration changes and being on the back stack (when your Composable content is otherwise disposed) and a signal in the ViewModel's `onCleared()` that indicates the permanent disposal and cleaning up of state associated with that `NavBackStackEntry`.
+- Scoping of `ViewModel` (via the `viewModel()` API of [Lifecycle ViewModel Compose `2.4.0`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.4.0) or `hiltViewModel()` of [Hilt Navigation Compose `1.0.0`](https://developer.android.com/jetpack/androidx/releases/hilt.md.txt#hilt-navigation-compose-1.0.0) at the destination level, providing a scope that survives configuration changes and being on the back stack (when your Composable content is otherwise disposed) and a signal in the ViewModel's `onCleared()` that indicates the permanent disposal and cleaning up of state associated with that `NavBackStackEntry`.
 - Scoping of `rememberSaveable` state at a destination level, ensuring that all composable state is saved and restored automatically when you return to a destination.
 - Full support for saving and restoring the state of the `NavController` and its destination's state after process death and recreation.
 - Automatic integration with the system back button.
@@ -1773,26 +1784,28 @@ This release provides:
 
 - Compose specific helpers in `rememberNavController()` and `currentBackStackEntryAsState()` to allow [hoisting state](https://developer.android.com/jetpack/compose/state#state-hoisting) and connecting the `NavController` to composables outside of the `NavHost` (such as a bottom navigation bar).
 
-    val navController = rememberNavController()
-    Scaffold { innerPadding ->
-        NavHost(navController, "home", Modifier.padding(innerPadding)) {
-            composable("home") {
-                // This content fills the area provided to the NavHost
-                HomeScreen()
-            }
-            dialog("detail_dialog") {
-                // This content will be automatically added to a Dialog() composable
-                // and appear above the HomeScreen or other composable destinations
-                DetailDialogContent()
-            }
+```kotlin
+val navController = rememberNavController()
+Scaffold { innerPadding ->
+    NavHost(navController, "home", Modifier.padding(innerPadding)) {
+        composable("home") {
+            // This content fills the area provided to the NavHost
+            HomeScreen()
+        }
+        dialog("detail_dialog") {
+            // This content will be automatically added to a Dialog() composable
+            // and appear above the HomeScreen or other composable destinations
+            DetailDialogContent()
         }
     }
+}
+```
 
 See the [Compose Navigation guide](https://developer.android.com/jetpack/compose/navigation) for more information.
 
 **Multiple back stacks**
 
-The NavController is responsible for managing the back stack of destinations, adding destinations to the back stack when you `navigate()` to them and removing them when you call `popBackStack()` or trigger the system back button. The existing [`NavOptions`](https://developer.android.com/reference/kotlin/androidx/navigation/NavOptions) class and the integration into `<action>` elements in the navigation graph XML has been expanded to support saving and restoring the back stack.
+The NavController is responsible for managing the back stack of destinations, adding destinations to the back stack when you `navigate()` to them and removing them when you call `popBackStack()` or trigger the system back button. The existing [`NavOptions`](https://developer.android.com/reference/kotlin/androidx/navigation/NavOptions.md.txt) class and the integration into `<action>` elements in the navigation graph XML has been expanded to support saving and restoring the back stack.
 
 As part of this change, the `NavigationUI` methods of `onNavDestinationSelected()`, `BottomNavigationView.setupWithNavController()` and `NavigationView.setupWithNavController()` now automatically save and restore the state of popped destinations, enabling support for multiple back stacks without any code changes. When using Navigation with Fragments, this is the recommended way to integrate with multiple back stacks.
 
@@ -1800,45 +1813,48 @@ The underlying APIs for saving and restoring the state are exposed via a number 
 
 - In Navigation XML, the `<action>` element can now use the boolean attributes of `app:popUpToSaveState` and `app:restoreState` to save the state of any destinations popped via `app:popUpTo` and restore the state associated with the destination passed as the `app:destination`:
 
-      <action
-        android:id="@+id/swap_stack"
-        app:destination="@id/second_stack"
-        app:restoreState="true"
-        app:popUpTo="@id/first_stack_start_destination"
-        app:popUpToSaveState="true" />
+  ```xml
+  <action
+    android:id="@+id/swap_stack"
+    app:destination="@id/second_stack"
+    app:restoreState="true"
+    app:popUpTo="@id/first_stack_start_destination"
+    app:popUpToSaveState="true" />
+  ```
+- In the [`navOptions` Kotlin DSL](https://developer.android.com/reference/kotlin/androidx/navigation/package-summary.md.txt#navoptions), you can add the `restoreState` boolean property and the `saveState` boolean property on the [`popUpTo` builder](https://developer.android.com/reference/kotlin/androidx/navigation/NavOptionsBuilder.md.txt#popupto):
 
-- In the [`navOptions` Kotlin DSL](https://developer.android.com/reference/kotlin/androidx/navigation/package-summary#navoptions), you can add the `restoreState` boolean property and the `saveState` boolean property on the [`popUpTo` builder](https://developer.android.com/reference/kotlin/androidx/navigation/NavOptionsBuilder#popupto):
+  ```kotlin
+  // Use the navigate() method that takes a navOptions DSL Builder
+  navController.navigate(selectedBottomNavRoute) {
+    launchSingleTop = true
+    restoreState = true
+    popUpTo(navController.graph.findStartDestination().id) {
+      saveState = true
+    }
+  }
+  ```
+- In manually building a `NavOptions` object via the [`NavOptions.Builder`](https://developer.android.com/reference/kotlin/androidx/navigation/NavOptions.Builder.md.txt), you can use the `setRestoreState()` and new overload to `setPopUpTo()` that takes an additional `saveState` parameter.
 
-      // Use the navigate() method that takes a navOptions DSL Builder
-      navController.navigate(selectedBottomNavRoute) {
-        launchSingleTop = true
-        restoreState = true
-        popUpTo(navController.graph.findStartDestination().id) {
-          saveState = true
-        }
-      }
-
-- In manually building a `NavOptions` object via the [`NavOptions.Builder`](https://developer.android.com/reference/kotlin/androidx/navigation/NavOptions.Builder), you can use the `setRestoreState()` and new overload to `setPopUpTo()` that takes an additional `saveState` parameter.
-
-      NavOptions navOptions = new NavOptions.Builder()
-        .setLaunchSingleTop(true)
-        .setRestoreState(true)
-        .setPopUpTo(NavGraph.findStartDestination(navController.getGraph()).getId(),
-          false, // inclusive
-          true) // saveState
-        .build();
-      navController.navigate(selectedBottomNavId, null, navOptions);
-
-- Programmatic calls to [`popBackStack()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController#popbackstack) can now include an additional `saveState` parameter.
+  ```java
+  NavOptions navOptions = new NavOptions.Builder()
+    .setLaunchSingleTop(true)
+    .setRestoreState(true)
+    .setPopUpTo(NavGraph.findStartDestination(navController.getGraph()).getId(),
+      false, // inclusive
+      true) // saveState
+    .build();
+  navController.navigate(selectedBottomNavId, null, navOptions);
+  ```
+- Programmatic calls to [`popBackStack()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController.md.txt#popbackstack) can now include an additional `saveState` parameter.
 
 - You can use the `clearBackStack()` method to clear any state that was saved with `popBackStack()` or `popUpToSaveState`.
 
-In all cases, the `NavController` will save and restore the state of each `NavBackStackEntry`, including any navigation destination scoped `ViewModel` instances. The [`Navigator`](https://developer.android.com/reference/kotlin/androidx/navigation/Navigator) APIs have been updated to enable each `Navigator` to support saving and restoring their own state.
+In all cases, the `NavController` will save and restore the state of each `NavBackStackEntry`, including any navigation destination scoped `ViewModel` instances. The [`Navigator`](https://developer.android.com/reference/kotlin/androidx/navigation/Navigator.md.txt) APIs have been updated to enable each `Navigator` to support saving and restoring their own state.
 
 **Behavior changes**
 
 - `NavDeepLinkBuilder` now adds `PendingIntent.FLAG_IMMUTABLE` to the `PendingIntent` returned by `createPendingIntent()`, ensuring that this API works as expected when targeting Android 12.
-- Navigation now depends on [Lifecycle `2.3.1`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.3.1) and now marks `setGraph()`, `popBackStack()`, `navigateUp()`, and `navigate()`, the methods that update the `NavBackStackEntry` `Lifecycle`, as `@MainThread`, aligning Navigation with the main thread enforcement introduced in Lifecycle `2.3.0`.
+- Navigation now depends on [Lifecycle `2.3.1`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.3.1) and now marks `setGraph()`, `popBackStack()`, `navigateUp()`, and `navigate()`, the methods that update the `NavBackStackEntry` `Lifecycle`, as `@MainThread`, aligning Navigation with the main thread enforcement introduced in Lifecycle `2.3.0`.
 - Deep links now verify that all required arguments (those without default values) are present in the `Uri`.
 - `NavDeepLink` parsed arguments now consider pound signs in the same way as question marks as a separator between path segments, preventing an argument from spanning across the pound sign.
 - When generating actions, Kotlin code generated from Safe Args now puts arguments without default values before those with default values as parameters.
@@ -1847,8 +1863,8 @@ In all cases, the `NavController` will save and restore the state of each `NavBa
 
 **Known issues**
 
-- Fixed in [Navigation `2.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation#2.5.0-alpha01): accessing a `ViewModel` created via `by navGraphViewModels()` from a Fragment's `onCreate()` will fail with an `IllegalStateException`. ([b/213504272](https://issuetracker.google.com/213504272))
-- Fixed in [Navigation `2.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation#2.5.0-alpha01): Safe Args 2.4.0 is incompatible with Android Gradle Plugin 7.1.0 and higher. ([b/213086135](https://issuetracker.google.com/213086135))
+- Fixed in [Navigation `2.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.5.0-alpha01): accessing a `ViewModel` created via `by navGraphViewModels()` from a Fragment's `onCreate()` will fail with an `IllegalStateException`. ([b/213504272](https://issuetracker.google.com/213504272))
+- Fixed in [Navigation `2.5.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.5.0-alpha01): Safe Args 2.4.0 is incompatible with Android Gradle Plugin 7.1.0 and higher. ([b/213086135](https://issuetracker.google.com/213086135))
 - Deep linking with multiple nested nav graphs doesn't correctly create the full backstack. ([b/214383060](https://issuetracker.google.com/214383060))
 
 ### Version 2.4.0-rc01
@@ -1968,8 +1984,8 @@ September 15, 2021
 
 **Dependency Updates**
 
-- Navigation Compose now depends on [Activity Compose 1.3.1](https://developer.android.com/jetpack/androidx/releases/activity#1.3.1). ([I05829](https://android-review.googlesource.com/#/q/I05829230af5c04cb1a284a5f6c9bcb14f24b0fc1))
-- Navigation Compose now depends on [Lifecycle ViewModel Compose `2.4.0-beta01`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.4.0-beta01). ([Ib86a3](https://android-review.googlesource.com/#/q/Ib86a3ced486d87cd214b696123335ab8c5dd120b))
+- Navigation Compose now depends on [Activity Compose 1.3.1](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#1.3.1). ([I05829](https://android-review.googlesource.com/#/q/I05829230af5c04cb1a284a5f6c9bcb14f24b0fc1))
+- Navigation Compose now depends on [Lifecycle ViewModel Compose `2.4.0-beta01`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.4.0-beta01). ([Ib86a3](https://android-review.googlesource.com/#/q/Ib86a3ced486d87cd214b696123335ab8c5dd120b))
 
 ### Version 2.4.0-alpha08
 
@@ -2062,20 +2078,22 @@ July 1, 2021
 - The `navigation-fragment` artifact now contains a prebuilt implementation of a [two pane layout](https://developer.android.com/guide/topics/ui/layout/twopane) via the new `AbstractListDetailFragment`. This fragment uses a `SlidingPaneLayout` to manage a list pane (which your subclass provides) and a detail pane, which uses a `NavHostFragment` as its implementation, as seen in our [example implementation](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:navigation/integration-tests/testapp/src/main/java/androidx/navigation/testapp/TwoPaneFragment.kt). ([Iac4be](https://android-review.googlesource.com/#/q/Iac4be7b764ced86cdbff3c696c2cbdf2741eb81c), [b/191276636](https://issuetracker.google.com/issues/191276636))
 - The `NavHost` of the `navigation-compose` artifact now supports `dialog` destinations in addition to `composable` destinations. These dialog destinations will each be shown within a Composable `Dialog`, floating above the current `composable` destination. ([I011d0](https://android-review.googlesource.com/#/q/I011d03df5689a72e938d755c9c6da2b0f72eb162))
 
-    val navController = rememberNavController()
-        Scaffold { innerPadding ->
-            NavHost(navController, "home", Modifier.padding(innerPadding)) {
-                composable("home") {
-                    // This content fills the area provided to the NavHost
-                    HomeScreen()
-                }
-                dialog("detail_dialog") {
-                    // This content will be automatically added to a Dialog() composable
-                    // and appear above the HomeScreen or other composable destinations
-                    DetailDialogContent()
-                }
+```kotlin
+val navController = rememberNavController()
+    Scaffold { innerPadding ->
+        NavHost(navController, "home", Modifier.padding(innerPadding)) {
+            composable("home") {
+                // This content fills the area provided to the NavHost
+                HomeScreen()
+            }
+            dialog("detail_dialog") {
+                // This content will be automatically added to a Dialog() composable
+                // and appear above the HomeScreen or other composable destinations
+                DetailDialogContent()
             }
         }
+    }
+```
 
 **API Changes**
 
@@ -2102,7 +2120,7 @@ June 16, 2021
 **Bug Fixes**
 
 - Fixed an issue where two `navigate()` calls were needed to navigate to an included dynamic graph. ([I7785c](https://android-review.googlesource.com/#/q/I7785c40969a40b30b34acd6eedd896b44c3200a1), [b/188859835](https://issuetracker.google.com/issues/188859835))
-- Fixed a regression introduced in [Navigation `2.4.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation#2.4.0-alpha01) where `setupActionBarWithNavController()` would not properly remove the Up icon when you are on a top level destination. ([I5d443](https://android-review.googlesource.com/#/q/I5d4439021161f544d664a822e1c422ff60c91e1b), [b/189868637](https://issuetracker.google.com/issues/189868637))
+- Fixed a regression introduced in [Navigation `2.4.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.4.0-alpha01) where `setupActionBarWithNavController()` would not properly remove the Up icon when you are on a top level destination. ([I5d443](https://android-review.googlesource.com/#/q/I5d4439021161f544d664a822e1c422ff60c91e1b), [b/189868637](https://issuetracker.google.com/issues/189868637))
 - Fixed an `IllegalStateException` when calling `popBackStack()` after previously popping the root graph of the NavController. ([I2a330](https://android-review.googlesource.com/#/q/I2a330acdd339aece36455aa0da37d0609767552c), [b/190265699](https://issuetracker.google.com/issues/190265699))
 - ProGuard rules for `by navArgs()` now properly apply when using `navigation-common` or any artifacts that depend on it. ([I68800](https://android-review.googlesource.com/#/q/I688009632403c98afe728d856ce91cd056ef32a5), [b/190082521](https://issuetracker.google.com/issues/190082521))
 - An `OnDestinationChangedListener` that calls `navigate()` the first time it receives a callback now properly get a second callback with the destination it navigated to. ([Ie5f9e](https://android-review.googlesource.com/#/q/Ie5f9e0f8dec404775c99a0e90c1cde8a9e059550), [b/190228815](https://issuetracker.google.com/issues/190228815))
@@ -2124,8 +2142,9 @@ June 2, 2021
 - `NavigationUI` has temporarily added experimental APIs to allow opting out of saving your state. While always saving the state is the correct behavior, there are still uses of deprecated libraries (i.e. retained fragments), that cannot be supported when saving the state so this gives an opportunity for apps to slowly convert away from any unsupported APIs. ([Idf93c](https://android-review.googlesource.com/#/q/Idf93c093c0f3729148c78c1de9d36a0f10fbb31f))
 - Navigation now provides`findDestination()` and `getHierarchy()` APIs that can be used to help implement custom NavigationUI. `findDestination()` is an extension function on `NavGraph` that will locate a destination within the graph. `getHierarchy()` is a function on `NavDestination` that can be used to verify if a given destination is within the hierarchy of another.([I2932f](https://android-review.googlesource.com/#/q/I2932fc4ddba6f381e5e353ee30d2233140e5a674), [b/188183365](https://issuetracker.google.com/issues/188183365))
 
-      val matchingRoute: Boolean = destination.hierarchy.any { it.route == routeToFind }
-
+  ```kotlin
+  val matchingRoute: Boolean = destination.hierarchy.any { it.route == routeToFind }
+  ```
 - NavigationUI methods that took a `BottomNavigationView` have been updated to instead take its superclass introduced in Material `1.4.0`, `NavigationBarView`. This allows these methods to be used with the `NavigationRailView`. ([Ib0b36](https://android-review.googlesource.com/#/q/Ib0b36d933571daab2e94a79d524388c282a8c23c), [b/182938895](https://issuetracker.google.com/issues/182938895))
 
 - When inflating an `<action>` element via XML, animation attributes can
@@ -2167,7 +2186,7 @@ May 18, 2021
 
 **Multiple back stacks**
 
-The NavController is responsible for managing the back stack of destinations, adding destinations to the back stack when you `navigate()` to them and removing them when you call `popBackStack()` or trigger the system back button. The existing [`NavOptions`](https://developer.android.com/reference/kotlin/androidx/navigation/NavOptions) class and the integration into `<action>` entries in the navigation graph XML has been expanded to support saving and restoring the back stack. ([b/80029773](https://issuetracker.google.com/80029773))
+The NavController is responsible for managing the back stack of destinations, adding destinations to the back stack when you `navigate()` to them and removing them when you call `popBackStack()` or trigger the system back button. The existing [`NavOptions`](https://developer.android.com/reference/kotlin/androidx/navigation/NavOptions.md.txt) class and the integration into `<action>` entries in the navigation graph XML has been expanded to support saving and restoring the back stack. ([b/80029773](https://issuetracker.google.com/80029773))
 
 As part of this change, the `NavigationUI` methods of `onNavDestinationSelected()`, `BottomNavigationView.setupWithNavController()` and `NavigationView.setupWithNavController()` now automatically save and restore the state of popped destinations, enabling support for multiple back stacks without any code changes. When using Navigation with Fragments, this is the recommended way to integrate with multiple back stacks. ([Ie07ca](https://android-review.googlesource.com/#/q/Ie07ca3089faca25e56e58293b49f32b795e1f30a))
 
@@ -2175,36 +2194,39 @@ The underlying APIs for saving and restoring the state are exposed via a number 
 
 - In Navigation XML, the `<action>` element can now use the boolean attributes of `app:popUpToSaveState` and `app:restoreState` to save the state of any destinations popped via `app:popUpTo` and restore the state associated with the destination passed as the `app:destination`:
 
-      <action
-        android:id="@+id/swap_stack"
-        app:destination="@id/second_stack"
-        app:restoreState="true"
-        app:popUpTo="@id/first_stack_start_destination"
-        app:popUpToSaveState="true" />
+  ```xml
+  <action
+    android:id="@+id/swap_stack"
+    app:destination="@id/second_stack"
+    app:restoreState="true"
+    app:popUpTo="@id/first_stack_start_destination"
+    app:popUpToSaveState="true" />
+  ```
+- In the [`navOptions` Kotlin DSL](https://developer.android.com/reference/kotlin/androidx/navigation/package-summary.md.txt#navoptions), you can add the `restoreState` boolean property and the `saveState` boolean property on the [`popUpTo` builder](https://developer.android.com/reference/kotlin/androidx/navigation/NavOptionsBuilder.md.txt#popupto):
 
-- In the [`navOptions` Kotlin DSL](https://developer.android.com/reference/kotlin/androidx/navigation/package-summary#navoptions), you can add the `restoreState` boolean property and the `saveState` boolean property on the [`popUpTo` builder](https://developer.android.com/reference/kotlin/androidx/navigation/NavOptionsBuilder#popupto):
+  ```kotlin
+  // Use the navigate() method that takes a navOptions DSL Builder
+  navController.navigate(selectedBottomNavRoute) {
+    launchSingleTop = true
+    restoreState = true
+    popUpTo(navController.graph.startDestinationId) {
+      saveState = true
+    }
+  }
+  ```
+- In manually building a `NavOptions` object via the [`NavOptions.Builder`](https://developer.android.com/reference/kotlin/androidx/navigation/NavOptions.Builder.md.txt), you can use the `setRestoreState()` and new overload to `setPopUpTo()` that takes an additional `saveState` parameter.
 
-      // Use the navigate() method that takes a navOptions DSL Builder
-      navController.navigate(selectedBottomNavRoute) {
-        launchSingleTop = true
-        restoreState = true
-        popUpTo(navController.graph.startDestinationId) {
-          saveState = true
-        }
-      }
-
-- In manually building a `NavOptions` object via the [`NavOptions.Builder`](https://developer.android.com/reference/kotlin/androidx/navigation/NavOptions.Builder), you can use the `setRestoreState()` and new overload to `setPopUpTo()` that takes an additional `saveState` parameter.
-
-      NavOptions navOptions = new NavOptions.Builder()
-        .setLaunchSingleTop(true)
-        .setRestoreState(true)
-        .setPopUpTo(navController.getGraph().getStartDestinationId(),
-          false, // inclusive
-          true) // saveState
-        .build();
-      navController.navigate(selectedBottomNavId, null, navOptions);
-
-- Programmatic calls to [`popBackStack()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController#popbackstack) can now include an additional `saveState` parameter.
+  ```java
+  NavOptions navOptions = new NavOptions.Builder()
+    .setLaunchSingleTop(true)
+    .setRestoreState(true)
+    .setPopUpTo(navController.getGraph().getStartDestinationId(),
+      false, // inclusive
+      true) // saveState
+    .build();
+  navController.navigate(selectedBottomNavId, null, navOptions);
+  ```
+- Programmatic calls to [`popBackStack()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController.md.txt#popbackstack) can now include an additional `saveState` parameter.
 
 In all cases, the `NavController` will save and restore the state of each `NavBackStackEntry`, including any navigation destination scoped `ViewModel` instances. The [`Navigator`](https://developer.android.com/kotlin/androidx/navigation/Navigator) APIs have been updated to enable each `Navigator` to support saving and restoring their own state.
 
@@ -2223,11 +2245,13 @@ This has had some API implications:
 
 For developers upgrading from previous versions of Navigation Compose to Navigation Compose `2.4.0-alpha01`, this means that the following imports on extension methods are no longer necessary and should be removed:
 
-    import androidx.navigation.compose.navigation
-    import androidx.navigation.compose.createGraph
-    import androidx.navigation.compose.getBackStackEntry
-    import androidx.navigation.compose.navigate
-    import androidx.navigation.compose.popUpTo
+```kotlin
+import androidx.navigation.compose.navigation
+import androidx.navigation.compose.createGraph
+import androidx.navigation.compose.getBackStackEntry
+import androidx.navigation.compose.navigate
+import androidx.navigation.compose.popUpTo
+```
 
 The `KEY_ROUTE` argument has been replaced with the `route` property on `NavDestination`, allowing you to call `navBackStackEntry.destination.route` directly.
 
@@ -2244,17 +2268,18 @@ The `KEY_ROUTE` argument has been replaced with the `route` property on `NavDest
 
 - Safe Args now generates a `fromSavedStateHandle()` method for each `NavArgs` class. ([#122](https://github.com/androidx/androidx/pull/122), [b/136967621](https://issuetracker.google.com/136967621))
 
-      class HomeViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
-        // Create a HomeDestinationArgs class with type safe accessors for each argument
-        // defined on your destination
-        private val args = HomeDestinationArgs.fromSavedStateHandle(savedStateHandle)
-      }
-
+  ```kotlin
+  class HomeViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    // Create a HomeDestinationArgs class with type safe accessors for each argument
+    // defined on your destination
+    private val args = HomeDestinationArgs.fromSavedStateHandle(savedStateHandle)
+  }
+  ```
 - Updated Safe Args to depend on KotlinPoet `1.8.0`. ([#172](https://github.com/androidx/androidx/pull/172), [b/183990444](https://issuetracker.google.com/issues/183990444))
 
 **Behavior Changes**
 
-- Navigation now depends on [Lifecycle `2.3.1`](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.3.1) and now marks `setGraph()`, `popBackStack()`, `navigateUp()`, and `navigate()`, the methods that update the `NavBackStackEntry` `Lifecycle`, as `@MainThread`, aligning Navigation with the main thread enforcement introduced in Lifecycle `2.3.0`. ([b/171125856](https://issuetracker.google.com/171125856))
+- Navigation now depends on [Lifecycle `2.3.1`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#2.3.1) and now marks `setGraph()`, `popBackStack()`, `navigateUp()`, and `navigate()`, the methods that update the `NavBackStackEntry` `Lifecycle`, as `@MainThread`, aligning Navigation with the main thread enforcement introduced in Lifecycle `2.3.0`. ([b/171125856](https://issuetracker.google.com/171125856))
 - Parsing Enum arguments from deep links is now case insensitive, allowing a deep link like `http://www.example.com/red` to match a `www.example.com/{color}` deep link even when the enum has the value of `RED`. ([#152](https://github.com/androidx/androidx/pull/152), [b/135857840](https://issuetracker.google.com/issues/135857840))
 
 **Compose Compatibility**
@@ -2295,7 +2320,7 @@ April 7, 2021
 **Bug Fixes**
 
 - `NavHost` now works even when an `OnBackPressedDispatcherOwner` is not found, such is the case when previewing the `NavHost`. ([I7d8b4](https://android-review.googlesource.com/#/q/I7d8b4662b2d30515a4536e212bf6631357a5357f))
-- Navigation Compose now depends on [Navigation `2.3.5`](https://developer.android.com/jetpack/androidx/releases/navigation#2.3.5), fixing an issue when using `BackHandler` inside a `NavHost` destination. ([I7e63b](https://android-review.googlesource.com/#/q/I7e63b32c93deaee60b1d5e132d3fa255c3ba85e2), [b/182284739](https://issuetracker.google.com/issues/182284739))
+- Navigation Compose now depends on [Navigation `2.3.5`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.3.5), fixing an issue when using `BackHandler` inside a `NavHost` destination. ([I7e63b](https://android-review.googlesource.com/#/q/I7e63b32c93deaee60b1d5e132d3fa255c3ba85e2), [b/182284739](https://issuetracker.google.com/issues/182284739))
 
 ### Version 1.0.0-alpha09
 
@@ -2309,7 +2334,7 @@ March 10, 2021
 
 **Bug Fixes**
 
-- Navigation Compose now depends on [Navigation 2.3.4](https://developer.android.com/jetpack/androidx/releases/navigation#2.3.4) which includes the fix for attempting to set the same ViewModelStore object after the graph has been set. ([I65c24](https://android-review.googlesource.com/#/q/I65c24fcd5674c1ac72715c612854aac62c2eda88), [b/177825470](https://issuetracker.google.com/issues/177825470))
+- Navigation Compose now depends on [Navigation 2.3.4](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.3.4) which includes the fix for attempting to set the same ViewModelStore object after the graph has been set. ([I65c24](https://android-review.googlesource.com/#/q/I65c24fcd5674c1ac72715c612854aac62c2eda88), [b/177825470](https://issuetracker.google.com/issues/177825470))
 
 ### Version 1.0.0-alpha08
 
@@ -2332,8 +2357,8 @@ February 10, 2021
 
 **Dependency Updates**
 
-- Navigation Compose now depends on [Lifecycle ViewModel Compose 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/lifecycle#viewmodel-compose-1.0.0-alpha01) to provide `viewModel()` support to `composable` destinations. ([I7a374](https://android-review.googlesource.com/#/q/I7a374b76168a6387e585337c131a988bddcb912b))
-- `NavHost` now uses the new `LocalOnBackPressedDispatcherOwner` from [Activity-Compose 1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/activity#1.3.0-alpha01) to get the `OnBackPressedDispatcher` that is set on the `NavController`. ([I65b12](https://android-review.googlesource.com/#/q/I65b12306c42364d26e1819145ab378b02b2ff0f5))
+- Navigation Compose now depends on [Lifecycle ViewModel Compose 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#viewmodel-compose-1.0.0-alpha01) to provide `viewModel()` support to `composable` destinations. ([I7a374](https://android-review.googlesource.com/#/q/I7a374b76168a6387e585337c131a988bddcb912b))
+- `NavHost` now uses the new `LocalOnBackPressedDispatcherOwner` from [Activity-Compose 1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/activity.md.txt#1.3.0-alpha01) to get the `OnBackPressedDispatcher` that is set on the `NavController`. ([I65b12](https://android-review.googlesource.com/#/q/I65b12306c42364d26e1819145ab378b02b2ff0f5))
 
 > [!NOTE]
 > **Note:** Navigation Compose `1.0.0-alpha07` is only compatible with Compose `1.0.0-alpha12`.
@@ -2427,7 +2452,7 @@ April 7, 2021
 
 **New Features**
 
-- When navigating using a `NavDeepLinkRequest` or `Uri`, you can now access the `Uri`, action, and mime type in the resulting destination by getting the intent from arguments via [`KEY_DEEP_LINK_INTENT`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController#key_deep_link_intent), mirroring the functionality already available for external deep linking. ([I975c3](https://android-review.googlesource.com/#/q/I975c3ed3958575cd6213c0a97ef2c4c8071c7a71), [b/181521877](https://issuetracker.google.com/issues/181521877))
+- When navigating using a `NavDeepLinkRequest` or `Uri`, you can now access the `Uri`, action, and mime type in the resulting destination by getting the intent from arguments via [`KEY_DEEP_LINK_INTENT`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController.md.txt#key_deep_link_intent), mirroring the functionality already available for external deep linking. ([I975c3](https://android-review.googlesource.com/#/q/I975c3ed3958575cd6213c0a97ef2c4c8071c7a71), [b/181521877](https://issuetracker.google.com/issues/181521877))
 
 **Bug Fixes**
 
@@ -2518,14 +2543,14 @@ October 14, 2020
 
 **Dependency Changes**
 
-- `navigation-ui` now depends on [DrawerLayout 1.1.1](https://developer.android.com/jetpack/androidx/releases/drawerlayout#1.1.1), ensuring that `NavigationUI` is able to open the drawer even when using `LOCK_MODE_LOCKED_CLOSED` or `LOCK_MODE_LOCKED_OPEN`. ([b/162253907](https://issuetracker.google.com/162253907))
+- `navigation-ui` now depends on [DrawerLayout 1.1.1](https://developer.android.com/jetpack/androidx/releases/drawerlayout.md.txt#1.1.1), ensuring that `NavigationUI` is able to open the drawer even when using `LOCK_MODE_LOCKED_CLOSED` or `LOCK_MODE_LOCKED_OPEN`. ([b/162253907](https://issuetracker.google.com/162253907))
 - Safe Args now depends on KotlinPoet 1.6.0 ([aosp/1435911](https://android-review.googlesource.com/c/platform/frameworks/support/+/1435911))
 - Safe Args now depends on AGP 4.0.1 ([aosp/1442337](https://android-review.googlesource.com/c/platform/frameworks/support/+/1442337))
 
 ## Version 2.3.0
 
 > [!NOTE]
-> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt) to learn how to use it in your project.
 
 ### Version 2.3.0
 
@@ -2537,8 +2562,8 @@ June 24, 2020
 
 - **Feature Module integration** : The `navigation-dynamic-features-runtime` and `navigation-dynamic-features-fragment` artifacts allow you to navigate to destinations that are defined in feature modules, automatically handling the installation of the feature modules as needed. See [Navigate with feature modules](https://developer.android.com/guide/navigation/navigation-dynamic) for more information.
 - **Navigation Testing** : The `navigation-testing` artifact provides a `TestNavHostController` that allows you to set the current destination and verify the back stack after navigation operations. See [Test Navigation](https://developer.android.com/guide/navigation/navigation-testing) for more information.
-- **Returning a Result** : The `NavBackStackEntry` associated with each destination on the Navigation back stack now allows you to access a [`SavedStateHandle`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle) suitable for storing small amounts of saved state that should be associated with a particular back stack entry. See [Returning a result to the previous Destination](https://developer.android.com/guide/navigation/navigation-programmatic#returning_a_result) for more information.
-- **`NavigationUI` support for `Openable`** : All usages of `DrawerLayout` in `NavigationUI` have been replaced with the more generic [`Openable`](https://developer.android.com/reference/androidx/customview/widget/Openable) interface added in [CustomView `1.1.0`](https://developer.android.com/jetpack/androidx/releases/customview#1.1.0) and implemented by `DrawerLayout` in [DrawerLayout `1.1.0`](https://developer.android.com/jetpack/androidx/releases/drawerlayout#1.1.0).
+- **Returning a Result** : The `NavBackStackEntry` associated with each destination on the Navigation back stack now allows you to access a [`SavedStateHandle`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle.md.txt) suitable for storing small amounts of saved state that should be associated with a particular back stack entry. See [Returning a result to the previous Destination](https://developer.android.com/guide/navigation/navigation-programmatic#returning_a_result) for more information.
+- **`NavigationUI` support for `Openable`** : All usages of `DrawerLayout` in `NavigationUI` have been replaced with the more generic [`Openable`](https://developer.android.com/reference/androidx/customview/widget/Openable.md.txt) interface added in [CustomView `1.1.0`](https://developer.android.com/jetpack/androidx/releases/customview.md.txt#1.1.0) and implemented by `DrawerLayout` in [DrawerLayout `1.1.0`](https://developer.android.com/jetpack/androidx/releases/drawerlayout.md.txt#1.1.0).
 - **Action and Mime Type support in deep links** : Deep linking has been expanded to support `app:action` and `app:mimeType` in addition to the `app:uri` previously available. `NavController` now supports navigating by any combination of these fields via the new `NavDeepLinkRequest` class. See [Navigate using NavDeepLinkRequest](https://developer.android.com/guide/navigation/navigation-navigate#uri) for more information.
 
 > [!NOTE]
@@ -2573,7 +2598,7 @@ May 20, 2020
 
 **Dependency Updates**
 
-- The `NavigationUI` artifact now depends on [CustomView `1.1.0-rc01`](https://developer.android.com/jetpack/androidx/releases/customview#1.1.0-rc01) and [DrawerLayout `1.1.0-rc01`](https://developer.android.com/jetpack/androidx/releases/drawerlayout#1.1.0-rc01). ([aosp/1309696](https://android-review.googlesource.com/1309696))
+- The `NavigationUI` artifact now depends on [CustomView `1.1.0-rc01`](https://developer.android.com/jetpack/androidx/releases/customview.md.txt#1.1.0-rc01) and [DrawerLayout `1.1.0-rc01`](https://developer.android.com/jetpack/androidx/releases/drawerlayout.md.txt#1.1.0-rc01). ([aosp/1309696](https://android-review.googlesource.com/1309696))
 
 ### Version 2.3.0-alpha06
 
@@ -2613,8 +2638,8 @@ April 15, 2020
 
 **Dependency updates**
 
-- Navigation now depends on [Fragment `1.2.4`](https://developer.android.com/jetpack/androidx/releases/fragment#1.2.4). ([aosp/1277325](https://android-review.googlesource.com/1277325))
-- Dynamic Navigation now depends on [Play Core `1.7.2`](https://developer.android.com/reference/com/google/android/play/core/release-notes#1-7-2). ([aosp/1282257](https://android-review.googlesource.com/1282257))
+- Navigation now depends on [Fragment `1.2.4`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.2.4). ([aosp/1277325](https://android-review.googlesource.com/1277325))
+- Dynamic Navigation now depends on [Play Core `1.7.2`](https://developer.android.com/reference/com/google/android/play/core/release-notes.md.txt#1-7-2). ([aosp/1282257](https://android-review.googlesource.com/1282257))
 
 ### Version 2.3.0-alpha04
 
@@ -2647,7 +2672,7 @@ March 4, 2020
 
 **API Changes**
 
-- Instead of relying on the concrete `DrawerLayout` class, `AppBarConfiguration` now uses the `Openable` interface introduced in [CustomView `1.1.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/customview#1.1.0-alpha02) (which `DrawerLayout` implements as of [DrawerLayout `1.1.0-alpha04`](https://developer.android.com/jetpack/androidx/releases/drawerlayout#1.1.0-alpha03)), allowing you to use custom implementations of `Openable` with `NavigationUI`. ([b/129030452](https://developer.android.com/issuetracker.google.com/issues/129030452))
+- Instead of relying on the concrete `DrawerLayout` class, `AppBarConfiguration` now uses the `Openable` interface introduced in [CustomView `1.1.0-alpha02`](https://developer.android.com/jetpack/androidx/releases/customview.md.txt#1.1.0-alpha02) (which `DrawerLayout` implements as of [DrawerLayout `1.1.0-alpha04`](https://developer.android.com/jetpack/androidx/releases/drawerlayout.md.txt#1.1.0-alpha03)), allowing you to use custom implementations of `Openable` with `NavigationUI`. ([b/129030452](https://developer.android.com/issuetracker.google.com/issues/129030452))
 
 **Bug Fixes**
 
@@ -2665,7 +2690,7 @@ February 19, 2020
 
 **New Features**
 
-- The `NavBackStackEntry` now allows you to access a [`SavedStateHandle`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle) suitable for storing small amounts of saved state that should be associated with a particular back stack entry. See [Returning a result](https://developer.android.com/guide/navigation/navigation-programmatic#returning_a_result) for an example use case. ([b/79672220](https://issuetracker.google.com/issues/79672220))
+- The `NavBackStackEntry` now allows you to access a [`SavedStateHandle`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle.md.txt) suitable for storing small amounts of saved state that should be associated with a particular back stack entry. See [Returning a result](https://developer.android.com/guide/navigation/navigation-programmatic#returning_a_result) for an example use case. ([b/79672220](https://issuetracker.google.com/issues/79672220))
 
 **API Changes**
 
@@ -2673,11 +2698,11 @@ February 19, 2020
 
 **Bug Fixes**
 
-- `navigateUp()` now passes the current destination's arguments and the [`KEY_DEEP_LINK_INTENT`](https://developer.android.com/reference/androidx/navigation/NavController#KEY_DEEP_LINK_INTENT) to the previous destination when launching your app on your own task stack. ([b/147456890](https://issuetracker.google.com/issues/147456890))
+- `navigateUp()` now passes the current destination's arguments and the [`KEY_DEEP_LINK_INTENT`](https://developer.android.com/reference/androidx/navigation/NavController.md.txt#KEY_DEEP_LINK_INTENT) to the previous destination when launching your app on your own task stack. ([b/147456890](https://issuetracker.google.com/issues/147456890))
 
 **Dependency changes**
 
-- Navigation now depends on [Core `1.2.0`](https://developer.android.com/jetpack/androidx/releases/core#1.2.0).
+- Navigation now depends on [Core `1.2.0`](https://developer.android.com/jetpack/androidx/releases/core.md.txt#1.2.0).
 
 ### Version 2.3.0-alpha01
 
@@ -2692,18 +2717,18 @@ February 5, 2020
 
 **Bug fixes**
 
-- From [Navigation `2.2.1`](https://developer.android.com/jetpack/androidx/releases/navigation#2.2.1): Deep links without query parameters now correctly ignore any query parameters rather than appending them to trailing `{argument}` elements or not matching the deep link. ([b/147447512](https://issuetracker.google.com/issues/147447512))
-- From [Navigation `2.2.1`](https://developer.android.com/jetpack/androidx/releases/navigation#2.2.1): The `navigation-ui` ProGuard rules for `DrawerArrowDrawable` have been updated to ensure that `android.enableJetifier=true` is not required. ([b/147610424](https://issuetracker.google.com/issues/147610424))
-- From [Navigation `2.2.1`](https://developer.android.com/jetpack/androidx/releases/navigation#2.2.1): The `navigation-common-ktx` module now has a unique manifest package name instead of sharing the same manifest package name as `navigation-runtime-ktx`. ([aosp/1141947](https://android-review.googlesource.com/1141947/))
+- From [Navigation `2.2.1`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.2.1): Deep links without query parameters now correctly ignore any query parameters rather than appending them to trailing `{argument}` elements or not matching the deep link. ([b/147447512](https://issuetracker.google.com/issues/147447512))
+- From [Navigation `2.2.1`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.2.1): The `navigation-ui` ProGuard rules for `DrawerArrowDrawable` have been updated to ensure that `android.enableJetifier=true` is not required. ([b/147610424](https://issuetracker.google.com/issues/147610424))
+- From [Navigation `2.2.1`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.2.1): The `navigation-common-ktx` module now has a unique manifest package name instead of sharing the same manifest package name as `navigation-runtime-ktx`. ([aosp/1141947](https://android-review.googlesource.com/1141947/))
 
 **Dependency updates**
 
-- From [Navigation `2.2.1`](https://developer.android.com/jetpack/androidx/releases/navigation#2.2.1): Navigation `2.2.1` now depends on [Lifecycle ViewModel SavedState `2.2.0`](https://developer.android.com/jetpack/androidx/releases/lifecycle#viewmodel-savedstate-2.2.0) and [Fragment `1.2.1`](https://developer.android.com/jetpack/androidx/releases/fragment#1.2.1).
+- From [Navigation `2.2.1`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.2.1): Navigation `2.2.1` now depends on [Lifecycle ViewModel SavedState `2.2.0`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#viewmodel-savedstate-2.2.0) and [Fragment `1.2.1`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.2.1).
 
 ## Version 2.2.2
 
 > [!NOTE]
-> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt) to learn how to use it in your project.
 
 ### Version 2.2.2
 
@@ -2719,12 +2744,12 @@ April 15, 2020
 
 **Dependency updates**
 
-- Navigation now depends on [Fragment `1.2.4`](https://developer.android.com/jetpack/androidx/releases/fragment#1.2.4). ([aosp/1277325](https://android-review.googlesource.com/1277325))
+- Navigation now depends on [Fragment `1.2.4`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.2.4). ([aosp/1277325](https://android-review.googlesource.com/1277325))
 
 ## Version 2.2.1
 
 > [!NOTE]
-> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt) to learn how to use it in your project.
 
 ### Version 2.2.1
 
@@ -2740,12 +2765,12 @@ February 5, 2020
 
 **Dependency updates**
 
-- Navigation `2.2.1` now depends on [Lifecycle ViewModel SavedState `2.2.0`](https://developer.android.com/jetpack/androidx/releases/lifecycle#viewmodel-savedstate-2.2.0) and [Fragment `1.2.1`](https://developer.android.com/jetpack/androidx/releases/fragment#1.2.1).
+- Navigation `2.2.1` now depends on [Lifecycle ViewModel SavedState `2.2.0`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#viewmodel-savedstate-2.2.0) and [Fragment `1.2.1`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.2.1).
 
 ## Version 2.2.0
 
 > [!NOTE]
-> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt) to learn how to use it in your project.
 
 ### Version 2.2.0
 
@@ -2758,7 +2783,7 @@ January 22, 2020
 - **NavBackStackEntry** : You can now call `NavController.getBackStackEntry()`, passing in the ID of a destination or navigation graph on the back stack. The returned `NavBackStackEntry` provides a Navigation-driven `LifecycleOwner`, `ViewModelStoreOwner` (the same returned by `NavController.getViewModelStoreOwner()`), and `SavedStateRegistryOwner`, in addition to providing the arguments used to start that destination.
 - **Lifecycle ViewModel SavedState Integration** : `SavedStateViewModelFactory` is now the default factory used when using `by navGraphViewModels()` or the `ViewModelProvider` constructor with a `ViewModelStoreOwner` returned by `NavController.getBackStackEntry()` or `NavController.getViewModelStoreOwner()`.
 - **Query Parameter Support for Deep Links**: Deep links with query parameters now support reordered query parameters; arguments that have a default value or are nullable are now optional when matching deep links.
-- **Improved Animation Support** : `NavHostFragment` now uses `FragmentContainerView` from [Fragment 1.2.0](https://developer.android.com/jetpack/androidx/releases/fragment#1.2.0), fixing animation z-ordering issues and window insets dispatching to Fragments.
+- **Improved Animation Support** : `NavHostFragment` now uses `FragmentContainerView` from [Fragment 1.2.0](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.2.0), fixing animation z-ordering issues and window insets dispatching to Fragments.
 
 ### Version 2.2.0-rc04
 
@@ -2768,7 +2793,7 @@ December 18, 2019
 
 **Bug fixes**
 
-- Adjusted the default fade animations used by `navigation-ui` to match the adjusted fade animations in [Fragment `1.2.0-rc04`](https://developer.android.com/jetpack/androidx/releases/fragment#1.2.0-rc04). ([b/145769814](https://issuetracker.google.com/issues/145769814))
+- Adjusted the default fade animations used by `navigation-ui` to match the adjusted fade animations in [Fragment `1.2.0-rc04`](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.2.0-rc04). ([b/145769814](https://issuetracker.google.com/issues/145769814))
 
 ### Version 2.2.0-rc03
 
@@ -2866,7 +2891,7 @@ August 7, 2019
 
 **API changes**
 
-- From [Navigation `2.1.0-rc01`](https://developer.android.com/jetpack/androidx/releases/navigation#2.1.0-rc01): The deprecated `getViewModelStore()` API on `NavController` introduced in `2.1.0-alpha02` has been removed. ([aosp/1091021](https://android-review.googlesource.com/1091021))
+- From [Navigation `2.1.0-rc01`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.1.0-rc01): The deprecated `getViewModelStore()` API on `NavController` introduced in `2.1.0-alpha02` has been removed. ([aosp/1091021](https://android-review.googlesource.com/1091021))
 
 **Bug fixes**
 
@@ -2904,7 +2929,7 @@ July 19, 2019
 `androidx.navigation:*:2.1.0-beta02` is released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/e08a521e6ca90dc09329823c31c733d69a1164cf..ec4f7aa322b7f2b5aa14aff6dca9475b0df1345c/navigation).
 
 > [!NOTE]
-> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt) to learn how to use it in your project.
 
 **Bug fixes**
 
@@ -2920,7 +2945,7 @@ July 17, 2019
 > **Caution:** This version contains an unintentional dependency on `org.jacoco:org.jacoco.agent:0.8.3`, which can cause a build failure. Please update to the latest version, in which this dependency has been removed.
 
 > [!NOTE]
-> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt) to learn how to use it in your project.
 
 **New features**
 
@@ -2937,7 +2962,7 @@ July 2, 2019
 `androidx.navigation:*:2.1.0-alpha06` is released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/067bb2bdba5ad5259e147e5f36ec20c5efa9ae42..498e1c39f543ee174434d4fc26e26219c298e9cd/navigation).
 
 > [!NOTE]
-> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt) to learn how to use it in your project.
 
 **New features**
 
@@ -3072,10 +3097,10 @@ group ID and changes its dependencies to the AndroidX equivalents.
 The behavior of 2.0.0-rc02 is identical to behavior to Navigation 1.0.0-rc02
 and no changes to your code should be required to update from 1.0.0-rc02
 besides updating your dependencies to match the
-[new dependencies](https://developer.android.com/jetpack/androidx/releases/navigation#declaring_dependencies).
+[new dependencies](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#declaring_dependencies).
 
 Your project must have
-[migrated to AndroidX](https://developer.android.com/jetpack/androidx/migrate) to use 2.X releases of
+[migrated to AndroidX](https://developer.android.com/jetpack/androidx/migrate.md.txt) to use 2.X releases of
 Navigation. Navigation 1.0 stable will be the last release using the Support
 Library dependencies; all future development beyond 1.0 will be based on
 AndroidX and build upon the 2.0 stable release.
@@ -3254,7 +3279,7 @@ with Navigation.
 **Breaking Changes**
 
 - When using an `<argument>` with an `argType="reference"`, Navigation no longer parses the reference, instead providing the raw resource ID itself. [b/111736515](https://issuetracker.google.com/111736515)
-- [`onNavDestinationSelected()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI#onNavDestinationSelected(android.view.MenuItem,%20androidx.navigation.NavController)) now pops back to the start destination of your navigation graph by default, making them consistent with the `setup` methods. Add `menuCategory="secondary"` to your `MenuItem` to avoid popping the back stack. [aosp/852869](https://android-review.googlesource.com/852869)
+- [`onNavDestinationSelected()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI.md.txt#onNavDestinationSelected(android.view.MenuItem,%20androidx.navigation.NavController)) now pops back to the start destination of your navigation graph by default, making them consistent with the `setup` methods. Add `menuCategory="secondary"` to your `MenuItem` to avoid popping the back stack. [aosp/852869](https://android-review.googlesource.com/852869)
 - The `fromBundle()` methods of generated `Args` classes now take a non-null `Bundle` instead of a nullable `Bundle` [aosp/845616](https://android-review.googlesource.com/845616)
 
 **Bug Fixes**
@@ -3287,10 +3312,10 @@ please see the *Breaking Changes* section below.
 - The deprecated `NavigationUI.navigateUp(DrawerLayout, NavController)` method has been removed. [aosp/835684](https://android-review.googlesource.com/835684)
 - Fragment creation has been moved to `FragmentNavigator`, making it easier to delegate Fragment creation to a `FragmentFactory`. [b/119054429](https://issuetracker.google.com/119054429)
 - The constructor for `NavGraphNavigator` no longer takes a `Context` [aosp/835340](https://android-review.googlesource.com/835340)
-- [NavigatorProvider](https://developer.android.com/reference/androidx/navigation/NavigatorProvider) is now a class, rather than an interface. The `NavigatorProvider` returned by [`getNavigatorProvider()`](https://developer.android.com/reference/androidx/navigation/NavController#getNavigatorProvider()) has not changed its functionality. [aosp/830660](https://android-review.googlesource.com/830660)
+- [NavigatorProvider](https://developer.android.com/reference/androidx/navigation/NavigatorProvider.md.txt) is now a class, rather than an interface. The `NavigatorProvider` returned by [`getNavigatorProvider()`](https://developer.android.com/reference/androidx/navigation/NavController.md.txt#getNavigatorProvider()) has not changed its functionality. [aosp/830660](https://android-review.googlesource.com/830660)
 - `NavDestination.navigate()` has been removed. Call `navigate()` on the `Navigator` instead. [aosp/830663](https://android-review.googlesource.com/830663)
 - Significant refactoring of `Navigator`, removing the need for `OnNavigatorNavigatedListener` and instead having `navigate` return the `NavDestination` that was navigated to.
-- `Navigator` instances can no longer send pop events to the `NavController`. Consider using a [`OnBackPressedCallback`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback) to intercept back button presses and call `navController.popBackStack()`. [aosp/833716](https://android-review.googlesource.com/833716)
+- `Navigator` instances can no longer send pop events to the `NavController`. Consider using a [`OnBackPressedCallback`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback.md.txt) to intercept back button presses and call `navController.popBackStack()`. [aosp/833716](https://android-review.googlesource.com/833716)
 
 **Bug Fixes**
 
@@ -3311,7 +3336,7 @@ October 29, 2018
 
 **New Features**
 
-- A new [AppBarConfiguration](https://developer.android.com/reference/androidx/navigation/ui/AppBarConfiguration) class allows you to customize which destinations are considered *top-level* destinations. See the [updated documentation](https://developer.android.com/topic/libraries/architecture/navigation/navigation-ui) for details. [b/117333663](https://issuetracker.google.com/117333663)
+- A new [AppBarConfiguration](https://developer.android.com/reference/androidx/navigation/ui/AppBarConfiguration.md.txt) class allows you to customize which destinations are considered *top-level* destinations. See the [updated documentation](https://developer.android.com/topic/libraries/architecture/navigation/navigation-ui) for details. [b/117333663](https://issuetracker.google.com/117333663)
 - You can now pass arguments to the start destination of your graph [b/110300470](https://issuetracker.google.com/110300470)
 - Deep links now support custom schemes with periods, hyphens, and plus signs. [b/112806402](https://issuetracker.google.com/112806402)
 

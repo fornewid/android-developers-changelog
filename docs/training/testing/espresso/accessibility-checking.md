@@ -20,10 +20,9 @@ You can enable and configure accessibility testing using the
 [`AccessibilityChecks`](https://developer.android.com/reference/androidx/test/espresso/accessibility/AccessibilityChecks.md.txt)
 class:
 
-### Kotlin
 
 ```kotlin
-import androidx.test.espresso.accessibility.AccessibilityChecks
+// import androidx.test.espresso.accessibility.AccessibilityChecks
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
@@ -34,20 +33,7 @@ class MyWelcomeWorkflowIntegrationTest {
 }
 ```
 
-### Java
-
-```java
-import androidx.test.espresso.accessibility.AccessibilityChecks;
-
-@RunWith(AndroidJUnit4.class)
-@LargeTest
-public class MyWelcomeWorkflowIntegrationTest {
-    @BeforeClass
-    public void enableAccessibilityChecks() {
-        AccessibilityChecks.enable();
-    }
-}
-```
+<br />
 
 By default, the checks run when you perform any
 [view action](https://developer.android.com/reference/androidx/test/espresso/ViewAction.md.txt) defined in
@@ -58,17 +44,12 @@ each check by passing `true` into
 [`setRunChecksFromRootView()`](https://github.com/google/Accessibility-Test-Framework-for-Android/blob/a6117fe0059c82dd764fa628d3817d724570f69e/src/main/java/com/google/android/apps/common/testing/accessibility/framework/integrations/espresso/AccessibilityValidator.java#L82),
 as shown in the following code snippet:
 
-### Kotlin
 
 ```kotlin
 AccessibilityChecks.enable().setRunChecksFromRootView(true)
 ```
 
-### Java
-
-```java
-AccessibilityChecks.enable().setRunChecksFromRootView(true);
-```
+<br />
 
 ## Suppress subsets of results
 
@@ -101,26 +82,16 @@ to help you define which results to show in your Espresso tests. The following
 example suppresses the results of checks that relate to a single `TextView`
 element's color contrast. The element's ID is `countTV`.
 
-### Kotlin
 
 ```kotlin
 AccessibilityChecks.enable().apply {
-        setSuppressingResultMatcher(
-                allOf(
-                    matchesCheck(TextContrastCheck::class.java),
-                    matchesViews(withId(R.id.countTV))
-                )
+    setSuppressingResultMatcher(
+        allOf(
+            matchesCheck(TextContrastCheck::class.java),
+            matchesViews(withId(R.id.countTV))
         )
+    )
 }
 ```
 
-### Java
-
-```java
-AccessibilityValidator myChecksValidator =
-    AccessibilityChecks.enable()
-        .setSuppressingResultMatcher(
-            allOf(
-                matchesCheck(TextContrastCheck.class),
-                matchesViews(withId(R.id.countTV))));
-```
+<br />

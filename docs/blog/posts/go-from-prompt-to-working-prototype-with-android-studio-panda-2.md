@@ -83,7 +83,7 @@ We released Gemini 3.1 Pro preview, and it is even better than Gemini 3 Pro for 
 
 ## **Get started**
 
-Dive in and accelerate your development. [Download](https://developer.android.com/studio) Android Studio Panda 2 and start exploring these powerful new agentic features today.
+Dive in and accelerate your development. [Download](https://developer.android.com/studio.md.txt) Android Studio Panda 2 and start exploring these powerful new agentic features today.
 
 As always, your feedback is crucial to us. [Check known issues](https://developer.android.com/studio/known-issues.md.txt), [report bugs](https://developer.android.com/studio/report-bugs.md.txt), and be part of our vibrant community on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all), [Medium](https://medium.com/androiddevelopers), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), or [X](https://twitter.com/androidstudio). Happy coding!
 Written by:

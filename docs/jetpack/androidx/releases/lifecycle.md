@@ -8,7 +8,7 @@ source: md.txt
 
 # Lifecycle
 
-[User Guide](https://developer.android.com/topic/libraries/architecture/lifecycle.md.txt) [Code Sample](https://github.com/android/architecture-components-samples) [Codelab](https://codelabs.developers.google.com/codelabs/android-lifecycles/index.html?index#0) Lifecycle-aware components perform actions in response to a change in the lifecycle status of another component, such as activities and fragments. These components help you produce better-organized, and often lighter-weight code, that is easier to maintain.
+[User Guide](https://developer.android.com/topic/libraries/architecture/lifecycle.md.txt) [Code Sample](https://github.com/android/architecture-components-samples) Lifecycle-aware components perform actions in response to a change in the lifecycle status of another component, such as activities and fragments. These components help you produce better-organized, and often lighter-weight code, that is easier to maintain.
 
 
 This table lists all the artifacts in the `androidx.lifecycle` group.

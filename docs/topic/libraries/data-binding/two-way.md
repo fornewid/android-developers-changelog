@@ -298,10 +298,6 @@ additional resources.
 
 - [Android Data Binding Library samples](https://github.com/android/databinding-samples)
 
-### Codelabs
-
-- [Android Data Binding codelab](https://codelabs.developers.google.com/codelabs/android-databinding)
-
 ### Blog posts
 
 - [Data Binding --- Lessons Learnt](https://medium.com/androiddevelopers/data-binding-lessons-learnt-4fd16576b719)

@@ -4,29 +4,31 @@ url: https://developer.android.com/develop/background-work/background-tasks/pers
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/background-work/background-tasks/persistent/llms.txt
+
 WorkManager allows you to create and enqueue a chain of work that specifies
 multiple dependent tasks and defines what order they should run in. This
 functionality is particularly useful when you need to run several tasks in a
 particular order.
 
 To create a chain of work, you can use
-[`WorkManager.beginWith(OneTimeWorkRequest)`](https://developer.android.com/reference/androidx/work/WorkManager#beginWith(androidx.work.OneTimeWorkRequest))
+[`WorkManager.beginWith(OneTimeWorkRequest)`](https://developer.android.com/reference/androidx/work/WorkManager.md.txt#beginWith(androidx.work.OneTimeWorkRequest))
 or
-[`WorkManager.beginWith(List<OneTimeWorkRequest>)`](https://developer.android.com/reference/androidx/work/WorkManager#beginWith(java.util.List%3Candroidx.work.OneTimeWorkRequest%3E))
+[`WorkManager.beginWith(List<OneTimeWorkRequest>)`](https://developer.android.com/reference/androidx/work/WorkManager.md.txt#beginWith(java.util.List%3Candroidx.work.OneTimeWorkRequest%3E))
 , which each return an instance of
-[`WorkContinuation`](https://developer.android.com/reference/androidx/work/WorkContinuation).
+[`WorkContinuation`](https://developer.android.com/reference/androidx/work/WorkContinuation.md.txt).
 
 A `WorkContinuation` can then be used to add dependent `OneTimeWorkRequest`
 instances using
-[`then(OneTimeWorkRequest)`](https://developer.android.com/reference/androidx/work/WorkContinuation#then(androidx.work.OneTimeWorkRequest))
+[`then(OneTimeWorkRequest)`](https://developer.android.com/reference/androidx/work/WorkContinuation.md.txt#then(androidx.work.OneTimeWorkRequest))
 or
-[`then(List<OneTimeWorkRequest>)`](https://developer.android.com/reference/androidx/work/WorkContinuation#then(java.util.List%3Candroidx.work.OneTimeWorkRequest%3E))
+[`then(List<OneTimeWorkRequest>)`](https://developer.android.com/reference/androidx/work/WorkContinuation.md.txt#then(java.util.List%3Candroidx.work.OneTimeWorkRequest%3E))
 .
 
 Every invocation of the `WorkContinuation.then(...)` returns a *new* instance of `WorkContinuation`. If you add a `List` of `OneTimeWorkRequest` instances, these requests can potentially run in parallel.
 
 Finally, you can use the
-[`WorkContinuation.enqueue()`](https://developer.android.com/reference/androidx/work/WorkContinuation#enqueue())
+[`WorkContinuation.enqueue()`](https://developer.android.com/reference/androidx/work/WorkContinuation.md.txt#enqueue())
 method to `enqueue()` your chain of `WorkContinuation`s.
 
 Let's look at an example. In this example, 3 different Worker jobs are
@@ -35,31 +37,19 @@ then joined and passed on to a caching Worker job. Finally, the output of that
 job is passed into an upload Worker, which uploads the results to a remote
 server.
 
-### Kotlin
 
 ```kotlin
 WorkManager.getInstance(myContext)
-   // Candidates to run in parallel
-   .beginWith(listOf(plantName1, plantName2, plantName3))
-   // Dependent work (only runs after all previous work in chain)
-   .then(cache)
-   .then(upload)
-   // Call enqueue to kick things off
-   .enqueue()
+    // Candidates to run in parallel.
+    .beginWith(listOf(plantName1, plantName2, plantName3))
+    // Dependent work (only runs after all previous work in chain).
+    .then(cache)
+    .then(upload)
+    // Call enqueue to kick things off.
+    .enqueue()
 ```
 
-### Java
-
-```java
-WorkManager.getInstance(myContext)
-   // Candidates to run in parallel
-   .beginWith(Arrays.asList(plantName1, plantName2, plantName3))
-   // Dependent work (only runs after all previous work in chain)
-   .then(cache)
-   .then(upload)
-   // Call enqueue to kick things off
-   .enqueue();
-```
+<br />
 
 ## Input Mergers
 
@@ -69,15 +59,15 @@ outputs of `plantName1`, `plantName2`, and `plantName3` would be passed in as
 inputs to the `cache` request.
 
 In order to manage inputs from multiple parent work requests, WorkManager uses
-[`InputMerger`](https://developer.android.com/reference/androidx/work/InputMerger).
+[`InputMerger`](https://developer.android.com/reference/androidx/work/InputMerger.md.txt).
 
 There are two different types of `InputMerger` provided by WorkManager:
 
-- [`OverwritingInputMerger`](https://developer.android.com/reference/androidx/work/OverwritingInputMerger)
+- [`OverwritingInputMerger`](https://developer.android.com/reference/androidx/work/OverwritingInputMerger.md.txt)
   attempts to add all keys from all inputs to the output. In case of conflicts,
   it overwrites the previously-set keys.
 
-- [`ArrayCreatingInputMerger`](https://developer.android.com/reference/androidx/work/ArrayCreatingInputMerger)
+- [`ArrayCreatingInputMerger`](https://developer.android.com/reference/androidx/work/ArrayCreatingInputMerger.md.txt)
   attempts to merge the inputs, creating arrays when necessary.
 
 If you have a more specific use case, then you can write your own by subclassing
@@ -111,23 +101,15 @@ data in a merger, then `ArrayCreatingInputMerger` may be a better option.
 For the above example, given that we want to preserve the outputs from all plant
 name Workers, we should use an `ArrayCreatingInputMerger`.
 
-### Kotlin
 
 ```kotlin
 val cache: OneTimeWorkRequest = OneTimeWorkRequestBuilder<PlantWorker>()
-   .setInputMerger(ArrayCreatingInputMerger::class)
-   .setConstraints(constraints)
-   .build()
+    .setInputMerger(ArrayCreatingInputMerger::class)
+    .setConstraints(constraints)
+    .build()
 ```
 
-### Java
-
-```java
-OneTimeWorkRequest cache = new OneTimeWorkRequest.Builder(PlantWorker.class)
-       .setInputMerger(ArrayCreatingInputMerger.class)
-       .setConstraints(constraints)
-       .build();
-```
+<br />
 
 `ArrayCreatingInputMerger` pairs each key with an array. If each of the keys
 is unique, then your result is a series of one-element arrays.
@@ -192,7 +174,7 @@ Note that if you were to append more work requests to a chain that has failed or
 has cancelled work requests, then your newly appended work request will also be
 marked `FAILED` or `CANCELLED`, respectively. If you want to extend the work
 of an existing chain, see `APPEND_OR_REPLACE` in
-[ExistingWorkPolicy](https://developer.android.com/reference/androidx/work/ExistingWorkPolicy).
+[ExistingWorkPolicy](https://developer.android.com/reference/androidx/work/ExistingWorkPolicy.md.txt).
 
 When creating chains of work requests, dependent work requests should define
 retry policies to ensure that work is always completed in a timely manner.

@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/glance
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Glance
 
 [Code Sample](https://github.com/android/user-interface-samples/tree/main/AppWidget) Build layouts for remote surfaces using a Jetpack Compose-style API.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 26, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/glance#1.2.0) | - | - | [1.3.0-alpha02](https://developer.android.com/jetpack/androidx/releases/glance#1.3.0-alpha02) |
+| August 26, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/glance.md.txt#1.2.0) | - | - | [1.3.0-alpha02](https://developer.android.com/jetpack/androidx/releases/glance.md.txt#1.3.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -49,8 +51,9 @@ android {
         compose true
     }
 
-    kotlinOptions {
-        jvmTarget = "1.8"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 }
 ```
@@ -84,8 +87,9 @@ android {
         compose = true
     }
 
-    kotlinOptions {
-        jvmTarget = "1.8"
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
 ```
@@ -540,16 +544,16 @@ December 15, 2021
 
 **Features**
 
-- Declare your app widgets with [GlanceAppWidget](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/GlanceAppWidget) and [GlanceAppWidgetReceiver](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/GlanceAppWidgetReceiver).
-- Compose your UI with the initial set of Glance Composables: [Box](https://developer.android.com/reference/kotlin/androidx/glance/layout/package-summary#box), [Row](https://developer.android.com/reference/kotlin/androidx/glance/layout/package-summary#row), [Column](https://developer.android.com/reference/kotlin/androidx/glance/layout/package-summary#column), [Text](https://developer.android.com/reference/kotlin/androidx/glance/text/package-summary#text), [Button](https://developer.android.com/reference/kotlin/androidx/glance/package-summary#button), [LazyColumn](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/lazy/package-summary#lazycolumn), [Image](https://developer.android.com/reference/kotlin/androidx/glance/package-summary#image), [Spacer](https://developer.android.com/reference/kotlin/androidx/glance/layout/package-summary#spacer).
-- Apply modifiers to the composables using [GlanceModifier](https://developer.android.com/reference/kotlin/androidx/glance/GlanceModifier.html) methods.
-- Handle user interaction with predefined [Action](https://developer.android.com/reference/kotlin/androidx/glance/action/package-summary)s.
-  - [actionStartActivity](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/action/package-summary#actionstartactivity)
-  - [actionRunCallback](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/action/package-summary#actionruncallback)
-  - [actionStartService](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/action/package-summary#actionstartservice)
-  - [actionStartBroadcastReceiver](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/action/package-summary#actionstartbroadcastreceiver)
-- Provide parameters to [Action](https://developer.android.com/reference/kotlin/androidx/glance/action/package-summary) with [ActionParameters](https://developer.android.com/reference/kotlin/androidx/glance/action/ActionParameters).
-- Handle [different size modes](https://developer.android.com/guide/topics/appwidgets/layouts) by defining [SizeMode.Single](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/SizeMode.Single), [SizeMode.Exact](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/SizeMode.Exact) or [SizeMode.Responsive](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/SizeMode.Responsive).
-- Persist [GlanceAppWidget state](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/state/package-summary) by providing a [GlanceStateDefinition](https://developer.android.com/reference/kotlin/androidx/glance/state/GlanceStateDefinition.html).
-- Local compositions like [LocalContext](https://developer.android.com/reference/kotlin/androidx/glance/package-summary#localcontext), [LocalState](https://developer.android.com/reference/kotlin/androidx/glance/package-summary#localstate), [LocalGlanceId](https://developer.android.com/reference/kotlin/androidx/glance/package-summary#localglanceid), [LocalSize](https://developer.android.com/reference/kotlin/androidx/glance/package-summary#localsize).
-- Interop with your existing [RemoteViews](https://developer.android.com/reference/android/widget/RemoteViews.html) with the [AndroidRemoteViews](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/package-summary#androidremoteviews) Composable.
+- Declare your app widgets with [GlanceAppWidget](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/GlanceAppWidget.md.txt) and [GlanceAppWidgetReceiver](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/GlanceAppWidgetReceiver.md.txt).
+- Compose your UI with the initial set of Glance Composables: [Box](https://developer.android.com/reference/kotlin/androidx/glance/layout/package-summary.md.txt#box), [Row](https://developer.android.com/reference/kotlin/androidx/glance/layout/package-summary.md.txt#row), [Column](https://developer.android.com/reference/kotlin/androidx/glance/layout/package-summary.md.txt#column), [Text](https://developer.android.com/reference/kotlin/androidx/glance/text/package-summary.md.txt#text), [Button](https://developer.android.com/reference/kotlin/androidx/glance/package-summary.md.txt#button), [LazyColumn](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/lazy/package-summary.md.txt#lazycolumn), [Image](https://developer.android.com/reference/kotlin/androidx/glance/package-summary.md.txt#image), [Spacer](https://developer.android.com/reference/kotlin/androidx/glance/layout/package-summary.md.txt#spacer).
+- Apply modifiers to the composables using [GlanceModifier](https://developer.android.com/reference/kotlin/androidx/glance/GlanceModifier.md.txt) methods.
+- Handle user interaction with predefined [Action](https://developer.android.com/reference/kotlin/androidx/glance/action/package-summary.md.txt)s.
+  - [actionStartActivity](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/action/package-summary.md.txt#actionstartactivity)
+  - [actionRunCallback](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/action/package-summary.md.txt#actionruncallback)
+  - [actionStartService](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/action/package-summary.md.txt#actionstartservice)
+  - [actionStartBroadcastReceiver](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/action/package-summary.md.txt#actionstartbroadcastreceiver)
+- Provide parameters to [Action](https://developer.android.com/reference/kotlin/androidx/glance/action/package-summary.md.txt) with [ActionParameters](https://developer.android.com/reference/kotlin/androidx/glance/action/ActionParameters.md.txt).
+- Handle [different size modes](https://developer.android.com/guide/topics/appwidgets/layouts) by defining [SizeMode.Single](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/SizeMode.Single.md.txt), [SizeMode.Exact](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/SizeMode.Exact.md.txt) or [SizeMode.Responsive](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/SizeMode.Responsive.md.txt).
+- Persist [GlanceAppWidget state](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/state/package-summary.md.txt) by providing a [GlanceStateDefinition](https://developer.android.com/reference/kotlin/androidx/glance/state/GlanceStateDefinition.md.txt).
+- Local compositions like [LocalContext](https://developer.android.com/reference/kotlin/androidx/glance/package-summary.md.txt#localcontext), [LocalState](https://developer.android.com/reference/kotlin/androidx/glance/package-summary.md.txt#localstate), [LocalGlanceId](https://developer.android.com/reference/kotlin/androidx/glance/package-summary.md.txt#localglanceid), [LocalSize](https://developer.android.com/reference/kotlin/androidx/glance/package-summary.md.txt#localsize).
+- Interop with your existing [RemoteViews](https://developer.android.com/reference/android/widget/RemoteViews.md.txt) with the [AndroidRemoteViews](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/package-summary.md.txt#androidremoteviews) Composable.

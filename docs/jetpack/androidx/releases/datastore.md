@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/datastore
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # DataStore
 
-[User Guide](https://developer.android.com/datastore) [Codelab](https://codelabs.developers.google.com/codelabs/android-preferences-datastore) Store data asynchronously, consistently, and transactionally, overcoming some of the drawbacks of SharedPreferences
+[User Guide](https://developer.android.com/datastore) Store data asynchronously, consistently, and transactionally, overcoming some of the drawbacks of SharedPreferences
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 21, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0) | - | - | - |
+| October 21, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/datastore.md.txt#1.3.0) | - | - | - |
 
 ## Declare dependencies
 
@@ -18,7 +20,7 @@ To add a dependency on DataStore, you must add the Google Maven repository to
 your project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
 for more information.
 
-DataStore provides [different options for serialization](https://developer.android.com/topic/libraries/architecture/datastore#implementations)
+DataStore provides [different options for serialization](https://developer.android.com/topic/libraries/architecture/datastore.md.txt#implementations)
 , choose one or the other. You can also add Android-free dependencies to either
 implementation.
 
@@ -363,37 +365,40 @@ March 11, 2026
   To encrypt data using Tink, follow these steps:
   1. Create a key using Tink APIs:
 
-         val keysetHandle =
-             AndroidKeysetManager.Builder()
-                 .withSharedPref(applicationContext, "keyset", "keyset_prefs")
-                 .withKeyTemplate(KeyTemplate.createFrom(PredefinedAeadParameters.AES256_GCM))
-                 .withMasterKeyUri("android-keystore://master_key")
-                 .build()
-                 .keysetHandle
-
+     ```kotlin
+     val keysetHandle =
+         AndroidKeysetManager.Builder()
+             .withSharedPref(applicationContext, "keyset", "keyset_prefs")
+             .withKeyTemplate(KeyTemplate.createFrom(PredefinedAeadParameters.AES256_GCM))
+             .withMasterKeyUri("android-keystore://master_key")
+             .build()
+             .keysetHandle
+     ```
   2. Create an `AeadSerializer` that wraps an existing serializer:
 
-         val aeadSerializer = AeadSerializer(
-             // Use tink APIs to create an Aead object to encrypt/decrypt data.
-             aead =
-                 keysetHandle.getPrimitive(
-                     RegistryConfiguration.get(),
-                     Aead::class.java,
-                 ),
-             // AeadSerializer can wrap an existing serializer.
-             wrappedSerializer = ExistingSerializer,
-             // Specify a unique name to prevent a ciphertext swapping attack.
-             associatedData = "settings.json".encodeToByteArray(),
-         )
-
+     ```kotlin
+     val aeadSerializer = AeadSerializer(
+         // Use tink APIs to create an Aead object to encrypt/decrypt data.
+         aead =
+             keysetHandle.getPrimitive(
+                 RegistryConfiguration.get(),
+                 Aead::class.java,
+             ),
+         // AeadSerializer can wrap an existing serializer.
+         wrappedSerializer = ExistingSerializer,
+         // Specify a unique name to prevent a ciphertext swapping attack.
+         associatedData = "settings.json".encodeToByteArray(),
+     )
+     ```
   3. Use this `aeadSerializer` in place of your serializer when creating the datastore instance:
 
-         val dataStore = dataStore(
-             fileName = "settings.json",
-             serializer = aeadSerializer,
-             scope = scope,
-         )
-
+     ```kotlin
+     val dataStore = dataStore(
+         fileName = "settings.json",
+         serializer = aeadSerializer,
+         scope = scope,
+     )
+     ```
 - Introduced `DataStore.Builder<T>` as the modern, scalable alternative to `DataStoreFactory`. ([I3b110](https://android-review.googlesource.com/#/q/I3b11004afdbb271da03aa410fb884191734bf182), [b/267785821](https://issuetracker.google.com/issues/267785821), [b/400507108](https://issuetracker.google.com/issues/400507108), [b/368385681](https://issuetracker.google.com/issues/368385681), [b/427722902](https://issuetracker.google.com/issues/427722902), [b/370838564](https://issuetracker.google.com/issues/370838564), [b/167697691](https://issuetracker.google.com/issues/167697691))
 
 ### Version 1.3.0-alpha06
@@ -867,7 +872,9 @@ February 24, 2021
 
 - The `Context.createDataStore` extension function has been removed and replaced with globalDataStore property delegate. Call globalDataStore once at the top level in your kotlin file. For example:
 
-      val Context.myDataStore by dataStore(...)
+  ```kotlin
+  val Context.myDataStore by dataStore(...)
+  ```
 
   Put this at the top level of your kotlin file so there is only one instance of it. ([I57215](https://android-review.googlesource.com/#/q/I5721591268086f2111719fcc48c4144c20b4e129), [b/173726702](https://issuetracker.google.com/issues/173726702))
 - The RxDataStore functions are now on an RxDataStore class instead of extension functions on DataStore. ([Idccdb](https://android-review.googlesource.com/#/q/Idccdb6086e0fef2a76f0cf7c4577f56dab317107), [b/177691248](https://issuetracker.google.com/issues/177691248))

@@ -57,11 +57,11 @@ More than 95% of the the top 1,000 Android apps use Kotlin to boost productivity
 ### [Jetpack:
 Libraries for easier app development](http://developer.android.com/jetpack)
 
-Check out the Android suite of libraries, which implement our best practices and reduce boilerplate code. [Get started](http://developer.android.com/jetpack.md.txt) [![](http://developer.android.com/static/images/logos/android-studio-round.svg)](http://developer.android.com/studio)
+Check out the Android suite of libraries, which implement our best practices and reduce boilerplate code. [Get started](http://developer.android.com/jetpack.md.txt) [![](http://developer.android.com/static/images/logos/android-studio-round.svg)](http://developer.android.com/studio.md.txt)
 
-### [Use Android Studio for development](http://developer.android.com/studio)
+### [Use Android Studio for development](http://developer.android.com/studio.md.txt)
 
-Android Studio is the official IDE for Android app development, featuring Compose design tools, flexible build system, and Android Emulator. [Android Studio](http://developer.android.com/studio) [![](http://developer.android.com/static/images/logos/android.svg)](http://developer.android.com/about/versions)
+Android Studio is the official IDE for Android app development, featuring Compose design tools, flexible build system, and Android Emulator. [Android Studio](http://developer.android.com/studio.md.txt) [![](http://developer.android.com/static/images/logos/android.svg)](http://developer.android.com/about/versions)
 
 ### [Target the latest Android version](http://developer.android.com/about/versions)
 

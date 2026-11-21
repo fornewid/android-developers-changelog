@@ -56,9 +56,11 @@ route provider, but this is not required.
 
 ### MediaRouter support library
 
-The media router APIs are defined in the [AndroidX MediaRouter library](https://developer.android.com/guide/topics/media/mediarouter) You must add this library to your app development project. For more information on adding support libraries to your project, see [Support Library Setup](https://developer.android.com/tools/support-library/setup).
-
-<br />
+The media router APIs are defined in the
+[AndroidX MediaRouter library](https://developer.android.com/guide/topics/media/mediarouter)
+You must add this library to your app development project.
+For more information on adding support libraries to your
+project, see [Support Library Setup](https://developer.android.com/tools/support-library/setup).
 
 
 **Caution:** Be sure to use the `AndroidX`

@@ -4,13 +4,12 @@ url: https://developer.android.com/training/testing/espresso
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/testing/espresso/llms.txt
+
 Use Espresso to write concise, beautiful, and reliable Android UI tests.
 
 The following code snippet shows an example of an Espresso test:
 
-<br />
-
-### Kotlin
 
 ```kotlin
 @Test
@@ -18,17 +17,6 @@ fun greeterSaysHello() {
     onView(withId(R.id.name_field)).perform(typeText("Steve"))
     onView(withId(R.id.greet_button)).perform(click())
     onView(withText("Hello Steve!")).check(matches(isDisplayed()))
-}
-```
-
-### Java
-
-```java
-@Test
-public void greeterSaysHello() {
-    onView(withId(R.id.name_field)).perform(typeText("Steve"));
-    onView(withId(R.id.greet_button)).perform(click());
-    onView(withText("Hello Steve!")).check(matches(isDisplayed()));
 }
 ```
 
@@ -55,13 +43,13 @@ codebase under test.
 ## Synchronization capabilities
 
 Each time your test invokes
-[`onView()`](https://developer.android.com/reference/androidx/test/espresso/Espresso#onView(org.hamcrest.Matcher%3Candroid.view.View%3E)),
+[`onView()`](https://developer.android.com/reference/androidx/test/espresso/Espresso.md.txt#onView(org.hamcrest.Matcher%3Candroid.view.View%3E)),
 Espresso waits to perform the corresponding UI action or assertion until the
 following synchronization conditions are met:
 
 - The message queue doesn't have any messages that Espresso needs to immediately process.
-- There are no instances of `https://developer.android.com/reference/android/os/AsyncTask` currently executing a task.
-- All developer-defined [idling resources](https://developer.android.com/training/testing/espresso/idling-resource) are idle.
+- There are no instances of `AsyncTask` currently executing a task.
+- All developer-defined [idling resources](https://developer.android.com/training/testing/espresso/idling-resource.md.txt) are idle.
 
 By performing these checks, Espresso substantially increases the likelihood that
 only one UI action or assertion can occur at any given time. This capability
@@ -69,12 +57,12 @@ gives you more reliable and dependable test results.
 
 ## Packages
 
-- `espresso-core` - Contains core and basic `View` matchers, actions, and assertions. See [Basics](https://developer.android.com/training/testing/espresso/basics) and [Recipes](https://developer.android.com/training/testing/espresso/recipes).
-- [`espresso-web`](https://developer.android.com/training/testing/espresso/web) - Contains resources for `WebView` support.
-- [`espresso-idling-resource`](https://developer.android.com/training/testing/espresso/idling-resource) - Espresso's mechanism for synchronization with background jobs.
+- `espresso-core` - Contains core and basic `View` matchers, actions, and assertions. See [Basics](https://developer.android.com/training/testing/espresso/basics.md.txt) and [Recipes](https://developer.android.com/training/testing/espresso/recipes.md.txt).
+- [`espresso-web`](https://developer.android.com/training/testing/espresso/web.md.txt) - Contains resources for `WebView` support.
+- [`espresso-idling-resource`](https://developer.android.com/training/testing/espresso/idling-resource.md.txt) - Espresso's mechanism for synchronization with background jobs.
 - `espresso-contrib` - External contributions that contain `DatePicker`, `RecyclerView` and `Drawer` actions, accessibility checks, and `CountingIdlingResource`.
-- [`espresso-intents`](https://developer.android.com/training/testing/espresso/intents) - Extension to validate and stub intents for hermetic testing.
-- `espresso-remote` - Location of Espresso's [multi-process](https://developer.android.com/training/testing/espresso/multiprocess) functionality.
+- [`espresso-intents`](https://developer.android.com/training/testing/espresso/intents.md.txt) - Extension to validate and stub intents for hermetic testing.
+- `espresso-remote` - Location of Espresso's [multi-process](https://developer.android.com/training/testing/espresso/multiprocess.md.txt) functionality.
 
 You can learn more about the latest versions by reading the
 [release notes](https://developer.android.com/topic/libraries/testing-support-library/release-notes).
@@ -88,4 +76,4 @@ following resources.
 
 - [Espresso Code Samples](https://github.com/googlesamples/android-testing) includes a full selection of Espresso samples.
 - [BasicSample](https://github.com/android/testing-samples/tree/main/ui/espresso/BasicSample): Basic Espresso sample.
-- [(more...)](https://developer.android.com/training/testing/espresso/additional-resources#samples)
+- [(more...)](https://developer.android.com/training/testing/espresso/additional-resources.md.txt#samples)

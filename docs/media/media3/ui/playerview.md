@@ -4,6 +4,8 @@ url: https://developer.android.com/media/media3/ui/playerview
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/media3/llms.txt
+
 ## Add the dependency
 
 ### Kotlin

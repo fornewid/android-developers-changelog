@@ -4,7 +4,7 @@ url: https://developer.android.com/topic/libraries/architecture/views/paging/v3-
 source: md.txt
 ---
 
-[Concepts and Jetpack Compose implementation](https://developer.android.com/topic/libraries/architecture/paging/v3-transform)
+[Concepts and Jetpack Compose implementation](https://developer.android.com/topic/libraries/architecture/paging/v3-transform.md.txt)
 
 When you [work with paged
 data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data), you often need to
@@ -21,7 +21,7 @@ library](https://developer.android.com/topic/libraries/architecture/paging/v3-pa
 
 ## Apply basic transformations
 
-Because [`PagingData`](https://developer.android.com/reference/kotlin/androidx/paging/PagingData) is
+Because [`PagingData`](https://developer.android.com/reference/kotlin/androidx/paging/PagingData.md.txt) is
 encapsulated in a reactive stream, you can apply transform operations on the
 data incrementally between loading the data and presenting it.
 
@@ -191,7 +191,7 @@ There are three steps involved in inserting separators into your paged list:
 3. Update the UI to handle separator items.
 
 > [!NOTE]
-> **Note:** If you don't need your list separators to be interactive or implement accessibility focus, it is simpler to use [`RecyclerView.ItemDecoration`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.ItemDecoration) to create static list separators instead.
+> **Note:** If you don't need your list separators to be interactive or implement accessibility focus, it is simpler to use [`RecyclerView.ItemDecoration`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.ItemDecoration.md.txt) to create static list separators instead.
 
 ### Convert the UI model
 
@@ -584,17 +584,9 @@ PagingData](https://developer.android.com/topic/libraries/architecture/paging/v3
 > [!NOTE]
 > **Note:** You can use each instance of `PagingData` only once within `submitData()`. To get around this limitation, consider using the `cachedIn()` operator, which multicasts the stream as part of caching the results. This allows subsequent observers to receive new valid instances of `PagingData`. This is especially useful when you work with operators that reuse the most recently emitted `PagingData`, such as Flow's `.combine()` operator.
 
-## Additional resources
-
-To learn more about the Paging library, see the following additional resources:
-
-### Codelabs
-
-- [Android Paging codelab](https://codelabs.developers.google.com/codelabs/android-paging)
-
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data)
-- [Test your Paging implementation](https://developer.android.com/topic/libraries/architecture/paging/test)
-- [Manage and present loading states](https://developer.android.com/topic/libraries/architecture/paging/load-state)
+- [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data.md.txt)
+- [Test your Paging implementation](https://developer.android.com/topic/libraries/architecture/paging/test.md.txt)
+- [Manage and present loading states](https://developer.android.com/topic/libraries/architecture/paging/load-state.md.txt)

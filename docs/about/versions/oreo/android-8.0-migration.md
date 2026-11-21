@@ -36,7 +36,7 @@ change your `targetSdkVersion`.
 - Or download the Android 8.0 system image for the Android Emulator. It's listed in the [SDK Manager](https://developer.android.com/studio/intro/update.md.txt#sdk-manager) under **Android 8.0** as **Google APIs Intel x86 Atom System Image** .
 
   **Note:** The Android 8.0 system image is available for download from
-  [Android Studio 3.0](https://developer.android.com/studio/preview) and higher.
+  [Android Studio 3.0](https://developer.android.com/studio/preview.md.txt) and higher.
   For more information, see the section below to [get the Android 8.0 SDK](https://developer.android.com/about/versions/oreo/android-8.0-migration.md.txt#ptb).
 
 ### Perform compatibility testing
@@ -85,7 +85,7 @@ to targeting your app to Android 8.0, so be sure you complete those steps first.
 
 You can get the SDK packages to build your app with Android 8.0
 (API level 26) using the latest version of
-[Android Studio](https://developer.android.com/studio) (Android Studio 3.0+ is recommended).
+[Android Studio](https://developer.android.com/studio.md.txt) (Android Studio 3.0+ is recommended).
 Android Studio 3.0+ includes tools to help you with Android 8.0 features
 such as [adaptive icons](https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive) and
 [downloadable fonts](https://developer.android.com/guide/topics/ui/look-and-feel/downloadable-fonts).

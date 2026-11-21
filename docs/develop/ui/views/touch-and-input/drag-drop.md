@@ -4,7 +4,9 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/drag-drop
 source: md.txt
 ---
 
-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use drag and drop in Compose. [Drag and drop →](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/drag-and-drop) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+> Documentation index: https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/llms.txt
+
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use drag and drop in Compose. [Drag and drop →](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/drag-and-drop.md.txt) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
 
@@ -15,8 +17,8 @@ Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. L
 The Android drag-and-drop framework lets you add interactive drag-and-drop
 capabilities to your app. With drag and drop, users can copy or move text,
 images, objects, and any content that can be represented by a URI, from one
-[`View`](https://developer.android.com/reference/android/view/View) to another within an app, or between apps
-in [multi-window mode](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/multi-window#DragPermissionsMultiWindow).
+[`View`](https://developer.android.com/reference/android/view/View.md.txt) to another within an app, or between apps
+in [multi-window mode](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/multi-window.md.txt#DragPermissionsMultiWindow).
 
 |---|---|
 | ![Text string and image being dragged and dropped within an app.](https://developer.android.com/static/images/guide/topics/ui/drag-and-drop-within-app.gif) | ![Text string and image being dragged and dropped between apps in split-screen mode.](https://developer.android.com/static/images/guide/topics/ui/drag-and-drop-between-apps.gif) |
@@ -37,11 +39,11 @@ There are a few elements involved in the drag process.
 
 2. Drop target: A view that can accept the drag data.
 
-3. [Drag shadow](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/concepts#AboutDragShadowBuilder):
+3. [Drag shadow](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/concepts.md.txt#AboutDragShadowBuilder):
    A *drag shadow* is a representation
    of the data being dragged, it's visible to users.
 
-4. [Drag events](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/concepts#AboutDragEvent):
+4. [Drag events](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/concepts.md.txt#AboutDragEvent):
    As the user moves the drag shadow over the
    app's layout, the system sends drag events to the drag event listeners and
    callback methods associated with the `View` objects in the layout.
@@ -53,7 +55,7 @@ starting. The system calls back to your
 app to get a *drag shadow*. and show it to users during drag-and-drop process.
 
 As the user moves the drag shadow over the app's layout, the system sends drag
-events to the [drag event listeners and callback methods](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/concepts#AboutDragListeners)
+events to the [drag event listeners and callback methods](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/concepts.md.txt#AboutDragListeners)
 associated with the `View` objects in the layout. If the user releases the drag
 shadow over a drop target, the system sends the data to it. The drag-and-drop
 operation ends when the user releases the drag shadow, whether or not the drag
@@ -61,22 +63,21 @@ shadow is over a drop target.
 
 ## Topics
 
-[Key Concepts](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/concepts)
+[Key Concepts](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/concepts.md.txt)
 :   Understand the drag-and-drop process.
 
-[DropHelper for simplified drag and drop](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/drophelper)
+[DropHelper for simplified drag and drop](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/drophelper.md.txt)
 :   Learn how to implement drag and drop with `DropHelper`.
 
-[Implement drag and drop with views](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/view)
+[Implement drag and drop with views](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/view.md.txt)
 :   Alternatively, implement drag and drop with Android views, this allows
     developers to have more control of the details.
 
-[Drag and drop in multi-window mode](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/multi-window)
+[Drag and drop in multi-window mode](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/multi-window.md.txt)
 :   Support drag and drop in multi-window mode, allow objects to move across
     different applications.
 
 ## Additional resources
 
-- [Codelab for Drag and Drop](https://developer.android.com/codelabs/codelab-dnd-views) using views
 - [Drag \& drop for seamless multitasking](https://www.youtube.com/watch?v=WOm76wSfkbU) video
 - [Drag and Drop Samples](https://github.com/android/platform-samples/tree/main/samples/user-interface/draganddrop) which contains various ways to implement drag and drop along with accepting rich media.

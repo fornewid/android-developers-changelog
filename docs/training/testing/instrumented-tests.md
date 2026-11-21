@@ -4,17 +4,19 @@ url: https://developer.android.com/training/testing/instrumented-tests
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/testing/instrumented-tests/llms.txt
+
 Instrumented tests run on Android devices, whether physical or emulated. As
 such, they can take advantage of the Android framework APIs. Instrumented tests
 therefore provide more fidelity than local tests, though they run much more
 slowly.
 
 We recommend using instrumented tests only in cases where you must test against
-the behavior of a real device. [AndroidX Test](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/test-setup) provides several libraries
+the behavior of a real device. [AndroidX Test](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/test-setup.md.txt) provides several libraries
 that make it easier to write instrumented tests when necessary.
 
 > [!NOTE]
-> **Note:** Instrumented test, also known as *instrumentation* tests, are initialized in a special environment that gives them access to an instance of [Instrumentation](https://developer.android.com/reference/android/app/Instrumentation). This class provides access to the application context and APIs to manipulate the app under test and gives instrumented tests their name.
+> **Note:** Instrumented test, also known as *instrumentation* tests, are initialized in a special environment that gives them access to an instance of [Instrumentation](https://developer.android.com/reference/android/app/Instrumentation.md.txt). This class provides access to the application context and APIs to manipulate the app under test and gives instrumented tests their name.
 
 ## Set up your testing environment
 
@@ -24,8 +26,8 @@ you create a new project and contains an example instrumented test.
 
 Before you begin, you should add AndroidX Test APIs, which allow you to quickly
 build and run instrumented test code for your apps. AndroidX Test includes a
-JUnit 4 test runner ,[`AndroidJUnitRunner`](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner), and APIs for functional UI tests
-such as [Espresso](https://developer.android.com/training/testing/espresso), [UI Automator](https://developer.android.com/training/testing/ui-automator) and [Compose test](https://developer.android.com/jetpack/compose/testing).
+JUnit 4 test runner ,[`AndroidJUnitRunner`](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner.md.txt), and APIs for functional UI tests
+such as [Espresso](https://developer.android.com/training/testing/espresso.md.txt), [UI Automator](https://developer.android.com/training/testing/ui-automator) and [Compose test](https://developer.android.com/jetpack/compose/testing).
 
 You also need to configure the Android testing dependencies for your project to
 use the test runner and the rules APIs provided by AndroidX Test.
@@ -33,30 +35,34 @@ use the test runner and the rules APIs provided by AndroidX Test.
 In your app's top-level `build.gradle` file, you need to specify these libraries
 as dependencies:
 
-    dependencies {
-        androidTestImplementation "androidx.test:runner:$androidXTestVersion"
-        androidTestImplementation "androidx.test:rules:$androidXTestVersion"
-        // Optional -- UI testing with Espresso
-        androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
-        // Optional -- UI testing with UI Automator
-        androidTestImplementation "androidx.test.uiautomator:uiautomator:$uiAutomatorVersion"
-        // Optional -- UI testing with Compose
-        androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-    }
+```groovy
+dependencies {
+    androidTestImplementation "androidx.test:runner:$androidXTestVersion"
+    androidTestImplementation "androidx.test:rules:$androidXTestVersion"
+    // Optional -- UI testing with Espresso
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    // Optional -- UI testing with UI Automator
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:$uiAutomatorVersion"
+    // Optional -- UI testing with Compose
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+}
+```
 
-You can find the latest versions in the [AndroidX Release Notes](https://developer.android.com/jetpack/androidx/releases/test) and [Compose
+You can find the latest versions in the [AndroidX Release Notes](https://developer.android.com/jetpack/androidx/releases/test.md.txt) and [Compose
 UI Release Notes](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner).
 
 To use JUnit 4 test classes and have access to features such as test filtering,
-make sure to specify [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner) as the default test instrumentation
+make sure to specify [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner.md.txt) as the default test instrumentation
 runner in your project by including the following setting in your app's
 module-level `build.gradle` file:
 
-    android {
-        defaultConfig {
-            testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        }
+```groovy
+android {
+    defaultConfig {
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+}
+```
 
 ## Create an instrumented test class
 
@@ -70,7 +76,7 @@ default test runner.
 > **Note:** If your test suite depends on a mix of JUnit3 and JUnit4 libraries, add the `@RunWith(AndroidJUnit4::class)` annotation at the beginning of your test class definition.
 
 The following example shows how you might write an instrumented test to verify
-that the [Parcelable](https://developer.android.com/reference/android/os/Parcelable) interface is implemented correctly for the
+that the [Parcelable](https://developer.android.com/reference/android/os/Parcelable.md.txt) interface is implemented correctly for the
 `LogHistory` class:
 
 ### Kotlin
@@ -184,14 +190,14 @@ public class LogHistoryAndroidUnitTest {
 Instrumented tests can be run on real devices or emulators. In the Android
 Studio guide you can learn how to:
 
-- [Test from Android Studio](https://developer.android.com/studio/test)
-- [Test from the command line](https://developer.android.com/studio/test/command-line)
+- [Test from Android Studio](https://developer.android.com/studio/test.md.txt)
+- [Test from the command line](https://developer.android.com/studio/test/command-line.md.txt)
 
 ## Additional resources
 
 **UI tests** are usually Instrumented tests that verify the correct behavior of
 the UI. They use frameworks such as **Espresso** or **Compose Test** . To learn
-more, read the [UI testing guide](https://developer.android.com/training/testing/ui-tests).
+more, read the [UI testing guide](https://developer.android.com/training/testing/ui-tests.md.txt).
 
 For more information about using Instrumentation tests, consult the following
 resources.
@@ -199,7 +205,3 @@ resources.
 ### Sample
 
 - [Instrumented Unit Tests Code Samples](https://github.com/android/testing-samples/tree/main/unit/BasicUnitAndroidTest)
-
-### Codelabs
-
-- [Android Testing Codelab](https://developer.android.com/codelabs/advanced-android-kotlin-training-testing-basics)

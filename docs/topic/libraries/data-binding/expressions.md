@@ -4,6 +4,8 @@ url: https://developer.android.com/topic/libraries/data-binding/expressions
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/topic/libraries/data-binding/llms.txt
+
 The expression language lets you write expressions that handle events dispatched
 by views. The Data Binding Library automatically generates the classes required
 to bind the views in the layout with your data objects.
@@ -13,40 +15,46 @@ Data binding layout files are slightly different and start with a root tag of
 element is what your root is in a non-binding layout file. The following code
 shows a sample layout file:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <layout xmlns:android="http://schemas.android.com/apk/res/android">
-       <data>
-           <variable name="user" type="com.example.User"/>
-       </data>
-       <LinearLayout
-           android:orientation="vertical"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent">
-           <TextView android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@{user.firstName}"/>
-           <TextView android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@{user.lastName}"/>
-       </LinearLayout>
-    </layout>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+   <data>
+       <variable name="user" type="com.example.User"/>
+   </data>
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <TextView android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@{user.firstName}"/>
+       <TextView android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@{user.lastName}"/>
+   </LinearLayout>
+</layout>
+```
 
 The `user` variable within `data` describes a property that can be used within
 this layout:
 
-    <variable name="user" type="com.example.User" />
+```xml
+<variable name="user" type="com.example.User" />
+```
 
 Expressions within the layout are written in the attribute properties using the
 `@{}` syntax. In the following example, the
-[`TextView`](https://developer.android.com/reference/android/widget/TextView) text is set to the
+[`TextView`](https://developer.android.com/reference/android/widget/TextView.md.txt) text is set to the
 `firstName` property of the `user` variable:
 
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="@{user.firstName}" />
+```xml
+<TextView android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@{user.firstName}" />
+```
 
 > [!NOTE]
-> **Note:** Keep layout expressions small and simple, as they can't be unit tested and have limited IDE support. To simplify layout expressions, you can use custom [binding adapters](https://developer.android.com/topic/libraries/data-binding/binding-adapters).
+> **Note:** Keep layout expressions small and simple, as they can't be unit tested and have limited IDE support. To simplify layout expressions, you can use custom [binding adapters](https://developer.android.com/topic/libraries/data-binding/binding-adapters.md.txt).
 
 ## Data objects
 
@@ -104,7 +112,7 @@ public class User {
 
 From the perspective of data binding, these two classes are equivalent. The
 expression `@{user.firstName}` used for the
-[`android:text`](https://developer.android.com/reference/android/widget/TextView#attr_android:text)
+[`android:text`](https://developer.android.com/reference/android/widget/TextView.md.txt#attr_android:text)
 attribute accesses the `firstName` field in the former class and the
 `getFirstName()` method in the latter class. It is also resolved to
 `firstName()`, if that method exists.
@@ -149,7 +157,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 At runtime, the app displays the **Test** user in the UI. Alternatively, you can
 get the view using a
-[`LayoutInflater`](https://developer.android.com/reference/android/view/LayoutInflater), as shown in the
+[`LayoutInflater`](https://developer.android.com/reference/android/view/LayoutInflater.md.txt), as shown in the
 following example:
 
 ### Kotlin
@@ -165,9 +173,9 @@ ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
 ```
 
 If you are using data binding items inside a
-[`Fragment`](https://developer.android.com/reference/androidx/fragment/app/Fragment),
-[`ListView`](https://developer.android.com/reference/android/widget/ListView), or
-[`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView)
+[`Fragment`](https://developer.android.com/reference/androidx/fragment/app/Fragment.md.txt),
+[`ListView`](https://developer.android.com/reference/android/widget/ListView.md.txt), or
+[`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.md.txt)
 adapter, you might prefer to use the
 [`inflate()`](https://developer.android.com/reference/androidx/databinding/DataBindingUtil#inflate(android.view.LayoutInflater,%20int,%20android.view.ViewGroup,%20boolean,%20android.databinding.DataBindingComponent))
 methods of the bindings classes or the
@@ -215,9 +223,11 @@ can use the following operators and keywords in the expression language:
 
 Here are some examples:
 
-    android:text="@{String.valueOf(index + 1)}"
-    android:visibility="@{age > 13 ? View.GONE : View.VISIBLE}"
-    android:transitionName='@{"image_" + id}'
+```xml
+android:text="@{String.valueOf(index + 1)}"
+android:visibility="@{age > 13 ? View.GONE : View.VISIBLE}"
+android:transitionName='@{"image_" + id}'
+```
 
 ### Missing operations
 
@@ -234,11 +244,15 @@ in managed code:
 The null coalescing operator (`??`) chooses the left operand if it isn't `null`
 or the right if the former is `null`:
 
-    android:text="@{user.displayName ?? user.lastName}"
+```xml
+android:text="@{user.displayName ?? user.lastName}"
+```
 
 This is functionally equivalent to the following:
 
-    android:text="@{user.displayName != null ? user.displayName : user.lastName}"
+```xml
+android:text="@{user.displayName != null ? user.displayName : user.lastName}"
+```
 
 ### Property references
 
@@ -247,7 +261,9 @@ which is the same for fields, getters, and
 [`ObservableField`](https://developer.android.com/reference/androidx/databinding/ObservableField)
 objects:
 
-    android:text="@{user.lastName}"
+```xml
+android:text="@{user.lastName}"
+```
 
 ### Avoid null pointer exceptions
 
@@ -262,7 +278,9 @@ default value of `0`.
 An expression can reference other views in the layout by ID, using the following
 syntax:
 
-    android:text="@{exampleText.text}"
+```xml
+android:text="@{exampleText.text}"
+```
 
 > [!NOTE]
 > **Note:** The binding class converts IDs to camel case.
@@ -270,37 +288,41 @@ syntax:
 In the following example, the `TextView` view references an `EditText` view in
 the same layout:
 
-    <EditText
-        android:id="@+id/example_text"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"/>
-    <TextView
-        android:id="@+id/example_output"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@{exampleText.text}"/>
+```xml
+<EditText
+    android:id="@+id/example_text"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"/>
+<TextView
+    android:id="@+id/example_output"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@{exampleText.text}"/>
+```
 
 ### Collections
 
 You can access common collections, such as arrays, lists, sparse lists, and
 maps, using the `[]` operator for convenience.
 
-    <data>
-        <import type="android.util.SparseArray"/>
-        <import type="java.util.Map"/>
-        <import type="java.util.List"/>
-        <variable name="list" type="List&lt;String>"/>
-        <variable name="sparse" type="SparseArray&lt;String>"/>
-        <variable name="map" type="Map&lt;String, String>"/>
-        <variable name="index" type="int"/>
-        <variable name="key" type="String"/>
-    </data>
-    ...
-    android:text="@{list[index]}"
-    ...
-    android:text="@{sparse[index]}"
-    ...
-    android:text="@{map[key]}"
+```xml
+<data>
+    <import type="android.util.SparseArray"/>
+    <import type="java.util.Map"/>
+    <import type="java.util.List"/>
+    <variable name="list" type="List&lt;String>"/>
+    <variable name="sparse" type="SparseArray&lt;String>"/>
+    <variable name="map" type="Map&lt;String, String>"/>
+    <variable name="index" type="int"/>
+    <variable name="key" type="String"/>
+</data>
+...
+android:text="@{list[index]}"
+...
+android:text="@{sparse[index]}"
+...
+android:text="@{map[key]}"
+```
 
 > [!NOTE]
 > **Note:** For the XML to be syntactically correct, escape the `<` characters. For example: instead of `List<String>`, write `List&lt;String>`.
@@ -314,37 +336,49 @@ example, you can replace `@{map[key]}` in the preceding example with
 You can use single quotes to surround the attribute value, which lets you use
 double quotes in the expression, as shown in the following example:
 
-    android:text='@{map["firstName"]}'
+```xml
+android:text='@{map["firstName"]}'
+```
 
 You can also use double quotes to surround the attribute value. When doing so,
 string literals must be surrounded with backticks `` ` ``, as shown
 here:
 
-    android:text="@{map[`firstName`]}"
+```xml
+android:text="@{map[`firstName`]}"
+```
 
 ### Resources
 
 An expression can reference app resources with the following syntax:
 
-    android:padding="@{large? @dimen/largePadding : @dimen/smallPadding}"
+```xml
+android:padding="@{large? @dimen/largePadding : @dimen/smallPadding}"
+```
 
 You can evaluate format strings and plurals by providing parameters:
 
-    android:text="@{@string/nameFormat(firstName, lastName)}"
-    android:text="@{@plurals/banana(bananaCount)}"
+```xml
+android:text="@{@string/nameFormat(firstName, lastName)}"
+android:text="@{@plurals/banana(bananaCount)}"
+```
 
-You can pass [property references](https://developer.android.com/topic/libraries/data-binding/expressions#property_reference) and [view
+You can pass [property references](https://developer.android.com/topic/libraries/data-binding/expressions.md.txt#property_reference) and [view
 references](https://developer.android.com/topic/libraries/data-binding/expressions#view_references) as resource parameters:
 
-    android:text="@{@string/example_resource(user.lastName, exampleText.text)}"
+```xml
+android:text="@{@string/example_resource(user.lastName, exampleText.text)}"
+```
 
 When a plural takes multiple parameters, pass all parameters:
 
+```xml
 
-      Have an orange
-      Have %d oranges
+  Have an orange
+  Have %d oranges
 
-    android:text="@{@plurals/orange(orangeCount, orangeCount)}"
+android:text="@{@plurals/orange(orangeCount, orangeCount)}"
+```
 
 Some resources require explicit type evaluation, as shown in the following
 table:
@@ -363,10 +397,10 @@ table:
 
 Data binding lets you write expression handling events that are dispatched from
 the views---for example, the
-[`onClick()`](https://developer.android.com/reference/android/view/View.OnClickListener#onClick(android.view.View))
+[`onClick()`](https://developer.android.com/reference/android/view/View.OnClickListener.md.txt#onClick(android.view.View))
 method. Event attribute names are determined by the name of the listener method,
 with a few exceptions. For example,
-[`View.OnClickListener`](https://developer.android.com/reference/android/view/View.OnClickListener) has
+[`View.OnClickListener`](https://developer.android.com/reference/android/view/View.OnClickListener.md.txt) has
 a method `onClick()`, so the attribute for this event is `android:onClick`.
 
 There are some specialized event handlers for the click event that need an
@@ -375,30 +409,30 @@ following attributes to avoid these type of conflicts:
 
 | Class | Listener setter | Attribute |
 |---|---|---|
-| [`SearchView`](https://developer.android.com/reference/android/widget/SearchView) | [`setOnSearchClickListener(View.OnClickListener)`](https://developer.android.com/reference/android/widget/SearchView#setOnSearchClickListener(android.view.View.OnClickListener)) | `android:onSearchClick` |
-| [`ZoomControls`](https://developer.android.com/reference/android/widget/ZoomControls) | [`setOnZoomInClickListener(View.OnClickListener)`](https://developer.android.com/reference/android/widget/ZoomControls#setOnZoomInClickListener(android.view.View.OnClickListener)) | `android:onZoomIn` |
-| [`ZoomControls`](https://developer.android.com/reference/android/widget/ZoomControls) | [`setOnZoomOutClickListener(View.OnClickListener)`](https://developer.android.com/reference/android/widget/ZoomControls#setOnZoomOutClickListener(android.view.View.OnClickListener)) | `android:onZoomOut` |
+| [`SearchView`](https://developer.android.com/reference/android/widget/SearchView.md.txt) | [`setOnSearchClickListener(View.OnClickListener)`](https://developer.android.com/reference/android/widget/SearchView.md.txt#setOnSearchClickListener(android.view.View.OnClickListener)) | `android:onSearchClick` |
+| [`ZoomControls`](https://developer.android.com/reference/android/widget/ZoomControls.md.txt) | [`setOnZoomInClickListener(View.OnClickListener)`](https://developer.android.com/reference/android/widget/ZoomControls.md.txt#setOnZoomInClickListener(android.view.View.OnClickListener)) | `android:onZoomIn` |
+| [`ZoomControls`](https://developer.android.com/reference/android/widget/ZoomControls.md.txt) | [`setOnZoomOutClickListener(View.OnClickListener)`](https://developer.android.com/reference/android/widget/ZoomControls.md.txt#setOnZoomOutClickListener(android.view.View.OnClickListener)) | `android:onZoomOut` |
 
 You can use these two mechanisms, described in detail in the sections that
 follow, to handle an event:
 
-- [Method references](https://developer.android.com/topic/libraries/data-binding/expressions#method_references): in your expressions, you can reference methods that conform to the signature of the listener method. When an expression evaluates to a method reference, data binding wraps the method reference and owner object in a listener and sets that listener on the target view. If the expression evaluates to `null`, data binding doesn't create a listener and sets a `null` listener instead.
-- [Listener bindings](https://developer.android.com/topic/libraries/data-binding/expressions#listener_bindings): these are lambda expressions that are evaluated when the event happens. Data binding always creates a listener, which it sets on the view. When the event is dispatched, the listener evaluates the lambda expression.
+- [Method references](https://developer.android.com/topic/libraries/data-binding/expressions.md.txt#method_references): in your expressions, you can reference methods that conform to the signature of the listener method. When an expression evaluates to a method reference, data binding wraps the method reference and owner object in a listener and sets that listener on the target view. If the expression evaluates to `null`, data binding doesn't create a listener and sets a `null` listener instead.
+- [Listener bindings](https://developer.android.com/topic/libraries/data-binding/expressions.md.txt#listener_bindings): these are lambda expressions that are evaluated when the event happens. Data binding always creates a listener, which it sets on the view. When the event is dispatched, the listener evaluates the lambda expression.
 
 ### Method references
 
 You can bind events to handler methods directly, similar to the way you can
 assign
-[`android:onClick`](https://developer.android.com/reference/android/view/View#attr_android:onClick) to a
+[`android:onClick`](https://developer.android.com/reference/android/view/View.md.txt#attr_android:onClick) to a
 method in an activity. One advantage compared to the
-[`View`](https://developer.android.com/reference/android/view/View) `onClick` attribute is that the
+[`View`](https://developer.android.com/reference/android/view/View.md.txt) `onClick` attribute is that the
 expression is processed at compile time. So, if the method doesn't exist or its
 signature is incorrect, you receive a compile time error.
 
 The major difference between method references and listener bindings is that the
 actual listener implementation is created when the data is bound, not when the
 event is triggered. If you prefer to evaluate the expression when the event
-happens, use [listener bindings](https://developer.android.com/topic/libraries/data-binding/expressions#listener_bindings).
+happens, use [listener bindings](https://developer.android.com/topic/libraries/data-binding/expressions.md.txt#listener_bindings).
 
 To assign an event to its handler, use a normal binding expression, with the
 value being the method name to call. For example, consider the following example
@@ -423,22 +457,24 @@ public class MyHandlers {
 The binding expression can assign the click listener for a view to the
 `onClickFriend()` method, as follows:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <layout xmlns:android="http://schemas.android.com/apk/res/android">
-       <data>
-           <variable name="handlers" type="com.example.MyHandlers"/>
-           <variable name="user" type="com.example.User"/>
-       </data>
-       <LinearLayout
-           android:orientation="vertical"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent">
-           <TextView android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@{user.firstName}"
-               android:onClick="@{handlers::onClickFriend}"/>
-       </LinearLayout>
-    </layout>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+   <data>
+       <variable name="handlers" type="com.example.MyHandlers"/>
+       <variable name="user" type="com.example.User"/>
+   </data>
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <TextView android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@{user.firstName}"
+           android:onClick="@{handlers::onClickFriend}"/>
+   </LinearLayout>
+</layout>
+```
 
 > [!NOTE]
 > **Note:** The signature of the method in the expression must exactly match the signature of the method in the listener object.
@@ -474,17 +510,19 @@ public class Presenter {
 
 You can bind the click event to the `onSaveClick()` method as follows:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <layout xmlns:android="http://schemas.android.com/apk/res/android">
-        <data>
-            <variable name="task" type="com.android.example.Task" />
-            <variable name="presenter" type="com.android.example.Presenter" />
-        </data>
-        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent">
-            <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:onClick="@{() -> presenter.onSaveClick(task)}" />
-        </LinearLayout>
-    </layout>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="task" type="com.android.example.Task" />
+        <variable name="presenter" type="com.android.example.Presenter" />
+    </data>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:onClick="@{() -> presenter.onSaveClick(task)}" />
+    </LinearLayout>
+</layout>
+```
 
 When a callback is used in an expression, data binding automatically creates the
 necessary listener and registers it for the event. When the view fires the
@@ -498,7 +536,9 @@ you can ignore all parameters to the method or name all of them. If you prefer
 to name the parameters, you can use them in your expression. For example, you
 can write the preceding expression as follows:
 
-    android:onClick="@{(view) -> presenter.onSaveClick(task)}"
+```xml
+android:onClick="@{(view) -> presenter.onSaveClick(task)}"
+```
 
 If you want to use the parameter in the expression, you can do that as follows:
 
@@ -518,7 +558,9 @@ public class Presenter {
 }
 ```
 
-    android:onClick="@{(theView) -> presenter.onSaveClick(theView, task)}"
+```xml
+android:onClick="@{(theView) -> presenter.onSaveClick(theView, task)}"
+```
 
 And you can use a lambda expression with more than one parameter:
 
@@ -538,8 +580,10 @@ public class Presenter {
 }
 ```
 
-    <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content"
-          android:onCheckedChanged="@{(cb, isChecked) -> presenter.completeChanged(task, isChecked)}" />
+```xml
+<CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content"
+      android:onCheckedChanged="@{(cb, isChecked) -> presenter.completeChanged(task, isChecked)}" />
+```
 
 If the event you are listening to returns a value whose type isn't `void`, your
 expressions must return the same type of value as well. For example, if you want
@@ -562,7 +606,9 @@ public class Presenter {
 }
 ```
 
-    android:onLongClick="@{(theView) -> presenter.onLongClick(theView, task)}"
+```xml
+android:onLongClick="@{(theView) -> presenter.onLongClick(theView, task)}"
+```
 
 If the expression can't be evaluated due to `null` objects, data binding returns
 the default value for that type, such as `null` for reference types, `0` for
@@ -571,7 +617,9 @@ the default value for that type, such as `null` for reference types, `0` for
 If you need to use an expression with a predicate---for example, a
 ternary---you can use `void` as a symbol:
 
-    android:onClick="@{(v) -> v.isVisible() ? doSomething() : void}"
+```xml
+android:onClick="@{(v) -> v.isVisible() ? doSomething() : void}"
+```
 
 #### Avoid complex listeners
 
@@ -594,20 +642,24 @@ Imports let you reference classes inside your layout file, like in managed code.
 You can use zero or more `import` elements inside the `data` element. The
 following code example imports the `View` class to the layout file:
 
-    <data>
-        <import type="android.view.View"/>
-    </data>
+```xml
+<data>
+    <import type="android.view.View"/>
+</data>
+```
 
 Importing the `View` class lets you reference it from your binding expressions.
 The following example shows how to reference the
-[`VISIBLE`](https://developer.android.com/reference/android/view/View#VISIBLE) and
-[`GONE`](https://developer.android.com/reference/android/view/View#GONE) constants of the `View` class:
+[`VISIBLE`](https://developer.android.com/reference/android/view/View.md.txt#VISIBLE) and
+[`GONE`](https://developer.android.com/reference/android/view/View.md.txt#GONE) constants of the `View` class:
 
-    <TextView
-       android:text="@{user.lastName}"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:visibility="@{user.isAdult ? View.VISIBLE : View.GONE}"/>
+```xml
+<TextView
+   android:text="@{user.lastName}"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"
+   android:visibility="@{user.isAdult ? View.VISIBLE : View.GONE}"/>
+```
 
 #### Type aliases
 
@@ -615,9 +667,11 @@ When there are class name conflicts, you can rename one of the classes to an
 alias. The following example renames the `View` class in the
 `com.example.real.estate` package to `Vista`:
 
-    <import type="android.view.View"/>
-    <import type="com.example.real.estate.View"
-            alias="Vista"/>
+```xml
+<import type="android.view.View"/>
+<import type="com.example.real.estate.View"
+        alias="Vista"/>
+```
 
 You can then use `Vista` to reference `com.example.real.estate.View` and `View`
 to reference `android.view.View` within the layout file.
@@ -627,12 +681,14 @@ to reference `android.view.View` within the layout file.
 You can use imported types as type references in variables and expressions. The
 following example shows `User` and `List` used as the type of a variable:
 
-    <data>
-        <import type="com.example.User"/>
-        <import type="java.util.List"/>
-        <variable name="user" type="User"/>
-        <variable name="userList" type="List&lt;User>"/>
-    </data>
+```xml
+<data>
+    <import type="com.example.User"/>
+    <import type="java.util.List"/>
+    <variable name="user" type="User"/>
+    <variable name="userList" type="List&lt;User>"/>
+</data>
+```
 
 > [!CAUTION]
 > **Caution:** Android Studio doesn't yet handle imports, so the autocomplete for imported variables might not work in your IDE. Your app still compiles, and you can work around the IDE issue by using fully qualified names in your variable definitions.
@@ -640,24 +696,28 @@ following example shows `User` and `List` used as the type of a variable:
 You can use the imported types to cast part of an expression. The following
 example casts the `connection` property to a type of `User`:
 
-    <TextView
-       android:text="@{((User)(user.connection)).lastName}"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"/>
+```xml
+<TextView
+   android:text="@{((User)(user.connection)).lastName}"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"/>
+```
 
 You can also use imported types when referencing static fields and methods in
 expressions. The following code imports the `MyStringUtils` class and references
 its `capitalize` method:
 
-    <data>
-        <import type="com.example.MyStringUtils"/>
-        <variable name="user" type="com.example.User"/>
-    </data>
-    ...
-    <TextView
-       android:text="@{MyStringUtils.capitalize(user.lastName)}"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"/>
+```xml
+<data>
+    <import type="com.example.MyStringUtils"/>
+    <variable name="user" type="com.example.User"/>
+</data>
+...
+<TextView
+   android:text="@{MyStringUtils.capitalize(user.lastName)}"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"/>
+```
 
 Just as in managed code, `java.lang.*` is imported automatically.
 
@@ -668,16 +728,18 @@ You can use multiple `variable` elements inside the `data` element. Each
 in binding expressions within the layout file. The following example declares
 the `user`, `image`, and `note` variables:
 
-    <data>
-        <import type="android.graphics.drawable.Drawable"/>
-        <variable name="user" type="com.example.User"/>
-        <variable name="image" type="Drawable"/>
-        <variable name="note" type="String"/>
-    </data>
+```xml
+<data>
+    <import type="android.graphics.drawable.Drawable"/>
+    <variable name="user" type="com.example.User"/>
+    <variable name="image" type="Drawable"/>
+    <variable name="note" type="String"/>
+</data>
+```
 
 The variable types are inspected at compile time, so if a variable implements
 [`Observable`](https://developer.android.com/reference/androidx/databinding/Observable) or is an
-[observable collection](https://developer.android.com/topic/libraries/data-binding/observability#observable_Collections),
+[observable collection](https://developer.android.com/topic/libraries/data-binding/observability.md.txt#observable_Collections),
 that must be reflected in the type. If the variable is a base class or interface
 that doesn't implement the `Observable` interface, the variables *aren't*
 observed.
@@ -693,8 +755,8 @@ is called---`null` for reference types, `0` for `int`, `false` for
 
 A special variable named `context` is generated for use in binding expressions
 as needed. The value for `context` is the
-[`Context`](https://developer.android.com/reference/android/content/Context) object from the root view's
-[`getContext()`](https://developer.android.com/reference/android/view/View#getContext()) method. The
+[`Context`](https://developer.android.com/reference/android/content/Context.md.txt) object from the root view's
+[`getContext()`](https://developer.android.com/reference/android/view/View.md.txt#getContext()) method. The
 `context` variable is overridden by an explicit variable declaration with that
 name.
 
@@ -705,39 +767,43 @@ layout by using the app namespace and the variable name in an attribute. The
 following example shows included `user` variables from the `name.xml` and
 `contact.xml` layout files:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <layout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:bind="http://schemas.android.com/apk/res-auto">
-       <data>
-           <variable name="user" type="com.example.User"/>
-       </data>
-       <LinearLayout
-           android:orientation="vertical"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent">
-           <include layout="@layout/name"
-               bind:user="@{user}"/>
-           <include layout="@layout/contact"
-               bind:user="@{user}"/>
-       </LinearLayout>
-    </layout>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+   <data>
+       <variable name="user" type="com.example.User"/>
+   </data>
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <include layout="@layout/name"
+           bind:user="@{user}"/>
+       <include layout="@layout/contact"
+           bind:user="@{user}"/>
+   </LinearLayout>
+</layout>
+```
 
 Data binding doesn't support an include as a direct child of a merge element.
 For example, the following layout isn't supported:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <layout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:bind="http://schemas.android.com/apk/res-auto">
-       <data>
-           <variable name="user" type="com.example.User"/>
-       </data>
-       <merge><!-- Doesn't work -->
-           <include layout="@layout/name"
-               bind:user="@{user}"/>
-           <include layout="@layout/contact"
-               bind:user="@{user}"/>
-       </merge>
-    </layout>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+   <data>
+       <variable name="user" type="com.example.User"/>
+   </data>
+   <merge><!-- Doesn't work -->
+       <include layout="@layout/name"
+           bind:user="@{user}"/>
+       <include layout="@layout/contact"
+           bind:user="@{user}"/>
+   </merge>
+</layout>
+```
 
 <br />
 
@@ -750,10 +816,6 @@ To learn more about data binding, consult the following additional resources.
 ### Samples
 
 - [Android Data Binding Library samples](https://github.com/android/databinding-samples)
-
-### Codelabs
-
-- [Data Binding in Android codelab](https://codelabs.developers.google.com/codelabs/android-databinding)
 
 ### Blog posts
 

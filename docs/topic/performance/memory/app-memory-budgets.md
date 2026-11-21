@@ -183,7 +183,8 @@ see [Resolution rule: last applicable clause takes effect](https://developer.and
 When sizing budgets for each state, target the active working set of that state
 rather than the peak resident memory (RSS high-water mark):
 
-- **Size `foreground` budgets for smooth frame rendering** : Give foreground UI enough headroom for its active working set so synchronous reclaim doesn't delay frame rendering. If your app includes a memory-intensive standalone workflow (such as a high-resolution image or video editor), consider moving that activity into a [dedicated process](https://developer.android.com/guide/components/processes-and-threads.md.txt#Processes) (see [Multi-process apps](https://developer.android.com/topic/performance/memory/app-memory-budgets.md.txt#multi-process-budgets)) so its allocations are budgeted independently and torn down when the user exits.
+- **Size `foreground` budgets for smooth frame rendering** : Give foreground UI enough headroom for its active working set so synchronous reclaim doesn't delay frame rendering. Suppose your app pairs an everyday UI with a memory-intensive workflow, such as a photo viewer with a high-resolution photo editor or a text messaging app with video calling. Run the memory-intensive activity in a [dedicated process](https://developer.android.com/guide/components/processes-and-threads.md.txt#Processes) so its allocations and loaded code are budgeted independently, and the system can terminate that process after it becomes cached when the user exits. For more information, see [Isolate memory-intensive
+  workflows](https://developer.android.com/topic/performance/memory/app-memory-budgets#isolate-memory-intensive-workflows).
 - **Size `background` budgets tightly for headless work** : High background RSS in field telemetry often reflects UI allocations retained after leaving the foreground (see [Co-locating a bound service with a memory-intensive
   UI](https://developer.android.com/topic/performance/memory/guide/service-bindings#colocated-service-ui) and [Release memory in response to
   events](https://developer.android.com/topic/performance/memory/manage-app-memory#release)) or one-time file reads during background indexing and syncs. Because headless background work has no frame deadlines, evicting one-time file cache pages and swapping inactive heap pages to zRAM when a background sync briefly allocates beyond its budget causes no user-visible jank while preventing background spikes from evicting the user's foreground app.
@@ -319,6 +320,78 @@ Memory use in any subprocess counts against both its process budget and the
 enclosing package budget. A process experiences memory pressure at runtime if it
 breaches either its process budget or the package budget, whichever threshold
 is reached first.
+
+#### Isolate memory-intensive workflows
+
+Many apps combine frequent lightweight tasks with an occasional
+memory-intensive workflow, such as browsing a photo gallery and editing a
+high-resolution photo, or reading text conversations and running a video call.
+Keeping both in the main process forces a difficult trade-off: a tight
+`foreground` budget throttles the editor or video call, whereas a generous
+`foreground` budget leaves everyday browsing and messaging with unneeded memory
+slack.
+
+When a memory-intensive workflow runs in its own activity, assign that activity
+to a dedicated process using `android:process`, configure per-process budgets
+inside `<processes>`, and omit package-level `<memory-budget>` elements directly
+under `<application>`:
+
+- **Independent static budgets** : Your main process keeps a tight steady-state budget for everyday browsing or messaging, whereas the `:editor` or `:call` process declares a separate higher budget without raising the main process ceiling. Because `<application>` budgets cap the combined memory of all processes in the package, omit `<memory-budget>` directly under `<application>` whenever a subprocess requires a larger budget than the main process.
+- **Full code and runtime cleanup** : Loaded code and runtime metadata stay in a process for its lifetime, as explained in [App code is memory](https://developer.android.com/topic/performance/memory/guide/app-code.md.txt). Native `.so` shared libraries for image filters or real-time audio and video codecs stay mapped after they load, and the Android Runtime retains loaded classes, initialized `static` fields, and JIT code caches. Running the editor or video call in a dedicated process lets the operating system terminate that process after it becomes cached when the user exits and reclaim its code mappings, runtime state, and native allocator arenas.
+- **Bounded memory leaks**: Complex rendering, editing, and real-time media pipelines can introduce Java or native memory leaks over time. Isolating those workflows in a dedicated process bounds the lifetime of any leaked allocations to that session instead of carrying them into your long-lived main process.
+
+The following example shows a messaging app (`com.example.messaging`) that
+budgets its default process tightly for text conversations and isolates video
+calls in `:call`:
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.messaging">
+
+    <application
+        android:name=".MessagingApplication"
+        android:label="@string/app_name">
+
+        <!-- Omit package-level <memory-budget> under <application> so the
+             tighter main-process ceiling doesn't cap the :call process. -->
+        <processes>
+            <!-- Default process: everyday text messaging UI and sync -->
+            <process>
+                <memory-budget android:maxMb="160" />
+                <memory-budget
+                    android:maxMb="48"
+                    android:state="background" />
+            </process>
+
+            <!-- Dedicated process for real-time video calls -->
+            <process android:process=":call">
+                <memory-budget android:maxMb="320" />
+                <memory-budget
+                    android:maxMb="48"
+                    android:state="background" />
+            </process>
+        </processes>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".call.VideoCallActivity"
+            android:process=":call"
+            android:exported="false" />
+
+    </application>
+</manifest>
+```
+
+Android instantiates your `Application` class in every process spawned for your
+package. In Android 9 (API level 28) and higher, check
+[`Application.getProcessName`](https://developer.android.com/reference/android/app/Application.md.txt#getProcessName()) in `Application.onCreate`
+so your everyday UI process doesn't initialize video or editing libraries, and
+your `:call` or `:editor` process initializes only what that workflow requires.
+For more information, see [Keep background work alive with a lean
+process](https://developer.android.com/topic/performance/memory/guide/process-splitting).
 
 ### Scale budgets for high-density displays
 
@@ -501,36 +574,56 @@ characteristics in mind:
 #### Listen for over-budget pressure callbacks
 
 Apps can register a listener to be notified when memory usage exceeds the
-budget threshold. This allows the app to perform proactive app-level cleanup
-(such as clearing in-memory bitmap caches) while the operating system reclaims
-memory to keep the process or package within its budget:
+budget threshold. The listener lets the app perform proactive cleanup, such as
+clearing in-memory bitmap caches, when the operating system reclaims memory to
+keep the process or package within its budget.
+
+If the callback acquires locks, performs I/O, or collects process memory
+snapshots, don't register an over-budget listener on `Looper.getMainLooper` or
+pass `null` (which defaults to `Looper.getMainLooper`), because blocking the UI
+thread can cause Application Not Responding (ANR) errors:
+
+```kotlin
+// Avoid: Passing null or Looper.getMainLooper() runs repeated callbacks on the
+// UI thread. Background threads stalled in memory reclaim might hold locks in
+// logging backends, dependency injection containers, or databases, causing UI
+// freezes and ANR errors. Avoid capturing full-process /proc memory snapshots
+// inside the callback when the process is already over budget.
+budgetManager.registerProcessOverBudgetListener(Looper.getMainLooper()) { _ ->
+    structuredLogger.logWarning("Over budget")
+    telemetryRecorder.captureProcessMemorySnapshot()
+}
+```
+
+Instead, dispatch over-budget callbacks on the `Looper` of a background
+[`HandlerThread`](https://developer.android.com/reference/android/os/HandlerThread.md.txt):
 
 ```kotlin
 val cleanupThread = HandlerThread("MemoryBudgetCleanup").apply { start() }
 
 val listener = MemoryBudgetManager.OnOverBudgetListener { budgetBytes ->
     Log.w(TAG, "Process exceeded memory budget of $budgetBytes bytes")
-    // Proactively evict thread-safe caches on the background Looper
+    // Proactively evict thread-safe caches on the background Looper.
     imageTileCache.evictAll()
 }
 
-// Register on a background Looper before tightening a dynamic budget
+// Register on a background Looper before tightening a dynamic budget.
 budgetManager.registerProcessOverBudgetListener(cleanupThread.looper, listener)
 
-// When done (for example, in onStop)
+// When done, such as in onStop, unregister the listener.
 budgetManager.unregisterProcessOverBudgetListener(listener)
 ```
 
 > [!NOTE]
 > **Note:** Over-budget callbacks only fire when an active budget is configured for the process or package (either declared using `<memory-budget>` in `AndroidManifest.xml` or set at runtime using `setProcessBudgetBytes` or `setPackageBudgetBytes`). If no manifest or runtime budget is active, `OnOverBudgetListener` won't be invoked.
 
-**Best practices for over-budget callbacks:**
+Follow these recommendations for over-budget callbacks:
 
-- **Use a background `Looper`** : Pass a background [`HandlerThread`](https://developer.android.com/reference/android/os/HandlerThread.md.txt) `Looper` to `registerProcessOverBudgetListener` or `registerPackageOverBudgetListener` whenever possible. Running cache eviction or file cleanup on a background thread avoids contending with frame rendering on the UI thread while the process is under memory pressure. Reserve `Looper.getMainLooper` for listeners that only touch main-thread-bound UI state.
+- **Use a background `Looper`** : Pass the `Looper` of a background `HandlerThread` to `registerProcessOverBudgetListener` and `registerPackageOverBudgetListener`. Don't pass `null` (which defaults to `Looper.getMainLooper`) or `Looper.getMainLooper` itself unless your callback updates only lock-free, main-thread UI state. When a process exceeds its budget, operating system memory reclaim can pause background threads that hold locks in logging frameworks, dependency injection containers, or databases. Acquiring locks or performing disk or Binder I/O on the main thread inside `onOverBudget` can then block the UI thread and cause ANR errors.
 - **Expect repeated callbacks** : Over-budget callbacks aren't one-shot notifications. When usage exceeds the budget, the operating system reclaims cold pages first, and if pressure continues, the system keeps reclaiming memory and invoking your listener at most once every second. Make your callback idempotent. If your app only needs a single notification or wants a longer cooldown between cleanup passes, call `unregisterProcessOverBudgetListener` (or `unregisterPackageOverBudgetListener`) inside the callback, or guard your cleanup with a cooldown timestamp or [`AtomicBoolean`](https://developer.android.com/reference/java/util/concurrent/atomic/AtomicBoolean.md.txt).
 - **Register before tightening a budget** : If current memory usage already exceeds a new budget when you call `setProcessBudgetBytes` or `setPackageBudgetBytes`, an over-budget event is triggered as soon as the new budget is applied. Register your listener before setting the budget so your app doesn't miss that initial over-budget notification.
-- **Be quick**: Reclaim operations must offer immediate relief. Complex computations during pressure worsen performance.
-- **Avoid allocations**: Don't allocate new objects or start new threads inside the callback, as doing so can trigger immediate operating system direct reclaim.
+- **Keep callbacks lock-free and lightweight** : Callbacks must provide immediate relief. Don't acquire contended locks, perform disk or Binder I/O, or capture full-process `/proc` memory snapshots inside `onOverBudget`, because repeated callbacks run when the process is already under memory pressure.
+- **Avoid allocations**: Don't allocate new objects or start new threads inside the callback, because doing so can trigger immediate operating system direct reclaim.
 - **Focus on high-yield targets**: Evicting large Bitmaps, render buffers, or closing memory-mapped files is much more effective than releasing many small objects.
 
 ### Runtime API example
@@ -540,8 +633,28 @@ Android SDK API in Kotlin:
 
 #### Android SDK example: Adaptive image editor
 
+When a memory-intensive workflow such as a photo editor or video call runs in
+its own activity, prefer isolating it in a dedicated process. That lets the
+system enforce your smaller everyday `<process>` budget from startup without
+runtime mode tracking and terminate the workflow process after it becomes
+cached when the user exits, reclaiming its loaded code, runtime metadata, and
+any leaked allocations. For more information, see [Isolate memory-intensive
+workflows](https://developer.android.com/topic/performance/memory/app-memory-budgets#isolate-memory-intensive-workflows).
+
+When a lightweight mode and a memory-intensive mode share a single process,
+remember that `setProcessBudgetBytes` can only tighten limits under your
+manifest ceiling and can't raise them. Declare the memory-intensive mode's
+ceiling in `AndroidManifest.xml`, call `setProcessBudgetBytes` to enforce the
+tighter everyday budget, and call `clearProcessBudget` when entering the
+memory-intensive mode. The higher manifest ceiling applies until your code calls
+`setProcessBudgetBytes` and is the static `<application>` value returned by
+[`PackageManager.getMemoryBudgets`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#getMemoryBudgets(android.content.pm.ApplicationInfo)). Your app is also
+responsible for tracking mode and lifecycle transitions across back stacks,
+picture-in-picture windows, and activity restarts so the tighter budget is
+reapplied whenever the memory-intensive mode ends.
+
 This example shows an image editing app (`com.example.imageeditor`) whose
-manifest declares a 256MB ceiling to accommodate its multi-layer canvas:
+manifest declares a 256 MB ceiling to accommodate its multi-layer canvas:
 
 ```xml
 <manifest ... >

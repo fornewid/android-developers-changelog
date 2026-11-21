@@ -8,7 +8,7 @@ source: md.txt
 
 This page lists the new features introduced in Android Studio preview releases.
 The preview builds provide early access to the latest features and improvements
-in Android Studio. [You can download these preview versions](https://developer.android.com/studio/preview).
+in Android Studio. [You can download these preview versions](https://developer.android.com/studio/preview.md.txt).
 If you encounter any problems using a preview version of Android Studio, [let us
 know](https://developer.android.com/studio/report-bugs). Your bug reports help to make Android Studio better.
 

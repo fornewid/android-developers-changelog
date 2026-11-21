@@ -4,6 +4,8 @@ url: https://developer.android.com/topic/architecture/views/lifecycle-views
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/topic/architecture/llms.txt
+
 [Concepts and Jetpack Compose implementation](https://developer.android.com/topic/libraries/architecture/lifecycle.md.txt)
 
 Lifecycle-aware components perform actions in response to a change in the
@@ -527,10 +529,6 @@ Unfortunately, this solution has two major problems:
 
 To learn more about handling lifecycles with lifecycle-aware components, consult
 the following additional resources.
-
-#### Codelabs
-
-- [Android Lifecycle-aware components](https://codelabs.developers.google.com/codelabs/android-lifecycles/index.html?index=../../index#0)
 
 #### Blogs
 

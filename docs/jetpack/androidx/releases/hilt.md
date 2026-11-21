@@ -4,13 +4,15 @@ url: https://developer.android.com/jetpack/androidx/releases/hilt
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Hilt
 
-[User Guide](https://developer.android.com/training/dependency-injection/hilt-android) [Code Sample](https://github.com/android/architecture-samples/tree/views-hilt) [Codelab](https://codelabs.developers.google.com/codelabs/android-hilt/#0) Extend the functionality of [Dagger Hilt](https://dagger.dev/hilt) to enable dependency injection of certain classes from the androidx libraries.
+[User Guide](https://developer.android.com/training/dependency-injection/hilt-android.md.txt) [Code Sample](https://github.com/android/architecture-samples/tree/views-hilt) Extend the functionality of [Dagger Hilt](https://dagger.dev/hilt) to enable dependency injection of certain classes from the androidx libraries.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/hilt#1.4.0) | - | - | - |
+| July 01, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/hilt.md.txt#1.4.0) | - | - | - |
 
 ## Feedback
 
@@ -260,7 +262,7 @@ June 16, 2021
 
 **API Changes**
 
-- The `hiltViewModel()` method now aligns with the `viewModel()` API changes in [Lifecycle-ViewModel-Compose `1.0.0-alpha07`](https://developer.android.com/jetpack/androidx/releases/lifecycle#lifecycle-viewmodel-compose-1.0.0-alpha07) and now takes an optional `ViewModelStoreOwner` parameter, rather than having a no argument version and one that takes only a `NavBackStackEntry`. This allows you to continue to use `hiltViewModel()` to access the default owner provided by `LocalViewModelStoreOwner` or use `hiltViewModel(navBackStackEntry)` or another `ViewModelStoreOwner` to specify any specific owner. ([I2628d](https://android-review.googlesource.com/#/q/I2628d27791bfeb8a0d2f45b0fa8e9e72cb00c34b))
+- The `hiltViewModel()` method now aligns with the `viewModel()` API changes in [Lifecycle-ViewModel-Compose `1.0.0-alpha07`](https://developer.android.com/jetpack/androidx/releases/lifecycle.md.txt#lifecycle-viewmodel-compose-1.0.0-alpha07) and now takes an optional `ViewModelStoreOwner` parameter, rather than having a no argument version and one that takes only a `NavBackStackEntry`. This allows you to continue to use `hiltViewModel()` to access the default owner provided by `LocalViewModelStoreOwner` or use `hiltViewModel(navBackStackEntry)` or another `ViewModelStoreOwner` to specify any specific owner. ([I2628d](https://android-review.googlesource.com/#/q/I2628d27791bfeb8a0d2f45b0fa8e9e72cb00c34b))
 
 ### Version 1.0.0-alpha02
 
@@ -278,7 +280,7 @@ May 18, 2021
 
 **Dependency updates**
 
-- `hilt-navigation-compose` now depends on [Navigation `2.4.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation#2.4.0-alpha01).
+- `hilt-navigation-compose` now depends on [Navigation `2.4.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/navigation.md.txt#2.4.0-alpha01).
 
 ### Version 1.0.0-alpha01
 
@@ -310,7 +312,7 @@ May 5, 2021
 
 **Major features of 1.0.0**
 
-The `androidx.hilt`artifacts offers extensions for integrating [Hilt](https://dagger.dev/hilt/) with various other AndroidX libraries, such as WorkManager and Navigation. To see a list of features and examples check out [the integration documentation](https://developer.android.com/training/dependency-injection/hilt-jetpack).
+The `androidx.hilt`artifacts offers extensions for integrating [Hilt](https://dagger.dev/hilt/) with various other AndroidX libraries, such as WorkManager and Navigation. To see a list of features and examples check out [the integration documentation](https://developer.android.com/training/dependency-injection/hilt-jetpack.md.txt).
 
 ### Version 1.0.0-beta01
 

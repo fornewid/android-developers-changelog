@@ -4,6 +4,8 @@ url: https://developer.android.com/ndk/guides/audio/additional-resources
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/ndk/guides/audio/llms.txt
+
 ## Sample
 
 
@@ -12,9 +14,6 @@ source: md.txt
 ## Codelabs
 
 - 
-- [Making Waves Part 1 - Build a Synthesizer](https://codelabs.developers.google.com/codelabs/making-waves-1-synth/index.html)
-- [Making More Waves - Sampler](https://codelabs.developers.google.com/codelabs/making-waves-2-sampler/index.html)
-- [Build a Musical Game using Oboe](https://codelabs.developers.google.com/codelabs/musicalgame-using-oboe/index.html)
 
 ## Videos
 

@@ -62,7 +62,6 @@ dependencies {
 Use the [`Futures.addCallback(...)`](https://guava.dev/releases/snapshot/api/docs/com/google/common/util/concurrent/Futures.html#addCallback(com.google.common.util.concurrent.ListenableFuture,com.google.common.util.concurrent.FutureCallback,java.util.concurrent.Executor))
 helper method to attach success and failure callbacks onto a `ListenableFuture`.
 
-### Kotlin
 
 ```kotlin
 val future: ListenableFuture<QueryResult> = ...
@@ -70,59 +69,42 @@ Futures.addCallback(
     future,
     object : FutureCallback<QueryResult> {
         override fun onSuccess(result: QueryResult) {
-            // handle success
+            // handle success.
         }
 
         override fun onFailure(t: Throwable) {
-            // handle failure
+            // handle failure.
         }
     },
-    // causes the callbacks to be executed on the main (UI) thread
+    // causes the callbacks to be executed on the main (UI) thread.
     context.mainExecutor
 )
 ```
 
-### Java
-
-```java
-ListenableFuture<QueryResult> future = ...
-Futures.addCallback(
-    future,
-    new FutureCallback<QueryResult>() {
-        public void onSuccess(QueryResult result) {
-            // handle success
-        }
-
-        public void onFailure(@NonNull Throwable thrown) {
-            // handle failure
-        }
-    },
-    // causes the callbacks to be executed on the main (UI) thread
-    context.getMainExecutor()
-);
-```
+<br />
 
 ### Suspending in Kotlin
 
 When using Kotlin, the easiest way to wait for the result of a ListenableFuture
 is to use [`await()`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-guava/kotlinx.coroutines.guava/await.html).
 
-```kotlin
-import kotlinx.coroutines.guava.await
 
-...
+```kotlin
+// import kotlinx.coroutines.guava.await
+
+// ...
 
 val future: ListenableFuture<QueryResult> = ...
-val queryResult = future.await() // suspends awaiting success
+val queryResult = future.await() // suspends awaiting success.
 ```
+
+<br />
 
 ### Interop with RxJava
 
 An RxJava [`Single`](https://reactivex.io/documentation/single.html)
 can be created from a `ListenableFuture` by registering callbacks inside a
 [`SingleEmitter`](https://reactivex.io/RxJava/javadoc/io/reactivex/SingleEmitter.html).
-
-### Kotlin
 
 ```kotlin
 val future: ListenableFuture<QueryResult> = ...
@@ -139,24 +121,6 @@ val single = Single.create<QueryResult> {
 }
 ```
 
-### Java
-
-```java
-ListenableFuture<QueryResult> future = ...
-Single<QueryResult> single = Single.create(
-        e -> Futures.addCallback(future, new FutureCallback<QueryResult>() {
-            @Override
-            public void onSuccess(QueryResult result) {
-                e.onSuccess(result);
-            }
-
-            @Override
-            public void onFailure(@NonNull Throwable thrown) {
-                e.onError(thrown);
-            }
-        }, executor));
-```
-
 ## Creating a `ListenableFuture`
 
 ### Creating an immediate future
@@ -169,7 +133,6 @@ factory method.
 > [!WARNING]
 > **Warning:** This sample code is only recommended when the result is available *immediately* . `ImmediateFuture` shouldn't be used in synchronous APIs, such as when `getQueryResult()` is a long-running blocking call.
 
-### Kotlin
 
 ```kotlin
 fun getResult(): ListenableFuture<QueryResult> {
@@ -182,35 +145,27 @@ fun getResult(): ListenableFuture<QueryResult> {
 }
 ```
 
-### Java
-
-```java
-public ListenableFuture<QueryResult> getResult() {
-    try {
-        QueryResult queryResult = getQueryResult();
-        return Futures.immediateFuture(queryResult);
-    } catch (Exception e) {
-        return Futures.immediateFailedFuture(e);
-    }
-}
-```
+<br />
 
 ### Using a coroutine
 
 In Kotlin, a [`future{ ... }`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-guava/kotlinx.coroutines.guava/future.html)
 can be used to convert the result of a suspend function into a `ListenableFuture`.
 
-```kotlin
-import kotlinx.coroutines.guava.future
 
-suspend fun getResultAsync(): QueryResult { ... }
+```kotlin
+// import kotlinx.coroutines.guava.future
+
+suspend fun getResultAsync(): QueryResult = /* ... */
 
 fun getResultFuture(): ListenableFuture<QueryResult> {
-    return coroutineScope.future{
+    return coroutineScope.future {
         getResultAsync()
     }
 }
 ```
+
+<br />
 
 ### Converting a callback
 
@@ -226,8 +181,6 @@ When using RxJava, a [`Single`](https://reactivex.io/documentation/single.html)
 can be converted into a [`SettableFuture`](https://guava.dev/releases/snapshot/api/docs/com/google/common/util/concurrent/SettableFuture.html),
 which implements `ListenableFuture`.
 
-### Kotlin
-
 ```kotlin
 fun getResult(): ListenableFuture<QueryResult> {
     val single: Single<QueryResult> = ...
@@ -235,17 +188,5 @@ fun getResult(): ListenableFuture<QueryResult> {
     val future = SettableFuture.create<QueryResult>()
     single.subscribe(future::set, future::setException)
     return future
-}
-```
-
-### Java
-
-```java
-public ListenableFuture<QueryResult> getResult() {
-    Single<QueryResult> single = ...
-
-    SettableFuture<QueryResult> future = SettableFuture.create();
-    single.subscribe(future::set, future::setException);
-    return future;
 }
 ```

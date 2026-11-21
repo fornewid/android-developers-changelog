@@ -4,13 +4,15 @@ url: https://developer.android.com/training/cars/platforms/automotive-os/notific
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/cars/platforms/automotive-os/llms.txt
+
 Notifications provide drivers with short, timely information about events from
 your app while it's not in use. Notifications can appear in the
-[Notification Center](https://developer.android.com/training/cars/platforms/automotive-os/notifications#nc), and some notifications can also appear as
-[*heads-up notifications*](https://developer.android.com/training/cars/platforms/automotive-os/notifications#hun) on the display. To create notifications for
-Android Automotive OS, you use the same [`NotificationBuilder`](https://developer.android.com/reference/android/app/Notification.Builder) API that you
+[Notification Center](https://developer.android.com/training/cars/platforms/automotive-os/notifications.md.txt#nc), and some notifications can also appear as
+[*heads-up notifications*](https://developer.android.com/training/cars/platforms/automotive-os/notifications.md.txt#hun) on the display. To create notifications for
+Android Automotive OS, you use the same [`NotificationBuilder`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt) API that you
 use for other devices. However, to help ensure the safety of drivers and
-minimize distraction, [some API methods and classes](https://developer.android.com/training/cars/platforms/automotive-os/notifications#api-changes) are restricted or behave
+minimize distraction, [some API methods and classes](https://developer.android.com/training/cars/platforms/automotive-os/notifications.md.txt#api-changes) are restricted or behave
 differently.
 
 ## How notifications differ in cars
@@ -38,7 +40,7 @@ Notification sounds
 Automatic play and mute buttons for messaging notifications
 
 :   Android Automotive OS automatically adds **Play** and **Mute** buttons to
-    all [car-compatible messaging notifications](https://developer.android.com/training/cars/platforms/automotive-os/notifications#messaging-requirements).
+    all [car-compatible messaging notifications](https://developer.android.com/training/cars/platforms/automotive-os/notifications.md.txt#messaging-requirements).
 
     - **Play:** reads the notification to the driver using the user's default digital assistant, such as Gemini or Google Assistant, or the vehicle's default text-to-speech system.
     - **Mute:** prevents heads-up notifications from appearing for any future
@@ -52,13 +54,13 @@ Automatic play and mute buttons for messaging notifications
 
 Simplified notification display options
 
-:   [`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews) and custom content views are not supported. In addition,
+:   [`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews.md.txt) and custom content views are not supported. In addition,
     the following notification styles are not supported:
 
-    - [`BigPictureStyle`](https://developer.android.com/reference/android/app/Notification.BigPictureStyle)
-    - [`BigTextStyle`](https://developer.android.com/reference/android/app/Notification.BigTextStyle)
-    - [`InboxStyle`](https://developer.android.com/reference/android/app/Notification.InboxStyle)
-    - [`ProgressStyle`](https://developer.android.com/reference/android/app/Notification.ProgressStyle)
+    - [`BigPictureStyle`](https://developer.android.com/reference/android/app/Notification.BigPictureStyle.md.txt)
+    - [`BigTextStyle`](https://developer.android.com/reference/android/app/Notification.BigTextStyle.md.txt)
+    - [`InboxStyle`](https://developer.android.com/reference/android/app/Notification.InboxStyle.md.txt)
+    - [`ProgressStyle`](https://developer.android.com/reference/android/app/Notification.ProgressStyle.md.txt)
 
     If your app sends a notification to Android Automotive OS using one of these
     notification styles, only summary text is shown.
@@ -76,7 +78,7 @@ use this engine to restrict notifications based on the car's drive state in the
 following ways:
 
 - Truncating notification strings at a specific character length
-- Hiding message summaries for [`CATEGORY_MESSAGE`](https://developer.android.com/reference/android/app/Notification#CATEGORY_MESSAGE) notifications
+- Hiding message summaries for [`CATEGORY_MESSAGE`](https://developer.android.com/reference/android/app/Notification.md.txt#CATEGORY_MESSAGE) notifications
 - Limiting the number of notifications that the Notification Center can display
 
 ### Supported resource types
@@ -97,19 +99,19 @@ notifications have special requirements on Android Automotive OS.
 A messaging notification is car-compatible if it fulfills the following
 requirements:
 
-- It belongs to the [`CATEGORY_MESSAGE`](https://developer.android.com/reference/android/app/Notification#CATEGORY_MESSAGE) category.
-- It uses the [`Notification.MessagingStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle) style.
+- It belongs to the [`CATEGORY_MESSAGE`](https://developer.android.com/reference/android/app/Notification.md.txt#CATEGORY_MESSAGE) category.
+- It uses the [`Notification.MessagingStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle.md.txt) style.
 - It includes only unread messages.
 - It has a mark-as-read `Action` that fulfills the following requirements:
 
-  - The semantic action is set to [`Action.SEMANTIC_ACTION_MARK_AS_READ`](https://developer.android.com/reference/android/app/Notification.Action#SEMANTIC_ACTION_MARK_AS_READ).
+  - The semantic action is set to [`Action.SEMANTIC_ACTION_MARK_AS_READ`](https://developer.android.com/reference/android/app/Notification.Action.md.txt#SEMANTIC_ACTION_MARK_AS_READ).
   - The `Action` indicates that it does not show any user interface when fired.
 - If the notification has a reply `Action`, then the `Action` fulfills the
   following requirements:
 
-  - The semantic action is set to [`Action.SEMANTIC_ACTION_REPLY`](https://developer.android.com/reference/android/app/Notification.Action#SEMANTIC_ACTION_REPLY).
+  - The semantic action is set to [`Action.SEMANTIC_ACTION_REPLY`](https://developer.android.com/reference/android/app/Notification.Action.md.txt#SEMANTIC_ACTION_REPLY).
   - The `Action` indicates that it does not show any user interface when fired.
-  - The `Action` contains a single [`RemoteInput`](https://developer.android.com/reference/androidx/core/app/RemoteInput).
+  - The `Action` contains a single [`RemoteInput`](https://developer.android.com/reference/androidx/core/app/RemoteInput.md.txt).
 
 ## Notification Center
 
@@ -129,15 +131,15 @@ one or both of the following ways:
 [Related notifications](https://developer.android.com/training/notify-user/group) are automatically grouped in the Notification
 Center, as in the notification drawer on other devices. However, when a driver
 taps the summary for a group in the Notification Center, instead of launching a
-[`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent), the group expands to show all of its notifications.
+[`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent.md.txt), the group expands to show all of its notifications.
 
 ### Notifications that don't appear in the Notification Center
 
 The following notifications don't appear in the Notification Center:
 
-- [`Media playback`](https://developer.android.com/reference/android/app/Notification.MediaStyle) notifications. Android Automotive OS gathers information about ongoing media playback and displays it in a dedicated place in the user interface. Note that you must call [`setMediaSession`](https://developer.android.com/reference/android/app/Notification.MediaStyle#setMediaSession(android.media.session.MediaSession.Token)) with a non-null token for the system to recognize the notification as media playback.
-- Turn-by-turn navigation notifications for [`CATEGORY_NAVIGATION`](https://developer.android.com/reference/android/app/Notification#CATEGORY_NAVIGATION).
-- Foreground service notifications for system privileged apps and apps that are signed with the platform key that have an importance level lower than [`IMPORTANCE_DEFAULT`](https://developer.android.com/reference/android/app/NotificationManager#IMPORTANCE_DEFAULT).
+- [`Media playback`](https://developer.android.com/reference/android/app/Notification.MediaStyle.md.txt) notifications. Android Automotive OS gathers information about ongoing media playback and displays it in a dedicated place in the user interface. Note that you must call [`setMediaSession`](https://developer.android.com/reference/android/app/Notification.MediaStyle.md.txt#setMediaSession(android.media.session.MediaSession.Token)) with a non-null token for the system to recognize the notification as media playback.
+- Turn-by-turn navigation notifications for [`CATEGORY_NAVIGATION`](https://developer.android.com/reference/android/app/Notification.md.txt#CATEGORY_NAVIGATION).
+- Foreground service notifications for system privileged apps and apps that are signed with the platform key that have an importance level lower than [`IMPORTANCE_DEFAULT`](https://developer.android.com/reference/android/app/NotificationManager.md.txt#IMPORTANCE_DEFAULT).
 
 ## Heads-up notifications
 
@@ -157,7 +159,7 @@ depending on whether they have system privileges.
 
 System-privileged apps and apps signed with the platform key
 :   The app can trigger a heads-up notification by setting the notification
-    channel importance to [`IMPORTANCE_HIGH`](https://developer.android.com/reference/android/app/NotificationManager#IMPORTANCE_HIGH) or higher.
+    channel importance to [`IMPORTANCE_HIGH`](https://developer.android.com/reference/android/app/NotificationManager.md.txt#IMPORTANCE_HIGH) or higher.
 
 All other apps
 
@@ -165,9 +167,9 @@ All other apps
     channel importance to `IMPORTANCE_HIGH` or higher and verifying that the
     notification belongs to one of the following categories:
 
-    - [`CATEGORY_CALL`](https://developer.android.com/reference/android/app/Notification#CATEGORY_CALL)
-    - [`CATEGORY_MESSAGE`](https://developer.android.com/reference/android/app/Notification#CATEGORY_MESSAGE)
-    - [`CATEGORY_NAVIGATION`](https://developer.android.com/reference/android/app/Notification#CATEGORY_NAVIGATION)
+    - [`CATEGORY_CALL`](https://developer.android.com/reference/android/app/Notification.md.txt#CATEGORY_CALL)
+    - [`CATEGORY_MESSAGE`](https://developer.android.com/reference/android/app/Notification.md.txt#CATEGORY_MESSAGE)
+    - [`CATEGORY_NAVIGATION`](https://developer.android.com/reference/android/app/Notification.md.txt#CATEGORY_NAVIGATION)
 
 > [!NOTE]
 > **Note:** Some car manufacturers have a dedicated screen for navigation. In these cases, the manufacturer can configure Android Automotive OS so that `CATEGORY_NAVIGATION` heads-up notifications aren't displayed.
@@ -184,14 +186,14 @@ cases:
   the call is terminated. To qualify as an undismissable heads-up notification
   for an incoming call, a notification must fulfill the following requirements:
 
-  - Belong to [`CATEGORY_CALL`](https://developer.android.com/reference/android/app/Notification#CATEGORY_CALL)
-  - [Set a fullscreen intent](https://developer.android.com/reference/android/app/Notification.Builder#setFullScreenIntent(android.app.PendingIntent,%2520boolean))
-  - Be marked as ongoing using the [`setOngoing()`](https://developer.android.com/reference/android/app/Notification.Builder#setOngoing(boolean)) method
+  - Belong to [`CATEGORY_CALL`](https://developer.android.com/reference/android/app/Notification.md.txt#CATEGORY_CALL)
+  - [Set a fullscreen intent](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setFullScreenIntent(android.app.PendingIntent,%2520boolean))
+  - Be marked as ongoing using the [`setOngoing`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt#setOngoing(boolean)) method
 - Heads-up notifications remain if an app [updates the notification](https://developer.android.com/training/notify-user/build-notification#Updating)
   within the eight-second time window.
 
 When a heads-up notification is dismissed, the notification is listed in the
-Notification Center, unless it is a [`CATEGORY_NAVIGATION`](https://developer.android.com/reference/android/app/Notification#CATEGORY_NAVIGATION) notification.
+Notification Center, unless it is a [`CATEGORY_NAVIGATION`](https://developer.android.com/reference/android/app/Notification.md.txt#CATEGORY_NAVIGATION) notification.
 
 ## Notification API changes and restrictions for cars
 
@@ -201,24 +203,25 @@ API behaves differently or has restrictions for Android Automotive OS.
 ### Notification.Builder
 
 Tables 1 and 2 describe the API changes and restrictions in the
-[`Notification.Builder`](https://developer.android.com/reference/android/app/Notification.Builder) class.
+[`Notification.Builder`](https://developer.android.com/reference/android/app/Notification.Builder.md.txt) class.
 
 **Table 1** . Changes to public methods for `Notification.Builder`
 
 | Public methods | Effect | Description |
 |---|---|---|
-| `addAction()` | Conditional no-op | `Notification.MessagingStyle` notifications must add the actions specified in the [compatibility requirements](https://developer.android.com/training/cars/platforms/automotive-os/notifications#messaging-requirements). Any additional actions that are added won't be rendered as Notification buttons. |
-| `createBigContentView()` `createContentView()` `createHeadsUpContentView()` `setContent()` `setCustomBigContentView()` `setCustomContentView()` `setCustomHeadsUpContentView()` | No-op | [`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews) and custom content views are not supported. |
-| `setBadgeIconType()` `setNumber()` | No-op | Notification badges are not supported. |
-| `setChronometerCountDown()` `setUsesChronometer()` | No-op | Countdown timers are not supported. |
-| `setColorized()` | Constraints changed | **Platform-signed apps**: configurable; allowed by default. **System-privileged apps**: configured by platform; disallowed by default. **All other apps**: configured by platform; disallowed by default. |
-| `setFullScreenIntent()` | Behavior changed | Does not auto-launch the intent. |
-| `setLargeIcon()` | Behavior changed | Large icons are shown on the righthand side of the notification. |
-| `setLights()` | No-op | Android Automotive OS devices don't have LED indicator lights. |
-| `setOngoing()` | Behavior changed | Behavior is different when the notification also triggers a heads-up notification. `setOngoing()` only makes the heads-up notification undismissable if the heads-up notification is for an incoming call. To qualify as an undismissable heads-up notification for an incoming call, a notification must fulfill [the defined requirements](https://developer.android.com/training/cars/platforms/automotive-os/notifications#hun-life). Drivers can dismiss all other types of heads-up notifications. |
-| `setPublicVersion()` `setVisibility()` | No-op | Private mode is not supported. |
-| `setSettingsText()` | No-op | Notifications don't support affordances that link to app settings. Drivers access app settings through the app instead. |
-| `setTicker()` | No-op | Ticker text is not supported. |
+| `addAction` | Conditional no-op | `Notification.MessagingStyle` notifications must add the actions specified in the [compatibility requirements](https://developer.android.com/training/cars/platforms/automotive-os/notifications.md.txt#messaging-requirements). Any additional actions that are added won't be rendered as Notification buttons. |
+| `createBigContentView` `createContentView` `createHeadsUpContentView` `setContent` `setCustomBigContentView` `setCustomContentView` `setCustomHeadsUpContentView` | No-op | [`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews.md.txt) and custom content views are not supported. |
+| `setBadgeIconType` `setNumber` | No-op | Notification badges are not supported. |
+| `setChronometerCountDown` `setUsesChronometer` | No-op | Countdown timers are not supported. |
+| `setColorized` | Constraints changed | **Platform-signed apps**: configurable; allowed by default. **System-privileged apps**: configured by platform; disallowed by default. **All other apps**: configured by platform; disallowed by default. |
+| `setFullScreenIntent` | Behavior changed | Does not auto-launch the intent. |
+| `setLargeIcon` | Behavior changed | Depending on the car manufacturer's configuration, Android Automotive OS might ignore the large icon. By default, Android Automotive OS displays the app's launcher icon instead of the large icon. When a car manufacturer configures notifications to display large icons, whether the large icon appears depends on the notification template. |
+| `setLights` | No-op | Android Automotive OS devices don't have LED indicator lights. |
+| `setOngoing` | Behavior changed | Behavior is different when the notification also triggers a heads-up notification. `setOngoing` only makes the heads-up notification undismissable if the heads-up notification is for an incoming call. To qualify as an undismissable heads-up notification for an incoming call, a notification must fulfill [the defined requirements](https://developer.android.com/training/cars/platforms/automotive-os/notifications.md.txt#hun-life). Drivers can dismiss all other types of heads-up notifications. |
+| `setPublicVersion` `setVisibility` | No-op | Private mode is not supported. |
+| `setSettingsText` | No-op | Notifications don't support affordances that link to app settings. Drivers access app settings through the app instead. |
+| `setSmallIcon` | Behavior changed | Depending on the car manufacturer's configuration, Android Automotive OS might ignore the small icon. By default, Android Automotive OS hides the notification header and displays the app's launcher icon instead of the small icon. You must still set a small icon for the notification. Otherwise, posting the notification throws `IllegalArgumentException`. |
+| `setTicker` | No-op | Ticker text is not supported. |
 
 **Table 2** . Changes to nested classes for `Notification.Builder`
 
@@ -227,13 +230,13 @@ Tables 1 and 2 describe the API changes and restrictions in the
 | `Notification.BigPictureStyle` `Notification.BigTextStyle` `Notification.InboxStyle` | Not used | Only summary text shows. Detailed notifications for these styles are not supported. |
 | `Notification.BubbleMetadata` | Not used | Bubbles are not supported. |
 | `Notification.MediaStyle` | Hidden | Notifications with this style are hidden. Android Automotive OS manages user interface interactions for media notifications and playback. |
-| `Notification.MessagingStyle` | Behavior changed | Notifications with this style have the following differences: - Notifications only show the last message from a conversation when using [`addMessage()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle#addMessage(androidx.core.app.NotificationCompat.MessagingStyle.Message)). Only unread messages are included, as specified in the [compatibility requirements](https://developer.android.com/training/cars/platforms/automotive-os/notifications#messaging-requirements). - Android Automotive OS automatically adds [Play and Mute buttons](https://developer.android.com/training/cars/platforms/automotive-os/notifications#play-mute-buttons) to [car-compatible messaging notifications](https://developer.android.com/training/cars/platforms/automotive-os/notifications#messaging-requirements). - Notifications must add the actions specified in the [compatibility requirements](https://developer.android.com/training/cars/platforms/automotive-os/notifications#messaging-requirements). Any additional actions that are added are not rendered as Notification buttons. |
+| `Notification.MessagingStyle` | Behavior changed | Notifications with this style have the following differences: - Notifications only show the last message from a conversation when using [`addMessage`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle.md.txt#addMessage(androidx.core.app.NotificationCompat.MessagingStyle.Message)). Only unread messages are included, as specified in the [compatibility requirements](https://developer.android.com/training/cars/platforms/automotive-os/notifications.md.txt#messaging-requirements). - Android Automotive OS automatically adds [Play and Mute buttons](https://developer.android.com/training/cars/platforms/automotive-os/notifications.md.txt#play-mute-buttons) to [car-compatible messaging notifications](https://developer.android.com/training/cars/platforms/automotive-os/notifications.md.txt#messaging-requirements). - Notifications must add the actions specified in the [compatibility requirements](https://developer.android.com/training/cars/platforms/automotive-os/notifications.md.txt#messaging-requirements). Any additional actions that are added are not rendered as Notification buttons. |
 | `Notification.CarExtender` `Notification.WearableExtender` | Not used | Extenders are not supported. |
 
 ### Notification.Action.Builder
 
 Table 3 describes the API changes and restrictions in the
-[`Notification.Action.Builder`](https://developer.android.com/reference/android/app/Notification.Action.Builder) class.
+[`Notification.Action.Builder`](https://developer.android.com/reference/android/app/Notification.Action.Builder.md.txt) class.
 
 **Table 3** . Changes to public methods for `Notification.Action.Builder`
 

@@ -64,7 +64,7 @@ of virtual devices from these device categories:
 
 To set up a virtual device to emulate a typical phone, follow these steps:
 
-1. Install [Android Studio Koala Feature Drop \| 2024.1.2 or higher](https://developer.android.com/studio).
+1. Install [Android Studio Koala Feature Drop \| 2024.1.2 or higher](https://developer.android.com/studio.md.txt).
 2. In Android Studio, click **Tools \> SDK Manager**.
 3. In the **SDK Tools** tab, select the latest version of **Android Emulator** , and click **OK**. This action installs the latest version if it isn't already installed.
 4. In Android Studio, click **Tools \> Device Manager** , then click **Add a new
@@ -95,7 +95,7 @@ To set up a virtual device to emulate a typical phone, follow these steps:
 To set up a virtual device to emulate a tablet or other large-screen device,
 follow these steps:
 
-1. Install [Android Studio Koala Feature Drop \| 2024.1.2 or higher](https://developer.android.com/studio).
+1. Install [Android Studio Koala Feature Drop \| 2024.1.2 or higher](https://developer.android.com/studio.md.txt).
 2. In Android Studio, click **Tools \> SDK Manager**.
 3. In the **SDK Tools** tab, select the latest version of **Android Emulator** , and click **OK**. This action installs the latest version if it isn't already installed.
 4. In Android Studio, click **Tools \> Device Manager** , then click **Add a new

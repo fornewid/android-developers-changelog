@@ -371,10 +371,6 @@ To learn more about data binding, see the following for additional resources:
 
 - [Android Data Binding Library samples](https://github.com/android/databinding-samples)
 
-### Codelabs
-
-- [Data Binding in Android](https://codelabs.developers.google.com/codelabs/android-databinding)
-
 ### Blog posts
 
 - [Data Binding --- lessons learnt](https://medium.com/androiddevelopers/data-binding-lessons-learnt-4fd16576b719)

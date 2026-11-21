@@ -4,12 +4,14 @@ url: https://developer.android.com/topic/libraries/data-binding/generated-bindin
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/topic/libraries/data-binding/llms.txt
+
 The Data Binding Library generates binding classes you can use to access the
 layout's variables and views. This documentation shows how to create and
 customize generated binding classes.
 
 The generated binding class links the layout variables with the views within the
-layout. You can [customize](https://developer.android.com/topic/libraries/data-binding/generated-binding#custom_binding_class_names) the name and package of
+layout. You can [customize](https://developer.android.com/topic/libraries/data-binding/generated-binding.md.txt#custom_binding_class_names) the name and package of
 the binding. All generated binding classes inherit from the
 [`ViewDataBinding`](https://developer.android.com/reference/androidx/databinding/ViewDataBinding) class.
 
@@ -54,8 +56,8 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 
 There is an alternate version of the `inflate()` method that takes a
-[`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup) object in addition to the
-[`LayoutInflater`](https://developer.android.com/reference/android/view/LayoutInflater) object , as
+[`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup.md.txt) object in addition to the
+[`LayoutInflater`](https://developer.android.com/reference/android/view/LayoutInflater.md.txt) object , as
 shown in the following example:
 
 ### Kotlin
@@ -105,9 +107,9 @@ ViewDataBinding binding = DataBindingUtil.bind(viewRoot);
 ```
 
 If you are using data binding items inside a
-[`Fragment`](https://developer.android.com/reference/android/app/Fragment),
-[`ListView`](https://developer.android.com/reference/android/widget/ListView), or
-[`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView)
+[`Fragment`](https://developer.android.com/reference/android/app/Fragment.md.txt),
+[`ListView`](https://developer.android.com/reference/android/widget/ListView.md.txt), or
+[`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.md.txt)
 adapter, you might prefer to use the
 [`inflate()`](https://developer.android.com/reference/androidx/databinding/DataBindingUtil#inflate(android.view.LayoutInflater,%20int,%20android.view.ViewGroup,%20boolean,%20android.databinding.DataBindingComponent))
 methods of the bindings classes or the
@@ -137,28 +139,30 @@ each view that has an ID in the layout. For example, the Data Binding Library
 creates the `firstName` and `lastName` fields of type `TextView` from the
 following layout:
 
-    <layout xmlns:android="http://schemas.android.com/apk/res/android">
-       <data>
-           <variable name="user" type="com.example.User"/>
-       </data>
-       <LinearLayout
-           android:orientation="vertical"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent">
-           <TextView android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@{user.firstName}"
-       android:id="@+id/firstName"/>
-           <TextView android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@{user.lastName}"
-      android:id="@+id/lastName"/>
-       </LinearLayout>
-    </layout>
+```xml
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+   <data>
+       <variable name="user" type="com.example.User"/>
+   </data>
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <TextView android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@{user.firstName}"
+   android:id="@+id/firstName"/>
+       <TextView android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@{user.lastName}"
+  android:id="@+id/lastName"/>
+   </LinearLayout>
+</layout>
+```
 
 The library extracts the views, including the IDs, from the view hierarchy in a
 single pass. This mechanism can be faster than calling the
-[`findViewById()`](https://developer.android.com/reference/android/app/Activity#findViewById(int))
+[`findViewById()`](https://developer.android.com/reference/android/app/Activity.md.txt#findViewById(int))
 method for every view in the layout.
 
 IDs aren't as necessary as they are without data binding, but there are still
@@ -170,16 +174,18 @@ The Data Binding Library generates accessor methods for each variable declared
 in the layout. For example, the following layout generates setter and getter
 methods in the binding class for the `user`, `image`, and `note` variables:
 
-    <data>
-       <import type="android.graphics.drawable.Drawable"/>
-       <variable name="user" type="com.example.User"/>
-       <variable name="image" type="Drawable"/>
-       <variable name="note" type="String"/>
-    </data>
+```xml
+<data>
+   <import type="android.graphics.drawable.Drawable"/>
+   <variable name="user" type="com.example.User"/>
+   <variable name="image" type="Drawable"/>
+   <variable name="note" type="String"/>
+</data>
+```
 
 ## ViewStubs
 
-Unlike normal views, [`ViewStub`](https://developer.android.com/reference/android/view/ViewStub) objects
+Unlike normal views, [`ViewStub`](https://developer.android.com/reference/android/view/ViewStub.md.txt) objects
 start as invisible views. When they are made visible or are explicitly inflated,
 they replace themselves in the layout by inflating another layout.
 
@@ -193,7 +199,7 @@ hierarchy when the `ViewStub` is inflated.
 
 When inflating another layout, a binding must establish for the new layout.
 Therefore, the `ViewStubProxy` must listen to the `ViewStub`
-[`OnInflateListener`](https://developer.android.com/reference/android/view/ViewStub.OnInflateListener)
+[`OnInflateListener`](https://developer.android.com/reference/android/view/ViewStub.OnInflateListener.md.txt)
 and establish the binding when required. Since only one listener can exist at a
 time, the `ViewStubProxy` lets you set an `OnInflateListener`, which it calls
 after establishing the binding.
@@ -203,16 +209,16 @@ after establishing the binding.
 When a variable or observable object changes, the binding is scheduled to change
 before the next frame. There are times, however, when binding must be executed
 immediately. To force execution, use the
-[`executePendingBindings()`](https://developer.android.com/reference/android/databinding/ViewDataBinding#executependingbindings)
+[`executePendingBindings()`](https://developer.android.com/reference/android/databinding/ViewDataBinding.md.txt#executependingbindings)
 method.
 
 ## Dynamic variables
 
 At times, the specific binding class is unknown. For example, a
-[`RecyclerView.Adapter`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter)
+[`RecyclerView.Adapter`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter.md.txt)
 operating against arbitrary layouts doesn't know the specific binding class. It
 must assign the binding value during the call to the
-[`onBindViewHolder()`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter#onBindViewHolder(VH,int))
+[`onBindViewHolder()`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter.md.txt#onBindViewHolder(VH,int))
 method.
 
 In the following example, all layouts that the `RecyclerView` binds to have an
@@ -265,37 +271,42 @@ Binding classes can be renamed or placed in different packages by adjusting the
 generates the `ContactItem` binding class in the `databinding` package in the
 current module:
 
-    <data class="ContactItem">
-        ...
-    </data>
+```xml
+<data class="ContactItem">
+    ...
+</data>
+```
 
 You can generate the binding class in a different package by prefixing the class
 name with a period. The following example generates the binding class in the
 module package:
 
-    <data class=".ContactItem">
-        ...
-    </data>
+```xml
+<data class=".ContactItem">
+    ...
+</data>
+```
 
 You can also use the full package name where you want the binding class to be
 generated. The following example creates the `ContactItem` binding class in the
 `com.example` package:
 
-    <data class="com.example.ContactItem">
-        ...
-    </data>
+```xml
+<data class="com.example.ContactItem">
+    ...
+</data>
+```
 
 ## Additional resources
 
 To learn more about data binding, see the following additional resources.
 
 - [Android Data Binding Library samples](https://github.com/android/databinding-samples)
-- [Data Binding in Android](https://codelabs.developers.google.com/codelabs/android-databinding)
 - [Data Binding --- lessons learnt](https://medium.com/androiddevelopers/data-binding-lessons-learnt-4fd16576b719)
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Layouts and binding expressions](https://developer.android.com/topic/libraries/data-binding/expressions)
-- [Data Binding Library](https://developer.android.com/topic/libraries/data-binding)
-- [View binding](https://developer.android.com/topic/libraries/view-binding)
+- [Layouts and binding expressions](https://developer.android.com/topic/libraries/data-binding/expressions.md.txt)
+- [Data Binding Library](https://developer.android.com/topic/libraries/data-binding.md.txt)
+- [View binding](https://developer.android.com/topic/libraries/view-binding.md.txt)

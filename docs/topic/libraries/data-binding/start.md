@@ -79,10 +79,6 @@ additional resources.
 
 <!-- -->
 
-- [Data Binding in Android codelab](https://codelabs.developers.google.com/codelabs/android-databinding)
-
-<!-- -->
-
 - [Data Binding --- lessons learnt](https://medium.com/androiddevelopers/data-binding-lessons-learnt-4fd16576b719)
 
 ## Recommended for you

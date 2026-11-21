@@ -4,6 +4,8 @@ url: https://developer.android.com/games/optimize/memory-monitoring
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/optimize/llms.txt
+
 To effectively optimize your game's memory footprint, you must first understand
 how the Android platform measures memory and how to use system telemetry,
 diagnostic APIs, and profiling tools. This guide details how to monitor,
@@ -44,6 +46,10 @@ user-perceived services or background services unexpectedly.
 
 - **What it includes**: Foreground, Perceptible services, Background and Cached.
 - **Why it matters** : Different process states have different impacts on the Android OS memory management. You might not know your game is running with a sensitive process state if any of the third-party SDK triggers a background task unintentionally. Monitor whether your game is running in the background using [`RunningAppProcessInfo`](https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo.md.txt).
+
+> [!NOTE]
+> **Note:** To inspect your game's UID state, process state, and OOM score adjustments locally during background transitions, see [Verify UID state and
+> OOM adjustments](https://developer.android.com/games/optimize/memory-monitoring#verify-uid-state).
 
 ## Application programming interfaces (APIs)
 
@@ -242,6 +248,90 @@ because it ran out of memory. The tool's output is much more detailed than using
 because it ran out of memory or if it was killed by the LMK.
 
 For more information, see [Capture and read bug reports](https://developer.android.com/studio/debug/bug-report.md.txt).
+
+### Verify UID state and OOM adjustments
+
+Android manages process priority and memory reclamation based on the
+[Processes and app lifecycle](https://developer.android.com/guide/components/activities/process-lifecycle.md.txt) hierarchy,
+[Service bindings and process states](https://developer.android.com/topic/performance/memory/guide/service-bindings.md.txt), and the public
+[`RunningAppProcessInfo`](https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo.md.txt) API. When diagnosing background memory behavior
+with `adb` or checking why Android Vitals assigns samples to a particular state
+bucket, distinguish between these two layers:
+
+- **Process state (`procState`) and `oom_score_adj`** : `procState` is the Activity Manager lifecycle state reported for an individual process by `adb` diagnostic commands (`cmd activity` and `dumpsys activity`)---for example, `2 (TOP)` when an activity is visible, `4 (FOREGROUND_SERVICE)` while running a foreground service, or `15 (LAST_ACTIVITY)` immediately after the player leaves an activity. Android's `OomAdjuster` combines lifecycle state with active components and transition rules to assign each process an `oom_score_adj` priority score. The four coarse top-level Android Vitals memory buckets (**Foreground** , **User-perceived services** , **Background** , and **Cached** ) are keyed off per-process `oom_score_adj` rather than UID state.
+- **UID state** : The aggregate process state reported by `adb` for your game's Linux user ID (UID). It reflects the highest-priority (lowest numeric) process state among all active processes sharing that UID.
+
+> [!NOTE]
+> **Note:** The process state numbers in this section, such as `15` for `LAST_ACTIVITY`, are the values on Android 11 and higher. These are internal values that can differ on Android 10 and lower, so match the state name rather than the number.
+
+#### Why `RunningAppProcessInfo` and `oom_score_adj` diverge
+
+In your game's runtime code, the public [`RunningAppProcessInfo.importance`](https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo.md.txt#importance)
+API collapses post-foreground and cached states---including what `adb` reports as
+`15 (LAST_ACTIVITY)`---into [`IMPORTANCE_CACHED`](https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo.md.txt#IMPORTANCE_CACHED) (`400`).
+
+Meanwhile, when a player switches away from your game (for example, by pressing
+the Home button), `OomAdjuster` briefly holds the stopping activity process at
+`oom_score_adj` `200` (`PERCEPTIBLE_APP_ADJ`) under the `pause-activity` and
+`stop-activity` adjustment reasons until `onPause()` and `onStop()` complete,
+before lowering `oom_score_adj` to `700` (`PREVIOUS_APP_ADJ`). Because the four
+coarse top-level Android Vitals buckets are keyed off per-process
+`oom_score_adj` rather than UID state, a single-process game briefly held at
+`oom_score_adj = 200` (`PERCEPTIBLE_APP_ADJ`) during `pause-activity` or
+`stop-activity` lands in **User-perceived services** . During `stop-activity`,
+this happens even when `adb` already reports its `UID state` as
+`15 (LAST_ACTIVITY)`.
+
+Because `RunningAppProcessInfo.importance` collapses `LAST_ACTIVITY` and
+cached states into `IMPORTANCE_CACHED` (`400`), it cannot distinguish
+`LAST_ACTIVITY` from `CACHED_ACTIVITY`. Meanwhile, raw `oom_score_adj = 200`
+overlaps between transient activity transitions (`pause-activity` and
+`stop-activity`) and active foreground services (which map to
+[`IMPORTANCE_FOREGROUND_SERVICE`](https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo.md.txt#IMPORTANCE_FOREGROUND_SERVICE) (`125`) in `RunningAppProcessInfo`). Use
+`adb` to inspect both UID state and `OomAdjuster` transitions directly
+on-device.
+
+#### Inspect live UID state and OOM adjustments with `adb`
+
+1. **Find your game's numeric UID**:
+
+   ```bash
+   adb shell pm list packages -U <PACKAGE_NAME>
+   ```
+2. **Query the current UID state** : Pass the numeric `<UID>` returned in the
+   previous step (passing `<PACKAGE_NAME>` throws `NumberFormatException`).
+   During a normal activity stop transition with no active foreground service,
+   this outputs `15 (LAST_ACTIVITY)`:
+
+   ```bash
+   adb shell cmd activity get-uid-state <UID>
+   ```
+3. **Compare raw process state with the public API bucket** : Pair
+   `get-uid-state` with `package-importance` to compare the raw `procState`
+   (`15 (LAST_ACTIVITY)`) against the mapped public
+   `RunningAppProcessInfo.importance` value (`400` `IMPORTANCE_CACHED`):
+
+   ```bash
+   adb shell cmd activity package-importance <PACKAGE_NAME>
+   ```
+4. **Stream live UID state and `oom_score_adj` changes** : Use the plural
+   `watch-uids` sub-command with `--oom <UID>` to stream UID process state
+   transitions alongside `# OomAdjuster` messages while minimizing and resuming
+   your game:
+
+   ```bash
+   adb shell cmd activity watch-uids --oom <UID>
+   ```
+5. **Inspect full `OomAdjuster` state** : Dump the full OOM adjustment table to
+   confirm whether a `cur=200` entry is caused by `pause-activity` or
+   `stop-activity` rather than `fg-service` (an active foreground service):
+
+   ```bash
+   adb shell dumpsys activity oom
+   ```
+
+> [!NOTE]
+> **Note:** **Multi-process games** : UID state reflects the highest-priority process sharing the UID. If your game runs a companion process in the same UID (such as a `:push` or `:remote` service running an active foreground service), `get-uid-state` and `watch-uids` remain in `FOREGROUND_SERVICE` even after the main game activity stops. Use `adb shell dumpsys activity oom` to inspect per-process states and adjustment reasons and verify that your main game process drops to cached when persistent services are isolated into separate processes as described in [Multi-process optimization](https://developer.android.com/games/optimize/memory-reduction.md.txt#multi-process-optimization).
 
 ### Game engine tools
 

@@ -4,16 +4,18 @@ url: https://developer.android.com/jetpack/androidx/releases/databinding
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/jetpack/androidx/llms.txt
+
 # Databinding
 
-[User Guide](https://developer.android.com/topic/libraries/data-binding) [Code Sample](https://github.com/android/databinding-samples) [Codelab](https://codelabs.developers.google.com/codelabs/android-databinding) Bind UI components in your layouts to data sources in your app using a declarative format.
+[User Guide](https://developer.android.com/topic/libraries/data-binding.md.txt) [Code Sample](https://github.com/android/databinding-samples) Bind UI components in your layouts to data sources in your app using a declarative format.
 
 > [!CAUTION]
-> **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
+> **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first.md.txt) for more information.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 5, 2019 | [3.5.0](https://developer.android.com/jetpack/androidx/releases/databinding#3.5.0) | - | - | [3.6.0-alpha10](https://developer.android.com/jetpack/androidx/releases/databinding#3.6.0-alpha10) |
+| September 5, 2019 | [3.5.0](https://developer.android.com/jetpack/androidx/releases/databinding.md.txt#3.5.0) | - | - | [3.6.0-alpha10](https://developer.android.com/jetpack/androidx/releases/databinding.md.txt#3.6.0-alpha10) |
 
 The databinding library is bundled with
 [the Android Gradle plugin](https://developer.android.com/studio/releases/gradle-plugin).
@@ -34,8 +36,8 @@ module's `build.gradle` file, as shown below:
 > **Note:** You must enable data binding for all modules that depend on libraries that use data binding, even if the module doesn't directly use data binding.
 
 For more information about data binding,
-see the guide to the [data binding library](https://developer.android.com/topic/libraries/data-binding),
-and the Android Studio [release notes](https://developer.android.com/studio/releases)
+see the guide to the [data binding library](https://developer.android.com/topic/libraries/data-binding.md.txt),
+and the Android Studio [release notes](https://developer.android.com/studio/releases.md.txt)
 
 ## Feedback
 

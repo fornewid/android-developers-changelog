@@ -61,22 +61,11 @@ actions).
 
 The API then looks quite simple:
 
-### Kotlin
-
 ```kotlin
 onWebView()
     .withElement(Atom)
     .perform(Atom)
     .check(WebAssertion)
-```
-
-### Java
-
-```java
-onWebView()
-    .withElement(Atom)
-    .perform(Atom)
-    .check(WebAssertion);
 ```
 
 To learn more, read [Selenium's documentation on Atoms](https://github.com/SeleniumHQ/selenium/wiki/Automation-Atoms).
@@ -134,27 +123,16 @@ The `onWebView()` method is the main entry point when working with WebView on
 Android using Espresso. You use this method to perform Espresso-Web tests, such
 as the following:
 
-### Kotlin
 
 ```kotlin
 onWebView()
-    .withElement(findElement(Locator.ID, "link_2")) // similar to onView(withId(...))
-    .perform(webClick()) // Similar to perform(click())
-
-    // Similar to check(matches(...))
+    .withElement(findElement(Locator.ID, "link_2")) // similar to onView(withId(...)).
+    .perform(webClick()) // Similar to perform(click()).
+    // Similar to check(matches(...)).
     .check(webMatches(getCurrentUrl(), containsString("navigation_2.html")))
 ```
 
-### Java
-
-```java
-onWebView()
-    .withElement(findElement(Locator.ID, "link_2")) // similar to onView(withId(...))
-    .perform(webClick()) // Similar to perform(click())
-
-    // Similar to check(matches(...))
-    .check(webMatches(getCurrentUrl(), containsString("navigation_2.html")));
-```
+<br />
 
 In this example, Espresso-Web locates a DOM element whose ID is `"link_2"` and
 clicks on it. The tool then verifies that the WebView sends a GET request
@@ -174,6 +152,7 @@ following code snippet.
 > [!NOTE]
 > **Note:** Enabling JavaScript may cause the WebView under test to be reloaded. This is necessary to ensure that [AndroidJUnitRunner](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/runner.md.txt) loads all needed test infrastructure, including JavaScript interactions.
 
+
 ```kotlin
 @RunWith(AndroidJUnit4::class)
 class MyTestSuite {
@@ -186,6 +165,8 @@ class MyTestSuite {
 }
 ```
 
+<br />
+
 ### Common web interactions
 
 Common interactions with `Web.WebInteraction` objects include the following:
@@ -195,16 +176,8 @@ Common interactions with `Web.WebInteraction` objects include the following:
 
   Example:
 
-  ### Kotlin
-
   ```kotlin
   onWebView().withElement(findElement(Locator.ID, "teacher"))
-  ```
-
-  ### Java
-
-  ```java
-  onWebView().withElement(findElement(Locator.ID, "teacher"));
   ```
 - `withContextualElement()` references a scoped DOM element
   within the WebView, relative to another DOM element. You should call
@@ -213,25 +186,14 @@ Common interactions with `Web.WebInteraction` objects include the following:
 
   Example:
 
-  ### Kotlin
-
   ```kotlin
   .withElement(findElement(Locator.ID, "teacher"))
-      .withContextualElement(findElement(Locator.ID, "person_name"))
-  ```
-
-  ### Java
-
-  ```java
-  .withElement(findElement(Locator.ID, "teacher"))
-      .withContextualElement(findElement(Locator.ID, "person_name"));
+  .withContextualElement(findElement(Locator.ID, "person_name"))
   ```
 - `check()` evaluates a condition, making sure that it resolves
   to `true`.
 
   Example:
-
-  ### Kotlin
 
   ```kotlin
   onWebView()
@@ -239,34 +201,15 @@ Common interactions with `Web.WebInteraction` objects include the following:
       .withContextualElement(findElement(Locator.ID, "person_name"))
       .check(webMatches(getText(), containsString("Socrates")))
   ```
-
-  ### Java
-
-  ```java
-  onWebView()
-      .withElement(findElement(Locator.ID, "teacher"))
-      .withContextualElement(findElement(Locator.ID, "person_name"))
-      .check(webMatches(getText(), containsString("Socrates")));
-  ```
 - `perform()` executes an action within a WebView, such as
   clicking on an element.
 
   Example:
 
-  ### Kotlin
-
   ```kotlin
   onWebView()
       .withElement(findElement(Locator.ID, "teacher"))
       .perform(webClick())
-  ```
-
-  ### Java
-
-  ```java
-  onWebView()
-      .withElement(findElement(Locator.ID, "teacher"))
-      .perform(webClick());
   ```
 - `reset()` reverts the WebView to its initial state. This is
   necessary when a prior action, such as a click, introduces a navigation
@@ -279,22 +222,11 @@ Common interactions with `Web.WebInteraction` objects include the following:
 
   Example:
 
-  ### Kotlin
-
   ```kotlin
   onWebView()
       .withElement(...)
       .perform(...)
       .reset()
-  ```
-
-  ### Java
-
-  ```java
-  onWebView()
-      .withElement(...)
-      .perform(...)
-      .reset();
   ```
 
 ### Example
@@ -303,7 +235,6 @@ The following example tests whether, after entering text into a WebView and
 selecting a **Submit** button, the same text appears within a different element in
 the same WebView:
 
-### Kotlin
 
 ```kotlin
 const val MACCHIATO = "Macchiato"
@@ -317,7 +248,7 @@ class MyEspressoWebTestSuite {
         // ...
 
         // Lazily launch the Activity with a custom start Intent per test.
-        ActivityScenario.launchActivity(webFormIntent)
+        ActivityScenario.launch<MyWebViewActivity>(webFormIntent)
 
         // Selects the WebView in your layout. If you have multiple WebView
         // objects, you can also use a matcher to select a given WebView,
@@ -325,15 +256,12 @@ class MyEspressoWebTestSuite {
         onWebView()
             // Find the input element by ID.
             .withElement(findElement(Locator.ID, "text_input"))
-
             // Clear previous input and enter new text into the input element.
             .perform(clearElement())
             .perform(DriverAtoms.webKeys(MACCHIATO))
-
             // Find the "Submit" button and simulate a click using JavaScript.
             .withElement(findElement(Locator.ID, "submitBtn"))
             .perform(webClick())
-
             // Find the response element by ID, and verify that it contains the
             // entered text.
             .withElement(findElement(Locator.ID, "response"))
@@ -342,41 +270,7 @@ class MyEspressoWebTestSuite {
 }
 ```
 
-### Java
-
-```java
-public static final String MACCHIATO = "Macchiato";
-
-@Test
-public void typeTextInInput_clickButton_SubmitsForm() {
-    // Create an intent that displays a web form.
-    Intent webFormIntent = new Intent();
-    // ...
-
-    // Lazily launch the Activity with a custom start Intent per test.
-    ActivityScenario.launchActivity(webFormIntent);
-
-    // Selects the WebView in your layout. If you have multiple WebView objects,
-    // you can also use a matcher to select a given WebView,
-    // onWebView(withId(R.id.web_view)).
-    onWebView()
-        // Find the input element by ID.
-        .withElement(findElement(Locator.ID, "text_input"))
-
-        // Clear previous input and enter new text into the input element.
-        .perform(clearElement())
-        .perform(DriverAtoms.webKeys(MACCHIATO))
-
-        // Find the "Submit" button and simulate a click using JavaScript.
-        .withElement(findElement(Locator.ID, "submitBtn"))
-        .perform(webClick())
-
-        // Find the response element by ID, and verify that it contains the
-        // entered text.
-        .withElement(findElement(Locator.ID, "response"))
-        .check(webMatches(getText(), containsString(MACCHIATO)));
-}
-```
+<br />
 
 ## Additional resources
 

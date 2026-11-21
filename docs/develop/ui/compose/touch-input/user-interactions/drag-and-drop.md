@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/touch-input/user-interacti
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/touch-input/llms.txt
+
 Jetpack Compose supports drag and drop with two modifiers:
 
 - [`dragAndDropSource`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/draganddrop/dragAndDropSource.modifier.md.txt#(androidx.compose.ui.Modifier).dragAndDropSource(kotlin.Function1)): Specifies a composable as the starting point of the drag gesture
@@ -161,7 +163,3 @@ object : DragAndDropTarget {
 ```
 
 <br />
-
-## Additional resources
-
-Codelab: [Drag and drop in Compose](https://developer.android.com/codelabs/codelab-dnd-compose)

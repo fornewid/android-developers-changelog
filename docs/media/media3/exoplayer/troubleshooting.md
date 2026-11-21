@@ -4,6 +4,8 @@ url: https://developer.android.com/media/media3/exoplayer/troubleshooting
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/media3/exoplayer/llms.txt
+
 - [Fixing "Cleartext HTTP traffic not permitted" errors](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#fixing-cleartext-http-traffic-not-permitted-errors)
 - [Fixing "SSLHandshakeException", "CertPathValidatorException" and "ERR_CERT_AUTHORITY_INVALID" errors](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#fixing-sslhandshakeexception-certpathvalidatorexception-and-err_cert_authority_invalid-errors)
 - [Why are some media files not seekable?](https://developer.android.com/media/media3/exoplayer/troubleshooting.md.txt#why-are-some-media-files-not-seekable)

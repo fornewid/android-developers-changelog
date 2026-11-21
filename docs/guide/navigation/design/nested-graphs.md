@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/navigation/design/nested-graphs
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/navigation/design/llms.txt
+
 Login flows, wizards, or other subflows within your app are usually best
 represented as nested navigation graphs. By nesting self-contained
 subnavigation flows in this way, the main flow of your app's UI is easier to
@@ -12,7 +14,7 @@ comprehend and manage.
 In addition, nested graphs are reusable. They also provide a level of
 encapsulation---destinations outside of the nested graph don't have direct access
 to any of the destinations within the nested graph. Instead, they should
-[`navigate()`](https://developer.android.com/reference/androidx/navigation/NavController#navigate(int)) to the nested graph itself, where the internal logic can
+[`navigate()`](https://developer.android.com/reference/androidx/navigation/NavController.md.txt#navigate(int)) to the nested graph itself, where the internal logic can
 change without affecting the rest of the graph.
 
 ## Example
@@ -42,8 +44,8 @@ navigation](https://developer.android.com/guide/navigation/navigation-conditiona
 ## Compose
 
 To create a nested navigation graph using Compose, use the
-[`NavGraphBuilder.navigation()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavGraphBuilder#(androidx.navigation.NavGraphBuilder).navigation(kotlin.Any,kotlin.collections.Map,kotlin.Function1)) function. You use `navigation()` just like
-[`NavGraphBuilder.composable()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavGraphBuilder#(androidx.navigation.NavGraphBuilder).composable(kotlin.collections.Map,kotlin.collections.List,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function2)) and [`NavGraphBuilder.dialog()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavGraphBuilder#(androidx.navigation.NavGraphBuilder).dialog(kotlin.collections.Map,kotlin.Function1))
+[`NavGraphBuilder.navigation()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavGraphBuilder.md.txt#(androidx.navigation.NavGraphBuilder).navigation(kotlin.Any,kotlin.collections.Map,kotlin.Function1)) function. You use `navigation()` just like
+[`NavGraphBuilder.composable()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavGraphBuilder.md.txt#(androidx.navigation.NavGraphBuilder).composable(kotlin.collections.Map,kotlin.collections.List,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function2)) and [`NavGraphBuilder.dialog()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavGraphBuilder.md.txt#(androidx.navigation.NavGraphBuilder).dialog(kotlin.collections.Map,kotlin.Function1))
 functions when adding destinations to a graph.
 
 The primary difference is that `navigation` creates a nested graph rather than a
@@ -53,73 +55,77 @@ new destination. You then call `composable()` and `dialog()` within
 Consider how the following snippet implements the graph in figure 2 using
 Compose:
 
-    // Routes
-    @Serializable object Title
-    @Serializable object Register
+```kotlin
+// Routes
+@Serializable object Title
+@Serializable object Register
 
-    // Route for nested graph
-    @Serializable object Game
+// Route for nested graph
+@Serializable object Game
 
-    // Routes inside nested graph
-    @Serializable object Match
-    @Serializable object InGame
-    @Serializable object ResultsWinner
-    @Serializable object GameOver
+// Routes inside nested graph
+@Serializable object Match
+@Serializable object InGame
+@Serializable object ResultsWinner
+@Serializable object GameOver
 
-    NavHost(navController, startDestination = Title) {
-       composable<Title> {
-           TitleScreen(
-               onPlayClicked = { navController.navigate(route = Register) },
+NavHost(navController, startDestination = Title) {
+   composable<Title> {
+       TitleScreen(
+           onPlayClicked = { navController.navigate(route = Register) },
+           onLeaderboardsClicked = { /* Navigate to leaderboards */ }
+       )
+   }
+   composable<Register> {
+       RegisterScreen(
+           onSignUpComplete = { navController.navigate(route = Game) }
+       )
+   }
+   navigation<Game>(startDestination = Match) {
+       composable<Match> {
+           MatchScreen(
+               onStartGame = { navController.navigate(route = InGame) }
+           )
+       }
+       composable<InGame> {
+           InGameScreen(
+               onGameWin = { navController.navigate(route = ResultsWinner) },
+               onGameLose = { navController.navigate(route = GameOver) }
+           )
+       }
+       composable<ResultsWinner> {
+           ResultsWinnerScreen(
+               onNextMatchClicked = {
+                   navController.navigate(route = Match) {
+                       popUpTo(route = Match) { inclusive = true }
+                   }
+               },
                onLeaderboardsClicked = { /* Navigate to leaderboards */ }
            )
        }
-       composable<Register> {
-           RegisterScreen(
-               onSignUpComplete = { navController.navigate(route = Game) }
+       composable<GameOver> {
+           GameOverScreen(
+               onTryAgainClicked = {
+                   navController.navigate(route = Match) {
+                       popUpTo(route = Match) { inclusive = true }
+                   }
+               }
            )
        }
-       navigation<Game>(startDestination = Match) {
-           composable<Match> {
-               MatchScreen(
-                   onStartGame = { navController.navigate(route = InGame) }
-               )
-           }
-           composable<InGame> {
-               InGameScreen(
-                   onGameWin = { navController.navigate(route = ResultsWinner) },
-                   onGameLose = { navController.navigate(route = GameOver) }
-               )
-           }
-           composable<ResultsWinner> {
-               ResultsWinnerScreen(
-                   onNextMatchClicked = {
-                       navController.navigate(route = Match) {
-                           popUpTo(route = Match) { inclusive = true }
-                       }
-                   },
-                   onLeaderboardsClicked = { /* Navigate to leaderboards */ }
-               )
-           }
-           composable<GameOver> {
-               GameOverScreen(
-                   onTryAgainClicked = {
-                       navController.navigate(route = Match) {
-                           popUpTo(route = Match) { inclusive = true }
-                       }
-                   }
-               )
-           }
-       }
-    }
+   }
+}
+```
 
-To [navigate](https://developer.android.com/guide/navigation/use-graph/navigate) directly to a nested destination, use a route type as you would
+To [navigate](https://developer.android.com/guide/navigation/use-graph/navigate.md.txt) directly to a nested destination, use a route type as you would
 to any other destination. This is because routes are a global concept used to
 identify destinations that any screen can navigate to:
 
-    navController.navigate(route = Match)
+```kotlin
+navController.navigate(route = Match)
+```
 
 > [!NOTE]
-> **Note:** You should encapsulate the creation of your destinations and navigation events in separate files. For more on this, see [Encapsulate your code](https://developer.android.com/guide/navigation/design/encapsulate)
+> **Note:** You should encapsulate the creation of your destinations and navigation events in separate files. For more on this, see [Encapsulate your code](https://developer.android.com/guide/navigation/design/encapsulate.md.txt)
 
 ## XML
 
@@ -144,56 +150,61 @@ To do so follow these steps:
    elements along with its own ID and a `startDestination` attribute that
    points to the first destination in the nested graph:
 
-       <?xml version="1.0" encoding="utf-8"?>
-       <navigation xmlns:app="http://schemas.android.com/apk/res-auto"
-          xmlns:tools="http://schemas.android.com/tools"
-          xmlns:android="http://schemas.android.com/apk/res/android"
-          app:startDestination="@id/mainFragment">
+   ```xml
+   <?xml version="1.0" encoding="utf-8"?>
+   <navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      app:startDestination="@id/mainFragment">
+      <fragment
+          android:id="@+id/mainFragment"
+          android:name="com.example.cashdog.cashdog.MainFragment"
+          android:label="fragment_main"
+          tools:layout="@layout/fragment_main" >
+          <action
+              android:id="@+id/action_mainFragment_to_sendMoneyGraph"
+              app:destination="@id/sendMoneyGraph" />
+          <action
+              android:id="@+id/action_mainFragment_to_viewBalanceFragment"
+              app:destination="@id/viewBalanceFragment" />
+      </fragment>
+      <fragment
+          android:id="@+id/viewBalanceFragment"
+          android:name="com.example.cashdog.cashdog.ViewBalanceFragment"
+          android:label="fragment_view_balance"
+          tools:layout="@layout/fragment_view_balance" />
+      <navigation android:id="@+id/sendMoneyGraph" app:startDestination="@id/chooseRecipient">
           <fragment
-              android:id="@+id/mainFragment"
-              android:name="com.example.cashdog.cashdog.MainFragment"
-              android:label="fragment_main"
-              tools:layout="@layout/fragment_main" >
+              android:id="@+id/chooseRecipient"
+              android:name="com.example.cashdog.cashdog.ChooseRecipient"
+              android:label="fragment_choose_recipient"
+              tools:layout="@layout/fragment_choose_recipient">
               <action
-                  android:id="@+id/action_mainFragment_to_sendMoneyGraph"
-                  app:destination="@id/sendMoneyGraph" />
-              <action
-                  android:id="@+id/action_mainFragment_to_viewBalanceFragment"
-                  app:destination="@id/viewBalanceFragment" />
+                  android:id="@+id/action_chooseRecipient_to_chooseAmountFragment"
+                  app:destination="@id/chooseAmountFragment" />
           </fragment>
           <fragment
-              android:id="@+id/viewBalanceFragment"
-              android:name="com.example.cashdog.cashdog.ViewBalanceFragment"
-              android:label="fragment_view_balance"
-              tools:layout="@layout/fragment_view_balance" />
-          <navigation android:id="@+id/sendMoneyGraph" app:startDestination="@id/chooseRecipient">
-              <fragment
-                  android:id="@+id/chooseRecipient"
-                  android:name="com.example.cashdog.cashdog.ChooseRecipient"
-                  android:label="fragment_choose_recipient"
-                  tools:layout="@layout/fragment_choose_recipient">
-                  <action
-                      android:id="@+id/action_chooseRecipient_to_chooseAmountFragment"
-                      app:destination="@id/chooseAmountFragment" />
-              </fragment>
-              <fragment
-                  android:id="@+id/chooseAmountFragment"
-                  android:name="com.example.cashdog.cashdog.ChooseAmountFragment"
-                  android:label="fragment_choose_amount"
-                  tools:layout="@layout/fragment_choose_amount" />
-          </navigation>
-       </navigation>
-
+              android:id="@+id/chooseAmountFragment"
+              android:name="com.example.cashdog.cashdog.ChooseAmountFragment"
+              android:label="fragment_choose_amount"
+              tools:layout="@layout/fragment_choose_amount" />
+      </navigation>
+   </navigation>
+   ```
 6. In your code, pass the resource ID of the action connecting the root graph
    to the nested graph:
 
 ### Kotlin
 
-    view.findNavController().navigate(R.id.action_mainFragment_to_sendMoneyGraph)
+```kotlin
+view.findNavController().navigate(R.id.action_mainFragment_to_sendMoneyGraph)
+```
 
 ### Java
 
-    Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_sendMoneyGraph);
+```java
+Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_sendMoneyGraph);
+```
 
 1. Back in the **Design** tab, return to the root graph by clicking **Root**.
 
@@ -206,40 +217,44 @@ altogether, which maximizes reusability.
 
 The following snippet demonstrates how you can use `<include>`:
 
-    <!-- (root) nav_graph.xml -->
-    <?xml version="1.0" encoding="utf-8"?>
-    <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/nav_graph"
-        app:startDestination="@id/fragment">
+```xml
+<!-- (root) nav_graph.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment">
 
-        <include app:graph="@navigation/included_graph" />
+    <include app:graph="@navigation/included_graph" />
 
-        <fragment
-            android:id="@+id/fragment"
-            android:name="com.example.myapplication.BlankFragment"
-            android:label="Fragment in Root Graph"
-            tools:layout="@layout/fragment_blank">
-            <action
-                android:id="@+id/action_fragment_to_second_graph"
-                app:destination="@id/second_graph" />
-        </fragment>
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.example.myapplication.BlankFragment"
+        android:label="Fragment in Root Graph"
+        tools:layout="@layout/fragment_blank">
+        <action
+            android:id="@+id/action_fragment_to_second_graph"
+            app:destination="@id/second_graph" />
+    </fragment>
 
-        ...
-    </navigation>
+    ...
+</navigation>
+```
 
-    <!-- included_graph.xml -->
-    <?xml version="1.0" encoding="utf-8"?>
-    <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/second_graph"
-        app:startDestination="@id/includedStart">
+```xml
+<!-- included_graph.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/second_graph"
+    app:startDestination="@id/includedStart">
 
-        <fragment
-            android:id="@+id/includedStart"
-            android:name="com.example.myapplication.IncludedStart"
-            android:label="fragment_included_start"
-            tools:layout="@layout/fragment_included_start" />
-    </navigation>
+    <fragment
+        android:id="@+id/includedStart"
+        android:name="com.example.myapplication.IncludedStart"
+        android:label="fragment_included_start"
+        tools:layout="@layout/fragment_included_start" />
+</navigation>
+```

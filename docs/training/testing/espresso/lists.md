@@ -4,6 +4,8 @@ url: https://developer.android.com/training/testing/espresso/lists
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/testing/espresso/llms.txt
+
 Espresso offers mechanisms to scroll to or act on a particular item for two
 types of lists: adapter views and recycler views.
 
@@ -39,19 +41,17 @@ length of the content. For example:
 
 The code for a click on the row with "item: 50" looks like this:
 
-### Kotlin
 
 ```kotlin
-onData(allOf(`is`(instanceOf(Map::class.java)), hasEntry(equalTo("STR"),
-        `is`("item: 50")))).perform(click())
+onData(
+    allOf(
+        `is`(instanceOf(Map::class.java)),
+        hasEntry(equalTo("STR"), `is`("item: 50"))
+    )
+).perform(click())
 ```
 
-### Java
-
-```java
-onData(allOf(is(instanceOf(Map.class)), hasEntry(equalTo("STR"), is("item: 50"))))
-    .perform(click());
-```
+<br />
 
 Note that Espresso scrolls through the list automatically as needed.
 
@@ -62,28 +62,22 @@ Let's take apart the `Matcher<Object>` inside `onData()`. The
 In our case, this aspect of the query matches every row of the list view, but we
 want to click specifically on an item, so we narrow the search further with:
 
-### Kotlin
 
 ```kotlin
 hasEntry(equalTo("STR"), `is`("item: 50"))
 ```
 
-### Java
-
-```java
-hasEntry(equalTo("STR"), is("item: 50"))
-```
+<br />
 
 This `Matcher<String, Object>` will match any Map that contains an entry with
 the key `"STR"` and the value `"item: 50"`. Because the code to look up this is
 long and we want to reuse it in other locations, let's write a custom
 `withItemContent` matcher for that:
 
-### Kotlin
 
 ```kotlin
-return object : BoundedMatcher<Object, Map>(Map::class.java) {
-    override fun matchesSafely(map: Map): Boolean {
+return object : BoundedMatcher<Any, Map<*, *>>(Map::class.java) {
+    override fun matchesSafely(map: Map<*, *>): Boolean {
         return hasEntry(equalTo("STR"), itemTextMatcher).matches(map)
     }
 
@@ -94,22 +88,7 @@ return object : BoundedMatcher<Object, Map>(Map::class.java) {
 }
 ```
 
-### Java
-
-```java
-return new BoundedMatcher<Object, Map>(Map.class) {
-    @Override
-    public boolean matchesSafely(Map map) {
-        return hasEntry(equalTo("STR"), itemTextMatcher).matches(map);
-    }
-
-    @Override
-    public void describeTo(Description description) {
-        description.appendText("with item content: ");
-        itemTextMatcher.describeTo(description);
-    }
-};
-```
+<br />
 
 You use a `BoundedMatcher` as a base because to only match objects of type
 `Map`. Override the `matchesSafely()` method, putting in the matcher found
@@ -118,37 +97,24 @@ argument. This allows you to call `withItemContent(equalTo("foo"))`. For code
 brevity, you can create another matcher that already calls the `equalTo()` and
 accepts a `String` object:
 
-### Kotlin
 
 ```kotlin
-fun withItemContent(expectedText: String): Matcher<Object> {
+fun withItemContent(expectedText: String): Matcher<Any> {
     checkNotNull(expectedText)
     return withItemContent(equalTo(expectedText))
 }
 ```
 
-### Java
-
-```java
-public static Matcher<Object> withItemContent(String expectedText) {
-    checkNotNull(expectedText);
-    return withItemContent(equalTo(expectedText));
-}
-```
+<br />
 
 Now the code to click on the item is simple:
 
-### Kotlin
 
 ```kotlin
 onData(withItemContent("item: 50")).perform(click())
 ```
 
-### Java
-
-```java
-onData(withItemContent("item: 50")).perform(click());
-```
+<br />
 
 For the full code of this test, take a look at the `testClickOnItem50()` method
 within the
@@ -171,7 +137,6 @@ value of the second column in a row.](https://developer.android.com/static/image
 Just add an `onChildView()` specification to your implementation of
 `DataInteraction`:
 
-### Kotlin
 
 ```kotlin
 onData(withItemContent("item: 60"))
@@ -179,13 +144,7 @@ onData(withItemContent("item: 60"))
     .perform(click())
 ```
 
-### Java
-
-```java
-onData(withItemContent("item: 60"))
-    .onChildView(withId(R.id.item_size))
-    .perform(click());
-```
+<br />
 
 > [!NOTE]
 > **Note:** This sample uses the `withItemContent()` matcher from the sample above. Take a look at the `testClickOnSpecificChildOfRow60()` method in the [`AdapterViewTest`](https://github.com/android/android-test/blob/7e834ce37faf52f2a65a73b0a6d83ab148707cbb/testapps/ui_testapp/javatests/androidx/test/ui/app/AdapterViewTest.java) class on GitHub.
@@ -197,7 +156,7 @@ onData(withItemContent("item: 60"))
 
 To interact with RecyclerViews using Espresso, you can use the
 `espresso-contrib` package, which has a collection of
-[`RecyclerViewActions`](https://developer.android.com/reference/androidx/test/espresso/contrib/RecyclerViewActions)
+[`RecyclerViewActions`](https://developer.android.com/reference/androidx/test/espresso/contrib/RecyclerViewActions.md.txt)
 that can be used to scroll to positions or to perform actions on items:
 
 - `scrollTo()` - Scrolls to the matched View, if it exists.
@@ -211,7 +170,6 @@ The following snippets feature some examples from the
 [RecyclerViewSample](https://github.com/android/testing-samples/tree/main/ui/espresso/RecyclerViewSample)
 sample:
 
-### Kotlin
 
 ```kotlin
 @Test(expected = PerformException::class)
@@ -220,28 +178,14 @@ fun itemWithText_doesNotExist() {
     onView(ViewMatchers.withId(R.id.recyclerView))
         .perform(
             // scrollTo will fail the test if no item matches.
-            RecyclerViewActions.scrollTo(
+            RecyclerViewActions.scrollTo<RecyclerView.ViewHolder>(
                 hasDescendant(withText("not in the list"))
             )
         )
 }
 ```
 
-### Java
-
-```java
-@Test(expected = PerformException.class)
-public void itemWithText_doesNotExist() {
-    // Attempt to scroll to an item that contains the special text.
-    onView(ViewMatchers.withId(R.id.recyclerView))
-            // scrollTo will fail the test if no item matches.
-            .perform(RecyclerViewActions.scrollTo(
-                    hasDescendant(withText("not in the list"))
-            ));
-}
-```
-
-### Kotlin
+<br />
 
 ```kotlin
 @Test fun scrollToItemBelowFold_checkItsText() {
@@ -261,26 +205,6 @@ public void itemWithText_doesNotExist() {
 }
 ```
 
-### Java
-
-```java
-@Test
-public void scrollToItemBelowFold_checkItsText() {
-    // First, scroll to the position that needs to be matched and click on it.
-    onView(ViewMatchers.withId(R.id.recyclerView))
-            .perform(RecyclerViewActions.actionOnItemAtPosition(ITEM_BELOW_THE_FOLD,
-            click()));
-
-    // Match the text in an item below the fold and check that it's displayed.
-    String itemElementText = activityRule.getActivity().getResources()
-            .getString(R.string.item_element_text)
-            + String.valueOf(ITEM_BELOW_THE_FOLD);
-    onView(withText(itemElementText)).check(matches(isDisplayed()));
-}
-```
-
-### Kotlin
-
 ```kotlin
 @Test fun itemInMiddleOfList_hasSpecialText() {
     // First, scroll to the view holder using the isInTheMiddle() matcher.
@@ -291,23 +215,6 @@ public void scrollToItemBelowFold_checkItsText() {
     val middleElementText = activityRule.activity.resources
             .getString(R.string.middle)
     onView(withText(middleElementText)).check(matches(isDisplayed()))
-}
-```
-
-### Java
-
-```java
-@Test
-public void itemInMiddleOfList_hasSpecialText() {
-    // First, scroll to the view holder using the isInTheMiddle() matcher.
-    onView(ViewMatchers.withId(R.id.recyclerView))
-            .perform(RecyclerViewActions.scrollToHolder(isInTheMiddle()));
-
-    // Check that the item has the special text.
-    String middleElementText =
-            activityRule.getActivity().getResources()
-            .getString(R.string.middle);
-    onView(withText(middleElementText)).check(matches(isDisplayed()));
 }
 ```
 

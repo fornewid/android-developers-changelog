@@ -113,9 +113,5 @@ configurations:
   | 2025 | Samsung | Galaxy Tab S11 Ultra |
   | 2025 | Samsung | Galaxy Tab S11 Ultra 5G |
   | 2025 | Samsung | Galaxy Tab S11 5G |
-  | 2025 | Xiaomi | Xiaomi Pad 8 |
-  | 2025 | OnePlus | Pad 3 |
   | 2026 | Samsung | Galaxy Tab S12 Ultra |
   | 2026 | Samsung | Galaxy Tab S12+ |
-  | 2026 | Xiaomi | Xiaomi Pad 9 |
-  | 2026 | OnePlus | Pad 4 |

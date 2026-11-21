@@ -7,7 +7,7 @@ source: md.txt
 > Documentation index: https://developer.android.com/topic/libraries/data-binding/llms.txt
 
 # Data Binding Library
-Part of [Android Jetpack](https://developer.android.com/jetpack).
+Part of [Android Jetpack](https://developer.android.com/jetpack.md.txt).
 
 The Data Binding Library is a support library that lets you bind UI
 components in your layouts to data sources in your app using a declarative
@@ -156,10 +156,6 @@ additional resources.
 ### Samples
 
 - [Android Data Binding Library samples](https://github.com/android/databinding-samples)
-
-### Codelabs
-
-- [Android Data Binding codelab](https://codelabs.developers.google.com/codelabs/android-databinding)
 
 ### Blog posts
 

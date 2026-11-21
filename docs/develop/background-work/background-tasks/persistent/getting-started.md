@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/background-work/background-tasks/pers
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/llms.txt
+
 To get started using WorkManager, first import the library into your Android
 project.
 
@@ -78,43 +80,22 @@ To create some work for WorkManager to run, extend the `Worker` class and
 override the `doWork()` method. For example, to create a `Worker` that uploads
 images, you can do the following:
 
-### Kotlin
 
 ```kotlin
-class UploadWorker(appContext: Context, workerParams: WorkerParameters):
-       Worker(appContext, workerParams) {
-   override fun doWork(): Result {
+class UploadWorker(appContext: Context, workerParams: WorkerParameters) :
+    Worker(appContext, workerParams) {
+    override fun doWork(): Result {
 
-       // Do the work here--in this case, upload the images.
-       uploadImages()
+        // Do the work here--in this case, upload the images.
+        uploadImages()
 
-       // Indicate whether the work finished successfully with the Result
-       return Result.success()
-   }
+        // Indicate whether the work finished successfully with the Result.
+        return Result.success()
+    }
 }
 ```
 
-### Java
-
-```java
-public class UploadWorker extends Worker {
-   public UploadWorker(
-       @NonNull Context context,
-       @NonNull WorkerParameters params) {
-       super(context, params);
-   }
-
-   @Override
-   public Result doWork() {
-
-     // Do the work here--in this case, upload the images.
-     uploadImages();
-
-     // Indicate whether the work finished successfully with the Result
-     return Result.success();
-   }
-}
-```
+<br />
 
 The `Result`
 returned from `doWork()` informs the WorkManager service whether the
@@ -143,21 +124,14 @@ use a
 `OneTimeWorkRequest`,
 as shown in the following example.
 
-### Kotlin
 
 ```kotlin
 val uploadWorkRequest: WorkRequest =
-   OneTimeWorkRequestBuilder<UploadWorker>()
-       .build()
+    OneTimeWorkRequestBuilder<UploadWorker>()
+        .build()
 ```
 
-### Java
-
-```java
-WorkRequest uploadWorkRequest =
-   new OneTimeWorkRequest.Builder(UploadWorker.class)
-       .build();
-```
+<br />
 
 ## Submit the WorkRequest to the system
 
@@ -165,7 +139,6 @@ Finally, you need to submit your `WorkRequest` to `WorkManager` using the
 `enqueue()`
 method.
 
-### Kotlin
 
 ```kotlin
 WorkManager
@@ -173,13 +146,7 @@ WorkManager
     .enqueue(uploadWorkRequest)
 ```
 
-### Java
-
-```java
-WorkManager
-    .getInstance(myContext)
-    .enqueue(uploadWorkRequest);
-```
+<br />
 
 The exact time that the worker is going to be executed depends on the
 constraints that are used in your `WorkRequest` and on system optimizations.

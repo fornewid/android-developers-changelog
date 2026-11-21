@@ -8,7 +8,7 @@ source: md.txt
 
 # Savedstate
 
-[User Guide](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate) [Codelab](https://codelabs.developers.google.com/codelabs/android-lifecycles/#6) Write pluggable components that save the UI state when a process dies, and restore it when the process restarts.
+[User Guide](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate) Write pluggable components that save the UI state when a process dies, and restore it when the process restarts.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|

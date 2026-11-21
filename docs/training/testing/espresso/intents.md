@@ -4,8 +4,10 @@ url: https://developer.android.com/training/testing/espresso/intents
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/testing/espresso/llms.txt
+
 Espresso-Intents is an extension to Espresso, which enables validation and
-stubbing of [intents](https://developer.android.com/reference/android/content/Intent) sent out by the
+stubbing of [intents](https://developer.android.com/reference/android/content/Intent.md.txt) sent out by the
 application under test. It's like [Mockito](http://site.mockito.org), but for Android Intents.
 
 If your app delegates functionality to other apps or the platform, you can use
@@ -60,19 +62,9 @@ Espresso-Intents after each test run.
 
 The following code snippet is an example of an `IntentsTestRule`:
 
-### Kotlin
-
 ```kotlin
 @get:Rule
 val intentsTestRule = IntentsTestRule(MyActivity::class.java)
-```
-
-### Java
-
-```java
-@Rule
-public IntentsTestRule<MyActivity> intentsTestRule =
-    new IntentsTestRule<>(MyActivity.class);
 ```
 
 ## Match
@@ -84,15 +76,14 @@ allows you to:
 - **Use an existing intent matcher:** Easiest option, which should almost always be preferred.
 - **Implement your own intent matcher:** Most flexible option. More details are available in the section entitled "Writing custom matchers" within the [Hamcrest tutorial](https://code.google.com/archive/p/hamcrest/wikis/Tutorial.wiki).
 
-Espresso-Intents offers the [`intended()`](https://developer.android.com/reference/androidx/test/espresso/intent/Intents#intended(org.hamcrest.Matcher%3Candroid.content.Intent%3E,%20androidx.test.espresso.intent.VerificationMode))
-and [`intending()`](https://developer.android.com/reference/androidx/test/espresso/intent/Intents#intending(org.hamcrest.Matcher%3Candroid.content.Intent%3E)) methods for intent validation and
+Espresso-Intents offers the [`intended()`](https://developer.android.com/reference/androidx/test/espresso/intent/Intents.md.txt#intended(org.hamcrest.Matcher%3Candroid.content.Intent%3E,%20androidx.test.espresso.intent.VerificationMode))
+and [`intending()`](https://developer.android.com/reference/androidx/test/espresso/intent/Intents.md.txt#intending(org.hamcrest.Matcher%3Candroid.content.Intent%3E)) methods for intent validation and
 stubbing, respectively. Both take a Hamcrest `Matcher<Intent>` object as an
 argument.
 
 The following code snippet shows intent validation that uses existing intent
 matchers that matches an outgoing intent that starts a browser:
 
-### Kotlin
 
 ```kotlin
 assertThat(intent).hasAction(Intent.ACTION_VIEW)
@@ -104,30 +95,19 @@ assertThat(intent).extras().containsKey("key2")
 assertThat(intent).extras().string("key2").isEqualTo("value2")
 ```
 
-### Java
-
-```java
-assertThat(intent).hasAction(Intent.ACTION_VIEW);
-assertThat(intent).categories().containsExactly(Intent.CATEGORY_BROWSABLE);
-assertThat(intent).hasData(Uri.parse("www.google.com"));
-assertThat(intent).extras().containsKey("key1");
-assertThat(intent).extras().string("key1").isEqualTo("value1");
-assertThat(intent).extras().containsKey("key2");
-assertThat(intent).extras().string("key2").isEqualTo("value2");
-```
+<br />
 
 ## Validate intents
 
 Espresso-Intents records all intents that attempt to launch activities from the
 application under test. Using the `intended()` method, which is similar to
 `Mockito.verify()`, you can assert that a given intent has been seen. However,
-Espresso-Intents doesn't stub out responses to intents unless you [explicitly configure](https://developer.android.com/training/testing/espresso/intents#stubbing)
+Espresso-Intents doesn't stub out responses to intents unless you [explicitly configure](https://developer.android.com/training/testing/espresso/intents.md.txt#stubbing)
 it to do so.
 
 The following code snippet is an example test that validates, but doesn't stub
 out responses to, an outgoing intent that launches an external "phone" activity:
 
-### Kotlin
 
 ```kotlin
 @Test fun validateIntentSentToPackage() {
@@ -140,19 +120,7 @@ out responses to, an outgoing intent that launches an external "phone" activity:
 }
 ```
 
-### Java
-
-```java
-@Test
-public void validateIntentSentToPackage() {
-    // User action that results in an external "phone" activity being launched.
-    user.clickOnView(system.getView(R.id.callButton));
-
-    // Using a canned RecordedIntentMatcher to validate that an intent resolving
-    // to the "phone" activity has been sent.
-    intended(toPackage("com.android.phone"));
-}
-```
+<br />
 
 ## Stubbing
 
@@ -172,60 +140,30 @@ number is displayed:
    responses with a valid `ActivityResult`, using the result code
    `RESULT_OK`
 
-   ### Kotlin
-
    ```kotlin
    val resultData = Intent()
    val phoneNumber = "123-345-6789"
    resultData.putExtra("phone", phoneNumber)
    val result = Instrumentation.ActivityResult(Activity.RESULT_OK, resultData)
    ```
-
-   ### Java
-
-   ```java
-   Intent resultData = new Intent();
-   String phoneNumber = "123-345-6789";
-   resultData.putExtra("phone", phoneNumber);
-   ActivityResult result =
-       new ActivityResult(Activity.RESULT_OK, resultData);
-   ```
 2. Instruct Espresso to provide the stub result object in response to all
    invocations of the "contacts" intent:
 
-   ### Kotlin
-
    ```kotlin
    intending(toPackage("com.android.contacts")).respondWith(result)
-   ```
-
-   ### Java
-
-   ```java
-   intending(toPackage("com.android.contacts")).respondWith(result);
    ```
 3. Verify that the action used to launch the activity produces the expected
    stub result. In this case, the example test checks that the phone number
    "123-345-6789" is returned and
    displayed when the "contacts activity" is launched:
 
-   ### Kotlin
-
    ```kotlin
    onView(withId(R.id.pickButton)).perform(click())
    onView(withId(R.id.phoneNumber)).check(matches(withText(phoneNumber)))
    ```
 
-   ### Java
-
-   ```java
-   onView(withId(R.id.pickButton)).perform(click());
-   onView(withId(R.id.phoneNumber)).check(matches(withText(phoneNumber)));
-   ```
-
 Here is the complete `activityResult_DisplaysContactsPhoneNumber()` test:
 
-### Kotlin
 
 ```kotlin
 @Test fun activityResult_DisplaysContactsPhoneNumber() {
@@ -247,29 +185,7 @@ Here is the complete `activityResult_DisplaysContactsPhoneNumber()` test:
 }
 ```
 
-### Java
-
-```java
-@Test
-public void activityResult_DisplaysContactsPhoneNumber() {
-    // Build the result to return when the activity is launched.
-    Intent resultData = new Intent();
-    String phoneNumber = "123-345-6789";
-    resultData.putExtra("phone", phoneNumber);
-    ActivityResult result =
-        new ActivityResult(Activity.RESULT_OK, resultData);
-
-    // Set up result stubbing when an intent sent to "contacts" is seen.
-    intending(toPackage("com.android.contacts")).respondWith(result);
-
-    // User action that results in "contacts" activity being launched.
-    // Launching activity expects phoneNumber to be returned and displayed.
-    onView(withId(R.id.pickButton)).perform(click());
-
-    // Assert that the data we set up above is shown.
-    onView(withId(R.id.phoneNumber)).check(matches(withText(phoneNumber)));
-}
-```
+<br />
 
 ## Additional resources
 
