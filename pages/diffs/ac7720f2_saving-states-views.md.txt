@@ -1,0 +1,363 @@
+diff --git a/docs/topic/libraries/architecture/views/saving-states-views.md b/docs/topic/libraries/architecture/views/saving-states-views.md
+index bbbabe3a..3d18e717 100644
+--- a/docs/topic/libraries/architecture/views/saving-states-views.md
++++ b/docs/topic/libraries/architecture/views/saving-states-views.md
+@@ -4,7 +4,7 @@ url: https://developer.android.com/topic/libraries/architecture/views/saving-sta
+ source: md.txt
+ ---
+ 
+-[Concepts and Jetpack Compose implementation](https://developer.android.com/topic/libraries/architecture/saving-states)
++[Concepts and Jetpack Compose implementation](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt)
+ 
+ This guide discusses user expectations about UI state, and the options available
+ for preserving state.
+@@ -17,10 +17,10 @@ stored state.
+ To bridge the gap between user expectations and system behavior, use a
+ combination of the following methods:
+ 
+-- [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) objects.
++- [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel.md.txt) objects.
+ - Saved instance states within the following contexts:
+-  - Views: [`onSaveInstanceState()`](https://developer.android.com/reference/android/app/Activity#onSaveInstanceState(android.os.Bundle)) API.
+-  - ViewModels: [`SavedStateHandle`](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate).
++  - Views: [`onSaveInstanceState()`](https://developer.android.com/reference/android/app/Activity.md.txt#onSaveInstanceState(android.os.Bundle)) API.
++  - ViewModels: [`SavedStateHandle`](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate.md.txt).
+ - Local storage to persist the UI state during app and activity transitions.
+ 
+ The optimal solution depends on your UI data's complexity, your app's use cases,
+@@ -66,7 +66,7 @@ configuration change, such as rotation or switching into multi-window mode.
+ However, by default the system destroys the activity when such a configuration
+ change occurs, wiping away any UI state stored in the activity instance. To
+ learn more about device configurations, see the
+-[Configuration reference page](https://developer.android.com/reference/android/content/res/Configuration#lfields).
++[Configuration reference page](https://developer.android.com/reference/android/content/res/Configuration.md.txt#lfields).
+ 
+ Note, it is possible (though not recommended)
+ to override the default behavior for configuration changes. See [Handling the
+@@ -84,7 +84,7 @@ best to keep your app process in memory. However, the system may destroy the
+ application process while the user is away interacting with other apps. In such
+ a case, the activity instance is destroyed, along with any state stored in it.
+ When the user relaunches the app, the activity is unexpectedly in a clean state.
+-To learn more about process death, see [Processes and app lifecycle](https://developer.android.com/guide/components/activities/process-lifecycle).
++To learn more about process death, see [Processes and app lifecycle](https://developer.android.com/guide/components/activities/process-lifecycle.md.txt).
+ 
+ ## Options for preserving UI state
+ 
+@@ -113,7 +113,7 @@ ViewModel is ideal for storing and managing UI-related data while the user is
+ actively using the application. It allows quick access to UI data and helps you
+ avoid refetching data from network or disk across rotation, window resizing, and
+ other commonly occurring configuration changes. To learn how to implement a
+-ViewModel, see the [ViewModel guide](https://developer.android.com/topic/libraries/architecture/viewmodel).
++ViewModel, see the [ViewModel guide](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt).
+ 
+ ViewModel retains the data in memory, which means it is cheaper to retrieve than
+ data from the disk or the network. A ViewModel is associated with an activity
+@@ -127,7 +127,7 @@ cleared as the user expects in these scenarios.
+ 
+ Unlike saved instance state, ViewModels are destroyed during a system-initiated
+ process death. To reload data after a system-initiated process death in a
+-ViewModel, use the [`SavedStateHandle`](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate) [API](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate). Alternatively, if the data
++ViewModel, use the [`SavedStateHandle`](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate.md.txt) [API](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate.md.txt). Alternatively, if the data
+ is related to the UI and doesn't need to be held in the ViewModel, use
+ `onSaveInstanceState()`. If the data is *application data*, then it might be
+ better to persist it to disk.
+@@ -137,12 +137,12 @@ across configuration changes, you may not need to use ViewModel.
+ 
+ ## Use saved instance state as backup to handle system-initiated process death
+ 
+-The [`onSaveInstanceState()`](https://developer.android.com/reference/android/app/Activity#onSaveInstanceState(android.os.Bundle)) callback in the View system and
+-[`SavedStateHandle`](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate) in ViewModels store data needed to reload the state of a
++The [`onSaveInstanceState()`](https://developer.android.com/reference/android/app/Activity.md.txt#onSaveInstanceState(android.os.Bundle)) callback in the View system and
++[`SavedStateHandle`](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate.md.txt) in ViewModels store data needed to reload the state of a
+ UI controller, such as an activity or a fragment, if the system destroys and
+ later recreates that controller. To learn how to implement saved instance state
+ using `onSaveInstanceState`, see *Saving and restoring activity state* in the
+-[Activity Lifecycle guide](https://developer.android.com/guide/components/activities/activity-lifecycle#saras).
++[Activity Lifecycle guide](https://developer.android.com/guide/components/activities/activity-lifecycle.md.txt#saras).
+ 
+ Saved instance state bundles persist through both configuration changes and
+ process death but are limited by storage and speed, because the different APIs
+@@ -166,7 +166,7 @@ apps should implement this to handle system-initiated process death.
+ > **Note:** Android keeps a serialized copy of the data in memory, outside of your process. Depending on various factors, the system might try to optimize this process and leave the same `Bundle` object in memory without serialization for quicker access. These behaviors however, may change across Android API versions.
+ 
+ > [!WARNING]
+-> **Warning:** The system can potentially store the data to disk if you use [`PersistableBundle`](https://developer.android.com/reference/android/os/PersistableBundle) instead of [`Bundle`](https://developer.android.com/reference/android/os/Bundle). However, Fragments and other AndroidX libraries don't support it. Thus, use `Bundle` instead.
++> **Warning:** The system can potentially store the data to disk if you use [`PersistableBundle`](https://developer.android.com/reference/android/os/PersistableBundle.md.txt) instead of [`Bundle`](https://developer.android.com/reference/android/os/Bundle.md.txt). However, Fragments and other AndroidX libraries don't support it. Thus, use `Bundle` instead.
+ 
+ Depending on your app's use cases, you might not need to use saved instance
+ state at all. For example, a browser might take the user back to the exact
+@@ -181,31 +181,31 @@ Additionally, when you open an activity from an intent, the bundle of extras is
+ delivered to the activity both when the configuration changes and when the
+ system restores the activity.
+ 
+-In either of these scenarios, you should still use a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) to avoid
++In either of these scenarios, you should still use a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel.md.txt) to avoid
+ wasting cycles reloading data from the database during a configuration change.
+ 
+ In cases where the UI data to preserve is simple and lightweight, you might use
+ saved instance state APIs alone to preserve your state data.
+ 
+ > [!IMPORTANT]
+-> **Key Point:** The API to use depends on where the state is held and the logic that it requires. For state that is used in [business logic](https://developer.android.com/topic/architecture/ui-layer/stateholders#business-logic), hold it in a ViewModel and save it using `SavedStateHandle`. For state that is used in [UI
++> **Key Point:** The API to use depends on where the state is held and the logic that it requires. For state that is used in [business logic](https://developer.android.com/topic/architecture/ui-layer/stateholders.md.txt#business-logic), hold it in a ViewModel and save it using `SavedStateHandle`. For state that is used in [UI
+ > logic](https://developer.android.com/guide/components/activities/activity-lifecycle#saras), use the `onSaveInstanceState` API in the View system.
+ 
+ ### Hook into saved state using SavedStateRegistry
+ 
+-Beginning with [Fragment 1.1.0](https://developer.android.com/jetpack/androidx/releases/fragment#1.1.0) or its transitive dependency [Activity
++Beginning with [Fragment 1.1.0](https://developer.android.com/jetpack/androidx/releases/fragment.md.txt#1.1.0) or its transitive dependency [Activity
+ 1.0.0](https://developer.android.com/jetpack/androidx/releases/activity#version_100_3), UI controllers, such as an `Activity` or `Fragment`, implement
+-[`SavedStateRegistryOwner`](https://developer.android.com/reference/androidx/savedstate/SavedStateRegistryOwner) and provide a [`SavedStateRegistry`](https://developer.android.com/reference/androidx/savedstate/SavedStateRegistry) that is
++[`SavedStateRegistryOwner`](https://developer.android.com/reference/androidx/savedstate/SavedStateRegistryOwner.md.txt) and provide a [`SavedStateRegistry`](https://developer.android.com/reference/androidx/savedstate/SavedStateRegistry.md.txt) that is
+ bound to that controller. `SavedStateRegistry` allows components to hook into
+ your UI controller's saved state to consume or contribute to it. For example,
+ the [Saved State module for ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate) uses `SavedStateRegistry` to create a
+ `SavedStateHandle` and provide it to your `ViewModel` objects. You can retrieve
+ the `SavedStateRegistry` from within your UI controller by calling
+-[`getSavedStateRegistry`](https://developer.android.com/reference/androidx/savedstate/SavedStateRegistryOwner#getSavedStateRegistry())().
++[`getSavedStateRegistry`](https://developer.android.com/reference/androidx/savedstate/SavedStateRegistryOwner.md.txt#getSavedStateRegistry())().
+ 
+ Components that contribute to saved state must implement
+-[`SavedStateRegistry.SavedStateProvider`](https://developer.android.com/reference/androidx/savedstate/SavedStateRegistry.SavedStateProvider), which defines a single method
+-called [`saveState`](https://developer.android.com/reference/androidx/savedstate/SavedStateRegistry.SavedStateProvider#saveState())(). The `saveState()` method allows your component to
++[`SavedStateRegistry.SavedStateProvider`](https://developer.android.com/reference/androidx/savedstate/SavedStateRegistry.SavedStateProvider.md.txt), which defines a single method
++called [`saveState`](https://developer.android.com/reference/androidx/savedstate/SavedStateRegistry.SavedStateProvider.md.txt#saveState())(). The `saveState()` method allows your component to
+ return a `Bundle` containing any state that should be saved from that component.
+ `SavedStateRegistry` calls this method during the saving state phase of the UI
+ controller's lifecycle.
+@@ -213,117 +213,123 @@ controller's lifecycle.
+ > [!IMPORTANT]
+ > **Important:** The `SavedStateHandle` only saves data written to it when the `Activity` is stopped. Writes to `SavedStateHandle` while the `Activity` is stopped aren't saved unless the `Activity` receives `onStart` followed by `onStop` again.
+ 
+-    class SearchManager implements SavedStateRegistry.SavedStateProvider {
+-        private static String QUERY = "query";
+-        private String query = null;
+-        ...
+-
+-        @NonNull
+-        @Override
+-        public Bundle saveState() {
+-            Bundle bundle = new Bundle();
+-            bundle.putString(QUERY, query);
+-            return bundle;
+-        }
++```java
++class SearchManager implements SavedStateRegistry.SavedStateProvider {
++    private static String QUERY = "query";
++    private String query = null;
++    ...
++
++    @NonNull
++    @Override
++    public Bundle saveState() {
++        Bundle bundle = new Bundle();
++        bundle.putString(QUERY, query);
++        return bundle;
+     }
++}
++```
+ 
+-To register a `SavedStateProvider`, call [`registerSavedStateProvider()`](https://developer.android.com/reference/androidx/savedstate/SavedStateRegistry#registerSavedStateProvider(java.lang.String,%20androidx.savedstate.SavedStateRegistry.SavedStateProvider)) on
++To register a `SavedStateProvider`, call [`registerSavedStateProvider()`](https://developer.android.com/reference/androidx/savedstate/SavedStateRegistry.md.txt#registerSavedStateProvider(java.lang.String,%20androidx.savedstate.SavedStateRegistry.SavedStateProvider)) on
+ the `SavedStateRegistry`, passing a key to associate with the provider's data as
+ well as the provider. The previously saved data for the provider can be
+-retrieved from the saved state by calling [`consumeRestoredStateForKey()`](https://developer.android.com/reference/androidx/savedstate/SavedStateRegistry#consumeRestoredStateForKey(java.lang.String))
++retrieved from the saved state by calling [`consumeRestoredStateForKey()`](https://developer.android.com/reference/androidx/savedstate/SavedStateRegistry.md.txt#consumeRestoredStateForKey(java.lang.String))
+ on the `SavedStateRegistry`, passing in the key associated with the provider's
+ data.
+ 
+ Within an `Activity` or `Fragment`, you can register a `SavedStateProvider` in
+ `onCreate()` after calling `super.onCreate()`. Alternatively, you can set a
+-[`LifecycleObserver`](https://developer.android.com/reference/androidx/lifecycle/LifecycleObserver) on a `SavedStateRegistryOwner`, which implements
+-[`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner), and register the `SavedStateProvider` once the
++[`LifecycleObserver`](https://developer.android.com/reference/androidx/lifecycle/LifecycleObserver.md.txt) on a `SavedStateRegistryOwner`, which implements
++[`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner.md.txt), and register the `SavedStateProvider` once the
+ `ON_CREATE` event occurs. By using a `LifecycleObserver`, you can decouple the
+ registration and retrieval of the previously saved state from the
+ `SavedStateRegistryOwner` itself.
+ 
+ ### Kotlin
+ 
+-    class SearchManager(registryOwner: SavedStateRegistryOwner) : SavedStateRegistry.SavedStateProvider {
+-        companion object {
+-            private const val PROVIDER = "search_manager"
+-            private const val QUERY = "query"
+-        }
++```kotlin
++class SearchManager(registryOwner: SavedStateRegistryOwner) : SavedStateRegistry.SavedStateProvider {
++    companion object {
++        private const val PROVIDER = "search_manager"
++        private const val QUERY = "query"
++    }
+ 
+-        private val query: String? = null
++    private val query: String? = null
+ 
+-        init {
+-            // Register a LifecycleObserver for when the Lifecycle hits ON_CREATE
+-            registryOwner.lifecycle.addObserver(LifecycleEventObserver { _, event ->
+-                if (event == Lifecycle.Event.ON_CREATE) {
+-                    val registry = registryOwner.savedStateRegistry
++    init {
++        // Register a LifecycleObserver for when the Lifecycle hits ON_CREATE
++        registryOwner.lifecycle.addObserver(LifecycleEventObserver { _, event ->
++            if (event == Lifecycle.Event.ON_CREATE) {
++                val registry = registryOwner.savedStateRegistry
+ 
+-                    // Register this object for future calls to saveState()
+-                    registry.registerSavedStateProvider(PROVIDER, this)
++                // Register this object for future calls to saveState()
++                registry.registerSavedStateProvider(PROVIDER, this)
+ 
+-                    // Get the previously saved state and restore it
+-                    val state = registry.consumeRestoredStateForKey(PROVIDER)
++                // Get the previously saved state and restore it
++                val state = registry.consumeRestoredStateForKey(PROVIDER)
+ 
+-                    // Apply the previously saved state
+-                    query = state?.getString(QUERY)
+-                }
++                // Apply the previously saved state
++                query = state?.getString(QUERY)
+             }
+         }
+-
+-        override fun saveState(): Bundle {
+-            return bundleOf(QUERY to query)
+-        }
+-
+-        ...
+     }
+ 
+-    class SearchFragment : Fragment() {
+-        private var searchManager = SearchManager(this)
+-        ...
++    override fun saveState(): Bundle {
++        return bundleOf(QUERY to query)
+     }
+ 
+-### Java
++    ...
++}
+ 
+-    class SearchManager implements SavedStateRegistry.SavedStateProvider {
+-        private static String PROVIDER = "search_manager";
+-        private static String QUERY = "query";
+-        private String query = null;
++class SearchFragment : Fragment() {
++    private var searchManager = SearchManager(this)
++    ...
++}
++```
+ 
+-        public SearchManager(SavedStateRegistryOwner registryOwner) {
+-            registryOwner.getLifecycle().addObserver((LifecycleEventObserver) (source, event) -> {
+-                if (event == Lifecycle.Event.ON_CREATE) {
+-                    SavedStateRegistry registry = registryOwner.getSavedStateRegistry();
++### Java
+ 
+-                    // Register this object for future calls to saveState()
+-                    registry.registerSavedStateProvider(PROVIDER, this);
++```java
++class SearchManager implements SavedStateRegistry.SavedStateProvider {
++    private static String PROVIDER = "search_manager";
++    private static String QUERY = "query";
++    private String query = null;
+ 
+-                    // Get the previously saved state and restore it
+-                    Bundle state = registry.consumeRestoredStateForKey(PROVIDER);
++    public SearchManager(SavedStateRegistryOwner registryOwner) {
++        registryOwner.getLifecycle().addObserver((LifecycleEventObserver) (source, event) -> {
++            if (event == Lifecycle.Event.ON_CREATE) {
++                SavedStateRegistry registry = registryOwner.getSavedStateRegistry();
+ 
+-                    // Apply the previously saved state
+-                    if (state != null) {
+-                        query = state.getString(QUERY);
+-                    }
+-                }
+-            });
+-        }
++                // Register this object for future calls to saveState()
++                registry.registerSavedStateProvider(PROVIDER, this);
+ 
+-        @NonNull
+-        @Override
+-        public Bundle saveState() {
+-            Bundle bundle = new Bundle();
+-            bundle.putString(QUERY, query);
+-            return bundle;
+-        }
++                // Get the previously saved state and restore it
++                Bundle state = registry.consumeRestoredStateForKey(PROVIDER);
+ 
+-        ...
++                // Apply the previously saved state
++                if (state != null) {
++                    query = state.getString(QUERY);
++                }
++            }
++        });
+     }
+ 
+-    class SearchFragment extends Fragment {
+-        private SearchManager searchManager = new SearchManager(this);
+-        ...
++    @NonNull
++    @Override
++    public Bundle saveState() {
++        Bundle bundle = new Bundle();
++        bundle.putString(QUERY, query);
++        return bundle;
+     }
+ 
++    ...
++}
++
++class SearchFragment extends Fragment {
++    private SearchManager searchManager = new SearchManager(this);
++    ...
++}
++```
++
+ > [!NOTE]
+ > **Note:** `SavedStateRegistry` stores data in the same `Bundle` as the other saved instance state APIs, therefore the same considerations and data limitations apply.
+ 
+@@ -354,7 +360,7 @@ trade-offs of data complexity, access speed, and lifetime:
+ 
+ - Local persistence: Stores all the application data you don't want to lose if you open and close the activity.
+   - Example: A collection of song objects, which could include audio files and metadata.
+-- [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel): Stores in memory all the data needed to display the associated UI, the [screen UI state](https://developer.android.com/topic/architecture/ui-layer/stateholders#ui-state).
++- [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel.md.txt): Stores in memory all the data needed to display the associated UI, the [screen UI state](https://developer.android.com/topic/architecture/ui-layer/stateholders.md.txt#ui-state).
+   - Example: The song objects of the most recent search and the most recent search query.
+ - Saved instance state: Stores a small amount of data needed to reload UI state if the system stops and then recreates the UI. Instead of storing complex objects here, persist the complex objects in local storage and store a unique ID for these objects in the saved instance state APIs.
+   - Example: Storing the most recent search query.
+@@ -362,7 +368,7 @@ trade-offs of data complexity, access speed, and lifetime:
+ As an example, consider an activity that lets you search through your library of
+ songs. Here's how different events should be handled:
+ 
+-When the user adds a song, the [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) immediately delegates persisting
++When the user adds a song, the [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel.md.txt) immediately delegates persisting
+ this data locally. If this newly added song should be shown in the UI, you
+ should also update the data in the `ViewModel` object to reflect the addition of
+ the song. Remember to do all database inserts off of the main thread.
+@@ -393,14 +399,10 @@ scenarios for recreating the activity:
+ 
+ To learn more about saving UI states, see the following resources.
+ 
+-- [UI layer documentation](https://developer.android.com/topic/architecture/ui-layer)
+-- [Saved State module for ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate)
++- [UI layer documentation](https://developer.android.com/topic/architecture/ui-layer.md.txt)
++- [Saved State module for ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate.md.txt)
+ 
+ ### Blogs
+ 
+ - [ViewModels: A simple example](https://medium.com/androiddevelopers/viewmodels-a-simple-example-ed5ac416317e)
+-- [ViewModels: Persistence](https://medium.com/androiddevelopers/viewmodels-persistence-onsaveinstancestate-restoring-ui-state-and-loaders-fc7cc4a6c090), [`onSaveInstanceState`](https://medium.com/androiddevelopers/viewmodels-persistence-onsaveinstancestate-restoring-ui-state-and-loaders-fc7cc4a6c090), [Restoring UI State and Loaders](https://medium.com/androiddevelopers/viewmodels-persistence-onsaveinstancestate-restoring-ui-state-and-loaders-fc7cc4a6c090)
+-
+-### Codelabs
+-
+-- [Android lifecycle-aware components codelab](https://codelabs.developers.google.com/codelabs/android-lifecycles)
+\ No newline at end of file
++- [ViewModels: Persistence](https://medium.com/androiddevelopers/viewmodels-persistence-onsaveinstancestate-restoring-ui-state-and-loaders-fc7cc4a6c090), [`onSaveInstanceState`](https://medium.com/androiddevelopers/viewmodels-persistence-onsaveinstancestate-restoring-ui-state-and-loaders-fc7cc4a6c090), [Restoring UI State and Loaders](https://medium.com/androiddevelopers/viewmodels-persistence-onsaveinstancestate-restoring-ui-state-and-loaders-fc7cc4a6c090)
+\ No newline at end of file

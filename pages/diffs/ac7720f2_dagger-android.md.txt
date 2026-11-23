@@ -1,0 +1,99 @@
+diff --git a/docs/training/dependency-injection/dagger-android.md b/docs/training/dependency-injection/dagger-android.md
+index 3015e6a5..ce546a3d 100644
+--- a/docs/training/dependency-injection/dagger-android.md
++++ b/docs/training/dependency-injection/dagger-android.md
+@@ -4,12 +4,14 @@ url: https://developer.android.com/training/dependency-injection/dagger-android
+ source: md.txt
+ ---
+ 
+-The [Dagger basics](https://developer.android.com/training/dependency-injection/dagger-basics) page explained how Dagger can help you automate dependency
++> Documentation index: https://developer.android.com/training/dependency-injection/llms.txt
++
++The [Dagger basics](https://developer.android.com/training/dependency-injection/dagger-basics.md.txt) page explained how Dagger can help you automate dependency
+ injection in your app. With Dagger, you don't have to write tedious and
+ error-prone boilerplate code.
+ 
+ > [!NOTE]
+-> **Note:** Use [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for dependency injection on Android. Hilt is built on top of Dagger and it provides a standard way to incorporate Dagger dependency injection into an Android application.
++> **Note:** Use [Hilt](https://developer.android.com/training/dependency-injection/hilt-android.md.txt) for dependency injection on Android. Hilt is built on top of Dagger and it provides a standard way to incorporate Dagger dependency injection into an Android application.
+ 
+ ## Best practices summary
+ 
+@@ -65,7 +67,7 @@ class because you want an instance of the graph to be in memory as long as the
+ app is running. In this way, the graph is attached to the app lifecycle. In some
+ cases, you might also want to have the application context available in the
+ graph. For that, you would also need the graph to be in the
+-[`Application`](https://developer.android.com/reference/android/app/Application) class. One advantage of this
++[`Application`](https://developer.android.com/reference/android/app/Application.md.txt) class. One advantage of this
+ approach is that the graph is available to other Android framework classes.
+ Additionally, it simplifies testing by allowing you to use a custom
+ `Application` class in tests.
+@@ -114,7 +116,7 @@ class (constructor injection) as you did in the previous examples. Instead,
+ you have to use field injection.
+ 
+ > [!NOTE]
+-> **Note:** The [Dagger basics](https://developer.android.com/training/dependency-injection/dagger-basics) page covers how to use the Dagger `@Inject` annotation in constructors. This annotation tells Dagger how to create instances of a class.
++> **Note:** The [Dagger basics](https://developer.android.com/training/dependency-injection/dagger-basics.md.txt) page covers how to use the Dagger `@Inject` annotation in constructors. This annotation tells Dagger how to create instances of a class.
+ 
+ Instead of creating the dependencies an activity requires in the `onCreate()`
+ method, you want Dagger to populate those dependencies for you. For field
+@@ -156,7 +158,7 @@ They need to have at least package-private visibility like in the preceding code
+ ### Injecting activities
+ 
+ Dagger needs to know that `LoginActivity` has to access the graph in order to
+-provide the `ViewModel` it requires. In the [Dagger basics](https://developer.android.com/training/dependency-injection/dagger-basics) page, you used
++provide the `ViewModel` it requires. In the [Dagger basics](https://developer.android.com/training/dependency-injection/dagger-basics.md.txt) page, you used
+ the `@Component` interface to get objects from the graph
+ by exposing functions with the return type of what you want to get from the
+ graph. In this case, you need to tell Dagger about an object (`LoginActivity`
+@@ -371,9 +373,7 @@ public class NetworkModule {
+ > [!NOTE]
+ > **Note:** You can use the `@Provides` annotation in Dagger modules to tell Dagger how to provide classes that your project doesn't own (e.g. an instance of `Retrofit`).  
+ >
+-> For implementation of interfaces, the best practice is using [`@Binds`](https://dagger.dev/faq.html#binds), as you can see in the [Using Dagger
+-> in an Android app
+-> codelab](https://codelabs.developers.google.com/codelabs/android-dagger/).
++> For implementation of interfaces, the best practice is using [`@Binds`](https://dagger.dev/faq.html#binds).
+ 
+ Modules are a way to semantically encapsulate information on how to provide
+ objects. As you can see, you called the class `NetworkModule` to group the logic
+@@ -463,7 +463,7 @@ example, Dagger delegates to the `NetworkModule` included in
+ 
+ ### Dagger scopes
+ 
+-Scopes were mentioned on the [Dagger basics](https://developer.android.com/training/dependency-injection/dagger-basics) page as a way to have a
++Scopes were mentioned on the [Dagger basics](https://developer.android.com/training/dependency-injection/dagger-basics.md.txt) page as a way to have a
+ unique instance of a type in a component. This is what is meant by
+ *scoping a type to the component's lifecycle*.
+ 
+@@ -1125,7 +1125,7 @@ of your app helps towards a **more performant and scalable application** in
+ terms of memory and startup time.
+ 
+ > [!NOTE]
+-> **Note:** If you need the container to survive configuration changes such as device rotation, follow the [Saving UI States guide](https://developer.android.com/topic/libraries/architecture/saving-states). You might want to handle configuration changes the same way you handle process termination; otherwise your app might lose state on low end devices.
++> **Note:** If you need the container to survive configuration changes such as device rotation, follow the [Saving UI States guide](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt). You might want to handle configuration changes the same way you handle process termination; otherwise your app might lose state on low end devices.
+ 
+ ## Best practices when building a Dagger graph
+ 
+@@ -1292,8 +1292,7 @@ public class MyTestApplication extends MyApplication {
+ ```
+ 
+ Then, this test application is used in a custom `TestRunner` that you'll use to
+-run instrumentation tests. For more information about this, check out the [Using
+-Dagger in your Android app codelab](https://codelabs.developers.google.com/codelabs/android-dagger/).
++run instrumentation tests.
+ 
+ ## Working with Dagger modules
+ 
+@@ -1474,6 +1473,6 @@ see the [Dagger documentation](https://dagger.dev/dev-guide/assisted-injection).
+ 
+ ## Conclusion
+ 
+-If you haven't already, review the [best practices section](https://developer.android.com/training/dependency-injection/dagger-android#best-practices). To
+-see how to use Dagger in an Android app, see the [Using Dagger in an Android app
+-codelab](https://codelabs.developers.google.com/codelabs/android-dagger/).
+\ No newline at end of file
++If you haven't already, review the [best practices section](https://developer.android.com/training/dependency-injection/dagger-android.md.txt#best-practices).
++For Android's recommended dependency injection solution built on Dagger, see
++[Dependency injection with Hilt](https://developer.android.com/training/dependency-injection/hilt-android.md.txt).
+\ No newline at end of file

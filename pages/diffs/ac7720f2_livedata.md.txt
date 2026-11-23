@@ -1,0 +1,26 @@
+diff --git a/docs/topic/libraries/architecture/livedata.md b/docs/topic/libraries/architecture/livedata.md
+index f77d3a57..d8729d47 100644
+--- a/docs/topic/libraries/architecture/livedata.md
++++ b/docs/topic/libraries/architecture/livedata.md
+@@ -388,7 +388,8 @@ class UserRepository {
+ If you need to use streams of data in other layers of your app, consider
+ using [Kotlin Flows](https://developer.android.com/kotlin/flow.md.txt) and then converting them to `LiveData` in the
+ `ViewModel` using [`asLiveData()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary.md.txt#aslivedata).
+-Learn more about using Kotlin `Flow` with `LiveData` in [this codelab](https://developer.android.com/codelabs/advanced-kotlin-coroutines).
++Learn more about using Kotlin `Flow` with `LiveData` in
++[Use Kotlin coroutines with lifecycle-aware components](https://developer.android.com/topic/libraries/architecture/coroutines.md.txt).
+ For codebases built with Java, consider using [Executors](https://developer.android.com/guide/background/threading)
+ in conjunction with callbacks or `RxJava`.
+ 
+@@ -803,11 +804,6 @@ the following resources.
+ 
+ - [Sunflower](https://github.com/android/sunflower), a demo app demonstrating best practices with Architecture Components
+ 
+-### Codelabs
+-
+-- Android Room with a View [(Java)](https://codelabs.developers.google.com/codelabs/android-room-with-a-view) [(Kotlin)](https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin)
+-- [Learn advanced coroutines with Kotlin Flow and LiveData](https://developer.android.com/codelabs/advanced-kotlin-coroutines)
+-
+ ### Blogs
+ 
+ - [ViewModels and LiveData: Patterns + AntiPatterns](https://medium.com/androiddevelopers/viewmodels-and-livedata-patterns-antipatterns-21efaef74a54)

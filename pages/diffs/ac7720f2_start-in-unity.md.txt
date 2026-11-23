@@ -1,0 +1,104 @@
+diff --git a/docs/games/engines/unity/start-in-unity.md b/docs/games/engines/unity/start-in-unity.md
+index 338f405d..85bcfef2 100644
+--- a/docs/games/engines/unity/start-in-unity.md
++++ b/docs/games/engines/unity/start-in-unity.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/games/engines/unity/start-in-unity
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/games/llms.txt
++
+ This guide outlines a typical game development cycle. After reading this
+ guide, you might find it helpful to use also as a reference.
+ 
+@@ -98,7 +100,7 @@ battery drain for higher rendering rates.
+ To set a specific frame rate in your game in Unity, use
+ [Application.targetFrameRate](https://docs.unity3d.com/ScriptReference/Application-targetFrameRate.html).
+ 
+-The Android [Frame Pacing library](https://developer.android.com/games/sdk/frame-pacing) helps you render
++The Android [Frame Pacing library](https://developer.android.com/games/sdk/frame-pacing.md.txt) helps you render
+ smoothly when your application takes longer to present the next frame
+ than the screen refresh rate demands. For Unity versions 2021 and later,
+ enabling Android frame pacing sets the display refresh rate to the
+@@ -137,7 +139,7 @@ Vulkan.
+ 
+ If Vulkan is ordered higher in this list than OpenGL ES, Unity first tries to
+ use Vulkan. If the device does not support Vulkan, Unity runs with OpenGL ES.
+-See [Get started with Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started) for detailed information about Vulkan on
++See [Get started with Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started.md.txt) for detailed information about Vulkan on
+ Android, such as how to use modern graphics APIs and optimize your game's
+ performance.
+ ![Project Settings > Player Settings > Rendering > Graphics APIs](https://developer.android.com/static/images/games/engines/unity/unity-graphics-apis.png) **Figure 3.** Manually set graphic APIs when Auto Graphics API is disabled. Vulkan is first option. Unity falls back to OpenGL ES 3.0.
+@@ -233,7 +235,7 @@ profiling time into your process, and to use the following best practices:
+ - Profile your game on target devices to get an accurate picture of how your game performs at the current stage of development.
+ - Profile different parts of your game.
+ - Profile how your players play the game. (Don't profile your game only when it's sitting in an idle state or on a pause screen.)
+-- Profile in sustained mode after the game has been running for awhile to help find throttling issues that you might encounter when the mobile devices are [hot](https://developer.android.com/games/optimize/adpf#thermal).
++- Profile in sustained mode after the game has been running for awhile to help find throttling issues that you might encounter when the mobile devices are [hot](https://developer.android.com/games/optimize/adpf.md.txt#thermal).
+ 
+ You can use the following profiling tools separately or in combination.
+ 
+@@ -315,22 +317,24 @@ unresponsive on entry-level Android devices.
+ Consider the following code snippet for a simple coroutine that is invoked from
+ the beginning of a MonoBehaviour:
+ 
+-    // Option 1: Bad for memory management - causes allocation each iteration
+-    IEnumerator UpdateEnemyTarget() {
+-      while (enabled) {
+-        yield return new WaitForSeconds(1.0f);
+-        // Some intermittent function check
+-      }
+-    }
+-
+-    // Option 2: Better for memory management - allocation of yield instruction once, reused each iteration
+-    private YieldInstruction waitForSecond = new WaitForSeconds(1.0f);
+-    IEnumerator BetterUpdateEnemyTarget() {
+-      while (enabled) {
+-        yield return waitForSecond;
+-        // Some other intermittent function
+-      }
+-    }
++```c#
++// Option 1: Bad for memory management - causes allocation each iteration
++IEnumerator UpdateEnemyTarget() {
++  while (enabled) {
++    yield return new WaitForSeconds(1.0f);
++    // Some intermittent function check
++  }
++}
++
++// Option 2: Better for memory management - allocation of yield instruction once, reused each iteration
++private YieldInstruction waitForSecond = new WaitForSeconds(1.0f);
++IEnumerator BetterUpdateEnemyTarget() {
++  while (enabled) {
++    yield return waitForSecond;
++    // Some other intermittent function
++  }
++}
++```
+ 
+ You can
+ [edit](https://support.unity.com/hc/en-us/articles/210223733-How-to-customize-Unity-script-templates)
+@@ -446,7 +450,7 @@ limited release, you can tune your application performance based on a wider
+ live audience and collection of devices.
+ 
+ For example, you can use
+-[Android Performance Tuner for Unity](https://developer.android.com/games/sdk/performance-tuner/unity)
++[Android Performance Tuner for Unity](https://developer.android.com/games/sdk/performance-tuner/unity.md.txt)
+ and
+ [Google Analytics for Unity](https://firebase.google.com/docs/analytics/unity/start)
+ to get insights about your application performance and trends of players, from
+@@ -481,11 +485,11 @@ development and testing. For details, watch
+ Often larger development teams have unique and custom game telemetry pipelines
+ that provide metrics related to device performance. Remember to take advantage
+ of the
+-[Android Performance Tuner (APT)](https://developer.android.com/games/sdk/performance-tuner)
++[Android Performance Tuner (APT)](https://developer.android.com/games/sdk/performance-tuner.md.txt)
+ and the corresponding Unity plugin to dial-in metrics related to frame rates,
+ graphical fidelity, loading time and loading abandonment. Follow the
+ step-by-step guide in
+-[Integrating Android Performance Tuner into your Unity game](https://developer.android.com/codelabs/android-performance-tuner-unity).
++[Integrating Android Performance Tuner into your Unity game](https://developer.android.com/games/sdk/performance-tuner/unity.md.txt).
+ 
+ The lifecycle of your game does not stop after you go live.
+ Monitoring, maintaining, and responding to performance and feedback are critical

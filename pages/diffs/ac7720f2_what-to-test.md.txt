@@ -1,0 +1,36 @@
+diff --git a/docs/training/testing/fundamentals/what-to-test.md b/docs/training/testing/fundamentals/what-to-test.md
+index 94141526..0cfcb31f 100644
+--- a/docs/training/testing/fundamentals/what-to-test.md
++++ b/docs/training/testing/fundamentals/what-to-test.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/training/testing/fundamentals/what-to-test
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/training/testing/fundamentals/llms.txt
++
+ What you should test depends on factors such as the type of app, the development
+ team, the amount of legacy code, and the architecture used. The following
+ sections outline what a beginner might want to consider when planning what to
+@@ -24,7 +26,7 @@ When following best practice, you should ensure you use unit tests in the
+ following cases:
+ 
+ - **Unit tests** for **ViewModels**, or presenters.
+-- **Unit tests** for the **data** layer, especially repositories. Most of the data layer should be platform-independent. Doing so enables test doubles to replace database modules and remote data sources in tests. See the guide on [using test doubles in Android](https://developer.android.com/training/testing/fundamentals/test-doubles)
++- **Unit tests** for the **data** layer, especially repositories. Most of the data layer should be platform-independent. Doing so enables test doubles to replace database modules and remote data sources in tests. See the guide on [using test doubles in Android](https://developer.android.com/training/testing/fundamentals/test-doubles.md.txt)
+ - **Unit tests** for other platform-independent layers such as the **Domain** layer, as with use cases and interactors.
+ - **Unit tests** for **utility classes** such as string manipulation and math.
+ 
+@@ -68,7 +70,8 @@ regressions, accessibility, and compatibility.
+ 
+ In order to test in isolation, you oftentimes need to replace the dependencies
+ of the subject under test with fake or mock dependencies, called "Test doubles"
+-in general. Continue reading about them in [Using test doubles in Android](https://developer.android.com/training/testing/fundamentals/test-doubles).
++in general. Continue reading about them in [Using test doubles in Android](https://developer.android.com/training/testing/fundamentals/test-doubles.md.txt).
+ 
+-If you want to learn how to create unit and UI tests, check out the [Testing
+-codelabs](https://developer.android.com/codelabs/advanced-android-kotlin-training-testing-basics).
+\ No newline at end of file
++To learn how to create unit and UI tests, see
++[Build local unit tests](https://developer.android.com/training/testing/local-tests.md.txt) and
++[Build instrumented tests](https://developer.android.com/training/testing/instrumented-tests.md.txt).
+\ No newline at end of file

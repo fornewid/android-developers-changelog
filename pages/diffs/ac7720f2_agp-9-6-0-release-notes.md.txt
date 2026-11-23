@@ -1,0 +1,33 @@
+diff --git a/docs/build/releases/agp-9-6-0-release-notes.md b/docs/build/releases/agp-9-6-0-release-notes.md
+index 0da1174c..1186b1db 100644
+--- a/docs/build/releases/agp-9-6-0-release-notes.md
++++ b/docs/build/releases/agp-9-6-0-release-notes.md
+@@ -23,6 +23,7 @@ Here is other compatibility info:
+ | SDK Build Tools | 36.0.0 | 36.0.0 | [Install](https://developer.android.com/studio/intro/update.md.txt#sdk-manager) or [configure](https://developer.android.com/tools/releases/build-tools.md.txt) SDK Build Tools. |
+ | NDK | N/A | 28.2.13676358 | [Install](https://developer.android.com/studio/projects/install-ndk.md.txt#specific-version) or [configure](https://developer.android.com/studio/projects/install-ndk.md.txt#apply-specific-version) a different version of the NDK. |
+ | JDK | 17 | 17 | To learn more, see [setting the JDK version](https://developer.android.com/studio/intro/studio-config.md.txt#jdk). |
++| Kotlin Gradle plugin (KGP) | 2.2.10 | 2.4.20 | To learn more, see [Runtime dependency on Kotlin Gradle plugin](https://developer.android.com/build/releases/agp-9-0-0-release-notes.md.txt#runtime-dependency-on-kotlin-gradle-plugin). |
+ 
+ <br />
+ 
+@@ -74,6 +75,20 @@ For more information, see [Test suites in the Android Gradle
+ plugin](https://developer.android.com/studio/preview/test-suites), [Unit test suites](https://developer.android.com/studio/preview/unit-test-suites.md.txt), and [Instrumented
+ test suites](https://developer.android.com/studio/preview/instrumented-test-suites).
+ 
++## Markdown test reports
++
++> [!WARNING]
++> **Experimental:** This is an experimental feature. To enable this feature, set `android.experimental.testOptions.enableMarkdownReport=true` and `android.experimental.reportAggregationSupport=true` in your `gradle.properties` file.
++
++AGP 9.6.0-alpha04 adds a Markdown version of the test report, `report.md`, to
++help you and AI coding agents read test results without opening the HTML report
++or parsing JUnit XML files. AGP writes `report.md` next to each HTML test report
++and prints its location after the tests run. The report lists the test counts
++and the failed tests with their stack traces. For screenshot tests, it also says
++whether the images differ or the reference image is missing, and links to the
++images. To get one report for all the test suites in a module, run
++`testAllSuites`. For more information, see [View unified test reports](https://developer.android.com/studio/test/command-line.md.txt#view-test-reports).
++
+ ## Fixed issues
+ 
+ 

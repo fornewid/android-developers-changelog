@@ -1,5 +1,234 @@
 [
   {
+    "date": "2026-11-23T15:09:59Z",
+    "commit_hash": "ac7720f2",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/azin-mehrnoosh\" target=\"_blank\">Azin Mehrnoosh  |  Android Developers' Blog</a>",
+        "path": "blog/authors/azin-mehrnoosh.md",
+        "summary": "This new author profile page for Azin Mehrnoosh, Product Manager for Android XR, establishes her blog presence and highlights her post on building a mixed-reality tour guide.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-9-6-0-release-notes\" target=\"_blank\">Android Gradle plugin 9.6.0</a>",
+        "path": "build/releases/agp-9-6-0-release-notes.md",
+        "summary": "Android Gradle Plugin (AGP) 9.6.0 updates the Kotlin Gradle plugin (KGP) compatibility to version 2.4.20 and introduces an experimental Markdown test report feature. This new feature generates a `report.md` file alongside HTML test reports, making it easier for developers and AI coding agents to read test results, stack traces, and screenshot test outcomes without parsing XML or HTML.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_agp-9-6-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started\" target=\"_blank\">Getting started with WorkManager</a>",
+        "path": "develop/background-work/background-tasks/persistent/getting-started.md",
+        "summary": "The WorkManager getting-started documentation was updated to remove the basic WorkManager codelabs (Kotlin and Java) and update the link for the Advanced WorkManager codelab to point directly to the new developer.android.com domain. This matters because it streamlines the learning resources by removing outdated entry points and directing users to the current platform destinations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_getting-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/agdk/get-agdk\" target=\"_blank\">Android Games Development Kit</a>",
+        "path": "games/agdk/get-agdk.md",
+        "summary": "Updated a documentation link in the Android Games Development Kit (AGDK) guide to point the Android Jetpack reference to the correct markdown file format (.md.txt) instead of the standard URL. This ensures proper link resolution within the documentation site.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_get-agdk.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/engines/unity/start-in-unity\" target=\"_blank\">Get started with game development in Unity</a>",
+        "path": "games/engines/unity/start-in-unity.md",
+        "summary": "Updated documentation links to include '.md.txt' extensions and added a documentation index reference at the top of the file. Additionally, a code snippet for coroutine memory management was wrapped in proper C# markdown code blocks for better readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_start-in-unity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/engines/unity/unity-lmks\" target=\"_blank\">Debug LMKs</a>",
+        "path": "games/engines/unity/unity-lmks.md",
+        "summary": "Updated the native allocators section for Unity Android Player builds with specific technical details regarding the Bucket Allocator default behavior, small-object spillover overhead, and dynamic heap block sizing. It also adds a reference link to the new step-by-step guide for configuring native allocators and tuning boot.config values.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_unity-lmks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/engines/unity/unity-reduce-memory\" target=\"_blank\">Unity game memory optimization on Android</a>",
+        "path": "games/engines/unity/unity-reduce-memory.md",
+        "summary": "Expanded the Unity memory reduction guide by adding a new fourth pillar (Category D) for configuring native allocators, introducing guidance on binary catalogs for Addressables, adding audio optimizations like Force To Mono, and expanding recommendations on shader stripping and consolidating redundant shaders. These additions help developers further reduce memory peaks, GC allocations, and native memory overhead on Android.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_unity-reduce-memory.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/billing/retention-offers\" target=\"_blank\">Retain subscribers with retention offers</a>",
+        "path": "google/play/billing/retention-offers.md",
+        "summary": "Added a reference link to the official Play Console Help Center for detailed steps on creating retention offers in the Google Play Console, helping developers find comprehensive instructions easily.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_retention-offers.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/responsive/config-changes\" target=\"_blank\">Handling configuration changes</a>",
+        "path": "guide/navigation/responsive/config-changes.md",
+        "summary": "Updated internal documentation links with `.md.txt` extensions, modernized XML code block formatting using standard markdown fences, and refined descriptive text for better consistency and readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_config-changes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/playcore/asset-delivery/integrate-java\" target=\"_blank\">Integrate asset delivery (Kotlin and Java)</a>",
+        "path": "guide/playcore/asset-delivery/integrate-java.md",
+        "summary": "Updated the note in the Java/Kotlin integration guide to point developers of C or C++ games to the dedicated Native Play Asset Delivery integration documentation instead of a Codelab, improving navigation for game developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_integrate-java.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/already-using-resources\" target=\"_blank\">Additional resources for experienced Kotlin users</a>",
+        "path": "kotlin/already-using-resources.md",
+        "summary": "Updated the learning resources documentation by adding a link to the documentation index, renaming the 'Codelabs' section to 'Guides', and replacing old codelab links with updated guide and pathway links such as Kotlin coroutines on Android, Android KTX, and lifecycle-aware components. This matters because it directs developers to the most current and relevant Android Kotlin guides.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_already-using-resources.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/campaign/learn\" target=\"_blank\">Learn Kotlin for Android</a>",
+        "path": "kotlin/campaign/learn.md",
+        "summary": "Updated the learning resources and course links on the Kotlin for Android campaign page. The changes replace outdated courses and codelabs with modern Jetpack Compose, Kotlin language guides, and architecture pathways, reflecting the current Android development curriculum and incorporating links to llms.txt documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_learn.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/kotlin-java-resources\" target=\"_blank\">Additional resources for Java users learning Kotlin</a>",
+        "path": "kotlin/kotlin-java-resources.md",
+        "summary": "The Kotlin and Java resources documentation was updated to include an LLM documentation index link, replace the old codelabs section with updated guides on adding Kotlin to existing apps, and improve the guidance on calling Kotlin from Java.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_kotlin-java-resources.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camerax/additional-resources\" target=\"_blank\">Additional Resources for Architecture Components</a>",
+        "path": "media/camera/camerax/additional-resources.md",
+        "summary": "The changes in the additional-resources.md document are primarily trivial formatting adjustments, line wrapping, and minor text reflows. They do not introduce meaningful content updates, API changes, or technical additions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_additional-resources.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/platform/av-capture\" target=\"_blank\">Capture video and audio playback</a>",
+        "path": "media/platform/av-capture.md",
+        "summary": "Updated the reference link in the av-capture documentation, replacing a specific codelab about forbidding screenshots with a broader link to the Android Enterprise documentation. This matters as it directs developers to more comprehensive enterprise device management resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_av-capture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ndk/guides/audio/additional-resources\" target=\"_blank\">Additional resources for high-performance audio</a>",
+        "path": "ndk/guides/audio/additional-resources.md",
+        "summary": "Removed an empty 'Codelabs' section from the NDK audio additional resources documentation to clean up incomplete content and maintain documentation quality.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_additional-resources.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/security/fraud-prevention/authentication\" target=\"_blank\">Secure user authentication</a>",
+        "path": "security/fraud-prevention/authentication.md",
+        "summary": "Updated the biometric authentication documentation to point developers to the more relevant 'Show a biometric authentication dialog' guide instead of the deprecated or outdated codelab link. This ensures developers follow current best practices for implementing biometric prompts to prevent fraud.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_authentication.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/social-and-messaging/guides/media-sharing\" target=\"_blank\">About media sharing</a>",
+        "path": "social-and-messaging/guides/media-sharing.md",
+        "summary": "The media sharing documentation was updated to fix code block formatting, ensuring Kotlin snippets render correctly with proper syntax highlighting. Additionally, internal documentation links were updated with '.md.txt' extensions, and an LLM documentation index reference was added at the top.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_media-sharing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/additional-resources\" target=\"_blank\">Additional Resources for Architecture Components</a>",
+        "path": "topic/libraries/architecture/additional-resources.md",
+        "summary": "The codelabs section in the additional resources has been updated to remove older tutorials (such as Room, Data Binding, Navigation, Paging, and Lifecycle components) and replaced them with newer references like the Proto DataStore and Advanced WorkManager codelabs. This ensures developers are directed to up-to-date architectural best practices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_additional-resources.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/livedata\" target=\"_blank\">LiveData overview</a>",
+        "path": "topic/libraries/architecture/livedata.md",
+        "summary": "The LiveData documentation was updated to remove outdated codelab references and redirect developers from an older coroutines codelab to the current 'Use Kotlin coroutines with lifecycle-aware components' guide. This ensures developers are pointed to up-to-date learning resources for integrating Kotlin Flow with LiveData.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_livedata.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/paging/v3-migration\" target=\"_blank\">Migrate to Paging 3</a>",
+        "path": "topic/libraries/architecture/paging/v3-migration.md",
+        "summary": "Updated documentation links and formatting throughout the Paging 3 migration guide. Code snippets for PagingSource refresh keys, Pager initialization, Compose list adapters, and loading states were wrapped in proper Markdown code blocks, and standard documentation links were converted to local reference format (.md.txt).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_v3-migration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/views/saving-states-views\" target=\"_blank\">Save UI states (Views)</a>",
+        "path": "topic/libraries/architecture/views/saving-states-views.md",
+        "summary": "The documentation updates consist entirely of technical formatting changes, specifically appending `.md.txt` to internal reference links and wrapping a previously unformatted code snippet in proper Markdown code block syntax. These changes do not alter the technical guidance or content of the guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_saving-states-views.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/dependency-injection/dagger-android\" target=\"_blank\">Using Dagger in Android apps</a>",
+        "path": "training/dependency-injection/dagger-android.md",
+        "summary": "Updated internal documentation links throughout the Dagger Android guide to point to their '.md.txt' source files, added a documentation index reference, removed outdated external codelab links, and updated the conclusion to point directly to the Hilt documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_dagger-android.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/testing/fundamentals\" target=\"_blank\">Fundamentals of testing Android apps</a>",
+        "path": "training/testing/fundamentals.md",
+        "summary": "Updated documentation links across the testing fundamentals page to reference specific `.md.txt` files and added a documentation index for LLMs. Additionally, code snippets for Espresso, Compose UI, and ViewModels were properly formatted using Markdown code blocks, and minor trailing text was cleaned up in the next steps section.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_fundamentals.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/testing/fundamentals/what-to-test\" target=\"_blank\">What to test in Android</a>",
+        "path": "training/testing/fundamentals/what-to-test.md",
+        "summary": "Updated documentation links to point to local markdown/text versions (adding .md.txt extensions) and replaced an outdated testing codelab reference with direct links to local unit and instrumented test building guides. A reference to an LLMs documentation index was also added.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_what-to-test.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/testing/local-tests\" target=\"_blank\">Build local unit tests</a>",
+        "path": "training/testing/local-tests.md",
+        "summary": "Updated the local-tests documentation to improve formatting by wrapping code blocks (Groovy dependencies, Kotlin samples, and build options) in proper Markdown code fences instead of indentation, and updated several internal links to point to local file formats (.md.txt) for LLM indexing compatibility.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_local-tests.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/testing/ui-tests/behavior\" target=\"_blank\">Behavior UI Tests</a>",
+        "path": "training/testing/ui-tests/behavior.md",
+        "summary": "The documentation changes primarily update internal reference links to point to local `.md.txt` files, add a documentation index link for LLMs at the top, and clean up the additional resources section by removing a codelab and updating resource links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_behavior.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/widgets/get_started\" target=\"_blank\">Get started with widgets</a>",
+        "path": "training/wearables/widgets/get_started.md",
+        "summary": "Updated the Wear OS widgets documentation to reflect changes in the supported development frameworks. The guide now recommends using Glance and Remote Compose instead of RemoteViews and ProtoLayout when building widgets with the Android skill.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/ac7720f2_get_started.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-21T15:08:54Z",
     "commit_hash": "cf7e5b69",
     "entries": [

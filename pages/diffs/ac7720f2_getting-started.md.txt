@@ -1,0 +1,14 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/getting-started.md b/docs/develop/background-work/background-tasks/persistent/getting-started.md
+index 61a975cd..b31d4f34 100644
+--- a/docs/develop/background-work/background-tasks/persistent/getting-started.md
++++ b/docs/develop/background-work/background-tasks/persistent/getting-started.md
+@@ -169,8 +169,7 @@ available to help you get started.
+ 
+ ### Codelabs
+ 
+-- Working with WorkManager [(Kotlin)](https://codelabs.developers.google.com/codelabs/android-workmanager/#0) and [(Java)](https://codelabs.developers.google.com/codelabs/android-workmanager-java/#0)
+-- [Advanced WorkManager (Kotlin)](https://codelabs.developers.google.com/codelabs/android-adv-workmanager/#0)
++- [Advanced WorkManager (Kotlin)](https://developer.android.com/codelabs/android-adv-workmanager)
+ 
+ ### Blogs
+ 
