@@ -4,12 +4,14 @@ url: https://developer.android.com/games/engines/unity/unity-anrs-list
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/llms.txt
+
 Unity ANRs happen for a variety of reasons. Most common ANRs are caused by
 misuse of Android and Unity components and their miscommunication.
 
 ## WebView
 
-[`WebView`](https://developer.android.com/reference/android/webkit/WebView) is an Android class that displays web pages. Third-party
+[`WebView`](https://developer.android.com/reference/android/webkit/WebView.md.txt) is an Android class that displays web pages. Third-party
 [SDKs](https://en.wikipedia.org/wiki/Software_development_kit) (such as ads) use `WebView` to display dynamic web content
 in activities other than the `UnityPlayerActivity`. ANRs occur when third-party
 SDKs misuse `WebView`.
@@ -51,7 +53,7 @@ include:
   - You can use [Backtrace](https://backtrace.io/) or [Crashlytics](https://firebase.google.com/products/crashlytics) reporting services.
   - Then, after analyzing the data and finding the issue, try disabling the offending ad providers.
   - Include memory logs to ensure the issue is not memory related.
-- Alert the user to [update the `WebView` from Google Play](https://developer.android.com/about/versions/lollipop#WebView). From Android 5.0 (API level 21) and higher, `WebView` has moved to an APK. Therefore, it can be updated separately from the Android platform. To see what version of `WebView` is in use on a device, go to **Settings \> Apps \> Android System
+- Alert the user to [update the `WebView` from Google Play](https://developer.android.com/about/versions/lollipop.md.txt#WebView). From Android 5.0 (API level 21) and higher, `WebView` has moved to an APK. Therefore, it can be updated separately from the Android platform. To see what version of `WebView` is in use on a device, go to **Settings \> Apps \> Android System
   WebView** and look at the version at the bottom of the page.
 
 ![App info screen showing the WebView versions.](https://developer.android.com/static/images/games/engines/unity/unity-anrs-list-webview-version.png) **Figure 1.** Check the `WebView` version.
@@ -109,7 +111,7 @@ pause or resume event.
 
 ## UnitySendMessage blocked
 
-Java Unity plugins and SDKs send data to the C# game layer using [JNI](https://developer.android.com/ndk/guides).
+Java Unity plugins and SDKs send data to the C# game layer using [JNI](https://developer.android.com/ndk/guides.md.txt).
 However, this communication might block the main thread due to a native
 synchronization routine such as a mutex, causing an ANR due to lock contention.
 
@@ -157,7 +159,7 @@ whether you can also complete these actions outside of the pause period.
 
 ## Install Referrer
 
-[Play Install Referrer](https://developer.android.com/google/play/installreferrer/library) is a unique string sent to the Play Store whenever a
+[Play Install Referrer](https://developer.android.com/google/play/installreferrer/library.md.txt) is a unique string sent to the Play Store whenever a
 user clicks on an ad. It is an Android-specific ad tracking identifier. Once
 installed, the app sends the install referrer to the attribution partner, which
 matches the source with the install (attributing the conversion).
@@ -189,5 +191,5 @@ keep, or remove an SDK from your app.
 
 To learn more about ANRs, consult the following resources:
 
-- [Debug ANRs](https://developer.android.com/games/engines/unity/unity-anrs) --- Android game development
-- [ANRs](https://developer.android.com/topic/performance/issues/anr) --- App quality
+- [Debug ANRs](https://developer.android.com/games/engines/unity/unity-anrs.md.txt) --- Android game development
+- [ANRs](https://developer.android.com/topic/performance/issues/anr.md.txt) --- App quality

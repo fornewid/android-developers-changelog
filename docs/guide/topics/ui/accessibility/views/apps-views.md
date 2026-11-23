@@ -4,7 +4,9 @@ url: https://developer.android.com/guide/topics/ui/accessibility/views/apps-view
 source: md.txt
 ---
 
-[Concepts and Jetpack Compose implementation](https://developer.android.com/guide/topics/ui/accessibility/apps)
+> Documentation index: https://developer.android.com/guide/topics/ui/accessibility/llms.txt
+
+[Concepts and Jetpack Compose implementation](https://developer.android.com/guide/topics/ui/accessibility/apps.md.txt)
 
 Try to make your Android app usable for everyone, including people with
 accessibility needs.
@@ -29,8 +31,8 @@ and tap. We recommend that each interactive UI element have a focusable area, or
 For a given UI element to have a large enough touch target size, the following
 conditions should **both** be true:
 
-- The sum of the values of [`android:paddingLeft`](https://developer.android.com/reference/android/view/View#attr_android:paddingLeft), [`android:minWidth`](https://developer.android.com/reference/android/view/View#attr_android:minWidth), and [`android:paddingRight`](https://developer.android.com/reference/android/view/View#attr_android:paddingRight) is greater than or equal to 48dp.
-- The sum of the values of [`android:paddingTop`](https://developer.android.com/reference/android/view/View#attr_android:paddingTop), [`android:minHeight`](https://developer.android.com/reference/android/view/View#attr_android:minHeight), and [`android:paddingBottom`](https://developer.android.com/reference/android/view/View#attr_android:paddingBottom) is greater than or equal to 48dp.
+- The sum of the values of [`android:paddingLeft`](https://developer.android.com/reference/android/view/View.md.txt#attr_android:paddingLeft), [`android:minWidth`](https://developer.android.com/reference/android/view/View.md.txt#attr_android:minWidth), and [`android:paddingRight`](https://developer.android.com/reference/android/view/View.md.txt#attr_android:paddingRight) is greater than or equal to 48dp.
+- The sum of the values of [`android:paddingTop`](https://developer.android.com/reference/android/view/View.md.txt#attr_android:paddingTop), [`android:minHeight`](https://developer.android.com/reference/android/view/View.md.txt#attr_android:minHeight), and [`android:paddingBottom`](https://developer.android.com/reference/android/view/View.md.txt#attr_android:paddingBottom) is greater than or equal to 48dp.
 
 The padding values allow an object's *visible* size to be less than 48dpx48dp
 while still having the recommended touch target size.
@@ -65,7 +67,7 @@ snippet:
 ```
 
 > [!NOTE]
-> **Note:** Don't provide descriptions for [`TextView`](https://developer.android.com/reference/android/widget/TextView) elements. Android accessibility services automatically announce the text itself as the description.
+> **Note:** Don't provide descriptions for [`TextView`](https://developer.android.com/reference/android/widget/TextView.md.txt) elements. Android accessibility services automatically announce the text itself as the description.
 
 When adding descriptions to your app's UI elements, keep the following best
 practices in mind:
@@ -79,21 +81,11 @@ practices in mind:
   encounter a repeated element description, they correctly recognize that the
   focus is on an element that already had focus earlier. In particular, each item
   within a view group such as
-  [`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView) must have
+  [`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.md.txt) must have
   a different description. Each description must reflect the content that's unique
   to a given item, such as the name of a city in a list of locations.
 
 - If your app's `minSdkVersion` is `16` or higher, you can set the
-  [`android:importantForAccessibility`](https://developer.android.com/reference/android/view/View#attr_android:importantForAccessibility)
+  [`android:importantForAccessibility`](https://developer.android.com/reference/android/view/View.md.txt#attr_android:importantForAccessibility)
   attribute to `"no"` for graphical elements that are only used for decorative
   effect.
-
-## Additional resources
-
-To learn more about making your app more accessible, see the following
-additional resources:
-
-### Codelabs
-
-- [Starting Android
-  Accessibility](https://codelabs.developers.google.com/codelabs/starting-android-accessibility)

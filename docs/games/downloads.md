@@ -4,6 +4,8 @@ url: https://developer.android.com/games/downloads
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/llms.txt
+
 ### Downloads for Android Games Development
 
 Get tools and libraries from Android, Google Play, and third-party sources to help you build and distribute your games.
@@ -19,9 +21,9 @@ launch, and iterate on high quality Android games.
 
 The AGDK libraries contain the following:
 
-- [C or C++ game libraries](https://developer.android.com/games/develop/custom/overview) that make it easier to build, debug, optimize, and maintain your games.
-- [Android Frame Pacing library](https://developer.android.com/games/sdk/frame-pacing) to maintain a steady frame rate and potentially reduce input latency.
-- [Android Performance Tuner](https://developer.android.com/games/sdk/performance-tuner) to measure and optimize your frame rate at scale.
+- [C or C++ game libraries](https://developer.android.com/games/develop/custom/overview.md.txt) that make it easier to build, debug, optimize, and maintain your games.
+- [Android Frame Pacing library](https://developer.android.com/games/sdk/frame-pacing.md.txt) to maintain a steady frame rate and potentially reduce input latency.
+- [Android Performance Tuner](https://developer.android.com/games/sdk/performance-tuner.md.txt) to measure and optimize your frame rate at scale.
 
 ## Download AGDK libraries
 
@@ -1249,24 +1251,24 @@ This section contains downloads for Google Play Games Services including some th
 
 | Platform | SDK | Description |
 |---|---|---|
-| Java | [Google Play Games Services v2 Java SDK](https://developer.android.com/games/pgs/android/android-start#configure_your_app) | This includes the Google Play Games Services v2 SDK dependency that is needed to develop your game in Java. |
-| Native (C/C++) | [Google Play Games v2 Native SDK](https://developer.android.com/games/pgs/cpp/cpp-start#set-up-project) | This includes the Google Play Games Services v2 SDK dependency that is needed to develop your game in C/C++. The native SDK is in beta and only supports the Sign-in service. |
+| Java | [Google Play Games Services v2 Java SDK](https://developer.android.com/games/pgs/android/android-start.md.txt#configure_your_app) | This includes the Google Play Games Services v2 SDK dependency that is needed to develop your game in Java. |
+| Native (C/C++) | [Google Play Games v2 Native SDK](https://developer.android.com/games/pgs/cpp/cpp-start.md.txt#set-up-project) | This includes the Google Play Games Services v2 SDK dependency that is needed to develop your game in C/C++. The native SDK is in beta and only supports the Sign-in service. |
 
 ### Game engine plugins and extensions
 
 | Name | Platform | Language | Features Supported |
 |---|---|---|---|
-| [Google Play Games plugin for Unity](https://github.com/playgameservices/play-games-plugin-for-unity) | Android | C# | - [Achievements](https://developer.android.com/games/pgs/achievements) - [Leaderboards](https://developer.android.com/games/pgs/leaderboards) - [Events](https://developer.android.com/games/pgs/events) - [Saved Games](https://developer.android.com/games/pgs/savedgames) - [Nearby Connections](https://developers.google.com/nearby/connections/overview) |
-| [Google Play Games Services plugin for Cocos2d-x](http://www.sdkbox.com/plugins/googleplayservices) | Android | C++, Lua, JavaScript | - [Achievements](https://developer.android.com/games/pgs/achievements) - [Leaderboards](https://developer.android.com/games/pgs/leaderboards) - [Events](https://developer.android.com/games/pgs/events) - [Saved Games](https://developer.android.com/games/pgs/savedgames) |
-| [Defold](https://defold.com/extension-gpgs/) | Android | Lua | - [Achievements](https://developer.android.com/games/pgs/achievements) - [Leaderboards](https://developer.android.com/games/pgs/leaderboards) - [Saved Games](https://developer.android.com/games/pgs/savedgames) |
-| [LibGDX](https://github.com/TheInvader360/libgdx-gameservices-tutorial) | Android | Java | - [Achievements](https://developer.android.com/games/pgs/achievements) - [Leaderboards](https://developer.android.com/games/pgs/leaderboards) |
-| [Marmalade SDK](https://github.com/marmalade/s3eGooglePlayGames) | Android | C/C++ | - [Achievements](https://developer.android.com/games/pgs/achievements) - [Leaderboards](https://developer.android.com/games/pgs/leaderboards) |
+| [Google Play Games plugin for Unity](https://github.com/playgameservices/play-games-plugin-for-unity) | Android | C# | - [Achievements](https://developer.android.com/games/pgs/achievements.md.txt) - [Leaderboards](https://developer.android.com/games/pgs/leaderboards.md.txt) - [Events](https://developer.android.com/games/pgs/events.md.txt) - [Saved Games](https://developer.android.com/games/pgs/savedgames.md.txt) - [Nearby Connections](https://developers.google.com/nearby/connections/overview) |
+| [Google Play Games Services plugin for Cocos2d-x](http://www.sdkbox.com/plugins/googleplayservices) | Android | C++, Lua, JavaScript | - [Achievements](https://developer.android.com/games/pgs/achievements.md.txt) - [Leaderboards](https://developer.android.com/games/pgs/leaderboards.md.txt) - [Events](https://developer.android.com/games/pgs/events.md.txt) - [Saved Games](https://developer.android.com/games/pgs/savedgames.md.txt) |
+| [Defold](https://defold.com/extension-gpgs/) | Android | Lua | - [Achievements](https://developer.android.com/games/pgs/achievements.md.txt) - [Leaderboards](https://developer.android.com/games/pgs/leaderboards.md.txt) - [Saved Games](https://developer.android.com/games/pgs/savedgames.md.txt) |
+| [LibGDX](https://github.com/TheInvader360/libgdx-gameservices-tutorial) | Android | Java | - [Achievements](https://developer.android.com/games/pgs/achievements.md.txt) - [Leaderboards](https://developer.android.com/games/pgs/leaderboards.md.txt) |
+| [Marmalade SDK](https://github.com/marmalade/s3eGooglePlayGames) | Android | C/C++ | - [Achievements](https://developer.android.com/games/pgs/achievements.md.txt) - [Leaderboards](https://developer.android.com/games/pgs/leaderboards.md.txt) |
 
 ### Image resources
 
 | Graphic Type | Description | Resource |
 |---|---|---|
-| Google Play games services branding | Download graphics and see the branding guidelines for Google Play games services. | - [Download icon files](https://developer.android.com/static/games/pgs/download-files/games-branding-icons.zip) - [Google Play games services branding guidelines](https://developer.android.com/games/pgs/branding) |
+| Google Play games services branding | Download graphics and see the branding guidelines for Google Play games services. | - [Download icon files](https://developer.android.com/static/games/pgs/download-files/games-branding-icons.zip) - [Google Play games services branding guidelines](https://developer.android.com/games/pgs/branding.md.txt) |
 | Sign-in button | Download graphics and see the guidelines for building your own sign-in button. | - [Google Sign-in branding guidelines](https://developers.google.com/identity/branding-guidelines) |
 | Games project images for Developer Console | Download placeholder graphics to use in your project during game development and testing. | - [Placeholder screenshot 1 (320x480)](https://developer.android.com/static/games/pgs/download-files/placeholder-screenshot1-320x480.jpg) - [Placeholder screenshot 2 (320x480)](https://developer.android.com/static/games/pgs/download-files/placeholder-screenshot2-320x480.jpg) - [Hi-res icon (512x512)](https://developer.android.com/static/games/pgs/download-files/placeholder-icon512x512.png) |
 

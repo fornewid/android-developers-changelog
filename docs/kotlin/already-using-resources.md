@@ -4,6 +4,8 @@ url: https://developer.android.com/kotlin/already-using-resources
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/kotlin/llms.txt
+
 Here's a list of additional learning resources that can help you learn to
 do even more with Kotlin.
 
@@ -21,11 +23,11 @@ do even more with Kotlin.
 
 - [Learn Kotlin coroutines](https://developer.android.com/kotlin/coroutines/coroutines-pathway.md.txt): This pathway contains a series of codelabs and articles that teach you all about Kotlin coroutines.
 
-## Codelabs
+## Guides
 
-- [Coroutines codelab](https://developer.android.com/codelabs/kotlin-coroutines): This codelab shows you how to use Kotlin coroutines to manage background threads and simplify your async code.
-- [Building a Kotlin extensions library](https://developer.android.com/codelabs/building-kotlin-extensions-library): Learn how to build a Kotlin extensions library that adds coroutines and Flow support to existing classes.
-- [Advanced Coroutines with Kotlin Flow and LiveData](https://developer.android.com/codelabs/advanced-kotlin-coroutines): Learn how to use Kotlin coroutines with LiveData and Flow in an Android app.
+- [Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines.md.txt): Learn how to use Kotlin coroutines on Android to manage background threads and simplify your asynchronous code.
+- [Android KTX](https://developer.android.com/kotlin/ktx.md.txt): Learn how Android KTX Kotlin extensions make calling Jetpack and Android platform APIs more concise and idiomatic.
+- [Use Kotlin coroutines with lifecycle-aware components](https://developer.android.com/topic/libraries/architecture/coroutines.md.txt): Learn how to use Kotlin coroutines with `LiveData`, `LifecycleScope`, and `ViewModelScope` in an Android app.
 
 ## Videos
 

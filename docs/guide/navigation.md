@@ -151,9 +151,7 @@ the following guides:
 
 ### Codelabs
 
-- [Learn Jetpack Navigation](https://developer.android.com/codelabs/android-navigation)
-- [Fragments and the Navigation Component](https://developer.android.com/codelabs/basic-android-kotlin-training-fragments-navigation-component)
-- [Build an adaptive app with dynamic navigation](https://developer.android.com/codelabs/basic-android-kotlin-compose-adaptive-navigation-for-large-screens#0)
+- [Build an adaptive app with dynamic navigation](https://developer.android.com/codelabs/basic-android-kotlin-compose-adaptive-navigation-for-large-screens)
 
 ### Videos
 

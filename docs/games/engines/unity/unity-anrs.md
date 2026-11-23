@@ -4,12 +4,14 @@ url: https://developer.android.com/games/engines/unity/unity-anrs
 source: md.txt
 ---
 
-Solving [ANRs](https://developer.android.com/topic/performance/issues/anr) in your Unity game is a systematic process:
+> Documentation index: https://developer.android.com/games/llms.txt
+
+Solving [ANRs](https://developer.android.com/topic/performance/issues/anr.md.txt) in your Unity game is a systematic process:
 ![](https://developer.android.com/static/images/games/engines/unity/unity-anr-flowchart.jpg) **Figure 1.** Steps to solve ANRs in Unity games.
 
 ## Integrate reporting services
 
-Reporting services such as [Android vitals](https://developer.android.com/google/play/vitals), [Firebase
+Reporting services such as [Android vitals](https://developer.android.com/google/play/vitals.md.txt), [Firebase
 Crashlytics](https://firebase.google.com/products/crashlytics), and [Backtrace](https://backtrace.io/) (a certified Unity
 partner) provide error logging and analysis for your game at scale. Integrate
 reporting services SDKs into your game early in the development cycle. Analyze
@@ -69,12 +71,12 @@ Inspect your game code by doing the following:
   - The Unity engine has a timeout to pause its execution; excessive workload on these callbacks can cause an ANR.
   - Add logs or breadcrumbs to parts of the code to enhance your data analysis.
 - Use the [Unity Profiler](https://docs.unity3d.com/Manual/Profiler.html) to investigate the game's performance. Profiling your app can also be a great way to help identify bottlenecks that might be causing the ANR.
-- A great way to identify long I/O operations on the main thread is to use [strict mode](https://developer.android.com/topic/performance/issues/anr#strict_mode).
+- A great way to identify long I/O operations on the main thread is to use [strict mode](https://developer.android.com/topic/performance/issues/anr.md.txt#strict_mode).
 - Analyze the Android Vitals or another reporting service history and check the release versions of the game for which the error is happening the most. Review your source code in your version control history and compare code changes between releases. If you find something suspicious, experiment with each change or potential fix individually.
 - Examine the Google Play ANR reporting history for the devices and Android versions receiving the most ANRs. If the devices or versions are outdated, chances are you can safely ignore them if doing so doesn't impact the game's profitability. Study the data carefully since a particular group of users will no longer be able to play your game. For more information, see [Distribution
   dashboard](https://developer.android.com/about/dashboards).
-- Review the game source code to ensure you are not calling any code that might cause an issue, for example, [finish](https://developer.android.com/reference/android/app/Activity#finish()) can be destructive if not used correctly. See the [Android developer guides](https://developer.android.com/guide) to learn more about Android development.
-- After reviewing the data and exporting the game build to Android Studio, you're dealing with C and C++ code, and so you can take full advantage of tools beyond Unity's standard solutions, such as [Android Memory Profiler](https://developer.android.com/studio/profile/memory-profiler), [Android CPU Profiler](https://developer.android.com/studio/profile/cpu-profiler), and [perfetto](https://developer.android.com/tools/perfetto).
+- Review the game source code to ensure you are not calling any code that might cause an issue, for example, [finish](https://developer.android.com/reference/android/app/Activity.md.txt#finish()) can be destructive if not used correctly. See the [Android developer guides](https://developer.android.com/guide) to learn more about Android development.
+- After reviewing the data and exporting the game build to Android Studio, you're dealing with C and C++ code, and so you can take full advantage of tools beyond Unity's standard solutions, such as [Android Memory Profiler](https://developer.android.com/studio/profile/memory-profiler), [Android CPU Profiler](https://developer.android.com/studio/profile/cpu-profiler.md.txt), and [perfetto](https://developer.android.com/tools/perfetto.md.txt).
 
 > [!WARNING]
 > **Warning:** Avoid custom code loading---both native and managed---with [Play Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery), as code loading causes hard-to-debug ANRs.
@@ -90,7 +92,7 @@ following steps:
 - If you do not find anything, [file a bug](https://unity.com/releases/editor/qa/bug-reporting) to resolve the problem. Provide a symbolicated stack trace so the engine's engineers can better understand and solve the error.
 - Check whether the latest [Unity
   LTS](https://unity.com/releases/editor/qa/lts-releases) has made improvements related to your issues. If so, upgrade your game to use that version. (This solution may be possible only for some developers.)
-- If your code uses a custom [`Activity`](https://developer.android.com/reference/android/app/Activity) instead of the default, review the Java code to ensure the activity is not causing any issues.
+- If your code uses a custom [`Activity`](https://developer.android.com/reference/android/app/Activity.md.txt) instead of the default, review the Java code to ensure the activity is not causing any issues.
 
 ## Third-party SDK
 
@@ -110,11 +112,11 @@ difficult to resolve.
 
 ## Exit reasons
 
-[`ApplicationExitInfo`](https://developer.android.com/reference/android/app/ApplicationExitInfo) is an Android API for understanding ANR causes.
+[`ApplicationExitInfo`](https://developer.android.com/reference/android/app/ApplicationExitInfo.md.txt) is an Android API for understanding ANR causes.
 If your game is using [Unity 6 or later](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Android.IApplicationExitInfo.html) you can call `ApplicationExitInfo`
 directly. For older Unity versions, you need to implement your own plugin
 to enable `ApplicationExitInfo` calls from Unity.
 
 Crashlytics also uses `ApplicationExitInfo`; however, your own
 implementation gives you finer control and enables you to include
-[more relevant information](https://developer.android.com/reference/kotlin/android/app/ActivityManager#setprocessstatesummary).
+[more relevant information](https://developer.android.com/reference/kotlin/android/app/ActivityManager.md.txt#setprocessstatesummary).

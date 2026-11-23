@@ -168,7 +168,8 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ### Best practices
 
-We recommend you start with the [codelab](https://developer.android.com/codelabs/biometric-login) to know more about biometrics.
+We recommend starting with [Show a biometric authentication dialog](https://developer.android.com/identity/sign-in/biometric-auth.md.txt) to learn
+more about biometrics.
 
 Depending on your use cases you can implement the dialog with or without
 explicit user action. In order to avoid fraud we recommend you add the biometric

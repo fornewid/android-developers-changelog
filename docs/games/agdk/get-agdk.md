@@ -123,7 +123,7 @@ Samples that integrate the AGDK libraries can be found in the
 [games-samples repository](https://github.com/android/games-samples).
 
 > [!NOTE]
-> **Note:** With the release of AGDK, the Android Games SDK is now integrated as part of the AGDK libraries. Additionally, this is mirrored as part of the [Android Jetpack](https://developer.android.com/jetpack) library.
+> **Note:** With the release of AGDK, the Android Games SDK is now integrated as part of the AGDK libraries. Additionally, this is mirrored as part of the [Android Jetpack](https://developer.android.com/jetpack.md.txt) library.
 
 ## Android Studio
 

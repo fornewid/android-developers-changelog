@@ -94,7 +94,7 @@ Learn how to build a simple Android app in Android Studio by creating a "Hello, 
 
 Learn to configure Android Studio according to system requirements, create preferred default settings, customize virtual machine options, and more. Getting started
 
-### [Training for beginners and pros](http://developer.android.com/courses?gclid=CjwKCAjwmJeYBhAwEiwAXlg0AQp7W8HcimAMoS60NuNmx7HJMgLXW5zyoIPMmmNO-t99y--wdKMP0xoCvnMQAvD_BwE)
+### [Training for beginners and pros](http://developer.android.com/courses)
 
 Whether you're new to Android app development or just updating your skills, we offer training courses for a variety of levels and topics.
 

@@ -44,9 +44,8 @@ by using the
 [setScreenCaptureDisabled](https://developer.android.com/reference/android/app/admin/DevicePolicyManager.md.txt#setScreenCaptureDisabled(android.content.ComponentName,%20boolean))
 method.
 
-The codelab
-[Managing Android Devices Without an App](https://developer.android.com/codelabs/android-management-api#8)
-shows how to forbid screenshots.
+For more information on enterprise device management, see
+[Android Enterprise](https://developer.android.com/work.md.txt).
 
 ## Capture audio playback
 

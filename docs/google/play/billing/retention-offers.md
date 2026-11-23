@@ -130,6 +130,8 @@ To create a retention offer in Google Play Console, do the following:
 4. Choose either **Cohort-level retention offer** or **User-level retention
    offer**.
 
+For detailed steps, see the [Play Console Help Center](https://support.google.com/googleplay/android-developer/answer/18850643).
+
 ### Create a retention offer with the Play Developer API
 
 You can also create and update retention offers programmatically. To create an

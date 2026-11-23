@@ -15,7 +15,7 @@ Complete a codelab or dive deep into a training course for an overview of key An
 
 ### Hello, world!
 
-Follow this introductory codelab for step-by-step instructions about how to create an Android Hello World app. [Start codelab](http://developer.android.com/codelabs/basic-android-kotlin-compose-first-app?continue=https://developer.android.com/courses/pathways/android-basics-compose-unit-1-pathway-2%23codelab-https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app) [Video](https://www.youtube.com/watch?v=qX6zmKY4KP0)
+Follow this introductory codelab for step-by-step instructions about how to create an Android Hello World app. [Start codelab](http://developer.android.com/codelabs/basic-android-kotlin-compose-first-app) [Video](https://www.youtube.com/watch?v=qX6zmKY4KP0)
 
 ### Develop a scalable, modularized, testable Android app
 
@@ -23,16 +23,16 @@ Develop a scalable, modularized, testable app from scratch. This won't be a Hell
 
 ### Build for multiple form factors
 
-Build an app that works on phones, tablets, foldables, Googlebooks, car displays, and XR 2D. This codelab shows you how to use Jetpack Compose to optimize an app for different display sizes and configurations. [Start codelab](http://developer.android.com/codelabs/basic-android-kotlin-compose-adaptive-content-for-large-screens) [Read the guides](http://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps.md.txt) [![](http://developer.android.com/static/training/basics/firstapp/images/first_app.svg)](http://developer.android.com/codelabs/basic-android-kotlin-compose-first-app?continue=https://developer.android.com/courses/pathways/android-basics-compose-unit-1-pathway-2%23codelab-https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app) Courses
+Build an app that works on phones, tablets, foldables, Googlebooks, car displays, and XR 2D. This codelab shows you how to use Jetpack Compose to optimize an app for different display sizes and configurations. [Start codelab](http://developer.android.com/codelabs/basic-android-kotlin-compose-adaptive-content-for-large-screens) [Read the guides](http://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps.md.txt) [![](http://developer.android.com/static/training/basics/firstapp/images/first_app.svg)](http://developer.android.com/codelabs/basic-android-kotlin-compose-first-app) Courses
 
-### [Start the Android Basics course](http://developer.android.com/codelabs/basic-android-kotlin-compose-first-app?continue=https://developer.android.com/courses/pathways/android-basics-compose-unit-1-pathway-2%23codelab-https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app)
+### [Start the Android Basics course](http://developer.android.com/codelabs/basic-android-kotlin-compose-first-app)
 
 Take the full course to learn the basics of creating apps with Jetpack Compose,
 Android's modern toolkit for developing user interfaces.
 
 As you create a series of apps, you'll learn the basics of the Kotlin programming
 language and the fundamentals of app development.
-[Start codelab](http://developer.android.com/codelabs/basic-android-kotlin-compose-first-app?continue=https://developer.android.com/courses/pathways/android-basics-compose-unit-1-pathway-2%23codelab-https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app) [![](http://developer.android.com/static/training/basics/firstapp/images/paths.svg)](http://developer.android.com/courses) Learn
+[Start codelab](http://developer.android.com/codelabs/basic-android-kotlin-compose-first-app) [![](http://developer.android.com/static/training/basics/firstapp/images/paths.svg)](http://developer.android.com/courses) Learn
 
 ### [Browse learning resources](http://developer.android.com/courses)
 
@@ -47,12 +47,12 @@ more-advanced topics, including Compose, app architecture, and accessibility.
 ### [Compose:
 Build compelling user interfaces](http://developer.android.com/compose)
 
-Jetpack Compose simplifies and accelerates UI development on Android. Write less code and use powerful tools and intuitive Kotlin APIs. [Use Compose](http://developer.android.com/compose) [![](http://developer.android.com/static/images/logos/kotlin.svg)](http://developer.android.com/kotlin)
+Jetpack Compose simplifies and accelerates UI development on Android. Write less code and use powerful tools and intuitive Kotlin APIs. [Use Compose](http://developer.android.com/compose) [![](http://developer.android.com/static/images/logos/kotlin.svg)](http://developer.android.com/kotlin.md.txt)
 
 ### [Kotlin:
 A modern, concise, powerful language](http://developer.android.com/kotlin)
 
-More than 95% of the the top 1,000 Android apps use Kotlin to boost productivity, developer satisfaction, and code safety. [Learn more](http://developer.android.com/kotlin) [![](http://developer.android.com/static/images/spot-icons/jetpack.svg)](http://developer.android.com/jetpack.md.txt)
+More than 95% of the the top 1,000 Android apps use Kotlin to boost productivity, developer satisfaction, and code safety. [Learn more](http://developer.android.com/kotlin.md.txt) [![](http://developer.android.com/static/images/spot-icons/jetpack.svg)](http://developer.android.com/jetpack.md.txt)
 
 ### [Jetpack:
 Libraries for easier app development](http://developer.android.com/jetpack)

@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/views/layout/activity-embedding
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/llms.txt
+
 > [!NOTE]
 > **Note:** Modern android development (MAD) uses a single-activity architecture based on Jetpack APIs, including Jetpack Compose. Activity embedding is designed for multiple-activity, legacy apps that can't be easily updated to MAD. Create new apps using MAD. Update your legacy apps to MAD whenever possible.
 
@@ -1957,8 +1959,6 @@ system-defined activity embedding to your app.
 
 ## Additional resources
 
-- Codelabs:
-  - [Build a list-detail layout with activity embedding and Material Design](https://developer.android.com/codelabs/large-screens/activity-embedding)
-  - [Advanced activity embedding](https://developer.android.com/codelabs/large-screens/advanced-activity-embedding)
+- Codelab --- [Build a list-detail layout with activity embedding and Material Design](https://developer.android.com/codelabs/large-screens/activity-embedding)
 - Learning pathway --- [Activity embedding](https://developer.android.com/courses/pathways/activity-embedding)
 - Sample app --- [activity-embedding](https://github.com/android/large-screen-codelabs/tree/main/activity-embedding)

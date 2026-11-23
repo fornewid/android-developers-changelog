@@ -4,6 +4,8 @@ url: https://developer.android.com/games/engines/unity/unity-reduce-memory
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/llms.txt
+
 Although the physical RAM capacity of modern mobile devices continues to grow,
 game memory consumption is outpacing this growth due to high-resolution assets
 and complex rendering pipelines.
@@ -29,11 +31,12 @@ Memory** remains inflated, making the application highly vulnerable to Android
 OS process terminations (such as **LMK** or **`MemoryLimiter`**).
 
 To prevent OS-level enforcement, memory optimization must be approached through
-three key pillars:
+four key pillars:
 
 - **Category A: Reduce peak memory usage**
 - **Category B: Eliminate unnecessary asset and system footprints**
 - **Category C: Eliminate unnecessary GC allocations**
+- **Category D: Configure native allocators**
 
 ## Category A: Reduce peak memory usage
 
@@ -56,7 +59,7 @@ management.
 **Best practices**
 
 - **Keep bundles modular**: Group assets logically by scene or lifecycle.
-- **Unity 6.6+ tip** : Use [**Content Directories**](https://docs.unity3d.com/6000.6/Documentation/Manual/content-directories-introduction.html) to prevent unintended cross-bundle dependencies.
+- **Unity 6.6+ tip** : Use [**Content Directories**](https://docs.unity3d.com/Documentation/Manual/content-directories-introduction.html) to prevent unintended cross-bundle dependencies.
 
 ### 2. Optimize asset references in `ScriptableObjects`
 
@@ -64,23 +67,25 @@ Direct `UnityEngine.Object` serialized fields in a `ScriptableObject` create
 direct hard references, forcing all referenced assets to load into RAM as soon
 as the `ScriptableObject` itself is loaded or instantiated.
 
-    // BEFORE: Loading SceneRequiredAssets forces _worldAsset and _spawnSettings into RAM immediately
-    public class SceneRequiredAssets : ScriptableObject
-    {
-        public string sceneName;
-        public Object _worldAsset;
-        public Object _spawnSettings;
-    }
+```c#
+// BEFORE: Loading SceneRequiredAssets forces _worldAsset and _spawnSettings into RAM immediately
+public class SceneRequiredAssets : ScriptableObject
+{
+    public string sceneName;
+    public Object _worldAsset;
+    public Object _spawnSettings;
+}
 
-    // AFTER: Use AssetReference to enable asynchronous, on-demand loading using Addressables
-    public class SceneRequiredAssets : ScriptableObject
-    {
-        public string sceneName;
-        public AssetReference _worldAsset;
-        public AssetReference _spawnSettings;
-    }
+// AFTER: Use AssetReference to enable asynchronous, on-demand loading using Addressables
+public class SceneRequiredAssets : ScriptableObject
+{
+    public string sceneName;
+    public AssetReference _worldAsset;
+    public AssetReference _spawnSettings;
+}
+```
 
-### 3. Configure audio clip load types
+### 3. Configure audio clips and channels
 
 Loading all audio clips uncompressed directly into memory creates large,
 permanent memory peaks. Audio load settings should be configured based on their
@@ -91,6 +96,12 @@ usage profile:
 | **BGM (Background Music)** | Streaming | Streams audio from disk in small buffers to eliminate memory spikes. |
 | **Long SFX** | Compressed In Memory | Keeps RAM overhead low and decompresses audio on the fly during playback. |
 | **Short \& Frequent SFX** | Decompress On Load | Decompresses audio into RAM upon loading to avoid runtime CPU overhead during playback. |
+
+In addition to load types, apply the following audio configurations to further
+reduce memory overhead:
+
+- **Enable Force To Mono for non-directional audio** : Many audio assets---such as UI sound effects, voice-overs, and 3D spatialized sound effects---don't require stereo channel separation. Enable **Force To Mono** in the [`AudioClip`](https://docs.unity3d.com/Manual/class-AudioClip.html) import settings for these assets to cut their memory footprint and buffer size in half (50% reduction).
+- **Throttle active audio channels by device tier** : Each active audio voice allocates native DSP mixer and decompression buffers. On low-memory devices, reduce the maximum number of simultaneous active channels---for example, by lowering [**Max Real Voices**](https://docs.unity3d.com/Manual/class-AudioManager.html) (such as from 32 to 16) using `AudioSettings.Reset` in Unity, or by restricting software playback channels in third-party audio engines.
 
 ### 4. Implement object pooling and release strategies
 
@@ -139,10 +150,15 @@ settings and unused engine features (for example, Fog, Lightmaps, and XR
 settings). Additionally, `shader_feature` variants are automatically
 filtered out if their keywords aren't actively used by any material in the
 project, whereas `#multi_compile` variants are forcibly included regardless
-of usage.
+of usage. However, if rendering or post-processing features (such as
+Additional Lights, real-time shadows, or unused `UberPost` effects) remain
+enabled in your URP or pipeline settings, Unity can't determine whether your
+content actually uses them and generates all corresponding `#multi_compile`
+variants. Audit and disable unused pipeline settings so they match your
+actual rendering requirements and prevent unnecessary variant generation.
 
 **C. Custom automated stripping architecture
-([`IPreprocessShaders`](https://docs.unity3d.com/6000.5/Documentation/ScriptReference/Build.IPreprocessShaders.OnProcessShader.html))** Because static analysis can't
+([`IPreprocessShaders`](https://docs.unity3d.com/Documentation/ScriptReference/Build.IPreprocessShaders.OnProcessShader.html))** Because static analysis can't
 detect keywords modified dynamically using runtime C# scripts
 (`Material.EnableKeyword`), standard stripping is often insufficient. To
 ensure only actually used variants are included, you can collect variants
@@ -152,6 +168,13 @@ during QA test suites using **Player.log** (enabling
 `IPreprocessShaders.OnProcessShader` in an Editor script to filter out
 variants that were never executed during runtime, keeping only the necessary
 ones in the build.
+
+**D. Consolidate redundant shaders** : Uber-shaders such as **Lit** and **Simple
+Lit** contain many `#multi_compile` directives and consume substantial
+memory when generating numerous variants:
+
+- **Profile simultaneous usage**: Profile your memory usage to check whether both shaders consume significant memory at the same time, and verify whether your project actually needs both.
+- **Standardize on a single shader** : When physically based rendering (PBR) isn't required, configure your assets to eliminate redundant **Lit** shader usage and standardize on **Simple Lit** (for example, check whether exported FBX models have default **Lit** materials unintentionally applied during import).
 
 ## Category C: Eliminate unnecessary GC allocations
 
@@ -165,64 +188,70 @@ When a lambda expression captures outer local variables, C# generates an
 implicit display class on the Heap. Executing this inside `Update` allocates
 closure instances every frame.
 
-    // Bad: Capturing local variable 'targetId' allocates a new closure object on the Heap every frame
-    void Update()
-    {
-        int targetId = 100;
-        Monster target = monsterList.Find(m => m.Id == targetId);
-    }
+```c#
+// Bad: Capturing local variable 'targetId' allocates a new closure object on the Heap every frame
+void Update()
+{
+    int targetId = 100;
+    Monster target = monsterList.Find(m => m.Id == targetId);
+}
 
-    // Good 1: Replace with a standard 'for' loop (Recommended: 0 B allocation)
-    void Update()
+// Good 1: Replace with a standard 'for' loop (Recommended: 0 B allocation)
+void Update()
+{
+    int targetId = 100;
+    Monster target = null;
+    for (int i = 0; i < monsterList.Count; i++)
     {
-        int targetId = 100;
-        Monster target = null;
-        for (int i = 0; i < monsterList.Count; i++)
+        if (monsterList[i].Id == targetId)
         {
-            if (monsterList[i].Id == targetId)
-            {
-                target = monsterList[i];
-                break;
-            }
+            target = monsterList[i];
+            break;
         }
     }
+}
 
-    // Good 2: Use a static lambda (C# 9.0+) if no outer variables are captured
-    Monster target = monsterList.Find(static m => m.Id == 100);
+// Good 2: Use a static lambda (C# 9.0+) if no outer variables are captured
+Monster target = monsterList.Find(static m => m.Id == 100);
+```
 
 ### 2. Use stackalloc and Span
 
 Avoid Heap allocations for short-lived temporary arrays by using Stack memory.
 
-    // Before: Allocates an array on the Heap every call (GC Target)
-    Vector2[] pos = new Vector2[4];
+```c#
+// Before: Allocates an array on the Heap every call (GC Target)
+Vector2[] pos = new Vector2[4];
 
-    // After: Utilizes Stack memory using System.Span (0 B Heap Allocation)
-    System.Span<Vector2> pos = stackalloc Vector2[4];
+// After: Utilizes Stack memory using System.Span (0 B Heap Allocation)
+System.Span<Vector2> pos = stackalloc Vector2[4];
+```
 
 ### 3. Optimize collection iteration
 
 Avoid boxing and Enumerator heap allocations caused by LINQ extensions or
 ReadOnlyCollection accessors.
 
-    // Before: LINQ Count() causes internal GetEnumerator() heap allocations
-    bool hasData = component != null && component.parameters.Count(parameter => parameter.overrideState) > 0;
+```c#
+// Before: LINQ Count() causes internal GetEnumerator() heap allocations
+bool hasData = component != null && component.parameters.Count(parameter => parameter.overrideState) > 0;
 
-    // After: Replaced with indexer and direct loop iteration
-    bool hasData = HasDataOptimized(component);
+// After: Replaced with indexer and direct loop iteration
+bool hasData = HasDataOptimized(component);
 
-    private bool HasDataOptimized(TestComponent component)
+private bool HasDataOptimized(TestComponent component)
+{
+    if (component == null) return false;
+
+    var count = component.parameters.Count;
+    for (var i = 0; i < count; ++i)
     {
-        if (component == null) return false;
-
-        var count = component.parameters.Count;
-        for (var i = 0; i < count; ++i)
-        {
-            if (component.parameters[i].overrideState)
-                return true;
-        }
-        return false;
+        if (component.parameters[i].overrideState)
+            return true;
     }
+    return false;
+}
+```
 
 ### 4. Additional GC allocation prevention rules
 
@@ -231,20 +260,22 @@ ReadOnlyCollection accessors.
 - **Cache coroutine objects** : Cache `WaitForSeconds` instances instead of instantiating `yield return new WaitForSeconds(time);` repeatedly.
 - **Custom struct keys in dictionaries** : Using custom structs as Dictionary keys calls the default `Equals`, triggering object boxing. Implement `IEqualityComparer<T>` and pass it to the Dictionary constructor.
 
-    public struct TypeKey
+```c#
+public struct TypeKey
+{
+    public int v1;
+    public int v2;
+
+    public class TypeKeyComparer : IEqualityComparer<TypeKey>
     {
-        public int v1;
-        public int v2;
-
-        public class TypeKeyComparer : IEqualityComparer<TypeKey>
-        {
-            public bool Equals(TypeKey x, TypeKey y) => x.v1 == y.v1 && x.v2 == y.v2;
-            public int GetHashCode(TypeKey obj) => obj.v1.GetHashCode() ^ obj.v2.GetHashCode();
-        }
+        public bool Equals(TypeKey x, TypeKey y) => x.v1 == y.v1 && x.v2 == y.v2;
+        public int GetHashCode(TypeKey obj) => obj.v1.GetHashCode() ^ obj.v2.GetHashCode();
     }
+}
 
-    // Pass custom comparer during Dictionary initialization to prevent boxing
-    public readonly Dictionary<TypeKey, int> _typeKeyDictionary = new(new TypeKey.TypeKeyComparer());
+// Pass custom comparer during Dictionary initialization to prevent boxing
+public readonly Dictionary<TypeKey, int> _typeKeyDictionary = new(new TypeKey.TypeKeyComparer());
+```
 
 ### 5. Minimize generic and reflection usage
 
@@ -263,3 +294,225 @@ has a C# "Managed Shell" wrapper that communicates with the native C++ engine.
 
 - **The issue**: If a Managed Shell is held in memory by a static reference, a persistent event subscription, or an uncleaned closure, the GC can't reclaim the memory. Even if the native object is destroyed, the managed wrapper persists, leading to "ghost" memory leaks that bloat the Managed Heap.
 - **Resolution** : Always implement robust cleanup patterns. When destroying objects or transitioning scenes, explicitly unsubscribe from events using the `-=` operator and nullify static references to `UnityEngine.Object` types. This cleanup ensures the GC can successfully collect the wrapper once the native engine has released its handle.
+
+### 7. Use binary catalogs for Addressables
+
+In Unity 2022 and earlier, Addressables defaults to JSON catalogs rather than
+binary catalogs (which are the default in Unity 2023 and later). If your
+project uses JSON catalogs, loading a large catalog at startup reads the entire
+file into a single massive C# string and allocates thousands of managed strings
+and temporary `byte[]` arrays during JSON parsing and Base64 decoding. This
+causes a large GC allocation spike that permanently expands the Managed Heap,
+so switch to a binary catalog to stream compact data directly.
+
+## Category D: Configure native allocators
+
+Unity manages C++ engine memory on Android through a tiered system of [native
+memory allocators](https://docs.unity3d.com/Documentation/Manual/performance-native-allocators.html). Right-sizing the small-object **Bucket
+Allocator** and related block sizes in **Project Settings \> Memory Settings**
+can recover tens of megabytes of retained reservation without changing game code
+or asset quality.
+
+### 1. Understand small-object overflow on Android
+
+On Android, Unity routes small C++ allocations from 16 B through 128 B across
+eight fixed-size buckets (at 16 B granularity) to `BucketAllocator`
+(`[ALLOC_BUCKET]`). In Release builds, `[ALLOC_BUCKET]` carries zero
+per-allocation header overhead and avoids external fragmentation. Allocations
+larger than 128 B---or small allocations that fail when `[ALLOC_BUCKET]` is
+full---fall back to `DynamicHeapAllocator`, a Two-Level Segregated Fit (TLSF)
+allocator that requests 16 MB OS blocks by default.
+
+Default `BucketAllocator` capacity differs across environments:
+
+- **Unity Editor** : Reserves up to eight blocks (`memorysetup-bucket-allocator-block-count=8`) with a larger per-block size, which masks small-object pressure during Play Mode testing.
+- **Android Player** : Defaults to a single 4 MB block (`memorysetup-bucket-allocator-block-size=4194304` and `memorysetup-bucket-allocator-block-count=1`), divided into 256 subsections of 16 KB, from Unity 2021 LTS through Unity 6.
+- **iOS Player** : Defaults to the operating system `malloc` allocator rather than Unity's TLSF and bucket pools, so small-object spillover doesn't occur during iOS profiling.
+
+In complex 3D or open-world games, live small native allocations routinely
+exceed 4 MB. Once `[ALLOC_BUCKET]` reaches capacity, millions of 16 B to 128 B
+allocations spill into 16 MB TLSF blocks (`[ALLOC_DEFAULT_MAIN]`,
+`[ALLOC_DEFAULT_THREAD]`, `[ALLOC_GFX_MAIN]`, and `[ALLOC_GFX_THREAD]`). Each
+spilled allocation adds per-allocation TLSF header and alignment overhead and
+scatters long-lived objects across 16 MB chunks. Because Unity can't return a
+16 MB TLSF block to Android while even one small allocation remains active
+inside it, `Total Reserved Memory` and `anonymous RSS + swap` stay elevated
+throughout the session.
+
+### 2. Capture Bucket Allocator telemetry
+
+Unity emits `[UnityMemory]` configuration parameters and internal
+`Memory Statistics:` overflow counts only in **Development Build** APKs, and
+prints the summary report only during clean engine shutdown. Release builds omit
+this telemetry even if diagnostic flags are passed, and swiping the app away
+from Recents or running `adb shell am force-stop` terminates the process before
+shutdown cleanup runs.
+
+To capture a native allocator report from an Android test device:
+
+1. In **File \> Build Settings** (or **File \> Build Profiles** in Unity 6), select **Development Build**, then build and install the app on your test device.
+2. Clear the `logcat` buffer before starting your test run:
+
+   ```bash
+   adb logcat -c
+   ```
+3. Launch your app. If your project uses Unity 6 (`6000.0` and later), pass the
+   `-log-memory-performance-stats` [command-line argument](https://docs.unity3d.com/Documentation/Manual/CommandLineArguments.html) using
+   `adb`, replacing `PACKAGE_NAME` with your application ID and `ACTIVITY_NAME`
+   with your launch activity (such as
+   `com.unity3d.player.UnityPlayerGameActivity` in Unity 6 or
+   `com.unity3d.player.UnityPlayerActivity` when using the `Activity` entry
+   point):
+
+   ```bash
+   adb shell am start -n "PACKAGE_NAME/ACTIVITY_NAME" -e unity \"-log-memory-performance-stats\"
+   ```
+
+   Unity 2021 LTS and 2022 LTS Development builds print `Memory Statistics:`
+   automatically on clean exit without this flag.
+4. Play through a representative peak memory sequence, such as loading into an
+   open world and entering combat, and then trigger a clean exit in game code
+   by calling [`Application.Quit`](https://docs.unity3d.com/Documentation/ScriptReference/Application.Quit.html).
+
+5. Save the Unity allocator report from `logcat` to a text file, replacing
+   `OUTPUT_FILE` with a local path such as `unity_memory_stats.txt`:
+
+   ```bash
+   adb logcat -d -s Unity > OUTPUT_FILE
+   ```
+
+Inspect `OUTPUT_FILE` for `[UnityMemory] Configuration Parameters` at startup
+and `[ALLOC_BUCKET]` inside the shutdown `Memory Statistics:` dump. When the
+4 MB pool saturates, Unity prints a `Failed Allocations. Bucket layout:` table
+showing how the 256 subsections (16 KB each, including debug allocation headers
+in Development builds) are partitioned and how many allocations spilled into
+TLSF:
+
+    [UnityMemory] Configuration Parameters - Can be set up in boot.config
+        "memorysetup-bucket-allocator-granularity=16"
+        "memorysetup-bucket-allocator-bucket-count=8"
+        "memorysetup-bucket-allocator-block-size=4194304"
+        "memorysetup-bucket-allocator-block-count=1"
+        "memorysetup-main-allocator-block-size=16777216"
+    ...
+    Memory Statistics:
+    ...
+    [ALLOC_DEFAULT] Dual Thread Allocator
+      Peak main deferred allocation count 23
+        [ALLOC_BUCKET]
+          Large Block size 4.0 MB
+          Used Block count 1
+          Failed Allocations. Bucket layout:
+            16B: 16 Subsections = 5461 buckets. Failed count: 3949
+            32B: 22 Subsections = 5632 buckets. Failed count: 4011
+            48B: 28 Subsections = 5734 buckets. Failed count: 3996
+            64B: 30 Subsections = 5120 buckets. Failed count: 4085
+            80B: 35 Subsections = 5120 buckets. Failed count: 5331
+            96B: 37 Subsections = 4736 buckets. Failed count: 4129
+            112B: 42 Subsections = 4778 buckets. Failed count: 4185
+            128B: 46 Subsections = 4710 buckets. Failed count: 4141
+        [ALLOC_DEFAULT_MAIN]
+          Requested Block Size 16.0 MB
+          Peak Block count 2
+          Peak Large allocation bytes 8.0 MB
+
+### 3. Tune Bucket Allocator settings with AI
+
+The `[UnityMemory]` and `Memory Statistics:` output spans roughly 30 coupled
+`memorysetup-*` parameters across bucket, main, thread, graphics, cache, and job
+allocators. The following table summarizes the primary parameters to tune in
+**Edit \> Project Settings \> Memory Settings** (or `boot.config`):
+
+| Parameter (`boot.config` key) | Android Player default | Tuning guidance |
+|---|---|---|
+| **Bucket Allocator Block Size** (`memorysetup-bucket-allocator-block-size`) | `4194304` (4 MB) | Keep moderate (4 MB or 8 MB, which is `4194304` or `8388608` bytes) rather than one huge block because Unity commits one block at a time on demand. |
+| **Bucket Allocator Block Count** (`memorysetup-bucket-allocator-block-count`) | `1` | Increase to `4` through `8` (providing 16 MB to 64 MB of on-demand capacity) until `[ALLOC_BUCKET]` `Failed count` drops to `0` or near `0` during peak gameplay. |
+| **Bucket Granularity and Count** (`memorysetup-bucket-allocator-granularity`, `memorysetup-bucket-allocator-bucket-count`) | `16` B, `8` buckets (16-128 B) | Keep the default `16` B granularity and `8` buckets unless allocator logs show heavy spillover concentrated just above 128 B. |
+| **Main and Thread Allocator Block Size** (`memorysetup-main-allocator-block-size`, `memorysetup-thread-allocator-block-size`) | `16777216` (16 MB) | On devices in the 6 GB RAM tier or lower (under 6,800 MB `totalMem`), consider lowering to 4 MB (`4194304`) or 8 MB (`8388608`) so freed TLSF blocks return to the OS at finer granularity. |
+
+To calculate exact values from your captured `logcat` dump without manual trial
+and error, pass the `[UnityMemory]` and `Memory Statistics:` sections to an AI
+assistant using the following prompt, replacing `UNITY_MEMORY_STATS_LOG` with
+the contents of `OUTPUT_FILE`:
+
+    You are a Unity Android memory optimization assistant. Analyze the following
+    [UnityMemory] Configuration Parameters and Memory Statistics log captured from
+    adb logcat -s Unity after calling Application.Quit() following peak gameplay.
+
+    Provide:
+    1. Bucket Allocator saturation diagnosis: configured capacity (block-size *
+       block-count), Large Block size, Used Block count, and Failed count per
+       bucket (16B-128B) if Failed Allocations appear.
+    2. TLSF spillover and block-sizing diagnosis: inspect Requested Block Size,
+       Peak Block count, and Peak Large allocation bytes (plus Reserved, Allocated,
+       and Peak Allocated bytes when profiler tracking is active) across
+       [ALLOC_DEFAULT_MAIN], [ALLOC_DEFAULT_THREAD], [ALLOC_GFX_MAIN],
+       [ALLOC_GFX_THREAD], and [ALLOC_CACHEOBJECTS] to estimate peak block
+       reservation and coarse 16 MB block retention.
+    3. Recommended Project Settings > Memory Settings (exact boot.config byte
+       values) for two Android vitals RAM profiles:
+       - 6 GB RAM tier and lower (totalMem < 6800 MB)
+       - 8 GB RAM tier and higher (totalMem >= 6800 MB)
+
+    Follow these constraints:
+    - Prefer a moderate memorysetup-bucket-allocator-block-size (4194304 or
+      8388608 bytes) paired with a higher memorysetup-bucket-allocator-block-count
+      (such as 4 to 8) instead of a single oversized block, because Unity commits
+      blocks incrementally on demand.
+    - Keep granularity=16 and bucket-count=8 unless the log proves otherwise.
+    - Keep all block sizes multiples of 1 MB (1048576 bytes) and never set job temp
+      allocator block sizes to 0.
+    - List the verification checks to confirm on the next test run (absence of
+      Failed Allocations under [ALLOC_BUCKET] and lower peak TLSF block reservation).
+
+    UNITY_MEMORY_STATS_LOG
+
+### 4. Apply static or per-device-tier settings
+
+You can apply your tuned [allocator settings](https://docs.unity3d.com/Documentation/Manual/memory-allocator-customization.html) either across your
+entire Android build or dynamically per device RAM tier at startup:
+
+- **Build-wide static configuration** : In the Unity Editor, open **Edit \>
+  Project Settings \> Memory Settings** , enable overrides under **Platform
+  Memory Settings** for Android, and enter the tuned block sizes and counts. Unity writes these `key=value` entries into `assets/bin/Data/boot.config` inside your APK or Android App Bundle.
+- **Per-RAM-tier runtime override** : On Android, Unity parses [startup
+  command-line arguments](https://docs.unity3d.com/Documentation/Manual/android-custom-activity-command-line.html) before initializing `MemoryManager`. Check your project's [application entry point](https://docs.unity3d.com/Documentation/Manual/android-application-entries.html) in **Edit \>
+  Project Settings \> Player \> Android \> Other Settings \> Application Entry
+  Point** : subclass `UnityPlayerGameActivity` when using **GameActivity** (the Unity 6 default) or `UnityPlayerActivity` when using **Activity** (the default in Unity 2021 LTS and 2022 LTS), register the activity in your custom `AndroidManifest.xml`, and override `updateUnityCommandLineArguments` using [`ActivityManager.MemoryInfo`](https://developer.android.com/reference/android/app/ActivityManager.MemoryInfo.md.txt) and the [Android vitals RAM tier
+  boundaries](https://developer.android.com/google/play/vitals#what_are_the_bad_behavior_thresholds):
+
+```java
+import android.app.ActivityManager;
+import android.content.Context;
+import com.unity3d.player.UnityPlayerGameActivity;
+
+// If Application Entry Point is set to Activity instead of GameActivity,
+// import and extend com.unity3d.player.UnityPlayerActivity.
+public class CustomUnityPlayerGameActivity extends UnityPlayerGameActivity {
+    @Override
+    protected String updateUnityCommandLineArguments(String cmdLine) {
+        ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        ActivityManager.MemoryInfo memInfo = new ActivityManager.MemoryInfo();
+        am.getMemoryInfo(memInfo);
+        long totalRamMb = memInfo.totalMem / (1024L * 1024L);
+
+        String baseArgs = (cmdLine == null) ? "" : cmdLine.trim();
+        if (totalRamMb < 6800) {
+            // <= 6 GB RAM tier (< 6800 MB totalMem): 4 x 4 MB buckets + 4 MB TLSF blocks
+            return (baseArgs
+                + " -memorysetup-bucket-allocator-block-size 4194304"
+                + " -memorysetup-bucket-allocator-block-count 4"
+                + " -memorysetup-main-allocator-block-size 4194304"
+                + " -memorysetup-thread-allocator-block-size 4194304").trim();
+        } else {
+            // >= 8 GB RAM tier (>= 6800 MB totalMem): 8 x 8 MB on-demand buckets
+            return (baseArgs
+                + " -memorysetup-bucket-allocator-block-size 8388608"
+                + " -memorysetup-bucket-allocator-block-count 8").trim();
+        }
+    }
+}
+```
+
+> [!CAUTION]
+> **Caution:** In `boot.config` files, write entries as `key=value` without a leading hyphen. When passing overrides through `updateUnityCommandLineArguments` or `adb shell am start -e unity`, use space-separated `-key value` tokens because Unity's command-line parser ignores `memorysetup-*` flags written with `=`.

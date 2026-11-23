@@ -371,10 +371,15 @@ code stripping](https://docs.unity3d.com/6000.0/Documentation/Manual/managed-cod
 
 ### Native allocators
 
-Experiment with native [memory allocators](https://docs.unity3d.com/6000.0/Documentation/Manual/performance-native-allocators.html) to fine-tune memory
-allocators. If the game is low on memory, use smaller memory blocks, even if
-this involves slower allocators. See Dynamic [heap allocator
-example](https://docs.unity3d.com/6000.0/Documentation/Manual/performance-dynamic-heap-allocator.html) to learn more.
+On Android Player builds, Unity defaults its small-object Bucket Allocator
+(`[ALLOC_BUCKET]`, serving 16 B to 128 B allocations) to a single 4 MB block.
+When live small allocations exceed 4 MB, millions of allocations spill into
+16 MB blocks in the main native [memory allocators](https://docs.unity3d.com/Documentation/Manual/performance-native-allocators.html), adding
+per-allocation header overhead and preventing partially empty blocks from
+returning to the OS. On low-memory devices, you can also reduce [Dynamic
+Heap](https://docs.unity3d.com/Documentation/Manual/performance-dynamic-heap-allocator.html) block sizes so freed blocks decommit at finer
+granularity. For step-by-step instructions on capturing allocator telemetry and
+tuning `boot.config` values with AI, see [Configure native allocators](https://developer.android.com/games/engines/unity/unity-reduce-memory.md.txt#configure-native-allocators).
 
 ## Manage native plugins and SDKs
 

@@ -5,10 +5,10 @@ source: md.txt
 ---
 
 # DataStore
-Part of [Android Jetpack](https://developer.android.com/jetpack).
+Part of [Android Jetpack](https://developer.android.com/jetpack.md.txt).
 
 
-Try with Kotlin Multiplatform Kotlin Multiplatform allows sharing the data layer with other platforms. Learn how to set up and work with DataStore in KMP [Set up DataStore for KMP →](https://developer.android.com/kotlin/multiplatform/datastore) ![](https://developer.android.com/static/images/android-kmp-logo.png)
+Try with Kotlin Multiplatform Kotlin Multiplatform allows sharing the data layer with other platforms. Learn how to set up and work with DataStore in KMP [Set up DataStore for KMP →](https://developer.android.com/kotlin/multiplatform/datastore.md.txt) ![](https://developer.android.com/static/images/android-kmp-logo.png)
 
 <br />
 
@@ -17,29 +17,32 @@ pairs or typed objects with [protocol buffers](https://developers.google.com/pro
 coroutines and Flow to store data asynchronously, consistently, and
 transactionally.
 
-If you're using [`SharedPreferences`](https://developer.android.com/reference/kotlin/android/content/SharedPreferences) to store data, consider migrating to
+If you're using [`SharedPreferences`](https://developer.android.com/reference/kotlin/android/content/SharedPreferences.md.txt) to store data, consider migrating to
 DataStore instead.
 
 > [!NOTE]
-> **Note:** If you need to support large or complex datasets, partial updates, or referential integrity, consider using [Room](https://developer.android.com/training/data-storage/room) instead of DataStore. DataStore is ideal for small datasets and does not support partial updates or referential integrity.
+> **Note:** If you need to support large or complex datasets, partial updates, or referential integrity, consider using [Room](https://developer.android.com/training/data-storage/room.md.txt) instead of DataStore. DataStore is ideal for small datasets and does not support partial updates or referential integrity.
 
 ## DataStore API
 
-The [`DataStore`](https://developer.android.com/reference/kotlin/androidx/datastore/core/DataStore) interface provides the following API:
+The [`DataStore`](https://developer.android.com/reference/kotlin/androidx/datastore/core/DataStore.md.txt) interface provides the following API:
 
 1. A flow that can be used to read data from the DataStore
 
-       val data: Flow<T>
-
+   ```kotlin
+   val data: Flow<T>
+   ```
 2. A function to update data in the DataStore
 
-       suspend updateData(transform: suspend (t) -> T)
+   ```kotlin
+   suspend updateData(transform: suspend (t) -> T)
+   ```
 
 ## DataStore Configurations
 
 If you want to store and access data using keys, use the Preferences
 DataStore implementation which does not require a predefined schema, and it does
-not provide type safety. It has a [`SharedPreferences`](https://developer.android.com/reference/kotlin/android/content/SharedPreferences)-like API but doesn't
+not provide type safety. It has a [`SharedPreferences`](https://developer.android.com/reference/kotlin/android/content/SharedPreferences.md.txt)-like API but doesn't
 have the drawbacks associated with shared preferences.
 
 DataStore lets you persist custom classes. To do this, you must define a
@@ -278,7 +281,7 @@ In order to use DataStore correctly always keep in mind the following rules:
 
 3. **Do not mix usages of `SingleProcessDataStore` and `MultiProcessDataStore`**
    for the same file. If you intend to access the `DataStore` from more than one
-   process, you must use [`MultiProcessDataStore`](https://developer.android.com/topic/libraries/architecture/datastore#multiprocess).
+   process, you must use [`MultiProcessDataStore`](https://developer.android.com/topic/libraries/architecture/datastore.md.txt#multiprocess).
 
 ## Data Definition
 
@@ -392,9 +395,9 @@ You need to specify a name for the file that is used to persist the data.
 
 ### Preferences DataStore
 
-The Preferences DataStore implementation uses the [`DataStore`](https://developer.android.com/reference/kotlin/androidx/datastore/core/DataStore) and
-[`Preferences`](https://developer.android.com/reference/kotlin/androidx/datastore/preferences/core/Preferences) classes to persist key-value pairs to disk. Use the
-property delegate created by [`preferencesDataStore`](https://developer.android.com/reference/kotlin/androidx/datastore/preferences/package-summary#preferencesDataStore(kotlin.String,androidx.datastore.core.handlers.ReplaceFileCorruptionHandler,kotlin.Function1,kotlinx.coroutines.CoroutineScope)) to create an instance
+The Preferences DataStore implementation uses the [`DataStore`](https://developer.android.com/reference/kotlin/androidx/datastore/core/DataStore.md.txt) and
+[`Preferences`](https://developer.android.com/reference/kotlin/androidx/datastore/preferences/core/Preferences.md.txt) classes to persist key-value pairs to disk. Use the
+property delegate created by [`preferencesDataStore`](https://developer.android.com/reference/kotlin/androidx/datastore/preferences/package-summary.md.txt#preferencesDataStore(kotlin.String,androidx.datastore.core.handlers.ReplaceFileCorruptionHandler,kotlin.Function1,kotlinx.coroutines.CoroutineScope)) to create an instance
 of `DataStore<Preferences>`. Call it once at the top level of your Kotlin
 file. Access DataStore through this property throughout the rest of your
 application. This makes it easier to keep your DataStore as a singleton.
@@ -455,8 +458,8 @@ You need to specify a name for the file that is used to persist the data.
 Because Preferences DataStore doesn't use a predefined schema, you must use
 the corresponding key type function to define a key for each value that you
 need to store in the `DataStore<Preferences>` instance. For example, to define
-a key for an int value, use [`intPreferencesKey`](https://developer.android.com/reference/kotlin/androidx/datastore/preferences/core/package-summary#intPreferencesKey(kotlin.String)). Then, use the
-[`DataStore.data`](https://developer.android.com/reference/kotlin/androidx/datastore/core/DataStore#data()) property to expose the appropriate stored value using a
+a key for an int value, use [`intPreferencesKey`](https://developer.android.com/reference/kotlin/androidx/datastore/preferences/core/package-summary.md.txt#intPreferencesKey(kotlin.String)). Then, use the
+[`DataStore.data`](https://developer.android.com/reference/kotlin/androidx/datastore/core/DataStore.md.txt#data()) property to expose the appropriate stored value using a
 Flow.
 
 
@@ -492,23 +495,25 @@ fun counterFlow(): Flow<Int> = context.dataStore.data.map { settings -> settings
 
 <br />
 
-Use [`collectAsStateWithLifecycle`](https://developer.android.com/reference/kotlin/androidx/lifecycle/compose/package-summary#extension-functions) to consume the `Flow` produced by
+Use [`collectAsStateWithLifecycle`](https://developer.android.com/reference/kotlin/androidx/lifecycle/compose/package-summary.md.txt#extension-functions) to consume the `Flow` produced by
 a ViewModel in a composable.
 This safely converts the DataStore Flow into Compose State that triggers
 recomposition.
 
-    @Composable
-    fun SomeScreen(counterFlow: Flow<Int>) {
-      val counter by counterFlow.collectAsStateWithLifecycle(initialValue = 0)
-      Text(text = "Example counter: ${counter}")
-    }
+```kotlin
+@Composable
+fun SomeScreen(counterFlow: Flow<Int>) {
+  val counter by counterFlow.collectAsStateWithLifecycle(initialValue = 0)
+  Text(text = "Example counter: ${counter}")
+}
+```
 
 For more information on `collectAsStateWithLifecycle`,
-see [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state#use-other-types-of-state-in-jetpack-compose).
+see [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state.md.txt#use-other-types-of-state-in-jetpack-compose).
 
 ## Write to DataStore
 
-DataStore provides an [updateData](https://developer.android.com/reference/kotlin/androidx/datastore/core/DataStore#updatedata) function that transactionally updates a
+DataStore provides an [updateData](https://developer.android.com/reference/kotlin/androidx/datastore/core/DataStore.md.txt#updatedata) function that transactionally updates a
 stored object. `updateData` gives you the current state of the data as an
 instance of your data type and updates the data transactionally in an atomic
 read-write-modify operation. All of the code in the `updateData` block is
@@ -530,7 +535,7 @@ suspend fun incrementCounter() {
 <br />
 
 > [!NOTE]
-> **Note:** You can also use the [`edit`](https://developer.android.com/reference/kotlin/androidx/datastore/preferences/core/package-summary#edit) suspend function. This function provides a `MutablePreferences` object that you can modify.
+> **Note:** You can also use the [`edit`](https://developer.android.com/reference/kotlin/androidx/datastore/preferences/core/package-summary.md.txt#edit) suspend function. This function provides a `MutablePreferences` object that you can modify.
 
 ### JSON DataStore
 
@@ -572,47 +577,50 @@ functions.
    convert the `Flow` to a `StateFlow` so the UI can observe it, as shown in
    the following snippet:
 
-       class SettingsViewModel(
-           private val userPreferencesRepository: UserPreferencesRepository
-       ) : ViewModel() {
+   ```kotlin
+   class SettingsViewModel(
+       private val userPreferencesRepository: UserPreferencesRepository
+   ) : ViewModel() {
 
-           // Expose the DataStore flow as a StateFlow for Compose
-           val userSettings: StateFlow<UserSettings> = userPreferencesRepository.userSettingsFlow
-               .stateIn(
-                   scope = viewModelScope,
-                   started = SharingStarted.WhileSubscribed(5000),
-                   initialValue = UserSettings.getDefaultInstance()
-               )
+       // Expose the DataStore flow as a StateFlow for Compose
+       val userSettings: StateFlow<UserSettings> = userPreferencesRepository.userSettingsFlow
+           .stateIn(
+               scope = viewModelScope,
+               started = SharingStarted.WhileSubscribed(5000),
+               initialValue = UserSettings.getDefaultInstance()
+           )
 
-           fun updateCounter(newValue: Int) {
-               viewModelScope.launch {
-                   userPreferencesRepository.updateCounter(newValue)
-               }
+       fun updateCounter(newValue: Int) {
+           viewModelScope.launch {
+               userPreferencesRepository.updateCounter(newValue)
            }
        }
-
+   }
+   ```
 2. **Observe and write from your composable.**
    Use `collectAsStateWithLifecycle` to safely observe the `StateFlow` in your UI,
    and call the `ViewModel` functions to handle writes, as shown in the following
    snippet:
 
-       @Composable
-       fun SettingsScreen(
-           viewModel: SettingsViewModel = viewModel()
-       ) {
-           // Safely collect the state
-           val settings by viewModel.userSettings.collectAsStateWithLifecycle()
+   ```kotlin
+   @Composable
+   fun SettingsScreen(
+       viewModel: SettingsViewModel = viewModel()
+   ) {
+       // Safely collect the state
+       val settings by viewModel.userSettings.collectAsStateWithLifecycle()
 
-           Column(modifier = Modifier.padding(16.dp)) {
-               Text(text = "Current counter: ${settings.counter}")
+       Column(modifier = Modifier.padding(16.dp)) {
+           Text(text = "Current counter: ${settings.counter}")
 
-               Spacer(modifier = Modifier.height(8.dp))
+           Spacer(modifier = Modifier.height(8.dp))
 
-               Button(onClick = { viewModel.updateCounter(settings.counter + 1) }) {
-                   Text("Increment Counter")
-               }
+           Button(onClick = { viewModel.updateCounter(settings.counter + 1) }) {
+               Text("Increment Counter")
            }
        }
+   }
+   ```
 
 ## Use DataStore in multi-process code
 
@@ -774,13 +782,15 @@ DisposableEffect(context) {
 
 <br />
 
-You can use [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) dependency injection so that your DataStore
+You can use [Hilt](https://developer.android.com/training/dependency-injection/hilt-android.md.txt) dependency injection so that your DataStore
 instance is unique per process:
 
-    @Provides
-    @Singleton
-    fun provideDataStore(@ApplicationContext context: Context): DataStore<Settings> =
-       MultiProcessDataStoreFactory.create(...)
+```kotlin
+@Provides
+@Singleton
+fun provideDataStore(@ApplicationContext context: Context): DataStore<Settings> =
+   MultiProcessDataStoreFactory.create(...)
+```
 
 > [!WARNING]
 > **Warning:** This is a simplified example and you shouldn't access DataStore from the composable in your production code. You should always use ViewModel to generate the state that Compose will render.
@@ -801,19 +811,21 @@ To set up this handler, provide a `corruptionHandler` when creating the
 DataStore instance in `by dataStore` or in the `DataStoreFactory` factory
 method:
 
-    val dataStore: DataStore<Settings> = DataStoreFactory.create(
-       serializer = SettingsSerializer(),
-       produceFile = {
-           File("${context.filesDir.path}/myapp.preferences_pb")
-       },
-       corruptionHandler = ReplaceFileCorruptionHandler { Settings(lastUpdate = 0) }
-    )
+```kotlin
+val dataStore: DataStore<Settings> = DataStoreFactory.create(
+   serializer = SettingsSerializer(),
+   produceFile = {
+       File("${context.filesDir.path}/myapp.preferences_pb")
+   },
+   corruptionHandler = ReplaceFileCorruptionHandler { Settings(lastUpdate = 0) }
+)
+```
 
 ## Device backup and restore
 
 Preferences DataStore files (`*.preferences_pb`) and Proto DataStore files are
 stored in the app's `files/datastore/` directory. By default, these files are
-included in Android [Auto Backup](https://developer.android.com/identity/data/autobackup) and device-to-device (D2D) transfers.
+included in Android [Auto Backup](https://developer.android.com/identity/data/autobackup.md.txt) and device-to-device (D2D) transfers.
 
 ### Configure backup rules for DataStore
 
@@ -821,18 +833,20 @@ If your DataStore contains non-sensitive preferences (such as user theme or
 feature flags) alongside sensitive data, separate them into distinct DataStore
 files and configure `res/xml/data_extraction_rules.xml`:
 
-    <data-extraction-rules>
-        <cloud-backup>
-            <!-- Include general settings -->
-            <include domain="file" path="datastore/user_settings.preferences_pb"/>
-            <!-- Exclude sensitive local state -->
-            <exclude domain="file" path="datastore/secure_state.preferences_pb"/>
-        </cloud-backup>
-        <device-to-device>
-            <!-- Transfer settings during device-to-device transfer -->
-            <include domain="file" path="datastore/"/>
-        </device-to-device>
-    </data-extraction-rules>
+```xml
+<data-extraction-rules>
+    <cloud-backup>
+        <!-- Include general settings -->
+        <include domain="file" path="datastore/user_settings.preferences_pb"/>
+        <!-- Exclude sensitive local state -->
+        <exclude domain="file" path="datastore/secure_state.preferences_pb"/>
+    </cloud-backup>
+    <device-to-device>
+        <!-- Transfer settings during device-to-device transfer -->
+        <include domain="file" path="datastore/"/>
+    </device-to-device>
+</data-extraction-rules>
+```
 
 ## Provide feedback
 
@@ -853,12 +867,11 @@ To learn more about Jetpack DataStore, see the following additional resources:
 
 ### Codelabs
 
-- [Working with Preferences DataStore](https://codelabs.developers.google.com/codelabs/android-preferences-datastore)
-- [Working with Proto DataStore](https://codelabs.developers.google.com/codelabs/android-proto-datastore)
+- [Working with Proto DataStore](https://developer.android.com/codelabs/android-proto-datastore)
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data)
-- [LiveData overview](https://developer.android.com/topic/libraries/architecture/livedata)
-- [Layouts and binding expressions](https://developer.android.com/topic/libraries/data-binding/expressions)
+- [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data.md.txt)
+- [LiveData overview](https://developer.android.com/topic/libraries/architecture/livedata.md.txt)
+- [Layouts and binding expressions](https://developer.android.com/topic/libraries/data-binding/expressions.md.txt)

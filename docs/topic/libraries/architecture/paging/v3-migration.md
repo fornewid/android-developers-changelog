@@ -4,6 +4,8 @@ url: https://developer.android.com/topic/libraries/architecture/paging/v3-migrat
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/topic/libraries/architecture/paging/llms.txt
+
 Paging 3 is significantly different from earlier versions of the Paging library.
 This version provides enhanced functionality, first-class support for Kotlin
 coroutines and `Flow`, and seamless integration with Jetpack Compose.
@@ -29,7 +31,7 @@ from Paging 2:
 
 However, some Paging 3 components are backwards-compatible with previous
 versions of Paging. In particular, the `Pager` API can use older
-[`DataSource`](https://developer.android.com/reference/kotlin/androidx/paging/DataSource) objects with the `asPagingSourceFactory` method. This means
+[`DataSource`](https://developer.android.com/reference/kotlin/androidx/paging/DataSource.md.txt) objects with the `asPagingSourceFactory` method. This means
 that you have the following migration options:
 
 - You can migrate your `DataSource` to `PagingSource` but leave the rest of your Paging implementation unchanged.
@@ -56,30 +58,32 @@ differentiate among load types in your `load` method, check which
 subclass of `LoadParams` was passed in: `LoadParams.Refresh`,
 `LoadParams.Prepend`, or `LoadParams.Append`.
 
-To learn more about implementing `PagingSource`, see [Define a data source](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#data-source).
+To learn more about implementing `PagingSource`, see [Define a data source](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data.md.txt#data-source).
 
 > [!NOTE]
-> **Note:** If your current Paging implementation includes custom error handling, consider using the built-in error handling support in `PagingSource` instead. To learn more, see [Handle errors](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#handle-errors).
+> **Note:** If your current Paging implementation includes custom error handling, consider using the built-in error handling support in `PagingSource` instead. To learn more, see [Handle errors](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data.md.txt#handle-errors).
 
 #### Refresh keys
 
 Implementations of `PagingSource` must define how refreshes resume from the
 middle of the loaded paged data. Do this by implementing
-[`getRefreshKey`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource#getrefreshkey)
+[`getRefreshKey`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource.md.txt#getrefreshkey)
 to map the correct initial key using `state.anchorPosition` as the most recently
 accessed index.
 
-    // Replaces ItemKeyedDataSource.
-    override fun getRefreshKey(state: PagingState<String, User>): String? {
-      return state.anchorPosition?.let { anchorPosition ->
-        state.getClosestItemToPosition(anchorPosition)?.id
-      }
-    }
+```kotlin
+// Replaces ItemKeyedDataSource.
+override fun getRefreshKey(state: PagingState<String, User>): String? {
+  return state.anchorPosition?.let { anchorPosition ->
+    state.getClosestItemToPosition(anchorPosition)?.id
+  }
+}
 
-    // Replacing PositionalDataSource.
-    override fun getRefreshKey(state: PagingState<Int, User>): Int? {
-      return state.anchorPosition
-    }
+// Replacing PositionalDataSource.
+override fun getRefreshKey(state: PagingState<Int, User>): Int? {
+  return state.anchorPosition
+}
+```
 
 #### List transformations
 
@@ -97,7 +101,7 @@ you must move your transformation logic from the `DataSource` to the
 `PagingData` when constructing the `Pager` using your new `PagingSource`.
 
 To learn more about applying transformations to paged data using Paging 3, see
-[Transform data streams](https://developer.android.com/topic/libraries/architecture/paging/v3-transform).
+[Transform data streams](https://developer.android.com/topic/libraries/architecture/paging/v3-transform.md.txt).
 
 ### `PagedList`
 
@@ -113,25 +117,27 @@ implementation to use `Pager` and `PagingData` in Paging 3.
 - Older builder classes have been combined into a single `Pager` class.
 - `Pager` exposes an observable `Flow<PagingData>` with its `.flow` property.
 
-    val flow = Pager(
-      // Configure how data is loaded by passing additional properties to
-      // PagingConfig, such as prefetchDistance.
-      PagingConfig(pageSize = 20)
-    ) {
-      ExamplePagingSource(backend, query)
-    }.flow
-      .cachedIn(viewModelScope)
+```kotlin
+val flow = Pager(
+  // Configure how data is loaded by passing additional properties to
+  // PagingConfig, such as prefetchDistance.
+  PagingConfig(pageSize = 20)
+) {
+  ExamplePagingSource(backend, query)
+}.flow
+  .cachedIn(viewModelScope)
+```
 
 To learn more about setting up a reactive stream of `PagingData` objects using
-Paging 3, see [Set up a stream of PagingData](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#pagingdata-stream).
+Paging 3, see [Set up a stream of PagingData](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data.md.txt#pagingdata-stream).
 
 #### `BoundaryCallback` for layered sources
 
-In Paging 3, [`RemoteMediator`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator) replaces `PagedList.BoundaryCallback` as a
+In Paging 3, [`RemoteMediator`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator.md.txt) replaces `PagedList.BoundaryCallback` as a
 handler for paging from network and database.
 
-To learn more about using `RemoteMediator` to page from network and database in
-Paging 3, see the [Android Paging codelab](https://codelabs.developers.google.com/codelabs/android-paging).
+To learn more about paging from network and database in Paging 3, see
+[Page from network and database](https://developer.android.com/topic/libraries/architecture/paging/v3-network-db.md.txt).
 
 ### `LazyPagingItems`
 
@@ -143,7 +149,7 @@ flow. To migrate your presentation layer, use the `paging-compose` artifact and
 `collectAsLazyPagingItems` to collect `PagingData` items and display them in
 `@Composable` functions.
 
-To learn more about `LazyPagingItems`, see [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data).
+To learn more about `LazyPagingItems`, see [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data.md.txt).
 
 ### List diffing and updates
 
@@ -151,38 +157,40 @@ If you currently use custom list diffing logic, migrate your implementation to
 use the `LazyPagingItems` provided in Paging 3 instead. To make sure diffing
 happens properly, specify an item key on your lazy list:
 
-    @Composable
-    fun UserScreen(viewModel: UserViewModel) {
-        // Collects the Flow into a LazyPagingItems object
-        val lazyPagingItems = viewModel.pager.flow.collectAsLazyPagingItems()
+```kotlin
+@Composable
+fun UserScreen(viewModel: UserViewModel) {
+    // Collects the Flow into a LazyPagingItems object
+    val lazyPagingItems = viewModel.pager.flow.collectAsLazyPagingItems()
 
-        UserList(lazyPagingItems)
-    }
+    UserList(lazyPagingItems)
+}
 
-    @Composable
-    fun UserScreen(viewModel: UserViewModel) {
-        val lazyPagingItems = viewModel.pager.flow.collectAsLazyPagingItems()
+@Composable
+fun UserScreen(viewModel: UserViewModel) {
+    val lazyPagingItems = viewModel.pager.flow.collectAsLazyPagingItems()
 
-        UserList(lazyPagingItems)
-    }
+    UserList(lazyPagingItems)
+}
 
-    @Composable
-    fun UserList(lazyPagingItems: LazyPagingItems<User>) {
-        LazyColumn {
-            items(
-                count = lazyPagingItems.itemCount,
-                // Provide a stable key for each item, similar to DiffUtil in Views
-                key = lazyPagingItems.itemKey { user -> user.id } 
-            ) { index ->
-                val user = lazyPagingItems[index]
-                if (user != null) {
-                    UserRow(user = user)
-                }
+@Composable
+fun UserList(lazyPagingItems: LazyPagingItems<User>) {
+    LazyColumn {
+        items(
+            count = lazyPagingItems.itemCount,
+            // Provide a stable key for each item, similar to DiffUtil in Views
+            key = lazyPagingItems.itemKey { user -> user.id } 
+        ) { index ->
+            val user = lazyPagingItems[index]
+            if (user != null) {
+                UserRow(user = user)
             }
         }
     }
+}
+```
 
-For more information on item keys, see [Item keys](https://developer.android.com/develop/ui/compose/lists#item-keys).
+For more information on item keys, see [Item keys](https://developer.android.com/develop/ui/compose/lists.md.txt#item-keys).
 
 ### Loading states
 
@@ -190,16 +198,18 @@ In Paging 3, you don't need a separate adapter to display headers or footers for
 loading states. The `LazyPagingItems` object exposes a `loadState` property that
 you can check directly within your `LazyColumn`.
 
-    LazyColumn {
-        // ... items(lazyPagingItems) go here ...
+```kotlin
+LazyColumn {
+    // ... items(lazyPagingItems) go here ...
 
-        // Show loading spinner at bottom of list when appending data
-        if (lazyPagingItems.loadState.append is LoadState.Loading) {
-            item {
-                CircularProgressIndicator(modifier = Modifier.fillMaxWidth())
-            }
+    // Show loading spinner at bottom of list when appending data
+    if (lazyPagingItems.loadState.append is LoadState.Loading) {
+        item {
+            CircularProgressIndicator(modifier = Modifier.fillMaxWidth())
         }
     }
+}
+```
 
 ## Additional resources
 
@@ -207,15 +217,15 @@ To learn more about the Paging library, see the following additional resources:
 
 ### Documentation
 
-- [Paging library overview](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
+- [Paging library overview](https://developer.android.com/topic/libraries/architecture/paging/v3-overview.md.txt)
 
 ### Views content
 
-- [Migrate to Paging 3 (Views)](https://developer.android.com/topic/libraries/architecture/views/paging/v3-migration-views)
+- [Migrate to Paging 3 (Views)](https://developer.android.com/topic/libraries/architecture/views/paging/v3-migration-views.md.txt)
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data)
-- [Gather paged data](https://developer.android.com/topic/libraries/architecture/paging/data)
-- [Page from network and database](https://developer.android.com/topic/libraries/architecture/paging/v3-network-db)
+- [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data.md.txt)
+- [Gather paged data](https://developer.android.com/topic/libraries/architecture/paging/data.md.txt)
+- [Page from network and database](https://developer.android.com/topic/libraries/architecture/paging/v3-network-db.md.txt)

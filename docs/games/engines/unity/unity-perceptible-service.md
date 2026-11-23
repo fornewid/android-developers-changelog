@@ -1,21 +1,10 @@
 ---
-title: Run a perceptible service in a separate process with Unity  |  Android game development  |  Android Developers
+title: https://developer.android.com/games/engines/unity/unity-perceptible-service
 url: https://developer.android.com/games/engines/unity/unity-perceptible-service
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Games dev center](https://developer.android.com/games)
-* [Guides](https://developer.android.com/games/guides)
-
-Send feedback
-
-# Run a perceptible service in a separate process with Unity Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
+> Documentation index: https://developer.android.com/games/llms.txt
 
 This guide covers the configuration and implementation needed to run an Android
 perceptible service (Foreground Service, or FGS) in a private process from a
@@ -33,7 +22,7 @@ The custom
 must declare the launcher Activity, perceptible-service permissions,
 notification permission, network permission, and the service:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
@@ -63,11 +52,11 @@ notification permission, network permission, and the service:
 </manifest>
 ```
 
-[`foregroundServiceType`](/develop/background-work/services/fgs/service-types)
+[`foregroundServiceType`](https://developer.android.com/develop/background-work/services/fgs/service-types.md.txt)
 must match the real work: `dataSync` for transfers, `mediaPlayback` for
 playback, `location` for location tracking. It must agree with the
 corresponding `FOREGROUND_SERVICE_<TYPE>` permission and the
-`startForeground` call — all three must be consistent, or service startup
+`startForeground` call --- all three must be consistent, or service startup
 fails.
 
 ### 1.2 Add the service-process Java to the Unity project
@@ -79,13 +68,13 @@ Unity automatically includes jars in that directory into Gradle's libs/
 input and packages them into the APK; the service process loads these classes
 at runtime.
 For more information about how to implement the service in Java or Kotlin,
-see [Java implementation](#java-implementation).
+see [Java implementation](https://developer.android.com/games/engines/unity/unity-perceptible-service.md.txt#java-implementation).
 
 ## 2. Configure a separate process
 
 The process boundary is enabled by one manifest attribute:
 
-```
+```xml
 android:process=":downloader"
 ```
 
@@ -108,25 +97,17 @@ classes doesn't work in the service process.
 After the main process calls `startForegroundService`, the system forks the
 `:downloader` service process:
 
-* Instantiates `Application` and calls `Application.onCreate` — this
-  runs in every process, so initialization needed by the service process
-  must be done again here. For more information, see section 2.3.
-* Creates `DownloadService` and calls `onCreate` — this is the
-  service-process entry point.
-* Calls back `onStartCommand` with the Intent constructed at startup. The
-  service promotes itself to the foreground here and starts the worker.
-  For more information, see section 3.1.
+- Instantiates `Application` and calls `Application.onCreate` --- this runs in every process, so initialization needed by the service process must be done again here. For more information, see section 2.3.
+- Creates `DownloadService` and calls `onCreate` --- this is the service-process entry point.
+- Calls back `onStartCommand` with the Intent constructed at startup. The service promotes itself to the foreground here and starts the worker. For more information, see section 3.1.
 
 ### 2.3 State exists once per process
 
 Dex code is shared read-only, but runtime state isn't:
 
-* `Application.attachBaseContext` and `Application.onCreate` run in every
-  process that hosts application components.
-* Static initializers and static fields exist independently in each process.
-  Assigning a static field in the main process doesn't communicate with the
-  service.
-* Unity, C#, and Activities remain in the main process.
+- `Application.attachBaseContext` and `Application.onCreate` run in every process that hosts application components.
+- Static initializers and static fields exist independently in each process. Assigning a static field in the main process doesn't communicate with the service.
+- Unity, C#, and Activities remain in the main process.
 
 ## 3. Java implementation
 
@@ -136,7 +117,7 @@ process (the entry point C# calls using JNI).
 
 ### 3.1 Promote to foreground first
 
-```
+```java
 public class DownloadService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -173,7 +154,7 @@ A perceptible service needs an ongoing notification on a notification channel
 to report progress. The notification carries a Stop action that sends
 `ACTION_STOP` to the service itself using `PendingIntent.getService` to stop it.
 
-```
+```java
 private Notification buildNotification(long progressBytes) {
     int progressMib = (int) (progressBytes / MIB);
 
@@ -219,7 +200,7 @@ private Notification buildNotification(long progressBytes) {
 methods using JNI to start and stop the service and handle notification
 permission:
 
-```
+```java
 public class FgsBridge {
     // Start the :downloader perceptible service and begin downloading
     public static void startDownloadService(Context context) {
@@ -265,7 +246,7 @@ public class FgsBridge {
 `AndroidBridge` is the C# wrapper that calls `FgsBridge` using JNI. The three
 method implementations:
 
-```
+```c#
 public static void StartDownloadService()
 {
 #if UNITY_ANDROID && !UNITY_EDITOR
@@ -298,10 +279,3 @@ public static void RequestNotificationPermission()
 calls the corresponding Java static method. `RequestNotificationPermission`
 should be called at application startup so that the notification appears
 immediately when the service process starts.
-
-
-
-
-
-
-Send feedback

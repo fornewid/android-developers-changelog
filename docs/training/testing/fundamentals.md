@@ -4,6 +4,8 @@ url: https://developer.android.com/training/testing/fundamentals
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/testing/fundamentals/llms.txt
+
 This page outlines the core tenets of testing Android apps, including the
 central best practices and their benefits.
 
@@ -14,7 +16,7 @@ central best practices and their benefits.
 
 ### Create a testing strategy
 
-Use the Testing setup [Android skill](https://developer.android.com/tools/agents/android-skills) to analyze and create a testing strategy for native Android apps. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the Testing setup [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to analyze and create a testing strategy for native Android apps. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add testing-setup
 
@@ -75,7 +77,7 @@ You can run tests on an Android device or on another computer:
 Not all unit tests are local, and not all end-to-end tests run on a device. For
 example:
 
-- **Big local test** : You can use an Android simulator that runs locally, such as [Robolectric](https://developer.android.com/training/testing/local-tests/robolectric).
+- **Big local test** : You can use an Android simulator that runs locally, such as [Robolectric](https://developer.android.com/training/testing/local-tests/robolectric.md.txt).
 - **Small instrumented test**: You can verify that your code works well with a framework feature, such as a SQLite database. You might run this test on multiple devices to check the integration with multiple versions of SQLite.
 
 ### Examples
@@ -86,33 +88,39 @@ element is displayed.
 
 ### Espresso
 
-    // When the Continue button is clicked
-    onView(withText("Continue"))
-        .perform(click())
+```kotlin
+// When the Continue button is clicked
+onView(withText("Continue"))
+    .perform(click())
 
-    // Then the Welcome screen is displayed
-    onView(withText("Welcome"))
-        .check(matches(isDisplayed()))
+// Then the Welcome screen is displayed
+onView(withText("Welcome"))
+    .check(matches(isDisplayed()))
+```
 
 ### Compose UI
 
-    // When the Continue button is clicked
-    composeTestRule.onNodeWithText("Continue").performClick()
+```kotlin
+// When the Continue button is clicked
+composeTestRule.onNodeWithText("Continue").performClick()
 
-    // Then the Welcome screen is displayed
-    composeTestRule.onNodeWithText("Welcome").assertIsDisplayed()
+// Then the Welcome screen is displayed
+composeTestRule.onNodeWithText("Welcome").assertIsDisplayed()
+```
 
 This snippet shows part of a *unit test* for a ViewModel (local, host-side
 test):
 
-    // Given an instance of MyViewModel
-    val viewModel = MyViewModel(myFakeDataRepository)
+```kotlin
+// Given an instance of MyViewModel
+val viewModel = MyViewModel(myFakeDataRepository)
 
-    // When data is loaded
-    viewModel.loadData()
+// When data is loaded
+viewModel.loadData()
 
-    // Then it should be exposing data
-    assertTrue(viewModel.data != null)
+// Then it should be exposing data
+assertTrue(viewModel.data != null)
+```
 
 ## Testable architecture
 
@@ -140,12 +148,9 @@ Common decoupling techniques include the following:
 - Split an app into *layers* such as Presentation, Domain, and Data. You can also split an app into *modules*, one per feature.
 - Avoid adding logic to entities that have large dependencies, such as activities and fragments. Use these classes as entry points to the framework and move *UI and business logic* elsewhere, such as to a Composable, ViewModel, or domain layer.
 - Avoid direct *framework dependencies* in classes containing business logic. For example, [don't use Android Contexts in ViewModels](https://medium.com/androiddevelopers/locale-changes-and-the-androidviewmodel-antipattern-84eb677660d9).
-- Make dependencies easy to *replace* . For example, use [interfaces](https://en.wikipedia.org/wiki/Interface_segregation_principle) instead of concrete implementations. Use [Dependency injection](https://developer.android.com/training/dependency-injection) even if you don't use a DI framework.
+- Make dependencies easy to *replace* . For example, use [interfaces](https://en.wikipedia.org/wiki/Interface_segregation_principle) instead of concrete implementations. Use [Dependency injection](https://developer.android.com/training/dependency-injection.md.txt) even if you don't use a DI framework.
 
 ## Next steps
 
 Now that you know why you should test and the two main types of tests, you can
-read [What to test](https://developer.android.com/training/testing/fundamentals/what-to-test) or learn about [Testing strategies](https://developer.android.com/training/testing/fundamentals/strategies)
-
-Alternatively, if you want to create your first test and learn by doing, check
-out the [Testing codelabs](https://developer.android.com/codelabs/advanced-android-kotlin-training-testing-basics).
+read [What to test](https://developer.android.com/training/testing/fundamentals/what-to-test.md.txt) or learn about [Testing strategies](https://developer.android.com/training/testing/fundamentals/strategies.md.txt).

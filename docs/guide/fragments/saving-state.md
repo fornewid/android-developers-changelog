@@ -4,6 +4,8 @@ url: https://developer.android.com/guide/fragments/saving-state
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/fragments/llms.txt
+
 Various Android system operations can affect the state of your fragment.
 To ensure the user's state is saved, the Android framework automatically
 saves and restores the fragments and the back stack. Therefore, you need
@@ -45,7 +47,7 @@ types of state](https://developer.android.com/static/images/guide/fragments/text
 For this example, assume that once the user presses the edit button, the
 app displays an `EditText` view where the user can edit the message. If the
 user clicks on **CANCEL** , the `EditText` view should be cleared and it's
-visibility set to [`View.GONE`](https://developer.android.com/reference/android/view/View#GONE). Such
+visibility set to [`View.GONE`](https://developer.android.com/reference/android/view/View.md.txt#GONE). Such
 a screen might require managing four pieces of data to ensure a seamless
 experience:
 
@@ -74,7 +76,7 @@ your fragment.
 > **Note:** To ensure proper handling during configuration changes, you should implement `onSaveInstanceState()` and `onRestoreInstanceState()` for any custom views that you create.
 
 For example, in the previous scenario, the edited string is held in an
-[`EditText`](https://developer.android.com/reference/android/widget/EditText). An `EditText` knows
+[`EditText`](https://developer.android.com/reference/android/widget/EditText.md.txt). An `EditText` knows
 the value of the text it's displaying, as well as other details, such as
 the beginning and end of any selected text.
 
@@ -97,15 +99,15 @@ all operations that don't remove the fragment or destroy the host.
 Your fragment is responsible for managing small amounts of dynamic state
 that are integral to how the fragment functions. You can retain
 easily-serialized data using
-[`Fragment.onSaveInstanceState(Bundle)`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment#onsaveinstancestate).
+[`Fragment.onSaveInstanceState(Bundle)`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.md.txt#onsaveinstancestate).
 Similar to
-[`Activity.onSaveInstanceState(Bundle)`](https://developer.android.com/reference/android/app/Activity#onSaveInstanceState(android.os.Bundle)),
+[`Activity.onSaveInstanceState(Bundle)`](https://developer.android.com/reference/android/app/Activity.md.txt#onSaveInstanceState(android.os.Bundle)),
 the data you place in the bundle is retained through configuration changes
 and process death and recreation and is available in your fragment's
-[`onCreate(Bundle)`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment#onCreate(android.os.Bundle)),
-[`onCreateView(LayoutInflater, ViewGroup, Bundle)`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment#onCreateView(android.view.LayoutInflater,%20android.view.ViewGroup,%20android.os.Bundle)),
+[`onCreate(Bundle)`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.md.txt#onCreate(android.os.Bundle)),
+[`onCreateView(LayoutInflater, ViewGroup, Bundle)`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.md.txt#onCreateView(android.view.LayoutInflater,%20android.view.ViewGroup,%20android.os.Bundle)),
 and
-[`onViewCreated(View, Bundle)`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment#onViewCreated(android.view.View,%20android.os.Bundle))
+[`onViewCreated(View, Bundle)`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.md.txt#onViewCreated(android.view.View,%20android.os.Bundle))
 methods.
 
 > [!CAUTION]
@@ -177,7 +179,7 @@ they persist through all destructive operations.
 ## NonConfig
 
 NonConfig data should be placed outside of your fragment, such as in
-a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel). In the previous
+a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel.md.txt). In the previous
 example above, `seed` (our NonConfig state) is generated in the `ViewModel`.
 The logic to maintain its state is owned by the `ViewModel`.
 
@@ -220,11 +222,8 @@ process death and recreation.
 For more information about managing fragment state, see the following
 additional resources.
 
-### Codelabs
-
-- [Lifecycle-Aware Components](https://codelabs.developers.google.com/codelabs/android-lifecycles/#0)codelab
-
 ### Guides
 
+- [Handling Lifecycles with Lifecycle-Aware Components](https://developer.android.com/topic/libraries/architecture/lifecycle.md.txt)
 - [Saved State Module for View Model](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate)
-- [Saving UI States](https://developer.android.com/topic/libraries/architecture/saving-states)
+- [Saving UI States](https://developer.android.com/topic/libraries/architecture/saving-states.md.txt)

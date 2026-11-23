@@ -4,6 +4,8 @@ url: https://developer.android.com/kotlin/kotlin-java-resources
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/kotlin/llms.txt
+
 Here's a list of additional learning resources that can help you learn to
 do even more with Kotlin.
 
@@ -15,10 +17,10 @@ do even more with Kotlin.
 
 - [Hello World](https://play.kotlinlang.org/byExample/01_introduction/01_Hello%20world) - An interactive tutorial by JetBrains that illustrates Kotlin features and syntax.
 
-## Codelabs
+## Guides
 
-- [Refactoring to Kotlin](https://codelabs.developers.google.com/codelabs/java-to-kotlin): Learn how to refactor your code from Java to Kotlin. You'll also learn Kotlin language conventions along with how to ensure that the code you write follows them.
-- [Java friendly Kotlin](https://codelabs.developers.google.com/codelabs/java-friendly-kotlin/index.html?index=../..index#0): This codelab shows you how to write or adapt Kotlin code to make it more seamlessly callable from Java code.
+- [Add Kotlin to an existing app](https://developer.android.com/kotlin/add-kotlin.md.txt): Learn how to add Kotlin to an existing project and convert Java code to idiomatic Kotlin in Android Studio.
+- [Call Kotlin from Java](https://developer.android.com/kotlin/interop.md.txt): Learn how to write or adapt Kotlin code so that it is seamlessly callable from Java code.
 
 ## Videos
 

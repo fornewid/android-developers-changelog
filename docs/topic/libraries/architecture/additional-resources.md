@@ -15,14 +15,9 @@ source: md.txt
 ## Codelabs
 
 - 
-- Android Room with a View [(Java)](https://codelabs.developers.google.com/codelabs/android-room-with-a-view) [(Kotlin)](https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin)
-- [Android Data
-  Binding codelab](https://codelabs.developers.google.com/codelabs/android-databinding)
-- Background Work with WorkManager [(Java)](https://codelabs.developers.google.com/codelabs/android-workmanager/index.html?index=../../index#0) [(Kotlin)](https://codelabs.developers.google.com/codelabs/android-workmanager-kt/index.html?index=../../index#0)
-- [Navigation codelab](https://codelabs.developers.google.com/codelabs/android-navigation/index.html?index=../../index#0)
-- [Android Paging codelab](https://codelabs.developers.google.com/codelabs/android-paging/index.html?index=../../index#0)
-- [Android Persistence codelab](https://codelabs.developers.google.com/codelabs/android-persistence/index.html?index=../../index#0)
-- [Android lifecycle-aware components codelab](https://codelabs.developers.google.com/codelabs/android-lifecycles/#0)
+- [Working with Proto
+  DataStore](https://developer.android.com/codelabs/android-proto-datastore)
+- [Advanced WorkManager](https://developer.android.com/codelabs/android-adv-workmanager)
 
 ## Training
 

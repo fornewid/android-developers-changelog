@@ -16,7 +16,7 @@ source: md.txt
 
 ### Wear OS Widgets
 
-Use an Android skill to help you build Wear OS widgets with Glance, RemoteViews, and ProtoLayout. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
+Use an Android skill to help you build Wear OS widgets with Glance and Remote Compose. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add wear-widgets
 

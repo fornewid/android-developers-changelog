@@ -169,8 +169,7 @@ available to help you get started.
 
 ### Codelabs
 
-- Working with WorkManager [(Kotlin)](https://codelabs.developers.google.com/codelabs/android-workmanager/#0) and [(Java)](https://codelabs.developers.google.com/codelabs/android-workmanager-java/#0)
-- [Advanced WorkManager (Kotlin)](https://codelabs.developers.google.com/codelabs/android-adv-workmanager/#0)
+- [Advanced WorkManager (Kotlin)](https://developer.android.com/codelabs/android-adv-workmanager)
 
 ### Blogs
 

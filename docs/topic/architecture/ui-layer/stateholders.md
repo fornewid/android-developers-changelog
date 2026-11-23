@@ -4,7 +4,9 @@ url: https://developer.android.com/topic/architecture/ui-layer/stateholders
 source: md.txt
 ---
 
-The [UI layer guide](https://developer.android.com/topic/architecture/ui-layer) discusses unidirectional data flow (UDF) as a means of
+> Documentation index: https://developer.android.com/topic/architecture/ui-layer/llms.txt
+
+The [UI layer guide](https://developer.android.com/topic/architecture/ui-layer.md.txt) discusses unidirectional data flow (UDF) as a means of
 producing and managing the UI State for the UI layer.
 ![Data flows unidirectionally from the data layer to the UI.](https://developer.android.com/static/images/topic/architecture/ui-layer/udf.png) **Figure 1.** Unidirectional data flow.
 
@@ -29,11 +31,11 @@ The UI state and the logic that produces it defines the UI layer.
 
 ### UI state
 
-[UI state](https://developer.android.com/topic/architecture/ui-layer#define-ui-state) is the property that
+[UI state](https://developer.android.com/topic/architecture/ui-layer.md.txt#define-ui-state) is the property that
 describes the UI. There are two types of UI state:
 
 - **Screen UI state** is *what* you need to display on the screen. For example, a `NewsUiState` class can contain the news articles and other information needed to render the UI. This state is usually connected with other layers of the hierarchy because it contains app data.
-- **UI element state** refers to properties intrinsic to UI elements that influence how they are rendered. A UI element may be shown or hidden and may have a certain font, font size, or font color. In Jetpack Compose, the state is external to the composable, and you can even hoist it out of the immediate vicinity of the composable into the calling composable function or a state holder. An example of this is [`ScaffoldState`](https://developer.android.com/reference/kotlin/androidx/compose/material/ScaffoldState) for the [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/Scaffold.composable#Scaffold(androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)) composable.
+- **UI element state** refers to properties intrinsic to UI elements that influence how they are rendered. A UI element may be shown or hidden and may have a certain font, font size, or font color. In Jetpack Compose, the state is external to the composable, and you can even hoist it out of the immediate vicinity of the composable into the calling composable function or a state holder. An example of this is [`ScaffoldState`](https://developer.android.com/reference/kotlin/androidx/compose/material/ScaffoldState.md.txt) for the [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/Scaffold.composable.md.txt#Scaffold(androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)) composable.
 
 ### Logic
 
@@ -77,79 +79,84 @@ That is, the following permutations of the UI layer pipeline are valid:
 - UI state produced and managed by the UI itself. For example, a simple,
   reusable basic counter:
 
-      @Composable
-      fun Counter() {
-          // The UI state is managed by the UI itself
-          var count by remember { mutableStateOf(0) }
-          Row {
-              Button(onClick = { ++count }) {
-                  Text(text = "Increment")
-              }
-              Button(onClick = { --count }) {
-                  Text(text = "Decrement")
-              }
+  ```kotlin
+  @Composable
+  fun Counter() {
+      // The UI state is managed by the UI itself
+      var count by remember { mutableStateOf(0) }
+      Row {
+          Button(onClick = { ++count }) {
+              Text(text = "Increment")
+          }
+          Button(onClick = { --count }) {
+              Text(text = "Decrement")
           }
       }
-
+  }
+  ```
 - UI logic → UI. For example, showing or hiding a button that allows a user to
   jump to the top of a list.
 
-      @Composable
-      fun ContactsList(contacts: List<Contact>) {
-          val listState = rememberLazyListState()
-          val isAtTopOfList by remember {
-              derivedStateOf {
-                  listState.firstVisibleItemIndex < 3
-              }
-          }
-
-          // Create the LazyColumn with the lazyListState
-          ...
-
-          // Show or hide the button (UI logic) based on the list scroll position
-          AnimatedVisibility(visible = !isAtTopOfList) {
-              ScrollToTopButton()
+  ```kotlin
+  @Composable
+  fun ContactsList(contacts: List<Contact>) {
+      val listState = rememberLazyListState()
+      val isAtTopOfList by remember {
+          derivedStateOf {
+              listState.firstVisibleItemIndex < 3
           }
       }
 
+      // Create the LazyColumn with the lazyListState
+      ...
+
+      // Show or hide the button (UI logic) based on the list scroll position
+      AnimatedVisibility(visible = !isAtTopOfList) {
+          ScrollToTopButton()
+      }
+  }
+  ```
 - Business logic → UI. A UI element displaying the current user's photo on the
   screen.
 
-      @Composable
-      fun UserProfileScreen(viewModel: UserProfileViewModel = hiltViewModel()) {
-          // Read screen UI state from the business logic state holder
-          val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+  ```kotlin
+  @Composable
+  fun UserProfileScreen(viewModel: UserProfileViewModel = hiltViewModel()) {
+      // Read screen UI state from the business logic state holder
+      val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-          // Call on the UserAvatar Composable to display the photo
-          UserAvatar(picture = uiState.profilePicture)
-      }
-
+      // Call on the UserAvatar Composable to display the photo
+      UserAvatar(picture = uiState.profilePicture)
+  }
+  ```
 - Business logic → UI logic → UI. A UI element that scrolls to display the
   right information on the screen for a given UI state.
 
-      @Composable
-      fun ContactsList(viewModel: ContactsViewModel = hiltViewModel()) {
-          // Read screen UI state from the business logic state holder
-          val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-          val contacts = uiState.contacts
-          val deepLinkedContact = uiState.deepLinkedContact
+  ```kotlin
+  @Composable
+  fun ContactsList(viewModel: ContactsViewModel = hiltViewModel()) {
+      // Read screen UI state from the business logic state holder
+      val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+      val contacts = uiState.contacts
+      val deepLinkedContact = uiState.deepLinkedContact
 
-          val listState = rememberLazyListState()
+      val listState = rememberLazyListState()
 
-          // Create the LazyColumn with the lazyListState
-          ...
+      // Create the LazyColumn with the lazyListState
+      ...
 
-          // Perform UI logic that depends on information from business logic
-          if (deepLinkedContact != null && contacts.isNotEmpty()) {
-              LaunchedEffect(listState, deepLinkedContact, contacts) {
-                  val deepLinkedContactIndex = contacts.indexOf(deepLinkedContact)
-                  if (deepLinkedContactIndex >= 0) {
-                    // Scroll to deep linked item
-                    listState.animateScrollToItem(deepLinkedContactIndex)
-                  }
+      // Perform UI logic that depends on information from business logic
+      if (deepLinkedContact != null && contacts.isNotEmpty()) {
+          LaunchedEffect(listState, deepLinkedContact, contacts) {
+              val deepLinkedContactIndex = contacts.indexOf(deepLinkedContact)
+              if (deepLinkedContactIndex >= 0) {
+                // Scroll to deep linked item
+                listState.animateScrollToItem(deepLinkedContactIndex)
               }
           }
       }
+  }
+  ```
 
 In the case where both kinds of logic are applied to the UI state production
 pipeline, **business logic must always be applied before UI logic**. Trying to apply
@@ -204,12 +211,12 @@ that utilize business logic should have the following properties:
 | Property | Detail |
 |---|---|
 | Produces UI State | Business logic state holders are responsible for producing the UI state for their UIs. This UI state is often the result of processing user events and reading data from the domain and data layers. |
-| Retained through activity recreation | Business logic state holders retain their state and state processing pipelines across `Activity` recreation, helping provide a seamless user experience. In the cases where the state holder is unable to be retained and is recreated (usually after [process death](https://developer.android.com/guide/components/activities/process-lifecycle)), the state holder must be able to easily recreate its last state to ensure a consistent user experience. |
+| Retained through activity recreation | Business logic state holders retain their state and state processing pipelines across `Activity` recreation, helping provide a seamless user experience. In the cases where the state holder is unable to be retained and is recreated (usually after [process death](https://developer.android.com/guide/components/activities/process-lifecycle.md.txt)), the state holder must be able to easily recreate its last state to ensure a consistent user experience. |
 | Possess long lived state | Business logic state holders are often used to manage state for navigation destinations. As a result, they often preserve their state across navigation changes until they are removed from the navigation graph. |
 | Is unique to its UI and is not reusable | Business logic state holders typically produce state for a certain app function, for example a `TaskEditViewModel` or a `TaskListViewModel`, and therefore only ever applicable to that app function. The same state holder can support these app functions across different form factors. For example, mobile, TV, and tablet versions of the app may reuse the same business logic state holder. |
 
 > [!NOTE]
-> **Note:** The business logic state holder is typically implemented with a [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel?gclid=CjwKCAjwv-GUBhAzEiwASUMm4jGM5Xw9jQrNGwjdH6dspujLXTiJAfDYLC3bOuur7QFYn1tRnojAKRoCqE0QAvD_BwE&gclsrc=aw.ds) instance because `ViewModel` instances support many of the features outlined above, particularly surviving `Activity` recreation.
+> **Note:** The business logic state holder is typically implemented with a [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt) instance because `ViewModel` instances support many of the features outlined above, particularly surviving `Activity` recreation.
 
 For example consider the author navigation destination in the ["Now in
 Android](https://github.com/android/nowinandroid)" app:
@@ -219,20 +226,22 @@ its own unique business logic state holder.](https://developer.android.com/stati
 Acting as the business logic state holder, the `AuthorViewModel` produces the
 UI state in this case:
 
-    @HiltViewModel
-    class AuthorViewModel @Inject constructor(
-        savedStateHandle: SavedStateHandle,
-        private val authorsRepository: AuthorsRepository,
-        newsRepository: NewsRepository
-    ) : ViewModel() {
+```kotlin
+@HiltViewModel
+class AuthorViewModel @Inject constructor(
+    savedStateHandle: SavedStateHandle,
+    private val authorsRepository: AuthorsRepository,
+    newsRepository: NewsRepository
+) : ViewModel() {
 
-        val uiState: StateFlow<AuthorScreenUiState> = ...
+    val uiState: StateFlow<AuthorScreenUiState> = ...
 
-        // Business logic
-        fun followAuthor(followed: Boolean) {
-          ...
-        }
+    // Business logic
+    fun followAuthor(followed: Boolean) {
+      ...
     }
+}
+```
 
 Notice that the `AuthorViewModel` has the attributes outlined previously:
 
@@ -240,7 +249,7 @@ Notice that the `AuthorViewModel` has the attributes outlined previously:
 |---|---|
 | Produces `AuthorScreenUiState` | The `AuthorViewModel` reads data from the `AuthorsRepository` and `NewsRepository` and uses that data to produce `AuthorScreenUiState`. It also applies business logic when the user wants to follow or unfollow an `Author` by delegating to the `AuthorsRepository`. |
 | Has access to the data layer | An instance of `AuthorsRepository` and `NewsRepository` are passed to it in its constructor, allowing it to implement the business logic of following an `Author`. |
-| Survives `Activity` recreation | Because it is implemented with a [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel?gclid=Cj0KCQjw4uaUBhC8ARIsANUuDjWnr2D2RL5QDLrOFZBl4TQSF7AF4hkuEEtsz1EV3fbPN-6DD4PLH1MaAvF1EALw_wcB&gclsrc=aw.ds), it will be retained across quick `Activity` recreation. In the case of process death, the [`SavedStateHandle`](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate) object can be read from to provide the minimum amount of information required to restore the UI state from the data layer. |
+| Survives `Activity` recreation | Because it is implemented with a [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt), it will be retained across quick `Activity` recreation. In the case of process death, the [`SavedStateHandle`](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate) object can be read from to provide the minimum amount of information required to restore the UI state from the data layer. |
 | Possesses long lived state | The `ViewModel` is scoped to the navigation graph, therefore unless the author destination is removed from the nav graph, the UI state in the `uiState` `StateFlow` remains in memory. The use of the `StateFlow` also adds the benefit of making the application of the business logic that produces the state lazy because state is only produced if there is a collector of the UI state. |
 | Is unique to its UI | The `AuthorViewModel` is only applicable to the author navigation destination and cannot be reused anywhere else. If there is any business logic that is reused across navigation destinations, that business logic must be encapsulated in a data- or domain-layer-scoped component. |
 
@@ -257,7 +266,7 @@ presentation on the screen. These benefits include the following:
 - Integration with [Navigation](https://developer.android.com/jetpack/compose/navigation):
   - Navigation caches ViewModels while the screen is on the back stack. This is important to have your previously loaded data instantly available when you return to your destination. This is something more difficult to do with a state holder that follows the lifecycle of the composable screen.
   - The ViewModel is also cleared when the destination is popped off the back stack, ensuring that your state is automatically cleaned up. This is different from listening for the composable disposal that can happen for multiple reasons such as going to a new screen, due to a configuration change, or other reasons.
-- Integration with other Jetpack libraries such as [Hilt](https://developer.android.com/training/dependency-injection/hilt-jetpack#compose).
+- Integration with other Jetpack libraries such as [Hilt](https://developer.android.com/training/dependency-injection/hilt-jetpack.md.txt#compose).
 
 > [!NOTE]
 > **Note:** If `ViewModel` benefits don't apply to your use case or you do things in a different way you can move ViewModel's responsibilities into plain state holder classes.
@@ -266,7 +275,7 @@ presentation on the screen. These benefits include the following:
 
 UI logic is logic that operates on data that the UI itself provides. This may be
 on UI elements' state, or on UI data sources like the permissions API or
-[`Resources`](https://developer.android.com/reference/android/content/res/Resources). State holders that utilize UI logic typically have the
+[`Resources`](https://developer.android.com/reference/android/content/res/Resources.md.txt). State holders that utilize UI logic typically have the
 following properties:
 
 - **Produces UI state and manages UI elements state**.
@@ -295,31 +304,33 @@ Since the logic for deciding the appropriate navigation UI element used in the
 `NiaApp` composable function doesn't depend on business logic, it can be managed
 by a plain class state holder called `NiaAppState`:
 
-    @Stable
-    class NiaAppState(
-        val navController: NavHostController,
-        val windowSizeClass: WindowSizeClass
-    ) {
+```kotlin
+@Stable
+class NiaAppState(
+    val navController: NavHostController,
+    val windowSizeClass: WindowSizeClass
+) {
 
-        // UI logic
-        val shouldShowBottomBar: Boolean
-            get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact ||
-                windowSizeClass.heightSizeClass == WindowHeightSizeClass.Compact
+    // UI logic
+    val shouldShowBottomBar: Boolean
+        get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact ||
+            windowSizeClass.heightSizeClass == WindowHeightSizeClass.Compact
 
-        // UI logic
-        val shouldShowNavRail: Boolean
-            get() = !shouldShowBottomBar
+    // UI logic
+    val shouldShowNavRail: Boolean
+        get() = !shouldShowBottomBar
 
-       // UI State
-        val currentDestination: NavDestination?
-            @Composable get() = navController
-                .currentBackStackEntryAsState().value?.destination
+   // UI State
+    val currentDestination: NavDestination?
+        @Composable get() = navController
+            .currentBackStackEntryAsState().value?.destination
 
-        // UI logic
-        fun navigate(destination: NiaNavigationDestination, route: String? = null) { /* ... */ }
+    // UI logic
+    fun navigate(destination: NiaNavigationDestination, route: String? = null) { /* ... */ }
 
-         /* ... */
-    }
+     /* ... */
+}
+```
 
 In the preceding example, the following details regarding `NiaAppState` are
 notable:
@@ -347,7 +358,7 @@ State production pipeline:
 to where it is consumed** . Less formally, you should hold state as low as
 possible while maintaining proper ownership. If you need access to business
 logic and need the UI state to persist as long as a screen may be navigated to,
-even across `Activity` recreation, a [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel?gclid=Cj0KCQjw4uaUBhC8ARIsANUuDjWnr2D2RL5QDLrOFZBl4TQSF7AF4hkuEEtsz1EV3fbPN-6DD4PLH1MaAvF1EALw_wcB&gclsrc=aw.ds) is a great choice for
+even across `Activity` recreation, a [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt) is a great choice for
 your business logic state holder implementation. For shorter-lived UI state and
 UI logic, a plain class whose lifecycle is dependent solely on the UI should
 suffice.
@@ -360,29 +371,31 @@ an equal or shorter lifetime. Examples of this are:
 - a UI logic state holder can depend on another UI logic state holder.
 - a screen level state holder can depend on a UI logic state holder.
 
-The following code snippet shows how [Compose's `DrawerState`](https://developer.android.com/reference/kotlin/androidx/compose/material/DrawerState) depends on
-another internal state holder, [`SwipeableState`](https://developer.android.com/reference/kotlin/androidx/compose/material/SwipeableState), and how an app's UI logic
+The following code snippet shows how [Compose's `DrawerState`](https://developer.android.com/reference/kotlin/androidx/compose/material/DrawerState.md.txt) depends on
+another internal state holder, [`SwipeableState`](https://developer.android.com/reference/kotlin/androidx/compose/material/SwipeableState.md.txt), and how an app's UI logic
 state holder could depend on `DrawerState`:
 
-    @Stable
-    class DrawerState(/* ... */) {
-      internal val swipeableState = SwipeableState(/* ... */)
-      // ...
-    }
+```kotlin
+@Stable
+class DrawerState(/* ... */) {
+  internal val swipeableState = SwipeableState(/* ... */)
+  // ...
+}
 
-    @Stable
-    class MyAppState(
-      private val drawerState: DrawerState,
-      private val navController: NavHostController
-    ) { /* ... */ }
+@Stable
+class MyAppState(
+  private val drawerState: DrawerState,
+  private val navController: NavHostController
+) { /* ... */ }
 
-    @Composable
-    fun rememberMyAppState(
-      drawerState: DrawerState = rememberDrawerState(DrawerValue.Closed),
-      navController: NavHostController = rememberNavController()
-    ): MyAppState = remember(drawerState, navController) {
-      MyAppState(drawerState, navController)
-    }
+@Composable
+fun rememberMyAppState(
+  drawerState: DrawerState = rememberDrawerState(DrawerValue.Closed),
+  navController: NavHostController = rememberNavController()
+): MyAppState = remember(drawerState, navController) {
+  MyAppState(drawerState, navController)
+}
+```
 
 > [!CAUTION]
 > **Caution:** Given that screen level state holders manage the business logic complexity of a screen or part of it, it wouldn't make sense a screen level state holder depends on another screen level state holder. If you're in this scenario, reconsider your screens and state holders and ensure that's what you need.
@@ -399,49 +412,51 @@ the UI logic state holder class receives just what it needs as parameters
 from the ViewModel, instead of passing the whole ViewModel instance as a
 dependency.
 
-    class MyScreenViewModel(/* ... */) {
-      val uiState: StateFlow<MyScreenUiState> = /* ... */
-      fun doSomething() { /* ... */ }
-      fun doAnotherThing() { /* ... */ }
-      // ...
-    }
+```kotlin
+class MyScreenViewModel(/* ... */) {
+  val uiState: StateFlow<MyScreenUiState> = /* ... */
+  fun doSomething() { /* ... */ }
+  fun doAnotherThing() { /* ... */ }
+  // ...
+}
 
-    @Stable
-    class MyScreenState(
-      // DO NOT pass a ViewModel instance to a plain state holder class
-      // private val viewModel: MyScreenViewModel,
+@Stable
+class MyScreenState(
+  // DO NOT pass a ViewModel instance to a plain state holder class
+  // private val viewModel: MyScreenViewModel,
 
-      // Instead, pass only what it needs as a dependency
-      private val someState: StateFlow<SomeState>,
-      private val doSomething: () -> Unit,
+  // Instead, pass only what it needs as a dependency
+  private val someState: StateFlow<SomeState>,
+  private val doSomething: () -> Unit,
 
-      // Other UI-scoped types
-      private val scaffoldState: ScaffoldState
-    ) {
-      /* ... */
-    }
+  // Other UI-scoped types
+  private val scaffoldState: ScaffoldState
+) {
+  /* ... */
+}
 
-    @Composable
-    fun rememberMyScreenState(
-      someState: StateFlow<SomeState>,
-      doSomething: () -> Unit,
-      scaffoldState: ScaffoldState = rememberScaffoldState()
-    ): MyScreenState = remember(someState, doSomething, scaffoldState) {
-      MyScreenState(someState, doSomething, scaffoldState)
-    }
+@Composable
+fun rememberMyScreenState(
+  someState: StateFlow<SomeState>,
+  doSomething: () -> Unit,
+  scaffoldState: ScaffoldState = rememberScaffoldState()
+): MyScreenState = remember(someState, doSomething, scaffoldState) {
+  MyScreenState(someState, doSomething, scaffoldState)
+}
 
-    @Composable
-    fun MyScreen(
-      modifier: Modifier = Modifier,
-      viewModel: MyScreenViewModel = viewModel(),
-      state: MyScreenState = rememberMyScreenState(
-        someState = viewModel.uiState.map { it.toSomeState() },
-        doSomething = viewModel::doSomething
-      ),
-      // ...
-    ) {
-      /* ... */
-    }
+@Composable
+fun MyScreen(
+  modifier: Modifier = Modifier,
+  viewModel: MyScreenViewModel = viewModel(),
+  state: MyScreenState = rememberMyScreenState(
+    someState = viewModel.uiState.map { it.toSomeState() },
+    doSomething = viewModel::doSomething
+  ),
+  // ...
+) {
+  /* ... */
+}
+```
 
 The following diagram represents the dependencies between the UI and different
 state holders of the previous code snippet:
@@ -455,6 +470,6 @@ UI layer. Go explore them to see this guidance in practice:
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [UI layer](https://developer.android.com/topic/architecture/ui-layer)
-- [UI State production](https://developer.android.com/topic/architecture/ui-layer/state-production)
-- [Guide to app architecture](https://developer.android.com/topic/architecture)
+- [UI layer](https://developer.android.com/topic/architecture/ui-layer.md.txt)
+- [UI State production](https://developer.android.com/topic/architecture/ui-layer/state-production.md.txt)
+- [Guide to app architecture](https://developer.android.com/topic/architecture.md.txt)
