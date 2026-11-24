@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/prateek-batra
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 
 # Prateek Batra
@@ -11,11 +13,11 @@ source: md.txt
 Developer Relations Engineer
 
 Android Adaptive Apps
-- 26 Jan 2026 26 Jan 2026 ![](https://developer.android.com/static/blog/assets/beyond_Smartphone_e17b5979d9_TVvtm.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 26 Jan 2026 26 Jan 2026 ![](https://developer.android.com/static/blog/assets/beyond_Smartphone_e17b5979d9_TVvtm.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Beyond the smartphone: How JioHotstar optimized its UX for foldables and tablets](https://developer.android.com/blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets)
+  ## [Beyond the smartphone: How JioHotstar optimized its UX for foldables and tablets](https://developer.android.com/blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets) JioHotstar is a leading streaming platform in India, serving a user base exceeding 400 million.
+  [arrow_forward](https://developer.android.com/blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets.md.txt) JioHotstar is a leading streaming platform in India, serving a user base exceeding 400 million.
   3 min read
 Stay in the loop
 

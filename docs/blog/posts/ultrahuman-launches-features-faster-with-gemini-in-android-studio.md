@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/posts/ultrahuman-launches-features-faste
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # Ultrahuman launches features 15% faster with Gemini in Android Studio

@@ -4,24 +4,26 @@ url: https://developer.android.com/blog/topics/mobile-app-development
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 # #Mobile App Development
 
-- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 16 Oct 2025 16 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_f386d6e667_VwC3r.webp) [Community](https://developer.android.com/blog/categories/community)
+- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp)](https://developer.android.com/blog/authors/robbie-mclachlan.md.txt) 16 Oct 2025 16 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_f386d6e667_VwC3r.webp) [Community](https://developer.android.com/blog/categories/community.md.txt)
 
-  ## [#WeArePlay: Meet the founder making breast cancer awareness simple and accessible](https://developer.android.com/blog/posts/we-are-play-meet-the-founder-making-breast-cancer-awareness-simple-and-accessible)
+  ## [#WeArePlay: Meet the founder making breast cancer awareness simple and accessible](https://developer.android.com/blog/posts/we-are-play-meet-the-founder-making-breast-cancer-awareness-simple-and-accessible.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-meet-the-founder-making-breast-cancer-awareness-simple-and-accessible) The latest in our ongoing series #WeArePlay
-  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 3 min read
-  - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 23 Jan 2025 23 Jan 2025 ![](https://developer.android.com/static/blog/assets/camera_X_Jetpack_09bc5a0414_1xSUVV.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-meet-the-founder-making-breast-cancer-awareness-simple-and-accessible.md.txt) The latest in our ongoing series #WeArePlay
+  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan.md.txt) • 3 min read
+  - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development.md.txt)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) 23 Jan 2025 23 Jan 2025 ![](https://developer.android.com/static/blog/assets/camera_X_Jetpack_09bc5a0414_1xSUVV.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Create a spotlight effect with CameraX and Jetpack Compose](https://developer.android.com/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose)
+  ## [Create a spotlight effect with CameraX and Jetpack Compose](https://developer.android.com/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose) In this post, we'll dive into something a bit more visually engaging --- implementing a spotlight effect on top of our camera preview, using face detection as the basis for the effect.
-  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 8 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#Compose](https://developer.android.com/blog/topics/compose)
-  - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+  [arrow_forward](https://developer.android.com/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose.md.txt) In this post, we'll dive into something a bit more visually engaging --- implementing a spotlight effect on top of our camera preview, using face detection as the basis for the effect.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef.md.txt) • 8 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
+  - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development.md.txt)
   - +1 ↩
 Stay in the loop
 

@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/android-cli-device-streaming-and-s
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Device Streaming and Android skills - available in Android CLI
 
-4 min read ![](https://developer.android.com/static/blog/assets/ABL_135_Android_CLI_and_Android_skills_Strapi_d22702426a_ZIUXgH.webp) 02 Oct 2026 [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic) [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) Developer Relations Engineer As Android developers, you have many choices when it comes to the agents, LLMs, tools, and command-line interfaces (CLI) you use for app development. Our goal is to help you build beautiful, high-quality Android apps, no matter how you choose to build. We're announcing updates to our [Android CLI](https://developer.android.com/tools/agents/android-cli) command-line tooling, including the ability to access real devices through Android Device Streaming. We're also sharing more [Android skills](https://developer.android.com/tools/agents/android-skills), and giving you a deep dive into the Wear OS Compose Material 3 skill.
+4 min read ![](https://developer.android.com/static/blog/assets/ABL_135_Android_CLI_and_Android_skills_Strapi_d22702426a_ZIUXgH.webp) 02 Oct 2026 [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic.md.txt) [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic.md.txt) Developer Relations Engineer As Android developers, you have many choices when it comes to the agents, LLMs, tools, and command-line interfaces (CLI) you use for app development. Our goal is to help you build beautiful, high-quality Android apps, no matter how you choose to build. We're announcing updates to our [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt) command-line tooling, including the ability to access real devices through Android Device Streaming. We're also sharing more [Android skills](https://developer.android.com/tools/agents/android-skills.md.txt), and giving you a deep dive into the Wear OS Compose Material 3 skill.
 [Video](https://www.youtube.com/watch?v=JMPd2jbQEqo)
 
 ## Android CLI for command-line development
@@ -25,7 +27,7 @@ It's important to test your app on real devices to catch issues that are hardwar
 
 The agent can interact with physical devices (as if they were plugged in over USB) over a secure ADB over SSL connection. This enables spinning up devices, deploying builds, collecting logs and traces, and even capturing screenshots headlessly---all through the terminal.
 
-To get started, link your project, instruct your agent to list available remote devices and decide which device you want next. [Read the documentation](https://developer.android.com/tools/agents/android-cli/commands/device_remote) to learn more, and see the [Android CLI release notes](https://developer.android.com/tools/agents/android-cli/release-notes).
+To get started, link your project, instruct your agent to list available remote devices and decide which device you want next. [Read the documentation](https://developer.android.com/tools/agents/android-cli/commands/device_remote.md.txt) to learn more, and see the [Android CLI release notes](https://developer.android.com/tools/agents/android-cli/release-notes.md.txt).
 
 ## Grounding agents with Android skills
 
@@ -34,7 +36,7 @@ To bridge the gap between LLMs' default knowledge and platform-specific standard
 Android skills are structured instructions (`SKILL.md` files) that ground AI agents with our official guidance from [developer.android.com](http://developer.android.com/). Instead of relying on a model's training cutoff, skills provide more precise and fresher data, API references and samples, and architectural patterns directly into your agent's context.
 ![Android skills rolodex.gif](https://developer.android.com/static/blog/assets/Android_skills_rolodex_5a873557a7_1vpi1E.webp) Android Skills
 
-With [over 20 skills available](https://developer.android.com/tools/agents/android-skills/browse), you can now equip your AI agents to handle more complex and specialized development tasks such as:
+With [over 20 skills available](https://developer.android.com/tools/agents/android-skills/browse.md.txt), you can now equip your AI agents to handle more complex and specialized development tasks such as:
 
 - **Audit Play policy compliance:** Audit app manifests, runtime permissions, target SDK levels, and privacy disclosures before submitting your app for Play Policy review.
 - Implement Restore Credentials: Implement re-authentication across device setup and cloud restores using Jetpack Credential Manager.
@@ -47,7 +49,7 @@ With [over 20 skills available](https://developer.android.com/tools/agents/andro
 - **Set up testing strategy:** Configure unit test suites, Compose UI testing rules, and screenshot testing infrastructure.
 - **Audit R8 configuration:** Optimize your app's performance by auditing your R8 configuration.
 
-Our Android skills are thoroughly evaluated. To understand the philosophy and methodology behind this project, as well as why all skills should come with evals, make sure to read [Inside Android Skills - Built for deprecation](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation).
+Our Android skills are thoroughly evaluated. To understand the philosophy and methodology behind this project, as well as why all skills should come with evals, make sure to read [Inside Android Skills - Built for deprecation](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation.md.txt).
 
 Managing skills across projects and individual agent directories is pretty straightforward with Android CLI:
 
@@ -83,45 +85,45 @@ The skill caught mistakes that the underlying model missed, such as forgetting t
 
 ## Get started today
 
-When you're ready to get started, [install Android CLI with just one command](https://developer.android.com/tools/agents). You can learn more about Android CLI by reading the [developer documentation](https://developer.android.com/tools/agents/android-cli), and as well as checking out the [latest updates in the Android CLI release notes](https://developer.android.com/tools/agents/android-cli/release-notes).
+When you're ready to get started, [install Android CLI with just one command](https://developer.android.com/tools/agents). You can learn more about Android CLI by reading the [developer documentation](https://developer.android.com/tools/agents/android-cli.md.txt), and as well as checking out the [latest updates in the Android CLI release notes](https://developer.android.com/tools/agents/android-cli/release-notes.md.txt).
 
 After installing Android CLI, run android init to configure your agent, then browse the latest Android skills available for use and install them with android skills add.
 
-Also check out the [Android Device Streaming documentation](https://developer.android.com/studio/run/android-device-streaming) to learn more about how this feature allows you to access real devices on the cloud inside both Android Studio and via your agents.
-- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+Also check out the [Android Device Streaming documentation](https://developer.android.com/studio/run/android-device-streaming.md.txt) to learn more about how this feature allows you to access real devices on the cloud inside both Android Studio and via your agents.
+- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
 Written by:
 
 -
 
-  ## [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic)
+  ## [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/simona-milanovic) ![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp) ![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)
 Continue reading
-- [![View Jason Buchel's profile](https://developer.android.com/static/blog/assets/unnamed_25_28af9250eb_I4mHO.webp)](https://developer.android.com/blog/authors/jason-buchel) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Blog_0140_strapi_8d85f71a6e_ZvGJv2.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Jason Buchel's profile](https://developer.android.com/static/blog/assets/unnamed_25_28af9250eb_I4mHO.webp)](https://developer.android.com/blog/authors/jason-buchel.md.txt) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Blog_0140_strapi_8d85f71a6e_ZvGJv2.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Bringing our latest frontier model to Android Developers](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
+  ## [Bringing our latest frontier model to Android Developers](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli) As agentic development accelerates, Android engineering is reaching an exciting new frontier: moving from assistive code completion to agents executing end-to-end under your direction. You have total choice and flexibility in the models and agents you use.
-  [Jason Buchel](https://developer.android.com/blog/authors/jason-buchel) • 3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 24 Sep 2026 24 Sep 2026 ![](https://developer.android.com/static/blog/assets/BYOA_Backup_Strapi_1_5c3f94f766_Z1WI1Mt.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli.md.txt) As agentic development accelerates, Android engineering is reaching an exciting new frontier: moving from assistive code completion to agents executing end-to-end under your direction. You have total choice and flexibility in the models and agents you use.
+  [Jason Buchel](https://developer.android.com/blog/authors/jason-buchel.md.txt) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) 24 Sep 2026 24 Sep 2026 ![](https://developer.android.com/static/blog/assets/BYOA_Backup_Strapi_1_5c3f94f766_Z1WI1Mt.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build your way: Use any AI agent of your choice in Android Studio](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio)
+  ## [Build your way: Use any AI agent of your choice in Android Studio](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio) Last year, Android Studio opened up to any AI model. Today, we're taking the next step by introducing support for your choice of coding agents.
-  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio.md.txt) Last year, Android Studio opened up to any AI model. Today, we're taking the next step by introducing support for your choice of coding agents.
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
+  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-  - [#Android Bench](https://developer.android.com/blog/topics/android-bench)
+  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
+  - [#Android Bench](https://developer.android.com/blog/topics/android-bench.md.txt)
 Stay in the loop
 
 

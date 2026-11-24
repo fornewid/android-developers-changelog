@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/authors/david-chou
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/David_Chou_226df78370_ZVseX2.webp)
 
 # David Chou
 
 Product Manager
-- 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z2rWEol.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z2rWEol.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Announcing Gemma 4 in the AICore Developer Preview](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
+  ## [Announcing Gemma 4 in the AICore Developer Preview](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview) At Google, we're committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we're thrilled to announce the release of our latest state-of-the-art open model: Gemma 4.
+  [arrow_forward](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview.md.txt) At Google, we're committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we're thrilled to announce the release of our latest state-of-the-art open model: Gemma 4.
   3 min read
 Stay in the loop
 

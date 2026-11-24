@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/google-i-o-2025-build-adaptive-and
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Google I/O 2025: Build adaptive Android apps that shine across form factors
 
-5 min read ![](https://developer.android.com/static/blog/assets/yt_adaptive_b9097334d4_1zrz9x.webp) 20 May 2025 [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) Senior Product Manager, Android Developer Experience
+5 min read ![](https://developer.android.com/static/blog/assets/yt_adaptive_b9097334d4_1zrz9x.webp) 20 May 2025 [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt) [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt) Senior Product Manager, Android Developer Experience
 [Video](https://www.youtube.com/watch?v=15oPNK1W0Tw)
 
 If your app isn't built to adapt, you're missing out on the opportunity to reach a giant swath of users across 500 million devices! At Google I/O this year, we are exploring how adaptive development isn't just a good idea, but essential to building apps that shine across the expanding Android device ecosystem. This is your guide to meeting users wherever they are, with experiences that are perfectly tailored to their needs.
@@ -44,12 +46,12 @@ With the expanding Android device ecosystem, adaptive app development is a funda
 
 ### Leverage powerful tools and libraries to build adaptive apps:
 
-- [**Compose Adaptive Layouts library**](https://developer.android.com/develop/ui/compose/build-adaptive-apps#compose_material_3_adaptive): This library makes adaptive development easier by allowing your app code to fit into canonical layout patterns like list-detail and supporting pane, that automatically reflow as your app is resized, flipped or folded. In the 1.1 release, we introduced pane expansion, allowing users to resize panes. The Socialite demo app showcased how one codebase using this library can adapt across six form factors. New adaptation strategies like "Levitate" (elevating a pane, e.g., into a dialog or bottom sheet) and "Reflow" (reorganizing panes on the same level) were also announced in 1.2 (alpha). For XR, component overrides can automatically spatialize UI elements.
+- [**Compose Adaptive Layouts library**](https://developer.android.com/develop/ui/compose/build-adaptive-apps.md.txt#compose_material_3_adaptive): This library makes adaptive development easier by allowing your app code to fit into canonical layout patterns like list-detail and supporting pane, that automatically reflow as your app is resized, flipped or folded. In the 1.1 release, we introduced pane expansion, allowing users to resize panes. The Socialite demo app showcased how one codebase using this library can adapt across six form factors. New adaptation strategies like "Levitate" (elevating a pane, e.g., into a dialog or bottom sheet) and "Reflow" (reorganizing panes on the same level) were also announced in 1.2 (alpha). For XR, component overrides can automatically spatialize UI elements.
 - [**Jetpack Navigation 3 (Alpha)**](http://goo.gle/nav3): This new navigation library simplifies defining user journeys across screens with less boilerplate code, especially for multi-pane layouts in Compose. It helps handle scenarios where list and detail panes might be separate destinations on smaller screens but shown together on larger ones. Check out the new Jetpack Navigation library in alpha.
-- [**Jetpack Compose input enhancements**](https://developer.android.com/develop/ui/compose/touch-input): Compose's layered architecture, strong input support, and single location for layout logic simplify creating adaptive UIs. Upcoming in Compose 1.9 are right-click context menus and enhanced trackpad/mouse functionality.
-- [**Window Size Classes**](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes): Use window size classes for top-level layout decisions. AndroidX.window 1.5 introduces two new width size classes -- "large" (1200dp to 1600dp) and "extra-large" (1600dp and larger) -- providing more granular breakpoints for large screens. This helps in deciding when to expand navigation rails or show three panes of content. Support for these new breakpoints was also announced in the Compose adaptive layouts library 1.2 alpha, along with [design guidance](https://m3.material.io/foundations/layout/applying-layout/window-size-classes).
-- [**Compose previews**](https://developer.android.com/develop/ui/compose/tooling/previews): Get quick feedback by visualizing your layouts across a wide variety of screen sizes and aspect ratios. You can also specify different devices by name to preview your UI on their respective sizes and with their inset values.
-- [**Testing adaptive layouts**](https://developer.android.com/training/testing/different-screens): Validating your adaptive layouts is crucial and Android Studio offers various tools for testing -- including previews for different sizes and aspect ratios, a resizable emulator to test across different screen sizes with a single AVD, screenshot tests, and instrumental behavior tests. And with Journeys with Gemini in Android Studio, you can define tests using natural language for even more robust testing across different window sizes.
+- [**Jetpack Compose input enhancements**](https://developer.android.com/develop/ui/compose/touch-input.md.txt): Compose's layered architecture, strong input support, and single location for layout logic simplify creating adaptive UIs. Upcoming in Compose 1.9 are right-click context menus and enhanced trackpad/mouse functionality.
+- [**Window Size Classes**](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes.md.txt): Use window size classes for top-level layout decisions. AndroidX.window 1.5 introduces two new width size classes -- "large" (1200dp to 1600dp) and "extra-large" (1600dp and larger) -- providing more granular breakpoints for large screens. This helps in deciding when to expand navigation rails or show three panes of content. Support for these new breakpoints was also announced in the Compose adaptive layouts library 1.2 alpha, along with [design guidance](https://m3.material.io/foundations/layout/applying-layout/window-size-classes).
+- [**Compose previews**](https://developer.android.com/develop/ui/compose/tooling/previews.md.txt): Get quick feedback by visualizing your layouts across a wide variety of screen sizes and aspect ratios. You can also specify different devices by name to preview your UI on their respective sizes and with their inset values.
+- [**Testing adaptive layouts**](https://developer.android.com/training/testing/different-screens.md.txt): Validating your adaptive layouts is crucial and Android Studio offers various tools for testing -- including previews for different sizes and aspect ratios, a resizable emulator to test across different screen sizes with a single AVD, screenshot tests, and instrumental behavior tests. And with Journeys with Gemini in Android Studio, you can define tests using natural language for even more robust testing across different window sizes.
 
 ### Ensuring app availability across devices
 
@@ -57,11 +59,11 @@ Avoid [unnecessarily declaring required features](https://android-developers.goo
 
 ### Handling different input methods
 
-Remember to [handle various input methods](https://developer.android.com/develop/ui/compose/touch-input/input-compatibility-on-large-screens) like touch, keyboard, and mouse, especially with Chromebook detachables and connected displays.
+Remember to [handle various input methods](https://developer.android.com/develop/ui/compose/touch-input/input-compatibility-on-large-screens.md.txt) like touch, keyboard, and mouse, especially with Chromebook detachables and connected displays.
 
 ### Prepare for orientation and resizability API changes in Android 16
 
-[Beginning in Android 16](https://android-developers.googleblog.com/2025/01/orientation-and-resizability-changes-in-android-16.html), for apps targeting SDK 36, manifest and runtime restrictions on orientation, resizability, and aspect ratio will be ignored on displays that are at least 600dp in both dimensions. To meet user expectations, your apps will need layouts that work for both portrait and landscape windows, and support resizing at runtime. There's a temporary opt-out manifest flag at both the application and activity level to delay these changes until targetSdk 37, and these changes currently do not apply to apps categorized as "Games". Learn more about these [API changes](https://developer.android.com/about/versions/16/behavior-changes-16#adaptive-layouts).
+[Beginning in Android 16](https://android-developers.googleblog.com/2025/01/orientation-and-resizability-changes-in-android-16.html), for apps targeting SDK 36, manifest and runtime restrictions on orientation, resizability, and aspect ratio will be ignored on displays that are at least 600dp in both dimensions. To meet user expectations, your apps will need layouts that work for both portrait and landscape windows, and support resizing at runtime. There's a temporary opt-out manifest flag at both the application and activity level to delay these changes until targetSdk 37, and these changes currently do not apply to apps categorized as "Games". Learn more about these [API changes](https://developer.android.com/about/versions/16/behavior-changes-16.md.txt#adaptive-layouts).
 
 ### Adaptive considerations for games
 
@@ -83,43 +85,43 @@ Written by:
 
 -
 
-  ## [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz)
+  ## [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt)
 
   ###### Senior Product Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)
 Continue reading
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)](https://developer.android.com/blog/authors/loryn-hairston) 22 Sep 2026 22 Sep 2026 ![](https://developer.android.com/static/blog/assets/Googlebook_Blog_Strapi_4a4a7d3291_Z1ReCnu.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt)[![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)](https://developer.android.com/blog/authors/loryn-hairston.md.txt) 22 Sep 2026 22 Sep 2026 ![](https://developer.android.com/static/blog/assets/Googlebook_Blog_Strapi_4a4a7d3291_Z1ReCnu.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Land your apps on Googlebook with adaptive development](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development)
+  ## [Land your apps on Googlebook with adaptive development](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development) Googlebook introduces a new category of laptops built on a shared Android foundation. High-performance hardware from partners such as HP, Dell, Lenovo, Acer, and Asus, combines mobile convenience with desktop power.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
-  - [#Googlebook](https://developer.android.com/blog/topics/googlebook)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  [arrow_forward](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md.txt) Googlebook introduces a new category of laptops built on a shared Android foundation. High-performance hardware from partners such as HP, Dell, Lenovo, Acer, and Asus, combines mobile convenience with desktop power.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston.md.txt) • 4 min read
+  - [#Googlebook](https://developer.android.com/blog/topics/googlebook.md.txt)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
   - +1 ↩
-- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
+  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
-  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
-  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
-  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
-  - [#Foldables](https://developer.android.com/blog/topics/foldables)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 4 min read
+  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7.md.txt)
+  - [#made by google](https://developer.android.com/blog/topics/made-by-google.md.txt)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4.md.txt)
+  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api.md.txt)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
   - +5 ↩
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_1vfHD.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)](https://developer.android.com/blog/authors/miguel-montemayor.md.txt) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_1vfHD.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices)
+  ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices) Today at Galaxy Unpacked, Samsung unveiled its latest lineup of foldable and wearable devices. For developers, this means that the variety of form factors, screen sizes, and device postures your app needs to support is expanding once again.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
+  [arrow_forward](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices.md.txt) Today at Galaxy Unpacked, Samsung unveiled its latest lineup of foldable and wearable devices. For developers, this means that the variety of form factors, screen sizes, and device postures your app needs to support is expanding once again.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor.md.txt) • 3 min read
 Stay in the loop
 
 

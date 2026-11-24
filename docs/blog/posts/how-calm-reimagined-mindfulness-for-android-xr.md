@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/posts/how-calm-reimagined-mindfulness-fo
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # How Calm Reimagined Mindfulness for Android XR

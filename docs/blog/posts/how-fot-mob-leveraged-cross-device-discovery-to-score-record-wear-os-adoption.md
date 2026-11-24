@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/posts/how-fot-mob-leveraged-cross-device
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # How FotMob leveraged cross-device discovery to score record Wear OS adoption

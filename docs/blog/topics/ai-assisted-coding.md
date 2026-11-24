@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/topics/ai-assisted-coding
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 # #AI-assisted coding
 
-- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)](https://developer.android.com/blog/authors/jose-alcerreca) 06 Aug 2026 06 Aug 2026 ![](https://developer.android.com/static/blog/assets/Inside_Android_Skills_Built_for_deprecation_Strapi_V01_8f34b79673_Z25NBy7.webp) [Community](https://developer.android.com/blog/categories/community)
+- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)](https://developer.android.com/blog/authors/jose-alcerreca.md.txt) 06 Aug 2026 06 Aug 2026 ![](https://developer.android.com/static/blog/assets/Inside_Android_Skills_Built_for_deprecation_Strapi_V01_8f34b79673_Z25NBy7.webp) [Community](https://developer.android.com/blog/categories/community.md.txt)
 
-  ## [Inside Android Skills - Built for deprecation](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation)
+  ## [Inside Android Skills - Built for deprecation](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation) We released the official Android Skills in April. This blog post covers the feedback we received and explains the philosophy and methodology behind the project.
-  [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca) • 4 min read
-  - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding)
-  - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+  [arrow_forward](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation.md.txt) We released the official Android Skills in April. This blog post covers the feedback we received and explains the philosophy and methodology behind the project.
+  [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca.md.txt) • 4 min read
+  - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding.md.txt)
+  - [#Android Skills](https://developer.android.com/blog/topics/android-skills.md.txt)
 Stay in the loop
 
 

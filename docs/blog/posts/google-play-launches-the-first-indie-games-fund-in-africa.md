@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/google-play-launches-the-first-ind
 source: md.txt
 ---
 
-[Community](https://developer.android.com/blog/categories/community)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Community](https://developer.android.com/blog/categories/community.md.txt)
 
 # Google Play launches the first Indie Games Fund in Africa
 
-1 min read ![](https://developer.android.com/static/blog/assets/IG_Fund26_Strapi_Header_716b75cbab_RbcqR.webp) 06 Jul 2026 [![View Steph Pio's profile](https://developer.android.com/static/blog/assets/security_pass_photo_b9ab37d5bf_Z18YGsT.webp)](https://developer.android.com/blog/authors/steph-pio) [Steph Pio](https://developer.android.com/blog/authors/steph-pio) Strategic Partnerships Manager, Google Play EMEA, Google Play Partnerships Sub-Saharan Africa is home to some of the world's most creative storytelling. To help bring those stories to a global audience, today, we're proud to announce the debut of Google Play's **Indie Games Fund in Africa**.
+1 min read ![](https://developer.android.com/static/blog/assets/IG_Fund26_Strapi_Header_716b75cbab_RbcqR.webp) 06 Jul 2026 [![View Steph Pio's profile](https://developer.android.com/static/blog/assets/security_pass_photo_b9ab37d5bf_Z18YGsT.webp)](https://developer.android.com/blog/authors/steph-pio.md.txt) [Steph Pio](https://developer.android.com/blog/authors/steph-pio.md.txt) Strategic Partnerships Manager, Google Play EMEA, Google Play Partnerships Sub-Saharan Africa is home to some of the world's most creative storytelling. To help bring those stories to a global audience, today, we're proud to announce the debut of Google Play's **Indie Games Fund in Africa**.
 
 The region's unique creativity has fueled a vibrant game development scene, helping drive what is quickly becoming one of the most exciting, resilient, and fast-growing gaming markets. It's a space defined by immense talent. However, access to capital is a persistent hurdle, and a significant investment gap often holds back incredibly promising local studios.
 
@@ -23,39 +25,39 @@ This program is designed to drive long-term growth, where it can make the bigges
 The program is open to indie game developers based in Sub-Saharan Africa (see the [list of eligible countries](https://rsvp.withgoogle.com/events/africa-indie-games-fund-2026/terms)) who have launched a game---whether it's on Google Play, another mobile platform, PC, or console.
 
 Review the [eligibility criteria](https://rsvp.withgoogle.com/events/africa-indie-games-fund-2026/terms) and [apply now](https://rsvp.withgoogle.com/events/africa-indie-games-fund-2026/home). Applications close at 12 noon UTC on July 31, 2026.
-- [#Google Play](https://developer.android.com/blog/topics/google-play)
+- [#Google Play](https://developer.android.com/blog/topics/google-play.md.txt)
 Written by:
 
 -
 
-  ## [Steph Pio](https://developer.android.com/blog/authors/steph-pio)
+  ## [Steph Pio](https://developer.android.com/blog/authors/steph-pio.md.txt)
 
   ###### Strategic Partnerships Manager, Google Play EMEA
 
   [read_more
   View profile](https://developer.android.com/blog/authors/steph-pio) ![View Steph Pio's profile](https://developer.android.com/static/blog/assets/security_pass_photo_b9ab37d5bf_Z18YGsT.webp) ![View Steph Pio's profile](https://developer.android.com/static/blog/assets/security_pass_photo_b9ab37d5bf_Z18YGsT.webp)
 Continue reading
-- [![View Florina Muntenescu's profile](https://developer.android.com/static/blog/assets/unnamed_27_1d76df3c3b_2gwEzo.webp)](https://developer.android.com/blog/authors/florina-muntenescu) 02 Nov 2026 02 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_155_Strapi_1_f48145e2db_Z2jyq4w.webp) [Community](https://developer.android.com/blog/categories/community)
+- [![View Florina Muntenescu's profile](https://developer.android.com/static/blog/assets/unnamed_27_1d76df3c3b_2gwEzo.webp)](https://developer.android.com/blog/authors/florina-muntenescu.md.txt) 02 Nov 2026 02 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_155_Strapi_1_f48145e2db_Z2jyq4w.webp) [Community](https://developer.android.com/blog/categories/community.md.txt)
 
-  ## [Developing for Today: 50+ New Developer Sessions on Building Apps Today](https://developer.android.com/blog/posts/building-apps-developer-sessions)
+  ## [Developing for Today: 50+ New Developer Sessions on Building Apps Today](https://developer.android.com/blog/posts/building-apps-developer-sessions.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/building-apps-developer-sessions) Over 900 attendees joined our event spaces for a keynote about our outlook on the future, demo sessions, dozens of workshops, a hackathon, and for community discussions focused on ideas and feedback on Android platform.
-  [Florina Muntenescu](https://developer.android.com/blog/authors/florina-muntenescu) • 1 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)](https://developer.android.com/blog/authors/jose-alcerreca) 06 Aug 2026 06 Aug 2026 ![](https://developer.android.com/static/blog/assets/Inside_Android_Skills_Built_for_deprecation_Strapi_V01_8f34b79673_Z25NBy7.webp) [Community](https://developer.android.com/blog/categories/community)
+  [arrow_forward](https://developer.android.com/blog/posts/building-apps-developer-sessions.md.txt) Over 900 attendees joined our event spaces for a keynote about our outlook on the future, demo sessions, dozens of workshops, a hackathon, and for community discussions focused on ideas and feedback on Android platform.
+  [Florina Muntenescu](https://developer.android.com/blog/authors/florina-muntenescu.md.txt) • 1 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)](https://developer.android.com/blog/authors/jose-alcerreca.md.txt) 06 Aug 2026 06 Aug 2026 ![](https://developer.android.com/static/blog/assets/Inside_Android_Skills_Built_for_deprecation_Strapi_V01_8f34b79673_Z25NBy7.webp) [Community](https://developer.android.com/blog/categories/community.md.txt)
 
-  ## [Inside Android Skills - Built for deprecation](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation)
+  ## [Inside Android Skills - Built for deprecation](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation) We released the official Android Skills in April. This blog post covers the feedback we received and explains the philosophy and methodology behind the project.
-  [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca) • 4 min read
-  - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding)
-  - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
-- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_1p33OW.webp) [Community](https://developer.android.com/blog/categories/community)
+  [arrow_forward](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation.md.txt) We released the official Android Skills in April. This blog post covers the feedback we received and explains the philosophy and methodology behind the project.
+  [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca.md.txt) • 4 min read
+  - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding.md.txt)
+  - [#Android Skills](https://developer.android.com/blog/topics/android-skills.md.txt)
+- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp)](https://developer.android.com/blog/authors/robbie-mclachlan.md.txt) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_1p33OW.webp) [Community](https://developer.android.com/blog/categories/community.md.txt)
 
-  ## [Meet the class of 2026 for the Google Play Apps Accelerator](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator)
+  ## [Meet the class of 2026 for the Google Play Apps Accelerator](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator) The wait is over! We are incredibly excited to share the Google Play Apps Accelerator class of 2026.
-  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 1 min read
+  [arrow_forward](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator.md.txt) The wait is over! We are incredibly excited to share the Google Play Apps Accelerator class of 2026.
+  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan.md.txt) • 1 min read
 Stay in the loop
 
 

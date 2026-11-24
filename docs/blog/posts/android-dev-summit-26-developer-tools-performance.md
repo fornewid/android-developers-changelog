@@ -4,13 +4,15 @@ url: https://developer.android.com/blog/posts/android-dev-summit-26-developer-to
 source: md.txt
 ---
 
-[Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
 # What's new in Android developer tools and performance at Android Dev Summit
 
-10 min read ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) 28 Oct 2026 [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando) [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando) Group Product Manager, Android Developer Tools This year at Android Dev Summit we shared how Android developer tools are evolving to help you be more productive alongside your agents. Whether you prefer to work in Android Studio or from the terminal using Android CLI, our goal is the same: to give you and your agents the tools and knowledge to build high-quality Android apps faster.
+10 min read ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) 28 Oct 2026 [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando.md.txt) [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando.md.txt) Group Product Manager, Android Developer Tools This year at Android Dev Summit we shared how Android developer tools are evolving to help you be more productive alongside your agents. Whether you prefer to work in Android Studio or from the terminal using Android CLI, our goal is the same: to give you and your agents the tools and knowledge to build high-quality Android apps faster.
 
-We shared some of these updates in action in the [Android Dev Summit keynote](https://developer.android.com/events/dev-summit). In this blog post we round up all of the developer tools and performance announcements from Android Dev Summit and point you to the event content where you can go deeper. We'll cover three areas:
+We shared some of these updates in action in the [Android Dev Summit keynote](https://developer.android.com/events/dev-summit.md.txt). In this blog post we round up all of the developer tools and performance announcements from Android Dev Summit and point you to the event content where you can go deeper. We'll cover three areas:
 
 - **Any agent + any model + Android Studio:** Bring the coding agents and models of your choice into Android Studio, and pair it with the IDE's deep understanding of your Android project.
 - **Build and deploy from anywhere with Android CLI:** Give any agent, terminal, or CI pipeline first-class access to the Android toolchain, including real physical devices.
@@ -22,7 +24,7 @@ Android Studio has always been the best place for professional Android developer
 
 ### Bring Your Own Agent (BYOA) in Android Studio
 
-You told us you want the flexibility to use the agents and models best suited for the task at hand, including the AI tools your team already relies on. That's why Android Studio now supports over 40 ACP-compatible coding agents directly inside Android Studio through Bring Your Own Agent and the open Agent Client Protocol (ACP). BYOA is now stable in [today's release of Android Studio Rabbit 2](https://developer.android.com/blog/posts/ai-agents-android-studio-integration).
+You told us you want the flexibility to use the agents and models best suited for the task at hand, including the AI tools your team already relies on. That's why Android Studio now supports over 40 ACP-compatible coding agents directly inside Android Studio through Bring Your Own Agent and the open Agent Client Protocol (ACP). BYOA is now stable in [today's release of Android Studio Rabbit 2](https://developer.android.com/blog/posts/ai-agents-android-studio-integration.md.txt).
 ![BYOA_Claude_no_rounding.png](https://developer.android.com/static/blog/assets/BYOA_Claude_no_rounding_64d9b82578_Z2b5Xun.webp) Running Claude Agent in Android Studio
 
 Just open **Settings \> Tools \> AI \> Agents** to browse and install agents from the marketplace. You can install more than one and switch between them as you work. You get new agent features as soon as they ship, while your agent also gets access to everything that makes Android Studio great: a deep understanding of your project structure and build, symbol resolution, Compose Preview rendering, the Emulator, Logcat, and more.
@@ -101,7 +103,7 @@ You can install the plugin in the following ways:
 
 `codex plugin add android-cli@android-cli-plugin`
 
-We will continue to expand the plugin with deeper agent-specific integration and more features in future updates. See the [Agent Plugins documentation](http://developer.android.com/tools/agents/android-cli/agent-plugins) for full setup instructions.
+We will continue to expand the plugin with deeper agent-specific integration and more features in future updates. See the [Agent Plugins documentation](http://developer.android.com/tools/agents/android-cli/agent-plugins.md.txt) for full setup instructions.
 
 ## Ship better-performing apps faster and with more confidence
 
@@ -126,7 +128,7 @@ Fix with AI for memory leaks is available in the Android Studio canary build, an
 
 [Android Performance Analyzer (APA)](https://developer.android.com/android-performance-analyzer) is the profiler that powers performance analysis in Android Studio, and now it powers the `android profiler` subcommand in Android CLI too. Use the CLI profiler subcommand to capture system traces and other profiling data from the command line or in CI, and pair it with the new [android-profiler](https://github.com/android/skills/tree/main/profilers/android-profiler) skill so your agent can capture traces, analyze the results, propose fixes, verify the changes and measure the impact. The Android Performance Analyzer [standalone app](https://developer.android.com/android-performance-analyzer#downloads) now also allows you to use your favorite agent using ACP to analyze the trace dynamically.
 
-With[androidx.tracing 2.0](https://developer.android.com/topic/performance/tracing/in-process-tracing)**,**your app's trace sections can include details like the source file, line number and arguments, and coroutine work appears as connected flows. When you open the trace in Android Performance Analyzer, it's easier for you or your agent to connect slow work back to the code that caused it. To get started, add androidx.tracing:tracing-wire to your app.
+With[androidx.tracing 2.0](https://developer.android.com/topic/performance/tracing/in-process-tracing.md.txt)**,**your app's trace sections can include details like the source file, line number and arguments, and coroutine work appears as connected flows. When you open the trace in Android Performance Analyzer, it's easier for you or your agent to connect slow work back to the code that caused it. To get started, add androidx.tracing:tracing-wire to your app.
 Agentic analysis of app startup perfetto trace using the new agent in Android Performance Analyzer.
 
 ### Bring production signals to your desk
@@ -149,7 +151,7 @@ R8 is one of the best ways to improve your app's performance and reduce its size
 
 ### Understand why Jetpack Compose recomposes
 
-Jetpack Compose 1.13 introduces [recomposition tracing](https://developer.android.com/develop/ui/compose/tooling/tracing#recomposition-tracing), which shows you not just which functions were recomposed, but *why*, all the way back to the state write that caused it. Combine it with composition tracing in the Android Studio Profiler, and install the `jetpack-compose-performance` skill to help your agent avoid common performance anti-patterns.
+Jetpack Compose 1.13 introduces [recomposition tracing](https://developer.android.com/develop/ui/compose/tooling/tracing.md.txt#recomposition-tracing), which shows you not just which functions were recomposed, but *why*, all the way back to the state write that caused it. Combine it with composition tracing in the Android Studio Profiler, and install the `jetpack-compose-performance` skill to help your agent avoid common performance anti-patterns.
 
 ### Try Lightbuild, a declarative build for you and your agents
 
@@ -160,7 +162,7 @@ Lightbuild is still early, so we recommend trying it with new or experimental pr
 
 ### Keep any agent up to date with Android skills
 
-Models aren't always trained on the latest Android APIs and best practices. That's why we publish official [Android skills](https://developer.android.com/tools/agents/android-skills), to ground models with additional knowledge on Android development, and we now have over 30 skills across more than 20 areas. Every skill is backed by evaluations, so we're not unnecessarily instructing models on things they already know. Instead, skills target fast-moving areas where models often fall short, like Compose performance optimizations, new and advanced Camera APIs, and thorough security audits. We continually re-evaluate skills against the latest frontier models, and add or adjust them as models evolve.
+Models aren't always trained on the latest Android APIs and best practices. That's why we publish official [Android skills](https://developer.android.com/tools/agents/android-skills.md.txt), to ground models with additional knowledge on Android development, and we now have over 30 skills across more than 20 areas. Every skill is backed by evaluations, so we're not unnecessarily instructing models on things they already know. Instead, skills target fast-moving areas where models often fall short, like Compose performance optimizations, new and advanced Camera APIs, and thorough security audits. We continually re-evaluate skills against the latest frontier models, and add or adjust them as models evolve.
 
 Use `android skills list` and `android skills add \[\<skill\>\]` to install skills for any agent, and agents can also use `android docs search` to access the Android Knowledge Base.
 
@@ -174,49 +176,49 @@ Ready to dive in? Here's how to get started:
 
 - Download [the latest stable version of Android Studio](https://developer.android.com/studio) to try Bring Your Own Agent, Change Review, and the XR Emulators.
 - Download the latest [Android Studio Canary](https://developer.android.com/studio/preview) to try Lightbuild.
-- [Install Android CLI](https://developer.android.com/tools/agents/android-cli) and run `android init` to set up your agent.
+- [Install Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt) and run `android init` to set up your agent.
 - Install the Android plugin in Google Antigravity App.
-- Browse and install [Android skills](https://developer.android.com/tools/agents/android-skills/browse).
+- Browse and install [Android skills](https://developer.android.com/tools/agents/android-skills/browse.md.txt).
 - See how models stack up on [Android Bench](https://developer.android.com/bench).
 
-To go deeper, watch the Tools \& Performance sessions from [Android Dev Summit](https://developer.android.com/events/dev-summit). As always, your feedback helps shape the future of our tools. [Report a bug or share your ideas](https://developer.android.com/studio/report-bugs), and connect with us on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), and [X](https://x.com/AndroidDev). Happy coding!
-- [#Android](https://developer.android.com/blog/topics/android)
+To go deeper, watch the Tools \& Performance sessions from [Android Dev Summit](https://developer.android.com/events/dev-summit.md.txt). As always, your feedback helps shape the future of our tools. [Report a bug or share your ideas](https://developer.android.com/studio/report-bugs.md.txt), and connect with us on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), and [X](https://x.com/AndroidDev). Happy coding!
+- [#Android](https://developer.android.com/blog/topics/android.md.txt)
 Written by:
 
 -
 
-  ## [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando)
+  ## [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando.md.txt)
 
   ###### Group Product Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/adarsh-fernando) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)
 Continue reading
-- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge.md.txt) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates)
+  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
-  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge) • 3 min read
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates.md.txt) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
+  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge.md.txt) • 3 min read
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
+  ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md.txt) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
   1 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-  - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
-  - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+  - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear.md.txt)
+  - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses.md.txt)
   - +1 ↩
-- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_Z20LEeM.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_Z20LEeM.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
+  ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed) The Google I/O schedule is here!
+  [arrow_forward](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed.md.txt) The Google I/O schedule is here!
   1 min read
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+  - [#Generative AI](https://developer.android.com/blog/topics/generative-ai.md.txt)
 Stay in the loop
 
 

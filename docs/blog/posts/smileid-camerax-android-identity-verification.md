@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/posts/smileid-camerax-android-identity-v
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # How SmileID Scaled Identity Verification to 18,000+ Android Device Types with CameraX

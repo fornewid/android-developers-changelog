@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/ryan-bartley
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/Ryan_Bartley_35cf836cd8_Z1nXWK3.webp)
 
 # Ryan Bartley
@@ -11,15 +13,15 @@ source: md.txt
 Product Manager
 
 Android XR
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_2hInNY.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_2hInNY.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android XR Updates for Unity, Unreal, and Godot](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot)
+  ## [Android XR Updates for Unity, Unreal, and Godot](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot) We are excited to announce that official support for Unreal Engine and Godot has arrived for Android XR. We are also launching new tools designed to boost your productivity and enable new XR capabilities: the Android XR Engine Hub and the Android XR Interaction Framework.
+  [arrow_forward](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot.md.txt) We are excited to announce that official support for Unreal Engine and Godot has arrived for Android XR. We are also launching new tools designed to boost your productivity and enable new XR capabilities: the Android XR Engine Hub and the Android XR Interaction Framework.
   4 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development)
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+  - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development.md.txt)
   - +1 ↩
 Stay in the loop
 

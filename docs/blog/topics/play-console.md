@@ -4,19 +4,21 @@ url: https://developer.android.com/blog/topics/play-console
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 # #Play Console
 
-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_7GyQM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng.md.txt) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_7GyQM.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play)
+  ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play) At this year's Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
+  [arrow_forward](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play.md.txt) At this year's Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
 
-  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 6 min read
-  - [#Google Play](https://developer.android.com/blog/topics/google-play)
-  - [#Play Console](https://developer.android.com/blog/topics/play-console)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng.md.txt) • 6 min read
+  - [#Google Play](https://developer.android.com/blog/topics/google-play.md.txt)
+  - [#Play Console](https://developer.android.com/blog/topics/play-console.md.txt)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+  - [#Android Developers](https://developer.android.com/blog/topics/android-developers.md.txt)
   - +2 ↩
 Stay in the loop
 

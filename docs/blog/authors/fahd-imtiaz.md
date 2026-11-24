@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/fahd-imtiaz
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/fahd-imtiaz/llms.txt
+
 8 posts ![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)
 
 # Fahd Imtiaz
@@ -11,62 +13,62 @@ source: md.txt
 Senior Product Manager
 
 Android Developer Experience
-- 22 Sep 2026 22 Sep 2026 ![](https://developer.android.com/static/blog/assets/Googlebook_Blog_Strapi_4a4a7d3291_Z1ReCnu.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 22 Sep 2026 22 Sep 2026 ![](https://developer.android.com/static/blog/assets/Googlebook_Blog_Strapi_4a4a7d3291_Z1ReCnu.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Land your apps on Googlebook with adaptive development](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development)
+  ## [Land your apps on Googlebook with adaptive development](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development) Googlebook introduces a new category of laptops built on a shared Android foundation. High-performance hardware from partners such as HP, Dell, Lenovo, Acer, and Asus, combines mobile convenience with desktop power.
+  [arrow_forward](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md.txt) Googlebook introduces a new category of laptops built on a shared Android foundation. High-performance hardware from partners such as HP, Dell, Lenovo, Acer, and Asus, combines mobile convenience with desktop power.
   4 min read
-  - [#Googlebook](https://developer.android.com/blog/topics/googlebook)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  - [#Googlebook](https://developer.android.com/blog/topics/googlebook.md.txt)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
   - +1 ↩
-- 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
+  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
+  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
   4 min read
-  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
-  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
-  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
-  - [#Foldables](https://developer.android.com/blog/topics/foldables)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7.md.txt)
+  - [#made by google](https://developer.android.com/blog/topics/made-by-google.md.txt)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4.md.txt)
+  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api.md.txt)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
   - +5 ↩
-- 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_1vfHD.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_1vfHD.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices)
+  ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices) Today at Galaxy Unpacked, Samsung unveiled its latest lineup of foldable and wearable devices. For developers, this means that the variety of form factors, screen sizes, and device postures your app needs to support is expanding once again.
+  [arrow_forward](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices.md.txt) Today at Galaxy Unpacked, Samsung unveiled its latest lineup of foldable and wearable devices. For developers, this means that the variety of form factors, screen sizes, and device postures your app needs to support is expanding once again.
   3 min read
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_Z14DWX.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_Z14DWX.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
+  ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem) With the release of Android 17, we are transitioning into an adaptive first development standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
+  [arrow_forward](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem.md.txt) With the release of Android 17, we are transitioning into an adaptive first development standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
   3 min read
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps.md.txt)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
   - +1 ↩
-- 19 Dec 2025 19 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z103sxP.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 19 Dec 2025 19 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z103sxP.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Goodbye Mobile Only, Hello Adaptive: Three essential updates from 2025 for building adaptive apps](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive)
+  ## [Goodbye Mobile Only, Hello Adaptive: Three essential updates from 2025 for building adaptive apps](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive) In 2025 the Android ecosystem has grown far beyond the phone. Today, developers have the opportunity to reach over 500 million active devices, including foldables, tablets, XR, Chromebooks, and compatible cars.
+  [arrow_forward](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive.md.txt) In 2025 the Android ecosystem has grown far beyond the phone. Today, developers have the opportunity to reach over 500 million active devices, including foldables, tablets, XR, Chromebooks, and compatible cars.
   2 min read
-  - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
-  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
-  - [#Compose](https://developer.android.com/blog/topics/compose)
-  - [#Android 16](https://developer.android.com/blog/topics/android-16)
+  - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation.md.txt)
+  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps.md.txt)
+  - [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
+  - [#Android 16](https://developer.android.com/blog/topics/android-16.md.txt)
   - +2 ↩
-- 03 Sep 2025 03 Sep 2025 ![](https://developer.android.com/static/blog/assets/yt_MBG_2_a56f169e60_Z1m2tOK.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 03 Sep 2025 03 Sep 2025 ![](https://developer.android.com/static/blog/assets/yt_MBG_2_a56f169e60_Z1m2tOK.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Unfold new possibilities with Compose Adaptive Layouts 1.2 beta](https://developer.android.com/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts)
+  ## [Unfold new possibilities with Compose Adaptive Layouts 1.2 beta](https://developer.android.com/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts) With new form factors like the Pixel 10 Pro Fold joining the Android ecosystem, adaptive app development is essential for creating high-quality user experiences across phones, tablets, and foldables.
+  [arrow_forward](https://developer.android.com/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts.md.txt) With new form factors like the Pixel 10 Pro Fold joining the Android ecosystem, adaptive app development is essential for creating high-quality user experiences across phones, tablets, and foldables.
   3 min read
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
@@ -74,7 +76,7 @@ Android Developer Experience
 
 ###### of 2
 
-[arrow_forward](https://developer.android.com/blog/authors/fahd-imtiaz/2) Stay in the loop
+[arrow_forward](https://developer.android.com/blog/authors/fahd-imtiaz/2.md.txt) Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

@@ -4,22 +4,24 @@ url: https://developer.android.com/blog/authors/amrit-sanjeev
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 2 posts ![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)
 
 # Amrit Sanjeev
 
 Staff Developer Advocate
-- 08 May 2026 08 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_2000x1000_7d5a00e6c2_1gGbqL.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 08 May 2026 08 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_2000x1000_7d5a00e6c2_1gGbqL.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Gratitude saw 25% higher retention for widget users](https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-for-widget-users)
+  ## [Gratitude saw 25% higher retention for widget users](https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-for-widget-users.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-for-widget-users) The mindfulness app Gratitude encourages consistency through micro daily journaling, affirmations, and vision boards. The app has over 6 million downloads, 150 thousand 5 star ratings, and 100 million journal entries logged.
+  [arrow_forward](https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-for-widget-users.md.txt) The mindfulness app Gratitude encourages consistency through micro daily journaling, affirmations, and vision boards. The app has over 6 million downloads, 150 thousand 5 star ratings, and 100 million journal entries logged.
   3 min read
-- 08 Jan 2026 08 Jan 2026 ![](https://developer.android.com/static/blog/assets/Ultrahumanx_Gi_AS_Banner_1612731319_1Eiopn.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 08 Jan 2026 08 Jan 2026 ![](https://developer.android.com/static/blog/assets/Ultrahumanx_Gi_AS_Banner_1612731319_1Eiopn.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Ultrahuman launches features 15% faster with Gemini in Android Studio](https://developer.android.com/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio)
+  ## [Ultrahuman launches features 15% faster with Gemini in Android Studio](https://developer.android.com/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio) Ultrahuman is a consumer health-tech startup that provides daily well-being insights to users based on biometric data from the company's wearables, like the RING Air and the M1 Live Continuous Glucose Monitor (CGM).
+  [arrow_forward](https://developer.android.com/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio.md.txt) Ultrahuman is a consumer health-tech startup that provides daily well-being insights to users based on biometric data from the company's wearables, like the RING Air and the M1 Live Continuous Glucose Monitor (CGM).
   2 min read
 Stay in the loop
 

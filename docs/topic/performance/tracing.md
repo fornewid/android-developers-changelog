@@ -4,6 +4,8 @@ url: https://developer.android.com/topic/performance/tracing
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/topic/performance/tracing/llms.txt
+
 Recording device activity over a short period of time is known as *system
 tracing*. System tracing produces a trace file that you can use to generate a
 system report. This report helps you identify how best to improve your app or
@@ -24,7 +26,7 @@ The Android Studio CPU profiler inspects your app's CPU usage and thread
 activity in real time while you interact with your app. You can also inspect the
 details in recorded method traces, function traces, and system traces. The
 memory profiler gives an overview of memory usage in relation to touch events,
-[`Activity`](https://developer.android.com/reference/android/app/Activity) changes, and garbage collection
+[`Activity`](https://developer.android.com/reference/android/app/Activity.md.txt) changes, and garbage collection
 events.
 
 Perfetto is the platform-wide tracing tool introduced in
@@ -65,21 +67,21 @@ Perfetto and Systrace are interoperable:
   format](https://docs.perfetto.dev/#/traceconv.md) using the `traceconv` tool.
 
 > [!NOTE]
-> **Note:** Systrace and Perfetto don't collect detailed information about code execution within your app process. For more detailed information about which methods your app is executing and how many CPU resources it's using, use the [CPU profiler](https://developer.android.com/studio/profile/cpu-profiler) in Android Studio.
+> **Note:** Systrace and Perfetto don't collect detailed information about code execution within your app process. For more detailed information about which methods your app is executing and how many CPU resources it's using, use the [CPU profiler](https://developer.android.com/studio/profile/cpu-profiler.md.txt) in Android Studio.
 
 ## System tracing guides
 
 To learn more about system tracing tools, see the following guides:
 
-[**Inspect CPU activity with CPU Profiler**](https://developer.android.com/studio/profile/cpu-profiler)
+[**Inspect CPU activity with CPU Profiler**](https://developer.android.com/studio/profile/cpu-profiler.md.txt)
 :   Shows how to profile your app's CPU usage and thread activity in Android
     Studio.
 
-[**Capture a system trace on a device**](https://developer.android.com/topic/performance/tracing/on-device)
+[**Capture a system trace on a device**](https://developer.android.com/topic/performance/tracing/on-device.md.txt)
 :   Explains how to capture a system trace directly on any device running
     Android 9 (API level 28) or higher.
 
-[**Capture a system trace on the command line**](https://developer.android.com/topic/performance/tracing/command-line)
+[**Capture a system trace on the command line**](https://developer.android.com/topic/performance/tracing/command-line.md.txt)
 :   Defines the different options and flags that you can pass into the
     command-line interface for Systrace.
 
@@ -95,15 +97,15 @@ To learn more about system tracing tools, see the following guides:
     complete report. You can also open Systrace traces in this viewer using the
     legacy UI option.
 
-[**Navigate a Systrace report**](https://developer.android.com/topic/performance/tracing/navigate-report)
+[**Navigate a Systrace report**](https://developer.android.com/topic/performance/tracing/navigate-report.md.txt)
 :   Lists the elements of a typical report, presents keyboard shortcuts for
     navigating through the report, and describes how to identify types of
     performance problems.
 
-[**Define custom events**](https://developer.android.com/topic/performance/tracing/custom-events)
+[**Define custom events**](https://developer.android.com/topic/performance/tracing/custom-events.md.txt)
 :   Describes how you can apply custom labels to specific sections of your code,
     allowing for easier root-cause analysis in Systrace or Perfetto.
 
-[**Use AI-powered analysis features**](https://developer.android.com/android-performance-analyzer/analyze/ai)
+[**Use AI-powered analysis features**](https://developer.android.com/android-performance-analyzer/agentic.md.txt)
 :   Explains how to use AI-assisted features with your preferred AI agent
-    to explore Perfetto traces and build custom SQL queries.
+    to explore traces in Android Performance Analyzer.

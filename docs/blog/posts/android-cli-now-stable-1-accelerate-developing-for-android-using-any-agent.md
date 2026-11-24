@@ -4,14 +4,16 @@ url: https://developer.android.com/blog/posts/android-cli-now-stable-1-accelerat
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Android CLI Now Stable 1.0: Accelerate developing for Android using any agent
 
-5 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_2hInNY.webp) 19 May 2026 [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic)[![View Ben Trengrove's profile](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_Z1TO68U.webp)](https://developer.android.com/blog/authors/ben-trengrove) [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) \& [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove) As Android developers, you have many choices when it comes to the agents, tools, command-line interfaces (CLI), and LLMs you use for app development. Whether you use Gemini in Android Studio, Antigravity 2.0, Antigravity CLI, or third-party agents like Anthropic's Claude Code or OpenAI'sCodex, our mission remains the same: to ensure that high-quality Android development is possible everywhere.
+5 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_2hInNY.webp) 19 May 2026 [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic.md.txt)[![View Ben Trengrove's profile](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_Z1TO68U.webp)](https://developer.android.com/blog/authors/ben-trengrove.md.txt) [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic.md.txt) \& [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove.md.txt) As Android developers, you have many choices when it comes to the agents, tools, command-line interfaces (CLI), and LLMs you use for app development. Whether you use Gemini in Android Studio, Antigravity 2.0, Antigravity CLI, or third-party agents like Anthropic's Claude Code or OpenAI'sCodex, our mission remains the same: to ensure that high-quality Android development is possible everywhere.
 [Video](https://www.youtube.com/watch?v=aqmpZocmR8o)
 
-At **Google I/O '26** , we shared the latest leaps forward in agentic development, and showcased some of the newest capabilities of [Android CLI](https://developer.android.com/tools/agents/android-cli)---now stable at version 1.0 and ready for all Android developers to use. From new skills to enabling agent access to powerful Android Studio capabilities, we're giving your agents the right tools to build alongside you.
+At **Google I/O '26** , we shared the latest leaps forward in agentic development, and showcased some of the newest capabilities of [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt)---now stable at version 1.0 and ready for all Android developers to use. From new skills to enabling agent access to powerful Android Studio capabilities, we're giving your agents the right tools to build alongside you.
 
 If you're already using Android CLI and want to jump into using all the new features, just run `android update`. Otherwise, read further to learn more about how we're making the agents you choose be better at building for Android.
 
@@ -72,7 +74,7 @@ We've also updated the installation to a user-local directory, by default. You c
 
 ![android-cli-write-journey.png](https://developer.android.com/static/blog/assets/android_cli_write_journey_3dd0275369_ZCwIlW.webp)
 
-We are also introducing support for [Journeys](https://developer.android.com/tools/agents/android-cli/journeys). With Journeys tools and skills included with Android CLI, any agent of your choice can now create and run Journeys---which are natural language descriptions of user journeys for your app that are saved directly to your project.
+We are also introducing support for [Journeys](https://developer.android.com/tools/agents/android-cli/journeys.md.txt). With Journeys tools and skills included with Android CLI, any agent of your choice can now create and run Journeys---which are natural language descriptions of user journeys for your app that are saved directly to your project.
 ![android-cli-journey-run.gif](https://developer.android.com/static/blog/assets/android_cli_journey_run_ff5ebd47bc_ZeWFfc.webp)
 
 Agents can run these journeys using the Android CLI to navigate your app exactly like a user would. This unlocks entirely new ways to test, validate, or collect data across the critical experiences of your app, all driven by natural language and executed by your agent.
@@ -106,12 +108,12 @@ Once you've found the right skill, install it to your environment by running:
 To download the stable 1.0 release of the Android CLI, explore the new tools, and browse the complete documentation, head over to [d.android.com/tools/agents](https://developer.android.com/tools/agents) today! Also, make sure you update to the [latest preview version of Android Studio](https://developer.android.com/studio/preview) to unlock the latest features that Android CLI offers. We can't wait to see what you build with Android CLI 1.0 and how these new features supercharge your daily workflows. Join our vibrant community on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all), [Medium](https://medium.com/androiddevelopers), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), or [X](https://twitter.com/androidstudio) and share your feedback.
 
 Explore this announcement and all Google I/O 2026 updates on [io.google.](https://io.google/2026/?utm_source=blogpost&utm_medium=pr&utm_campaign=devblogs&utm_content)
-- [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+- [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
 Written by:
 
 -
 
-  ## [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic)
+  ## [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -119,36 +121,36 @@ Written by:
   View profile](https://developer.android.com/blog/authors/simona-milanovic) ![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp) ![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)
 -
 
-  ## [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove)
+  ## [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/ben-trengrove) ![View Ben Trengrove's profile](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_Z1TO68U.webp) ![View Ben Trengrove's profile](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_Z1TO68U.webp)
 Continue reading
-- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic) 02 Oct 2026 02 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_135_Android_CLI_and_Android_skills_Strapi_d22702426a_ZIUXgH.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic.md.txt) 02 Oct 2026 02 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_135_Android_CLI_and_Android_skills_Strapi_d22702426a_ZIUXgH.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Device Streaming and Android skills - available in Android CLI](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills)
+  ## [Device Streaming and Android skills - available in Android CLI](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills) As Android developers, you have many choices when it comes to the agents, LLMs, tools, and command-line interfaces (CLI) you use for app development. Our goal is to help you build beautiful, high-quality Android apps, no matter how you choose to build.
-  [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) • 4 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic) 09 Jun 2026 09 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Dev_Productivity_Strapi_b7e79722e6_Z1dSchf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills.md.txt) As Android developers, you have many choices when it comes to the agents, LLMs, tools, and command-line interfaces (CLI) you use for app development. Our goal is to help you build beautiful, high-quality Android apps, no matter how you choose to build.
+  [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic.md.txt) • 4 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
+- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic.md.txt) 09 Jun 2026 09 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Dev_Productivity_Strapi_b7e79722e6_Z1dSchf.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Top 3 updates for Android developer productivity](https://developer.android.com/blog/posts/top-3-updates-for-android-developer-productivity)
+  ## [Top 3 updates for Android developer productivity](https://developer.android.com/blog/posts/top-3-updates-for-android-developer-productivity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/top-3-updates-for-android-developer-productivity) Every year, Google I/O brings new announcements and resources across ecosystems and products, including Android development. As development shifts toward AI and agent-assisted tooling, we've expanded our offerings to better support you, however you decide to build for Android.
-  [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) • 2 min read
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_Zj9dt4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/top-3-updates-for-android-developer-productivity.md.txt) Every year, Google I/O brings new announcements and resources across ecosystems and products, including Android development. As development shifts toward AI and agent-assisted tooling, we've expanded our offerings to better support you, however you decide to build for Android.
+  [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic.md.txt) • 2 min read
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_Zj9dt4.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26)
+  ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26) At Google I/O 2026, we introduced Android's shift from an operating system to an intelligence system. We also demonstrated how you can build intelligent experiences natively with the system and bring the power of Google's AI into your apps.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 2 min read
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
-  - [#On-device](https://developer.android.com/blog/topics/on-device)
+  [arrow_forward](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md.txt) At Google I/O 2026, we introduced Android's shift from an operating system to an intelligence system. We also demonstrated how you can build intelligent experiences natively with the system and bring the power of Google's AI into your apps.
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) • 2 min read
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#AppFunctions](https://developer.android.com/blog/topics/app-functions.md.txt)
+  - [#On-device](https://developer.android.com/blog/topics/on-device.md.txt)
   - +2 ↩
 Stay in the loop
 

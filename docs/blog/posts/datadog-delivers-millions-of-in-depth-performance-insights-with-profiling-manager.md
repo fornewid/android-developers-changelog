@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-de
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # Datadog delivers millions of in-depth performance insights with ProfilingManager

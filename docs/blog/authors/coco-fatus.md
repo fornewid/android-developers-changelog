@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/coco-fatus
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/Coco_Fatus_78a5f60501_O16qq.webp)
 
 # Coco Fatus
@@ -11,11 +13,11 @@ source: md.txt
 UX Designer
 
 Android XR
-- 17 Jun 2026 17 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Geospatial_V02_Strapi_5c55395a9c_2h4Keb.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 17 Jun 2026 17 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Geospatial_V02_Strapi_5c55395a9c_2h4Keb.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Building a Mixed-Reality Tour Guide with Android XR, the Geospatial API, and Gemini](https://developer.android.com/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini)
+  ## [Building a Mixed-Reality Tour Guide with Android XR, the Geospatial API, and Gemini](https://developer.android.com/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini) At this year's Google I/O, we announced an update for spatial experiences: the Geospatial API is now available as a preview in ARCore for Jetpack XR.
+  [arrow_forward](https://developer.android.com/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini.md.txt) At this year's Google I/O, we announced an update for spatial experiences: the Geospatial API is now available as a preview in ARCore for Jetpack XR.
   6 min read
 Stay in the loop
 

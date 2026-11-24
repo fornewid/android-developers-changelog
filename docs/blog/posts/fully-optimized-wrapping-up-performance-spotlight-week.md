@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/fully-optimized-wrapping-up-perfor
 source: md.txt
 ---
 
-[Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
 # Fully Optimized: Wrapping up Performance Spotlight Week
 
-3 min read ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_RfccU.webp) 21 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/sara-hamilton) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) \& [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton) We spent the past week diving deep into sharing best practices and guidance that helps to make Android apps faster, smaller, and more stable. From the foundational powers of the **R8 optimizer** and **Profile Guided Optimizations,** to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the *low effort, high impact* tools you need to build a performant app.
+3 min read ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_RfccU.webp) 21 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss.md.txt)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/sara-hamilton.md.txt) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt) \& [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton.md.txt) We spent the past week diving deep into sharing best practices and guidance that helps to make Android apps faster, smaller, and more stable. From the foundational powers of the **R8 optimizer** and **Profile Guided Optimizations,** to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the *low effort, high impact* tools you need to build a performant app.
 
 This post serves as your index and roadmap to revisit these resources whenever you need to optimize. Here are the five key takeaways from our journey together.
 
@@ -33,11 +35,11 @@ So next time someone asks you what you could do to improve app performance, just
 
 ## **Guiding you to better performance**
 
-[**Baseline Profiles**](https://developer.android.com/topic/performance/baselineprofiles/overview) effectively remove the need for Just in Time compilation, improving startup speed, scrolling, animation and overall rendering performance. [**Startup Profiles**](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations) make app startup more even more lightweight by bringing an intelligent order to your app's classes.dex files.
+[**Baseline Profiles**](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt) effectively remove the need for Just in Time compilation, improving startup speed, scrolling, animation and overall rendering performance. [**Startup Profiles**](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations) make app startup more even more lightweight by bringing an intelligent order to your app's classes.dex files.
 
 And to learn more about just how important Baseline Profiles are for app performance, read [**Meta's engineering blog**](https://engineering.fb.com/2025/10/01/android/accelerating-our-android-apps-with-baseline-profiles) where they shared how Baseline Profiles improved various critical performance metrics by **up to 40%** across their apps.
 
-We continue to make Jetpack Compose more performant for you in **Jetpack Compose 1.10.** Features like [pausable composition](https://developer.android.com/reference/kotlin/androidx/compose/runtime/PausableComposition) and the customizable cache window are crucial for maintaining zero scroll jank when dealing with complex list items.Take a look at the latest [episode](https://www.youtube.com/live/0vMDXa2PluY?si=An6wjXF2A9eVp_-J&t=2968) of #TheAndroidShow where we explain this in more detail.
+We continue to make Jetpack Compose more performant for you in **Jetpack Compose 1.10.** Features like [pausable composition](https://developer.android.com/reference/kotlin/androidx/compose/runtime/PausableComposition.md.txt) and the customizable cache window are crucial for maintaining zero scroll jank when dealing with complex list items.Take a look at the latest [episode](https://www.youtube.com/live/0vMDXa2PluY?si=An6wjXF2A9eVp_-J&t=2968) of #TheAndroidShow where we explain this in more detail.
 
 *Read more in our Wednesday's blog: *[*Deeper Performance Considerations*](https://android-developers.googleblog.com/2025/11/deeper-performance-considerations.html)
 
@@ -47,7 +49,7 @@ You can't manage what you don't measure. Our **Performance Leveling Guide** brea
 
 Starting at **level 1** , we'll teach you how to use readily available data from [**Android Vitals**](https://developer.android.com/topic/performance/vitals), which provides you with field data on ANRs, crashes, and excessive battery usage.
 
-We'll also teach you how to level up. For example, we'll demonstrate how to reach **level 3** with local performance testingusing [**Jetpack Macrobenchmark**](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview) and the new [**UiAutomator 2.4 API**](https://developer.android.com/training/testing/other-components/ui-automator) to accurately measure and verify any change in your app's performance.
+We'll also teach you how to level up. For example, we'll demonstrate how to reach **level 3** with local performance testingusing [**Jetpack Macrobenchmark**](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview.md.txt) and the new [**UiAutomator 2.4 API**](https://developer.android.com/training/testing/other-components/ui-automator.md.txt) to accurately measure and verify any change in your app's performance.
 
 *Read more in our Thursday's blog:* **\[Link to Thursday's Blog: Leveling Guide for your Performance Journey\]**
 
@@ -66,7 +68,7 @@ On Tuesday we demystified the Keep Rules needed to fix runtime crashes, emphasiz
 And with the new lint check for wide Keep Rules, the Android Studio Otter 3 Feature Drop has you covered here as well.
 ![image.png](https://developer.android.com/static/blog/assets/image_eff7d19348_ZBlcEK.webp)
 
-We also released new guidance on [testing](https://developer.android.com/topic/performance/app-optimization/test-the-optimization) and [troubleshooting](https://developer.android.com/topic/performance/app-optimization/troubleshoot-the-optimization) your R8 configuration to help you get the configuration right with confidence.
+We also released new guidance on [testing](https://developer.android.com/topic/performance/app-optimization/test-the-optimization.md.txt) and [troubleshooting](https://developer.android.com/topic/performance/app-optimization/troubleshoot-the-optimization.md.txt) your R8 configuration to help you get the configuration right with confidence.
 [Video](https://www.youtube.com/watch?v=A0I6pNSM14o)
 
 *Read more in our Tuesday's blog:* [Configure and troubleshoot R8 Keep Rules](https://android-developers.googleblog.com/2025/11/configure-and-troubleshoot-r8-keep-rules.html)
@@ -75,13 +77,13 @@ We also released new guidance on [testing](https://developer.android.com/topic/p
 
 We shared guidance on debugging common scenarios you may encounter when scheduling tasks with WorkManager.
 
-[Background Task Inspector](https://developer.android.com/studio/inspect/task) gives you a visual representation and graph view of WorkManager tasks, helping debug why scheduled work is delayed or failed. And our refreshed Background Work documentation [landing page](https://developer.android.com/develop/background-work) highlights task-specific APIs that are optimized for particular use cases, helping you achieve more reliable execution.  
+[Background Task Inspector](https://developer.android.com/studio/inspect/task.md.txt) gives you a visual representation and graph view of WorkManager tasks, helping debug why scheduled work is delayed or failed. And our refreshed Background Work documentation [landing page](https://developer.android.com/develop/background-work) highlights task-specific APIs that are optimized for particular use cases, helping you achieve more reliable execution.  
 
 *Read more in our Wednesday's blog:* [Background work performance considerations](https://android-developers.googleblog.com/2025/11/deeper-performance-considerations.html#:~:text=Background%20work%20performance%20considerations)
 
 ## **Performance optimization is an ongoing journey**
 
-If you successfully took our challenge to enable R8 full mode this week, your next step is to integrate performance into your product roadmap using the [**App Performance Score**](https://developer.android.com/topic/performance/app-score). This standardized framework helps you find the highest leverage action items for continuous improvement.
+If you successfully took our challenge to enable R8 full mode this week, your next step is to integrate performance into your product roadmap using the [**App Performance Score**](https://developer.android.com/topic/performance/app-score.md.txt). This standardized framework helps you find the highest leverage action items for continuous improvement.
 
 We capped off the week with the **#AskAndroid Live** Q\&A session, where engineers answered your toughest questions on R8, Profile Guided Optimizations, and more. If you missed it, look for the replay!
 [Video](https://www.youtube.com/watch?v=RMnZuoozZ5w)
@@ -91,7 +93,7 @@ Written by:
 
 -
 
-  ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss)
+  ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -99,33 +101,33 @@ Written by:
   View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)
 -
 
-  ## [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton)
+  ## [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton.md.txt)
 
   ###### Product Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/sara-hamilton) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 Continue reading
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week10_467f2693b4_19FhE4.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss.md.txt) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week10_467f2693b4_19FhE4.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Use R8 to shrink, optimize, and fast-track your app](https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app)
+  ## [Use R8 to shrink, optimize, and fast-track your app](https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app) We're kicking things off with the single most impactful, low-effort change you can make to improve your app's performance: enabling the R8 optimizer in full mode.
-  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 5 min read
-- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+  [arrow_forward](https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app.md.txt) We're kicking things off with the single most impactful, low-effort change you can make to improve your app's performance: enabling the R8 optimizer in full mode.
+  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt) • 5 min read
+- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge.md.txt) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates)
+  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
-  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge) • 3 min read
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates.md.txt) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
+  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge.md.txt) • 3 min read
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
+- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance)
+  ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance) This year at Android Dev Summit we shared how Android's developer tools are evolving to help you be more productive alongside your agents.
-  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando) • 10 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
+  [arrow_forward](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance.md.txt) This year at Android Dev Summit we shared how Android's developer tools are evolving to help you be more productive alongside your agents.
+  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando.md.txt) • 10 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
 Stay in the loop
 
 

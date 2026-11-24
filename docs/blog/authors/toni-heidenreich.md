@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/toni-heidenreich
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)
 
 # Toni Heidenreich
@@ -11,15 +13,15 @@ source: md.txt
 Software Engineer
 
 Android
-- 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
+  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new.md.txt) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
   3 min read
-  - [#Media3](https://developer.android.com/blog/topics/media3)
-  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
-  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+  - [#Media3](https://developer.android.com/blog/topics/media3.md.txt)
+  - [#Jetpack](https://developer.android.com/blog/topics/jetpack.md.txt)
+  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player.md.txt)
   - +1 ↩
 Stay in the loop
 

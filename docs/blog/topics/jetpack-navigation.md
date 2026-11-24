@@ -4,27 +4,29 @@ url: https://developer.android.com/blog/topics/jetpack-navigation
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 # #Jetpack Navigation
 
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 Dec 2025 19 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z103sxP.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt) 19 Dec 2025 19 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z103sxP.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Goodbye Mobile Only, Hello Adaptive: Three essential updates from 2025 for building adaptive apps](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive)
+  ## [Goodbye Mobile Only, Hello Adaptive: Three essential updates from 2025 for building adaptive apps](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive) In 2025 the Android ecosystem has grown far beyond the phone. Today, developers have the opportunity to reach over 500 million active devices, including foldables, tablets, XR, Chromebooks, and compatible cars.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) • 2 min read
-  - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
-  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
-  - [#Compose](https://developer.android.com/blog/topics/compose)
-  - [#Android 16](https://developer.android.com/blog/topics/android-16)
+  [arrow_forward](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive.md.txt) In 2025 the Android ecosystem has grown far beyond the phone. Today, developers have the opportunity to reach over 500 million active devices, including foldables, tablets, XR, Chromebooks, and compatible cars.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt) • 2 min read
+  - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation.md.txt)
+  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps.md.txt)
+  - [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
+  - [#Android 16](https://developer.android.com/blog/topics/android-16.md.txt)
   - +2 ↩
-- [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp)](https://developer.android.com/blog/authors/don-turner) 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/jetpack_navigation_d1257f9ca2_Z16ze9q.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp)](https://developer.android.com/blog/authors/don-turner.md.txt) 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/jetpack_navigation_d1257f9ca2_Z16ze9q.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Jetpack Navigation 3 is stable](https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable)
+  ## [Jetpack Navigation 3 is stable](https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable) Jetpack Navigation 3 version 1.0 is stable!
-  [Don Turner](https://developer.android.com/blog/authors/don-turner) • 3 min read
-  - [#Nav3](https://developer.android.com/blog/topics/nav3)
-  - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+  [arrow_forward](https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable.md.txt) Jetpack Navigation 3 version 1.0 is stable!
+  [Don Turner](https://developer.android.com/blog/authors/don-turner.md.txt) • 3 min read
+  - [#Nav3](https://developer.android.com/blog/topics/nav3.md.txt)
+  - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation.md.txt)
 Stay in the loop
 
 

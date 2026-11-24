@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/jeffrey-jose
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/unnamed_8_3d27b8b0cb_z21t8.webp)
 
 # Jeffrey Jose
@@ -11,11 +13,11 @@ source: md.txt
 Product Manager
 
 Android Core Graphics
-- 29 Jun 2026 29 Jun 2026 ![](https://developer.android.com/static/blog/assets/Eclipsa_Video_V01_White_Strapi_10c5296e18_iWco4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 29 Jun 2026 29 Jun 2026 ![](https://developer.android.com/static/blog/assets/Eclipsa_Video_V01_White_Strapi_10c5296e18_iWco4.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Eclipsa Video: HDR That Looks Right on Every Screen](https://developer.android.com/blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen)
+  ## [Eclipsa Video: HDR That Looks Right on Every Screen](https://developer.android.com/blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen) We've all been there: You're scrolling through your favorite social media feed in a dim room, and suddenly an HDR video pops up. It's so intensely bright that you have to squint, or maybe you find yourself turning down your screen brightness just to read the caption.
+  [arrow_forward](https://developer.android.com/blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen.md.txt) We've all been there: You're scrolling through your favorite social media feed in a dim room, and suddenly an HDR video pops up. It's so intensely bright that you have to squint, or maybe you find yourself turning down your screen brightness just to read the caption.
   2 min read
 Stay in the loop
 

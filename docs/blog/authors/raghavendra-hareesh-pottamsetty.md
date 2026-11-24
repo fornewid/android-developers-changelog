@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/raghavendra-hareesh-pottamsetty
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/Raghavendra_Hareesh_Pottamsetty_72fdb063a0_HTSBv.webp)
 
 # Raghavendra Hareesh Pottamsetty
@@ -11,11 +13,11 @@ source: md.txt
 GM
 
 Google Play Developer \& Monetization
-- 26 Aug 2026 26 Aug 2026 ![](https://developer.android.com/static/blog/assets/Raising_the_bar_Google_Play_Strapi_2_a80695bf12_ZCNvdc.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 26 Aug 2026 26 Aug 2026 ![](https://developer.android.com/static/blog/assets/Raising_the_bar_Google_Play_Strapi_2_a80695bf12_ZCNvdc.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Elevating app quality: Reducing memory usage and improving device migration](https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration)
+  ## [Elevating app quality: Reducing memory usage and improving device migration](https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration) Maintaining a healthy Android ecosystem is a shared commitment where every app and game has a role to play.
+  [arrow_forward](https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration.md.txt) Maintaining a healthy Android ecosystem is a shared commitment where every app and game has a role to play.
   4 min read
 Stay in the loop
 

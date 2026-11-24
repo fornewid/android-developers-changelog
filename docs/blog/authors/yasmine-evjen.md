@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/yasmine-evjen
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/unnamed_3_41b10aa98e_ZXr0BV.webp)
 
 # Yasmine Evjen
@@ -11,15 +13,15 @@ source: md.txt
 Senior Product Manager
 
 Android XR
-- 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_XR_beta_release_Strapi_a23ed1d892_2wR9tl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_XR_beta_release_Strapi_a23ed1d892_2wR9tl.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Jetpack XR SDK core libraries reach beta: The next milestone for Android XR](https://developer.android.com/blog/posts/jetpack-xr-sdk-core-libraries-reach-beta-the-next-milestone-for-android-xr)
+  ## [Jetpack XR SDK core libraries reach beta: The next milestone for Android XR](https://developer.android.com/blog/posts/jetpack-xr-sdk-core-libraries-reach-beta-the-next-milestone-for-android-xr.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-xr-sdk-core-libraries-reach-beta-the-next-milestone-for-android-xr) Since introducing the Android XR SDK, developers have transformed their ideas into innovative immersive experiences across headsets and wired XR glasses.
+  [arrow_forward](https://developer.android.com/blog/posts/jetpack-xr-sdk-core-libraries-reach-beta-the-next-milestone-for-android-xr.md.txt) Since introducing the Android XR SDK, developers have transformed their ideas into innovative immersive experiences across headsets and wired XR glasses.
   2 min read
-  - [#Jetpack XR SDK](https://developer.android.com/blog/topics/jetpack-xr-sdk)
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-  - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+  - [#Jetpack XR SDK](https://developer.android.com/blog/topics/jetpack-xr-sdk.md.txt)
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+  - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk.md.txt)
   - +1 ↩
 Stay in the loop
 

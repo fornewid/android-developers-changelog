@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/posts/how-r8-made-kotlin-coroutines-on-a
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # How R8 made Kotlin Coroutines on Android 2x faster

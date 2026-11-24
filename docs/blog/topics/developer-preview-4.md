@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/topics/developer-preview-4
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 # #Developer Preview 4
 
-- [![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp)](https://developer.android.com/blog/authors/stevan-silva)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1JMs6H.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp)](https://developer.android.com/blog/authors/stevan-silva.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1JMs6H.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates)
+  ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates) From augmented overlays to fully immersive environments, the Android XR ecosystem is expanding rapidly, with the Samsung Galaxy XR already available today.
-  [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 2 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-  - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
+  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates.md.txt) From augmented overlays to fully immersive environments, the Android XR ecosystem is expanding rapidly, with the Samsung Galaxy XR already available today.
+  [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 2 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+  - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4.md.txt)
 Stay in the loop
 
 

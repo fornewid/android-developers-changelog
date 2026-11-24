@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/learn-about-our-newest-jetpack-nav
 source: md.txt
 ---
 
-[Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
 # Learn about our newest Jetpack Navigation library with the Nav3 Spotlight Week
 
-1 min read ![](https://developer.android.com/static/blog/assets/Spotlightweek_Blog_banner_2_77cf3dc16b_Z9Ky13.webp) 01 Dec 2025 [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp)](https://developer.android.com/blog/authors/don-turner) [Don Turner](https://developer.android.com/blog/authors/don-turner) Developer Relations Engineer [Jetpack Navigation 3](https://developer.android.com/guide/navigation/navigation-3) is [now stable](https://android-developers.googleblog.com/2025/11/jetpack-navigation-3-is-stable.html), and using it can help you reduce tech debt, provide better separation of concerns, speed up feature development time, and support new form factors. We're dedicating a whole week to providing content to help you learn about Nav3, and start integrating it into your app.
+1 min read ![](https://developer.android.com/static/blog/assets/Spotlightweek_Blog_banner_2_77cf3dc16b_Z9Ky13.webp) 01 Dec 2025 [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp)](https://developer.android.com/blog/authors/don-turner.md.txt) [Don Turner](https://developer.android.com/blog/authors/don-turner.md.txt) Developer Relations Engineer [Jetpack Navigation 3](https://developer.android.com/guide/navigation/navigation-3.md.txt) is [now stable](https://android-developers.googleblog.com/2025/11/jetpack-navigation-3-is-stable.html), and using it can help you reduce tech debt, provide better separation of concerns, speed up feature development time, and support new form factors. We're dedicating a whole week to providing content to help you learn about Nav3, and start integrating it into your app.
 
 You'll learn about the library in detail, how to modularize your navigation code, and lots of code recipes for common use cases. At the end of the week, tune into the "Ask Me Anything" session so you can have the experts answer anything you like about Nav3. Here's the full schedule:
 
@@ -16,7 +18,7 @@ You'll learn about the library in detail, how to modularize your navigation code
 
 *Dec 1st, 2025 *
 
-Learn the [most important Nav3 APIs](https://developer.android.com/guide/navigation/navigation-3/basics) including NavDisplay, NavEntry, and entryProvider with a [coding walkthrough video](https://www.youtube.com/watch?v=6L6GfvlmKj8).
+Learn the [most important Nav3 APIs](https://developer.android.com/guide/navigation/navigation-3/basics.md.txt) including NavDisplay, NavEntry, and entryProvider with a [coding walkthrough video](https://www.youtube.com/watch?v=6L6GfvlmKj8).
 
 [Video](https://www.youtube.com/watch?v=6L6GfvlmKj8)
 
@@ -28,7 +30,7 @@ Make your screen transitions look beautiful! Learn how to set custom animations 
 
 [Video](https://www.youtube.com/watch?v=agSU7nXuDIQ)
 
-See the* *[*Animate between destinations*](https://developer.android.com/guide/navigation/navigation-3/animate-destinations) documentation and the [*Animation recipes*](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/animations) to learn how to override the default animations at the NavDisplay level, and at the individual destination level.
+See the* *[*Animate between destinations*](https://developer.android.com/guide/navigation/navigation-3/animate-destinations.md.txt) documentation and the [*Animation recipes*](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/animations) to learn how to override the default animations at the NavDisplay level, and at the individual destination level.
 
 **Wednesday: Deep links**
 
@@ -46,7 +48,7 @@ Check out our [guide to deep linking in Navigation 3](https://github.com/android
 
 *Dec 4th, 2025*
 
-Learn how to [modularize your navigation code](https://developer.android.com/guide/navigation/navigation-3/modularize). Avoid circular dependencies by separating navigation keys into their own modules, and learn how to use dependency injection and extension functions to move content into feature modules.
+Learn how to [modularize your navigation code](https://developer.android.com/guide/navigation/navigation-3/modularize.md.txt). Avoid circular dependencies by separating navigation keys into their own modules, and learn how to use dependency injection and extension functions to move content into feature modules.
 
 **Friday: Ask Me Anything**
 
@@ -57,36 +59,36 @@ Written by:
 
 -
 
-  ## [Don Turner](https://developer.android.com/blog/authors/don-turner)
+  ## [Don Turner](https://developer.android.com/blog/authors/don-turner.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/don-turner) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp)
 Continue reading
-- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge.md.txt) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates)
+  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
-  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge) • 3 min read
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates.md.txt) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
+  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge.md.txt) • 3 min read
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
+- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance)
+  ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance) This year at Android Dev Summit we shared how Android's developer tools are evolving to help you be more productive alongside your agents.
-  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando) • 10 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+  [arrow_forward](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance.md.txt) This year at Android Dev Summit we shared how Android's developer tools are evolving to help you be more productive alongside your agents.
+  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando.md.txt) • 10 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
+  ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md.txt) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
   1 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-  - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
-  - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+  - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear.md.txt)
+  - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses.md.txt)
   - +1 ↩
 Stay in the loop
 

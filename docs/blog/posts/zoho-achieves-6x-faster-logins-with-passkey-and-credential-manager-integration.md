@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/zoho-achieves-6x-faster-logins-wit
 source: md.txt
 ---
 
-[Case Studies](https://developer.android.com/blog/categories/case-studies)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # Zoho Achieves 6x Faster Logins with Passkey and Credential Manager Integration
 
-10 min read ![](https://developer.android.com/static/blog/assets/ANDDM_Zoho_Header_6260da2eab_1A8Wxb.webp) 07 May 2025 [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Joseph Lewis's profile](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_ZFRmjb.webp)](https://developer.android.com/blog/authors/joseph-lewis) [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora) \& [Joseph Lewis](https://developer.android.com/blog/authors/joseph-lewis) As an Android developer, you're constantly looking for ways to enhance security, improve user experience, and streamline development. Zoho, a comprehensive cloud-based software suite focused on security and seamless experiences, achieved significant improvements by adopting passkeys in their [OneAuth](https://play.google.com/store/apps/details?id=com.zoho.accounts.oneauth) Android app.
+10 min read ![](https://developer.android.com/static/blog/assets/ANDDM_Zoho_Header_6260da2eab_1A8Wxb.webp) 07 May 2025 [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora.md.txt)[![View Joseph Lewis's profile](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_ZFRmjb.webp)](https://developer.android.com/blog/authors/joseph-lewis.md.txt) [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt) \& [Joseph Lewis](https://developer.android.com/blog/authors/joseph-lewis.md.txt) As an Android developer, you're constantly looking for ways to enhance security, improve user experience, and streamline development. Zoho, a comprehensive cloud-based software suite focused on security and seamless experiences, achieved significant improvements by adopting passkeys in their [OneAuth](https://play.google.com/store/apps/details?id=com.zoho.accounts.oneauth) Android app.
 
 Since integrating passkeys in 2024, Zoho achieved **login speeds up to 6x faster** than previous methods and a **31% month-over-month (MoM) growth in passkey adoption**.
 
@@ -82,7 +84,7 @@ if (origin.startsWith("android:apk-key-hash:")) {
 
 ### Error handling
 
-Zoho implemented robust [error handling mechanisms](https://developer.android.com/identity/sign-in/credential-manager-troubleshooting-guide) to manage both user-facing and developer-facing errors. A common error, `CreateCredentialCancellationException`, appeared when users manually canceled their passkey setup. Zoho tracked the frequency of this error to assess potential UX improvements. Based on Android's [UX recommendations](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys), Zoho took steps to better educate their users about passkeys, ensure users were aware of passkey availability, and promote passkey adoption during subsequent sign-in attempts.
+Zoho implemented robust [error handling mechanisms](https://developer.android.com/identity/sign-in/credential-manager-troubleshooting-guide.md.txt) to manage both user-facing and developer-facing errors. A common error, `CreateCredentialCancellationException`, appeared when users manually canceled their passkey setup. Zoho tracked the frequency of this error to assess potential UX improvements. Based on Android's [UX recommendations](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys.md.txt), Zoho took steps to better educate their users about passkeys, ensure users were aware of passkey availability, and promote passkey adoption during subsequent sign-in attempts.
 
 This code example demonstrates Zoho's approach for how they handled their most common passkey creation errors:
 
@@ -197,7 +199,7 @@ To make adopting passkeys appealing and straightforward for end-users, Zoho impl
 - The Zoho OneAuth mobile app (Android \& iOS);
 - Their Zoho web [accounts](https://accounts.zoho.com/home#multiTFA/pfamodes) page.
 
-This method ensured that the process of setting up and using passkeys was accessible and integrated into the platforms they already use, regardless of whether it was mandated by an admin or chosen by the user. You can learn more about how to create smooth user flows for passkey authentication by exploring our comprehensive [passkeys user experience guide](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys).
+This method ensured that the process of setting up and using passkeys was accessible and integrated into the platforms they already use, regardless of whether it was mandated by an admin or chosen by the user. You can learn more about how to create smooth user flows for passkey authentication by exploring our comprehensive [passkeys user experience guide](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys.md.txt).
 
 ## Impact on developer velocity and integration efficiency
 
@@ -246,7 +248,7 @@ Written by:
 
 -
 
-  ## [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora)
+  ## [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -254,32 +256,32 @@ Written by:
   View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)
 -
 
-  ## [Joseph Lewis](https://developer.android.com/blog/authors/joseph-lewis)
+  ## [Joseph Lewis](https://developer.android.com/blog/authors/joseph-lewis.md.txt)
 
   ###### Staff Technical Writing Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/joseph-lewis) ![View Joseph Lewis's profile](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_ZFRmjb.webp) ![View Joseph Lewis's profile](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_ZFRmjb.webp)
 Continue reading
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
+  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
-  - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Z2c5PaI.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys.md.txt) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt), [Mayank Jain](https://developer.android.com/blog/authors/blog-author.md.txt) • 8 min read
+  - [#Passkeys](https://developer.android.com/blog/topics/passkeys.md.txt)
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora.md.txt)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Z2c5PaI.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How Uber is reducing manual logins by 4 million per year with the Restore Credentials API](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api)
+  ## [How Uber is reducing manual logins by 4 million per year with the Restore Credentials API](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api) Uber leveraged the Android Restore Credentials API to streamline new device sign-in, projecting a reduction of 4 million manual logins per year and increasing user retention.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 21 Nov 2024 21 Nov 2024 ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_ZkMOm6.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api.md.txt) Uber leveraged the Android Restore Credentials API to streamline new device sign-in, projecting a reduction of 4 million manual logins per year and increasing user retention.
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora.md.txt)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) 21 Nov 2024 21 Nov 2024 ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_ZkMOm6.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [X improved login success rate by 2x after adopting passkeys](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys)
+  ## [X improved login success rate by 2x after adopting passkeys](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys) From breaking news and entertainment to sports and politics, X is a social media app that aims to help nearly 500 million users worldwide get the full story with all the live commentary.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 3 min read
+  [arrow_forward](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys.md.txt) From breaking news and entertainment to sports and politics, X is a social media app that aims to help nearly 500 million users worldwide get the full story with all the live commentary.
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 3 min read
 Stay in the loop
 
 

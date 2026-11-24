@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/sheenam-mittal
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/unnamed_24_1859332bf9_Z2nsiJr.webp)
 
 # Sheenam Mittal
@@ -11,13 +13,13 @@ source: md.txt
 Senior Product Manager
 
 Google Play
-- 29 Sep 2026 29 Sep 2026 ![](https://developer.android.com/static/blog/assets/ABL_0137_Strapi_1331188d3a_Z17ea85.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 29 Sep 2026 29 Sep 2026 ![](https://developer.android.com/static/blog/assets/ABL_0137_Strapi_1331188d3a_Z17ea85.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Driving growth on Google Play: The next era of subscriptions](https://developer.android.com/blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions)
+  ## [Driving growth on Google Play: The next era of subscriptions](https://developer.android.com/blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions) On Google Play, we are continuously expanding our subscription platform to help you drive growth, adapt to new business models, and meet your users exactly where they are.
+  [arrow_forward](https://developer.android.com/blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions.md.txt) On Google Play, we are continuously expanding our subscription platform to help you drive growth, adapt to new business models, and meet your users exactly where they are.
   4 min read
-  - [#Google Play subscriptions](https://developer.android.com/blog/topics/google-play-subscriptions)
+  - [#Google Play subscriptions](https://developer.android.com/blog/topics/google-play-subscriptions.md.txt)
 Stay in the loop
 
 

@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/the-first-beta-of-android-17
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # The First Beta of Android 17
 
-7 min read ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) 13 Feb 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today we're releasing the first beta of [Android 17](https://developer.android.com/about/versions), continuing our work to build a platform that prioritizes privacy, security, and refined performance. This build continues our work for more adaptable Android apps, introduces significant enhancements to camera and media capabilities, new tools for optimizing connectivity, and expanded profiles for companion devices. This release also highlights a fundamental shift in the way we're bringing new releases to the developer community, [from the traditional Developer Preview model to the Android Canary program](https://android-developers.googleblog.com/2025/07/android-canary.html)
+7 min read ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) 13 Feb 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) Vice President, Product Management, Android Developer Today we're releasing the first beta of [Android 17](https://developer.android.com/about/versions), continuing our work to build a platform that prioritizes privacy, security, and refined performance. This build continues our work for more adaptable Android apps, introduces significant enhancements to camera and media capabilities, new tools for optimizing connectivity, and expanded profiles for companion devices. This release also highlights a fundamental shift in the way we're bringing new releases to the developer community, [from the traditional Developer Preview model to the Android Canary program](https://android-developers.googleblog.com/2025/07/android-canary.html)
 
 ## Beyond the Developer Preview
 
@@ -40,21 +42,21 @@ Apps targeting Android 17 must ensure compatibility with the phase-out of manife
 
 |---|---|
 | **Manifest attributes/API** | **Ignored values** |
-| [screenOrientation](https://developer.android.com/guide/topics/manifest/activity-element#screen) | portrait, reversePortrait, sensorPortrait, userPortrait, landscape, reverseLandscape, sensorLandscape, userLandscape |
-| [setRequestedOrientation()](https://developer.android.com/reference/android/app/Activity#setRequestedOrientation%28int%29) | portrait, reversePortrait, sensorPortrait, userPortrait, landscape, reverseLandscape, sensorLandscape, userLandscape |
-| [resizeableActivity](https://developer.android.com/guide/topics/manifest/application-element#resizeableActivity) | all |
-| [minAspectRatio](https://developer.android.com/reference/android/R.attr#minAspectRatio) | all |
-| [maxAspectRatio](https://developer.android.com/reference/android/R.attr#maxAspectRatio) | all |
+| [screenOrientation](https://developer.android.com/guide/topics/manifest/activity-element.md.txt#screen) | portrait, reversePortrait, sensorPortrait, userPortrait, landscape, reverseLandscape, sensorLandscape, userLandscape |
+| [setRequestedOrientation()](https://developer.android.com/reference/android/app/Activity.md.txt#setRequestedOrientation%28int%29) | portrait, reversePortrait, sensorPortrait, userPortrait, landscape, reverseLandscape, sensorLandscape, userLandscape |
+| [resizeableActivity](https://developer.android.com/guide/topics/manifest/application-element.md.txt#resizeableActivity) | all |
+| [minAspectRatio](https://developer.android.com/reference/android/R.attr.md.txt#minAspectRatio) | all |
+| [maxAspectRatio](https://developer.android.com/reference/android/R.attr.md.txt#maxAspectRatio) | all |
 
 #### **Exemptions and User Control**
 
-These changes are specific to large screens; they **do not apply** to screens smaller than sw600dp (including traditional slate form factor phones). Additionally, apps categorized as games (based on the [android:appCategory](https://developer.android.com/guide/topics/manifest/application-element#appCategory) flag) are exempt from these restrictions.
+These changes are specific to large screens; they **do not apply** to screens smaller than sw600dp (including traditional slate form factor phones). Additionally, apps categorized as games (based on the [android:appCategory](https://developer.android.com/guide/topics/manifest/application-element.md.txt#appCategory) flag) are exempt from these restrictions.
 
 It is also important to note that users remain in control. They can explicitly opt-in/out to using an app's default behavior via the system's aspect ratio settings.
 
 #### **Updates to configuration changes**
 
-To improve app compatibility and help minimize interrupted video playback, dropped input, and other types of disruptive state loss, we are updating the default behavior for Activity recreation. Starting with Android 17, the system will no longer restart activities by default for specific configuration changes that typically do not require a UI recreation, including [`CONFIG_KEYBOARD`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_KEYBOARD), [`CONFIG_KEYBOARD_HIDDEN`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_KEYBOARD_HIDDEN), [`CONFIG_NAVIGATION`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_NAVIGATION), [`CONFIG_UI_MODE`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_UI_MODE) (when only `UI_MODE_TYPE_DESK` is changed), [`CONFIG_TOUCHSCREEN`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_TOUCHSCREEN), and [`CONFIG_COLOR_MODE`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_COLOR_MODE). Instead, running activities will simply receive these updates via [`onConfigurationChanged`](https://developer.android.com/reference/android/app/Activity#onConfigurationChanged(android.content.res.Configuration)). If your application relies on a full restart to reload resources for these changes, you must now explicitly opt-in using the new `android:recreateOnConfigChanges` manifest attribute, which allows you to specify which configuration changes should trigger a complete activity lifecycle (from stop, to destroy and creation again), together with the related constants [mcc](https://developer.android.com/reference/android/content/res/Configuration#mcc), [mnc](https://developer.android.com/reference/android/content/res/Configuration#mnc), and the new ones [keyboard](https://developer.android.com/reference/android/content/res/Configuration#keyboard), [keyboardHidden](https://developer.android.com/reference/android/content/res/Configuration#keyboardHidden), [navigation](https://developer.android.com/reference/android/content/res/Configuration#navigation), [touchscreen](https://developer.android.com/reference/android/content/res/Configuration#touchscreen) and [colorMode](https://developer.android.com/reference/android/content/res/Configuration#colorMode).
+To improve app compatibility and help minimize interrupted video playback, dropped input, and other types of disruptive state loss, we are updating the default behavior for Activity recreation. Starting with Android 17, the system will no longer restart activities by default for specific configuration changes that typically do not require a UI recreation, including [`CONFIG_KEYBOARD`](https://developer.android.com/reference/android/content/pm/ActivityInfo.md.txt#CONFIG_KEYBOARD), [`CONFIG_KEYBOARD_HIDDEN`](https://developer.android.com/reference/android/content/pm/ActivityInfo.md.txt#CONFIG_KEYBOARD_HIDDEN), [`CONFIG_NAVIGATION`](https://developer.android.com/reference/android/content/pm/ActivityInfo.md.txt#CONFIG_NAVIGATION), [`CONFIG_UI_MODE`](https://developer.android.com/reference/android/content/pm/ActivityInfo.md.txt#CONFIG_UI_MODE) (when only `UI_MODE_TYPE_DESK` is changed), [`CONFIG_TOUCHSCREEN`](https://developer.android.com/reference/android/content/pm/ActivityInfo.md.txt#CONFIG_TOUCHSCREEN), and [`CONFIG_COLOR_MODE`](https://developer.android.com/reference/android/content/pm/ActivityInfo.md.txt#CONFIG_COLOR_MODE). Instead, running activities will simply receive these updates via [`onConfigurationChanged`](https://developer.android.com/reference/android/app/Activity.md.txt#onConfigurationChanged(android.content.res.Configuration)). If your application relies on a full restart to reload resources for these changes, you must now explicitly opt-in using the new `android:recreateOnConfigChanges` manifest attribute, which allows you to specify which configuration changes should trigger a complete activity lifecycle (from stop, to destroy and creation again), together with the related constants [mcc](https://developer.android.com/reference/android/content/res/Configuration.md.txt#mcc), [mnc](https://developer.android.com/reference/android/content/res/Configuration.md.txt#mnc), and the new ones [keyboard](https://developer.android.com/reference/android/content/res/Configuration.md.txt#keyboard), [keyboardHidden](https://developer.android.com/reference/android/content/res/Configuration.md.txt#keyboardHidden), [navigation](https://developer.android.com/reference/android/content/res/Configuration.md.txt#navigation), [touchscreen](https://developer.android.com/reference/android/content/res/Configuration.md.txt#touchscreen) and [colorMode](https://developer.android.com/reference/android/content/res/Configuration.md.txt#colorMode).
 
 #### **Prepare Your App**
 
@@ -64,11 +66,11 @@ We've released tools and documentation to make it easy for you. [Our focused blo
 
 #### **Lock-free MessageQueue**
 
-In [Android 17](https://developer.android.com/about/versions), apps targeting SDK 37 or higher will receive a new implementation of [android.os.MessageQueue](https://developer.android.com/reference/android/os/MessageQueue) where the implementation is lock-free. The new implementation improves performance and reduces missed frames, but may break clients that reflect on [MessageQueue](https://developer.android.com/reference/android/os/MessageQueue) private fields and methods.
+In [Android 17](https://developer.android.com/about/versions), apps targeting SDK 37 or higher will receive a new implementation of [android.os.MessageQueue](https://developer.android.com/reference/android/os/MessageQueue.md.txt) where the implementation is lock-free. The new implementation improves performance and reduces missed frames, but may break clients that reflect on [MessageQueue](https://developer.android.com/reference/android/os/MessageQueue.md.txt) private fields and methods.
 
 #### **Generational garbage collection**
 
-[Android 17](https://developer.android.com/about/versions) introduces generational garbage collection to [ART](https://developer.android.com/guide/platform#art)'s Concurrent Mark-Compact collector. This optimization introduces more frequent, less resource-intensive young-generation collections alongside full-heap collections. aiming to reduce overall garbage collection CPU cost and time duration. ART improvements are also available to over a billion devices running Android 12 (API level 31) and higher through Google Play System updates.
+[Android 17](https://developer.android.com/about/versions) introduces generational garbage collection to [ART](https://developer.android.com/guide/platform.md.txt#art)'s Concurrent Mark-Compact collector. This optimization introduces more frequent, less resource-intensive young-generation collections alongside full-heap collections. aiming to reduce overall garbage collection CPU cost and time duration. ART improvements are also available to over a billion devices running Android 12 (API level 31) and higher through Google Play System updates.
 
 #### **Static final fields now truly final**
 
@@ -76,13 +78,13 @@ Starting from Android 17 apps targeting Android 17 or later won't be able to mod
 
 #### **Custom Notification View Restrictions**
 
-To reduce memory usage we are restricting the size of [custom notification views](https://developer.android.com/develop/ui/views/notifications/custom-notification). This update closes a loophole that allows apps to bypass existing limits using URIs. This behavior is gated by the target SDK version and takes effect for apps targeting API 37 and higher.
+To reduce memory usage we are restricting the size of [custom notification views](https://developer.android.com/develop/ui/views/notifications/custom-notification.md.txt). This update closes a loophole that allows apps to bypass existing limits using URIs. This behavior is gated by the target SDK version and takes effect for apps targeting API 37 and higher.
 
 #### **New performance debugging ProfilingManager triggers**
 
-We've introduced several new system triggers to [ProfilingManager](https://developer.android.com/topic/performance/tracing/profiling-manager/overview) to help you collect in-depth data to debug performance issues. These triggers are [TRIGGER_TYPE_COLD_START,](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_COLD_START)[TRIGGER_TYPE_OOM,](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_OOM)and [TRIGGER_TYPE_KILL_EXCESSIVE_CPU_USAGE.](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_KILL_EXCESSIVE_CPU_USAGE)
+We've introduced several new system triggers to [ProfilingManager](https://developer.android.com/topic/performance/tracing/profiling-manager/overview.md.txt) to help you collect in-depth data to debug performance issues. These triggers are [TRIGGER_TYPE_COLD_START,](https://developer.android.com/reference/android/os/ProfilingTrigger.md.txt#TRIGGER_TYPE_COLD_START)[TRIGGER_TYPE_OOM,](https://developer.android.com/reference/android/os/ProfilingTrigger.md.txt#TRIGGER_TYPE_OOM)and [TRIGGER_TYPE_KILL_EXCESSIVE_CPU_USAGE.](https://developer.android.com/reference/android/os/ProfilingTrigger.md.txt#TRIGGER_TYPE_KILL_EXCESSIVE_CPU_USAGE)
 
-To understand how to set up the new system triggers, check out the [trigger-based profiling](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture) and [retrieve and analyze profiling data](https://developer.android.com/topic/performance/tracing/profiling-manager/retrieve-and-analyze) documentation.
+To understand how to set up the new system triggers, check out the [trigger-based profiling](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture.md.txt) and [retrieve and analyze profiling data](https://developer.android.com/topic/performance/tracing/profiling-manager/retrieve-and-analyze.md.txt) documentation.
 
 ### **Media and Camera**
 
@@ -90,7 +92,7 @@ Android 17 brings professional-grade tools to media and camera apps, with featur
 
 #### **Dynamic Camera Session Updates**
 
-We have introduced `updateOutputConfigurations`[`()`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession) to [`CameraCaptureSession`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession). This allows you to dynamically attach and detach output surfaces without the need to reconfigure the entire camera capture session. This change enables seamless transitions between camera use cases and modes (such as shooting still images vs shooting videos) without the memory cost and code complexity of configuring and holding onto all camera output surfaces that your app might need during camera start up. This helps to eliminate user-visible glitches or freezes during operation.
+We have introduced `updateOutputConfigurations`[`()`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession.md.txt) to [`CameraCaptureSession`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession.md.txt). This allows you to dynamically attach and detach output surfaces without the need to reconfigure the entire camera capture session. This change enables seamless transitions between camera use cases and modes (such as shooting still images vs shooting videos) without the memory cost and code complexity of configuring and holding onto all camera output surfaces that your app might need during camera start up. This helps to eliminate user-visible glitches or freezes during operation.
 
 ```
 fun updateCameraSession(session: CameraCaptureSession, newOutputConfigs:  List<OutputConfiguration>)) {
@@ -107,19 +109,19 @@ fun updateCameraSession(session: CameraCaptureSession, newOutputConfigs:  List<O
 
 #### **Logical multi-camera device metadata**
 
-When working with logical cameras that combine multiple physical camera sensors, you can now request additional metadata from all active physical cameras involved in a capture, not just the primary one. Previously, you had to implement workarounds, sometimes allocating unnecessary physical streams, to obtain metadata from secondary active cameras (e.g., during a lens switch for zoom where a follower camera is active). This feature introduces a new key, [LOGICAL_MULTI_CAMERA_ADDITIONAL_RESULTS](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#LOGICAL_MULTI_CAMERA_ADDITIONAL_RESULTS), in [CaptureRequest](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest) and [CaptureResult](https://developer.android.com/reference/android/hardware/camera2/CaptureResult). By setting this key to ON in your [CaptureRequest](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest), the [TotalCaptureResult](https://developer.android.com/reference/android/hardware/camera2/TotalCaptureResult) will include metadata from these additional active physical cameras. You can access this comprehensive metadata using [TotalCaptureResult.getPhysicalCameraTotalResults()](https://developer.android.com/reference/android/hardware/camera2/TotalCaptureResult#getPhysicalCameraTotalResults()) to get more detailed information that may enable you to optimize resource usage in your camera applications.
+When working with logical cameras that combine multiple physical camera sensors, you can now request additional metadata from all active physical cameras involved in a capture, not just the primary one. Previously, you had to implement workarounds, sometimes allocating unnecessary physical streams, to obtain metadata from secondary active cameras (e.g., during a lens switch for zoom where a follower camera is active). This feature introduces a new key, [LOGICAL_MULTI_CAMERA_ADDITIONAL_RESULTS](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.md.txt#LOGICAL_MULTI_CAMERA_ADDITIONAL_RESULTS), in [CaptureRequest](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.md.txt) and [CaptureResult](https://developer.android.com/reference/android/hardware/camera2/CaptureResult.md.txt). By setting this key to ON in your [CaptureRequest](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.md.txt), the [TotalCaptureResult](https://developer.android.com/reference/android/hardware/camera2/TotalCaptureResult.md.txt) will include metadata from these additional active physical cameras. You can access this comprehensive metadata using [TotalCaptureResult.getPhysicalCameraTotalResults()](https://developer.android.com/reference/android/hardware/camera2/TotalCaptureResult.md.txt#getPhysicalCameraTotalResults()) to get more detailed information that may enable you to optimize resource usage in your camera applications.
 
 ### Versatile Video Coding (VVC) Support
 
-[Android 17](https://developer.android.com/about/versions) adds support for the [Versatile Video Coding (VVC)](https://developer.android.com/guide/topics/media/media-formats#video-formats) standard. This includes defining the [video/vvc](https://developer.android.com/guide/topics/media/media-formats#video-formats) MIME type in [MediaFormat](https://developer.android.com/reference/android/media/MediaFormat), adding new VVC profiles in [MediaCodecInfo](https://developer.android.com/reference/android/media/MediaCodecInfo), and integrating support into [MediaExtractor](https://developer.android.com/reference/android/media/MediaExtractor). This feature will be coming to devices with hardware decode support and capable drivers.
+[Android 17](https://developer.android.com/about/versions) adds support for the [Versatile Video Coding (VVC)](https://developer.android.com/guide/topics/media/media-formats#video-formats) standard. This includes defining the [video/vvc](https://developer.android.com/guide/topics/media/media-formats#video-formats) MIME type in [MediaFormat](https://developer.android.com/reference/android/media/MediaFormat.md.txt), adding new VVC profiles in [MediaCodecInfo](https://developer.android.com/reference/android/media/MediaCodecInfo.md.txt), and integrating support into [MediaExtractor](https://developer.android.com/reference/android/media/MediaExtractor.md.txt). This feature will be coming to devices with hardware decode support and capable drivers.
 
 #### **Constant Quality for Video Recording**
 
-We have added [setVideoEncodingQuality()](https://developer.android.com/reference/android/media/MediaRecorder#setVideoQuality(int)) to [MediaRecorder](https://developer.android.com/reference/android/media/MediaRecorder). This allows you to configure a constant quality (CQ) mode for video encoders, giving you finer control over video quality beyond simple bitrate settings.
+We have added [setVideoEncodingQuality()](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setVideoQuality(int)) to [MediaRecorder](https://developer.android.com/reference/android/media/MediaRecorder.md.txt). This allows you to configure a constant quality (CQ) mode for video encoders, giving you finer control over video quality beyond simple bitrate settings.
 
 #### **Background Audio Hardening**
 
-Starting in Android 17, the audio framework will enforce restrictions on background audio interactions including audio playback, [audio focus](https://developer.android.com/media/optimize/audio-focus) requests, and [volume change](https://developer.android.com/reference/android/media/AudioManager#adjustStreamVolume(int,%20int,%20int)) APIs to ensure that these changes are started intentionally by the user.
+Starting in Android 17, the audio framework will enforce restrictions on background audio interactions including audio playback, [audio focus](https://developer.android.com/media/optimize/audio-focus.md.txt) requests, and [volume change](https://developer.android.com/reference/android/media/AudioManager.md.txt#adjustStreamVolume(int,%20int,%20int)) APIs to ensure that these changes are started intentionally by the user.
 
 If the app tries to call audio APIs while the application is not in a valid lifecycle, the audio playback and volume change APIs will fail silently without an exception thrown or failure message provided. The audio focus API will fail with the result code AUDIOFOCUS_REQUEST_FAILED.
 
@@ -127,11 +129,11 @@ If the app tries to call audio APIs while the application is not in a valid life
 
 #### **Deprecation of Cleartext Traffic Attribute**
 
-The [android:usesCleartextTraffic](https://developer.android.com/guide/topics/manifest/application-element#usesCleartextTraffic) attribute is now deprecated. If your app targets (Android 17) or higher and relies on usesCleartextTraffic="true" without a corresponding [Network Security Configuration](https://developer.android.com/training/articles/security-config), it will default to disallowing cleartext traffic. You are encouraged to migrate to [Network Security Configuration](https://developer.android.com/training/articles/security-config) files for granular control.
+The [android:usesCleartextTraffic](https://developer.android.com/guide/topics/manifest/application-element.md.txt#usesCleartextTraffic) attribute is now deprecated. If your app targets (Android 17) or higher and relies on usesCleartextTraffic="true" without a corresponding [Network Security Configuration](https://developer.android.com/training/articles/security-config), it will default to disallowing cleartext traffic. You are encouraged to migrate to [Network Security Configuration](https://developer.android.com/training/articles/security-config) files for granular control.
 
 #### **HPKE Hybrid Cryptography**
 
-We are introducing a public [Service Provider Interface (SPI)](https://developer.android.com/reference/android/crypto/hpke/HpkeSpi) for an implementation of HPKE hybrid cryptography, enabling secure communication using a combination of public key and symmetric encryption ([AEAD](http://developer.android.com/reference/android/crypto/hpke/AeadParameterSpec)).
+We are introducing a public [Service Provider Interface (SPI)](https://developer.android.com/reference/android/crypto/hpke/HpkeSpi.md.txt) for an implementation of HPKE hybrid cryptography, enabling secure communication using a combination of public key and symmetric encryption ([AEAD](http://developer.android.com/reference/android/crypto/hpke/AeadParameterSpec.md.txt)).
 
 ### **Connectivity and Telecom**
 
@@ -150,13 +152,13 @@ We are introducing user preference management for app VoIP call history integrat
 We have introduced two new profiles to the [CompanionDeviceManager](https://developer.android.com/guide/topics/connectivity/companion-device-pairing) to improve device distinction and permission handling:
 
 - **Medical Devices:** This profile allows medical device mobile applications to request all necessary permissions with a single tap, simplifying the setup process.
-- **Fitness Trackers:** The [DEVICE_PROFILE_FITNESS_TRACKER](https://developer.android.com/reference/android/companion/AssociationRequest#DEVICE_PROFILE_FITNESS_TRACKER) profile allows companion apps to explicitly indicate they are managing a fitness tracker. This ensures accurate user experiences with distinct icons while reusing existing watch role permissions.
+- **Fitness Trackers:** The [DEVICE_PROFILE_FITNESS_TRACKER](https://developer.android.com/reference/android/companion/AssociationRequest.md.txt#DEVICE_PROFILE_FITNESS_TRACKER) profile allows companion apps to explicitly indicate they are managing a fitness tracker. This ensures accurate user experiences with distinct icons while reusing existing watch role permissions.
 
-Also, the [CompanionDeviceManager](https://developer.android.com/guide/topics/connectivity/companion-device-pairing) now offers a unified dialog for device association and Nearby permission requests. You can leverage the new [setExtraPermissions](https://developer.android.com/reference/android/companion/AssociationRequest.Builder#setExtraPermissions(java.util.Set%3Cjava.lang.String%3E)) method in [AssociationRequest.Builder](https://developer.android.com/reference/android/companion/AssociationRequest.Builder) to bundle nearby permission prompts within the existing association flow, reducing the number of dialogs presented to the user.
+Also, the [CompanionDeviceManager](https://developer.android.com/guide/topics/connectivity/companion-device-pairing) now offers a unified dialog for device association and Nearby permission requests. You can leverage the new [setExtraPermissions](https://developer.android.com/reference/android/companion/AssociationRequest.Builder.md.txt#setExtraPermissions(java.util.Set%3Cjava.lang.String%3E)) method in [AssociationRequest.Builder](https://developer.android.com/reference/android/companion/AssociationRequest.Builder.md.txt) to bundle nearby permission prompts within the existing association flow, reducing the number of dialogs presented to the user.
 
 ### **Get started with Android 17**
 
-You can [enroll any supported Pixel device](https://www.google.com/android/beta) to get this and future Android Beta updates over-the-air. If you don't have a Pixel device, you can [use the 64-bit system images with the Android Emulator](https://developer.android.com/about/versions/17/get#on_emulator) in Android Studio.
+You can [enroll any supported Pixel device](https://www.google.com/android/beta) to get this and future Android Beta updates over-the-air. If you don't have a Pixel device, you can [use the 64-bit system images with the Android Emulator](https://developer.android.com/about/versions/17/get.md.txt#on_emulator) in Android Studio.
 
 If you are currently in the Android Beta program, you will be offered an over-the-air update to Beta 1.
 
@@ -169,7 +171,7 @@ For the best development experience with Android 17, we recommend that you use t
 - Compile against the new SDK, test in CI environments, and report any issues in our tracker on the [feedback page](https://developer.android.com/about/versions/17/feedback).
 - Test your current app for compatibility, learn whether your app is affected by changes in Android 17, and install your app onto a device or emulator running Android 17 and extensively test it.
 
-We'll update the [preview/beta system images](https://developer.android.com/about/versions/17/download) and SDK regularly throughout the Android 17 release cycle. Once you've installed a beta build, you'll automatically get future updates over-the-air for all later previews and Betas.
+We'll update the [preview/beta system images](https://developer.android.com/about/versions/17/download.md.txt) and SDK regularly throughout the Android 17 release cycle. Once you've installed a beta build, you'll automatically get future updates over-the-air for all later previews and Betas.
 
 For complete information, visit the [Android 17 developer site](https://developer.android.com/about/versions/17).
 
@@ -180,35 +182,35 @@ Written by:
 
 -
 
-  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough)
+  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt)
 
   ###### Vice President, Product Management, Android Developer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
+  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 4 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
+  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-  - [#Android Bench](https://developer.android.com/blog/topics/android-bench)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
+  - [#Android Bench](https://developer.android.com/blog/topics/android-bench.md.txt)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
+  ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
+  [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here.md.txt) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 13 min read
+  - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
 Stay in the loop
 
 

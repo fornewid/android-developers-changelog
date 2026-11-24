@@ -4,13 +4,15 @@ url: https://developer.android.com/blog/posts/red-bus-uses-gemini-flash-via-fire
 source: md.txt
 ---
 
-[Case Studies](https://developer.android.com/blog/categories/case-studies)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # redBus uses Gemini Flash via Firebase AI Logic to boost the length of customer reviews by 57%
 
-3 min read ![](https://developer.android.com/static/blog/assets/thomas_bc2cd0efa0_1fqCJy.webp) 30 Oct 2025 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) As the world's largest online bus ticketing platform, [redBus](https://play.google.com/store/apps/details?id=in.redbus.android) serves millions of travelers across India, Southeast Asia, and Latin America. The service is predominantly mobile-first, with over 90% of all bookings occurring through its app. However, this presents a significant challenge in gathering helpful feedback from a user base that speaks dozens of different languages. Typing reviews is inconvenient for many users, and a review written in Tamil, for instance, offers little value to a bus operator who only speaks Hindi.  
+3 min read ![](https://developer.android.com/static/blog/assets/thomas_bc2cd0efa0_1fqCJy.webp) 30 Oct 2025 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan.md.txt)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan.md.txt) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) As the world's largest online bus ticketing platform, [redBus](https://play.google.com/store/apps/details?id=in.redbus.android) serves millions of travelers across India, Southeast Asia, and Latin America. The service is predominantly mobile-first, with over 90% of all bookings occurring through its app. However, this presents a significant challenge in gathering helpful feedback from a user base that speaks dozens of different languages. Typing reviews is inconvenient for many users, and a review written in Tamil, for instance, offers little value to a bus operator who only speaks Hindi.  
 
-To improve the quality and volume of user feedback, developers at redBus used [Gemini Flash](https://developer.android.com/ai/gemini), a Google AI model providing low latency, to instantly transcribe and translate user voice recordings. To connect this powerful AI to their app without dealing with complex backend work, they used [Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic). This new feature removed language barriers and simplified the review process, leading to a significant increase in user engagement and feedback quality.
+To improve the quality and volume of user feedback, developers at redBus used [Gemini Flash](https://developer.android.com/ai/gemini.md.txt), a Google AI model providing low latency, to instantly transcribe and translate user voice recordings. To connect this powerful AI to their app without dealing with complex backend work, they used [Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic). This new feature removed language barriers and simplified the review process, leading to a significant increase in user engagement and feedback quality.
 [Video](https://www.youtube.com/watch?v=PIsElP6DbFI)
 
 **Simplifying user feedback with a voice-first approach**
@@ -51,7 +53,7 @@ Written by:
 
 -
 
-  ## [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan)
+  ## [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan.md.txt)
 
   ###### Senior Developer Relations Engineer
 
@@ -59,34 +61,34 @@ Written by:
   View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)
 -
 
-  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
+  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt)
 
   ###### Product Marketing Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
 Continue reading
-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_276PBK.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan.md.txt)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_276PBK.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature)
+  ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature) Karrot is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 2 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature.md.txt) Karrot is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
+  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 2 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time)
+  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
+  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
-  - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
+  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys.md.txt) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt), [Mayank Jain](https://developer.android.com/blog/authors/blog-author.md.txt) • 8 min read
+  - [#Passkeys](https://developer.android.com/blog/topics/passkeys.md.txt)
 Stay in the loop
 
 

@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/brenda-shaw
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Z1RcuMg.webp)
 
 # Brenda Shaw
@@ -11,11 +13,11 @@ source: md.txt
 Technical Writer
 
 Devices \& Services Partner Engineering
-- 03 Nov 2025 03 Nov 2025 ![](https://developer.android.com/static/blog/assets/health_Connect1_49b5a00627_Z1LaQc.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 03 Nov 2025 03 Nov 2025 ![](https://developer.android.com/static/blog/assets/health_Connect1_49b5a00627_Z1LaQc.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Health Connect Jetpack v1.1.0 is now available!](https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available)
+  ## [Health Connect Jetpack v1.1.0 is now available!](https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available) Health Connect is Android's on-device platform designed to simplify connectivity between health and fitness apps, allowing developers to build richer experiences with secure, centralized data.
+  [arrow_forward](https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available.md.txt) Health Connect is Android's on-device platform designed to simplify connectivity between health and fitness apps, allowing developers to build richer experiences with secure, centralized data.
   2 min read
 Stay in the loop
 

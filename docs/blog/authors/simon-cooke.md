@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/authors/simon-cooke
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_1EPpUS.webp)
 
 # Simon Cooke
 
 Developer Relations Engineer
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Introducing Android Performance Analyzer - The Next Evolution in Profiling for Android](https://developer.android.com/blog/posts/introducing-android-performance-analyzer-the-next-evolution-in-profiling-for-android)
+  ## [Introducing Android Performance Analyzer - The Next Evolution in Profiling for Android](https://developer.android.com/blog/posts/introducing-android-performance-analyzer-the-next-evolution-in-profiling-for-android.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/introducing-android-performance-analyzer-the-next-evolution-in-profiling-for-android) Android Performance Analyzer (APA) is Android's new profiler and performance analysis tool for the Android mobile ecosystem.
+  [arrow_forward](https://developer.android.com/blog/posts/introducing-android-performance-analyzer-the-next-evolution-in-profiling-for-android.md.txt) Android Performance Analyzer (APA) is Android's new profiler and performance analysis tool for the Android mobile ecosystem.
   APA is intended as a profiling tool for any developer building for Android who needs to make their app or game run better and faster.
   5 min read
 Stay in the loop

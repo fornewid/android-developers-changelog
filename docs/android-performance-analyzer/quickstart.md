@@ -27,8 +27,8 @@ requirements:
   - **Linux.**
     - 64-bit machines must install the [required libraries for 64-bit
       machines](https://developer.android.com/studio/install#64bit-libs).
-- It must have the Android SDK installed, including the [Platform-Tools](https://developer.android.com/tools/releases/platform-tools) package.
-  - The [`ANDROID_HOME`](https://developer.android.com/tools/variables#android_home) environment variable must be set.
+- It must have the Android SDK installed, including the [Platform-Tools](https://developer.android.com/tools/releases/platform-tools.md.txt) package.
+  - The [`ANDROID_HOME`](https://developer.android.com/tools/variables.md.txt#android_home) environment variable must be set.
 
 ### Testing device requirements
 
@@ -36,7 +36,7 @@ The device running the app under test must meet the following requirements:
 
 - A supported Android device running [Android 12 or higher](https://developer.android.com/about/versions).
 - A USB cable.
-- [Android Debug Bridge (`adb`)](https://developer.android.com/tools/adb) debugging must be enabled and the device must be accessible through `adb`. If the **Install via USB** option is present, enable it.
+- [Android Debug Bridge (`adb`)](https://developer.android.com/tools/adb.md.txt) debugging must be enabled and the device must be accessible through `adb`. If the **Install via USB** option is present, enable it.
 
 > [!NOTE]
 > **Note:** The listed requirements are the minimum to use the System Profiler with a given testing device. Different devices and GPUs expose different data, which might result in some trace data being unavailable.
@@ -59,8 +59,8 @@ While it's not a strict requirement, we recommend the following in order to help
 profiling be as useful and accurate as possible:
 
 - Use the release version of your app or game, or a version that's built with performance options (such as compiler flags or packaging optimizations) enabled.
-- If you are profiling an app or game that uses [Vulkan](https://developer.android.com/games/develop/vulkan/overview) for graphics, set the [debuggable attribute](https://developer.android.com/guide/topics/manifest/application-element#debug) in the Android manifest to *true*. This allows Vulkan-specific data to be included in system traces.
-- For Java and Kotlin applications, set the [debuggable attribute](https://developer.android.com/guide/topics/manifest/application-element#debug) to *false* to allow the Android Runtime to run at maximum optimized efficiency. This helps your system traces mirror real-world performance. It doesn't make as much of a difference for pure C/C++ apps or native game loops, but managed-code apps need it in order to yield accurate profiling data.
+- If you are profiling an app or game that uses [Vulkan](https://developer.android.com/games/develop/vulkan/overview.md.txt) for graphics, set the [debuggable attribute](https://developer.android.com/guide/topics/manifest/application-element.md.txt#debug) in the Android manifest to *true*. This allows Vulkan-specific data to be included in system traces.
+- For Java and Kotlin applications, set the [debuggable attribute](https://developer.android.com/guide/topics/manifest/application-element.md.txt#debug) to *false* to allow the Android Runtime to run at maximum optimized efficiency. This helps your system traces mirror real-world performance. It doesn't make as much of a difference for pure C/C++ apps or native game loops, but managed-code apps need it in order to yield accurate profiling data.
 
 ## Basic workflow
 
@@ -82,7 +82,7 @@ trace file for analysis:
    ![](https://developer.android.com/static/android-performance-analyzer/images/configure-recording.png) **Figure 3** : A screenshot of the **Configure a
    Recording** window.
 4. The **Configure a Recording** window initially opens with the default trace
-   configuration. [Adjust the options](https://developer.android.com/android-performance-analyzer/run#config) according to your needs and
+   configuration. [Adjust the options](https://developer.android.com/android-performance-analyzer/run.md.txt#config) according to your needs and
    click **OK** . This opens the **Control Recording** window and automatically
    starts the app on your testing device.
 
@@ -97,4 +97,7 @@ trace file for analysis:
 ## Next steps
 
 For more in-depth guidance on using the System Profiler in Android Performance Analyzer, see [Record a system
-trace](https://developer.android.com/android-performance-analyzer/run) and [View a system trace](https://developer.android.com/android-performance-analyzer/view).
+trace](https://developer.android.com/android-performance-analyzer/run) and [View a system trace](https://developer.android.com/android-performance-analyzer/view.md.txt).
+
+To learn more about using Android Performance Analyzer's agentic integrations for agent-assisted
+trace analysis, see [Agentic analysis](https://developer.android.com/android-performance-analyzer/agentic.md.txt).

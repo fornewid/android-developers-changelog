@@ -4,24 +4,26 @@ url: https://developer.android.com/blog/topics/android-skills
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 # #Android Skills
 
-- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)](https://developer.android.com/blog/authors/amman-asfaw) 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_ZqnmK9.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)](https://developer.android.com/blog/authors/amman-asfaw.md.txt) 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_ZqnmK9.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Leverage Android skills and Gemma 4 in Android Studio Quail 4](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4)
+  ## [Leverage Android skills and Gemma 4 in Android Studio Quail 4](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4) This is the final stable release for Android Studio Quail. The new features in Android Studio enable you to build premium apps with AI efficiently and effectively.
-  [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 5 min read
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-  - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
-- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)](https://developer.android.com/blog/authors/jose-alcerreca) 06 Aug 2026 06 Aug 2026 ![](https://developer.android.com/static/blog/assets/Inside_Android_Skills_Built_for_deprecation_Strapi_V01_8f34b79673_Z25NBy7.webp) [Community](https://developer.android.com/blog/categories/community)
+  [arrow_forward](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4.md.txt) This is the final stable release for Android Studio Quail. The new features in Android Studio enable you to build premium apps with AI efficiently and effectively.
+  [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw.md.txt) • 5 min read
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
+  - [#Android Skills](https://developer.android.com/blog/topics/android-skills.md.txt)
+- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)](https://developer.android.com/blog/authors/jose-alcerreca.md.txt) 06 Aug 2026 06 Aug 2026 ![](https://developer.android.com/static/blog/assets/Inside_Android_Skills_Built_for_deprecation_Strapi_V01_8f34b79673_Z25NBy7.webp) [Community](https://developer.android.com/blog/categories/community.md.txt)
 
-  ## [Inside Android Skills - Built for deprecation](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation)
+  ## [Inside Android Skills - Built for deprecation](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation) We released the official Android Skills in April. This blog post covers the feedback we received and explains the philosophy and methodology behind the project.
-  [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca) • 4 min read
-  - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding)
-  - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+  [arrow_forward](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation.md.txt) We released the official Android Skills in April. This blog post covers the feedback we received and explains the philosophy and methodology behind the project.
+  [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca.md.txt) • 4 min read
+  - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding.md.txt)
+  - [#Android Skills](https://developer.android.com/blog/topics/android-skills.md.txt)
 Stay in the loop
 
 

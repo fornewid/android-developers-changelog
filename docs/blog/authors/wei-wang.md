@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/wei-wang
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/weiwa_web_6a7b6f6114_ZCJJeG.webp)
 
 # Wei Wang
@@ -11,11 +13,11 @@ source: md.txt
 Engineering Manager
 
 Android BeTo
-- 20 Jul 2026 20 Jul 2026 ![](https://developer.android.com/static/blog/assets/Upcoming_Changes_to_the_Nearby_Connections_API_Strapi_11b1de50e2_ZGVCnW.webp) [Documentation](https://developer.android.com/blog/categories/documentation)
+- 20 Jul 2026 20 Jul 2026 ![](https://developer.android.com/static/blog/assets/Upcoming_Changes_to_the_Nearby_Connections_API_Strapi_11b1de50e2_ZGVCnW.webp) [Documentation](https://developer.android.com/blog/categories/documentation.md.txt)
 
-  ## [Upcoming Changes to the Nearby Connections API](https://developer.android.com/blog/posts/upcoming-changes-to-the-nearby-connections-api)
+  ## [Upcoming Changes to the Nearby Connections API](https://developer.android.com/blog/posts/upcoming-changes-to-the-nearby-connections-api.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/upcoming-changes-to-the-nearby-connections-api) User privacy and transparency are core to the Android experience. To better align with these principles, we are updating the default behavior of the Nearby Connections API regarding how it interacts with device radios.
+  [arrow_forward](https://developer.android.com/blog/posts/upcoming-changes-to-the-nearby-connections-api.md.txt) User privacy and transparency are core to the Android experience. To better align with these principles, we are updating the default behavior of the Nearby Connections API regarding how it interacts with device radios.
   1 min read
 Stay in the loop
 

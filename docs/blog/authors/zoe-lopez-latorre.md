@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/zoe-lopez-latorre
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/Screenshot_2026_07_07_at_1_15_58_PM_eb87f2f61a_Z1DSyTI.webp)
 
 # Zoe Lopez-Latorre
@@ -11,13 +13,13 @@ source: md.txt
 Senior Developer Relations Engineer
 
 Android
-- 08 Jul 2026 08 Jul 2026 ![](https://developer.android.com/static/blog/assets/Bench_July_releas_V01_Strapi_6ee24bdb6b_Z16uIB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 08 Jul 2026 08 Jul 2026 ![](https://developer.android.com/static/blog/assets/Bench_July_releas_V01_Strapi_6ee24bdb6b_Z16uIB.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Evolving how LLMs are measured for Android: the next era of Android Bench](https://developer.android.com/blog/posts/evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench)
+  ## [Evolving how LLMs are measured for Android: the next era of Android Bench](https://developer.android.com/blog/posts/evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench) Back in March, we introduced Android Bench---our LLM leaderboard for real-world Android development tasks. Since then, we have enhanced the benchmark based on your feedback, including evaluating open-weight models and adding cost and efficiency dimensions to the leaderboard.
+  [arrow_forward](https://developer.android.com/blog/posts/evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench.md.txt) Back in March, we introduced Android Bench---our LLM leaderboard for real-world Android development tasks. Since then, we have enhanced the benchmark based on your feedback, including evaluating open-weight models and adding cost and efficiency dimensions to the leaderboard.
   3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
 Stay in the loop
 
 

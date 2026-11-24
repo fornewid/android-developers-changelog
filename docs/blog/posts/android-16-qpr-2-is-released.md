@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/android-16-qpr-2-is-released
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Android 16 QPR2 is Released
 
-4 min read ![](https://developer.android.com/static/blog/assets/a16released_7cb13cc79d_Z1pSAcy.webp) 02 Dec 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Android 16 QPR2 is Released
+4 min read ![](https://developer.android.com/static/blog/assets/a16released_7cb13cc79d_Z1pSAcy.webp) 02 Dec 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) Vice President, Product Management, Android Developer Android 16 QPR2 is Released
 
 Faster Innovation with Android's first Minor SDK Release
 
@@ -37,7 +39,7 @@ To create a more consistent user experience for users who have low vision, photo
 
 The old Fitbit app showing the impact of expanded dark theme; the new Fitbit app directly supports a dark theme
 
-When the expanded dark theme setting is enabled by a user, the system uses your app's isLightTheme theme attribute to determine whether to apply inversion. If your app [inherits from one of the standard DayNight themes](https://developer.android.com/develop/ui/views/theming/darktheme#support-dark-theme), this is done automatically for you. If it does not, make sure to declare `isLightTheme="false"` in your dark theme to ensure your app is not inadvertently inverted. Standard Android Views, Composables, and WebViews will be inverted, while custom rendering engines like Flutter will not.
+When the expanded dark theme setting is enabled by a user, the system uses your app's isLightTheme theme attribute to determine whether to apply inversion. If your app [inherits from one of the standard DayNight themes](https://developer.android.com/develop/ui/views/theming/darktheme.md.txt#support-dark-theme), this is done automatically for you. If it does not, make sure to declare `isLightTheme="false"` in your dark theme to ensure your app is not inadvertently inverted. Standard Android Views, Composables, and WebViews will be inverted, while custom rendering engines like Flutter will not.
 
 This is largely intended as an accessibility feature. We strongly recommend implementing a native dark theme, which gives you full control over your app's appearance; you can protect your brand's identity, ensure text is readable, and prevent visual glitches from happening when your UI is automatically inverted, guaranteeing a polished, reliable experience for your users.
 
@@ -72,7 +74,7 @@ The Android Runtime (ART) now includes a Generational Concurrent Mark-Compact (C
 
 ## Widget Engagement Metrics
 
-You can now [query user interaction events](https://developer.android.com/develop/ui/compose/glance/metrics)---such as clicks, scrolls, and impressions---to better understand how users engage with your widgets.
+You can now [query user interaction events](https://developer.android.com/develop/ui/compose/glance/metrics.md.txt)---such as clicks, scrolls, and impressions---to better understand how users engage with your widgets.
 
 ## 16KB Page Size Readiness
 
@@ -106,7 +108,7 @@ We introduced APIs to support developer verification during app installation alo
 
 ## SMS OTP Protection
 
-The delivery of messages containing an [SMS retriever hash](https://developers.google.com/identity/sms-retriever/verify) will be delayed for most apps for three hours to help prevent OTP hijacking. The [RECEIVE_SMS](https://developer.android.com/reference/android/Manifest.permission#RECEIVE_SMS) broadcast will be withheld and [sms provider](https://developer.android.com/reference/android/provider/Telephony.Sms) database queries will be filtered. The SMS will be available to these apps after the three hour delay.
+The delivery of messages containing an [SMS retriever hash](https://developers.google.com/identity/sms-retriever/verify) will be delayed for most apps for three hours to help prevent OTP hijacking. The [RECEIVE_SMS](https://developer.android.com/reference/android/Manifest.permission.md.txt#RECEIVE_SMS) broadcast will be withheld and [sms provider](https://developer.android.com/reference/android/provider/Telephony.Sms.md.txt) database queries will be filtered. The SMS will be available to these apps after the three hour delay.
 
 ## Secure Lock Device
 
@@ -114,7 +116,7 @@ A new system-level security state, Secure Lock Device, is being introduced. When
 
 ## Get Started
 
-If you're not in the Beta or Canary programs, your Pixel device should get the Android 16 QPR2 release shortly. If you don't have a Pixel device, you can [use the 64-bit system images with the Android Emulator](https://developer.android.com/about/versions/16/get#on_emulator) in Android Studio. If you are currently on the Android 16 QPR2 Beta and have not yet installed the Android 16 QPR3 beta, you can opt out of the program and you will then be offered the release version of Android 16 QPR2 over the air.
+If you're not in the Beta or Canary programs, your Pixel device should get the Android 16 QPR2 release shortly. If you don't have a Pixel device, you can [use the 64-bit system images with the Android Emulator](https://developer.android.com/about/versions/16/get.md.txt#on_emulator) in Android Studio. If you are currently on the Android 16 QPR2 Beta and have not yet installed the Android 16 QPR3 beta, you can opt out of the program and you will then be offered the release version of Android 16 QPR2 over the air.
 
 For the best development experience with Android 16 QPR2, we recommend that you use the latest Canary build of [Android Studio Otter](https://developer.android.com/studio/preview).
 
@@ -125,35 +127,35 @@ Written by:
 
 -
 
-  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough)
+  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt)
 
   ###### Vice President, Product Management, Android Developer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
+  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 4 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
+  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-  - [#Android Bench](https://developer.android.com/blog/topics/android-bench)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
+  - [#Android Bench](https://developer.android.com/blog/topics/android-bench.md.txt)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
+  ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
+  [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here.md.txt) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 13 min read
+  - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
 Stay in the loop
 
 

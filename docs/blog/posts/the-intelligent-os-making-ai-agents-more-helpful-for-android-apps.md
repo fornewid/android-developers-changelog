@@ -4,17 +4,19 @@ url: https://developer.android.com/blog/posts/the-intelligent-os-making-ai-agent
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # The Intelligent OS: Making AI agents more helpful for Android apps
 
-3 min read ![](https://developer.android.com/static/blog/assets/intelligent_OS_215691a288_Z2cwx9U.webp) 25 Feb 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer User expectations for AI on their devices are fundamentally shifting how they interact with their apps. Instead of opening apps to do tasks step-by-step, they're asking AI to do the heavy lifting for them. In this new interaction model, success is shifting from getting users to open your app, to successfully fulfilling their tasks and helping them get more done faster.
+3 min read ![](https://developer.android.com/static/blog/assets/intelligent_OS_215691a288_Z2cwx9U.webp) 25 Feb 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) Vice President, Product Management, Android Developer User expectations for AI on their devices are fundamentally shifting how they interact with their apps. Instead of opening apps to do tasks step-by-step, they're asking AI to do the heavy lifting for them. In this new interaction model, success is shifting from getting users to open your app, to successfully fulfilling their tasks and helping them get more done faster.
 
 To help you evolve your apps for this agentic future, we're introducing early stage developer capabilities that bridge the gap between your apps and agentic apps and personalized assistants, such as Google Gemini. While we are in the early, beta stages of this journey, we're designing these features with privacy and security at their core as our first step in exploring this paradigm shift as an app ecosystem.
 
 ### **Empowering apps with AppFunctions**
 
-Android [AppFunctions](https://developer.android.com/ai/appfunctions) allows apps to expose data and functionality directly to AI agents and assistants. With the[](https://developer.android.com/jetpack/androidx/releases/appfunctions)AppFunctions [Jetpack library](https://developer.android.com/jetpack/androidx/releases/appfunctions) and [platform APIs](https://developer.android.com/reference/android/app/appfunctions/package-summary), developers can create self-describing functions that agentic apps can discover and execute via natural language. Mirroring how backend capabilities are declared via MCP cloud servers, AppFunctions provides an on-device solution for Android apps. Much like [WebMCP](https://developer.chrome.com/blog/webmcp-epp), it executes these functions locally on the device rather than on a server.
+Android [AppFunctions](https://developer.android.com/ai/appfunctions.md.txt) allows apps to expose data and functionality directly to AI agents and assistants. With the[](https://developer.android.com/jetpack/androidx/releases/appfunctions.md.txt)AppFunctions [Jetpack library](https://developer.android.com/jetpack/androidx/releases/appfunctions.md.txt) and [platform APIs](https://developer.android.com/reference/android/app/appfunctions/package-summary.md.txt), developers can create self-describing functions that agentic apps can discover and execute via natural language. Mirroring how backend capabilities are declared via MCP cloud servers, AppFunctions provides an on-device solution for Android apps. Much like [WebMCP](https://developer.chrome.com/blog/webmcp-epp), it executes these functions locally on the device rather than on a server.
 
 The **Samsung Gallery integration with Gemini on the Galaxy S26 series** showcases AppFunctions in action. Instead of manually scrolling through photo albums, you can now simply ask Gemini to "Show me pictures of my cat from Samsung Gallery." Gemini takes the user query, intelligently identifies and triggers the right function, and presents the returned photos from Samsung Gallery directly in the Gemini app, so users never need to leave. This experience is multimodal and can be done via voice or text. Users can even use the returned photos in follow-up conversations, like sending them to friends in a text message.
 ![photos.gif](https://developer.android.com/static/blog/assets/photos_fea372e64a_ZttGWD.webp)
@@ -39,35 +41,35 @@ Written by:
 
 -
 
-  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough)
+  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt)
 
   ###### Vice President, Product Management, Android Developer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
+  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 4 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
+  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-  - [#Android Bench](https://developer.android.com/blog/topics/android-bench)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
+  - [#Android Bench](https://developer.android.com/blog/topics/android-bench.md.txt)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
+  ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
+  [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here.md.txt) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 13 min read
+  - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
 Stay in the loop
 
 

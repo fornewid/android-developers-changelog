@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare
 source: md.txt
 ---
 
-[Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
 # Level Up: Test Sidekick and prepare for upcoming program milestones
 
-3 min read ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_27oFVg.webp) 11 Mar 2026 [![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Z1ibqSI.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza) PM Director, Games on Google Play Last September, we shared our vision for the future of Google Play Games grounded in a core belief: the best way to drive your game's success is to deliver a [world-class player experience](https://blog.google/products-and-platforms/platforms/google-play/curation-update-september-2025/). We launched the [Google Play Games Level Up](https://play.google.com/console/about/levelup/) program to recognize and reward great gaming experiences, while providing you with a powerful toolkit and new promotional opportunities to grow your games.
+3 min read ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_27oFVg.webp) 11 Mar 2026 [![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Z1ibqSI.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza.md.txt) [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza.md.txt) PM Director, Games on Google Play Last September, we shared our vision for the future of Google Play Games grounded in a core belief: the best way to drive your game's success is to deliver a [world-class player experience](https://blog.google/products-and-platforms/platforms/google-play/curation-update-september-2025/). We launched the [Google Play Games Level Up](https://play.google.com/console/about/levelup/) program to recognize and reward great gaming experiences, while providing you with a powerful toolkit and new promotional opportunities to grow your games.
 
 The momentum since our announcement has been incredibly positive, with more than 600 million gamers now using Play Games Services every month. Developers are also finding success, with one-third of all game installs on the Play Store now coming from editorially-driven organic discovery. In fact, in 2025, **Level Up features have driven over 2.5 billion incremental acquisitions for featured games, in addition to an average uplift of 25% in installs during the featuring windows**.
 
@@ -21,7 +23,7 @@ Play Games Sidekick is a helpful in-game overlay that gives players instant acce
 
 *Deep Rock Galactic: Survivor keeps players in the action with Play Games Sidekick *
 
-Today, Sidekick [officially debuts in over 90 games](https://play.google.com/store/apps/editorial?id=mc_games_editorialmd_gdc_sidekick_fcp), with the experience expanding to all Level Up titles later this year. But you don't need to wait for the broader rollout to get your game ready. You can now[enable Sidekick through Play Console](https://developer.android.com/games/pgs/play-games-sidekick#sidekick-beta) to preview and test how your players will interact with features like Achievements, Streaks, Play Points Coupons, and Game Tips. Upon completing your testing, be sure to push Sidekick for production to ensure your game meets the Level Up user experience guidelines.
+Today, Sidekick [officially debuts in over 90 games](https://play.google.com/store/apps/editorial?id=mc_games_editorialmd_gdc_sidekick_fcp), with the experience expanding to all Level Up titles later this year. But you don't need to wait for the broader rollout to get your game ready. You can now[enable Sidekick through Play Console](https://developer.android.com/games/pgs/play-games-sidekick.md.txt#sidekick-beta) to preview and test how your players will interact with features like Achievements, Streaks, Play Points Coupons, and Game Tips. Upon completing your testing, be sure to push Sidekick for production to ensure your game meets the Level Up user experience guidelines.
 ![Level Up_ Test Sidekick and prepare for upcoming program milestones.png](https://developer.android.com/static/blog/assets/Level_Up_Test_Sidekick_and_prepare_for_upcoming_program_milestones_d933eb6dc7_Z27yAK1.webp)
 
 *Enable Play Games Sidekick in Play Console to begin testing*
@@ -44,12 +46,12 @@ Today, all games on Google Play qualify for Google Play Games Level Up. However,
 
 By July 2026:
 
-- **Integrate** [**Play Games Sidekick**](https://developer.android.com/games/pgs/play-games-sidekick) to offer a quick and easy entry point to access rewards, offers, and achievements through an in-game overlay.
-- **Implement** [**achievements**](https://developer.android.com/games/pgs/achievements) with Play Games Services, to support authentication with the modern Gamer Profile, and to keep players engaged across the lifespan of your game.
+- **Integrate** [**Play Games Sidekick**](https://developer.android.com/games/pgs/play-games-sidekick.md.txt) to offer a quick and easy entry point to access rewards, offers, and achievements through an in-game overlay.
+- **Implement** [**achievements**](https://developer.android.com/games/pgs/achievements.md.txt) with Play Games Services, to support authentication with the modern Gamer Profile, and to keep players engaged across the lifespan of your game.
 
 By November 2026:
 
-- **Implement** [**cloud save**](https://developer.android.com/games/pgs/savedgames) to enable progress sync across devices.
+- **Implement** [**cloud save**](https://developer.android.com/games/pgs/savedgames.md.txt) to enable progress sync across devices.
 
 Last week, [we announced that we're working on an expanded Level Up program](https://android-developers.googleblog.com/2026/03/a-new-era-for-choice-and-openness.html) that builds on our successful foundation to further improve gaming experiences. The update will introduce new requirements that will unlock additional benefits like lower service fees. Engaging with the program now ensures your work is strategically aligned with these future updates. We'll share more details in the coming months.
 
@@ -58,36 +60,36 @@ Written by:
 
 -
 
-  ## [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza)
+  ## [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza.md.txt)
 
   ###### PM Director
 
   [read_more
   View profile](https://developer.android.com/blog/authors/maru-ahues-bouza) ![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Z1ibqSI.webp) ![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Z1ibqSI.webp)
 Continue reading
-- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge.md.txt) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates)
+  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
-  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge) • 3 min read
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates.md.txt) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
+  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge.md.txt) • 3 min read
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
+- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance)
+  ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance) This year at Android Dev Summit we shared how Android's developer tools are evolving to help you be more productive alongside your agents.
-  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando) • 10 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+  [arrow_forward](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance.md.txt) This year at Android Dev Summit we shared how Android's developer tools are evolving to help you be more productive alongside your agents.
+  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando.md.txt) • 10 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
+  ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md.txt) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
   1 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-  - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
-  - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+  - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear.md.txt)
+  - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses.md.txt)
   - +1 ↩
 Stay in the loop
 

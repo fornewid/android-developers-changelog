@@ -4,24 +4,26 @@ url: https://developer.android.com/blog/authors/rob-orgiu
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 2 posts ![](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_Z2l461S.webp)
 
 # Rob Orgiu
 
 Developer Relations Engineer
-- 31 Aug 2026 31 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_123_Streamline_adaptive_testing_with_emulator_commands_Strapi_0d1336f9a2_1recRz.webp) [Documentation](https://developer.android.com/blog/categories/documentation)
+- 31 Aug 2026 31 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_123_Streamline_adaptive_testing_with_emulator_commands_Strapi_0d1336f9a2_1recRz.webp) [Documentation](https://developer.android.com/blog/categories/documentation.md.txt)
 
-  ## [Emulator control for adaptive app development](https://developer.android.com/blog/posts/emulator-control-for-adaptive-app-development)
+  ## [Emulator control for adaptive app development](https://developer.android.com/blog/posts/emulator-control-for-adaptive-app-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/emulator-control-for-adaptive-app-development) Adaptive app development is fundamental on Android, but making sure everything looks good and every feature works the way it should require multiple tests on multiple devices. Or does it?
+  [arrow_forward](https://developer.android.com/blog/posts/emulator-control-for-adaptive-app-development.md.txt) Adaptive app development is fundamental on Android, but making sure everything looks good and every feature works the way it should require multiple tests on multiple devices. Or does it?
   2 min read
-  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-- 27 Oct 2025 27 Oct 2025 ![](https://developer.android.com/static/blog/assets/material3adaptive_72cc7e27f6_ZlWmpA.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps.md.txt)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+- 27 Oct 2025 27 Oct 2025 ![](https://developer.android.com/static/blog/assets/material3adaptive_72cc7e27f6_ZlWmpA.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Material 3 Adaptive 1.2.0 is stable](https://developer.android.com/blog/posts/material-3-adaptive-1-2-0-is-stable)
+  ## [Material 3 Adaptive 1.2.0 is stable](https://developer.android.com/blog/posts/material-3-adaptive-1-2-0-is-stable.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/material-3-adaptive-1-2-0-is-stable) We're excited to announce that Material 3 Adaptive 1.2.0 is now stable!
+  [arrow_forward](https://developer.android.com/blog/posts/material-3-adaptive-1-2-0-is-stable.md.txt) We're excited to announce that Material 3 Adaptive 1.2.0 is now stable!
   This release continues to build on the foundations of previous versions, expanding support to more breakpoints for window size classes and new strategies to place display panes automatically.
   1 min read
 Stay in the loop

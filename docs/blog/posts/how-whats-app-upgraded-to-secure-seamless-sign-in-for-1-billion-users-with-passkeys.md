@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-s
 source: md.txt
 ---
 
-[Case Studies](https://developer.android.com/blog/categories/case-studies)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys
 
-8 min read ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) 27 Aug 2026 3 Authors [Niharika Arora,](https://developer.android.com/blog/authors/niharika-arora) [Tracy Agyemang,](https://developer.android.com/blog/authors/tracy-agyemang) [Mayank Jain](https://developer.android.com/blog/authors/blog-author) [WhatsApp](https://play.google.com/store/apps/details?id=com.whatsapp) is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
+8 min read ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) 27 Aug 2026 3 Authors [Niharika Arora,](https://developer.android.com/blog/authors/niharika-arora.md.txt) [Tracy Agyemang,](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) [Mayank Jain](https://developer.android.com/blog/authors/blog-author.md.txt) [WhatsApp](https://play.google.com/store/apps/details?id=com.whatsapp) is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
 
 "What excites me most is the sheer scale of WhatsApp's impact. Even a small improvement to WhatsApp touches billions of users worldwide," says Mayank Manuja, an Android Engineer on the WhatsApp Registration and Access team who led the design and implementation of passkey-based authentication for WhatsApp.
 
@@ -17,7 +19,7 @@ Building for an audience of this magnitude requires navigating a vast range of n
 
 ## **The Decision to Adopt Passkeys**
 
-For WhatsApp, offering multiple access methods is key to making it easier for users to stay connected and regain access when needed. [Passkeys](https://developer.android.com/identity/passkeys) offer users a streamlined, one-tap login experience that eliminates phishing risks and functions reliably even in regions where OTP message delivery can be inconsistent.
+For WhatsApp, offering multiple access methods is key to making it easier for users to stay connected and regain access when needed. [Passkeys](https://developer.android.com/identity/passkeys.md.txt) offer users a streamlined, one-tap login experience that eliminates phishing risks and functions reliably even in regions where OTP message delivery can be inconsistent.
 
 Underneath, passkeys leverage public-private key cryptography to replace manual entry with biometric or screen lock authentication. This workflow drastically improves sign-in speeds by reducing the process to a single tap via a unified, bottom-sheet interface that keeps users engaged within the app's context. The benefits are twofold: passkeys offer users a streamlined login experience while simultaneously providing robust, native protection against phishing attacks. Crucially, they function reliably even in regions where traditional SMS OTP delivery can be inconsistent.
 ![unnamed.png](https://developer.android.com/static/blog/assets/unnamed_e49af64ee9_Z4mEod.webp) How passkeys are saved and used to authenticate using public-private key cryptography ![AANDDM_KARROT_Quote_02.png](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Quote_02_30c9e63364_phQ8E.webp)
@@ -26,7 +28,7 @@ Having robust and diverse account access methods ensures that users are never lo
 
 ## **Client-Side Integration**
 
-From the WhatsApp developer perspective, the Credential Manager API provided a clean, unified interface that abstracted away the complexity of underlying credential providers. Once initial integration flows were mapped out, the API surface became straightforward, with credential creation and retrieval following well-defined request and response patterns. Find the implementation guide in the [Android developer documentation](https://developer.android.com/identity/passkeys/create-passkeys).
+From the WhatsApp developer perspective, the Credential Manager API provided a clean, unified interface that abstracted away the complexity of underlying credential providers. Once initial integration flows were mapped out, the API surface became straightforward, with credential creation and retrieval following well-defined request and response patterns. Find the implementation guide in the [Android developer documentation](https://developer.android.com/identity/passkeys/create-passkeys.md.txt).
 
 While the happy path worked from the start, navigating a diverse user base across OEMs, multiple Android versions, and varied device configurations (such as PIN-only versus biometric, or Android 13 versus 14+) surfaced unprecedented edge cases. These included users without a screen lock, unexpected exception types, outdated Play Services, and inconsistent credential provider behavior.
 
@@ -34,7 +36,7 @@ To overcome these hurdles, the WhatsApp and Google teams collaborated deeply and
 
 - **Optimizing the credential lookup flow**: The initial lookup flow exhibited poor latency, particularly for users who had not yet created a passkey. Since the majority of WhatsApp users fall under this bucket in early stages, this added noticeable delay to nearly every sign-in. By instrumenting the call path and identifying bottlenecks together, WhatsApp significantly fastened up the process, achieving performance gains that ultimately benefited the entire Android ecosystem.
 - **Handling transient states**: WhatsApp built a comprehensive error-handling layer to navigate device-specific hurdles such as password manager availability, screen lock not configured, intermittent connectivity issues, incompatible hardware, outdated play services, categorizing exceptions into recoverable and terminal states. This allowed for graceful degradation, if a passkey flow could not complete, the system safely fell back to traditional authentication without leaving the user in a broken state.
-- **Navigating OS-specific exceptions:** When telemetry revealed device-specific hurdles such as GetPublicKeyCredentialDomException (Failed to decrypt credential) on certain Android 13 devices, and CreatePublicKeyCredentialDomException (Unable to get sync account) during passkey creation on Android 14, Google and the WhatsApp team investigated the root causes and implemented platform-level improvements to ensure smoother creation flows. You can find the comprehensive error guide [here](https://developer.android.com/identity/sign-in/credential-manager-troubleshooting-guide) which lists common error codes and descriptions related to Credential Manager, and provides some information about their causes.
+- **Navigating OS-specific exceptions:** When telemetry revealed device-specific hurdles such as GetPublicKeyCredentialDomException (Failed to decrypt credential) on certain Android 13 devices, and CreatePublicKeyCredentialDomException (Unable to get sync account) during passkey creation on Android 14, Google and the WhatsApp team investigated the root causes and implemented platform-level improvements to ensure smoother creation flows. You can find the comprehensive error guide [here](https://developer.android.com/identity/sign-in/credential-manager-troubleshooting-guide.md.txt) which lists common error codes and descriptions related to Credential Manager, and provides some information about their causes.
 
 |---|
 | ***Note:** For further guidance, explore the *[*Passkeys best practices blog*](https://android-developers.googleblog.com/2025/09/best-practices-migrating-users-passkeys-credential-manager.html)* to learn how to optimize the user experience when adopting passkeys.* |
@@ -176,15 +178,15 @@ For developers preparing to integrate passkeys at scale, the WhatsApp team share
 
 ## **Get Started with Passkeys and Credential Manager**
 
-Get hands on with passkeys and Credential Manager on Android using our [integration guide](https://developer.android.com/identity/credential-manager) and [public sample code](https://github.com/android/identity-samples/tree/main/Shrine).
+Get hands on with passkeys and Credential Manager on Android using our [integration guide](https://developer.android.com/identity/credential-manager.md.txt) and [public sample code](https://github.com/android/identity-samples/tree/main/Shrine).
 
 If you have any questions or issues, you can share with us through the [Android Credentials issues tracker](https://issuetracker.google.com/issues?q=1301097).
-- [#Passkeys](https://developer.android.com/blog/topics/passkeys)
+- [#Passkeys](https://developer.android.com/blog/topics/passkeys.md.txt)
 Written by:
 
 -
 
-  ## [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora)
+  ## [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -192,7 +194,7 @@ Written by:
   View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)
 -
 
-  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
+  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt)
 
   ###### Product Marketing Manager
 
@@ -200,32 +202,32 @@ Written by:
   View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
 -
 
-  ## [Mayank Jain](https://developer.android.com/blog/authors/blog-author)
+  ## [Mayank Jain](https://developer.android.com/blog/authors/blog-author.md.txt)
 
   ###### Product Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/blog-author) ![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_2v5Cdi.webp) ![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_2v5Cdi.webp)
 Continue reading
-- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Z2c5PaI.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora.md.txt)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Z2c5PaI.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How Uber is reducing manual logins by 4 million per year with the Restore Credentials API](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api)
+  ## [How Uber is reducing manual logins by 4 million per year with the Restore Credentials API](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api) Uber leveraged the Android Restore Credentials API to streamline new device sign-in, projecting a reduction of 4 million manual logins per year and increasing user retention.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 21 Nov 2024 21 Nov 2024 ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_ZkMOm6.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api.md.txt) Uber leveraged the Android Restore Credentials API to streamline new device sign-in, projecting a reduction of 4 million manual logins per year and increasing user retention.
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora.md.txt)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) 21 Nov 2024 21 Nov 2024 ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_ZkMOm6.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [X improved login success rate by 2x after adopting passkeys](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys)
+  ## [X improved login success rate by 2x after adopting passkeys](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys) From breaking news and entertainment to sports and politics, X is a social media app that aims to help nearly 500 million users worldwide get the full story with all the live commentary.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 3 min read
-- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys.md.txt) From breaking news and entertainment to sports and politics, X is a social media app that aims to help nearly 500 million users worldwide get the full story with all the live commentary.
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 3 min read
+- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time)
+  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
 Stay in the loop
 
 

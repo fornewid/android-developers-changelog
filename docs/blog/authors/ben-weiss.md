@@ -4,47 +4,49 @@ url: https://developer.android.com/blog/authors/ben-weiss
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/ben-weiss/llms.txt
+
 8 posts ![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)
 
 # Ben Weiss
 
 Developer Relations Engineer
-- 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZRbYap.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZRbYap.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Build intelligent Android apps: Integrate into Android's intelligence system using AppFunctions](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions)
+  ## [Build intelligent Android apps: Integrate into Android's intelligence system using AppFunctions](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post, we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions.md.txt) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post, we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
   6 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/monzo_boosts_performance_aff3a37917_1dhX7d.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps.md.txt)
+- 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/monzo_boosts_performance_aff3a37917_1dhX7d.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Monzo boosts performance metrics by up to 35% with a simple R8 update](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update)
+  ## [Monzo boosts performance metrics by up to 35% with a simple R8 update](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update) Monzo is a UK digital bank with 15 million customers and growing. As the app scaled, the engineering team identified app startup time as a critical area for improvement but worried it would require significant changes to their codebase.
+  [arrow_forward](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update.md.txt) Monzo is a UK digital bank with 15 million customers and growing. As the app scaled, the engineering team identified app startup time as a critical area for improvement but worried it would require significant changes to their codebase.
   2 min read
-- 21 Nov 2025 21 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_RfccU.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 21 Nov 2025 21 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_RfccU.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Fully Optimized: Wrapping up Performance Spotlight Week](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week)
+  ## [Fully Optimized: Wrapping up Performance Spotlight Week](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week) From the foundational powers of the R8 optimizer and Profile Guided Optimizations, to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the low effort, high impact tools you need to build a performant app.
+  [arrow_forward](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week.md.txt) From the foundational powers of the R8 optimizer and Profile Guided Optimizations, to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the low effort, high impact tools you need to build a performant app.
   3 min read
-- 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week11_efe6dd10be_1ULXct.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week11_efe6dd10be_1ULXct.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Deeper Performance Considerations](https://developer.android.com/blog/posts/deeper-performance-considerations)
+  ## [Deeper Performance Considerations](https://developer.android.com/blog/posts/deeper-performance-considerations.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/deeper-performance-considerations) We're covering Profile Guided Optimization, Jetpack Compose performance improvements and considerations on working behind the scenes.
+  [arrow_forward](https://developer.android.com/blog/posts/deeper-performance-considerations.md.txt) We're covering Profile Guided Optimization, Jetpack Compose performance improvements and considerations on working behind the scenes.
   8 min read
-- 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week7_0b86aba329_Z1h1s1q.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week7_0b86aba329_Z1h1s1q.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Configure and troubleshoot R8 Keep Rules](https://developer.android.com/blog/posts/configure-and-troubleshoot-r8-keep-rules)
+  ## [Configure and troubleshoot R8 Keep Rules](https://developer.android.com/blog/posts/configure-and-troubleshoot-r8-keep-rules.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/configure-and-troubleshoot-r8-keep-rules) The Android build system's primary tool for achieving a small, fast, and secure application is the R8 optimizer, the compiler that handles dead code and resource removal for shrinking, code renaming or minification, and app optimization.
+  [arrow_forward](https://developer.android.com/blog/posts/configure-and-troubleshoot-r8-keep-rules.md.txt) The Android build system's primary tool for achieving a small, fast, and secure application is the R8 optimizer, the compiler that handles dead code and resource removal for shrinking, code renaming or minification, and app optimization.
   7 min read
-- 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week10_467f2693b4_19FhE4.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week10_467f2693b4_19FhE4.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Use R8 to shrink, optimize, and fast-track your app](https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app)
+  ## [Use R8 to shrink, optimize, and fast-track your app](https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app) We're kicking things off with the single most impactful, low-effort change you can make to improve your app's performance: enabling the R8 optimizer in full mode.
+  [arrow_forward](https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app.md.txt) We're kicking things off with the single most impactful, low-effort change you can make to improve your app's performance: enabling the R8 optimizer in full mode.
   5 min read
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
@@ -52,7 +54,7 @@ Developer Relations Engineer
 
 ###### of 2
 
-[arrow_forward](https://developer.android.com/blog/authors/ben-weiss/2) Stay in the loop
+[arrow_forward](https://developer.android.com/blog/authors/ben-weiss/2.md.txt) Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

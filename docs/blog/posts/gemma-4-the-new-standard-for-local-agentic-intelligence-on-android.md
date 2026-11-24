@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/gemma-4-the-new-standard-for-local
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Gemma 4: The new standard for local agentic intelligence on Android
 
-2 min read ![](https://developer.android.com/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_SzISG.webp) 02 Apr 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today, we are enhancing Android development with [**Gemma 4**](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/), our latest state-of-the-art open model designed with complex reasoning and autonomous tool-calling capabilities.
+2 min read ![](https://developer.android.com/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_SzISG.webp) 02 Apr 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) Vice President, Product Management, Android Developer Today, we are enhancing Android development with [**Gemma 4**](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/), our latest state-of-the-art open model designed with complex reasoning and autonomous tool-calling capabilities.
 
 Our vision is to enable local agentic AI on Android across the entire software lifecycle, from development to production. Android supports a range of Gemma 4 models, from the most efficient ones running directly on-device in your apps to more powerful ones running on your development machine to help you build apps. We are bringing Gemma 4 to Android developers through two pillars:
 
@@ -19,13 +21,13 @@ Our vision is to enable local agentic AI on Android across the entire software l
 
 When building Android apps, Android Studio can use Gemma 4 to leverage its state-of-the-art reasoning power and native support for tool use, while keeping the model and inference contained entirely on your local machine.
 
-Gemma 4 was trained on Android development and designed with [Agent Mode](https://developer.android.com/studio/gemini/agent-mode) in mind. This means that when you select Gemma 4 as your local model, you can leverage the full suite of Agent Mode capabilities for a variety of Android development use cases, including refactoring legacy code, building an entire app or new features, and applying fixes iteratively.
+Gemma 4 was trained on Android development and designed with [Agent Mode](https://developer.android.com/studio/gemini/agent-mode.md.txt) in mind. This means that when you select Gemma 4 as your local model, you can leverage the full suite of Agent Mode capabilities for a variety of Android development use cases, including refactoring legacy code, building an entire app or new features, and applying fixes iteratively.
 
 [Learn more](http://android-developers.googleblog.com/2026/04/android-studio-supports-gemma-4-local.html) about the possibilities Gemma 4 brings to your app development flow and how to get started.
 
 ## Prototyping with Gemma 4 on-device
 
-Since the introduction of [Gemini Nano](https://developer.android.com/ai/gemini-nano) as the foundation model on Android, it has become available on over 140 million devices. Gemma 4 is the base model for the next generation of Gemini Nano (Gemini Nano 4) that is optimized for performance and quality on Android devices. This model is up to 4x faster than the previous version and uses up to 60% less battery.
+Since the introduction of [Gemini Nano](https://developer.android.com/ai/gemini-nano.md.txt) as the foundation model on Android, it has become available on over 140 million devices. Gemma 4 is the base model for the next generation of Gemini Nano (Gemini Nano 4) that is optimized for performance and quality on Android devices. This model is up to 4x faster than the previous version and uses up to 60% less battery.
 
 To make it as easy as possible to preview and prototype with Gemma 4 E2B and E4B models directly on AICore-supported devices, we're launching the [AICore Developer Preview](https://developers.google.com/ml-kit/genai/aicore-dev-preview). While we continue to expand the[ML Kit GenAI Prompt API](https://developers.google.com/ml-kit/genai/prompt/android) surface to unlock additional advanced capabilities of the model, you can already start exploring new use cases with Gemma 4 using the Prompt API.
 
@@ -36,40 +38,40 @@ Prepare your apps for the launch of the Gemini Nano 4 on the new flagship Androi
 Running Gemma 4 locally, you can leverage its advanced reasoning and tool-calling capabilities in your entire workflow, from developing with the AI coding assistant in Android Studio to shipping intelligent features in your app with ML Kit GenAI Prompt API. This local-first approach, available under Gemma's open Apache license, provides an alternative for developers to innovate in a privacy-centric and cost effective manner. In a future release, we will update [Android Bench](https://developer.android.com/bench) to include Gemma 4 and other open models, providing the quantified data you need to navigate performance trade-offs and select the best model for your use case.
 
 We can't wait to see what you build!
-- [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+- [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
 Written by:
 
 -
 
-  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough)
+  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt)
 
   ###### Vice President, Product Management, Android Developer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
+  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Rabbit2_Strapi_27563aeaf4_1BAzRM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 4 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Rabbit2_Strapi_27563aeaf4_1BAzRM.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Your favorite agents are now integrated in Android Studio](https://developer.android.com/blog/posts/ai-agents-android-studio-integration)
+  ## [Your favorite agents are now integrated in Android Studio](https://developer.android.com/blog/posts/ai-agents-android-studio-integration.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/ai-agents-android-studio-integration) Android Studio Rabbit 2 is now stable and ready for you to use in production. This release includes key features to improve your development such as Bring Your Own Agent, new XR Emulator features, a LeakCanary update, a new agent skills manager tool, AI code review, and more.
-  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 3 min read
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/ai-agents-android-studio-integration.md.txt) Android Studio Rabbit 2 is now stable and ready for you to use in production. This release includes key features to improve your development such as Bring Your Own Agent, new XR Emulator features, a LeakCanary update, a new agent skills manager tool, AI code review, and more.
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt) • 3 min read
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
+  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-  - [#Android Bench](https://developer.android.com/blog/topics/android-bench)
+  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
+  - [#Android Bench](https://developer.android.com/blog/topics/android-bench.md.txt)
 Stay in the loop
 
 

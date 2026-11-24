@@ -4,10 +4,12 @@ url: https://developer.android.com/android-performance-analyzer/view
 source: md.txt
 ---
 
-You can view any system traces that you've [recorded previously](https://developer.android.com/android-performance-analyzer/run) in the
+> Documentation index: https://developer.android.com/android-performance-analyzer/view/llms.txt
+
+You can view any system traces that you've [recorded previously](https://developer.android.com/android-performance-analyzer/run.md.txt) in the
 System Profiler in Android Performance Analyzer. This guide demonstrates how to use the trace view to interact with
 recorded data. For a detailed description of the data presented in the trace
-view, see [Understand trace data](https://developer.android.com/android-performance-analyzer/view/data).
+view, see [Understand trace data](https://developer.android.com/android-performance-analyzer/view/data.md.txt).
 
 ## Navigate the trace view
 
@@ -131,5 +133,6 @@ personalized analysis.
 - Click ![](https://developer.android.com/static/android-performance-analyzer/images/icon-query-history.png) **History** for a scrollable dropdown list of queries executed previously. Query history is shared across trace files and projects.
 - Click ![](https://developer.android.com/static/android-performance-analyzer/images/icon-trace-tab.png) **Trace** in the lop-left corner to return to the trace view.
 
-You can also let your preferred AI agent write a query for you. See [Use AI to
-build custom queries](https://developer.android.com/android-performance-analyzer/analyze/ai#ai-queries) for more information.
+You can also let your [preferred AI agent](https://developer.android.com/android-performance-analyzer/agentic.md.txt) write a query for you. Click
+![](https://developer.android.com/static/images/picto-icons/gemini.svg) **Generate
+Query** and describe what you want to analyze in natural language.

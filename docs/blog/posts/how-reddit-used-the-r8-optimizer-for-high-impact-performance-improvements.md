@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/posts/how-reddit-used-the-r8-optimizer-f
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # How Reddit used the R8 optimizer for high impact performance improvements

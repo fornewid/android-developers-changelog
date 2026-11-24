@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/authors/yacine-rezgui
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 
 # Yacine Rezgui
 
 Developer Relations Engineer
-- 27 Jan 2026 27 Jan 2026 ![](https://developer.android.com/static/blog/assets/Android_Photo_Picker_Blogger_60fa0ede59_ZODDpJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 27 Jan 2026 27 Jan 2026 ![](https://developer.android.com/static/blog/assets/Android_Photo_Picker_Blogger_60fa0ede59_ZODDpJ.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [The Embedded Photo Picker](https://developer.android.com/blog/posts/the-embedded-photo-picker)
+  ## [The Embedded Photo Picker](https://developer.android.com/blog/posts/the-embedded-photo-picker.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/the-embedded-photo-picker) The Embedded Photo Picker: A more seamless way to privately request photos and videos in your app.
+  [arrow_forward](https://developer.android.com/blog/posts/the-embedded-photo-picker.md.txt) The Embedded Photo Picker: A more seamless way to privately request photos and videos in your app.
   8 min read
 Stay in the loop
 

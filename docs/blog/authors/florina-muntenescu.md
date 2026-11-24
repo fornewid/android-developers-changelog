@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/florina-muntenescu
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/unnamed_27_1d76df3c3b_2gwEzo.webp)
 
 # Florina Muntenescu
@@ -11,13 +13,13 @@ source: md.txt
 Dev Rel Manager
 
 Developer Relations
-- 02 Nov 2026 02 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_155_Strapi_1_f48145e2db_Z2jyq4w.webp) [Community](https://developer.android.com/blog/categories/community)
+- 02 Nov 2026 02 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_155_Strapi_1_f48145e2db_Z2jyq4w.webp) [Community](https://developer.android.com/blog/categories/community.md.txt)
 
-  ## [Developing for Today: 50+ New Developer Sessions on Building Apps Today](https://developer.android.com/blog/posts/building-apps-developer-sessions)
+  ## [Developing for Today: 50+ New Developer Sessions on Building Apps Today](https://developer.android.com/blog/posts/building-apps-developer-sessions.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/building-apps-developer-sessions) Over 900 attendees joined our event spaces for a keynote about our outlook on the future, demo sessions, dozens of workshops, a hackathon, and for community discussions focused on ideas and feedback on Android platform.
+  [arrow_forward](https://developer.android.com/blog/posts/building-apps-developer-sessions.md.txt) Over 900 attendees joined our event spaces for a keynote about our outlook on the future, demo sessions, dozens of workshops, a hackathon, and for community discussions focused on ideas and feedback on Android platform.
   1 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
 Stay in the loop
 
 

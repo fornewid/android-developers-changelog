@@ -4,17 +4,19 @@ url: https://developer.android.com/blog/topics/profiling-manager
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 # #Profiling Manager
 
-- 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_prXkK.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_prXkK.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Datadog delivers millions of in-depth performance insights with ProfilingManager](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager)
+  ## [Datadog delivers millions of in-depth performance insights with ProfilingManager](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager) Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers.
-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov), [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov) • 4 min read
-  - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#Performance](https://developer.android.com/blog/topics/performance)
+  [arrow_forward](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager.md.txt) Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers.
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt), [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov.md.txt), [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov.md.txt) • 4 min read
+  - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager.md.txt)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
   - +1 ↩
 Stay in the loop
 

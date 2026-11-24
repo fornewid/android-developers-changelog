@@ -76,7 +76,7 @@ InputStream in = urlConnection.getInputStream();
 copyInputStreamToOutputStream(in, System.out);
 ```
 
-To customize HTTP requests, cast to `https://developer.android.com/reference/java/net/HttpURLConnection`.
+To customize HTTP requests, cast to `HttpURLConnection`.
 The Android `HttpURLConnection` documentation includes
 examples for handling request and response headers, publishing content, managing cookies, using
 proxies, caching responses, and more. The Android framework verifies certificates and hostnames
@@ -87,7 +87,7 @@ different solutions.
 
 ## Common problems verifying server certificates
 
-Suppose that instead of returning content, `https://developer.android.com/reference/java/net/URLConnection#getInputStream()`,
+Suppose that instead of returning content, `getInputStream()`,
 throws an exception:
 
 ```
@@ -105,17 +105,16 @@ javax.net.ssl.SSLHandshakeException: java.security.cert.CertPathValidatorExcepti
 
 This can happen for several reasons, including:
 
-1. [The CA that issued the server certificate was unknown](https://developer.android.com/privacy-and-security/security-ssl#UnknownCa).
-2. [The server certificate wasn't signed by a CA, but was self signed](https://developer.android.com/privacy-and-security/security-ssl#SelfSigned).
-3. [The server configuration is missing an intermediate CA](https://developer.android.com/privacy-and-security/security-ssl#MissingCa).
+1. [The CA that issued the server certificate was unknown](https://developer.android.com/privacy-and-security/security-ssl.md.txt#UnknownCa).
+2. [The server certificate wasn't signed by a CA, but was self signed](https://developer.android.com/privacy-and-security/security-ssl.md.txt#SelfSigned).
+3. [The server configuration is missing an intermediate CA](https://developer.android.com/privacy-and-security/security-ssl.md.txt#MissingCa).
 
 The following sections discuss how to address these problems while keeping your
 connection to the server secure.
 
-
 ### Unknown certificate authority
 
-The `https://developer.android.com/reference/javax/net/ssl/SSLHandshakeException`
+The `SSLHandshakeException`
 arises because the system doesn't trust the CA. This could be because you have a certificate from
 a new CA that Android doesn't trust or because your app is operating on an earlier version without
 the CA. Because it's private, a CA is rarely known. More often, a CA is unknown because it isn't a
@@ -127,7 +126,7 @@ To trust custom CAs without needing to change your app's code, change your
 
 **Caution:**
 Many web sites describe a poor alternative solution, which is to install a
-`https://developer.android.com/reference/javax/net/ssl/TrustManager` that does nothing.
+`TrustManager` that does nothing.
 Doing this leaves your users vulnerable to attacks when using a public Wi-Fi hotspot, because an
 attacker can use DNS tricks to send your users' traffic through a proxy that pretends
 to be your server. The attacker can then
@@ -138,14 +137,14 @@ make your app trust the issuer of the server's certificate.
 
 ### Self-signed server certificate
 
-Second, `https://developer.android.com/reference/javax/net/ssl/SSLHandshakeException`
+Second, `SSLHandshakeException`
 might occur because of a self-signed certificate, making the server its own CA. This is similar to an unknown
 certificate authority, so modify your application's Network Security Config to trust your
 self-signed certificates.
 
 ### Missing intermediate certificate authority
 
-Third, `https://developer.android.com/reference/javax/net/ssl/SSLHandshakeException`
+Third, ` SSLHandshakeException`
 occurs due to missing intermediate CA. Public CAs rarely sign server certificates. Instead, the
 root CA signs intermediate CAs.
 
@@ -205,15 +204,15 @@ Most CAs provide instructions on how to do this for common web servers.
 
 ## Warnings about using SSLSocket directly
 
-So far, the examples have focused on HTTPS using `https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection`.
+So far, the examples have focused on HTTPS using `HttpsURLConnection`.
 Sometimes apps need to use TLS separate from HTTPS. For example, an email app might use TLS variants
-of SMTP, POP3, or IMAP. In those cases, the app can use `https://developer.android.com/reference/javax/net/ssl/SSLSocket`
+of SMTP, POP3, or IMAP. In those cases, the app can use `SSLSocket`
 directly, much the same way that `HttpsURLConnection` does internally.
 
 The techniques described so
 far to deal with certificate verification issues also apply to `SSLSocket`.
-In fact, when using a custom `https://developer.android.com/reference/javax/net/ssl/TrustManager`, what is passed to
-`HttpsURLConnection` is a `https://developer.android.com/reference/javax/net/ssl/SSLSocketFactory`.
+In fact, when using a custom `TrustManager`, what is passed to
+`HttpsURLConnection` is a `SSLSocketFactory`.
 So if you need to use a custom `TrustManager` with an
 `SSLSocket`, follow
 the same steps and use that `SSLSocketFactory` to create your
@@ -221,8 +220,8 @@ the same steps and use that `SSLSocketFactory` to create your
 
 **Caution:**
 `SSLSocket` **does not** perform hostname verification. It is
-up to your app to do its own hostname verification, preferably by calling `https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection#getDefaultHostnameVerifier()` with the expected hostname.
-Also, be aware that `https://developer.android.com/reference/javax/net/ssl/HostnameVerifier#verify(java.lang.String, javax.net.SSL.SSLSession)`
+up to your app to do its own hostname verification, preferably by calling `getDefaultHostnameVerifier()` with the expected hostname.
+Also, be aware that `HostnameVerifier.verify()`
 doesn't throw an exception on error. Instead, it returns a boolean result that you must
 explicitly check.
 
@@ -262,7 +261,6 @@ This article focuses on the use of TLS to secure communications with servers. TL
 supports the notion of client certificates that let the server validate the identity of a
 client. While beyond the scope of this article, the techniques involved are similar to specifying
 a custom `TrustManager`.
-
 
 ## Nogotofail: A network traffic security testing tool
 
@@ -314,14 +312,14 @@ or CA certificates into a KeyChain object.
 In Android 10 and higher, TLS 1.3 is enabled by default for all TLS connections. Here are a few
 important details about our TLS 1.3 implementation:
 
-- The TLS 1.3 cipher suites cannot be customized. The supported TLS 1.3 cipher suites are always enabled when TLS 1.3 is enabled. Any attempt to disable them by calling [`setEnabledCipherSuites()`](https://developer.android.com/reference/javax/net/ssl/SSLSocket#setEnabledCipherSuites(java.lang.String%5B%5D)) is ignored.
-- When TLS 1.3 is negotiated, [`HandshakeCompletedListener`](https://developer.android.com/reference/javax/net/ssl/HandshakeCompletedListener) objects are called before sessions are added to the session cache. (In TLS 1.2 and other previous versions, these objects are called after sessions are added to the session cache.)
-- In some situations where SSLEngine instances throw an [`SSLHandshakeException`](https://developer.android.com/reference/javax/net/ssl/SSLHandshakeException) on previous versions of Android, these instances throw an [`SSLProtocolException`](https://developer.android.com/reference/javax/net/ssl/SSLProtocolException) instead on Android 10 and higher.
+- The TLS 1.3 cipher suites cannot be customized. The supported TLS 1.3 cipher suites are always enabled when TLS 1.3 is enabled. Any attempt to disable them by calling [`setEnabledCipherSuites()`](https://developer.android.com/reference/javax/net/ssl/SSLSocket.md.txt#setEnabledCipherSuites(java.lang.String%5B%5D)) is ignored.
+- When TLS 1.3 is negotiated, [`HandshakeCompletedListener`](https://developer.android.com/reference/javax/net/ssl/HandshakeCompletedListener.md.txt) objects are called before sessions are added to the session cache. (In TLS 1.2 and other previous versions, these objects are called after sessions are added to the session cache.)
+- In some situations where SSLEngine instances throw an [`SSLHandshakeException`](https://developer.android.com/reference/javax/net/ssl/SSLHandshakeException.md.txt) on previous versions of Android, these instances throw an [`SSLProtocolException`](https://developer.android.com/reference/javax/net/ssl/SSLProtocolException.md.txt) instead on Android 10 and higher.
 - 0-RTT mode isn't supported.
 
 
 If desired, you can obtain an SSLContext that has TLS 1.3 disabled by calling
-[`SSLContext.getInstance("TLSv1.2")`](https://developer.android.com/reference/javax/net/ssl/SSLContext#getInstance(java.lang.String)). You can also enable or disable protocol versions on a per-connection basis by calling [`setEnabledProtocols()`](https://developer.android.com/reference/javax/net/ssl/SSLSocket#setEnabledProtocols(java.lang.String%5B%5D)) on an appropriate object.
+[`SSLContext.getInstance("TLSv1.2")`](https://developer.android.com/reference/javax/net/ssl/SSLContext.md.txt#getInstance(java.lang.String)). You can also enable or disable protocol versions on a per-connection basis by calling [`setEnabledProtocols()`](https://developer.android.com/reference/javax/net/ssl/SSLSocket.md.txt#setEnabledProtocols(java.lang.String%5B%5D)) on an appropriate object.
 
 #### Certificates signed with SHA-1 aren't trusted in TLS
 
@@ -338,7 +336,7 @@ Any attempt to connect fails if the connection is to a site that presents a cert
 
 Some browsers, such as Google Chrome, allow users to choose a certificate when a TLS server sends a
 certificate request message as part of a TLS handshake. As of Android 10,
-[`KeyChain`](https://developer.android.com/reference/android/security/KeyChain) objects honor
+[`KeyChain`](https://developer.android.com/reference/android/security/KeyChain.md.txt) objects honor
 the issuers and key specification parameters when calling `KeyChain.choosePrivateKeyAlias()` to show
 users a certificate selection prompt. In particular, this prompt doesn't contain choices that don't
 adhere to server specifications.
@@ -367,7 +365,7 @@ There have been several minor changes in the TLS and cryptography libraries that
 #### HTTPS connection changes
 
 
-If an app running Android 10 passes null into [`setSSLSocketFactory()`](https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection#setSSLSocketFactory(javax.net.ssl.SSLSocketFactory)), an [`IllegalArgumentException`](https://developer.android.com/reference/java/lang/IllegalArgumentException) occurs. In previous versions, passing null into `setSSLSocketFactory()` had the same effect as passing in the current [default factory](https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection#getDefaultSSLSocketFactory()).
+If an app running Android 10 passes null into [`setSSLSocketFactory()`](https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection.md.txt#setSSLSocketFactory(javax.net.ssl.SSLSocketFactory)), an [`IllegalArgumentException`](https://developer.android.com/reference/java/lang/IllegalArgumentException.md.txt) occurs. In previous versions, passing null into `setSSLSocketFactory()` had the same effect as passing in the current [default factory](https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection.md.txt#getDefaultSSLSocketFactory()).
 
 ### Android 11
 

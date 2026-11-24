@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Android Studio I/O Edition: What's new in Android Developer tools
 
-8 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) 19 May 2026 [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) Product Manager, Android Developer Experience This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase. So, whether you are building exclusively with AI or you prefer being the architect of every line of code, our tools will keep you ahead of the curve.
+8 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) 19 May 2026 [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt) Product Manager, Android Developer Experience This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase. So, whether you are building exclusively with AI or you prefer being the architect of every line of code, our tools will keep you ahead of the curve.
 
 As we move from "AI-assisted" to "Agentic" development, we're making it easier than ever to turn a spark of an idea into a high-quality production app with significantly less developer effort.
 [Video](https://www.youtube.com/watch?v=N4GgGBKnHe4)
@@ -26,7 +28,7 @@ So what's new with Android developer tools? We will cover 3 main areas in this b
 Android Studio now supports [Agent Skills](https://www.youtube.com/watch?v=AhrXPjk22OE&t=148s), modular instruction sets that ground LLMs in specialized workflows and domain-specific knowledge. By adding skills to your project, you can teach the agent to follow specific best practices, architecture patterns, or library workflows. This enables more accurate, context-aware code generation and automated skill activation for an appropriate task, ensuring the agent acts as an expert. We've bundled many of the top Android and Firebase agent skills in the latest Android Studio [Canary](https://developer.android.com/studio/preview) build, so you can skip straight to building!
 ![Agent_Skills.png](https://developer.android.com/static/blog/assets/Agent_Skills_9633868f1c_Z1X4kP2.webp) Skills in Agent Mode
 
-You can create your own skill, or use [Android CLI](https://developer.android.com/tools/agents/android-skills#android-cli) to install our [official skills](https://github.com/android/skills) - a repository that covers some of the most common workflows that some Android developers and LLMs may struggle with. They help models better understand and execute specific patterns that follow our best practices and guidance on Android development, such as XML to Compose migration, Edge-to-edge, Navigation 3, and more. You can even use skills for Android XR, starting with a beautiful Display Glasses app with Jetpack Compose [Glimmer](https://github.com/android/skills/tree/main/xr/display-glasses-with-jetpack-compose-glimmer).
+You can create your own skill, or use [Android CLI](https://developer.android.com/tools/agents/android-skills.md.txt#android-cli) to install our [official skills](https://github.com/android/skills) - a repository that covers some of the most common workflows that some Android developers and LLMs may struggle with. They help models better understand and execute specific patterns that follow our best practices and guidance on Android development, such as XML to Compose migration, Edge-to-edge, Navigation 3, and more. You can even use skills for Android XR, starting with a beautiful Display Glasses app with Jetpack Compose [Glimmer](https://github.com/android/skills/tree/main/xr/display-glasses-with-jetpack-compose-glimmer).
 
 ### Build full-stack apps with Firebase in Agent Mode
 
@@ -67,7 +69,7 @@ You can now use your [Google AI Pro or Ultra](https://one.google.com/about/googl
 
 ### Gemma 4 for local code assist and on-device AI
 
-[Gemma 4](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding) is a state-of-the-art local model trained for Android development. It's our most efficient local model and is capable of complex multi-step agentic coding in Android Studio. It's ideal for developers who require data privacy, offline access, or have run into quota issues with other models.
+[Gemma 4](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding.md.txt) is a state-of-the-art local model trained for Android development. It's our most efficient local model and is capable of complex multi-step agentic coding in Android Studio. It's ideal for developers who require data privacy, offline access, or have run into quota issues with other models.
 [Video](https://www.youtube.com/watch?v=4iPn1qRVsNY)
 
 And now in the latest Canary build, you can download and run Gemma 4 directly from the IDE, without needing to set up an external server.
@@ -83,7 +85,7 @@ Android Studio allows developers to bring any model they choose into the IDE for
 Earlier this year we launched Android Bench, the benchmark and leaderboard designed to evaluate how effectively LLMs handle real-world Android development tasks. The goal is to accelerate AI improvements, leading to more helpful models for you to use for AI assistance, which will lead to better quality apps for Android users.  
 
 You asked us to evaluate open models, so we added them to [the leaderboard](http://d.android.com/bench) to help you see how LLMs with additional privacy and offline access measure up. We are also working on significantly increasing the difficulty of challenges we're giving LLMs, to continue encouraging improvements. This includes creating long running tasks, which take a typical Android engineer multiple days to complete.
-![Android_Bench_update.png](https://developer.android.com/static/blog/assets/Android_Bench_update_6c56b8335f_1tVIg4.webp) Latest results as of May 18th 2026, check here for updates
+![Android_Bench_update.png](https://developer.android.com/static/blog/assets/Android_Bench_update_6c56b8335f_1tVIg4.webp) Latest results as of May 18th 2026, check [here](https://developer.android.com/bench) for updates
 
 ## 3: As always, performance and quality remain top priorities:
 
@@ -126,11 +128,11 @@ APA integrates natively with AI agents and offers two new skills: **Perfetto SQL
 
 ### R8 Configuration Analyzer
 
-[R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization) is one of the best ways to improve your app's performance and reduce memory footprint. The performance benefits you can get from R8 are directly correlated to how much of your codebase R8 is able to optimize. We've introduced a new tool to help you to unlock the maximum optimization from R8 -- the R8 Configuration Analyzer. It provides insights into R8 configuration quality and how your keep rules impact your app. We have also introduced three scores that show how much of your codebase is available for optimization, obfuscation, and shrinking.
+[R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt) is one of the best ways to improve your app's performance and reduce memory footprint. The performance benefits you can get from R8 are directly correlated to how much of your codebase R8 is able to optimize. We've introduced a new tool to help you to unlock the maximum optimization from R8 -- the R8 Configuration Analyzer. It provides insights into R8 configuration quality and how your keep rules impact your app. We have also introduced three scores that show how much of your codebase is available for optimization, obfuscation, and shrinking.
 
 ### Suggested fixes for crashes with Agent integration in AQ**I**
 
-The [App Quality Insights](https://developer.android.com/studio/debug/app-quality-insights) tool window is now integrated with the AI agent to analyze crash data along with your source code to provide detailed explanations and suggest potential fixes. After selecting a crash in the App Quality Insights tool window, navigate to the Insights tab and click "See more" to see a detailed explanation of the crash. Click "Fix with AI" to have the agent suggest code changes that you can review and accept.  
+The [App Quality Insights](https://developer.android.com/studio/debug/app-quality-insights.md.txt) tool window is now integrated with the AI agent to analyze crash data along with your source code to provide detailed explanations and suggest potential fixes. After selecting a crash in the App Quality Insights tool window, navigate to the Insights tab and click "See more" to see a detailed explanation of the crash. Click "Fix with AI" to have the agent suggest code changes that you can review and accept.  
 ![aqi-agent-integration.png](https://developer.android.com/static/blog/assets/aqi_agent_integration_a97c103aa9_1mdV0J.webp) App Quality Insights and Fix with AI
 
 ## Get started
@@ -140,46 +142,46 @@ Android Studio is closing the gap between ideation and implementation. With powe
 Download the latest [Android Studio Quail preview build](https://developer.android.com/studio/preview) and try these new features. As always, your feedback is crucial to us. Check known issues, report bugs, and be part of our vibrant community on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), or [X](https://x.com/androidstudio). Happy coding!
 
 Explore this announcement and all Google I/O 2026 updates on [io.google](https://io.google/2026/?utm_source=blogpost&utm_medium=pr&utm_campaign=devblogs&utm_content).
-- [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
-- [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-- [#Android](https://developer.android.com/blog/topics/android)
-- [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+- [#Agent Skills](https://developer.android.com/blog/topics/agent-skills.md.txt)
+- [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+- [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
 Written by:
 
 -
 
-  ## [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner)
+  ## [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt)
 
   ###### Product Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/matthew-warner) ![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp) ![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)
 Continue reading
-- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Rabbit2_Strapi_27563aeaf4_1BAzRM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Rabbit2_Strapi_27563aeaf4_1BAzRM.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Your favorite agents are now integrated in Android Studio](https://developer.android.com/blog/posts/ai-agents-android-studio-integration)
+  ## [Your favorite agents are now integrated in Android Studio](https://developer.android.com/blog/posts/ai-agents-android-studio-integration.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/ai-agents-android-studio-integration) Android Studio Rabbit 2 is now stable and ready for you to use in production. This release includes key features to improve your development such as Bring Your Own Agent, new XR Emulator features, a LeakCanary update, a new agent skills manager tool, AI code review, and more.
-  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 3 min read
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_Zj9dt4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/ai-agents-android-studio-integration.md.txt) Android Studio Rabbit 2 is now stable and ready for you to use in production. This release includes key features to improve your development such as Bring Your Own Agent, new XR Emulator features, a LeakCanary update, a new agent skills manager tool, AI code review, and more.
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt) • 3 min read
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_Zj9dt4.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26)
+  ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26) At Google I/O 2026, we introduced Android's shift from an operating system to an intelligence system. We also demonstrated how you can build intelligent experiences natively with the system and bring the power of Google's AI into your apps.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 2 min read
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
-  - [#On-device](https://developer.android.com/blog/topics/on-device)
+  [arrow_forward](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26.md.txt) At Google I/O 2026, we introduced Android's shift from an operating system to an intelligence system. We also demonstrated how you can build intelligent experiences natively with the system and bring the power of Google's AI into your apps.
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) • 2 min read
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#AppFunctions](https://developer.android.com/blog/topics/app-functions.md.txt)
+  - [#On-device](https://developer.android.com/blog/topics/on-device.md.txt)
   - +2 ↩
-- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_1Ctd29.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_1Ctd29.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
+  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
-  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 2 min read
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding.md.txt) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt) • 2 min read
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
 Stay in the loop
 
 

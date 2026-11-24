@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-m
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent
 
-3 min read ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_1b91Ge.webp) 16 Jul 2026 [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)](https://developer.android.com/blog/authors/amman-asfaw) [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) Product Manager, Android Studio Android Studio Quail 2 is now stable and ready for you to use in production, bringing a shift to your IDE with concurrent agentic workflows, natively integrated memory leak profiling, and context-aware crash remediation. Whether you are performing a sweeping architectural overhaul, tracing a memory leak, or resolving a critical production crash, Android Studio keeps you anchored in your workspace by reducing manual friction.
+3 min read ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_1b91Ge.webp) 16 Jul 2026 [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)](https://developer.android.com/blog/authors/amman-asfaw.md.txt) [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw.md.txt) Product Manager, Android Studio Android Studio Quail 2 is now stable and ready for you to use in production, bringing a shift to your IDE with concurrent agentic workflows, natively integrated memory leak profiling, and context-aware crash remediation. Whether you are performing a sweeping architectural overhaul, tracing a memory leak, or resolving a critical production crash, Android Studio keeps you anchored in your workspace by reducing manual friction.
 
 Here's a deep dive into what's new:
 
@@ -59,45 +61,45 @@ Beyond new features, we've continued our focus on quality by addressing numerous
 
 ### **Get Started**
 
-Ready to dive in and accelerate your development? [Download](https://developer.android.com/studio) Android Studio Quail 2 and start exploring these new features today! As always, your feedback is crucial to us. [Check known issues](https://developer.android.com/studio/known-issues), [report bugs](https://developer.android.com/studio/report-bugs), and be part of our vibrant community on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all) [Medium](https://medium.com/androiddevelopers), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), or [X](https://twitter.com/androidstudio).
-- [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
-- [# Quail 2](https://developer.android.com/blog/topics/quail-2)
-- [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+Ready to dive in and accelerate your development? [Download](https://developer.android.com/studio) Android Studio Quail 2 and start exploring these new features today! As always, your feedback is crucial to us. [Check known issues](https://developer.android.com/studio/known-issues.md.txt), [report bugs](https://developer.android.com/studio/report-bugs.md.txt), and be part of our vibrant community on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all) [Medium](https://medium.com/androiddevelopers), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), or [X](https://twitter.com/androidstudio).
+- [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio.md.txt)
+- [# Quail 2](https://developer.android.com/blog/topics/quail-2.md.txt)
+- [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
 Written by:
 
 -
 
-  ## [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw)
+  ## [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw.md.txt)
 
   ###### Product Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/amman-asfaw) ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp) ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)
 Continue reading
-- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)](https://developer.android.com/blog/authors/amman-asfaw) 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_ZqnmK9.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)](https://developer.android.com/blog/authors/amman-asfaw.md.txt) 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_ZqnmK9.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Leverage Android skills and Gemma 4 in Android Studio Quail 4](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4)
+  ## [Leverage Android skills and Gemma 4 in Android Studio Quail 4](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4) This is the final stable release for Android Studio Quail. The new features in Android Studio enable you to build premium apps with AI efficiently and effectively.
-  [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 5 min read
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-  - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
-- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Rabbit2_Strapi_27563aeaf4_1BAzRM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4.md.txt) This is the final stable release for Android Studio Quail. The new features in Android Studio enable you to build premium apps with AI efficiently and effectively.
+  [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw.md.txt) • 5 min read
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
+  - [#Android Skills](https://developer.android.com/blog/topics/android-skills.md.txt)
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Rabbit2_Strapi_27563aeaf4_1BAzRM.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Your favorite agents are now integrated in Android Studio](https://developer.android.com/blog/posts/ai-agents-android-studio-integration)
+  ## [Your favorite agents are now integrated in Android Studio](https://developer.android.com/blog/posts/ai-agents-android-studio-integration.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/ai-agents-android-studio-integration) Android Studio Rabbit 2 is now stable and ready for you to use in production. This release includes key features to improve your development such as Bring Your Own Agent, new XR Emulator features, a LeakCanary update, a new agent skills manager tool, AI code review, and more.
-  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 3 min read
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/ai-agents-android-studio-integration.md.txt) Android Studio Rabbit 2 is now stable and ready for you to use in production. This release includes key features to improve your development such as Bring Your Own Agent, new XR Emulator features, a LeakCanary update, a new agent skills manager tool, AI code review, and more.
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt) • 3 min read
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
+  ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0) Wireless debugging on Android is now faster, more reliable, and easier to set up than ever. With ADB Wi-Fi 2.0, we've introduced a new server stack and smarter network handling to directly address developer feedback around usability gaps.
-  [Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins), [Sherif Eid](https://developer.android.com/blog/authors/sherif-eid), [Fabien Sanglard](https://developer.android.com/blog/authors/fabien-sanglard) • 1 min read
-  - [#Wireless Debugging](https://developer.android.com/blog/topics/wireless-debugging)
-  - [#ADB Wi-Fi 2.0](https://developer.android.com/blog/topics/adb-wi-fi-2-0)
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  [arrow_forward](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0.md.txt) Wireless debugging on Android is now faster, more reliable, and easier to set up than ever. With ADB Wi-Fi 2.0, we've introduced a new server stack and smarter network handling to directly address developer feedback around usability gaps.
+  [Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins.md.txt), [Sherif Eid](https://developer.android.com/blog/authors/sherif-eid.md.txt), [Fabien Sanglard](https://developer.android.com/blog/authors/fabien-sanglard.md.txt) • 1 min read
+  - [#Wireless Debugging](https://developer.android.com/blog/topics/wireless-debugging.md.txt)
+  - [#ADB Wi-Fi 2.0](https://developer.android.com/blog/topics/adb-wi-fi-2-0.md.txt)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
   - +1 ↩
 Stay in the loop
 

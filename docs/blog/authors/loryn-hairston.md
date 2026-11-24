@@ -4,40 +4,42 @@ url: https://developer.android.com/blog/authors/loryn-hairston
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 3 posts ![](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)
 
 # Loryn Hairston
 
 Product Marketing Manager
-- 22 Sep 2026 22 Sep 2026 ![](https://developer.android.com/static/blog/assets/Googlebook_Blog_Strapi_4a4a7d3291_Z1ReCnu.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 22 Sep 2026 22 Sep 2026 ![](https://developer.android.com/static/blog/assets/Googlebook_Blog_Strapi_4a4a7d3291_Z1ReCnu.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Land your apps on Googlebook with adaptive development](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development)
+  ## [Land your apps on Googlebook with adaptive development](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development) Googlebook introduces a new category of laptops built on a shared Android foundation. High-performance hardware from partners such as HP, Dell, Lenovo, Acer, and Asus, combines mobile convenience with desktop power.
+  [arrow_forward](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md.txt) Googlebook introduces a new category of laptops built on a shared Android foundation. High-performance hardware from partners such as HP, Dell, Lenovo, Acer, and Asus, combines mobile convenience with desktop power.
   4 min read
-  - [#Googlebook](https://developer.android.com/blog/topics/googlebook)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  - [#Googlebook](https://developer.android.com/blog/topics/googlebook.md.txt)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
   - +1 ↩
-- 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
+  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
+  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
   4 min read
-  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
-  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
-  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
-  - [#Foldables](https://developer.android.com/blog/topics/foldables)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7.md.txt)
+  - [#made by google](https://developer.android.com/blog/topics/made-by-google.md.txt)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4.md.txt)
+  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api.md.txt)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
   - +5 ↩
-- 28 Jul 2026 28 Jul 2026 ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z6XDT1.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 28 Jul 2026 28 Jul 2026 ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z6XDT1.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
+  ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
+  [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose.md.txt) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
   4 min read
 Stay in the loop
 

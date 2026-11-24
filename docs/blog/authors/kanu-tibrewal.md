@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/authors/kanu-tibrewal
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/Kanu_Tibrewal_20caa0960e_1P9Fmo.webp)
 
 # Kanu Tibrewal
 
 Software Engineer
-- 21 Jan 2026 21 Jan 2026 ![](https://developer.android.com/static/blog/assets/260120_Header_7fdfbedb2d_2nrbh0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 21 Jan 2026 21 Jan 2026 ![](https://developer.android.com/static/blog/assets/260120_Header_7fdfbedb2d_2nrbh0.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Ready to review some changes but not others? Try using Play Console's new Save for later feature](https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature)
+  ## [Ready to review some changes but not others? Try using Play Console's new Save for later feature](https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature) We've launched a new Save for later feature on Google Play Console's Publishing overview to give you more control over when you send changes for review.
+  [arrow_forward](https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature.md.txt) We've launched a new Save for later feature on Google Play Console's Publishing overview to give you more control over when you send changes for review.
   2 min read
 Stay in the loop
 

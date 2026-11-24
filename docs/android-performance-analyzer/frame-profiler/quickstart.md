@@ -4,6 +4,8 @@ url: https://developer.android.com/android-performance-analyzer/frame-profiler/q
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/android-performance-analyzer/frame-profiler/llms.txt
+
 If you're already familiar with frame profiling, this guide provides all the
 information you need to meet requirements, install the software, and begin
 capturing and viewing frame profiles with the Frame Profiler in Android Performance Analyzer. Otherwise, see [Next
@@ -26,8 +28,8 @@ The computer that runs the Frame Profiler must meet the following requirements:
   - **Linux.**
     - 64-bit machines must install the [required libraries for 64-bit
       machines](https://developer.android.com/studio/install#64bit-libs).
-- It must have the Android SDK installed, including the [Platform-Tools](https://developer.android.com/tools/releases/platform-tools) package.
-  - The [`ANDROID_HOME`](https://developer.android.com/tools/variables#android_home) environment variable must be set.
+- It must have the Android SDK installed, including the [Platform-Tools](https://developer.android.com/tools/releases/platform-tools.md.txt) package.
+  - The [`ANDROID_HOME`](https://developer.android.com/tools/variables.md.txt#android_home) environment variable must be set.
 
 ### Testing device requirements
 
@@ -35,7 +37,7 @@ The device running the app under test must meet the following requirements:
 
 - A [supported Android device](https://developer.android.com/android-performance-analyzer/compatibility#device-gpu-compat) running Android 12 or higher.
 - A USB cable.
-- [Android Debug Bridge (`adb`)](https://developer.android.com/tools/adb) debugging must be enabled and the device must be accessible through `adb`. If the **Install via USB** option is present, enable it.
+- [Android Debug Bridge (`adb`)](https://developer.android.com/tools/adb.md.txt) debugging must be enabled and the device must be accessible through `adb`. If the **Install via USB** option is present, enable it.
 
 #### Device validation
 
@@ -56,7 +58,7 @@ profiling be as useful and accurate as possible:
 
 - Use the release version of your game or a version that's built with performance options (such as compiler flags or packaging optimizations) enabled.
 - Ensure that your app follows the guidance on [engine
-  compatibility](https://developer.android.com/android-performance-analyzer/frame-profiler/compatibility#engine-compat) and [API compatibility](https://developer.android.com/android-performance-analyzer/frame-profiler/compatibility#api-compat) from the compatibility guide.
+  compatibility](https://developer.android.com/android-performance-analyzer/frame-profiler/compatibility#engine-compat) and [API compatibility](https://developer.android.com/android-performance-analyzer/frame-profiler/compatibility.md.txt#api-compat) from the compatibility guide.
 
 ## Basic workflow
 
@@ -81,7 +83,7 @@ analysis:
 
    ![](https://developer.android.com/static/android-performance-analyzer/images/gfxr-recording.png) **Figure 4** : A screenshot of the **Configure a GFXR
    Recording** window.
-5. [Adjust the options](https://developer.android.com/android-performance-analyzer/frame-profiler/capture#configure-profile) in the **Configure a GFXR Recording** window
+5. [Adjust the options](https://developer.android.com/android-performance-analyzer/frame-profiler/capture.md.txt#configure-profile) in the **Configure a GFXR Recording** window
    according to your needs and click **OK** . This opens the **Control
    Recording** window and automatically starts the app on your testing device.
 
@@ -96,4 +98,4 @@ analysis:
 ## Next steps
 
 For more in-depth guidance on using the Frame Profiler in Android Performance Analyzer, see [Capture a frame
-profile](https://developer.android.com/android-performance-analyzer/frame-profiler/capture) and [View a frame profile](https://developer.android.com/android-performance-analyzer/frame-profiler/view).
+profile](https://developer.android.com/android-performance-analyzer/frame-profiler/capture) and [View a frame profile](https://developer.android.com/android-performance-analyzer/frame-profiler/view.md.txt).

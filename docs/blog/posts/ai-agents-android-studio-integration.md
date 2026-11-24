@@ -4,18 +4,20 @@ url: https://developer.android.com/blog/posts/ai-agents-android-studio-integrati
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Your favorite agents are now integrated in Android Studio
 
-3 min read ![](https://developer.android.com/static/blog/assets/Rabbit2_Strapi_27563aeaf4_1BAzRM.webp) 28 Oct 2026 [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) Product Manager, Android Developer Experience Android Studio Rabbit 2 is now stable and ready for you to use in production. This release includes key features to improve your development such as Bring Your Own Agent, new XR Emulator features, a LeakCanary update, a new agent skills manager tool, AI code review, and more. You can learn more about these stable features, the features in [the latest Android Studio Canary release](https://developer.android.com/studio/preview/features), and check out the demos and talks we have to share at [Android Dev Summit](https://developer.android.com/events/dev-summit), which is being live-streamed today.
+3 min read ![](https://developer.android.com/static/blog/assets/Rabbit2_Strapi_27563aeaf4_1BAzRM.webp) 28 Oct 2026 [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt) Product Manager, Android Developer Experience Android Studio Rabbit 2 is now stable and ready for you to use in production. This release includes key features to improve your development such as Bring Your Own Agent, new XR Emulator features, a LeakCanary update, a new agent skills manager tool, AI code review, and more. You can learn more about these stable features, the features in [the latest Android Studio Canary release](https://developer.android.com/studio/preview/features.md.txt), and check out the demos and talks we have to share at [Android Dev Summit](https://developer.android.com/events/dev-summit.md.txt), which is being live-streamed today.
 
 ## **Bring Your Own Agent (BYOA): Integrate your preferred coding agents**
 
 You told us how important flexibility is to your workflows. You can now access the best agents along with the best Android development tools. If you prefer a specific ACP compliant agent --- you've got it. If you need the cost efficiency of a particular agent for your project --- you've got it. If you need to use a specific provider to align with an enterprise agreement --- you've got it.
 ![BYOA_Claude_no_rounding.png](https://developer.android.com/static/blog/assets/BYOA_Claude_no_rounding_64d9b82578_Z2b5Xun.webp) Running Claude Agent in Android Studio
 
-You can choose from over 40 coding agents --- including Claude Agent, Codex from OpenAI, Junie, and Google Antigravity. These agents have access to Android Studio tools like the Android Emulator, Build Systems, Logcat - and they also can use [Android skills](https://developer.android.com/tools/agents/android-skills) to complete complex tasks.
+You can choose from over 40 coding agents --- including Claude Agent, Codex from OpenAI, Junie, and Google Antigravity. These agents have access to Android Studio tools like the Android Emulator, Build Systems, Logcat - and they also can use [Android skills](https://developer.android.com/tools/agents/android-skills.md.txt) to complete complex tasks.
 
 To get started with BYOA, open the agent window and select your preferred agent, or choose an agent from **Settings \> Tools \> AI \> Agents**, authenticate, and submit your first prompt.
 
@@ -28,7 +30,7 @@ The Android XR Emulators for XR glasses, audio glasses, and display glasses are 
 
 ![installed-skills.png](https://developer.android.com/static/blog/assets/installed_skills_0845439fcc_Z1hj1AV.webp) Skill management in Android Studio
 
-It is now easier to discover, install, and manage Android [skills](https://developer.android.com/studio/gemini/skills) directly in the skill manager in Android Studio, giving you granular control over the specialized workflows and procedural guidance available to the agent. Android Studio comes loaded with [Android skills](https://developer.android.com/tools/agents/android-skills) and [Firebase agent skills](https://firebase.google.com/docs/ai-assistance/agent-skills)---like migrating legacy XML Views to Jetpack Compose, upgrading to AGP 9, implementing adaptive layouts for foldables and tablets, or integrating CameraX and Firebase services.
+It is now easier to discover, install, and manage Android [skills](https://developer.android.com/studio/gemini/skills.md.txt) directly in the skill manager in Android Studio, giving you granular control over the specialized workflows and procedural guidance available to the agent. Android Studio comes loaded with [Android skills](https://developer.android.com/tools/agents/android-skills.md.txt) and [Firebase agent skills](https://firebase.google.com/docs/ai-assistance/agent-skills)---like migrating legacy XML Views to Jetpack Compose, upgrading to AGP 9, implementing adaptive layouts for foldables and tablets, or integrating CameraX and Firebase services.
 
 Open the **Skills** editor tab from the Agent panel's three-dot menu (**Manage Agent Skills** ), by typing @ in the chat box and clicking **Manage skills** , or from **Settings \> Tools \> AI \> Skills Manager**.
 ![manage-skills.png](https://developer.android.com/static/blog/assets/manage_skills_58274d1f9f_Z2jOAyC.webp) Invoke installed skills directly in chat using @ or open the skills manager
@@ -57,46 +59,46 @@ Change Review starts off by identifying Recommended Fixes where the agent indepe
 
 ## **Getting Started**
 
-You can start using these features by downloading the latest stable version of [Android Studio](https://developer.android.com/studio). If you find a bug, please [file an issue](https://developer.android.com/studio/report-bugs). Please connect with the Android developer community on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), and [X](https://x.com/androidstudio).
+You can start using these features by downloading the latest stable version of [Android Studio](https://developer.android.com/studio). If you find a bug, please [file an issue](https://developer.android.com/studio/report-bugs.md.txt). Please connect with the Android developer community on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), and [X](https://x.com/androidstudio).
 
-You can see demos and talks about these features and more at [Android Dev Summit](https://developer.android.com/events/dev-summit), live-streaming today. You can also read more about [updates to agentic tools for Android](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance). We can't wait to see what you'll build!
-- [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+You can see demos and talks about these features and more at [Android Dev Summit](https://developer.android.com/events/dev-summit.md.txt), live-streaming today. You can also read more about [updates to agentic tools for Android](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance.md.txt). We can't wait to see what you'll build!
+- [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
 Written by:
 
 -
 
-  ## [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner)
+  ## [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt)
 
   ###### Product Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/matthew-warner) ![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp) ![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)
 Continue reading
-- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
+  ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
-  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 8 min read
-  - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md.txt) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt) • 8 min read
+  - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills.md.txt)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
   - +2 ↩
-- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_1Ctd29.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_1Ctd29.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
+  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
-  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 2 min read
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 24 Sep 2026 24 Sep 2026 ![](https://developer.android.com/static/blog/assets/BYOA_Backup_Strapi_1_5c3f94f766_Z1WI1Mt.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding.md.txt) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt) • 2 min read
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) 24 Sep 2026 24 Sep 2026 ![](https://developer.android.com/static/blog/assets/BYOA_Backup_Strapi_1_5c3f94f766_Z1WI1Mt.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build your way: Use any AI agent of your choice in Android Studio](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio)
+  ## [Build your way: Use any AI agent of your choice in Android Studio](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio) Last year, Android Studio opened up to any AI model. Today, we're taking the next step by introducing support for your choice of coding agents.
-  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+  [arrow_forward](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio.md.txt) Last year, Android Studio opened up to any AI model. Today, we're taking the next step by introducing support for your choice of coding agents.
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
 Stay in the loop
 
 

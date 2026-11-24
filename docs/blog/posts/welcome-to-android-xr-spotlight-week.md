@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/welcome-to-android-xr-spotlight-we
 source: md.txt
 ---
 
-[Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
 # Welcome to Android XR Spotlight Week!
 
-1 min read ![](https://developer.android.com/static/blog/assets/Spotlight_week_Blog_Banner_4c1830df25_12JDCV.webp) 22 Oct 2025 [![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)](https://developer.android.com/blog/authors/jan-kleinert)[![View Bradley Allen's profile](https://developer.android.com/static/blog/assets/Bradley_Allen_df04d56088_Z1DUHst.webp)](https://developer.android.com/blog/authors/bradley-allen) [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert) \& [Bradley Allen](https://developer.android.com/blog/authors/bradley-allen) [**Samsung Galaxy XR**](https://blog.google/products/android/samsung-galaxy-xr)is here, and it's the [first device powered by Android XR](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html)! Since we launched the [developer preview](https://android-developers.googleblog.com/2024/12/introducing-android-xr-sdk-developer-preview.html) of the platform last December, developers have started building apps and games made for Android XR. And, with this new hardware, users can now discover and explore these immersive experiences directly on their headsets.
+1 min read ![](https://developer.android.com/static/blog/assets/Spotlight_week_Blog_Banner_4c1830df25_12JDCV.webp) 22 Oct 2025 [![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)](https://developer.android.com/blog/authors/jan-kleinert.md.txt)[![View Bradley Allen's profile](https://developer.android.com/static/blog/assets/Bradley_Allen_df04d56088_Z1DUHst.webp)](https://developer.android.com/blog/authors/bradley-allen.md.txt) [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert.md.txt) \& [Bradley Allen](https://developer.android.com/blog/authors/bradley-allen.md.txt) [**Samsung Galaxy XR**](https://blog.google/products/android/samsung-galaxy-xr)is here, and it's the [first device powered by Android XR](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html)! Since we launched the [developer preview](https://android-developers.googleblog.com/2024/12/introducing-android-xr-sdk-developer-preview.html) of the platform last December, developers have started building apps and games made for Android XR. And, with this new hardware, users can now discover and explore these immersive experiences directly on their headsets.
 
 To support your development journey and ensure you have all the tools and knowledge to start [building for Android XR](https://developer.android.com/develop/xr) today, we're kicking off the **Android XR Spotlight Week**!
 
@@ -24,7 +26,7 @@ Check back here daily for updates and direct links to new posts, videos, and res
 
 **Building for Android XR with the Jetpack XR SDK (October 22nd)** : [Read the overview](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html) to understand how building for headsets on Android XR leverages familiar tools and APIs, then [explore the blog](https://android-developers.googleblog.com/2025/10/bringing-androidify-to-xr-with-jetpack.html) and [video guide on the Jetpack XR SDK](https://www.youtube.com/watch?v=Yo_vSI0HgOs) to start building differentiated spatial experiences, demonstrated by the Androidify app.
 
-**Achieving high quality experiences with Unity (October 23rd):** Leverage the Unity engine to create high performing XR experiences, start by [reviewing our practical setup guide](https://developer.android.com/develop/xr/unity/setup) and then [discover best practices and optimization tips](https://android-developers.googleblog.com/2025/10/optimizing-performance-for-android-xr.html) to ensure high-quality app experiences for your users.
+**Achieving high quality experiences with Unity (October 23rd):** Leverage the Unity engine to create high performing XR experiences, start by [reviewing our practical setup guide](https://developer.android.com/develop/xr/unity/setup.md.txt) and then [discover best practices and optimization tips](https://android-developers.googleblog.com/2025/10/optimizing-performance-for-android-xr.html) to ensure high-quality app experiences for your users.
 
 **Publishing to Google Play and getting your questions answered (October 24th):** [Learn how to publish your immersive app on Google Play](https://android-developers.googleblog.com/2025/10/5-things-you-need-to-know-about.html), and then join our [live #AskAndroid Q\&A session](https://www.youtube.com/watch?v=VcP8Zz4J714) at 9am PT with the Android XR team to get your questions answered.
 
@@ -37,7 +39,7 @@ Written by:
 
 -
 
-  ## [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert)
+  ## [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -45,36 +47,36 @@ Written by:
   View profile](https://developer.android.com/blog/authors/jan-kleinert) ![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp) ![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)
 -
 
-  ## [Bradley Allen](https://developer.android.com/blog/authors/bradley-allen)
+  ## [Bradley Allen](https://developer.android.com/blog/authors/bradley-allen.md.txt)
 
   ###### Technical Writer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/bradley-allen) ![View Bradley Allen's profile](https://developer.android.com/static/blog/assets/Bradley_Allen_df04d56088_Z1DUHst.webp) ![View Bradley Allen's profile](https://developer.android.com/static/blog/assets/Bradley_Allen_df04d56088_Z1DUHst.webp)
 Continue reading
-- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge.md.txt) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates)
+  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
-  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge) • 3 min read
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates.md.txt) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
+  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge.md.txt) • 3 min read
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
+- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance)
+  ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance) This year at Android Dev Summit we shared how Android's developer tools are evolving to help you be more productive alongside your agents.
-  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando) • 10 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+  [arrow_forward](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance.md.txt) This year at Android Dev Summit we shared how Android's developer tools are evolving to help you be more productive alongside your agents.
+  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando.md.txt) • 10 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
+  ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md.txt) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
   1 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-  - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
-  - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+  - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear.md.txt)
+  - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses.md.txt)
   - +1 ↩
 Stay in the loop
 

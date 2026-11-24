@@ -4,23 +4,25 @@ url: https://developer.android.com/blog/authors/robert-clifford
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 2 posts ![](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_Z2wbL3d.webp)
 
 # Robert Clifford
 
 Developer Relations Engineer
-- 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/Redefining_Location_5e4a362604_2b67BT.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/Redefining_Location_5e4a362604_2b67BT.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Redefining Location Privacy: New Tools and Improvements for Android 17](https://developer.android.com/blog/posts/redefining-location-privacy-new-tools-and-improvements-for-android-17)
+  ## [Redefining Location Privacy: New Tools and Improvements for Android 17](https://developer.android.com/blog/posts/redefining-location-privacy-new-tools-and-improvements-for-android-17.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/redefining-location-privacy-new-tools-and-improvements-for-android-17) A pillar of the Android ecosystem is our shared commitment to user trust. As the mobile landscape has evolved, so does our approach to protecting sensitive information.
+  [arrow_forward](https://developer.android.com/blog/posts/redefining-location-privacy-new-tools-and-improvements-for-android-17.md.txt) A pillar of the Android ecosystem is our shared commitment to user trust. As the mobile landscape has evolved, so does our approach to protecting sensitive information.
   3 min read
-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
-- 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/a11y_rev_37216d57dc_Z1j9hnk.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
+- 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/a11y_rev_37216d57dc_Z1j9hnk.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Enhancing Android security: Stop malware from snooping on your app data](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data)
+  ## [Enhancing Android security: Stop malware from snooping on your app data](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data) Security is foundational to Android. We partner with you to keep the platform safe and protect user data by offering powerful security tools and features, like Credential Manager and FLAG_SECURE.
+  [arrow_forward](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data.md.txt) Security is foundational to Android. We partner with you to keep the platform safe and protect user data by offering powerful security tools and features, like Credential Manager and FLAG_SECURE.
   2 min read
 Stay in the loop
 

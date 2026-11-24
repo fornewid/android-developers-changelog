@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/we-are-play-meet-the-people-making
 source: md.txt
 ---
 
-[Community](https://developer.android.com/blog/categories/community)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Community](https://developer.android.com/blog/categories/community.md.txt)
 
 # #WeArePlay: Meet the people making apps \& games to improve your health
 
-2 min read ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_Z16RxqU.webp) 06 Nov 2025 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) stories, we meet the founders building apps and games that are making health and wellness fun and easy for everyone on Google Play. From getting heavy sleepers jumping into their mornings, to turning mental wellness into an immersive adventure game.
+2 min read ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_Z16RxqU.webp) 06 Nov 2025 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp)](https://developer.android.com/blog/authors/robbie-mclachlan.md.txt) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan.md.txt) Brand Marketing Manager , Developer Marketing In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) stories, we meet the founders building apps and games that are making health and wellness fun and easy for everyone on Google Play. From getting heavy sleepers jumping into their mornings, to turning mental wellness into an immersive adventure game.
 
 Here are a few of our favorites:
 ![01_KR_ALARMY_FOUNDER_Jay Shin_edited.png](https://developer.android.com/static/blog/assets/01_KR_ALARMY_FOUNDER_Jay_Shin_edited_770d223e77_ZTkIfM.webp)
@@ -40,31 +42,31 @@ Written by:
 
 -
 
-  ## [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan)
+  ## [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan.md.txt)
 
   ###### Brand Marketing Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/robbie-mclachlan) ![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp) ![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp)
 Continue reading
-- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_1p33OW.webp) [Community](https://developer.android.com/blog/categories/community)
+- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp)](https://developer.android.com/blog/authors/robbie-mclachlan.md.txt) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_1p33OW.webp) [Community](https://developer.android.com/blog/categories/community.md.txt)
 
-  ## [Meet the class of 2026 for the Google Play Apps Accelerator](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator)
+  ## [Meet the class of 2026 for the Google Play Apps Accelerator](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator) The wait is over! We are incredibly excited to share the Google Play Apps Accelerator class of 2026.
-  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 1 min read
-- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_Z16RxqU.webp) [Community](https://developer.android.com/blog/categories/community)
+  [arrow_forward](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator.md.txt) The wait is over! We are incredibly excited to share the Google Play Apps Accelerator class of 2026.
+  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan.md.txt) • 1 min read
+- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp)](https://developer.android.com/blog/authors/robbie-mclachlan.md.txt) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_Z16RxqU.webp) [Community](https://developer.android.com/blog/categories/community.md.txt)
 
-  ## [#WeArePlay: How Matraquina helps non-verbal kids communicate](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate)
+  ## [#WeArePlay: How Matraquina helps non-verbal kids communicate](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate) In our latest #WeArePlay film, we meet Adriano, Wagner and Grazyelle. The trio are behind Matraquinha, an app helping thousands of non-verbal children in more than 80 countries communicate.
-  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
-- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_Z16RxqU.webp) [Community](https://developer.android.com/blog/categories/community)
+  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate.md.txt) In our latest #WeArePlay film, we meet Adriano, Wagner and Grazyelle. The trio are behind Matraquinha, an app helping thousands of non-verbal children in more than 80 countries communicate.
+  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan.md.txt) • 2 min read
+- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_Z1oApYQ.webp)](https://developer.android.com/blog/authors/robbie-mclachlan.md.txt) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_Z16RxqU.webp) [Community](https://developer.android.com/blog/categories/community.md.txt)
 
-  ## [#WeArePlay: How Miksapix Interactive is bringing ancient Sámi Mythology to gamers worldwide](https://developer.android.com/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide)
+  ## [#WeArePlay: How Miksapix Interactive is bringing ancient Sámi Mythology to gamers worldwide](https://developer.android.com/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide) In our latest #WeArePlay film, which celebrates the people behind apps and games on Google Play, we meet Mikkel - the founder and CEO of Miksapix Interactive.
-  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide.md.txt) In our latest #WeArePlay film, which celebrates the people behind apps and games on Google Play, we meet Mikkel - the founder and CEO of Miksapix Interactive.
+  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan.md.txt) • 2 min read
 Stay in the loop
 
 

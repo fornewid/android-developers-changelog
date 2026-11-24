@@ -4,17 +4,19 @@ url: https://developer.android.com/blog/topics/android-automotive-os
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 # #Android Automotive OS
 
-- [![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)](https://developer.android.com/blog/authors/jan-kleinert) 21 Sep 2026 21 Sep 2026 ![](https://developer.android.com/static/blog/assets/Games_for_car_Strapi_1_c55588726e_Z2cIhWx.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)](https://developer.android.com/blog/authors/jan-kleinert.md.txt) 21 Sep 2026 21 Sep 2026 ![](https://developer.android.com/static/blog/assets/Games_for_car_Strapi_1_c55588726e_Z2cIhWx.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Bring your Android game to the car screen today](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today)
+  ## [Bring your Android game to the car screen today](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today) Today, the games category for Android Auto and cars powered by Android Automotive OS with Google built-in is officially graduating from beta to general availability.
-  [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert) • 3 min read
-  - [#Android Automotive OS](https://developer.android.com/blog/topics/android-automotive-os)
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-  - [#Android Auto](https://developer.android.com/blog/topics/android-auto)
+  [arrow_forward](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today.md.txt) Today, the games category for Android Auto and cars powered by Android Automotive OS with Google built-in is officially graduating from beta to general availability.
+  [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert.md.txt) • 3 min read
+  - [#Android Automotive OS](https://developer.android.com/blog/topics/android-automotive-os.md.txt)
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
+  - [#Android Auto](https://developer.android.com/blog/topics/android-auto.md.txt)
   - +1 ↩
 Stay in the loop
 

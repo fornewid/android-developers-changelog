@@ -4,17 +4,19 @@ url: https://developer.android.com/blog/topics/idling-resources
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 # #Idling Resources
 
-- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)](https://developer.android.com/blog/authors/jose-alcerreca) 22 Apr 2022 22 Apr 2022 ![](https://developer.android.com/static/blog/assets/alternativesto_Idiling_13a59b7d0b_1mUyls.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)](https://developer.android.com/blog/authors/jose-alcerreca.md.txt) 22 Apr 2022 22 Apr 2022 ![](https://developer.android.com/static/blog/assets/alternativesto_Idiling_13a59b7d0b_1mUyls.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Alternatives to Idling Resources in Compose tests: the waitUntil APIs (updated)](https://developer.android.com/blog/posts/alternatives-to-idling-resources-in-compose-tests-the-wait-until-ap-is-updated)
+  ## [Alternatives to Idling Resources in Compose tests: the waitUntil APIs (updated)](https://developer.android.com/blog/posts/alternatives-to-idling-resources-in-compose-tests-the-wait-until-ap-is-updated.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/alternatives-to-idling-resources-in-compose-tests-the-wait-until-ap-is-updated) In this article you'll learn how to use the waitUntil test API in Compose to wait for certain conditions to be met.
-  [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca) • 3 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#Compose](https://developer.android.com/blog/topics/compose)
-  - [#Idling Resources](https://developer.android.com/blog/topics/idling-resources)
+  [arrow_forward](https://developer.android.com/blog/posts/alternatives-to-idling-resources-in-compose-tests-the-wait-until-ap-is-updated.md.txt) In this article you'll learn how to use the waitUntil test API in Compose to wait for certain conditions to be met.
+  [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca.md.txt) • 3 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
+  - [#Idling Resources](https://developer.android.com/blog/topics/idling-resources.md.txt)
   - +1 ↩
 Stay in the loop
 

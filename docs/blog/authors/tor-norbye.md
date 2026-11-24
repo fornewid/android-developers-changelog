@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/authors/tor-norbye
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/Tor_Norbye_7b1b17eb31_Z1JVx8k.webp)
 
 # Tor Norbye
 
 Senior Director of Engineering
-- 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/gemini3as_Assitance_a5fd86cee5_ZfNyVb.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/gemini3as_Assitance_a5fd86cee5_ZfNyVb.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Gemini 3 is now available for AI assistance in Android Studio](https://developer.android.com/blog/posts/gemini-3-is-now-available-for-ai-assistance-in-android-studio)
+  ## [Gemini 3 is now available for AI assistance in Android Studio](https://developer.android.com/blog/posts/gemini-3-is-now-available-for-ai-assistance-in-android-studio.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/gemini-3-is-now-available-for-ai-assistance-in-android-studio) The Gemini 3 Pro model, released today and engineered for better coding and agentic experiences, is now available for AI assistance in the latest version of Android Studio Otter.
+  [arrow_forward](https://developer.android.com/blog/posts/gemini-3-is-now-available-for-ai-assistance-in-android-studio.md.txt) The Gemini 3 Pro model, released today and engineered for better coding and agentic experiences, is now available for AI assistance in the latest version of Android Studio Otter.
   1 min read
 Stay in the loop
 

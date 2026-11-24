@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast
 source: md.txt
 ---
 
-[Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
 # Use R8 to shrink, optimize, and fast-track your app
 
-5 min read ![](https://developer.android.com/static/blog/assets/performance_Week10_467f2693b4_19FhE4.webp) 17 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) Developer Relations Engineer **Use R8 to shrink, optimize, and fast-track your app**
+5 min read ![](https://developer.android.com/static/blog/assets/performance_Week10_467f2693b4_19FhE4.webp) 17 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss.md.txt) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt) Developer Relations Engineer **Use R8 to shrink, optimize, and fast-track your app**
 
 Welcome to day one of Android Performance Spotlight Week!
 
@@ -33,7 +35,7 @@ Let's shine a spotlight on the largest steps that the R8 optimizer takes to impr
 
 **Class merging**, and other strategies are applied to make the code more compact. All your beautiful abstractions, such as interfaces and class hierarchies don't matter at this point and are likely to be removed.
 
-**Code minification** is used to change the names of classes, fields, and methods to shorter, meaningless ones. So instead of `MyDataModel` you might end up with a class called `a`. This is what causes the most confusion when reading stack traces from an R8 optimized app. (Note that we have [improved this in AGP 9.0](https://developer.android.com/studio/preview/features#logcat-retrace)!)
+**Code minification** is used to change the names of classes, fields, and methods to shorter, meaningless ones. So instead of `MyDataModel` you might end up with a class called `a`. This is what causes the most confusion when reading stack traces from an R8 optimized app. (Note that we have [improved this in AGP 9.0](https://developer.android.com/studio/preview/features.md.txt#logcat-retrace)!)
 
 **Resource shrinking** further reduces an app's size by removing unused resources such as xml files and drawables.
 
@@ -61,13 +63,13 @@ So let's call it what it is: Deliberate performance optimization is a **virtue**
 
 ## **Guiding you to a more performant app**
 
-We heard that our developer guidance for R8 needed to be improved. So we went to work. The [developer guidance](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization) for the R8 optimizer now is much more actionable and provides comprehensive guidance to enable and debug R8.
+We heard that our developer guidance for R8 needed to be improved. So we went to work. The [developer guidance](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt) for the R8 optimizer now is much more actionable and provides comprehensive guidance to enable and debug R8.
 
 The documentation guides you on the high-level strategy for adoption, emphasizing the importance of choosing optimization-friendly libraries and, crucially, adopting R8's features incrementally to ensure stability. This phased approach allows you to safely unlock the benefits of R8 while providing you with guidance on difficult-to-debug issues.
 
-We have significantly expanded our [guidance on Keep Rules](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview), which are the primary mechanism for controlling the R8 optimizer. We now provide a section on what Keep Rules are, how to apply them and guide you with best practices for writing and maintaining them. We also provide practical and actionable use cases and examples, helping you understand how to correctly prevent R8 from removing code that is needed at runtime, such as code accessed via reflection or use of the JNI native interface.
+We have significantly expanded our [guidance on Keep Rules](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview.md.txt), which are the primary mechanism for controlling the R8 optimizer. We now provide a section on what Keep Rules are, how to apply them and guide you with best practices for writing and maintaining them. We also provide practical and actionable use cases and examples, helping you understand how to correctly prevent R8 from removing code that is needed at runtime, such as code accessed via reflection or use of the JNI native interface.
 
-The documentation now also covers essential follow-up steps and advanced scenarios. We added a section on [testing and troubleshooting](https://developer.android.com/topic/performance/app-optimization/test-and-troubleshoot-the-optimization), so you can verify the performance gains and debug any potential issues that arise. The [advanced configurations](https://developer.android.com/topic/performance/app-optimization/target-a-build-variant) section explains how to target specific build variants, customize which resources are kept or removed, and offers special optimization instructions for library authors, ensuring you can provide an optimized and R8-friendly package for other developers to use.
+The documentation now also covers essential follow-up steps and advanced scenarios. We added a section on [testing and troubleshooting](https://developer.android.com/topic/performance/app-optimization/test-and-troubleshoot-the-optimization), so you can verify the performance gains and debug any potential issues that arise. The [advanced configurations](https://developer.android.com/topic/performance/app-optimization/target-a-build-variant.md.txt) section explains how to target specific build variants, customize which resources are kept or removed, and offers special optimization instructions for library authors, ensuring you can provide an optimized and R8-friendly package for other developers to use.
 
 ## **Enable the R8 optimizer's full potential**
 
@@ -108,7 +110,7 @@ Today many apps still use the `proguard-android.txt` file which contains the -`d
 
 ## **Tooling support**
 
-Starting with [Android Studio Narwhal 3 Feature Drop](https://developer.android.com/studio/releases/past-releases/as-narwhal-3-feature-drop-release-notes#r8-inspections), you will see a lint warning when using `proguard-android.txt`
+Starting with [Android Studio Narwhal 3 Feature Drop](https://developer.android.com/studio/releases/past-releases/as-narwhal-3-feature-drop-release-notes.md.txt#r8-inspections), you will see a lint warning when using `proguard-android.txt`
 ![image.png](https://developer.android.com/static/blog/assets/image_d82ca43ebb_Z13Hm6l.webp)
 
 And from AGP 9.0 onwards we are **entirely dropping support** for the file. This means you will have to migrate to `proguard-android-optimize.txt`.
@@ -126,7 +128,7 @@ It's time to see the benefits for yourself.
 
 We challenge you to enable R8 full mode for your app *today*.
 
-1. Follow our developer guides to get started:[**Enable app optimization**](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization).
+1. Follow our developer guides to get started:[**Enable app optimization**](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt).
 2. Check if you still use `proguard-android.txt` and replace it with `proguard-android-optimize.txt`.
 3. Then, **measure the impact** . Don't just *feel* the difference, *verify* it. Measure your performance gains by adapting the code from our[**Macrobenchmark sample app on GitHub**](https://github.com/android/performance-samples/blob/main/MacrobenchmarkSample/macrobenchmark/src/main/kotlin/com/example/macrobenchmark/benchmark/startup/FullyDrawnStartupBenchmark.kt) to measure your startup times before and after.
 
@@ -139,33 +141,33 @@ Written by:
 
 -
 
-  ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss)
+  ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)
 Continue reading
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/sara-hamilton) 21 Nov 2025 21 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_RfccU.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss.md.txt)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/sara-hamilton.md.txt) 21 Nov 2025 21 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_RfccU.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Fully Optimized: Wrapping up Performance Spotlight Week](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week)
+  ## [Fully Optimized: Wrapping up Performance Spotlight Week](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week) From the foundational powers of the R8 optimizer and Profile Guided Optimizations, to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the low effort, high impact tools you need to build a performant app.
-  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss), [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton) • 3 min read
-- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+  [arrow_forward](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week.md.txt) From the foundational powers of the R8 optimizer and Profile Guided Optimizations, to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the low effort, high impact tools you need to build a performant app.
+  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt), [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton.md.txt) • 3 min read
+- [![View Rebecca Gutteridge's profile](https://developer.android.com/static/blog/assets/unnamed_28_42b5e825ea_1MlfGM.webp)](https://developer.android.com/blog/authors/rebecca-gutteridge.md.txt) 04 Nov 2026 04 Nov 2026 ![](https://developer.android.com/static/blog/assets/ADS_Compose_blog_1_9a0f711253_Z2jewd5.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates)
+  ## [Build for every screen with the latest Jetpack Compose updates from Android Developer Summit](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
-  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge) • 3 min read
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-every-screen-jetpack-compose-updates.md.txt) The Android ecosystem is a multi-device reality that spans phones, foldables, tablets, wearables, in-car displays, XR, and Googlebook. In this landscape, adaptive development is foundational to reaching users wherever they are.
+  [Rebecca Gutteridge](https://developer.android.com/blog/authors/rebecca-gutteridge.md.txt) • 3 min read
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
+- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)](https://developer.android.com/blog/authors/adarsh-fernando.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_146_ADS_Spotlight_Tools_and_Performance_47f52bd6b1_Zi3DUW.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance)
+  ## [What's new in Android developer tools and performance at Android Dev Summit](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance) This year at Android Dev Summit we shared how Android's developer tools are evolving to help you be more productive alongside your agents.
-  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando) • 10 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
+  [arrow_forward](https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance.md.txt) This year at Android Dev Summit we shared how Android's developer tools are evolving to help you be more productive alongside your agents.
+  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando.md.txt) • 10 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
 Stay in the loop
 
 

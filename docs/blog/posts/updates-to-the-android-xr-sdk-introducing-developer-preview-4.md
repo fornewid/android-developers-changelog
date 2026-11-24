@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-intr
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Updates to the Android XR SDK: Introducing Developer Preview 4
 
-5 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) 19 May 2026 [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp)](https://developer.android.com/blog/authors/stevan-silva) [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld) \& [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva) Today we're excited to launch Developer Preview 4 of the Android XR SDK, continuing our focus on unifying cross-device development for headsets, wired XR glasses, and [intelligent eyewear](https://blog.google/products-and-platforms/platforms/android/android-xr-io-2026). To keep our platform intuitive, we are adopting more descriptive naming for our form factors, where AI glasses are now audio glasses and display AI glasses are now display glasses, with these changes appearing in our documentation starting today.
+5 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) 19 May 2026 [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)[![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp)](https://developer.android.com/blog/authors/stevan-silva.md.txt) [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt) \& [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva.md.txt) Today we're excited to launch Developer Preview 4 of the Android XR SDK, continuing our focus on unifying cross-device development for headsets, wired XR glasses, and [intelligent eyewear](https://blog.google/products-and-platforms/platforms/android/android-xr-io-2026). To keep our platform intuitive, we are adopting more descriptive naming for our form factors, where AI glasses are now audio glasses and display AI glasses are now display glasses, with these changes appearing in our documentation starting today.
 
 This release is packed with updates that help you build incredible experiences for XR devices, enable deeper immersive experiences on XR headsets, and streamline the path for creating augmented experiences on audio and display glasses. Also, our core libraries---including XR Runtime, Jetpack SceneCore, and ARCore for Jetpack XR--- will be officially moving to Beta soon!
 
@@ -20,7 +22,7 @@ Starting out with our libraries for augmented experiences, Developer Preview 4 i
 
 ### Jetpack Projected: Device Availability and ProjectedTestRule APIs
 
-The Jetpack Projected library helps bridge app experiences from the phone to the user's field of view. We've added the [Device Availability API,](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/check-availability) which consolidates wear state and connectivity signals into standard Android [`Lifecycle.State`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.State) values. This lets you adjust your applications behavior based on whether the device is worn.
+The Jetpack Projected library helps bridge app experiences from the phone to the user's field of view. We've added the [Device Availability API,](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/check-availability) which consolidates wear state and connectivity signals into standard Android [`Lifecycle.State`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.State.md.txt) values. This lets you adjust your applications behavior based on whether the device is worn.
 
 ```kotlin
 val xrDevice = XrDevice.getCurrentDevice(projectedContext)
@@ -36,7 +38,7 @@ xrDevice.getLifecycle().currentStateFlow
     }
 ```
 
-To simplify testing, the new [`ProjectedTestRule`](https://developer.android.com/reference/kotlin/androidx/xr/projected/testing/ProjectedTestRule) API in the projected-testing artifact automates the setup of projected test environments. This helps you write clean, reliable unit tests without the boilerplate code.
+To simplify testing, the new [`ProjectedTestRule`](https://developer.android.com/reference/kotlin/androidx/xr/projected/testing/ProjectedTestRule.md.txt) API in the projected-testing artifact automates the setup of projected test environments. This helps you write clean, reliable unit tests without the boilerplate code.
 
 ```kotlin
 // from the 'androidx.xr.projected:projected-testing:1.0.0-alpha07' artifact
@@ -69,11 +71,11 @@ If you're looking to build fully immersive experiences for XR Headsets and wired
 
 ### Beta Transition \& Modern Architecture
 
-XR Runtime, Jetpack SceneCore, and the ARCore for Jetpack XR perception features ([Depth Maps](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/depth), [Eye/Hand Tracking](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/face), Hit Testing, and [Spatial Anchors](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/anchors)) will soon move to Beta, so we've streamlined the Jetpack XR APIs. We've removed legacy Guava and RxJava3 packages in favor of a modern, Kotlin-first architecture.
+XR Runtime, Jetpack SceneCore, and the ARCore for Jetpack XR perception features ([Depth Maps](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/depth.md.txt), [Eye/Hand Tracking](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/face.md.txt), Hit Testing, and [Spatial Anchors](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/anchors.md.txt)) will soon move to Beta, so we've streamlined the Jetpack XR APIs. We've removed legacy Guava and RxJava3 packages in favor of a modern, Kotlin-first architecture.
 
 ### Jetpack SceneCore: glTF and Custom Meshes
 
-We're expanding 3D model capabilities by adding the ability to fine tune 3D models and access specific nodes with a 3D model. Using [GltfModelNode](https://developer.android.com/reference/androidx/xr/scenecore/GltfModelNode), you can modify properties like pose, materials, and textures, and even run [animations](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfAnimation) for specific nodes.
+We're expanding 3D model capabilities by adding the ability to fine tune 3D models and access specific nodes with a 3D model. Using [GltfModelNode](https://developer.android.com/reference/androidx/xr/scenecore/GltfModelNode.md.txt), you can modify properties like pose, materials, and textures, and even run [animations](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfAnimation.md.txt) for specific nodes.
 
 ```kotlin
 // Create a new PBR material
@@ -132,7 +134,7 @@ val roadEntity =
 
 ### Compose for XR: Native glTF Support
 
-We now have native glTF support directly in Compose for XR with [SpatialGltfModel](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModel.composable). Use this along with [SpatiallGltfModelState](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelState#SpatialGltfModelState(androidx.xr.compose.subspace.SpatialGltfModelSource)) to access [nodes](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelState#nodes()) and [animations](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelState#animations()) in the glTF model, or use them to add textures and materials to your 3D models.
+We now have native glTF support directly in Compose for XR with [SpatialGltfModel](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModel.composable.md.txt). Use this along with [SpatiallGltfModelState](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelState.md.txt#SpatialGltfModelState(androidx.xr.compose.subspace.SpatialGltfModelSource)) to access [nodes](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelState.md.txt#nodes()) and [animations](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelState.md.txt#animations()) in the glTF model, or use them to add textures and materials to your 3D models.
 
 ```kotlin
 val myGltfModelState = rememberSpatialGltfModelState(
@@ -188,16 +190,16 @@ Don't miss your chance to build for the latest Android XR hardware. Apply today 
 We look forward to seeing the amazing XR experiences you build as we move toward the launch of more Android XR devices later this year!
 
 Explore this announcement and all Google I/O 2026 updates on [io.google](https://io.google/2026/?utm_source=blogpost&utm_medium=pr&utm_campaign=devblogs&utm_content).
-- [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
-- [#Developer Preview](https://developer.android.com/blog/topics/developer-preview)
-- [#Unity](https://developer.android.com/blog/topics/unity)
-- [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+- [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+- [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk.md.txt)
+- [#Developer Preview](https://developer.android.com/blog/topics/developer-preview.md.txt)
+- [#Unity](https://developer.android.com/blog/topics/unity.md.txt)
+- [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
 Written by:
 
 -
 
-  ## [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld)
+  ## [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -205,38 +207,38 @@ Written by:
   View profile](https://developer.android.com/blog/authors/amy-zeppenfeld) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)
 -
 
-  ## [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva)
+  ## [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva.md.txt)
 
   ###### Group Product Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/stevan-silva) ![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp) ![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp)
 Continue reading
-- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_XR_beta_release_Strapi_a23ed1d892_2wR9tl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_XR_beta_release_Strapi_a23ed1d892_2wR9tl.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Jetpack XR SDK core libraries reach beta: The next milestone for Android XR](https://developer.android.com/blog/posts/jetpack-xr-sdk-core-libraries-reach-beta-the-next-milestone-for-android-xr)
+  ## [Jetpack XR SDK core libraries reach beta: The next milestone for Android XR](https://developer.android.com/blog/posts/jetpack-xr-sdk-core-libraries-reach-beta-the-next-milestone-for-android-xr.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-xr-sdk-core-libraries-reach-beta-the-next-milestone-for-android-xr) Since introducing the Android XR SDK, developers have transformed their ideas into innovative immersive experiences across headsets and wired XR glasses.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Greg Underwood](https://developer.android.com/blog/authors/greg-underwood), [Yasmine Evjen](https://developer.android.com/blog/authors/yasmine-evjen) • 2 min read
-  - [#Jetpack XR SDK](https://developer.android.com/blog/topics/jetpack-xr-sdk)
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-  - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+  [arrow_forward](https://developer.android.com/blog/posts/jetpack-xr-sdk-core-libraries-reach-beta-the-next-milestone-for-android-xr.md.txt) Since introducing the Android XR SDK, developers have transformed their ideas into innovative immersive experiences across headsets and wired XR glasses.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt), [Greg Underwood](https://developer.android.com/blog/authors/greg-underwood.md.txt), [Yasmine Evjen](https://developer.android.com/blog/authors/yasmine-evjen.md.txt) • 2 min read
+  - [#Jetpack XR SDK](https://developer.android.com/blog/topics/jetpack-xr-sdk.md.txt)
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+  - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk.md.txt)
   - +1 ↩
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 06 Nov 2026 06 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_149_Strapi_A2_B_8fa837edce_1zewyL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools)
+  ## [Build for an expanding lineup of Android XR devices with production-ready tools from Android Developer Summit](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp)](https://developer.android.com/blog/authors/stevan-silva)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1JMs6H.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/build-android-xr-devices-tools.md.txt) From full immersion at home to glanceable experiences on the go, building on Android XR lets you meet users at any moment across the entire spectrum of spatial applications. At Android Developer Summit, we marked an exciting milestone with the launch of XREAL AURA.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 3 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+- [![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp)](https://developer.android.com/blog/authors/stevan-silva.md.txt)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1JMs6H.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates)
+  ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates) From augmented overlays to fully immersive environments, the Android XR ecosystem is expanding rapidly, with the Samsung Galaxy XR already available today.
-  [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 2 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-  - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
+  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates.md.txt) From augmented overlays to fully immersive environments, the Android XR ecosystem is expanding rapidly, with the Samsung Galaxy XR already available today.
+  [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva.md.txt), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva.md.txt) • 2 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+  - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4.md.txt)
 Stay in the loop
 
 

@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/authors/andrew-lewis
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_Z1SE2GD.webp)
 
 # Andrew Lewis
 
 Software Engineer
-- 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/Androidmedia3_1_10_6c365d70f6_VsSP0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/Androidmedia3_1_10_6c365d70f6_VsSP0.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Media3 1.10 is out](https://developer.android.com/blog/posts/media3-1-10-is-out)
+  ## [Media3 1.10 is out](https://developer.android.com/blog/posts/media3-1-10-is-out.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/media3-1-10-is-out) Media3 1.10 includes new features, bug fixes and feature improvements, including Material3-based playback widgets, expanded format support in ExoPlayer and improved speed adjustment when exporting media with Transformer.
+  [arrow_forward](https://developer.android.com/blog/posts/media3-1-10-is-out.md.txt) Media3 1.10 includes new features, bug fixes and feature improvements, including Material3-based playback widgets, expanded format support in ExoPlayer and improved speed adjustment when exporting media with Transformer.
   2 min read
 Stay in the loop
 

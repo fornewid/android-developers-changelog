@@ -4,28 +4,30 @@ url: https://developer.android.com/blog/authors/mayuri-khabya
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 3 posts ![](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp)
 
 # Mayuri Khinvasara Khabya
 
 Developer Relations Engineer
-- 05 Mar 2026 05 Mar 2026 ![](https://developer.android.com/static/blog/assets/meta_Header_2ac893569c_OwkKL.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 05 Mar 2026 05 Mar 2026 ![](https://developer.android.com/static/blog/assets/meta_Header_2ac893569c_OwkKL.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Instagram and Facebook deliver instant playback and boost user engagement with Media3 PreloadManager](https://developer.android.com/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager)
+  ## [Instagram and Facebook deliver instant playback and boost user engagement with Media3 PreloadManager](https://developer.android.com/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager) In the dynamic world of social media, user attention is won or lost quickly. Meta apps (Facebook and Instagram) are among the world's largest social platforms and serve billions of users globally.
+  [arrow_forward](https://developer.android.com/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager.md.txt) In the dynamic world of social media, user attention is won or lost quickly. Meta apps (Facebook and Instagram) are among the world's largest social platforms and serve billions of users globally.
   4 min read
-- 22 Sep 2025 22 Sep 2025 ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_5IIEj.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 22 Sep 2025 22 Sep 2025 ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_5IIEj.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Elevating media playback: A deep dive into Media3's PreloadManager - Part 2](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2)
+  ## [Elevating media playback: A deep dive into Media3's PreloadManager - Part 2](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2) Welcome to the second installment of our three-part series on media preloading with Media3. This series is designed to guide you through the process of building highly responsive, low-latency media experiences in your Android apps.
+  [arrow_forward](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2.md.txt) Welcome to the second installment of our three-part series on media preloading with Media3. This series is designed to guide you through the process of building highly responsive, low-latency media experiences in your Android apps.
   9 min read
-- 05 Sep 2025 05 Sep 2025 ![](https://developer.android.com/static/blog/assets/elevating_Media_Playback_16bfc9b0d6_Z1RUWJn.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 05 Sep 2025 05 Sep 2025 ![](https://developer.android.com/static/blog/assets/elevating_Media_Playback_16bfc9b0d6_Z1RUWJn.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Elevating media playback: Introducing preloading with Media3 - Part 1](https://developer.android.com/blog/posts/elevating-media-playback-introducing-preloading-with-media3-part-1)
+  ## [Elevating media playback: Introducing preloading with Media3 - Part 1](https://developer.android.com/blog/posts/elevating-media-playback-introducing-preloading-with-media3-part-1.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/elevating-media-playback-introducing-preloading-with-media3-part-1) In today's media-centric apps, delivering a smooth, uninterrupted playback experience is key to a delightful user experience. Users expect their videos to start instantly and play seamlessly without pauses.
+  [arrow_forward](https://developer.android.com/blog/posts/elevating-media-playback-introducing-preloading-with-media3-part-1.md.txt) In today's media-centric apps, delivering a smooth, uninterrupted playback experience is key to a delightful user experience. Users expect their videos to start instantly and play seamlessly without pauses.
   8 min read
 Stay in the loop
 

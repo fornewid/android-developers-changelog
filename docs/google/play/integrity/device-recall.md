@@ -82,10 +82,9 @@ again.
 
 ## Read device recall values
 
-Device recall works in both Play Integrity API classic and standard requests. In
-standard requests, device recall is refreshed in the warmup call. In other
-words, after you modify per-device data, you will need to perform another warm
-up to see the updated value. Once device recall is enabled, you will be able to
+Device recall works in both Play Integrity API classic and standard requests.
+In standard requests, device recall values are cached on the device and might
+not immediately reflect recent updates. Once device recall is enabled, you can
 [read device recall values](https://developer.android.com/google/play/integrity/verdicts.md.txt#device-recall) in your integrity verdicts.
 
 ## Modify device recall values
@@ -93,14 +92,17 @@ up to see the updated value. Once device recall is enabled, you will be able to
 You can modify device recall values by making a server-to-server API call
 similar to [decoding the integrity
 verdict](https://developer.android.com/google/play/integrity/classic#decrypt-verify-google-servers). Setting
-a bit to `true` will also update its write date (even if it was already `true`).
-Setting a bit to `false` will reset its write date to empty. Any bits that are
-unspecified in a request will remain unchanged. There is a small propagation
-delay between writing bits and being able to read them back in the verdict. This
-delay can be as long as 30 seconds, though it is generally much shorter. Device
-recall write requests should be less frequent than integrity token
-requests. They don't count toward your integrity token request quota but are
-subject to separate rate limits.
+a bit to `true` also updates its write date (even if it was already `true`).
+Setting a bit to `false` resets its write date to empty. Any bits that are
+unspecified in a request remain unchanged.
+
+There is a propagation delay between writing bits and being able to read them
+back in the verdict. In classic requests, this delay can be as long as 30
+seconds, though it is generally much shorter. In standard requests, updated
+values might not appear until the on-device cache refreshes. Device recall
+write requests should be less frequent than integrity token requests. They
+don't count toward your integrity token request quota but are subject to
+separate rate limits.
 
 ```
 playintegrity.googleapis.com/v1/PACKAGE_NAME/deviceRecall:write -d \

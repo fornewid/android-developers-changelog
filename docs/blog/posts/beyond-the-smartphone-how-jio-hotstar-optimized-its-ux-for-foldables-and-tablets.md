@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/posts/beyond-the-smartphone-how-jio-hots
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # Beyond the smartphone: How JioHotstar optimized its UX for foldables and tablets

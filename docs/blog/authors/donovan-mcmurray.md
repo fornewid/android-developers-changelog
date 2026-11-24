@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/donovan-mcmurray
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 2 posts ![](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)
 
 # Donovan McMurray

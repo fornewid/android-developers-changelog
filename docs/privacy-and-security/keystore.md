@@ -10,13 +10,13 @@ keystore, you can use them for cryptographic operations, with the key material
 remaining non-exportable. Also, the keystore system lets you restrict when
 and how keys can be used, such as requiring user authentication for key use or
 restricting keys to use only in certain cryptographic modes. See the
-[Security Features](https://developer.android.com/privacy-and-security/keystore#SecurityFeatures) section for more
+[Security Features](https://developer.android.com/privacy-and-security/keystore.md.txt#SecurityFeatures) section for more
 information.
 
 <br />
 
 The keystore system is used by the
-`https://developer.android.com/reference/android/security/KeyChain`
+`KeyChain`
 API, introduced in Android 4.0 (API level 14), as well as the Android Keystore
 provider feature, introduced in Android 4.3 (API level 18). This document goes
 over when and how to use the Android Keystore system.
@@ -38,15 +38,15 @@ Key material of Android Keystore keys is protected from extraction using two
 security measures:
 
 - Key material never enters the application process. When an app performs cryptographic operations using an Android Keystore key, behind the scenes plaintext, ciphertext, and messages to be signed or verified are fed to a system process that carries out the cryptographic operations. If the app's process is compromised, the attacker might be able to use the app's keys but can't extract their key material (for example, to be used outside of the Android device).
-- Key material can be bound to the secure hardware of the Android device, such as the [Trusted Execution Environment (TEE)](https://source.android.com/docs/security/features/trusty) or [Secure Element (SE)](https://developer.android.com/privacy-and-security/keystore#strongbox_keymint_secure_element). When this feature is enabled for a key, its key material is never exposed outside of secure hardware. If the Android OS is compromised or an attacker can read the device's internal storage, the attacker might be able to use any app's Android Keystore keys on the Android device, but it can't extract them from the device. This feature is enabled only if the device's secure hardware supports the particular combination of key algorithm, block modes, padding schemes, and digests the key is authorized to be used with.
+- Key material can be bound to the secure hardware of the Android device, such as the [Trusted Execution Environment (TEE)](https://source.android.com/docs/security/features/trusty) or [Secure Element (SE)](https://developer.android.com/privacy-and-security/keystore.md.txt#strongbox_keymint_secure_element). When this feature is enabled for a key, its key material is never exposed outside of secure hardware. If the Android OS is compromised or an attacker can read the device's internal storage, the attacker might be able to use any app's Android Keystore keys on the Android device, but it can't extract them from the device. This feature is enabled only if the device's secure hardware supports the particular combination of key algorithm, block modes, padding schemes, and digests the key is authorized to be used with.
 
   <br />
 
   To check whether the feature is enabled for a key, obtain a
-  `https://developer.android.com/reference/android/security/keystore/KeyInfo`
+  `KeyInfo`
   for the key. The next step depends on your app's target SDK version:
-  - If your app targets Android 10 (API level 29) or higher, inspect the return value of `https://developer.android.com/reference/android/security/keystore/KeyInfo#getSecurityLevel()`. Return values matching `KeyProperties.SecurityLevelEnum.TRUSTED_ENVIRONMENT` or `KeyProperties.SecurityLevelEnum.STRONGBOX` indicate that the key resides within secure hardware.
-  - If your app targets Android 9 (API level 28) or lower, inspect the boolean return value of `https://developer.android.com/reference/android/security/keystore/KeyInfo#isInsideSecureHardware()`.
+  - If your app targets Android 10 (API level 29) or higher, inspect the return value of `getSecurityLevel()`. Return values matching `KeyProperties.SecurityLevelEnum.TRUSTED_ENVIRONMENT` or `KeyProperties.SecurityLevelEnum.STRONGBOX` indicate that the key resides within secure hardware.
+  - If your app targets Android 9 (API level 28) or lower, inspect the boolean return value of `KeyInfo.isInsideSecurityHardware()`.
 
 <br />
 
@@ -78,23 +78,23 @@ A subset of algorithms and key sizes are supported to accommodate low-power Stro
 - Triple DES
 - Extended length APDUs
 
-StrongBox also supports [key attestation](https://developer.android.com/privacy-and-security/security-key-attestation).
+StrongBox also supports [key attestation](https://developer.android.com/privacy-and-security/security-key-attestation.md.txt).
 
 > [!CAUTION]
 > **Caution:** StrongBox is appropriate for applications requiring the highest level of security, particularly those at risk of physical tampering or side-channel attacks. However, it is slower, more resource-constrained, and supports fewer concurrent operations. For most apps, StrongBox is not necessary. You should carefully evaluate whether its enhanced security aligns with your app's threat model and use case, as it may introduce performance trade-offs.
 
 #### Use StrongBox KeyMint
 
-Use [`FEATURE_STRONGBOX_KEYSTORE`](https://developer.android.com/reference/kotlin/android/content/pm/PackageManager#feature_strongbox_keystore) to check whether StrongBox
+Use [`FEATURE_STRONGBOX_KEYSTORE`](https://developer.android.com/reference/kotlin/android/content/pm/PackageManager.md.txt#feature_strongbox_keystore) to check whether StrongBox
 is available on a device. If StrongBox is available, you can indicate a
 preference for storing the key in the StrongBox KeyMint by passing `true` to the
 following methods:
 
-- Key generation: [`KeyGenParameterSpec.Builder.setIsStrongBoxBacked()`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder#setIsStrongBoxBacked(boolean))
-- Key import: [`KeyProtection.Builder.setIsStrongBoxBacked()`](https://developer.android.com/reference/android/security/keystore/KeyProtection.Builder#setIsStrongBoxBacked(boolean))
+- Key generation: [`KeyGenParameterSpec.Builder.setIsStrongBoxBacked()`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder.md.txt#setIsStrongBoxBacked(boolean))
+- Key import: [`KeyProtection.Builder.setIsStrongBoxBacked()`](https://developer.android.com/reference/android/security/keystore/KeyProtection.Builder.md.txt#setIsStrongBoxBacked(boolean))
 
 If the StrongBox KeyMint does not support the specified algorithm or key size,
-the framework will throw a [`StrongBoxUnavailableException`](https://developer.android.com/reference/android/security/keystore/StrongBoxUnavailableException). If this occurs, generate or import the
+the framework will throw a [`StrongBoxUnavailableException`](https://developer.android.com/reference/android/security/keystore/StrongBoxUnavailableException.md.txt). If this occurs, generate or import the
 key without calling `setIsStrongBoxBacked(true)`.
 
 ### Key use authorizations
@@ -112,12 +112,12 @@ Supported key use authorizations fall into the following categories:
 
 - **Cryptography:** the key can only be used with authorized key algorithms, operations, or purposes (encrypt, decrypt, sign, verify), padding schemes, block modes, or digests.
 - **Temporal validity interval:** the key is authorized for use only during a defined interval of time.
-- **User authentication:** the key can only be used if the user has been authenticated recently enough. See [Require user authentication for key use](https://developer.android.com/privacy-and-security/keystore#UserAuthentication).
+- **User authentication:** the key can only be used if the user has been authenticated recently enough. See [Require user authentication for key use](https://developer.android.com/privacy-and-security/keystore.md.txt#UserAuthentication).
 
 As an additional security measure for keys whose key material is inside secure hardware (see
-[`KeyInfo.isInsideSecurityHardware()`](https://developer.android.com/reference/android/security/keystore/KeyInfo#isInsideSecureHardware())
+[`KeyInfo.isInsideSecurityHardware()`](https://developer.android.com/reference/android/security/keystore/KeyInfo.md.txt#isInsideSecureHardware())
 or, for apps targeting Android 10 (API level 29) or higher,
-[`KeyInfo.getSecurityLevel()`](https://developer.android.com/reference/android/security/keystore/KeyInfo#getSecurityLevel())),
+[`KeyInfo.getSecurityLevel()`](https://developer.android.com/reference/android/security/keystore/KeyInfo.md.txt#getSecurityLevel())),
 some key use authorizations might be enforced by the secure hardware,
 depending on the Android device.
 Secure hardware normally enforces cryptographic and user authentication
@@ -127,12 +127,12 @@ independent, secure real-time clock.
 
 You can query whether a key's user authentication authorization is enforced by
 the secure hardware using
-`https://developer.android.com/reference/android/security/keystore/KeyInfo#isUserAuthenticationRequirementEnforcedBySecureHardware()`.
+`KeyInfo.isUserAuthenticationRequirementEnforcedBySecureHardware()`.
 
 ## Choose between a keychain and the
 Android Keystore provider
 
-Use the `https://developer.android.com/reference/android/security/KeyChain` API when you want
+Use the `KeyChain` API when you want
 system-wide credentials. When an app requests the use of any credential
 through the `KeyChain` API, users can
 choose, through a system-provided UI, which of the installed credentials
@@ -149,13 +149,13 @@ This method doesn't require the user to select the credentials.
 ## Use the Android Keystore provider
 
 
-To use this feature, you use the standard `https://developer.android.com/reference/java/security/KeyStore`
-and `https://developer.android.com/reference/java/security/KeyPairGenerator` or
-`https://developer.android.com/reference/javax/crypto/KeyGenerator` classes along with the
+To use this feature, you use the standard `KeyStore`
+and `KeyPairGenerator` or
+`KeyGenerator` classes along with the
 `AndroidKeyStore` provider introduced in Android 4.3 (API level 18).
 
-`AndroidKeyStore` is registered as a `KeyStore` type for use with the `https://developer.android.com/reference/java/security/KeyStore#getInstance(java.lang.String)`
-method and as a provider for use with the `https://developer.android.com/reference/java/security/KeyPairGenerator#getInstance(java.lang.String, java.lang.String)` and `https://developer.android.com/reference/javax/crypto/KeyGenerator#getInstance(java.lang.String, java.lang.String)` methods.
+`AndroidKeyStore` is registered as a `KeyStore` type for use with the `KeyStore.getInstance(type)`
+method and as a provider for use with the `KeyPairGenerator.getInstance(algorithm, provider)` and `KeyGenerator.getInstance(algorithm, provider)` methods.
 
 Because cryptographic operations may be time-consuming, apps should avoid using
 `AndroidKeyStore` on their main thread to ensure that the app's UI remains
@@ -164,14 +164,14 @@ responsive. (`StrictMode` can help you find places where this is not the case.)
 ### Generate a new private or secret key
 
 To generate a new `KeyPair` containing a
-`https://developer.android.com/reference/java/security/PrivateKey`,
+`PrivateKey`,
 you must specify the initial X.509 attributes of the certificate. You can use
-`https://developer.android.com/reference/java/security/KeyStore#setKeyEntry(java.lang.String, java.security.Key, char[], java.security.cert.Certificate[])`
+`KeyStore.setKeyEntry()`
 to replace the certificate at a later time with a certificate signed
 by a certificate authority (CA).
 
-To generate the key pair, use a `https://developer.android.com/reference/java/security/KeyPairGenerator`
-with `https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec`:
+To generate the key pair, use a `KeyPairGenerator`
+with `KeyGenParameterSpec`:
 
 ### Kotlin
 
@@ -235,7 +235,7 @@ To support secure importing of encrypted keys into the keystore, complete the
 following steps:
 
 1. Generate a key pair that uses the
-   [`PURPOSE_WRAP_KEY`](https://developer.android.com/reference/android/security/keystore/KeyProperties#PURPOSE_WRAP_KEY)
+   [`PURPOSE_WRAP_KEY`](https://developer.android.com/reference/android/security/keystore/KeyProperties.md.txt#PURPOSE_WRAP_KEY)
    purpose. We recommend that you add attestation to this key pair as well.
 
 2. On a server or machine that you trust, generate the ASN.1 message for the
@@ -258,22 +258,22 @@ following steps:
           }
 
 3. Create a
-   [`WrappedKeyEntry`](https://developer.android.com/reference/android/security/keystore/WrappedKeyEntry)
+   [`WrappedKeyEntry`](https://developer.android.com/reference/android/security/keystore/WrappedKeyEntry.md.txt)
    object, passing in the ASN.1 message as a byte array.
 
 4. Pass this `WrappedKeyEntry` object into the overload of
-   [`setEntry()`](https://developer.android.com/reference/java/security/KeyStore#setEntry(java.lang.String,%20java.security.KeyStore.Entry,%20java.security.KeyStore.ProtectionParameter))
+   [`setEntry()`](https://developer.android.com/reference/java/security/KeyStore.md.txt#setEntry(java.lang.String,%20java.security.KeyStore.Entry,%20java.security.KeyStore.ProtectionParameter))
    that accepts a
-   [`Keystore.Entry`](https://developer.android.com/reference/java/security/KeyStore.Entry) object.
+   [`Keystore.Entry`](https://developer.android.com/reference/java/security/KeyStore.Entry.md.txt) object.
 
 ### Work with keystore entries
 
 You can access the `AndroidKeyStore` provider through
-all the standard `https://developer.android.com/reference/java/security/KeyStore` APIs.
+all the standard `KeyStore` APIs.
 
 #### List entries
 
-List entries in the keystore by calling the `https://developer.android.com/reference/java/security/KeyStore#aliases()` method:
+List entries in the keystore by calling the `aliases()` method:
 
 ### Kotlin
 
@@ -302,8 +302,8 @@ Enumeration<String> aliases = ks.aliases();
 
 #### Sign and verify data
 
-Sign data by fetching the `https://developer.android.com/reference/java/security/KeyStore.Entry` from the keystore and using the
-`https://developer.android.com/reference/java/security/Signature` APIs, such as `https://developer.android.com/reference/java/security/Signature#sign()`:
+Sign data by fetching the `KeyStore.Entry` from the keystore and using the
+`Signature` APIs, such as `sign()`:
 
 ### Kotlin
 
@@ -347,7 +347,7 @@ s.update(data);
 byte[] signature = s.sign();
 ```
 
-Similarly, verify data with the `https://developer.android.com/reference/java/security/Signature#verify(byte[])` method:
+Similarly, verify data with the `verify(byte[])` method:
 
 ### Kotlin
 
@@ -406,7 +406,7 @@ a compromise of your application process after key generation/import (but not be
 can't bypass the requirement for the user to be authenticated to use the key.
 
 When a key is only authorized to be used if the user has been authenticated, you can call
-[`setUserAuthenticationParameters()`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder#setUserAuthenticationParameters(int,%20int))
+[`setUserAuthenticationParameters()`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder.md.txt#setUserAuthenticationParameters(int,%20int))
 to configure it to operate in one of the following modes:
 
 Authorize for a duration of time
@@ -418,7 +418,7 @@ Authorize for the duration of a specific cryptographic operation
 :   Each operation involving a specific key must be individually authorized by the user.
 
     Your app starts this process by calling
-    [`authenticate()`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt#authenticate(android.hardware.biometrics.BiometricPrompt.CryptoObject,%20android.os.CancellationSignal,%20java.util.concurrent.Executor,%20android.hardware.biometrics.BiometricPrompt.AuthenticationCallback))
+    [`authenticate()`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt.md.txt#authenticate(android.hardware.biometrics.BiometricPrompt.CryptoObject,%20android.os.CancellationSignal,%20java.util.concurrent.Executor,%20android.hardware.biometrics.BiometricPrompt.AuthenticationCallback))
     on an instance of `BiometricPrompt`.
 
 For each key that you create, you can choose to support a
@@ -427,26 +427,26 @@ biometric credential](https://developer.android.com/reference/android/security/k
 [lock screen
 credential](https://developer.android.com/reference/android/security/keystore/KeyProperties#AUTH_DEVICE_CREDENTIAL), or both types of credentials. To determine whether the user has set up the credentials
 that your app's key relies on, call
-[`canAuthenticate()`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager#canAuthenticate(int)).
+[`canAuthenticate()`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.md.txt#canAuthenticate(int)).
 
 If a key only supports biometric credentials, the key is invalidated by default whenever new
 biometric enrollments are added. You can configure the key to remain valid when new biometric
 enrollments are added. To do so, pass `false` into
-[`setInvalidatedByBiometricEnrollment()`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder#setInvalidatedByBiometricEnrollment(boolean)).
+[`setInvalidatedByBiometricEnrollment()`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder.md.txt#setInvalidatedByBiometricEnrollment(boolean)).
 
 Learn more about how to add biometric authentication capabilities into your app, including how
 to [show a biometric authentication dialog](https://developer.android.com/training/sign-in/biometric-auth).
 
 ## Supported algorithms
 
-- [`Cipher`](https://developer.android.com/reference/javax/crypto/Cipher)
-- [`KeyGenerator`](https://developer.android.com/reference/javax/crypto/KeyGenerator)
-- [`KeyFactory`](https://developer.android.com/reference/java/security/KeyFactory)
+- [`Cipher`](https://developer.android.com/reference/javax/crypto/Cipher.md.txt)
+- [`KeyGenerator`](https://developer.android.com/reference/javax/crypto/KeyGenerator.md.txt)
+- [`KeyFactory`](https://developer.android.com/reference/java/security/KeyFactory.md.txt)
 - `KeyStore` (supports the same key types as `KeyGenerator` and `KeyPairGenerator`)
-- [`KeyPairGenerator`](https://developer.android.com/reference/java/security/KeyPairGenerator)
-- [`Mac`](https://developer.android.com/reference/javax/crypto/Mac)
-- [`Signature`](https://developer.android.com/reference/java/security/Signature)
-- [`SecretKeyFactory`](https://developer.android.com/reference/javax/crypto/SecretKeyFactory)
+- [`KeyPairGenerator`](https://developer.android.com/reference/java/security/KeyPairGenerator.md.txt)
+- [`Mac`](https://developer.android.com/reference/javax/crypto/Mac.md.txt)
+- [`Signature`](https://developer.android.com/reference/java/security/Signature.md.txt)
+- [`SecretKeyFactory`](https://developer.android.com/reference/javax/crypto/SecretKeyFactory.md.txt)
 
 ## What's next
 

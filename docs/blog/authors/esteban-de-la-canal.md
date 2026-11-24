@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/esteban-de-la-canal
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_QwHh2.webp)
 
 # Esteban de la Canal
@@ -11,11 +13,11 @@ source: md.txt
 Senior Staff Software Engineer
 
 Android Developer Tools
-- 16 Apr 2026 16 Apr 2026 ![](https://developer.android.com/static/blog/assets/hours_CLI_Dark_Strapi_2x_427f20cc78_2j204D.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 16 Apr 2026 16 Apr 2026 ![](https://developer.android.com/static/blog/assets/hours_CLI_Dark_Strapi_2x_427f20cc78_2j204D.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Android CLI and skills: Build Android apps 3x faster using any agent](https://developer.android.com/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent)
+  ## [Android CLI and skills: Build Android apps 3x faster using any agent](https://developer.android.com/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent) Whether you are using Gemini in Android Studio, Gemini CLI, Antigravity, or third-party agents like Claude Code or Codex, our mission is to ensure that high-quality Android development is possible everywhere.
+  [arrow_forward](https://developer.android.com/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent.md.txt) Whether you are using Gemini in Android Studio, Gemini CLI, Antigravity, or third-party agents like Claude Code or Codex, our mission is to ensure that high-quality Android development is possible everywhere.
   4 min read
 Stay in the loop
 

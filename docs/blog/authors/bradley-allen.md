@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/authors/bradley-allen
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/Bradley_Allen_df04d56088_Z1DUHst.webp)
 
 # Bradley Allen
 
 Technical Writer
-- 22 Oct 2025 22 Oct 2025 ![](https://developer.android.com/static/blog/assets/Spotlight_week_Blog_Banner_4c1830df25_12JDCV.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 22 Oct 2025 22 Oct 2025 ![](https://developer.android.com/static/blog/assets/Spotlight_week_Blog_Banner_4c1830df25_12JDCV.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Welcome to Android XR Spotlight Week!](https://developer.android.com/blog/posts/welcome-to-android-xr-spotlight-week)
+  ## [Welcome to Android XR Spotlight Week!](https://developer.android.com/blog/posts/welcome-to-android-xr-spotlight-week.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/welcome-to-android-xr-spotlight-week) Samsung Galaxy XR is here, and it's the first device powered by Android XR! Since we launched the developer preview of the platform last December, developers have started building apps and games made for Android XR.
+  [arrow_forward](https://developer.android.com/blog/posts/welcome-to-android-xr-spotlight-week.md.txt) Samsung Galaxy XR is here, and it's the first device powered by Android XR! Since we launched the developer preview of the platform last December, developers have started building apps and games made for Android XR.
   1 min read
 Stay in the loop
 

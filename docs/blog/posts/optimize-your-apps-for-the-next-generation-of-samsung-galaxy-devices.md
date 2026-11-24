@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-ge
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Optimize your apps for the next generation of Samsung Galaxy devices
 
-3 min read ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_1vfHD.webp) 22 Jul 2026 [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)](https://developer.android.com/blog/authors/miguel-montemayor) [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) \& [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) Today at Galaxy Unpacked, Samsung [unveiled](https://blog.google/products-and-platforms/platforms/android/galaxy-unpacked-2026) its latest lineup of foldable and wearable devices. For developers, this means that the variety of form factors, screen sizes, and device postures your app needs to support is expanding once again.
+3 min read ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_1vfHD.webp) 22 Jul 2026 [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)](https://developer.android.com/blog/authors/miguel-montemayor.md.txt) [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt) \& [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor.md.txt) Today at Galaxy Unpacked, Samsung [unveiled](https://blog.google/products-and-platforms/platforms/android/galaxy-unpacked-2026) its latest lineup of foldable and wearable devices. For developers, this means that the variety of form factors, screen sizes, and device postures your app needs to support is expanding once again.
 
 With devices like the Galaxy Z Fold8, the ecosystem is expanding to include hardware with a landscape-first natural orientation and a wider aspect ratio in its main display state. Whether a user is unfolding a large display, flipping open a cover screen, or glancing at their wrist, users expect a flawless experience. To help you meet this moment, we're sharing actionable guidance and new tooling updates to enable you to build adaptively proactively.
 
@@ -20,12 +22,12 @@ With devices like the Galaxy Z Fold8, the ecosystem is expanding to include hard
 
 ## Rethink layout architecture for dynamic displays, including ultra-wide foldables
 
-Building for the latest foldables means dropping assumptions about display orientation and size. This is especially true for the Galaxy Z Fold8, which adopts an ultra-wide display, adding to the variety of aspect ratios to account for. Devices with this landscape-first natural orientation show the limitations of hardcoded layout rules when users unfold the device. That's why we've introduced [dedicated guidance for building for landscape foldables and trifolds.](https://developer.android.com/develop/adaptive-apps/guides/foldables/trifolds-and-landscape-foldables)
+Building for the latest foldables means dropping assumptions about display orientation and size. This is especially true for the Galaxy Z Fold8, which adopts an ultra-wide display, adding to the variety of aspect ratios to account for. Devices with this landscape-first natural orientation show the limitations of hardcoded layout rules when users unfold the device. That's why we've introduced [dedicated guidance for building for landscape foldables and trifolds.](https://developer.android.com/develop/adaptive-apps/guides/foldables/trifolds-and-landscape-foldables.md.txt)
 
 To build a responsive UI that handles these physics seamlessly, focus on the following core pillars:
 
-- **Build fluid, adaptive layouts:** Wide aspect ratios and compact vertical heights require fluid UIs that scale responsively. Our updated [adaptive design guidance](https://developer.android.com/design/ui/mobile/guides/layout-and-content/adapt-layout) advises considering the window class width first to determine layout changes, then adjusting for height. To let individual components fluidly adapt to the grid, structure your layout using flexible containers that allow your content to automatically wrap, span, and reflow. For design inspiration browse our [adaptive sample app](https://developer.android.com/design/ui/gallery/social/pawparazzi) and [dual-screen](https://developer.android.com/design/ui/gallery/social/dual-screen) design galleries.
-- **Track actual app space:** Your app's display space rarely matches the physical device size, especially on an ultra-wide screen during multi-window, split-screen, or multitasking states. Sometimes even the orientations differ. Leverage [Window Size Classes](https://developer.android.com/develop/adaptive-apps/guides/use-window-size-classes) using the [Jetpack Window Manager library](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable) to calculate the exact space your app occupies.
+- **Build fluid, adaptive layouts:** Wide aspect ratios and compact vertical heights require fluid UIs that scale responsively. Our updated [adaptive design guidance](https://developer.android.com/design/ui/mobile/guides/layout-and-content/adapt-layout.md.txt) advises considering the window class width first to determine layout changes, then adjusting for height. To let individual components fluidly adapt to the grid, structure your layout using flexible containers that allow your content to automatically wrap, span, and reflow. For design inspiration browse our [adaptive sample app](https://developer.android.com/design/ui/gallery/social/pawparazzi.md.txt) and [dual-screen](https://developer.android.com/design/ui/gallery/social/dual-screen.md.txt) design galleries.
+- **Track actual app space:** Your app's display space rarely matches the physical device size, especially on an ultra-wide screen during multi-window, split-screen, or multitasking states. Sometimes even the orientations differ. Leverage [Window Size Classes](https://developer.android.com/develop/adaptive-apps/guides/use-window-size-classes.md.txt) using the [Jetpack Window Manager library](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable.md.txt) to calculate the exact space your app occupies.
 
 <br />
 
@@ -33,19 +35,19 @@ To build a responsive UI that handles these physics seamlessly, focus on the fol
 
 <br />
 
-- **Leverage the latest Jetpack Compose Update:** Start by adopting the stable [Jetpack Compose April '26 release](https://android-developers.googleblog.com/2026/04/jetpack-compose-april-2026-updates.html) ([Compose BOM](https://developer.android.com/develop/ui/compose/bom) version `2026.04.01`).Take advantage of the new structural layout tools to manage complex architectures. The new [Grid](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid) API allows you to define dynamic tracks and column spans without the performance overhead of a lazy list. Pair Grid with the new [FlexBox](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox) layout API to easily handle multi-axis alignment and dynamic item wrapping. You can also use the new [MediaQuery](https://developer.android.com/develop/ui/compose/layouts/adaptive/mediaquery) API to adapt your UI to its environment, using conditions to detect signals like device posture, window size, and keyboard types.
-- **Make your app fold aware:** Use the Jetpack WindowManager library, which provides an API surface for foldable device window features such as folds and hinges. When your app is[fold aware](https://developer.android.com/develop/adaptive-apps/guides/foldables/make-your-app-fold-aware), it can adapt its layout to avoid placing important content in the area of folds or hinges and use folds and hinges as natural separators.
-- **Maintain app continuity:** Avoid breaking the user journey when the device configuration shifts. Retain your UI state using [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) to ensure smooth transitions when a user folds or unfolds their device.
+- **Leverage the latest Jetpack Compose Update:** Start by adopting the stable [Jetpack Compose April '26 release](https://android-developers.googleblog.com/2026/04/jetpack-compose-april-2026-updates.html) ([Compose BOM](https://developer.android.com/develop/ui/compose/bom.md.txt) version `2026.04.01`).Take advantage of the new structural layout tools to manage complex architectures. The new [Grid](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid.md.txt) API allows you to define dynamic tracks and column spans without the performance overhead of a lazy list. Pair Grid with the new [FlexBox](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox.md.txt) layout API to easily handle multi-axis alignment and dynamic item wrapping. You can also use the new [MediaQuery](https://developer.android.com/develop/ui/compose/layouts/adaptive/mediaquery.md.txt) API to adapt your UI to its environment, using conditions to detect signals like device posture, window size, and keyboard types.
+- **Make your app fold aware:** Use the Jetpack WindowManager library, which provides an API surface for foldable device window features such as folds and hinges. When your app is[fold aware](https://developer.android.com/develop/adaptive-apps/guides/foldables/make-your-app-fold-aware.md.txt), it can adapt its layout to avoid placing important content in the area of folds or hinges and use folds and hinges as natural separators.
+- **Maintain app continuity:** Avoid breaking the user journey when the device configuration shifts. Retain your UI state using [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel.md.txt) to ensure smooth transitions when a user folds or unfolds their device.
 
 ## Ensure seamless camera capture on foldable devices
 
 Camera implementation on foldables brings unique hardware quirks. Moving from a compact outer display to an expanded inner display introduces distinct layout aspect ratios while device rotation remains unchanged. If an app assumes a fixed portrait relationship between the camera sensor and the device layout, the app will likely suffer from sideways, stretched, or cropped previews during these folding transitions.
 
-When optimizing your app's media pipeline, migrate your capture experiences to [CameraX](https://developer.android.com/media/camera/camerax) using the CameraX migration [skill](https://github.com/android/skills/blob/main/camera/camerax/SKILL.md). The library's [PreviewView](https://developer.android.com/reference/kotlin/androidx/camera/view/PreviewView) automatically handles sensor orientation, device rotation, and scaling behind the scenes. This guarantees a clean, stable preview regardless of how the user holds or positions the device. If you are maintaining an existing Camera2 codebase, integrate the [CameraViewfinder](https://developer.android.com/develop/adaptive-apps/guides/foldables/trifolds-and-landscape-foldables#solution_2_cameraviewfinder) library to apply these complex aspect ratio and rotation transformations automatically without needing a total architecture overhaul.
+When optimizing your app's media pipeline, migrate your capture experiences to [CameraX](https://developer.android.com/media/camera/camerax.md.txt) using the CameraX migration [skill](https://github.com/android/skills/blob/main/camera/camerax/SKILL.md). The library's [PreviewView](https://developer.android.com/reference/kotlin/androidx/camera/view/PreviewView.md.txt) automatically handles sensor orientation, device rotation, and scaling behind the scenes. This guarantees a clean, stable preview regardless of how the user holds or positions the device. If you are maintaining an existing Camera2 codebase, integrate the [CameraViewfinder](https://developer.android.com/develop/adaptive-apps/guides/foldables/trifolds-and-landscape-foldables.md.txt#solution_2_cameraviewfinder) library to apply these complex aspect ratio and rotation transformations automatically without needing a total architecture overhaul.
 
 ## Extend glanceable interactions to Wear OS 7
 
-The opportunity to build for this new generation of devices extends right to the wrist. Launching with Wear OS 7, Wear Widgets give you a fresh surface to provide users with instant, glanceable access to their essential updates. You can build these highly expressive experiences using [Jetpack Glance](https://developer.android.com/jetpack/androidx/releases/glance-wear) and [RemoteCompose](https://developer.android.com/jetpack/androidx/releases/compose-remote). Crucially, Widgets built with this framework can now populate multi-widget tiles that were previously reserved for first-party widgets.
+The opportunity to build for this new generation of devices extends right to the wrist. Launching with Wear OS 7, Wear Widgets give you a fresh surface to provide users with instant, glanceable access to their essential updates. You can build these highly expressive experiences using [Jetpack Glance](https://developer.android.com/jetpack/androidx/releases/glance-wear.md.txt) and [RemoteCompose](https://developer.android.com/jetpack/androidx/releases/compose-remote.md.txt). Crucially, Widgets built with this framework can now populate multi-widget tiles that were previously reserved for first-party widgets.
 
 <br />
 
@@ -55,7 +57,7 @@ The opportunity to build for this new generation of devices extends right to the
 
 ## Build intelligent features
 
-[Gemini intelligence](https://blog.google/products-and-platforms/platforms/android/gemini-intelligence/)already completes tasks on users' behalf, and you can [experiment](https://developer.android.com/ai/appfunctions?_gl=1*1jms098*_up*MQ..*_ga*MjY0OTY0MDI3LjE3ODQzMzI1NDk.*_ga_6HH9YJMN9M*czE3ODQzMzI1NDkkbzEkZzAkdDE3ODQzMzI1NDkkajYwJGwwJGgxNjE0MTMzNjEz) with the intelligence system by sharing your apps capabilities.
+[Gemini intelligence](https://blog.google/products-and-platforms/platforms/android/gemini-intelligence/)already completes tasks on users' behalf, and you can [experiment](https://developer.android.com/ai/appfunctions.md.txt?_gl=1*1jms098*_up*MQ..*_ga*MjY0OTY0MDI3LjE3ODQzMzI1NDk.*_ga_6HH9YJMN9M*czE3ODQzMzI1NDkkbzEkZzAkdDE3ODQzMzI1NDkkajYwJGwwJGgxNjE0MTMzNjEz) with the intelligence system by sharing your apps capabilities.
 
 Samsung's new foldable devices come with Gemini Nano 4, our latest on-device model. Nano 4 provides support for over 140 languages, better multimodal understanding, and [much more](https://developers.google.com/ml-kit/release-notes#july_14_2026). Use [ML Kit's Prompt API](https://developers.google.com/ml-kit/genai/prompt/android) with advanced features like s[tructured output](https://developers.google.com/ml-kit/genai/prompt/android/structured-output) and [thinking mode](https://developers.google.com/ml-kit/genai/prompt/android/thinking-mode) to build intelligent features on-device.
 
@@ -63,7 +65,7 @@ Samsung's new foldable devices come with Gemini Nano 4, our latest on-device mod
 
 The tools and frameworks are ready to help you optimize your app for all screen sizes. Begin by exploring our guidance for [building adaptive apps](https://developer.android.com/develop/adaptive-apps)to learn more about core adaptive design principles.
 
-To dive deeper, check out our comprehensive [YouTube playlist](https://www.youtube.com/playlist?list=PLD2U7gd1-ieo). Finally, ensure your app delivers a flawless, premium experience on the newest form factors by reviewing our dedicated quality guidelines for [trifolds and landscape foldables](https://developer.android.com/develop/adaptive-apps/guides/foldables/trifolds-and-landscape-foldables) and [WearOS](https://developer.android.com/design/ui/wear/guides/get-started).
+To dive deeper, check out our comprehensive [YouTube playlist](https://www.youtube.com/playlist?list=PLD2U7gd1-ieo). Finally, ensure your app delivers a flawless, premium experience on the newest form factors by reviewing our dedicated quality guidelines for [trifolds and landscape foldables](https://developer.android.com/develop/adaptive-apps/guides/foldables/trifolds-and-landscape-foldables.md.txt) and [WearOS](https://developer.android.com/design/ui/wear/guides/get-started.md.txt).
 
 Unfold the future today!
 
@@ -73,7 +75,7 @@ Written by:
 
 -
 
-  ## [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz)
+  ## [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt)
 
   ###### Senior Product Manager
 
@@ -81,42 +83,42 @@ Written by:
   View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)
 -
 
-  ## [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor)
+  ## [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/miguel-montemayor) ![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp) ![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)
 Continue reading
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 03 Sep 2025 03 Sep 2025 ![](https://developer.android.com/static/blog/assets/yt_MBG_2_a56f169e60_Z1m2tOK.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)](https://developer.android.com/blog/authors/miguel-montemayor.md.txt) 03 Sep 2025 03 Sep 2025 ![](https://developer.android.com/static/blog/assets/yt_MBG_2_a56f169e60_Z1m2tOK.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Unfold new possibilities with Compose Adaptive Layouts 1.2 beta](https://developer.android.com/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts)
+  ## [Unfold new possibilities with Compose Adaptive Layouts 1.2 beta](https://developer.android.com/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts) With new form factors like the Pixel 10 Pro Fold joining the Android ecosystem, adaptive app development is essential for creating high-quality user experiences across phones, tablets, and foldables.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)](https://developer.android.com/blog/authors/loryn-hairston) 22 Sep 2026 22 Sep 2026 ![](https://developer.android.com/static/blog/assets/Googlebook_Blog_Strapi_4a4a7d3291_Z1ReCnu.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts.md.txt) With new form factors like the Pixel 10 Pro Fold joining the Android ecosystem, adaptive app development is essential for creating high-quality user experiences across phones, tablets, and foldables.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor.md.txt) • 3 min read
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt)[![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)](https://developer.android.com/blog/authors/loryn-hairston.md.txt) 22 Sep 2026 22 Sep 2026 ![](https://developer.android.com/static/blog/assets/Googlebook_Blog_Strapi_4a4a7d3291_Z1ReCnu.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Land your apps on Googlebook with adaptive development](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development)
+  ## [Land your apps on Googlebook with adaptive development](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development) Googlebook introduces a new category of laptops built on a shared Android foundation. High-performance hardware from partners such as HP, Dell, Lenovo, Acer, and Asus, combines mobile convenience with desktop power.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
-  - [#Googlebook](https://developer.android.com/blog/topics/googlebook)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  [arrow_forward](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md.txt) Googlebook introduces a new category of laptops built on a shared Android foundation. High-performance hardware from partners such as HP, Dell, Lenovo, Acer, and Asus, combines mobile convenience with desktop power.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston.md.txt) • 4 min read
+  - [#Googlebook](https://developer.android.com/blog/topics/googlebook.md.txt)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
   - +1 ↩
-- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
+  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
-  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
-  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
-  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
-  - [#Foldables](https://developer.android.com/blog/topics/foldables)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 4 min read
+  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7.md.txt)
+  - [#made by google](https://developer.android.com/blog/topics/made-by-google.md.txt)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4.md.txt)
+  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api.md.txt)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
   - +5 ↩
 Stay in the loop
 

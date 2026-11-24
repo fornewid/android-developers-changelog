@@ -61,12 +61,12 @@ For more information, check out the [official documentation.](https://developer.
 
 ### **3. Android Bench adds new models**
 
-Earlier this year, we launched [Android Bench](https://developer.android.com/bench.md.txt) - our leaderboard for **testing LLMs on real-world Android development** challenges and tasks, with the goal of accelerating model improvements, so you have more helpful options for AI assistance.
+Earlier this year, we launched [Android Bench](https://developer.android.com/bench) - our leaderboard for **testing LLMs on real-world Android development** challenges and tasks, with the goal of accelerating model improvements, so you have more helpful options for AI assistance.
 ![BqxcGrPpA9yaLkh.png](https://developer.android.com/static/blog/assets/Bqxc_Gr_Pp_A9ya_Lkh_472be974e6_Z2hExuK.webp) Latest results from Android Bench leaderboard
 
 You asked us to evaluate open models. So, at I/O, we added more commonly used ones, including our local model **Gemma 4** , to the leaderboard. We also added the latest models including **Gemini 3.5 Flash.**
 
-We are also working on increasing the difficulty of challenges we're giving LLMs, including creating long running tasks, to continue encouraging improvements. These tasks will be coming soon to Android Bench. Check out the [Android Bench leaderboard](https://developer.android.com/bench.md.txt) to see the latest results.
+We are also working on increasing the difficulty of challenges we're giving LLMs, including creating long running tasks, to continue encouraging improvements. These tasks will be coming soon to Android Bench. Check out the [Android Bench leaderboard](https://developer.android.com/bench) to see the latest results.
 
 ### **Android development anywhere**
 

@@ -4,17 +4,19 @@ url: https://developer.android.com/blog/topics/intelligent-eyewear
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 # #intelligent eyewear
 
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs.md.txt)
 
-  ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
+  ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md.txt) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
   1 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-  - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
-  - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+  - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear.md.txt)
+  - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses.md.txt)
   - +1 ↩
 Stay in the loop
 

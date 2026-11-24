@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/topics/beta
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 # #beta
 
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [The Third Beta of Android 17](https://developer.android.com/blog/posts/the-third-beta-of-android-17)
+  ## [The Third Beta of Android 17](https://developer.android.com/blog/posts/the-third-beta-of-android-17.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/the-third-beta-of-android-17) Android 17 has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 5 min read
-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
-  - [#beta](https://developer.android.com/blog/topics/beta)
+  [arrow_forward](https://developer.android.com/blog/posts/the-third-beta-of-android-17.md.txt) Android 17 has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 5 min read
+  - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
+  - [#beta](https://developer.android.com/blog/topics/beta.md.txt)
 Stay in the loop
 
 

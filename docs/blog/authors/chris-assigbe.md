@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/authors/chris-assigbe
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/Chris_Assigbe_2_a72a1e1687_1TPmyU.webp)
 
 # Chris Assigbe
 
 Developer Relations Engineer
-- 29 Oct 2025 29 Oct 2025 ![](https://developer.android.com/static/blog/assets/introducing_Cahier_792458c981_Z2owFHS.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 29 Oct 2025 29 Oct 2025 ![](https://developer.android.com/static/blog/assets/introducing_Cahier_792458c981_Z2owFHS.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Introducing Cahier: A new Android GitHub sample for large screen productivity and creativity](https://developer.android.com/blog/posts/introducing-cahier-a-new-android-git-hub-sample-for-large-screen-productivity-and-creativity)
+  ## [Introducing Cahier: A new Android GitHub sample for large screen productivity and creativity](https://developer.android.com/blog/posts/introducing-cahier-a-new-android-git-hub-sample-for-large-screen-productivity-and-creativity.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/introducing-cahier-a-new-android-git-hub-sample-for-large-screen-productivity-and-creativity) Ink API is now in beta and is ready to be integrated in your app.. This milestone was made possible by valuable developer feedback, leading to continuous improvements in the API's performance, stability, and visual quality.
+  [arrow_forward](https://developer.android.com/blog/posts/introducing-cahier-a-new-android-git-hub-sample-for-large-screen-productivity-and-creativity.md.txt) Ink API is now in beta and is ready to be integrated in your app.. This milestone was made possible by valuable developer feedback, leading to continuous improvements in the API's performance, stability, and visual quality.
   11 min read
 Stay in the loop
 

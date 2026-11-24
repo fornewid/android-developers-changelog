@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/the-second-beta-of-android-17
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # The Second Beta of Android 17
 
-6 min read ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) 26 Feb 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today we're releasing the second beta of [Android 17](https://developer.android.com/about/versions/17), continuing our work to build a platform that prioritizes privacy, security, and refined performance. This update delivers a range of new capabilities, including the EyeDropper API and a privacy-preserving Contacts Picker. We're also adding advanced ranging, cross-device handoff APIs, and more.  
+6 min read ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) 26 Feb 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) Vice President, Product Management, Android Developer Today we're releasing the second beta of [Android 17](https://developer.android.com/about/versions/17), continuing our work to build a platform that prioritizes privacy, security, and refined performance. This update delivers a range of new capabilities, including the EyeDropper API and a privacy-preserving Contacts Picker. We're also adding advanced ranging, cross-device handoff APIs, and more.  
 
 This release continues the shift in our release cadence, following this annual major SDK release in Q2 with a minor SDK update.
 
@@ -19,7 +21,7 @@ This release continues the shift in our release cadence, following this annual m
 Bubbles is a windowing mode feature that offers a new floating UI experience separate from the [messaging bubbles API](https://developer.android.com/develop/ui/views/notifications/bubbles). Users can create an app bubble on their phone, foldable, or tablet by long-pressing an app icon on the launcher. On large screens, there is a bubble bar as part of the taskbar where users can organize, move between, and move bubbles to and from anchored points on the screen.
 ![Bubbles.gif](https://developer.android.com/static/blog/assets/Bubbles_3804b5dbdd_BdDr8.webp)
 
-You should follow the [guidelines for supporting multi-window mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode) to ensure your apps work correctly as bubbles.
+You should follow the [guidelines for supporting multi-window mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode.md.txt) to ensure your apps work correctly as bubbles.
 
 Bubbles aren't yet fully enabled in Beta 2. Look for them in a future build of Android 17.
 
@@ -44,7 +46,7 @@ fun launchColorPicker() {
 
 #### Contacts Picker
 
-A new system-level contacts picker via [ACTION_PICK_CONTACTS](https://developer.android.com/reference/kotlin/android/provider/ContactsPickerSessionContract#ACTION_PICK_CONTACTS:kotlin.String) grants temporary, session-based read access to only the specific data fields requested by the user, reducing the need for the broad [READ_CONTACTS](https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS) permissions. It also allows for selections from the device's personal or work profiles.
+A new system-level contacts picker via [ACTION_PICK_CONTACTS](https://developer.android.com/reference/kotlin/android/provider/ContactsPickerSessionContract#ACTION_PICK_CONTACTS:kotlin.String) grants temporary, session-based read access to only the specific data fields requested by the user, reducing the need for the broad [READ_CONTACTS](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_CONTACTS) permissions. It also allows for selections from the device's personal or work profiles.
 ![android-17-contact-picker.gif](https://developer.android.com/static/blog/assets/android_17_contact_picker_abefb8ca84_187BjM.webp)
 
 ```
@@ -81,13 +83,13 @@ view.requestPointerCapture(View.POINTER_CAPTURE_MODE_ABSOLUTE)
 
 #### **Interactive Chooser resting bounds**
 
-By calling [getInitialRestingBounds](https://developer.android.com/reference/kotlin/android/service/chooser/ChooserSession#getinitialrestingbounds) on Android's [ChooserSession](https://developer.android.com/reference/android/service/chooser/ChooserSession), your app can identify the target position the Chooser occupies after animations and data loading are complete, enabling better UI adjustments.
+By calling [getInitialRestingBounds](https://developer.android.com/reference/kotlin/android/service/chooser/ChooserSession.md.txt#getinitialrestingbounds) on Android's [ChooserSession](https://developer.android.com/reference/android/service/chooser/ChooserSession.md.txt), your app can identify the target position the Chooser occupies after animations and data loading are complete, enabling better UI adjustments.
 
 ### Connectivity \& Cross-Device
 
 #### Cross-device app handoff
 
-A new [Handoff API](https://developer.android.com/reference/kotlin/android/app/Activity#sethandoffenabled) allows you to specify application state to be resumed on another device, such as an Android tablet. When opted in, the system synchronizes state via [CompanionDeviceManager](https://developer.android.com/reference/android/companion/CompanionDeviceManager) and displays a handoff suggestion in the launcher of the user's nearby devices. This feature is designed to offer seamless task continuity, enabling users to pick up exactly where they left off in their workflow across their Android ecosystem. Critically, Handoff supports both native app-to-app transitions and app-to-web fallback, providing maximum flexibility and ensuring a complete experience even if the native app is not installed on the receiving device.
+A new [Handoff API](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt#sethandoffenabled) allows you to specify application state to be resumed on another device, such as an Android tablet. When opted in, the system synchronizes state via [CompanionDeviceManager](https://developer.android.com/reference/android/companion/CompanionDeviceManager.md.txt) and displays a handoff suggestion in the launcher of the user's nearby devices. This feature is designed to offer seamless task continuity, enabling users to pick up exactly where they left off in their workflow across their Android ecosystem. Critically, Handoff supports both native app-to-app transitions and app-to-web fallback, providing maximum flexibility and ensuring a complete experience even if the native app is not installed on the receiving device.
 
 #### Advanced ranging APIs
 
@@ -98,29 +100,29 @@ We are adding support for 2 new ranging technologies -
 
 #### Data plan enhancements
 
-To optimize media quality, your app can now retrieve carrier-allocated maximum data rates for streaming applications using [getStreamingAppMaxDownlinkKbps](https://developer.android.com/reference/kotlin/android/telephony/SubscriptionInfo#getstreamingappmaxdownlinkkbps) and [getStreamingAppMaxUplinkKbps](https://developer.android.com/reference/kotlin/android/telephony/SubscriptionInfo#getstreamingappmaxuplinkkbps).
+To optimize media quality, your app can now retrieve carrier-allocated maximum data rates for streaming applications using [getStreamingAppMaxDownlinkKbps](https://developer.android.com/reference/kotlin/android/telephony/SubscriptionInfo.md.txt#getstreamingappmaxdownlinkkbps) and [getStreamingAppMaxUplinkKbps](https://developer.android.com/reference/kotlin/android/telephony/SubscriptionInfo.md.txt#getstreamingappmaxuplinkkbps).
 
 ### Core Functionality, Privacy \& Performance
 
 #### Local Network Access
 
-Android 17 introduces the [ACCESS_LOCAL_NETWORK](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network) runtime permission to protect users from unauthorized local network access. Because this falls under the existing [NEARBY_DEVICES](https://developer.android.com/reference/android/Manifest.permission_group#NEARBY_DEVICES) permission group, users who have already granted other [NEARBY_DEVICES](https://developer.android.com/reference/android/Manifest.permission_group#NEARBY_DEVICES) permissions will not be prompted again. By declaring and requesting this permission, your app can discover and connect to devices on the local area network (LAN), such as smart home devices or casting receivers. This prevents malicious apps from exploiting unrestricted local network access for covert user tracking and fingerprinting. Apps targeting Android 17 or higher will now have two paths to maintain communication with LAN devices: adopt system-mediated, privacy-preserving device pickers to skip the permission prompt, or explicitly request this new permission at runtime to maintain local network communication.
+Android 17 introduces the [ACCESS_LOCAL_NETWORK](https://developer.android.com/reference/kotlin/android/Manifest.permission.md.txt#access_local_network) runtime permission to protect users from unauthorized local network access. Because this falls under the existing [NEARBY_DEVICES](https://developer.android.com/reference/android/Manifest.permission_group.md.txt#NEARBY_DEVICES) permission group, users who have already granted other [NEARBY_DEVICES](https://developer.android.com/reference/android/Manifest.permission_group.md.txt#NEARBY_DEVICES) permissions will not be prompted again. By declaring and requesting this permission, your app can discover and connect to devices on the local area network (LAN), such as smart home devices or casting receivers. This prevents malicious apps from exploiting unrestricted local network access for covert user tracking and fingerprinting. Apps targeting Android 17 or higher will now have two paths to maintain communication with LAN devices: adopt system-mediated, privacy-preserving device pickers to skip the permission prompt, or explicitly request this new permission at runtime to maintain local network communication.
 
 #### Time zone offset change broadcast
 
-Android now provides a reliable broadcast intent, [ACTION_TIMEZONE_OFFSET_CHANGED](https://developer.android.com/reference/kotlin/android/content/Intent#action_timezone_offset_changed), triggered when the system's time zone offset changes, such as during Daylight Saving Time transitions. This complements the existing broadcast intents [ACTION_TIME_CHANGED](https://developer.android.com/reference/android/content/Intent#ACTION_TIME_CHANGED) and [ACTION_TIMEZONE_CHANGED](https://developer.android.com/reference/android/content/Intent#ACTION_TIMEZONE_CHANGED), which are triggered when the Unix timestamp changes and when the time zone ID changes, respectively.
+Android now provides a reliable broadcast intent, [ACTION_TIMEZONE_OFFSET_CHANGED](https://developer.android.com/reference/kotlin/android/content/Intent.md.txt#action_timezone_offset_changed), triggered when the system's time zone offset changes, such as during Daylight Saving Time transitions. This complements the existing broadcast intents [ACTION_TIME_CHANGED](https://developer.android.com/reference/android/content/Intent.md.txt#ACTION_TIME_CHANGED) and [ACTION_TIMEZONE_CHANGED](https://developer.android.com/reference/android/content/Intent.md.txt#ACTION_TIMEZONE_CHANGED), which are triggered when the Unix timestamp changes and when the time zone ID changes, respectively.
 
 #### NPU Management and Prioritization
 
-Apps targeting Android 17 that need to directly access the NPU must declare [FEATURE_NEURAL_PROCESSING_UNIT](https://developer.android.com/reference/kotlin/android/content/pm/PackageManager#feature_neural_processing_unit) in their manifest to avoid being blocked from accessing the NPU. This includes apps that use the [LiteRT NPU delegate](https://ai.google.dev/edge/litert/next/npu), vendor-specific SDKs, as well as the deprecated [NNAPI](https://developer.android.com/ndk/guides/neuralnetworks).
+Apps targeting Android 17 that need to directly access the NPU must declare [FEATURE_NEURAL_PROCESSING_UNIT](https://developer.android.com/reference/kotlin/android/content/pm/PackageManager.md.txt#feature_neural_processing_unit) in their manifest to avoid being blocked from accessing the NPU. This includes apps that use the [LiteRT NPU delegate](https://ai.google.dev/edge/litert/next/npu), vendor-specific SDKs, as well as the deprecated [NNAPI](https://developer.android.com/ndk/guides/neuralnetworks.md.txt).
 
 #### **ICU 78 and Unicode 17 support**
 
-Core internationalization libraries have been updated to [ICU 78](https://blog.unicode.org/2025/10/icu-78-released.html), expanding support for new scripts, characters, and emoji blocks, and enabling direct formatting of [time](https://developer.android.com/reference/java/time/package-summary) objects.
+Core internationalization libraries have been updated to [ICU 78](https://blog.unicode.org/2025/10/icu-78-released.html), expanding support for new scripts, characters, and emoji blocks, and enabling direct formatting of [time](https://developer.android.com/reference/java/time/package-summary.md.txt) objects.
 
 #### SMS OTP protection
 
-Android is expanding its SMS OTP protection by automatically delaying access to SMS messages with OTP. Previously, the protection was primarily focused on the SMS Retriever format wherein the delivery of messages containing an SMS retriever hash is delayed for most apps for three hours. However, for certain apps like the default SMS app, etc and the app that corresponds to the hash are exempt from this delay. This update extends the protection to all SMS messages with OTP. For most apps, SMS messages containing an OTP will only be accessible after a delay of three hours to help prevent OTP hijacking. The [SMS_RECEIVED_ACTION](https://developer.android.com/reference/android/provider/Telephony.Sms.Intents#SMS_RECEIVED_ACTION) broadcast will be withheld and [sms provider](https://developer.android.com/reference/android/provider/Telephony.Sms) database queries will be filtered. The SMS message will be available to these apps after the delay.
+Android is expanding its SMS OTP protection by automatically delaying access to SMS messages with OTP. Previously, the protection was primarily focused on the SMS Retriever format wherein the delivery of messages containing an SMS retriever hash is delayed for most apps for three hours. However, for certain apps like the default SMS app, etc and the app that corresponds to the hash are exempt from this delay. This update extends the protection to all SMS messages with OTP. For most apps, SMS messages containing an OTP will only be accessible after a delay of three hours to help prevent OTP hijacking. The [SMS_RECEIVED_ACTION](https://developer.android.com/reference/android/provider/Telephony.Sms.Intents.md.txt#SMS_RECEIVED_ACTION) broadcast will be withheld and [sms provider](https://developer.android.com/reference/android/provider/Telephony.Sms.md.txt) database queries will be filtered. The SMS message will be available to these apps after the delay.
 
 #### **Delayed access to WebOTP format SMS messages**
 
@@ -132,7 +134,7 @@ For SMS messages containing an OTP that do not use the WebOTP or SMS Retriever f
 
 Certain apps such as the default SMS, assistant app, along with connected device companion apps, etc will be exempt from this delay.  
 
-All apps that rely on reading SMS messages for OTP extraction should transition to using [SMS Retriever](https://developer.android.com/identity/sms-retriever) or [SMS User Consent](https://developers.google.com/identity/sms-retriever/user-consent/overview) APIs to ensure continued functionality.
+All apps that rely on reading SMS messages for OTP extraction should transition to using [SMS Retriever](https://developer.android.com/identity/sms-retriever.md.txt) or [SMS User Consent](https://developers.google.com/identity/sms-retriever/user-consent/overview) APIs to ensure continued functionality.
 
 ### The Android 17 schedule
 
@@ -146,7 +148,7 @@ We plan for Android 17 to continue to get updates in a series of quarterly relea
 
 ### Get started with Android 17
 
-You can [enroll any supported Pixel device](https://www.google.com/android/beta) to get this and future Android Beta updates over-the-air. If you don't have a Pixel device, you can [use the 64-bit system images with the Android Emulator](https://developer.android.com/about/versions/17/get#on_emulator) in Android Studio.
+You can [enroll any supported Pixel device](https://www.google.com/android/beta) to get this and future Android Beta updates over-the-air. If you don't have a Pixel device, you can [use the 64-bit system images with the Android Emulator](https://developer.android.com/about/versions/17/get.md.txt#on_emulator) in Android Studio.
 
 If you are currently in the Android Beta program, you will be offered an over-the-air update to Beta 2.
 
@@ -159,7 +161,7 @@ For the best development experience with Android 17, we recommend that you use t
 - Compile against the new SDK, test in CI environments, and report any issues in our tracker on the [feedback page](https://developer.android.com/about/versions/17/feedback).
 - Test your current app for compatibility, learn whether your app is affected by changes in Android 17, and install your app onto a device or emulator running Android 17 and extensively test it.
 
-We'll update the [preview/beta system images](https://developer.android.com/about/versions/17/download) and SDK regularly throughout the Android 17 release cycle. Once you've installed a beta build, you'll automatically get future updates
+We'll update the [preview/beta system images](https://developer.android.com/about/versions/17/download.md.txt) and SDK regularly throughout the Android 17 release cycle. Once you've installed a beta build, you'll automatically get future updates
 
 over-the-air for all later previews and Betas.
 
@@ -172,35 +174,35 @@ Written by:
 
 -
 
-  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough)
+  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt)
 
   ###### Vice President, Product Management, Android Developer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
+  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 4 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
+  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-  - [#Android Bench](https://developer.android.com/blog/topics/android-bench)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
+  - [#Android Bench](https://developer.android.com/blog/topics/android-bench.md.txt)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
+  ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
+  [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here.md.txt) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 13 min read
+  - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
 Stay in the loop
 
 

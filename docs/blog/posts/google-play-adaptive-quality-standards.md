@@ -48,10 +48,7 @@ Play Console allows you to upload dedicated foldable screenshots, showcasing bot
 
 - **Standard phone landscape screenshot** --- Showcase the adaptive support built into your app with the option to now include a landscape screenshot (16:9) in addition to the existing requirement of portrait screenshots (9:16). Devices in this category include the [Samsung Galaxy S26](https://www.samsung.com/us/smartphones/galaxy-s26/) and [Google Pixel 11 Pro](https://store.google.com/product/pixel_11_pro).
 
-![Blog_Foldables_StandardPhoneLandscapeScreenshot_alignedtext.png](https://developer.android.com/static/blog/assets/Blog_Foldables_Standard_Phone_Landscape_Screenshot_alignedtext_d77826c868_CMaiI.webp)
-
-* Use Android CLI and Android Emulator to capture *  
-* Play Console *[*ready screenshots*](https://developer.android.com/google/play/requirements/screenshots-android-cli.md.txt)*.*
+![Blog_Foldables_StandardPhoneLandscapeScreenshot_alignedtext.png](https://developer.android.com/static/blog/assets/Blog_Foldables_Standard_Phone_Landscape_Screenshot_alignedtext_d77826c868_CMaiI.webp) Use Android CLI and Android Emulator to capture Play Console [ready screenshots](https://developer.android.com/google/play/requirements/screenshots-android-cli.md.txt).
 
 - **Foldable devices with 1:1 inner display** ---Include at least one screenshot for an unfolded inner screen with an aspect ratio of 1:1. Devices in this category include the [Samsung Galaxy Z Fold8 Ultra](https://www.samsung.com/us/smartphones/galaxy-z-fold8-ultra/) and [Google Pixel 11 Pro Fold](https://store.google.com/product/pixel_11_pro_fold).
 

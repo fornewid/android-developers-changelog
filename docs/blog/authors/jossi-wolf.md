@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/authors/jossi-wolf
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/Jossi_Wolf_d703979815_M1Gw1.webp)
 
 # Jossi Wolf
 
 Software Engineer
-- 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week11_efe6dd10be_1ULXct.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week11_efe6dd10be_1ULXct.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Deeper Performance Considerations](https://developer.android.com/blog/posts/deeper-performance-considerations)
+  ## [Deeper Performance Considerations](https://developer.android.com/blog/posts/deeper-performance-considerations.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/deeper-performance-considerations) We're covering Profile Guided Optimization, Jetpack Compose performance improvements and considerations on working behind the scenes.
+  [arrow_forward](https://developer.android.com/blog/posts/deeper-performance-considerations.md.txt) We're covering Profile Guided Optimization, Jetpack Compose performance improvements and considerations on working behind the scenes.
   8 min read
 Stay in the loop
 

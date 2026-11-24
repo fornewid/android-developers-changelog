@@ -4,18 +4,20 @@ url: https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-com
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Celebrating 5 years of Jetpack Compose
 
-4 min read ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z6XDT1.webp) 28 Jul 2026 3 Authors [Rebecca Franks,](https://developer.android.com/blog/authors/rebecca-franks) [Nick Butcher,](https://developer.android.com/blog/authors/nick-butcher) [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version [1.0, announced on July 28th, 2021](https://android-developers.googleblog.com/2021/07/jetpack-compose-announcement.html), to our latest [1.11 release](https://android-developers.googleblog.com/2026/04/jetpack-compose-april-2026-updates.html), we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
+4 min read ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z6XDT1.webp) 28 Jul 2026 3 Authors [Rebecca Franks,](https://developer.android.com/blog/authors/rebecca-franks.md.txt) [Nick Butcher,](https://developer.android.com/blog/authors/nick-butcher.md.txt) [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston.md.txt) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version [1.0, announced on July 28th, 2021](https://android-developers.googleblog.com/2021/07/jetpack-compose-announcement.html), to our latest [1.11 release](https://android-developers.googleblog.com/2026/04/jetpack-compose-april-2026-updates.html), we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
 
 When we officially announced the 1.0 release, we promised a simpler, faster, and more intuitive way to build native interfaces on Android. Looking back, it's safe to say that Compose didn't just deliver on that promise, but also completely changed the Android ecosystem, with more than 68% of the top 1,000 apps using it in production today.
 [Video](https://www.youtube.com/watch?v=6qyCXugCU6w)
 
 ## History
 
-Over the last five years, Compose has grown steadily. In the [early days](https://www.youtube.com/watch?v=VsStyq4Lzxo), we explored showing you how to build layouts with the basic Box, Row, and Column. Today, we've expanded Compose to work not just on mobile devices, but to other form factors such as [Compose for TV](https://developer.android.com/training/tv/playback/compose), [WearOS](https://developer.android.com/training/wearables/compose?version=3), [Glance for Widgets](https://developer.android.com/develop/ui/compose/glance), and even display glasses with [Jetpack Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer).
+Over the last five years, Compose has grown steadily. In the [early days](https://www.youtube.com/watch?v=VsStyq4Lzxo), we explored showing you how to build layouts with the basic Box, Row, and Column. Today, we've expanded Compose to work not just on mobile devices, but to other form factors such as [Compose for TV](https://developer.android.com/training/tv/playback/compose.md.txt), [WearOS](https://developer.android.com/training/wearables/compose.md.txt?version=3), [Glance for Widgets](https://developer.android.com/develop/ui/compose/glance.md.txt), and even display glasses with [Jetpack Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer).
 ![jetpack_compose_everywhere.png](https://developer.android.com/static/blog/assets/jetpack_compose_everywhere_644011c17b_ZJ50HN.webp)
 
 We recorded an Android Developers Backstage episode with [Clara Bayarri](https://uk.linkedin.com/in/clara-bayarri-815b7333), Engineering Lead for Jetpack, and two former leads of the team, [Romain Guy](https://www.romainguy.dev/) and [Chet Haase](https://www.chethaase.com/), along with [Tor Norbye](https://www.linkedin.com/in/tor-norbye), Senior Engineering Director. In this episode, they discuss the history of Compose and the early days of development.
@@ -62,9 +64,9 @@ Compose has continued to evolve, from launching with a set of Material 2 compone
 
 ## Looking ahead
 
-As of today, Compose 1.11 is the latest version with 1.12 coming soon, offering so much more than 1.0, 5 years ago. This year, we introduced more adaptive APIs, such as [FlexBox](https://developer.android.com/develop/adaptive-apps/guides/flexbox), [Grid](https://developer.android.com/develop/adaptive-apps/guides/grid), [MediaQuery](https://developer.android.com/develop/adaptive-apps/guides/mediaquery), and [Styles](https://developer.android.com/develop/ui/compose/styles). These APIs let you advance to the next level of premium, adaptive UI development with Compose.
+As of today, Compose 1.11 is the latest version with 1.12 coming soon, offering so much more than 1.0, 5 years ago. This year, we introduced more adaptive APIs, such as [FlexBox](https://developer.android.com/develop/adaptive-apps/guides/flexbox.md.txt), [Grid](https://developer.android.com/develop/adaptive-apps/guides/grid.md.txt), [MediaQuery](https://developer.android.com/develop/adaptive-apps/guides/mediaquery.md.txt), and [Styles](https://developer.android.com/develop/ui/compose/styles). These APIs let you advance to the next level of premium, adaptive UI development with Compose.
 
-At Google I/O 2026, we announced that we are now [Compose-first](https://developer.android.com/develop/ui/compose/first), meaning that all future UI development will happen only in Compose, while the Views toolkit enters maintenance mode. Material Design is also [shifting focus](https://m3.material.io/blog/material-is-compose-first) entirely to Compose, signaling an end to the `findViewById era`.
+At Google I/O 2026, we announced that we are now [Compose-first](https://developer.android.com/develop/ui/compose/first.md.txt), meaning that all future UI development will happen only in Compose, while the Views toolkit enters maintenance mode. Material Design is also [shifting focus](https://m3.material.io/blog/material-is-compose-first) entirely to Compose, signaling an end to the `findViewById era`.
 
 ## Community is at the heart of Compose
 
@@ -93,7 +95,7 @@ Written by:
 
 -
 
-  ## [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks)
+  ## [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -101,7 +103,7 @@ Written by:
   View profile](https://developer.android.com/blog/authors/rebecca-franks) ![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp) ![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)
 -
 
-  ## [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher)
+  ## [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher.md.txt)
 
   ###### Product Manager
 
@@ -109,43 +111,43 @@ Written by:
   View profile](https://developer.android.com/blog/authors/nick-butcher) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)
 -
 
-  ## [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston)
+  ## [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston.md.txt)
 
   ###### Product Marketing Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/loryn-hairston) ![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp) ![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)
 Continue reading
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)](https://developer.android.com/blog/authors/loryn-hairston) 22 Sep 2026 22 Sep 2026 ![](https://developer.android.com/static/blog/assets/Googlebook_Blog_Strapi_4a4a7d3291_Z1ReCnu.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt)[![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)](https://developer.android.com/blog/authors/loryn-hairston.md.txt) 22 Sep 2026 22 Sep 2026 ![](https://developer.android.com/static/blog/assets/Googlebook_Blog_Strapi_4a4a7d3291_Z1ReCnu.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Land your apps on Googlebook with adaptive development](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development)
+  ## [Land your apps on Googlebook with adaptive development](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development) Googlebook introduces a new category of laptops built on a shared Android foundation. High-performance hardware from partners such as HP, Dell, Lenovo, Acer, and Asus, combines mobile convenience with desktop power.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
-  - [#Googlebook](https://developer.android.com/blog/topics/googlebook)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  [arrow_forward](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md.txt) Googlebook introduces a new category of laptops built on a shared Android foundation. High-performance hardware from partners such as HP, Dell, Lenovo, Acer, and Asus, combines mobile convenience with desktop power.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston.md.txt) • 4 min read
+  - [#Googlebook](https://developer.android.com/blog/topics/googlebook.md.txt)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
   - +1 ↩
-- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_ZrjgNw.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher.md.txt) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_ZrjgNw.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's new in the Jetpack Compose August '26 release](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release)
+  ## [What's new in the Jetpack Compose August '26 release](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release) Today, the Jetpack Compose August '26 release is stable!
-  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 5 min read
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release.md.txt) Today, the Jetpack Compose August '26 release is stable!
+  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher.md.txt) • 5 min read
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
+- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
+  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
-  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
-  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
-  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
-  - [#Foldables](https://developer.android.com/blog/topics/foldables)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 4 min read
+  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7.md.txt)
+  - [#made by google](https://developer.android.com/blog/topics/made-by-google.md.txt)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4.md.txt)
+  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api.md.txt)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
   - +5 ↩
 Stay in the loop
 

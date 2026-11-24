@@ -18,76 +18,70 @@ keywords:
 
 ## - bottleneck
 
-Use this workflow to diagnose general Android performance issues: jank, app
-startup delays, latency spikes, or thread stalls.
+Diagnose Android jank, app startup latency, memory pressure, and thread stalls
+from a Perfetto trace.
 
-Follow these steps in order:
+If the user didn't provide a trace path, URL, or Perfetto UI link, ask for it
+before running any commands. Set up `trace_processor` per
+`$SKILL_ROOT/references/perfetto/setup.md`, query the trace per
+`$SKILL_ROOT/references/perfetto/sql.md`, and apply the diagnosis checks.
 
-## Step 1: Identify Symptom and Target
+## Diagnosis checks
 
-Clarify the following with the user (ask questions, present options):
+1. **Trace health first:** Before analyzing, check for data loss and memory
+   kills, because dropped events leave gaps that hide what happened:
 
-- *What is the symptom*: Do they want to investigate frame drops, jank, startup latency, ANR, app crash, system crash, or memory pressure?
-- *Who is the victim:* Where did they observe the symptom? For example, "a frame drop in `com.example.sample`".
-- *Baseline trace:* If multiple trace files are provided (A/B trace comparison), identify which is the baseline. You will pass both to the sub-agents in Step 3, which use the baseline trace to establish expected behavior.
+   ```sql
+   INCLUDE PERFETTO MODULE android.memory.lmk;
+   SELECT
+     (SELECT COALESCE(SUM(st.value), 0) FROM stats AS st
+      WHERE st.severity IN ('data_loss', 'error')) AS data_loss,
+     (SELECT COUNT(*) FROM android_lmk_events) AS lmk_kills;
+   ```
 
-> **Input Trace Required:** Confirm that the user has provided a trace file path
-> or URL (for example, `.pftrace`, `.perfetto-trace`, or a Perfetto UI link). If
-> none is provided, pause and ask the user to provide one before proceeding.
-> **Rules:**
->
-> - If the symptom is not known, pause and work with the user for clarification.
-> - If the symptom is known but the victim/timestamp is unknown, proceed to Step 2 (Triage) to discover candidates.
+   If `data_loss > 0`, inspect `stats` (`value > 0`) and report what was
+   dropped. `kswapd` or `kcompactd` activity alone doesn't prove memory
+   exhaustion; check `MemAvailable` and report `lmk_kills`. Counter tracks (CPU
+   and GPU frequency, memory) record a value only when it changes. On a CPU with
+   no frequency track, or before a track's first sample, the value is unknown,
+   not nominal. Report it as a data gap instead of assuming.
+2. **Blocked threads (`S` and `D`):** For synchronous binder calls, join
+   `android_monitor_contention` (`android.monitor_contention`) to
+   `android_binder_txns` (`android.binder`) on `binder_reply_id` across all
+   calls in the window to find lock contention in the server. For `D`, group by
+   `io_wait` and `blocked_function` with prefix `GLOB` (for example,
+   `'do_page_fault*'`), because kernel symbols carry compiler suffixes (`NULL`
+   if `sched_blocked_reason` wasn't traced). `io_wait = 0` isn't disk I/O (for
+   example, `mmap_lock` contention). For either state, the waker is the
+   `waker_utid` of the `R` row that starts at the sleep's `ts + dur`. Inspect
+   the waker's slices at that time to find what the thread waited for. A
+   `Running` row there instead means the wakeup wasn't recorded. With
+   `irq_context = 1`, an interrupt woke the thread and `waker_utid` is only the
+   thread it interrupted; `NULL` means the trace can't tell.
 
-## Step 2: System-Wide Triage
+3. **Runnable (`R` and `R+`):** Runnable time while other CPUs are idle points
+   to affinity, cpuset, or scheduling-group limits, not CPU saturation.
 
-Launch a sub-agent to run triage using the following prompt template:
+4. **Display and GPU (UI, game, or video workloads, even when CPU or `kswapd`
+   activity is present):** Query all thread tracks in
+   `/system/bin/surfaceflinger` (main, `RenderEngine`, and `GPU completion`).
+   Compare composition cycles (`composite *` or `present`, or
+   `onMessageInvalidate *` on older Android) against `*drawLayers*` to see how
+   often Hardware Composer falls back to GPU composition, and check shader
+   compilation and `waiting for GPU completion *`. In those intervals, inspect
+   slices at all depths (including `dur = 0` and sub-ms slices, with no minimum
+   `dur` filter) to find the layer effects driving the work.
 
-    Trace Path: [path of the trace with the issue]
-    Goal: Identify all candidate bottlenecks for [symptom] in
-    [package or entire system]
-    Execution: Read
-    `$SKILL_ROOT/analysis/workflows/perfetto-trace-analysis/references/triage.md`
-    and follow its instructions.
+5. **Janky frames:** Count janky frames by `jank_type` (join `android_frames`
+   to `actual_frame_timeline_slice` on `actual_frame_timeline_id = id`), not by
+   a 16.7 ms duration cutoff. `jank_type` can list several labels, so match
+   `GLOB '*App Deadline Missed*'`. Only those frames are late because of the
+   app. `Buffer Stuffing` and `Prediction Error` frames aren't.
 
-From the triage output:
+## Report
 
-- If no candidates are found, ask the user for specific timestamps or symptoms.
-- If multiple candidates exist, present the top 3 most severe instances to the user and confirm which one(s) to investigate. The user may select one or more.
-
-## Step 3: Investigate Candidates in Parallel
-
-For every confirmed candidate, launch dedicated sub-agents in parallel with this
-prompt:
-
-    Trace path: [path]
-    Baseline Trace Path: [path, if provided, else "None"]
-    Candidate Info: [package_name, `utid`, `upid`, render_thread_utid,
-    process_name, thread_name]
-    Symptom Window: [start_ts, end_ts, duration]
-    Expanded Symptom Window: [expanded_start_ts to end_ts, if applicable]
-    System Vitals: [payload from Step 2]
-    Execution Protocol: Read
-    `$SKILL_ROOT/analysis/workflows/perfetto-trace-analysis/references/per_candidate_analysis.md`
-    and follow it end-to-end.
-
-AWAIT completion of all agents before proceeding to Step 4.
-
-## Step 4: Final Consolidation and Report
-
-Consolidate the sub-agent findings into a final report containing:
-
-1. **Summary and Classification:** Classify root cause (hardware, software/code, scheduling policy, system exhaustion, external dependency).
-2. **Dependency Chain:** Full causal path from symptom to root cause with thread names, `UTID/UPID`s, blocking states, and timestamps.
-3. **Evidence Tags:** Tag every statement with `[SQL]` (backed by trace data), `[INFERRED]` (logical deduction), or `[GAP]` (untraced or missing data).
-4. **Platform Context:** Cite observed slice names, values and timestamps for explaining the platform behavior. **What's bad:** "SurfaceFlinger does X around vsync" **What's a good explanation:** "`SurfaceFlinger`'s composition slice at `ts=142.3ms` ran `4ms` after the vsync signal at `ts=138.1ms`, consistent with X".
-5. **Partial Suspects:** Secondary branches or unverified paths that were
-   investigated but did not reach a terminal root cause, ranked by evidence
-   strength. Report partial suspects even if a terminal root cause was found.
-
-   > If evidence is evenly split between multiple potential causes, report each
-   > suspicion with its supporting data so that engineers can evaluate
-   > probabilities without false certainty. Do not arbitrarily pick a winner.
-6. **Recommended Next Steps:** Scan the frontmatter of workflows in
-   `$SKILL_ROOT/analysis/workflows/` and recommend specialized matching
-   workflows, if applicable, based on the findings.
+Cite the evidence (threads, states, durations, timestamps, and the queries
+used). Separate what the trace shows from inferences, and name any data gaps.
+For a diagnosis, also give the causal chain, each finding's share of the
+symptom, and fixes or follow-up workflows. For example, suggest
+`perfetto-trace-recording` when the trace lacks the data.

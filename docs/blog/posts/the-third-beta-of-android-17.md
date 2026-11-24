@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/the-third-beta-of-android-17
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # The Third Beta of Android 17
 
-5 min read ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) 26 Mar 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer [Android 17](https://developer.android.com/about/versions/17) has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store. In addition, Beta 3 brings a host of new capabilities to help you build better, more secure, and highly integrated applications.
+5 min read ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) 26 Mar 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) Vice President, Product Management, Android Developer [Android 17](https://developer.android.com/about/versions/17) has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store. In addition, Beta 3 brings a host of new capabilities to help you build better, more secure, and highly integrated applications.
 
 ### Get your apps, libraries, tools, and game engines ready!
 
@@ -17,16 +19,16 @@ If you develop an SDK, library, tool, or game engine, it's even more important t
 
 Testing involves installing your production app or a test app making use of your library or engine using Google Play or other means onto a device or emulator running Android 17 Beta 3. Work through all your app's flows and look for functional or UI issues. Review the behavior changes to focus your testing. Each release of Android contains platform changes that improve privacy, security, and overall user experience, and these changes can affect your apps. Here are some changes to focus on:
 
-- **Resizability on large screens:** Once you target Android 17, you can no longer opt out of maintaining orientation, resizability and aspect ratio constraints [on large screens](https://developer.android.com/about/versions/17/changes/ff-restrictions-ignored).
+- **Resizability on large screens:** Once you target Android 17, you can no longer opt out of maintaining orientation, resizability and aspect ratio constraints [on large screens](https://developer.android.com/about/versions/17/changes/ff-restrictions-ignored.md.txt).
 - **Dynamic code loading:** If your app targets Android 17 or higher, the Safer Dynamic Code Loading (DCL) protection introduced in Android 14 for DEX and JAR files now extends to native libraries. All native files loaded using System.load() must be marked as read-only. Otherwise, the system throws UnsatisfiedLinkError.
-- **Enable CT by default** : [Certificate transparency (CT)](https://developer.android.com/privacy-and-security/security-config#CertificateTransparencySummary) is enabled by default. (On Android 16, CT is available but apps had to opt in.)
+- **Enable CT by default** : [Certificate transparency (CT)](https://developer.android.com/privacy-and-security/security-config.md.txt#CertificateTransparencySummary) is enabled by default. (On Android 16, CT is available but apps had to opt in.)
 - **Local network protections**: Apps targeting Android 17 or higher have local network access blocked by default. Switch to using privacy preserving pickers if possible, and use the new ACCESS_LOCAL_NETWORK for broad, persistent access.
 
 ### Media and camera enhancements
 
 #### Photo Picker customization options
 
-Android now allows you to tailor the visual presentation of the photo picker to better complement your app's user interface. By leveraging the new [PhotoPickerUiCustomizationParams](https://developer.android.com/reference/android/widget/photopicker/PhotoPickerUiCustomizationParams) API, you can modify the grid view aspect ratio from the standard 1:1 square to a 9:16 portrait display. This flexibility extends to both the ACTION_PICK_IMAGES intent and the embedded photo picker, enabling you to maintain a cohesive aesthetic when users interact with media.
+Android now allows you to tailor the visual presentation of the photo picker to better complement your app's user interface. By leveraging the new [PhotoPickerUiCustomizationParams](https://developer.android.com/reference/android/widget/photopicker/PhotoPickerUiCustomizationParams.md.txt) API, you can modify the grid view aspect ratio from the standard 1:1 square to a 9:16 portrait display. This flexibility extends to both the ACTION_PICK_IMAGES intent and the embedded photo picker, enabling you to maintain a cohesive aesthetic when users interact with media.
 ![large_(Default)11aspectratio.png](https://developer.android.com/static/blog/assets/large_Default_11aspectratio_7ae50afc21_ZxxGt.webp)
 
 This is all part of our effort to help make the privacy-preserving Android photo picker fit seamlessly with your app experience. [Learn more about how you can embed the photo picker directly into your app for the most native experience](https://android-developers.googleblog.com/2026/01/httpsandroid-developers.googleblog.com202506android-embedded-photo-picker.html%20.html).
@@ -49,7 +51,7 @@ startActivityForResult(intent, REQUEST_CODE)
 
 #### Bluetooth LE Audio hearing aid support
 
-Android now includes a specific device category for Bluetooth Low Energy (BLE) Audio hearing aids. With the addition of the [AudioDeviceInfo.TYPE_BLE_HEARING_AID](https://developer.android.com/reference/android/media/AudioDeviceInfo#TYPE_BLE_HEARING_AID) constant, your app can now distinguish hearing aids from regular headsets.
+Android now includes a specific device category for Bluetooth Low Energy (BLE) Audio hearing aids. With the addition of the [AudioDeviceInfo.TYPE_BLE_HEARING_AID](https://developer.android.com/reference/android/media/AudioDeviceInfo.md.txt#TYPE_BLE_HEARING_AID) constant, your app can now distinguish hearing aids from regular headsets.
 
 ```
 val audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
@@ -63,7 +65,7 @@ Android 17 allows users to independently manage where specific system sounds are
 
 #### Extended HE-AAC software encoder
 
-Android 17 introduces a system-provided Extended HE-AAC software encoder. This encoder supports both low and high bitrates using unified speech and audio coding. You can access this encoder via the [MediaCodec](https://developer.android.com/reference/android/media/MediaCodec) API using the name `c2.android.xheaac.encoder` or by querying for the `audio/mp4a-latm` MIME type.
+Android 17 introduces a system-provided Extended HE-AAC software encoder. This encoder supports both low and high bitrates using unified speech and audio coding. You can access this encoder via the [MediaCodec](https://developer.android.com/reference/android/media/MediaCodec.md.txt) API using the name `c2.android.xheaac.encoder` or by querying for the `audio/mp4a-latm` MIME type.
 
 ```
 val encoder = MediaCodec.createByCodecName("c2.android.xheaac.encoder")
@@ -192,47 +194,47 @@ This update brings extensive features and refinements from OpenJDK 21 and OpenJD
 
 ### Get started with Android 17
 
-You can [enroll any supported Pixel device](https://www.google.com/android/beta) or [use the 64-bit system images with the Android Emulator](https://developer.android.com/about/versions/17/get#on_emulator).
+You can [enroll any supported Pixel device](https://www.google.com/android/beta) or [use the 64-bit system images with the Android Emulator](https://developer.android.com/about/versions/17/get.md.txt#on_emulator).
 
 - Compile against the new SDK and report issues on the [feedback page](https://developer.android.com/about/versions/17/feedback).
 - Test your current app for compatibility and learn whether your app is affected by changes in Android 17.
 
 For complete information, visit the [Android 17 developer site](https://developer.android.com/about/versions/17).
-- [#Android 17](https://developer.android.com/blog/topics/android-17)
-- [#beta](https://developer.android.com/blog/topics/beta)
+- [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
+- [#beta](https://developer.android.com/blog/topics/beta.md.txt)
 Written by:
 
 -
 
-  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough)
+  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt)
 
   ###### Vice President, Product Management, Android Developer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
+  ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here.md.txt) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 13 min read
+  - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
+  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 4 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
+  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-  - [#Android Bench](https://developer.android.com/blog/topics/android-bench)
+  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
+  - [#Android Bench](https://developer.android.com/blog/topics/android-bench.md.txt)
 Stay in the loop
 
 

@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/jean-pierre-pralle
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2iNrsg.webp)
 
 # Jean-Pierre Pralle
@@ -11,11 +13,11 @@ source: md.txt
 Product Manager
 
 Credential Manager
-- 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_Z2uVN2E.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_Z2uVN2E.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Streamline User Journeys with Verified Email via Credential Manager](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager)
+  ## [Streamline User Journeys with Verified Email via Credential Manager](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager) Today, we're excited to announce a new verified email credential issued by Google, which developers can now retrieve directly from Android's Credential Manager Digital Credential API.
+  [arrow_forward](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager.md.txt) Today, we're excited to announce a new verified email credential issued by Google, which developers can now retrieve directly from Android's Credential Manager Digital Credential API.
   3 min read
 Stay in the loop
 

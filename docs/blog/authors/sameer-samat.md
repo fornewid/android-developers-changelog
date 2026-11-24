@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/authors/sameer-samat
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/sameer_samat_a8edc4d0ef_2bRzSh.webp)
 
 # Sameer Samat
 
 President of Android Ecosystem
-- 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Ecosystem_208dfb20df_1DaCXH.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Ecosystem_208dfb20df_1DaCXH.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [A new era for choice and openness](https://developer.android.com/blog/posts/a-new-era-for-choice-and-openness)
+  ## [A new era for choice and openness](https://developer.android.com/blog/posts/a-new-era-for-choice-and-openness.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/a-new-era-for-choice-and-openness) Android has always driven innovation in the industry through its unique flexibility and openness.
+  [arrow_forward](https://developer.android.com/blog/posts/a-new-era-for-choice-and-openness.md.txt) Android has always driven innovation in the industry through its unique flexibility and openness.
   3 min read
 Stay in the loop
 

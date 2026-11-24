@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/authors/yabin-cui
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 
 # Yabin Cui
 
 Software Engineer
-- 10 Mar 2026 10 Mar 2026 ![](https://developer.android.com/static/blog/assets/P_Mguide_a86dec5079_cjxF5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 10 Mar 2026 10 Mar 2026 ![](https://developer.android.com/static/blog/assets/P_Mguide_a86dec5079_cjxF5.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Boosting Android Performance: Introducing AutoFDO for the Kernel](https://developer.android.com/blog/posts/boosting-android-performance-introducing-autofdo-for-the-kernel)
+  ## [Boosting Android Performance: Introducing AutoFDO for the Kernel](https://developer.android.com/blog/posts/boosting-android-performance-introducing-autofdo-for-the-kernel.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/boosting-android-performance-introducing-autofdo-for-the-kernel) Today, we're excited to share how we are bringing Automatic Feedback-Directed Optimization (AutoFDO) to the Android kernel to deliver significant performance wins for users.
+  [arrow_forward](https://developer.android.com/blog/posts/boosting-android-performance-introducing-autofdo-for-the-kernel.md.txt) Today, we're excited to share how we are bringing Automatic Feedback-Directed Optimization (AutoFDO) to the Android kernel to deliver significant performance wins for users.
   4 min read
 Stay in the loop
 

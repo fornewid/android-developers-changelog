@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/sean-keys
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/unnamed_20_bdf4e82cc6_2wjKGS.webp)
 
 # Sean Keys
@@ -11,14 +13,14 @@ source: md.txt
 Security Engineer
 
 Android Auto
-- 24 Aug 2026 24 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_1_Strapi_6f49d09922_1I8TFC.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 24 Aug 2026 24 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_1_Strapi_6f49d09922_1I8TFC.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [AAOS SDV - Secure by Design](https://developer.android.com/blog/posts/aaos-sdv-secure-by-design)
+  ## [AAOS SDV - Secure by Design](https://developer.android.com/blog/posts/aaos-sdv-secure-by-design.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/aaos-sdv-secure-by-design) At Google, we believe our products should be secure by design, which is why we built the Android Automotive Operating System for Software Defined Vehicle (AAOS SDV) on existing, market-proven platforms, leveraging virtualization technologies like Cuttlefish.
+  [arrow_forward](https://developer.android.com/blog/posts/aaos-sdv-secure-by-design.md.txt) At Google, we believe our products should be secure by design, which is why we built the Android Automotive Operating System for Software Defined Vehicle (AAOS SDV) on existing, market-proven platforms, leveraging virtualization technologies like Cuttlefish.
   5 min read
-  - [#Android Auto](https://developer.android.com/blog/topics/android-auto)
-  - [#Security](https://developer.android.com/blog/topics/security)
+  - [#Android Auto](https://developer.android.com/blog/topics/android-auto.md.txt)
+  - [#Security](https://developer.android.com/blog/topics/security.md.txt)
 Stay in the loop
 
 

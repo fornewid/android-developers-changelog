@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/product-manager-guide-to-adapting-
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # A product manager's guide to adapting Android apps across devices
 
-6 min read ![](https://developer.android.com/static/blog/assets/across_Devices_1742e15ff4_1wqMDQ.webp) 10 Jun 2025 [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) Senior Product Manager, Android Developer Experience *Today, Android is launching a few updates across the platform! This includes the start of Android 16's rollout, with details for both *[*developers*](https://android-developers.googleblog.com/2025/06/android-16-is-here.html)* and *[*users*](https://blog.google/products/android/android-16)*, a *[*Developer Preview for enhanced Android desktop experiences with connected displays*](https://android-developers.googleblog.com/2025/06/developer-preview-enhanced-android-desktop-experiences-connected-displays.html)*, and *[*updates for Android users across Google apps and more*](https://blog.google/products/android/new-android-features-june-2025/)*, plus the *[*June Pixel Drop*](https://blog.google/products/pixel/pixel-drop-june-2025/)*. We're also *[*recapping all the Google I/O updates for Android developers focused on building excellent, adaptive Android apps*](https://android-developers.googleblog.com/2025/06/top-3-updates-for-building-excellent-adaptive-apps-google-io-25.html)*.*
+6 min read ![](https://developer.android.com/static/blog/assets/across_Devices_1742e15ff4_1wqMDQ.webp) 10 Jun 2025 [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt) [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt) Senior Product Manager, Android Developer Experience *Today, Android is launching a few updates across the platform! This includes the start of Android 16's rollout, with details for both *[*developers*](https://android-developers.googleblog.com/2025/06/android-16-is-here.html)* and *[*users*](https://blog.google/products/android/android-16)*, a *[*Developer Preview for enhanced Android desktop experiences with connected displays*](https://android-developers.googleblog.com/2025/06/developer-preview-enhanced-android-desktop-experiences-connected-displays.html)*, and *[*updates for Android users across Google apps and more*](https://blog.google/products/android/new-android-features-june-2025/)*, plus the *[*June Pixel Drop*](https://blog.google/products/pixel/pixel-drop-june-2025/)*. We're also *[*recapping all the Google I/O updates for Android developers focused on building excellent, adaptive Android apps*](https://android-developers.googleblog.com/2025/06/top-3-updates-for-building-excellent-adaptive-apps-google-io-25.html)*.*
 
 With new form factors emerging continually, the Android ecosystem is more dynamic than ever.
 
@@ -65,7 +67,7 @@ For organizations ready to move forward, Android offers many resources and devel
 2. **Address common UI issues:** Assess what feels awkward in your app UI today. We have a lot of guidance available on how you can easily translate your mobile app to other screens.
    1. Check the [Large screens design gallery](https://developer.android.com/large-screens/gallery) for inspiration and understanding how your app UI can evolve across devices using proven solutions to common UI challenges.
    2. Start with quick wins. For example, prevent buttons from stretching to the full screen width, or switch to a vertical navigation bar on large screens to improve ergonomics.
-   3. Identify patterns where [canonical layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts) (e.g. list-detail) could solve any UI awkwardness you identified. Could a list-detail view improve your app's navigation? Would a supporting pane on the side make better use of the extra space than a bottom sheet?
+   3. Identify patterns where [canonical layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts.md.txt) (e.g. list-detail) could solve any UI awkwardness you identified. Could a list-detail view improve your app's navigation? Would a supporting pane on the side make better use of the extra space than a bottom sheet?
 3. **Optimize your app incrementally, screen by screen:** It may be helpful to prioritize how you approach optimization because not everything needs to be perfectly adaptive on day one. Incrementally improve your app based on what matters most -- it's not all or nothing.
    1. Start with the foundations. Check out the [large screen app quality guidelines](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality) which tier and prioritize the fixes that are most critical to users. Remove orientation restrictions to support portrait and landscape, and ensure support for resizability (for when users are in split screen), and prevent major stretching of buttons, text fields, and images. These foundational fixes are critical, especially with API changes in Android 16 that will make these aspects even more important.
    2. Implement adaptive layout optimizations with a focus on core user journeys or screens first.
@@ -85,43 +87,43 @@ Written by:
 
 -
 
-  ## [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz)
+  ## [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt)
 
   ###### Senior Product Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)
 Continue reading
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)](https://developer.android.com/blog/authors/loryn-hairston) 22 Sep 2026 22 Sep 2026 ![](https://developer.android.com/static/blog/assets/Googlebook_Blog_Strapi_4a4a7d3291_Z1ReCnu.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt)[![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)](https://developer.android.com/blog/authors/loryn-hairston.md.txt) 22 Sep 2026 22 Sep 2026 ![](https://developer.android.com/static/blog/assets/Googlebook_Blog_Strapi_4a4a7d3291_Z1ReCnu.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Land your apps on Googlebook with adaptive development](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development)
+  ## [Land your apps on Googlebook with adaptive development](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development) Googlebook introduces a new category of laptops built on a shared Android foundation. High-performance hardware from partners such as HP, Dell, Lenovo, Acer, and Asus, combines mobile convenience with desktop power.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
-  - [#Googlebook](https://developer.android.com/blog/topics/googlebook)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  [arrow_forward](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md.txt) Googlebook introduces a new category of laptops built on a shared Android foundation. High-performance hardware from partners such as HP, Dell, Lenovo, Acer, and Asus, combines mobile convenience with desktop power.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston.md.txt) • 4 min read
+  - [#Googlebook](https://developer.android.com/blog/topics/googlebook.md.txt)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
   - +1 ↩
-- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
+  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
-  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
-  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
-  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
-  - [#Foldables](https://developer.android.com/blog/topics/foldables)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 4 min read
+  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7.md.txt)
+  - [#made by google](https://developer.android.com/blog/topics/made-by-google.md.txt)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4.md.txt)
+  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api.md.txt)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
   - +5 ↩
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_1vfHD.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)](https://developer.android.com/blog/authors/miguel-montemayor.md.txt) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_1vfHD.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices)
+  ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices) Today at Galaxy Unpacked, Samsung unveiled its latest lineup of foldable and wearable devices. For developers, this means that the variety of form factors, screen sizes, and device postures your app needs to support is expanding once again.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
+  [arrow_forward](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices.md.txt) Today at Galaxy Unpacked, Samsung unveiled its latest lineup of foldable and wearable devices. For developers, this means that the variety of form factors, screen sizes, and device postures your app needs to support is expanding once again.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor.md.txt) • 3 min read
 Stay in the loop
 
 

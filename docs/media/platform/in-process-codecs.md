@@ -4,9 +4,14 @@ url: https://developer.android.com/media/platform/in-process-codecs
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/media/platform/llms.txt
+
 Starting in Android 17 (API level 37) and updated through Google Play System
 Updates (Mainline APEX modules), Android introduces **in-process software
-audio decoders** for compressed audio formats, including **Opus** and **AAC**.
+audio decoders** for compressed audio formats, including **Opus** and **AAC** .
+Android 17 QPR2 (API level 37.2) adds in-process **FLAC** and **MP3**
+decoders, implemented in memory-safe Rust using the open source
+[Symphonia](https://github.com/pdeljanov/Symphonia) audio decoding library.
 
 By running audio decoders directly within the app's process rather than in a
 separate sandboxed system process, apps can reduce audio decoding latency by
@@ -47,6 +52,12 @@ To safely eliminate out-of-process sandboxing overhead for **AAC**
 **pure Rust** or protected by safe Rust Foreign Function Interface (FFI)
 harnesses.
 
+Starting in Android 17 QPR2 (API level 37.2), Android also implements the
+**FLAC** (`c2.android.inproc.flac.decoder`) and **MP3**
+(`c2.android.inproc.mp3.decoder`) decoders in **pure Rust** . These decoders
+wrap [Symphonia](https://github.com/pdeljanov/Symphonia), an open source Rust audio decoding library,
+in a thin Codec 2.0 component layer.
+
 Rust is deemed secure for in-process decoding for the following reasons:
 
 - **Compile-time memory safety:** Rust's strict ownership, borrowing, and lifetime checking ensure that memory can't be accessed after it is freed or mutated while shared.
@@ -76,31 +87,35 @@ Qualcomm Snapdragon, and MediaTek SoCs), foldables, tablets, and automotive
 infotainment units---run on ARM64 processors and support LFI in-process decoders.
 
 > [!NOTE]
-> **Note:** All in-process audio decoders (both Rust and LFI) report [`SECURITY_MODEL_MEMORY_SAFE`](https://developer.android.com/reference/android/media/MediaCodecInfo#SECURITY_MODEL_MEMORY_SAFE) when queried using [`MediaCodecInfo.getSecurityModel()`](https://developer.android.com/reference/android/media/MediaCodecInfo#getSecurityModel()).
+> **Note:** All in-process audio decoders (both Rust and LFI) report [`SECURITY_MODEL_MEMORY_SAFE`](https://developer.android.com/reference/android/media/MediaCodecInfo.md.txt#SECURITY_MODEL_MEMORY_SAFE) when queried using [`MediaCodecInfo.getSecurityModel()`](https://developer.android.com/reference/android/media/MediaCodecInfo.md.txt#getSecurityModel()).
 
 ## Available in-process audio decoders
 
-| Audio format | MIME type | In-process component name | Implementation |
-|---|---|---|---|
-| **Opus** | `audio/opus` | `c2.android.inproc.opus.decoder` | C/C++ `libopus` with LFI |
-| **AAC** | `audio/mp4a-latm` | `c2.android.inproc.aac.decoder` | Memory-safe Rust (`C2ApexAacDec`) |
+| Audio format | MIME type | In-process component name | Implementation | Availability |
+|---|---|---|---|---|
+| **Opus** | `audio/opus` | `c2.android.inproc.opus.decoder` | C/C++ `libopus` with LFI | Android 17 |
+| **AAC** | `audio/mp4a-latm` | `c2.android.inproc.aac.decoder` | Memory-safe Rust (`C2ApexAacDec`) | Android 17 |
+| **FLAC** | `audio/flac` | `c2.android.inproc.flac.decoder` | Memory-safe Rust ([Symphonia](https://github.com/pdeljanov/Symphonia)) | Android 17 QPR2 |
+| **MP3** | `audio/mpeg` | `c2.android.inproc.mp3.decoder` | Memory-safe Rust ([Symphonia](https://github.com/pdeljanov/Symphonia)) | Android 17 QPR2 |
 
 > [!NOTE]
-> **Note:** By default, all in-process audio decoders output 16-bit PCM (`PCM_16`). Individual decoders, such as AAC, may be configured to output other data types, for example `PCM_FLOAT`. Format-specific stream handling includes:
+> **Note:** By default, all in-process audio decoders output 16-bit PCM (`PCM_16`). You can configure individual decoders, such as AAC and FLAC, to output other data types (for example, `PCM_FLOAT`). Format-specific stream handling includes:
 
 - **AAC (`c2.android.inproc.aac.decoder`):** Handles ADTS streams (with dynamic ADTS header parsing) and raw Access Units (AUs) with accurate presentation timestamp tracking (only single-frame AU processing in case of `AAC_PACKAGING_RAW`).
 - **Opus (`c2.android.inproc.opus.decoder`):** Decodes standard Ogg Opus or Matroska container packets with internal resampling to 48 kHz PCM.
+- **FLAC (`c2.android.inproc.flac.decoder`):** Decodes lossless FLAC frames with up to 8 channels. To preserve the full precision of high-resolution (for example, 24-bit) FLAC content, configure the decoder to output `PCM_FLOAT` by setting [`MediaFormat.KEY_PCM_ENCODING`](https://developer.android.com/reference/android/media/MediaFormat.md.txt#KEY_PCM_ENCODING) to [`AudioFormat.ENCODING_PCM_FLOAT`](https://developer.android.com/reference/android/media/AudioFormat.md.txt#ENCODING_PCM_FLOAT).
+- **MP3 (`c2.android.inproc.mp3.decoder`):** Decodes mono and stereo MP3 streams at standard sample rates from 8 kHz to 48 kHz and bitrates from 8 to 320 kbps, and outputs 16-bit PCM.
 
 ## Opt in to in-process decoders
 
 Currently, in-process decoders aren't the system default when calling
-[`MediaCodec.createDecoderByType()`](https://developer.android.com/reference/android/media/MediaCodec#createDecoderByType(java.lang.String)).
+[`MediaCodec.createDecoderByType()`](https://developer.android.com/reference/android/media/MediaCodec.md.txt#createDecoderByType(java.lang.String)).
 The platform retains higher Codec 2.0 selection priority for legacy
 out-of-process decoders during ecosystem verification.
 
 To opt in to an in-process decoder today for low-latency playback or testing,
 instantiate the codec explicitly by component name using
-[`MediaCodec.createByCodecName()`](https://developer.android.com/reference/android/media/MediaCodec#createByCodecName(java.lang.String)).
+[`MediaCodec.createByCodecName()`](https://developer.android.com/reference/android/media/MediaCodec.md.txt#createByCodecName(java.lang.String)).
 
 ### Instantiate by component name
 
@@ -162,7 +177,9 @@ class InprocPreferredMediaCodecSelector : MediaCodecSelector {
         )
         val inprocNames = setOf(
             "c2.android.inproc.opus.decoder",
-            "c2.android.inproc.aac.decoder"
+            "c2.android.inproc.aac.decoder",
+            "c2.android.inproc.flac.decoder",
+            "c2.android.inproc.mp3.decoder"
         )
         // Sort in-process decoders to the top of the selection list
         return defaultInfos.sortedByDescending { it.name in inprocNames }
@@ -176,7 +193,9 @@ class InprocPreferredMediaCodecSelector : MediaCodecSelector {
 public class InprocPreferredMediaCodecSelector implements MediaCodecSelector {
     private static final Set<String> INPROC_NAMES = new HashSet<>(Arrays.asList(
         "c2.android.inproc.opus.decoder",
-        "c2.android.inproc.aac.decoder"
+        "c2.android.inproc.aac.decoder",
+        "c2.android.inproc.flac.decoder",
+        "c2.android.inproc.mp3.decoder"
     ));
 
     @Override
@@ -203,7 +222,7 @@ public class InprocPreferredMediaCodecSelector implements MediaCodecSelector {
 Android is actively preparing to transition these memory-safe in-process
 decoders to become the system default decoders for their respective audio MIME
 types in upcoming platform releases (starting with Opus LFI and AAC Rust in
-Android 18 or upcoming Mainline module updates).
+Android 18 or upcoming Mainline module updates, followed by FLAC and MP3).
 
 Once an in-process decoder becomes the default Codec 2.0 component for its
 MIME type, standard calls to `MediaCodec.createDecoderByType(...)` will
@@ -212,4 +231,4 @@ approximately 40% lower decoding latency without requiring any app code
 changes.
 
 > [!NOTE]
-> **Note:** If your app currently bundles custom third-party audio decoding libraries inside its APK (such as FDK-AAC or `libopus` JNI libraries) solely to avoid out-of-process IPC latency, you can test opting in to `c2.android.inproc.*` decoders today and prepare to remove your custom bundled libraries to reduce APK size and benefit from automatic Mainline security updates.
+> **Note:** If your app bundles third-party audio decoders (such as FDK-AAC, `libopus`, `libFLAC`, or MP3 JNI libraries) to avoid out-of-process IPC latency, you can opt in to `c2.android.inproc.*` decoders. These decoders let you remove bundled libraries, reduce APK size, and receive automatic Mainline security updates.

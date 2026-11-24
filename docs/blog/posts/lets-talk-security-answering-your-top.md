@@ -26,7 +26,7 @@ Absolutely not. Sideloading is fundamental to Android and it is not going away. 
 
 ### How does developer verification impact my use of Android Studio?
 
-We are working to ensure these changes don't have an impact on your day-to-day workflow so you can continue building your apps as smoothly as possible. Participating in developer verification **will not affect your experience in** [**Android Studio**](https://developer.android.com/studio.md.txt)**, the official IDE for Android app development.** You will continue to be able to build and run an app even if your identity is not verified. Android Studio is unaffected because deployments performed with [adb](https://developer.android.com/tools/adb.md.txt), which Android Studio uses behind the scenes to push builds to devices, is unaffected. You can continue to develop, debug, and test your app locally by deploying to both emulators and physical devices, just as you do now.
+We are working to ensure these changes don't have an impact on your day-to-day workflow so you can continue building your apps as smoothly as possible. Participating in developer verification **will not affect your experience in** [**Android Studio**](https://developer.android.com/studio)**, the official IDE for Android app development.** You will continue to be able to build and run an app even if your identity is not verified. Android Studio is unaffected because deployments performed with [adb](https://developer.android.com/tools/adb.md.txt), which Android Studio uses behind the scenes to push builds to devices, is unaffected. You can continue to develop, debug, and test your app locally by deploying to both emulators and physical devices, just as you do now.
 
 #### Making APKs available to your test team
 

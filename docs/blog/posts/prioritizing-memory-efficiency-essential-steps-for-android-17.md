@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/prioritizing-memory-efficiency-ess
 source: md.txt
 ---
 
-[How-tos](https://developer.android.com/blog/categories/how-tos)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
 # Prioritizing Memory Efficiency: Essential Steps for Android 17
 
-10 min read ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z1unXc4.webp) 02 Jun 2026 3 Authors [Alice Yuan,](https://developer.android.com/blog/authors/alice-yuan) [Ajesh Pai,](https://developer.android.com/blog/authors/ajesh-pai) [Fung Lam](https://developer.android.com/blog/authors/fung-lam) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever. Not only have we made strides in Android memory optimizations with Android 17, we're providing the tooling and API support to help you stay ahead of stricter memory requirements later this year.
+10 min read ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z1unXc4.webp) 02 Jun 2026 3 Authors [Alice Yuan,](https://developer.android.com/blog/authors/alice-yuan.md.txt) [Ajesh Pai,](https://developer.android.com/blog/authors/ajesh-pai.md.txt) [Fung Lam](https://developer.android.com/blog/authors/fung-lam.md.txt) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever. Not only have we made strides in Android memory optimizations with Android 17, we're providing the tooling and API support to help you stay ahead of stricter memory requirements later this year.
 
 To ensure device stability, starting in Android 17, the system will begin enforcing app memory limits based on the device's total RAM. If an app exceeds those limits, Android will kill the process with no associated stack trace.
 
@@ -35,16 +37,16 @@ Here is a breakdown of the reasons driving this architectural change:
 - **Preventing cascading kills** : When an app becomes bloated or leaks memory while holding a privileged state (e.g. it's running a Foreground Service), it is initially shielded from the system's Low Memory Killer (LMK). As this single app grows unchecked and hoards RAM, the LMK is forced to compensate by killing off dozens of smaller, well-behaved cached apps and background jobs to reclaim space for the memory hog.  
 - **Preserving multitasking and user state:** When the system is forced to purge cached apps to accommodate a single leaking process, the multitasking experience is severely degraded. Users returning to prior cached applications encounter sluggish cold starts instead of near-instant warm resumes. This inefficiency generates more CPU strain and accelerates battery depletion. It can also destroy the user's context in recently used apps, such as scroll positions, navigation stacks, and in-game progress.
 
-To determine if your app session was impacted by these constraints in the field, you can call [getDescription()](https://developer.android.com/reference/android/app/ApplicationExitInfo#getDescription%28%29) within [ApplicationExitInfo](https://developer.android.com/reference/android/app/ApplicationExitInfo). If the system applied a limit, the exit reason is reported as [REASON_OTHER](https://developer.android.com/reference/android/app/ApplicationExitInfo#REASON_OTHER) and the description string will contain "MemoryLimiter:AnonSwap". You can also leverage [trigger-based profiling](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture) using [TRIGGER_TYPE_ANOMALY](https://developer.android.com/about/versions/17/features#anomaly-profiling-trigger) to automatically capture heap dumps when the memory limit is reached. Furthermore, Android is actively working to surface more in-field memory metrics to developers within the Google Play Console.
+To determine if your app session was impacted by these constraints in the field, you can call [getDescription()](https://developer.android.com/reference/android/app/ApplicationExitInfo.md.txt#getDescription%28%29) within [ApplicationExitInfo](https://developer.android.com/reference/android/app/ApplicationExitInfo.md.txt). If the system applied a limit, the exit reason is reported as [REASON_OTHER](https://developer.android.com/reference/android/app/ApplicationExitInfo.md.txt#REASON_OTHER) and the description string will contain "MemoryLimiter:AnonSwap". You can also leverage [trigger-based profiling](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture.md.txt) using [TRIGGER_TYPE_ANOMALY](https://developer.android.com/about/versions/17/features.md.txt#anomaly-profiling-trigger) to automatically capture heap dumps when the memory limit is reached. Furthermore, Android is actively working to surface more in-field memory metrics to developers within the Google Play Console.
 
-We have also expanded our [memory limits documentation](https://developer.android.com/about/versions/17/behavior-changes-all#app-memory-limits) to include local debugging commands, allowing you to simulate memory constraints in your local environment and validate your application's behavior under any memory limit enforcement.
+We have also expanded our [memory limits documentation](https://developer.android.com/about/versions/17/behavior-changes-all.md.txt#app-memory-limits) to include local debugging commands, allowing you to simulate memory constraints in your local environment and validate your application's behavior under any memory limit enforcement.
 
 ## Maximize bytecode optimization with R8
 
 A highly effective way to reduce your app's memory footprint is to enable the R8 optimizer. By shrinking classes, methods, and fields into shorter names and stripping out unused code and resources, R8 significantly reduces your app's memory footprint by minimizing the amount of resident code required during execution.
 
-R8 minimizes resident code, shrinking the memory footprint and lowering LMK termination risk. This results in more frequent warm starts over slow cold starts. Additionally, streamlined bytecode reduces main-thread CPU overhead, directly cutting ANR rates for a more fluid user experience. For example, the digital bank [Monzo](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update) enabled full R8 optimization and saw a 35% reduction in their ANR rate, a 30% improvement in cold start rate, and a 9% reduction in overall app size.
-![pic1-IO26_113_TSV-monzo-casestudy.jpg](https://developer.android.com/static/blog/assets/pic1_IO_26_113_TSV_monzo_casestudy_dd704820ee_59H0d.webp) The digital bank Monzo enabled full R8 optimization and boosted performance metrics by up to 35%.
+R8 minimizes resident code, shrinking the memory footprint and lowering LMK termination risk. This results in more frequent warm starts over slow cold starts. Additionally, streamlined bytecode reduces main-thread CPU overhead, directly cutting ANR rates for a more fluid user experience. For example, the digital bank [Monzo](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update.md.txt) enabled full R8 optimization and saw a 35% reduction in their ANR rate, a 30% improvement in cold start rate, and a 9% reduction in overall app size.
+![pic1-IO26_113_TSV-monzo-casestudy.jpg](https://developer.android.com/static/blog/assets/pic1_IO_26_113_TSV_monzo_casestudy_dd704820ee_59H0d.webp) The digital bank [Monzo](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update.md.txt) enabled full R8 optimization and boosted performance metrics by up to 35%.
 
 To properly configure R8 in your `build.gradle` file:
 
@@ -52,7 +54,7 @@ To properly configure R8 in your `build.gradle` file:
 - Use `proguard-android-optimize.txt` instead of the legacy `proguard-android.txt`, which actually prevents optimizations and is no longer supported in Android Gradle Plugin 9.
 - Remove `android.enableR8.fullMode = false` from your `gradle.properties`.
 
-If you are using reflection in your code base, then add [Keep rules](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview#where-to-add-rules) to prevent R8 from optimizing those parts of the code. Make sure to scope the keep rules narrowly to get the maximum optimization.
+If you are using reflection in your code base, then add [Keep rules](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview.md.txt#where-to-add-rules) to prevent R8 from optimizing those parts of the code. Make sure to scope the keep rules narrowly to get the maximum optimization.
 
 To get the maximum optimization, make sure to follow these best practices in your keep rule file.
 
@@ -60,11 +62,11 @@ To get the maximum optimization, make sure to follow these best practices in you
 - Remove keep rules that prevent optimizing Android components like Activity, Services, Views or Broadcast receivers.
 - Refine the broad package wide keep rules to target only specific classes or methods.
 
-To see more best practices, view our [keep rules documentation](https://developer.android.com/topic/performance/app-optimization/keep-rules-best-practices).
+To see more best practices, view our [keep rules documentation](https://developer.android.com/topic/performance/app-optimization/keep-rules-best-practices.md.txt).
 
 ## Library Developer R8 Best Practices
 
-If you are a library developer, strictly place the rules your consumers need into your `consumer-rules file`, and keep your library's internal protection rules in your `proguard-rules.pro` file. For more information on how to optimize libraries, see [Optimization for library authors](https://developer.android.com/topic/performance/app-optimization/library-optimization).
+If you are a library developer, strictly place the rules your consumers need into your `consumer-rules file`, and keep your library's internal protection rules in your `proguard-rules.pro` file. For more information on how to optimize libraries, see [Optimization for library authors](https://developer.android.com/topic/performance/app-optimization/library-optimization.md.txt).
 
 ## R8 Configuration Analyzer
 
@@ -85,13 +87,13 @@ Google recommends leveraging image loading libraries [**Coil**](https://github.c
 
 ### Adopt these five best practices
 
-1. **Downsample images:** If you're loading bitmaps manually, avoid loading a massive image into a tiny thumbnail view; use [inSampleSize](https://developer.android.com/topic/performance/graphics/load-bitmap) to load a smaller version. Glide and Coil downsamples images by default and you can configure this downsample strategy using [DownsampleStrategy](https://bumptech.github.io/glide/javadocs/470/com/bumptech/glide/load/resource/bitmap/DownsampleStrategy.html) and [ImageLoader](https://coil-kt.github.io/coil/image_loaders/) respectively.
-2. **Cropping:** Avoid embedding padding directly into an image file for letterboxing purposes (e.g., creating a transparent border to expand an image dimensions). Rather than baking in these borders, utilize [InsetDrawable](https://developer.android.com/reference/android/graphics/drawable/InsetDrawable) or apply padding directly within the View or Composable containing the bitmap.
+1. **Downsample images:** If you're loading bitmaps manually, avoid loading a massive image into a tiny thumbnail view; use [inSampleSize](https://developer.android.com/topic/performance/graphics/load-bitmap.md.txt) to load a smaller version. Glide and Coil downsamples images by default and you can configure this downsample strategy using [DownsampleStrategy](https://bumptech.github.io/glide/javadocs/470/com/bumptech/glide/load/resource/bitmap/DownsampleStrategy.html) and [ImageLoader](https://coil-kt.github.io/coil/image_loaders/) respectively.
+2. **Cropping:** Avoid embedding padding directly into an image file for letterboxing purposes (e.g., creating a transparent border to expand an image dimensions). Rather than baking in these borders, utilize [InsetDrawable](https://developer.android.com/reference/android/graphics/drawable/InsetDrawable.md.txt) or apply padding directly within the View or Composable containing the bitmap.
 3. **Config:** Balance memory and quality by choosing the right pixel format. Use `RGB_565` when transparency isn't needed, which uses half the memory of the default `ARGB_8888` format. In Glide you can configure this by using [DecodeFormat](https://bumptech.github.io/glide/javadocs/470/com/bumptech/glide/load/DecodeFormat.html) and in Coil you can use [bitmapConfig](https://coil-kt.github.io/coil/api/coil-core/coil3.request/-image-request/) property.
-4. **Prioritize vector drawables:** For basic geometric assets, leverage [ShapeDrawable](https://developer.android.com/reference/android/graphics/drawable/ShapeDrawable) as a lightweight alternative to decoding rasterized bitmaps. By defining these assets once via XML, you ensure they scale seamlessly across all display densities while effectively eliminating resource-driven memory bloat.
+4. **Prioritize vector drawables:** For basic geometric assets, leverage [ShapeDrawable](https://developer.android.com/reference/android/graphics/drawable/ShapeDrawable.md.txt) as a lightweight alternative to decoding rasterized bitmaps. By defining these assets once via XML, you ensure they scale seamlessly across all display densities while effectively eliminating resource-driven memory bloat.
 5. **Reuse:** If your application manages Bitmaps manually then to minimize memory churn, when a bitmap is no longer required, the app should call `bitmap.recycle()` and immediately discard the `Bitmap` reference. If you use an image loading library like Glide or Coil, return the bitmap to the library's managed pool. By providing an existing buffer for future memory needs, the pool effectively avoids the overhead of new allocations.
 
-Check out our documentation on [Optimizing performance for images](https://developer.android.com/develop/ui/compose/graphics/images/optimization) to learn more.
+Check out our documentation on [Optimizing performance for images](https://developer.android.com/develop/ui/compose/graphics/images/optimization.md.txt) to learn more.
 
 ### Android Studio tooling
 
@@ -129,17 +131,17 @@ Here are a few example scenarios:
 
 |---|---|---|
 | Scenario | Compose-based example | View-based example |
-| Leaking Context | Example: Passing LocalContext.current to a ViewModel Fix: Keep Context dependent logic within the UI layer. For non-UI layers, refactor to use [dependency injection](https://developer.android.com/training/dependency-injection) or observe UI state using [Kotlin flow](https://developer.android.com/kotlin/flow). | Example: Storing an `Activity` in a companion object or static variable. Fix: Don't hold static references to UI components. Refactor to use [dependency injection](https://developer.android.com/training/dependency-injection) or observe UI state using [Kotlin flow](https://developer.android.com/kotlin/flow). |
-| Leaking Listeners | Example: Using `DisposableEffect` to start a listener but leaving `onDispose` empty. Fix: Perform the unregistration and [cleanup logic](https://developer.android.com/develop/ui/compose/side-effects#disposableeffect) inside the `onDispose` block. | Example: Registering for SensorManager updates and forgetting to unregister. Fix: Manually call `unregisterListener()` in `onStop()` or `onDestroy()` lifecycle. |
+| Leaking Context | Example: Passing LocalContext.current to a ViewModel Fix: Keep Context dependent logic within the UI layer. For non-UI layers, refactor to use [dependency injection](https://developer.android.com/training/dependency-injection.md.txt) or observe UI state using [Kotlin flow](https://developer.android.com/kotlin/flow.md.txt). | Example: Storing an `Activity` in a companion object or static variable. Fix: Don't hold static references to UI components. Refactor to use [dependency injection](https://developer.android.com/training/dependency-injection.md.txt) or observe UI state using [Kotlin flow](https://developer.android.com/kotlin/flow.md.txt). |
+| Leaking Listeners | Example: Using `DisposableEffect` to start a listener but leaving `onDispose` empty. Fix: Perform the unregistration and [cleanup logic](https://developer.android.com/develop/ui/compose/side-effects.md.txt#disposableeffect) inside the `onDispose` block. | Example: Registering for SensorManager updates and forgetting to unregister. Fix: Manually call `unregisterListener()` in `onStop()` or `onDestroy()` lifecycle. |
 | Leaking Views | Example: Holding a reference to a legacy `View` inside an `AndroidView` without a release strategy. <br /> Fix: Use the `release` block of the `AndroidView` composable to clean up the legacy `View`. | Example: Keeping a reference to a view binding object after the `Fragment` is destroyed. Fix: Set the binding variable to `null` inside the `onDestroyView()` lifecycle method. |
 
 ## Trim memory when app leaves visible state
 
-Android can reclaim memory from your app or stop your app entirely if necessary to free up memory for critical tasks, as explained in [Overview of memory management](https://developer.android.com/topic/performance/memory-overview). Android will usually reclaim memory from your app when it's not visible to the user, such as by discarding some of your app's code and data pages in memory or compressing your heap allocations. When the user resumes your app and your app tries to access some memory that's been reclaimed, the OS will swap that memory back in on demand. This swapping behavior can be slow, and cause unexpected jank or stutters in your app.
+Android can reclaim memory from your app or stop your app entirely if necessary to free up memory for critical tasks, as explained in [Overview of memory management](https://developer.android.com/topic/performance/memory-overview.md.txt). Android will usually reclaim memory from your app when it's not visible to the user, such as by discarding some of your app's code and data pages in memory or compressing your heap allocations. When the user resumes your app and your app tries to access some memory that's been reclaimed, the OS will swap that memory back in on demand. This swapping behavior can be slow, and cause unexpected jank or stutters in your app.
 
 If you leave it to the OS to decide what memory to reclaim from your app, you may find that the OS reclaimed memory that you'll need shortly after resuming your app. Instead, your app can voluntarily discard memory allocations that it can regenerate later, on demand and at a low cost. To do so, you can implement the `ComponentCallbacks2` interface. You can implement `onTrimMemory` in your `Activity`, `Fragment`, `Service`, or even your custom `Application` class. Using it in the `Application` class is highly effective for global cache management.
 
-The provided [onTrimMemory()](https://developer.android.com/reference/android/content/ComponentCallbacks2#onTrimMemory(int)) callback method notifies your app of lifecycle or memory-related events that present a good opportunity for your app to voluntarily reduce its memory usage.
+The provided [onTrimMemory()](https://developer.android.com/reference/android/content/ComponentCallbacks2.md.txt#onTrimMemory(int)) callback method notifies your app of lifecycle or memory-related events that present a good opportunity for your app to voluntarily reduce its memory usage.
 
 In terms of memory lifecycle management, your implementation should focus **exclusively** on `TRIM_MEMORY_UI_HIDDEN` and `TRIM_MEMORY_BACKGROUND`. Since Android 14, the system has ceased delivering notifications for other legacy constants, which were formally deprecated in Android 15.
 
@@ -204,19 +206,19 @@ applicationContext.getSystemService(ProfilingManager::class.java)
 ```
 
 Once you've collected the heap dump, you can download the profile from the server, or locally via adb pull and drag and drop the file into the [Perfetto UI](http://ui.perfetto.dev/). To streamline your memory debugging workflow, use the [Heap Dump Explorer](https://perfetto.dev/docs/visualization/heap-dump-explorer), this is the new default view for heap dumps in Perfetto UI. This tool provides an intuitive interface for inspecting Java heap dumps, allowing you to visualize object allocation hierarchies, compute retained memory sizes, and identify the shortest path from garbage collection root. By leveraging the Heap Dump Explorer, you can rapidly pinpoint memory leaks, bloated retained objects such as excessive bitmap allocations, and analyze heap object allocations all in one place.
-![pic5-perfettoheapdump-analyzer.png](https://developer.android.com/static/blog/assets/pic5_perfettoheapdump_analyzer_6e0de76fa1_Z1klwSN.webp) Use the Heap Dump Explorer's embedded flamegraph to visually inspect and navigate through objects with the highest heap allocations.
+![pic5-perfettoheapdump-analyzer.png](https://developer.android.com/static/blog/assets/pic5_perfettoheapdump_analyzer_6e0de76fa1_Z1klwSN.webp) Use the [Heap Dump Explorer](https://perfetto.dev/docs/visualization/heap-dump-explorer)'s embedded flamegraph to visually inspect and navigate through objects with the highest heap allocations.
 
 ## Conclusion
 
-Optimizing bytecode with R8, adopting image loading best practices, and resolving memory leaks are critical steps toward delivering a high-quality user experience while managing resources effectively under pressure. Adopting these proactive measures helps maintain app stability and performance, preventing unexpected terminations while safeguarding user context. To further your performance expertise, explore our revised [memory guidance](https://developer.android.com/topic/performance/memory).
-- [#Memory](https://developer.android.com/blog/topics/memory)
-- [#Android](https://developer.android.com/blog/topics/android)
-- [#Performance](https://developer.android.com/blog/topics/performance)
+Optimizing bytecode with R8, adopting image loading best practices, and resolving memory leaks are critical steps toward delivering a high-quality user experience while managing resources effectively under pressure. Adopting these proactive measures helps maintain app stability and performance, preventing unexpected terminations while safeguarding user context. To further your performance expertise, explore our revised [memory guidance](https://developer.android.com/topic/performance/memory.md.txt).
+- [#Memory](https://developer.android.com/blog/topics/memory.md.txt)
+- [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
 Written by:
 
 -
 
-  ## [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan)
+  ## [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -224,7 +226,7 @@ Written by:
   View profile](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)
 -
 
-  ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai)
+  ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -232,33 +234,33 @@ Written by:
   View profile](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp)
 -
 
-  ## [Fung Lam](https://developer.android.com/blog/authors/fung-lam)
+  ## [Fung Lam](https://developer.android.com/blog/authors/fung-lam.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/fung-lam) ![View Fung Lam's profile](https://developer.android.com/static/blog/assets/Fung_Lam_profile_633041f048_viwYX.webp) ![View Fung Lam's profile](https://developer.android.com/static/blog/assets/Fung_Lam_profile_633041f048_viwYX.webp)
 Continue reading
-- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_1XPiXj.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan.md.txt) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_1XPiXj.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Battery Technical Quality Enforcement is Here: How to Optimize Common Wake Lock Use Cases](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases)
+  ## [Battery Technical Quality Enforcement is Here: How to Optimize Common Wake Lock Use Cases](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases) In recognition that excessive battery drain is top of mind for Android users, Google has been taking significant steps to help developers build more power-efficient apps.
-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 8 min read
-- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan) 20 Nov 2025 20 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week8_4d6efcacbe_NpRXg.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [arrow_forward](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases.md.txt) In recognition that excessive battery drain is top of mind for Android users, Google has been taking significant steps to help developers build more power-efficient apps.
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt) • 8 min read
+- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan.md.txt) 20 Nov 2025 20 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week8_4d6efcacbe_NpRXg.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Leveling Guide for your Performance Journey](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey)
+  ## [Leveling Guide for your Performance Journey](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey) The performance leveling guide features 5 levels. We'll start with level 1, which introduces minimal adoption effort performance tooling, and we'll go up to level 5, ideal for apps that have the resourcing to maintain a bespoke performance framework.
-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 8 min read
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_1VESew.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [arrow_forward](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey.md.txt) The performance leveling guide features 5 levels. We'll start with level 1, which introduces minimal adoption effort performance tooling, and we'll go up to level 5, ideal for apps that have the resourcing to maintain a bespoke performance framework.
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan.md.txt) • 8 min read
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss.md.txt) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_1VESew.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
 
-  ## [Get your app on the fast track with Android Performance Spotlight Week!](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week)
+  ## [Get your app on the fast track with Android Performance Spotlight Week!](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week) When working on new features, app performance often takes a back seat. However, while it's not always top of mind for developers, users can see exactly where your app's performance lags behind.
-  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 3 min read
-  - [#Performance](https://developer.android.com/blog/topics/performance)
-  - [#R8](https://developer.android.com/blog/topics/r8)
+  [arrow_forward](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week.md.txt) When working on new features, app performance often takes a back seat. However, while it's not always top of mind for developers, users can see exactly where your app's performance lags behind.
+  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss.md.txt) • 3 min read
+  - [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
+  - [#R8](https://developer.android.com/blog/topics/r8.md.txt)
 Stay in the loop
 
 

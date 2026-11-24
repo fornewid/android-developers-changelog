@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/authors/penny-li
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 
 # Penny Li
 
 Software Engineer
-- 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/kakao_8769e675f9_Pq2bf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/kakao_8769e675f9_Pq2bf.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [ML Kit's Prompt API: Unlock Custom On-Device Gemini Nano Experiences](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences)
+  ## [ML Kit's Prompt API: Unlock Custom On-Device Gemini Nano Experiences](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences) AI is making it easier to create personalized app experiences that transform content into the right format for users. We previously enabled developers to integrate with Gemini Nano through ML Kit GenAI APIs tailored for specific use cases like summarization and image description.
+  [arrow_forward](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md.txt) AI is making it easier to create personalized app experiences that transform content into the right format for users. We previously enabled developers to integrate with Gemini Nano through ML Kit GenAI APIs tailored for specific use cases like summarization and image description.
   2 min read
 Stay in the loop
 

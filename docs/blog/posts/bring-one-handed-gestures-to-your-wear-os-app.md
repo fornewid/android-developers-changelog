@@ -4,15 +4,17 @@ url: https://developer.android.com/blog/posts/bring-one-handed-gestures-to-your-
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Bring one-handed gestures to your Wear OS app
 
-3 min read ![](https://developer.android.com/static/blog/assets/Bring_one_handed_gestures_Strapi_defff06599_ZRTaFd.webp) 11 Aug 2026 [![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_ZnAT5Q.webp)](https://developer.android.com/blog/authors/chiara-chiappini) [Chiara Chiappini](https://developer.android.com/blog/authors/chiara-chiappini) Developer Relation Engineer, Android Developer Relations One-handed gestures offer a convenient and touch-free way for users to interact with their watches, enabling them to perform key actions using only the hand on which the device is worn. First introduced on Pixel Watch with Wear OS 6.1, one-handed gestures made quick interactions effortless, such as starting and stopping a timer, accepting calls, and controlling media.
+3 min read ![](https://developer.android.com/static/blog/assets/Bring_one_handed_gestures_Strapi_defff06599_ZRTaFd.webp) 11 Aug 2026 [![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_ZnAT5Q.webp)](https://developer.android.com/blog/authors/chiara-chiappini.md.txt) [Chiara Chiappini](https://developer.android.com/blog/authors/chiara-chiappini.md.txt) Developer Relation Engineer, Android Developer Relations One-handed gestures offer a convenient and touch-free way for users to interact with their watches, enabling them to perform key actions using only the hand on which the device is worn. First introduced on Pixel Watch with Wear OS 6.1, one-handed gestures made quick interactions effortless, such as starting and stopping a timer, accepting calls, and controlling media.
 
 Now, with Wear OS 7, we're expanding this functionality with a new Gestures framework that allows OEMs to map gestures to primary actions and dismissals, and an API to bring gesture control to the developer community.
 
-Starting with the 1.7[beta release of Compose for Wear OS](https://developer.android.com/jetpack/androidx/releases/wear-compose), you can seamlessly integrate gesture control into your Wear Compose apps. To use this release, upgrade your Wear Compose dependency to:
+Starting with the 1.7[beta release of Compose for Wear OS](https://developer.android.com/jetpack/androidx/releases/wear-compose.md.txt), you can seamlessly integrate gesture control into your Wear Compose apps. To use this release, upgrade your Wear Compose dependency to:
 
 ```
 androidx.wear.compose:compose-material3:1.7.0-beta01
@@ -27,17 +29,17 @@ The one-handed gestures framework is designed around two primary interaction pat
 
 These gestures are currently available on Pixel Watch 3 and newer, and the Wear OS gesture framework is available to all Wear OS device manufactures to adopt.
 
-Check out our new [design guidance](https://developer.android.com/design/ui/wear/guides/patterns/gestures) for integrating one-handed gestures into your Wear app.
+Check out our new [design guidance](https://developer.android.com/design/ui/wear/guides/patterns/gestures.md.txt) for integrating one-handed gestures into your Wear app.
 
 ### Integrating gestures with Compose on Wear OS
 
-To provide seamless gesture support in Wear OS 7, we are introducing a new [Modifier.oneHandedGesture](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/oneHandedGesture.modifier) that you can apply to any existing interactive composable to make it gesture-aware.
+To provide seamless gesture support in Wear OS 7, we are introducing a new [Modifier.oneHandedGesture](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/oneHandedGesture.modifier.md.txt) that you can apply to any existing interactive composable to make it gesture-aware.
 
 Implementing gestures with Compose on Wear OS requires these steps:
 
 1. **Define the gesture configuration.** Start by using rememberOneHandedGestureConfiguration to define the nature of the interaction. This configuration dictates the basic behavior by providing the GestureAction (e.g. tracking a primary pinch or a dismiss wrist flick).
 2. **Initialize the indicator state.** Depending on your UI component, initialize a specific state object, such as OneHandedGestureClickIndicatorState for buttons or OneHandedGestureScrollIndicatorState for scrollable lists. This state is used to coordinate visual feedback between the gesture detection modifier and the visual UI indicators, seamlessly managing visibility, timing, and animations.
-3. **Apply** [**Modifier.oneHandedGesture**](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/oneHandedGesture.modifier) to your interactive component. You'll pass in your configuration and state, and you'll provide standard callbacks: onGestureAvailable to activate the visual hint when the system prepares the gesture, and onGesture to execute your action when the gesture happens.
+3. **Apply** [**Modifier.oneHandedGesture**](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/oneHandedGesture.modifier.md.txt) to your interactive component. You'll pass in your configuration and state, and you'll provide standard callbacks: onGestureAvailable to activate the visual hint when the system prepares the gesture, and onGesture to execute your action when the gesture happens.
 
 The following sample shows how those three steps translate into code when configuring an IconButton:
 
@@ -101,12 +103,12 @@ These hints provide animated cues that inform users where they can perform a ges
 
 To integrate with hints, the API provides the following gesture indicator components:
 
-- the [OneHandedGestureClickIndicator](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/OneHandedGestureClickIndicator.composable) for components like a Button
-- the [OneHandedGestureScrollIndicator](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/OneHandedGestureScrollIndicator.composable) component for scrolling
-- the [OneHandedGestureHorizontalPageIndicator](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/OneHandedGestureHorizontalPageIndicator.composable) for the HorizontalPager
-- the [OneHandedGestureVerticalPageIndicator](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/OneHandedGestureVerticalPageIndicator.composable) for the VerticalPager
+- the [OneHandedGestureClickIndicator](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/OneHandedGestureClickIndicator.composable.md.txt) for components like a Button
+- the [OneHandedGestureScrollIndicator](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/OneHandedGestureScrollIndicator.composable.md.txt) component for scrolling
+- the [OneHandedGestureHorizontalPageIndicator](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/OneHandedGestureHorizontalPageIndicator.composable.md.txt) for the HorizontalPager
+- the [OneHandedGestureVerticalPageIndicator](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/OneHandedGestureVerticalPageIndicator.composable.md.txt) for the VerticalPager
 
-The following example shows how to use the OneHandedGestureClickIndicator for a Button. See another example for using the [OneHandedGestureScrollIndicator](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/OneHandedGestureScrollIndicator.composable) in our [guidance](https://developer.android.com/training/wearables/compose/one-handed-gestures).
+The following example shows how to use the OneHandedGestureClickIndicator for a Button. See another example for using the [OneHandedGestureScrollIndicator](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/OneHandedGestureScrollIndicator.composable.md.txt) in our [guidance](https://developer.android.com/training/wearables/compose/one-handed-gestures.md.txt).
 
 ```kotlin
 val gestureConfig = rememberOneHandedGestureConfiguration(action = GestureAction.Primary)
@@ -144,57 +146,57 @@ We are already seeing early adoption of these APIs from partners like Spotify, w
 
 You can begin experimenting with one-handed gestures today in the 1.7 beta release of Compose for Wear OS.
 
-Ensure your app is running on Wear OS 7, which provides the underlying platform support for gesture detection. Check out our new [one-handed gestures developer guide](https://developer.android.com/training/wearables/compose/one-handed-gestures) to see how you can start building more convenient experiences for your users.
-- [#Wear OS](https://developer.android.com/blog/topics/wear-os)
-- [#made by google](https://developer.android.com/blog/topics/made-by-google)
-- [#pixel watch](https://developer.android.com/blog/topics/pixel-watch)
+Ensure your app is running on Wear OS 7, which provides the underlying platform support for gesture detection. Check out our new [one-handed gestures developer guide](https://developer.android.com/training/wearables/compose/one-handed-gestures.md.txt) to see how you can start building more convenient experiences for your users.
+- [#Wear OS](https://developer.android.com/blog/topics/wear-os.md.txt)
+- [#made by google](https://developer.android.com/blog/topics/made-by-google.md.txt)
+- [#pixel watch](https://developer.android.com/blog/topics/pixel-watch.md.txt)
 Written by:
 
 -
 
-  ## [Chiara Chiappini](https://developer.android.com/blog/authors/chiara-chiappini)
+  ## [Chiara Chiappini](https://developer.android.com/blog/authors/chiara-chiappini.md.txt)
 
   ###### Developer Relation Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/chiara-chiappini) ![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_ZnAT5Q.webp) ![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_ZnAT5Q.webp)
 Continue reading
-- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
+  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
-  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
-  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
-  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
-  - [#Foldables](https://developer.android.com/blog/topics/foldables)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 4 min read
+  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7.md.txt)
+  - [#made by google](https://developer.android.com/blog/topics/made-by-google.md.txt)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4.md.txt)
+  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api.md.txt)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
   - +5 ↩
-- [![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_ZXRdHk.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_Z2f8lth.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_ZXRdHk.webp)](https://developer.android.com/blog/authors/ataul-munim.md.txt) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_Z2f8lth.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Building Premium Android Experiences at Google I/O '26](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26)
+  ## [Building Premium Android Experiences at Google I/O '26](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26) At Google I/O '26, we showcased how the latest advancements in the Android ecosystem can help you elevate your app's quality while maximizing development efficiency.
-  [Ataul Munim](https://developer.android.com/blog/authors/ataul-munim) • 3 min read
-  - [#Performance](https://developer.android.com/blog/topics/performance)
-  - [#Memory](https://developer.android.com/blog/topics/memory)
-  - [#Widgets](https://developer.android.com/blog/topics/widgets)
-  - [#R8](https://developer.android.com/blog/topics/r8)
-  - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
-  - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+  [arrow_forward](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26.md.txt) At Google I/O '26, we showcased how the latest advancements in the Android ecosystem can help you elevate your app's quality while maximizing development efficiency.
+  [Ataul Munim](https://developer.android.com/blog/authors/ataul-munim.md.txt) • 3 min read
+  - [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
+  - [#Memory](https://developer.android.com/blog/topics/memory.md.txt)
+  - [#Widgets](https://developer.android.com/blog/topics/widgets.md.txt)
+  - [#R8](https://developer.android.com/blog/topics/r8.md.txt)
+  - [#Wear OS](https://developer.android.com/blog/topics/wear-os.md.txt)
+  - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os.md.txt)
   - +4 ↩
-- [![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_i6BeP.webp)](https://developer.android.com/blog/authors/john-zoeller) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Developer_Blog_2_1_1440x720_6_64da0326e3_b0x4M.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_i6BeP.webp)](https://developer.android.com/blog/authors/john-zoeller.md.txt) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Developer_Blog_2_1_1440x720_6_64da0326e3_b0x4M.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [What's New in Wear OS 7](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7)
+  ## [What's New in Wear OS 7](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7) We are excited to introduce Wear OS 7, a major update that brings a new era of power efficiency and intelligence to users and developers alike.
-  [John Zoeller](https://developer.android.com/blog/authors/john-zoeller) • 9 min read
-  - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
-  - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
-  - [#Compose](https://developer.android.com/blog/topics/compose)
+  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7.md.txt) We are excited to introduce Wear OS 7, a major update that brings a new era of power efficiency and intelligence to users and developers alike.
+  [John Zoeller](https://developer.android.com/blog/authors/john-zoeller.md.txt) • 9 min read
+  - [#AppFunctions](https://developer.android.com/blog/topics/app-functions.md.txt)
+  - [#Wear OS](https://developer.android.com/blog/topics/wear-os.md.txt)
+  - [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
   - +1 ↩
 Stay in the loop
 

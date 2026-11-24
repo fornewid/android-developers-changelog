@@ -4,17 +4,19 @@ url: https://developer.android.com/blog/topics/coroutines
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 # #coroutines
 
-- [![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z2tS3U3.webp)](https://developer.android.com/blog/authors/jonathan-starup)[![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_27dNln.webp)](https://developer.android.com/blog/authors/andrei-shikov) 27 Jul 2026 27 Jul 2026 ![](https://developer.android.com/static/blog/assets/0707_Faster_Kotlin_coroutines_on_Android_with_R8_Strapi_5b162a2623_wPRs6.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z2tS3U3.webp)](https://developer.android.com/blog/authors/jonathan-starup.md.txt)[![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_27dNln.webp)](https://developer.android.com/blog/authors/andrei-shikov.md.txt) 27 Jul 2026 27 Jul 2026 ![](https://developer.android.com/static/blog/assets/0707_Faster_Kotlin_coroutines_on_Android_with_R8_Strapi_5b162a2623_wPRs6.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How R8 made Kotlin Coroutines on Android 2x faster](https://developer.android.com/blog/posts/how-r8-made-kotlin-coroutines-on-android-2x-faster)
+  ## [How R8 made Kotlin Coroutines on Android 2x faster](https://developer.android.com/blog/posts/how-r8-made-kotlin-coroutines-on-android-2x-faster.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/how-r8-made-kotlin-coroutines-on-android-2x-faster) With the majority of Android apps adopting Kotlin as their main language of choice, kotlinx.coroutines has become a de-facto standard for asynchronous programming. The library offers a well-designed and structured way of managing concurrent flows that is native to Kotlin.
-  [Jonathan Starup](https://developer.android.com/blog/authors/jonathan-starup), [Andrei Shikov](https://developer.android.com/blog/authors/andrei-shikov) • 7 min read
-  - [#Compose](https://developer.android.com/blog/topics/compose)
-  - [#R8](https://developer.android.com/blog/topics/r8)
-  - [#coroutines](https://developer.android.com/blog/topics/coroutines)
+  [arrow_forward](https://developer.android.com/blog/posts/how-r8-made-kotlin-coroutines-on-android-2x-faster.md.txt) With the majority of Android apps adopting Kotlin as their main language of choice, kotlinx.coroutines has become a de-facto standard for asynchronous programming. The library offers a well-designed and structured way of managing concurrent flows that is native to Kotlin.
+  [Jonathan Starup](https://developer.android.com/blog/authors/jonathan-starup.md.txt), [Andrei Shikov](https://developer.android.com/blog/authors/andrei-shikov.md.txt) • 7 min read
+  - [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
+  - [#R8](https://developer.android.com/blog/topics/r8.md.txt)
+  - [#coroutines](https://developer.android.com/blog/topics/coroutines.md.txt)
   - +1 ↩
 Stay in the loop
 

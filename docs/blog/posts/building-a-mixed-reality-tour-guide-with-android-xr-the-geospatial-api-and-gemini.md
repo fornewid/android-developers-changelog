@@ -10,7 +10,7 @@ source: md.txt
 
 # Building a Mixed-Reality Tour Guide with Android XR, the Geospatial API, and Gemini
 
-6 min read ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Geospatial_V02_Strapi_5c55395a9c_2h4Keb.webp) 17 Jun 2026 3 Authors [Coco Fatus,](https://developer.android.com/blog/authors/coco-fatus.md.txt) [Alon Hetzroni,](https://developer.android.com/blog/authors/alon-hetzroni.md.txt) [Azin Mehrnoosh](https://developer.android.com/blog/authors/blog-author-1.md.txt) [At this year's Google I/O](https://www.youtube.com/watch?v=1KOO2lqsdaA), we announced an update for spatial experiences: the [Geospatial API](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.md.txt) is now available as a preview in [ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore.md.txt). By bringing Google's Visual Positioning System (VPS) to Android XR, Android XR enables anchoring digital content to the physical world with sub-meter accuracy and precise orientation in supported areas.\* To explore what the Geospatial API could unlock, our team built a demo: the XR Geospatial Tour.
+6 min read ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Geospatial_V02_Strapi_5c55395a9c_2h4Keb.webp) 17 Jun 2026 3 Authors [Coco Fatus,](https://developer.android.com/blog/authors/coco-fatus.md.txt) [Alon Hetzroni,](https://developer.android.com/blog/authors/alon-hetzroni.md.txt) [Azin Mehrnoosh](https://developer.android.com/blog/authors/azin-mehrnoosh.md.txt) [At this year's Google I/O](https://www.youtube.com/watch?v=1KOO2lqsdaA), we announced an update for spatial experiences: the [Geospatial API](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.md.txt) is now available as a preview in [ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore.md.txt). By bringing Google's Visual Positioning System (VPS) to Android XR, Android XR enables anchoring digital content to the physical world with sub-meter accuracy and precise orientation in supported areas.\* To explore what the Geospatial API could unlock, our team built a demo: the XR Geospatial Tour.
 
 Imagine walking into a new city, putting on a pair of wired XR glasses (like the upcoming XREAL Project Aura), and instantly having a knowledgeable, local guide showing you around. You don't need to stare down at a 2D map---instead, 3D models gently guide your path, and an intelligent voice tells you about the historical landmarks right in front of you. We combined the [Geospatial APIs](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial.md.txt), [Gemini API using Firebase AI Logic](https://firebase.google.com/docs/ai-logic), [Google Maps Grounding](https://ai.google.dev/gemini-api/docs/maps-grounding), and [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk.md.txt) to create a hands-free, immersive walking tour experience.
 [Video](https://www.youtube.com/watch?v=HpQLXX19boI)
@@ -186,12 +186,12 @@ Written by:
   View profile](https://developer.android.com/blog/authors/alon-hetzroni) ![View Alon Hetzroni's profile](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_ZuMMVo.webp) ![View Alon Hetzroni's profile](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_ZuMMVo.webp)
 -
 
-  ## [Azin Mehrnoosh](https://developer.android.com/blog/authors/blog-author-1.md.txt)
+  ## [Azin Mehrnoosh](https://developer.android.com/blog/authors/azin-mehrnoosh.md.txt)
 
   ###### Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/blog-author-1) ![View Azin Mehrnoosh's profile](https://developer.android.com/static/blog/assets/unnamed_6_5b79453d9b_ZKATrt.webp) ![View Azin Mehrnoosh's profile](https://developer.android.com/static/blog/assets/unnamed_6_5b79453d9b_ZKATrt.webp)
+  View profile](https://developer.android.com/blog/authors/azin-mehrnoosh) ![View Azin Mehrnoosh's profile](https://developer.android.com/static/blog/assets/unnamed_6_5b79453d9b_ZKATrt.webp) ![View Azin Mehrnoosh's profile](https://developer.android.com/static/blog/assets/unnamed_6_5b79453d9b_ZKATrt.webp)
 Continue reading
 - [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) 19 Nov 2026 19 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_139_Android_developer_verification_Going_global_together_Strapi_01_png_12aa1e5aae_ZkNaef.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
@@ -200,6 +200,16 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-2027.md.txt) After over a year of joint preparation with industry leaders, regional partners, app distributors, and Android communities, our user protections successfully went live on September 30 for participating stores across Brazil, Indonesia, Singapore, and Thailand.
   [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) • 2 min read
   - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Mekka Okereke's profile](https://developer.android.com/static/blog/assets/unnamed_32_974e21c6be_Z1qBCTw.webp)](https://developer.android.com/blog/authors/mekka-okereke.md.txt) 18 Nov 2026 18 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_163_Elevating_Adaptive_App_Quality_Blue_30a2165ec7_Z1hsFPv.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [Elevating apps: New adaptive quality standards on Google Play](https://developer.android.com/blog/posts/google-play-adaptive-quality-standards.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/google-play-adaptive-quality-standards.md.txt) To give users the premium experience they expect and ensure your apps shine across every screen size, Google Play is introducing new adaptive app quality requirements that go into effect April 2027.
+  [Mekka Okereke](https://developer.android.com/blog/authors/mekka-okereke.md.txt) • 4 min read
+  - [#Adaptive Games](https://developer.android.com/blog/topics/adaptive-games.md.txt)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps.md.txt)
+  - +1 ↩
 - [![View Aurash Mahbod's profile](https://developer.android.com/static/blog/assets/image3_98854eb3dd_Z2kItkm.webp)](https://developer.android.com/blog/authors/aurash-mahbod.md.txt) 18 Nov 2026 18 Nov 2026 ![](https://developer.android.com/static/blog/assets/ABL_162_2000x1000_1_ce7dba8d2a_72W03.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
   ## [Elevating games: New large screens and foldables quality standards on Google Play](https://developer.android.com/blog/posts/elevating-game-quality-foldables-large-screens-google-play.md.txt)
@@ -212,13 +222,6 @@ Continue reading
   - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
   - [#Large Screens](https://developer.android.com/blog/topics/large-screens.md.txt)
   - +3 ↩
-- [![View Meghan Mehta's profile](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z2r6wan.webp)](https://developer.android.com/blog/authors/meghan-mehta.md.txt) 18 Nov 2026 18 Nov 2026 ![](https://developer.android.com/static/blog/assets/0420_Compose_1_11_Strapi_812f851abd_WuQ5h.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
-
-  ## [What's new in the Jetpack Compose November '26 release](https://developer.android.com/blog/posts/jetpack-compose-november-2026-release.md.txt)
-
-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-compose-november-2026-release.md.txt) The Jetpack Compose November '26 release is stable! This release brings version 1.13 across core Compose modules (see the full BOM mapping), introducing updates to text, graphics, layouts, performance, and more---along with a few important deprecations and behavior changes to be aware of.
-  [Meghan Mehta](https://developer.android.com/blog/authors/meghan-mehta.md.txt) • 10 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
 Stay in the loop
 
 

@@ -4,14 +4,15 @@ url: https://developer.android.com/agents/skills/profilers/android-profiler/refe
 source: md.txt
 ---
 
-## Set `$SKILL_ROOT`
+**`$SKILL_ROOT`** is the absolute path of the directory containing this
+skill's `SKILL.md`. Every file the skill references is written as
+`$SKILL_ROOT/<path>`, never relative to the file doing the referencing,
+because the skill is loaded from a plugin directory, not from the
+user's workspace.
 
-Set up `$SKILL_ROOT` once per session.
+Set it before running any command from this skill:
 
-Every file this skill references - workflow markdown, reference docs, helper
-scripts, and downloaded dependencies - is written in the form `$SKILL_ROOT/...`,
-relative to the **skill root** (the directory holding this skill's `SKILL.md`).
-Set it once to the absolute path of the directory you loaded `SKILL.md` from:
-
-    # Substitute with the directory the SKILL.md lives in.
-    export SKILL_ROOT="/absolute/path/to/skills/profilers/android-profiler"
+```bash
+# Replace with the absolute path of the directory containing SKILL.md.
+export SKILL_ROOT="/absolute/path/to/android-profiler"
+```

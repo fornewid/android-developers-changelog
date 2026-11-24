@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # Gratitude saw 25% higher retention for widget users

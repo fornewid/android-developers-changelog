@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/blair-harmon
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_27tpBh.webp)
 
 # Blair Harmon
@@ -11,17 +13,17 @@ source: md.txt
 Director of Product Management
 
 Android Platform
-- 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1o8xIO.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1o8xIO.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Preparing your app for broader memory limits](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits)
+  ## [Preparing your app for broader memory limits](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits) A great user experience is central to Android's mission, and delivering on that promise requires keeping devices fast, responsive, and reliable.
+  [arrow_forward](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits.md.txt) A great user experience is central to Android's mission, and delivering on that promise requires keeping devices fast, responsive, and reliable.
   2 min read
-  - [#App Memory Limits](https://developer.android.com/blog/topics/app-memory-limits)
-  - [#Android Vitals](https://developer.android.com/blog/topics/android-vitals)
-  - [#Multi-Process Architecture](https://developer.android.com/blog/topics/multi-process-architecture)
-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
-  - [#Performance](https://developer.android.com/blog/topics/performance)
+  - [#App Memory Limits](https://developer.android.com/blog/topics/app-memory-limits.md.txt)
+  - [#Android Vitals](https://developer.android.com/blog/topics/android-vitals.md.txt)
+  - [#Multi-Process Architecture](https://developer.android.com/blog/topics/multi-process-architecture.md.txt)
+  - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
+  - [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
   - +3 ↩
 Stay in the loop
 

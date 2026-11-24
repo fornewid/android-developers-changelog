@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/android-17-is-here
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Android 17 is Here
 
-13 min read ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) 16 Jun 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
+13 min read ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) 16 Jun 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) Vice President, Product Management, Android Developer Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
 ![AfD-Android-17.gif](https://developer.android.com/static/blog/assets/Af_D_Android_17_7410a1af06_ZhcKXr.webp)
 
 Android 17 marks the start of our transition to an intelligence system, putting your apps at the center. Android is shifting to adaptive-first development standards by introducing mandatory large-screen resizability, while simultaneously delivering next-generation privacy, security, media, camera, and performance. We'll cover all that in this post, as well as how we're bringing together next generation tools, libraries, and agent skills to help your apps embrace this opportunity.
@@ -50,11 +52,11 @@ class NoteFunctions(
 
 We've also launched an [AppFunctions agent skill](http://github.com/android/skills/tree/main/on-device/appfunctions) that analyzes your app's key workflows, automatically generates the required Kotlin code, optimizes your KDocs for LLM tool-calling, and provides ADB commands for testing and debugging.
 
-The Gemini integration is currently in a private preview with trusted testers, but you can begin preparing your apps now. In addition to [ADB commands](https://developer.android.com/ai/appfunctions/add-appfunctions#verify-integration) to execute your AppFunctions, we've provided a [test agent app](http://github.com/android/appfunctions/releases/initial) that includes an interface to discover and execute your AppFunctions and simulate an AI agent integration. Join our integration early access program at [goo.gle/eap-af](http://goo.gle/eap-af) for a chance to be among the first apps to deploy AppFunctions to production.
+The Gemini integration is currently in a private preview with trusted testers, but you can begin preparing your apps now. In addition to [ADB commands](https://developer.android.com/ai/appfunctions/add-appfunctions.md.txt#verify-integration) to execute your AppFunctions, we've provided a [test agent app](http://github.com/android/appfunctions/releases/initial) that includes an interface to discover and execute your AppFunctions and simulate an AI agent integration. Join our integration early access program at [goo.gle/eap-af](http://goo.gle/eap-af) for a chance to be among the first apps to deploy AppFunctions to production.
 
 ## Adaptive-first
 
-Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments. Now, with over [580 million large screen devices](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem) in the hands of users and the [forthcoming launch of Googlebooks](https://blog.google/products-and-platforms/platforms/android/meet-googlebook/), the next generation of ChromeOS built on the Android stack, adaptive is no longer just a technical goal. It's a massive opportunity to reach highly engaged users, which is one of the reasons we're shifting to an [adaptive-first development standard](https://developer.android.com/adaptive-apps).
+Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments. Now, with over [580 million large screen devices](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem.md.txt) in the hands of users and the [forthcoming launch of Googlebooks](https://blog.google/products-and-platforms/platforms/android/meet-googlebook/), the next generation of ChromeOS built on the Android stack, adaptive is no longer just a technical goal. It's a massive opportunity to reach highly engaged users, which is one of the reasons we're shifting to an [adaptive-first development standard](https://developer.android.com/adaptive-apps).
 
 ### No resizability/orientation restrictions on large screens
 
@@ -72,9 +74,9 @@ Android 17 introduces powerful new windowing capabilities that redefine how user
 
 ### Activity recreation updates
 
-To prevent disruptive state loss and stutter, Android 17 updates the default behavior for Activity recreation. The system will no longer restart activities by default for typical configuration changes that do not require a full UI redraw (including [CONFIG_KEYBOARD](https://developer.android.com/reference/kotlin/android/content/pm/ActivityInfo#config_keyboard), [CONFIG_KEYBOARD_HIDDEN](https://developer.android.com/reference/kotlin/android/content/pm/ActivityInfo#config_keyboard_hidden), [CONFIG_NAVIGATION](https://developer.android.com/reference/kotlin/android/content/pm/ActivityInfo#config_navigation), [CONFIG_TOUCHSCREEN](https://developer.android.com/reference/kotlin/android/content/pm/ActivityInfo#config_touchscreen), and [CONFIG_COLOR_MODE](https://developer.android.com/reference/kotlin/android/content/pm/ActivityInfo#config_color_mode)).
+To prevent disruptive state loss and stutter, Android 17 updates the default behavior for Activity recreation. The system will no longer restart activities by default for typical configuration changes that do not require a full UI redraw (including [CONFIG_KEYBOARD](https://developer.android.com/reference/kotlin/android/content/pm/ActivityInfo.md.txt#config_keyboard), [CONFIG_KEYBOARD_HIDDEN](https://developer.android.com/reference/kotlin/android/content/pm/ActivityInfo.md.txt#config_keyboard_hidden), [CONFIG_NAVIGATION](https://developer.android.com/reference/kotlin/android/content/pm/ActivityInfo.md.txt#config_navigation), [CONFIG_TOUCHSCREEN](https://developer.android.com/reference/kotlin/android/content/pm/ActivityInfo.md.txt#config_touchscreen), and [CONFIG_COLOR_MODE](https://developer.android.com/reference/kotlin/android/content/pm/ActivityInfo.md.txt#config_color_mode)).
 
-Instead, running activities will receive these updates via onConfigurationChanged(), enabling smooth transitions. If your application explicitly relies on a full restart to reload resources for these changes, you must now explicitly opt-in using the new [android:recreateOnConfigChanges](https://developer.android.com/reference/kotlin/android/R.attr#recreateonconfigchanges) manifest attribute.
+Instead, running activities will receive these updates via onConfigurationChanged(), enabling smooth transitions. If your application explicitly relies on a full restart to reload resources for these changes, you must now explicitly opt-in using the new [android:recreateOnConfigChanges](https://developer.android.com/reference/kotlin/android/R.attr.md.txt#recreateonconfigchanges) manifest attribute.
 
 ### Continue On
 
@@ -113,7 +115,7 @@ To help you adapt your apps to meet the new Android 17 requirements, we've launc
 
 ### Android is Compose-first
 
-Compose offers the easiest way to build adaptive apps, and that's just one of the [many reasons](https://developer.android.com/develop/ui/compose/first#why-compose-first) we believe that **all Android UI should be built with Compose** . To that end, [Android development is now Compose-first](https://developer.android.com/develop/ui/compose/first). All new Android APIs, libraries, tools, and developer guidance will be built exclusively for Jetpack Compose. Legacy View components (in the android.widget package) and View-based Jetpack libraries (like `Fragments`, `RecyclerView`, and `ViewPager`) are now in maintenance mode. They will receive only critical bug fixes, and no new features.
+Compose offers the easiest way to build adaptive apps, and that's just one of the [many reasons](https://developer.android.com/develop/ui/compose/first.md.txt#why-compose-first) we believe that **all Android UI should be built with Compose** . To that end, [Android development is now Compose-first](https://developer.android.com/develop/ui/compose/first.md.txt). All new Android APIs, libraries, tools, and developer guidance will be built exclusively for Jetpack Compose. Legacy View components (in the android.widget package) and View-based Jetpack libraries (like `Fragments`, `RecyclerView`, and `ViewPager`) are now in maintenance mode. They will receive only critical bug fixes, and no new features.
 
 *** ** * ** ***
 
@@ -131,7 +133,7 @@ Memory usage is one of the silent foundations of overall performance. When a for
 
 Starting in Android 17, the system will enforce strict app memory limits based on a device's total RAM, abruptly terminating offending processes. New things to help you navigate these tighter requirements:
 
-- **R8 Optimizer:** TheR8 optimizer significantly reduces your app's bytecode memory footprint by shrinking classes, methods, and fields into shorter names, and stripping out unused code and resources. Use R8 in full mode along with the new [R8 configuration analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer) to make sure your app is getting the most from R8.
+- **R8 Optimizer:** TheR8 optimizer significantly reduces your app's bytecode memory footprint by shrinking classes, methods, and fields into shorter names, and stripping out unused code and resources. Use R8 in full mode along with the new [R8 configuration analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer.md.txt) to make sure your app is getting the most from R8.
 
 ![R8 Configuration Analyzer.png](https://developer.android.com/static/blog/assets/R8_Configuration_Analyzer_78f2101657_24IOrG.webp) The R8 Configuration Analyzer
 
@@ -154,11 +156,11 @@ And, we're working to surface more in-field memory metrics to you within Google 
 
 ### Generational garbage collection
 
-[Android 17](https://developer.android.com/about/versions) introduces more frequent, less resource-intensive young-generation collections to[ART](https://developer.android.com/guide/platform#art)'s Concurrent Mark-Compact garbage collector (GC). By separating short-lived objects from stable, long-lived ones, the system runs frequent, lightweight "young-generation" sweeps rather than expensive full-heap scans, drastically reducing CPU usage, power drain, and UI stutter. Our testing has shown significant improvements in GC interference with application threads and a reduction in the maximum memory resident set size (RSS). ART improvements are also available to over a billion devices running Android 12 (API level 31) and higher through Google Play System updates.
+[Android 17](https://developer.android.com/about/versions) introduces more frequent, less resource-intensive young-generation collections to[ART](https://developer.android.com/guide/platform.md.txt#art)'s Concurrent Mark-Compact garbage collector (GC). By separating short-lived objects from stable, long-lived ones, the system runs frequent, lightweight "young-generation" sweeps rather than expensive full-heap scans, drastically reducing CPU usage, power drain, and UI stutter. Our testing has shown significant improvements in GC interference with application threads and a reduction in the maximum memory resident set size (RSS). ART improvements are also available to over a billion devices running Android 12 (API level 31) and higher through Google Play System updates.
 
 ### Lock-Free MessageQueue
 
-For apps targeting SDK 37 or higher, the core [android.os.MessageQueue](https://developer.android.com/reference/android/os/MessageQueue) now implements a lock-free architecture, significantly reducing missed frames, improving app startup time, and radically improving the performance of busy queues in multithreaded scenarios. Note: This can break apps that use reflection on private [MessageQueue](https://developer.android.com/reference/android/os/MessageQueue) fields and methods. The [peekWhen](https://developer.android.com/reference/android/os/TestLooperManager#peekWhen()) and [poll](https://developer.android.com/reference/android/os/TestLooperManager#poll()) APIs have been added to [TestLooperManager](https://developer.android.com/reference/android/os/TestLooperManager) for instrumentation testing without relying on [MessageQueue](https://developer.android.com/reference/android/os/MessageQueue) internals.
+For apps targeting SDK 37 or higher, the core [android.os.MessageQueue](https://developer.android.com/reference/android/os/MessageQueue.md.txt) now implements a lock-free architecture, significantly reducing missed frames, improving app startup time, and radically improving the performance of busy queues in multithreaded scenarios. Note: This can break apps that use reflection on private [MessageQueue](https://developer.android.com/reference/android/os/MessageQueue.md.txt) fields and methods. The [peekWhen](https://developer.android.com/reference/android/os/TestLooperManager.md.txt#peekWhen()) and [poll](https://developer.android.com/reference/android/os/TestLooperManager.md.txt#poll()) APIs have been added to [TestLooperManager](https://developer.android.com/reference/android/os/TestLooperManager.md.txt) for instrumentation testing without relying on [MessageQueue](https://developer.android.com/reference/android/os/MessageQueue.md.txt) internals.
 
 ### Static final fields now truly final
 
@@ -168,7 +170,7 @@ Modifying them via JNI's `SetStatic<Type>Field` methods family will immediately 
 
 ### Custom notification view restrictions
 
-To reduce memory usage we are further restricting the size of[custom notification views](https://developer.android.com/develop/ui/views/notifications/custom-notification). This update closes a loophole that allows apps to bypass existing limits using URIs. This behavior is gated by the target SDK version and takes effect for apps targeting API 37 and higher.
+To reduce memory usage we are further restricting the size of[custom notification views](https://developer.android.com/develop/ui/views/notifications/custom-notification.md.txt). This update closes a loophole that allows apps to bypass existing limits using URIs. This behavior is gated by the target SDK version and takes effect for apps targeting API 37 and higher.
 
 ## Privacy \& Security
 
@@ -199,16 +201,16 @@ fun launchColorPicker() {
 
 ### Local network access
 
-Apps targeting Android 17 now either require the [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network) runtime permission or the use of system-mediated, privacy-preserving device pickers for local network communication, such as talking to smart home devices or casting receivers. Because ACCESS_LOCAL_NETWORK falls under the existing [`NEARBY_DEVICES`](https://developer.android.com/reference/android/Manifest.permission_group#NEARBY_DEVICES) permission group, users who have already granted other [`NEARBY_DEVICES`](https://developer.android.com/reference/android/Manifest.permission_group#NEARBY_DEVICES) permissions will not be prompted again.
+Apps targeting Android 17 now either require the [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission.md.txt#access_local_network) runtime permission or the use of system-mediated, privacy-preserving device pickers for local network communication, such as talking to smart home devices or casting receivers. Because ACCESS_LOCAL_NETWORK falls under the existing [`NEARBY_DEVICES`](https://developer.android.com/reference/android/Manifest.permission_group.md.txt#NEARBY_DEVICES) permission group, users who have already granted other [`NEARBY_DEVICES`](https://developer.android.com/reference/android/Manifest.permission_group.md.txt#NEARBY_DEVICES) permissions will not be prompted again.
 
 ### SMS OTP protection
 
 Android 17 expands SMS one-time-password (OTP) protection by delaying access to SMS messages for three hours:
 
-- **WebOTP Format:** [Delayed for all apps that are not the intended recipient (domain mismatch).](https://developer.android.com/about/versions/17/behavior-changes-all#sms-otp-all-apps)
-- **Standard SMS OTP:** [Delayed for all apps targeting SDK 37+.](https://developer.android.com/about/versions/17/behavior-changes-17#sms-otp-protection)
+- **WebOTP Format:** [Delayed for all apps that are not the intended recipient (domain mismatch).](https://developer.android.com/about/versions/17/behavior-changes-all.md.txt#sms-otp-all-apps)
+- **Standard SMS OTP:** [Delayed for all apps targeting SDK 37+.](https://developer.android.com/about/versions/17/behavior-changes-17.md.txt#sms-otp-protection)
 
-**Exemptions:** Default SMS, assistant, and connected companion apps are exempt. Apps are strongly encouraged to migrate to the [SMS Retriever](https://developer.android.com/identity/sms-retriever) or [SMS User Consent](https://developers.google.com/identity/sms-retriever/user-consent/overview) APIs.
+**Exemptions:** Default SMS, assistant, and connected companion apps are exempt. Apps are strongly encouraged to migrate to the [SMS Retriever](https://developer.android.com/identity/sms-retriever.md.txt) or [SMS User Consent](https://developers.google.com/identity/sms-retriever/user-consent/overview) APIs.
 
 ### Post-Quantum Cryptography (PQC)
 
@@ -219,7 +221,7 @@ Android 17 is ready for the next generation of cryptographic security:
 
 ### Safer native dynamic code loading
 
-If your app targets SDK 37 or higher, the Safer Dynamic Code Loading (DCL) protection [introduced in Android 14](https://developer.android.com/about/versions/14/behavior-changes-14#safer-dynamic-code-loading) for DEX and JAR files now extends to native libraries. All native files loaded using System.load must be marked as read-only. Otherwise, the system throws `UnsatisfiedLinkError`.
+If your app targets SDK 37 or higher, the Safer Dynamic Code Loading (DCL) protection [introduced in Android 14](https://developer.android.com/about/versions/14/behavior-changes-14.md.txt#safer-dynamic-code-loading) for DEX and JAR files now extends to native libraries. All native files loaded using System.load must be marked as read-only. Otherwise, the system throws `UnsatisfiedLinkError`.
 
 ### Smarter password protection for physical inputs
 
@@ -234,22 +236,22 @@ These enhanced privacy protections are automatically supported byAndroid's built
 
 Android 17 introduces new [creator features](https://blog.google/products-and-platforms/platforms/android/android-17-creator-features/) that give access to pro-quality cameras and media, all while improving the experience for consumers.
 
-- [Eclipsa Video](https://developer.android.com/media/platform/integrate-eclipsa-video): HDR video standard built upon the [SMPTE ST 2094-50 specification](https://github.com/SMPTE/st2094-50) that introduces new metadata to help devices adapt content for their display headroom and ambient light conditions, as well as improve the simultaneous display of standard and HDR content.
-- **RAW14 image format:** New support for the [RAW14 image format](https://developer.android.com/reference/kotlin/android/graphics/ImageFormat#raw14) provides a way for your professional camera app to capture the highest level of detail and color depth from compatible camera sensors.
+- [Eclipsa Video](https://developer.android.com/media/platform/integrate-eclipsa-video.md.txt): HDR video standard built upon the [SMPTE ST 2094-50 specification](https://github.com/SMPTE/st2094-50) that introduces new metadata to help devices adapt content for their display headroom and ambient light conditions, as well as improve the simultaneous display of standard and HDR content.
+- **RAW14 image format:** New support for the [RAW14 image format](https://developer.android.com/reference/kotlin/android/graphics/ImageFormat.md.txt#raw14) provides a way for your professional camera app to capture the highest level of detail and color depth from compatible camera sensors.
 - **Vendor-defined camera extensions:** Vendor-defined extensions enable hardware partners to define and implement custom camera extension modes, providing access to the best and latest camera features.
 - **Extended HE-AAC software encoder: A new system-provided Extended HE-AAC software encoder, supports both low and high bitrates using unified speech and audio coding, providing significantly better audio quality for voice messages in low-bandwidth conditions, including support for loudness metadata.**
-- [Versatile Video Coding (H.266)](https://developer.android.com/guide/topics/media/media-formats#video-formats): Enables OEMs to add codec support by defining the [video/vvc](https://developer.android.com/guide/topics/media/media-formats#video-formats) MIME type in [MediaFormat](https://developer.android.com/reference/android/media/MediaFormat), adding new VVC profiles in [MediaCodecInfo](https://developer.android.com/reference/android/media/MediaCodecInfo), and integrating support into [MediaExtractor](https://developer.android.com/reference/android/media/MediaExtractor).
+- [Versatile Video Coding (H.266)](https://developer.android.com/guide/topics/media/media-formats#video-formats): Enables OEMs to add codec support by defining the [video/vvc](https://developer.android.com/guide/topics/media/media-formats#video-formats) MIME type in [MediaFormat](https://developer.android.com/reference/android/media/MediaFormat.md.txt), adding new VVC profiles in [MediaCodecInfo](https://developer.android.com/reference/android/media/MediaCodecInfo.md.txt), and integrating support into [MediaExtractor](https://developer.android.com/reference/android/media/MediaExtractor.md.txt).
 - **Camera device type:** New APIs that query the underlying device type to identify if a camera is built-in hardware, an external USB webcam, or a virtual camera.
-- **Constant Quality for Video Recording:** [setVideoEncodingQuality](https://developer.android.com/reference/android/media/MediaRecorder#setVideoEncodingQuality(int)) in[MediaRecorder](https://developer.android.com/reference/android/media/MediaRecorder) configures a constant quality (CQ) mode for video encoders to ensure uniform visual fidelity across the entire video.
+- **Constant Quality for Video Recording:** [setVideoEncodingQuality](https://developer.android.com/reference/android/media/MediaRecorder.md.txt#setVideoEncodingQuality(int)) in[MediaRecorder](https://developer.android.com/reference/android/media/MediaRecorder.md.txt) configures a constant quality (CQ) mode for video encoders to ensure uniform visual fidelity across the entire video.
 
 ### Better support for hearing aids
 
-- **Bluetooth LE Audio hearing aid support:** Android now includes a specific device category for Bluetooth Low Energy (BLE) Audio hearing aids with the new [AudioDeviceInfo.TYPE_BLE_HEARING_AID](https://developer.android.com/reference/android/media/AudioDeviceInfo#TYPE_BLE_HEARING_AID) constant, so your app can distinguish hearing aids from regular headsets to provide a tailored experience for users with assistive listening devices.
+- **Bluetooth LE Audio hearing aid support:** Android now includes a specific device category for Bluetooth Low Energy (BLE) Audio hearing aids with the new [AudioDeviceInfo.TYPE_BLE_HEARING_AID](https://developer.android.com/reference/android/media/AudioDeviceInfo.md.txt#TYPE_BLE_HEARING_AID) constant, so your app can distinguish hearing aids from regular headsets to provide a tailored experience for users with assistive listening devices.
 - **Granular audio routing for hearing aids:** Android 17 allows users to independently manage where specific system sounds are played. They can choose to route notifications, ringtones, and alarms to connected hearing aids or the device's built-in speaker, helping to avoid unwanted in-ear interruptions while maintaining a Bluetooth connection for hearing aid management apps.
 
 ### CameraX and Media3
 
-[CameraX](https://developer.android.com/jetpack/androidx/releases/camerax) and [Media3](https://developer.android.com/jetpack/androidx/releases/media3) have been updated for Android 17. They are there to do the heavy lifting, smoothing the rough edges of media development and simplifying building reliable camera capture, smooth media playback, and creative and complex editing experiences.
+[CameraX](https://developer.android.com/jetpack/androidx/releases/camerax) and [Media3](https://developer.android.com/jetpack/androidx/releases/media3.md.txt) have been updated for Android 17. They are there to do the heavy lifting, smoothing the rough edges of media development and simplifying building reliable camera capture, smooth media playback, and creative and complex editing experiences.
 
 We've released an [agent skill](https://github.com/android/skills/tree/main/camera) that can migrate legacy Android camera implementations (Camera1 or raw Camera2 APIs) to CameraX.
 
@@ -259,18 +261,18 @@ We've released an [agent skill](https://github.com/android/skills/tree/main/came
 
 If you develop an Android SDK, library, tool, or game engine, it's critical to prepare any necessary updates now to prevent your downstream app and game developers from being blocked by compatibility issues and allow them to target the latest SDK features. Please let your downstream developers know if updates are needed to fully support Android 17.
 
-Testing involves installing your production app or a test app making use of your library or engine using Google Play or other means onto a device or emulator running Android 17 Beta 4. Work through all your app's flows and look for functional or UI issues. Each release of Android contains platform changes that improve privacy, security, and overall user experience; review the app impacting behavior changes for apps [running on](https://developer.android.com/about/versions/17/behavior-changes-all) and [targeting](https://developer.android.com/about/versions/17/behavior-changes-17) Android 17 to focus your testing, including the following:
+Testing involves installing your production app or a test app making use of your library or engine using Google Play or other means onto a device or emulator running Android 17 Beta 4. Work through all your app's flows and look for functional or UI issues. Each release of Android contains platform changes that improve privacy, security, and overall user experience; review the app impacting behavior changes for apps [running on](https://developer.android.com/about/versions/17/behavior-changes-all.md.txt) and [targeting](https://developer.android.com/about/versions/17/behavior-changes-17.md.txt) Android 17 to focus your testing, including the following:
 
-- **Resizability on large screens:** Once you target Android 17 (SDK 37), you can no longer opt out of maintaining orientation, resizability and aspect ratio constraints [on large screens](https://developer.android.com/about/versions/17/changes/ff-restrictions-ignored).
-- **Dynamic code loading:** If your app targets SDK 37 or higher, the Safer Dynamic Code Loading (DCL) protection [introduced in Android 14](https://developer.android.com/about/versions/14/behavior-changes-14#safer-dynamic-code-loading) for DEX and JAR files now extends to native libraries. All native files loaded using System.load() must be marked as read-only. Otherwise, the system throws UnsatisfiedLinkError.
-- **Enable CT by default:** [Certificate transparency (CT)](https://developer.android.com/privacy-and-security/security-config#CertificateTransparencySummary) is enabled by default. (On Android 16, CT is available but apps had to [opt in](https://developer.android.com/privacy-and-security/security-config#certificateTransparency).)
-- **Local network protections:** Apps targeting SDK 37 or higher have [local network access blocked by default](https://developer.android.com/privacy-and-security/local-network-permission#android-17-enforcement). Switch to using privacy preserving pickers if possible, and use the new [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network) permission for broad, persistent access.
-- **Background audio hardening:** Starting in Android 17, the audio framework enforces [restrictions on background audio interactions](https://developer.android.com/about/versions/17/changes/bg-audio) including audio playback, [audio focus](https://developer.android.com/media/optimize/audio-focus) requests, and [volume change](https://developer.android.com/reference/android/media/AudioManager#adjustStreamVolume(int,%20int,%20int)) APIs. Based on your feedback, we've made some changes since beta 2, including targetSDK gating while-in-use FGS enforcement and exempting alarm audio. Full details available in the [updated guidance](https://developer.android.com/about/versions/17/changes/bg-audio).
-- **NPU access declaration:** Apps targeting Android 17 that need to directly access the NPU must declare [`FEATURE_NEURAL_PROCESSING_UNIT`](https://developer.android.com/reference/kotlin/android/content/pm/PackageManager#feature_neural_processing_unit) in their manifest to avoid being blocked from accessing the NPU. This includes apps that use the[LiteRT NPU delegate](https://ai.google.dev/edge/litert/next/npu), vendor-specific SDKs, as well as the deprecated[NNAPI](https://developer.android.com/ndk/guides/neuralnetworks).
+- **Resizability on large screens:** Once you target Android 17 (SDK 37), you can no longer opt out of maintaining orientation, resizability and aspect ratio constraints [on large screens](https://developer.android.com/about/versions/17/changes/ff-restrictions-ignored.md.txt).
+- **Dynamic code loading:** If your app targets SDK 37 or higher, the Safer Dynamic Code Loading (DCL) protection [introduced in Android 14](https://developer.android.com/about/versions/14/behavior-changes-14.md.txt#safer-dynamic-code-loading) for DEX and JAR files now extends to native libraries. All native files loaded using System.load() must be marked as read-only. Otherwise, the system throws UnsatisfiedLinkError.
+- **Enable CT by default:** [Certificate transparency (CT)](https://developer.android.com/privacy-and-security/security-config.md.txt#CertificateTransparencySummary) is enabled by default. (On Android 16, CT is available but apps had to [opt in](https://developer.android.com/privacy-and-security/security-config.md.txt#certificateTransparency).)
+- **Local network protections:** Apps targeting SDK 37 or higher have [local network access blocked by default](https://developer.android.com/privacy-and-security/local-network-permission.md.txt#android-17-enforcement). Switch to using privacy preserving pickers if possible, and use the new [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission.md.txt#access_local_network) permission for broad, persistent access.
+- **Background audio hardening:** Starting in Android 17, the audio framework enforces [restrictions on background audio interactions](https://developer.android.com/about/versions/17/changes/bg-audio.md.txt) including audio playback, [audio focus](https://developer.android.com/media/optimize/audio-focus.md.txt) requests, and [volume change](https://developer.android.com/reference/android/media/AudioManager.md.txt#adjustStreamVolume(int,%20int,%20int)) APIs. Based on your feedback, we've made some changes since beta 2, including targetSDK gating while-in-use FGS enforcement and exempting alarm audio. Full details available in the [updated guidance](https://developer.android.com/about/versions/17/changes/bg-audio.md.txt).
+- **NPU access declaration:** Apps targeting Android 17 that need to directly access the NPU must declare [`FEATURE_NEURAL_PROCESSING_UNIT`](https://developer.android.com/reference/kotlin/android/content/pm/PackageManager.md.txt#feature_neural_processing_unit) in their manifest to avoid being blocked from accessing the NPU. This includes apps that use the[LiteRT NPU delegate](https://ai.google.dev/edge/litert/next/npu), vendor-specific SDKs, as well as the deprecated[NNAPI](https://developer.android.com/ndk/guides/neuralnetworks.md.txt).
 
 ## Get started with Android 17
 
-Your Pixel device should get Android 17 shortly if you haven't already been on the Android Beta. If you don't have a Pixel device, you can [use the 64-bit system images with the Android Emulator](https://developer.android.com/about/versions/17/get#on_emulator) in Android Studio. If you are currently on Android 17 Beta 4.1 and have not yet taken an Android 17 QPR1 beta, you can opt out of the program and you will then be offered the release version of Android 17 over the air.
+Your Pixel device should get Android 17 shortly if you haven't already been on the Android Beta. If you don't have a Pixel device, you can [use the 64-bit system images with the Android Emulator](https://developer.android.com/about/versions/17/get.md.txt#on_emulator) in Android Studio. If you are currently on Android 17 Beta 4.1 and have not yet taken an Android 17 QPR1 beta, you can opt out of the program and you will then be offered the release version of Android 17 over the air.
 
 ## Getting the Android 17 beta on partner devices
 
@@ -279,46 +281,46 @@ Android 17 is available in beta on handset, tablet, and foldable form factors [f
 
 For the best development experience with Android 17, we recommend that you use the latest Canary build of [Android Studio Quail](https://developer.android.com/studio/preview). Once you're set up, here are some of the things you should do:
 
-- Test your current app for compatibility, learn whether your app is [affected by changes in Android 17](https://developer.android.com/about/versions/17/behavior-changes-all), and install your app onto a device or [Android Emulator](https://developer.android.com/studio/run/emulator) running Android 17 and extensively test it.
+- Test your current app for compatibility, learn whether your app is [affected by changes in Android 17](https://developer.android.com/about/versions/17/behavior-changes-all.md.txt), and install your app onto a device or [Android Emulator](https://developer.android.com/studio/run/emulator.md.txt) running Android 17 and extensively test it.
 
 Thank you again to everyone who participated in our Android developer preview and beta program. We're looking forward to seeing how your apps take advantage of the updates in Android 17, and have plans to bring you updates in a fast-paced release cadence going forward.
 
 For complete information on Android 17 please visit the [Android 17 developer site](https://developer.android.com/about/versions/17).
-- [#Android 17](https://developer.android.com/blog/topics/android-17)
+- [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
 Written by:
 
 -
 
-  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough)
+  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt)
 
   ###### Vice President, Product Management, Android Developer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [The Third Beta of Android 17](https://developer.android.com/blog/posts/the-third-beta-of-android-17)
+  ## [The Third Beta of Android 17](https://developer.android.com/blog/posts/the-third-beta-of-android-17.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/the-third-beta-of-android-17) Android 17 has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 5 min read
-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
-  - [#beta](https://developer.android.com/blog/topics/beta)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/the-third-beta-of-android-17.md.txt) Android 17 has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 5 min read
+  - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
+  - [#beta](https://developer.android.com/blog/topics/beta.md.txt)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 28 Oct 2026 28 Oct 2026 ![](https://developer.android.com/static/blog/assets/Mesa_de_trabajo_1_copy_8_3f8cf8a935_Z1799P4.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development)
+  ## [Agentic and Flexible: A next era of Android development](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/build-it-your-way-a-next-era-of-android-development.md.txt) Today, at the Android Dev Summit, we are announcing the broad availability of many tools and APIs designed to remove everyday friction and give you more flexibility to build great Android apps.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 4 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
+  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-  - [#Android Bench](https://developer.android.com/blog/topics/android-bench)
+  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks.md.txt) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development.md.txt)
+  - [#Android Bench](https://developer.android.com/blog/topics/android-bench.md.txt)
 Stay in the loop
 
 

@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/x-improved-login-success-rate-afte
 source: md.txt
 ---
 
-[Case Studies](https://developer.android.com/blog/categories/case-studies)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
 # X improved login success rate by 2x after adopting passkeys
 
-3 min read ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_ZkMOm6.webp) 21 Nov 2024 [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) From breaking news and entertainment to sports and politics, [X](https://play.google.com/store/apps/details?id=com.twitter.android) is a social media app that aims to help nearly 500 million users worldwide get the full story with all the live commentary. Recently, X developers revamped the Android app's login process so users never miss out on the conversations they're interested in. Using the [Credential Manager API](https://developer.android.com/identity/sign-in/credential-manager), the team implemented new [passkey](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys) authentication for quicker, easier, and safer access to the app.
+3 min read ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_ZkMOm6.webp) 21 Nov 2024 [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora.md.txt)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) From breaking news and entertainment to sports and politics, [X](https://play.google.com/store/apps/details?id=com.twitter.android) is a social media app that aims to help nearly 500 million users worldwide get the full story with all the live commentary. Recently, X developers revamped the Android app's login process so users never miss out on the conversations they're interested in. Using the [Credential Manager API](https://developer.android.com/identity/sign-in/credential-manager), the team implemented new [passkey](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys.md.txt) authentication for quicker, easier, and safer access to the app.
 
 ### Simplifying login with passkeys
 
@@ -56,12 +58,12 @@ Looking ahead, X plans to further enhance the user experience by allowing sign-u
 
 ### Get started
 
-Learn how to improve your app's login UX using [passkeys](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys) and the [Credential Manager API](https://developer.android.com/identity/sign-in/credential-manager).
+Learn how to improve your app's login UX using [passkeys](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys.md.txt) and the [Credential Manager API](https://developer.android.com/identity/sign-in/credential-manager).
 Written by:
 
 -
 
-  ## [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora)
+  ## [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt)
 
   ###### Developer Relations Engineer
 
@@ -69,33 +71,33 @@ Written by:
   View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)
 -
 
-  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
+  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt)
 
   ###### Product Marketing Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
 Continue reading
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
+  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
-  - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Z2c5PaI.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys.md.txt) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt), [Mayank Jain](https://developer.android.com/blog/authors/blog-author.md.txt) • 8 min read
+  - [#Passkeys](https://developer.android.com/blog/topics/passkeys.md.txt)
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora.md.txt)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Z2c5PaI.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [How Uber is reducing manual logins by 4 million per year with the Restore Credentials API](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api)
+  ## [How Uber is reducing manual logins by 4 million per year with the Restore Credentials API](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api) Uber leveraged the Android Restore Credentials API to streamline new device sign-in, projecting a reduction of 4 million manual logins per year and increasing user retention.
-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [arrow_forward](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api.md.txt) Uber leveraged the Android Restore Credentials API to streamline new device sign-in, projecting a reduction of 4 million manual logins per year and increasing user retention.
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+- 3 Authors 19 Oct 2026 19 Oct 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Grab_Strapi_2000x1000_STATIC_1_dbb884ce74_22df0m.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies.md.txt)
 
-  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time)
+  ## [Grab Reduces ANRs by 32% and improves startup time by 35% with R8 and Profile guided optimization](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
-  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+  [arrow_forward](https://developer.android.com/blog/posts/grab-r8-profile-guided-optimization-anr-startup-time.md.txt) Grab is Southeast Asia's leading superapp, offering deliveries, mobility, and financial services to millions of users across eight countries through a single app.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai.md.txt), [Nguyen Van Minh](https://developer.android.com/blog/authors/nguyen-van-minh.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 5 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated.md.txt)
 Stay in the loop
 
 

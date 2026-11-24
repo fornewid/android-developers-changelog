@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/authors/dimitris-kosmidis
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/dimitris_kosmidis_08bb21b8a2_Z2oix8v.webp)
 
 # Dimitris Kosmidis
 
 Product Manager
-- 01 Apr 2026 01 Apr 2026 ![](https://developer.android.com/static/blog/assets/wear_os_64_1de6378905_Z2fNN6j.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 01 Apr 2026 01 Apr 2026 ![](https://developer.android.com/static/blog/assets/wear_os_64_1de6378905_Z2fNN6j.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Get your Wear OS apps ready for the 64-bit requirement](https://developer.android.com/blog/posts/get-your-wear-os-apps-ready-for-the-64-bit-requirement)
+  ## [Get your Wear OS apps ready for the 64-bit requirement](https://developer.android.com/blog/posts/get-your-wear-os-apps-ready-for-the-64-bit-requirement.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/get-your-wear-os-apps-ready-for-the-64-bit-requirement) 64-bit architectures provide performance improvements and a foundation for future innovation, delivering faster and richer experiences for your users. We've supported 64-bit CPUs since Android 5.
+  [arrow_forward](https://developer.android.com/blog/posts/get-your-wear-os-apps-ready-for-the-64-bit-requirement.md.txt) 64-bit architectures provide performance improvements and a foundation for future innovation, delivering faster and richer experiences for your users. We've supported 64-bit CPUs since Android 5.
   2 min read
 Stay in the loop
 

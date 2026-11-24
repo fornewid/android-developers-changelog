@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/topics/nav3
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 # #Nav3
 
-- [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp)](https://developer.android.com/blog/authors/don-turner) 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/jetpack_navigation_d1257f9ca2_Z16ze9q.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp)](https://developer.android.com/blog/authors/don-turner.md.txt) 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/jetpack_navigation_d1257f9ca2_Z16ze9q.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Jetpack Navigation 3 is stable](https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable)
+  ## [Jetpack Navigation 3 is stable](https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable) Jetpack Navigation 3 version 1.0 is stable!
-  [Don Turner](https://developer.android.com/blog/authors/don-turner) • 3 min read
-  - [#Nav3](https://developer.android.com/blog/topics/nav3)
-  - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+  [arrow_forward](https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable.md.txt) Jetpack Navigation 3 version 1.0 is stable!
+  [Don Turner](https://developer.android.com/blog/authors/don-turner.md.txt) • 3 min read
+  - [#Nav3](https://developer.android.com/blog/topics/nav3.md.txt)
+  - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation.md.txt)
 Stay in the loop
 
 

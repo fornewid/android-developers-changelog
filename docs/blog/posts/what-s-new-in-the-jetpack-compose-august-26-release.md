@@ -4,13 +4,15 @@ url: https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # What's new in the Jetpack Compose August '26 release
 
-5 min read ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_ZrjgNw.webp) 11 Aug 2026 [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher) [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) Product Manager Today, the Jetpack Compose August '26 release is stable! This release brings version 1.12 across core Compose modules (see the full [BOM mapping](https://developer.android.com/develop/ui/compose/bom/bom-mapping)), introducing rich visual APIs like Mesh Gradients and Wide Color Gamut (WCG) support, structural layout features like named areas in `Grid`, seamless integration with Android's Credential Manager, and significant testing and performance improvements.
+5 min read ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_ZrjgNw.webp) 11 Aug 2026 [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher.md.txt) [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher.md.txt) Product Manager Today, the Jetpack Compose August '26 release is stable! This release brings version 1.12 across core Compose modules (see the full [BOM mapping](https://developer.android.com/develop/ui/compose/bom/bom-mapping.md.txt)), introducing rich visual APIs like Mesh Gradients and Wide Color Gamut (WCG) support, structural layout features like named areas in `Grid`, seamless integration with Android's Credential Manager, and significant testing and performance improvements.
 
-To update your project to today's release, upgrade your [Compose BOM](https://developer.android.com/develop/ui/compose/bom) version to `2026.08.00`:
+To update your project to today's release, upgrade your [Compose BOM](https://developer.android.com/develop/ui/compose/bom.md.txt) version to `2026.08.00`:
 
 ```kotlin
 implementation(platform("androidx.compose:compose-bom:2026.08.00"))
@@ -18,14 +20,14 @@ implementation(platform("androidx.compose:compose-bom:2026.08.00"))
 
 ### **Breaking Changes**
 
-- **AGP \& Compile SDK** : Compose 1.12 updates compileSdk to API 37, requiring a minimum AGP 9.1.2. As a reminder, Compose will always target the latest compileSdk. Learn more about this change [here](https://developer.android.com/develop/ui/compose/setup-compose-dependencies-and-compiler#agp-compatibility).
-- `Modifier.onFirstVisible()`**is deprecated** : Migrate to [Modifier.onVisibilityChanged()](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/onVisibilityChanged.modifier), which provides more precise visibility threshold tracking.
+- **AGP \& Compile SDK** : Compose 1.12 updates compileSdk to API 37, requiring a minimum AGP 9.1.2. As a reminder, Compose will always target the latest compileSdk. Learn more about this change [here](https://developer.android.com/develop/ui/compose/setup-compose-dependencies-and-compiler.md.txt#agp-compatibility).
+- `Modifier.onFirstVisible()`**is deprecated** : Migrate to [Modifier.onVisibilityChanged()](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/onVisibilityChanged.modifier.md.txt), which provides more precise visibility threshold tracking.
 
 ## **Graphics**
 
 ### **Mesh Gradients**
 
-Compose 1.12 introduces [`MeshGradientPainter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/MeshGradientPainter) to help you create multi-point, organic color gradients.
+Compose 1.12 introduces [`MeshGradientPainter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/MeshGradientPainter.md.txt) to help you create multi-point, organic color gradients.
 ![meshGradient.gif](https://developer.android.com/static/blog/assets/mesh_Gradient_29b3ff9c73_Z1svvJS.webp)
 
 ```kotlin
@@ -50,7 +52,7 @@ Box(
 )
 ```
 
-For more information and examples, see the [documentation](https://developer.android.com/develop/ui/compose/graphics/draw/mesh-gradient).
+For more information and examples, see the [documentation](https://developer.android.com/develop/ui/compose/graphics/draw/mesh-gradient.md.txt).
 
 ### **Wide Color Gamut \& HDR Support**
 
@@ -58,7 +60,7 @@ Modern displays offer extended color fidelity and higher dynamic range. In Compo
 
 Other notable changes:
 
-- [`LayerOutsets`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/LayerOutsets) was added to `GraphicsLayer` \& `Modifier.graphicsLayer`, which you can use to increase the visual bounds of the layer beyond its measured size. Apply `LayerOutsets` to avoid the implicit `clipToBounds` behavior when the layer is promoted to an offscreen buffer.
+- [`LayerOutsets`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/LayerOutsets.md.txt) was added to `GraphicsLayer` \& `Modifier.graphicsLayer`, which you can use to increase the visual bounds of the layer beyond its measured size. Apply `LayerOutsets` to avoid the implicit `clipToBounds` behavior when the layer is promoted to an offscreen buffer.
 
 ## **Styles**
 
@@ -70,7 +72,7 @@ To ensure we get this foundational layer correct, the API will remain experiment
 
 ### **Keyed** SideEffect**Overload**
 
-[`SideEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/SideEffect.composable) now supports key arguments, which lets you fire one-shot side effects whenever specific keys change. This can lead to better performance compared to using a `LaunchedEffect` or `DisposableEffect `when you don't need the coroutine or dispose block. `SideEffect` is up to 90% faster than `LaunchedEffect` and around 20% faster than `DisposableEffect`. Note that `SideEffect` runs its effect before `DisposableEffect` and `LaunchedEffect`, so use caution if migrating existing effects to this API, especially for `LaunchedEffects` that rely on being dispatched to start after the current frame is completed.
+[`SideEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/SideEffect.composable.md.txt) now supports key arguments, which lets you fire one-shot side effects whenever specific keys change. This can lead to better performance compared to using a `LaunchedEffect` or `DisposableEffect `when you don't need the coroutine or dispose block. `SideEffect` is up to 90% faster than `LaunchedEffect` and around 20% faster than `DisposableEffect`. Note that `SideEffect` runs its effect before `DisposableEffect` and `LaunchedEffect`, so use caution if migrating existing effects to this API, especially for `LaunchedEffects` that rely on being dispatched to start after the current frame is completed.
 
 ```kotlin
 @Composable
@@ -83,14 +85,14 @@ fun AnalyticsTracker(userId: String, screenName: String) {
 
 ## **Animation**
 
-- [`DeferredTargetAnimation`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/DeferredTargetAnimation) has graduated out of experimental status.
+- [`DeferredTargetAnimation`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/DeferredTargetAnimation.md.txt) has graduated out of experimental status.
 
 ### **Interactive Two-Stage Transitions**
 
-- **New composables** : [`DeferredAnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/DeferredAnimatedContent.composable) and [`DeferredAnimatedVisibility`](https://developer.android.com/reference/kotlin/androidx/compose/animation/DeferredAnimatedVisibility.composable) allow creating delightful two-stage transitions, e.g. for predictive back gesture tracking.
+- **New composables** : [`DeferredAnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/DeferredAnimatedContent.composable.md.txt) and [`DeferredAnimatedVisibility`](https://developer.android.com/reference/kotlin/androidx/compose/animation/DeferredAnimatedVisibility.composable.md.txt) allow creating delightful two-stage transitions, e.g. for predictive back gesture tracking.
 - **Manual animation control**: During a transition's deferred phase, animated properties (like scale or offset) can now be manually manipulated in real-time (e.g., tracking a swipe gesture).
 - **Seamless handoff**: Once the deferred phase ends, the transition engine takes over and performs a seamless handoff, including velocity transfer, to the automatic transition.
-- **Shared element support** : A new [`permitTransformDuringDeferredTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope.SharedContentConfig#permitTransformDuringDeferredTransition()) flag in `SharedContentConfig` controls whether shared elements visually transform along with their parent containers during the deferred transition phase.
+- **Shared element support** : A new [`permitTransformDuringDeferredTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope.SharedContentConfig.md.txt#permitTransformDuringDeferredTransition()) flag in `SharedContentConfig` controls whether shared elements visually transform along with their parent containers during the deferred transition phase.
 
 ```kotlin
 val state = remember { DeferredTransitionState(initialScreen) }
@@ -122,7 +124,7 @@ Below are two demos of use cases where a gesture-driven animation is handed off 
 
 ### **Editable Text Formatting**
 
-New APIs offer rich-text formatting for editable text in [`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable). You can now programmatically apply and manipulate inline character and paragraph formatting using [`SpanStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/SpanStyle) and [`ParagraphStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/ParagraphStyle) via the new `addStyle()` method inside a [`TextFieldBuffer`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer) scope (such as inside `textFieldState.edit { ... }` or an `InputTransformation`). Additionally, `TextFieldBuffer` provides `getSpanStyles()` and `getParagraphStyles()` APIs that return `TrackedRange` objects, allowing you to read, update, or remove applied styles. To complement formatting creation, `TextFieldState` now exposes a read-only `textStyles` property for querying active styles across ranges, while `TextFieldBuffer` provides `originalTextStyles` to inspect formatting state prior to an edit. Text formatting and custom annotations are persisted across configuration changes.
+New APIs offer rich-text formatting for editable text in [`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable.md.txt). You can now programmatically apply and manipulate inline character and paragraph formatting using [`SpanStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/SpanStyle.md.txt) and [`ParagraphStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/ParagraphStyle.md.txt) via the new `addStyle()` method inside a [`TextFieldBuffer`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer.md.txt) scope (such as inside `textFieldState.edit { ... }` or an `InputTransformation`). Additionally, `TextFieldBuffer` provides `getSpanStyles()` and `getParagraphStyles()` APIs that return `TrackedRange` objects, allowing you to read, update, or remove applied styles. To complement formatting creation, `TextFieldState` now exposes a read-only `textStyles` property for querying active styles across ranges, while `TextFieldBuffer` provides `originalTextStyles` to inspect formatting state prior to an edit. Text formatting and custom annotations are persisted across configuration changes.
 
 ```kotlin
 val state = rememberTextFieldState("Formatted text in Compose 1.12")
@@ -142,7 +144,7 @@ val currentStyles = state.textStyles
 
 ### **Text Selection**
 
-A new [`SelectionState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/selection/SelectionState) API provides programmatic control and observability over text selection within a [`SelectionContainer`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/selection/SelectionContainer.composable#SelectionContainer(androidx.compose.ui.Modifier,kotlin.Function0)). Hoisting a `SelectionState` object via `rememberSelectionState()` and passing into `SelectionContainer` exposes `selectedTexts` as a reactive list of `AnnotatedStrings` and provides methods like `selectAll()`, `clear()`, `select(TextRange)`, and `extendSelectionByWord()`.
+A new [`SelectionState`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/selection/SelectionState.md.txt) API provides programmatic control and observability over text selection within a [`SelectionContainer`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/selection/SelectionContainer.composable.md.txt#SelectionContainer(androidx.compose.ui.Modifier,kotlin.Function0)). Hoisting a `SelectionState` object via `rememberSelectionState()` and passing into `SelectionContainer` exposes `selectedTexts` as a reactive list of `AnnotatedStrings` and provides methods like `selectAll()`, `clear()`, `select(TextRange)`, and `extendSelectionByWord()`.
 
 Additionally, use `getSelectableTexts()` to retrieve all selectable text items in layout order and select text across composables in the `SelectionContainer` using a global range.
 
@@ -168,7 +170,7 @@ fun ProgrammaticSelectionExample() {
 
 ### **Credential Manager Integration**
 
-Compose text fields now natively integrate with Android's Credential Manager (API 34+) via the Autofill framework (below API 34 is handled by [`androidx.credentials library`](https://developer.android.com/jetpack/androidx/releases/credentials)). By attaching the new [`credentialRequest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/SemanticsPropertyReceiver#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).credentialRequest()) semantics property with `CredentialRequestData`, text inputs can prompt passkeys, saved credentials, or sign-in requests directly within the user input flow.
+Compose text fields now natively integrate with Android's Credential Manager (API 34+) via the Autofill framework (below API 34 is handled by [`androidx.credentials library`](https://developer.android.com/jetpack/androidx/releases/credentials.md.txt)). By attaching the new [`credentialRequest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/SemanticsPropertyReceiver.md.txt#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).credentialRequest()) semantics property with `CredentialRequestData`, text inputs can prompt passkeys, saved credentials, or sign-in requests directly within the user input flow.
 
 ```kotlin
 @Composable
@@ -190,17 +192,17 @@ fun LoginField(textFieldState: TextFieldState) {
 
 Other notable changes:
 
-- Support for font variation settings in [downloadable fonts](https://developer.android.com/develop/ui/compose/text/fonts?_gl=1*gwqhos*_up*MQ..*_ga*MTQ0MTMzODI2Ny4xNzg0MzAwNjk3*_ga_6HH9YJMN9M*czE3ODQzMDA2OTckbzEkZzAkdDE3ODQzMDA2OTckajYwJGwwJGgxOTczOTM3MzA4#downloadable-fonts).
-- Enabled auto-scrolling when dragging text selection beyond the viewport in [`SelectionContainer`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/selection/SelectionContainer.composable).
-- Added support for automatic interaction sounds (clicks and focus navigation) to Compose components, with a new [`SoundEffectOnInteraction`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/SoundEffectOnInteraction.composable) composable to allow opt-out. Note that as a consequence of this change, semantics click listeners must now be called from the main thread, which may affect a small number of test cases.
-- [`KeyboardType`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/input/KeyboardType) now includes `Date`, `Time`, `DateTime`, and `SignedDecimal`.
-- [`BasicSecureTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicSecureTextField.composable) now uses `TextObfuscationMode.System` by default, while `RevealLastTyped` serves as an absolute override.
+- Support for font variation settings in [downloadable fonts](https://developer.android.com/develop/ui/compose/text/fonts.md.txt?_gl=1*gwqhos*_up*MQ..*_ga*MTQ0MTMzODI2Ny4xNzg0MzAwNjk3*_ga_6HH9YJMN9M*czE3ODQzMDA2OTckbzEkZzAkdDE3ODQzMDA2OTckajYwJGwwJGgxOTczOTM3MzA4#downloadable-fonts).
+- Enabled auto-scrolling when dragging text selection beyond the viewport in [`SelectionContainer`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/selection/SelectionContainer.composable.md.txt).
+- Added support for automatic interaction sounds (clicks and focus navigation) to Compose components, with a new [`SoundEffectOnInteraction`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/SoundEffectOnInteraction.composable.md.txt) composable to allow opt-out. Note that as a consequence of this change, semantics click listeners must now be called from the main thread, which may affect a small number of test cases.
+- [`KeyboardType`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/input/KeyboardType.md.txt) now includes `Date`, `Time`, `DateTime`, and `SignedDecimal`.
+- [`BasicSecureTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicSecureTextField.composable.md.txt) now uses `TextObfuscationMode.System` by default, while `RevealLastTyped` serves as an absolute override.
 
 ## **Layout Enhancements**
 
 ### **Named Areas in Grid Layout**
 
-Building complex 2D layouts is now easier with named areas in the `@Experimental` [Grid](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable) component. Rather than managing numeric column and row indices across items, you can define semantic regions in your `GridConfigurationScope` and position composables by area name.
+Building complex 2D layouts is now easier with named areas in the `@Experimental` [Grid](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable.md.txt) component. Rather than managing numeric column and row indices across items, you can define semantic regions in your `GridConfigurationScope` and position composables by area name.
 
 ```kotlin
 @OptIn(ExperimentalGridApi::class)
@@ -221,11 +223,11 @@ fun DashboardLayout() {
 }
 ```
 
-For more information, see the [documentation](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties#named-area).
+For more information, see the [documentation](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties.md.txt#named-area).
 
 ## **Performance**
 
-As with every release, we continue to invest in Compose's performance to ensure that the framework helps you to build beautiful, performant apps. In this release we've focused on improving startup performance and are now seeing Time to Initial Display (the time it takes for an app to produce its first frame) that is comparable to Views in our [benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark).
+As with every release, we continue to invest in Compose's performance to ensure that the framework helps you to build beautiful, performant apps. In this release we've focused on improving startup performance and are now seeing Time to Initial Display (the time it takes for an app to produce its first frame) that is comparable to Views in our [benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark.md.txt).
 ![timetoinitialdisplay@2x _v2.png](https://developer.android.com/static/blog/assets/timetoinitialdisplay_2x_v2_26db919929_MrKwC.webp)
 
 ## **Testing \& Tooling Upgrades**
@@ -234,8 +236,8 @@ As with every release, we continue to invest in Compose's performance to ensure 
 
 Compose 1.12 introduces new test APIs designed to reduce test execution times and eliminate flakiness during state sampling:
 
-- [`hasPendingWork`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTest#hasPendingWork()): Passively checks if the UI has pending work without advancing the clock, which is ideal for manual animation loops.
-- [`runWithoutImplicitWait`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTest#runWithoutImplicitWait(kotlin.Function0)): Temporarily disables implicit synchronization when stepping through manual clock frames (e.g. animation tests).
+- [`hasPendingWork`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTest.md.txt#hasPendingWork()): Passively checks if the UI has pending work without advancing the clock, which is ideal for manual animation loops.
+- [`runWithoutImplicitWait`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTest.md.txt#runWithoutImplicitWait(kotlin.Function0)): Temporarily disables implicit synchronization when stepping through manual clock frames (e.g. animation tests).
 
 ```kotlin
 @Test
@@ -264,55 +266,55 @@ composeTestRule.mainClock.autoAdvance = false
 
 Other notable changes:
 
-- The [`captureToImage`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/package-summary#(androidx.compose.ui.test.SemanticsNodeInteraction).captureToImage()) API now allows you to capture a popup or dialog together with its anchor in a single bitmap.
-- Added [`onRootWithViewInteraction`](https://developer.android.com/develop/ui/compose/testing/interoperability#viewscoped-semantics) to scope Compose semantic searches to specific Android Views. This simplifies testing hybrid UIs, such as `RecyclerViews`, without requiring unique test tags in production code.
-- [`@PreviewWrapper`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewWrapper) annotations can now be applied to custom `@MultiPreview` classes, enabling reusable preview setups (such as custom themes) across multiple components.
+- The [`captureToImage`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/package-summary.md.txt#(androidx.compose.ui.test.SemanticsNodeInteraction).captureToImage()) API now allows you to capture a popup or dialog together with its anchor in a single bitmap.
+- Added [`onRootWithViewInteraction`](https://developer.android.com/develop/ui/compose/testing/interoperability.md.txt#viewscoped-semantics) to scope Compose semantic searches to specific Android Views. This simplifies testing hybrid UIs, such as `RecyclerViews`, without requiring unique test tags in production code.
+- [`@PreviewWrapper`](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewWrapper.md.txt) annotations can now be applied to custom `@MultiPreview` classes, enabling reusable preview setups (such as custom themes) across multiple components.
 
 ## **Happy Composing!**
 
 Compose 1.12 makes app development easier and more expressive than ever, with mesh gradients, wide color gamut support, downloadable variable fonts, Credential Manager integration, and faster testing tools. As always, we value your input, so please share your feedback on these changes or what you'd like to see next on our [issue tracker](https://issuetracker.google.com/issues/new?component=612128). Happy composing!
-- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
 Written by:
 
 -
 
-  ## [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher)
+  ## [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher.md.txt)
 
   ###### Product Manager
 
   [read_more
   View profile](https://developer.android.com/blog/authors/nick-butcher) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)
 Continue reading
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)](https://developer.android.com/blog/authors/loryn-hairston) 22 Sep 2026 22 Sep 2026 ![](https://developer.android.com/static/blog/assets/Googlebook_Blog_Strapi_4a4a7d3291_Z1ReCnu.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt)[![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)](https://developer.android.com/blog/authors/loryn-hairston.md.txt) 22 Sep 2026 22 Sep 2026 ![](https://developer.android.com/static/blog/assets/Googlebook_Blog_Strapi_4a4a7d3291_Z1ReCnu.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Land your apps on Googlebook with adaptive development](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development)
+  ## [Land your apps on Googlebook with adaptive development](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development) Googlebook introduces a new category of laptops built on a shared Android foundation. High-performance hardware from partners such as HP, Dell, Lenovo, Acer, and Asus, combines mobile convenience with desktop power.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
-  - [#Googlebook](https://developer.android.com/blog/topics/googlebook)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  [arrow_forward](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md.txt) Googlebook introduces a new category of laptops built on a shared Android foundation. High-performance hardware from partners such as HP, Dell, Lenovo, Acer, and Asus, combines mobile convenience with desktop power.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston.md.txt) • 4 min read
+  - [#Googlebook](https://developer.android.com/blog/topics/googlebook.md.txt)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
   - +1 ↩
-- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
+  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
-  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
-  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
-  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
-  - [#Foldables](https://developer.android.com/blog/topics/foldables)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston.md.txt), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang.md.txt) • 4 min read
+  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7.md.txt)
+  - [#made by google](https://developer.android.com/blog/topics/made-by-google.md.txt)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development.md.txt)
+  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4.md.txt)
+  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api.md.txt)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables.md.txt)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose.md.txt)
   - +5 ↩
-- 3 Authors 28 Jul 2026 28 Jul 2026 ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z6XDT1.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 28 Jul 2026 28 Jul 2026 ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z6XDT1.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
+  ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
-  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
+  [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose.md.txt) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
+  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks.md.txt), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher.md.txt), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston.md.txt) • 4 min read
 Stay in the loop
 
 

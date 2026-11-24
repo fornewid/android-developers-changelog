@@ -71,11 +71,11 @@ By default, files that you create on [internal storage](https://developer.androi
 to your app. Android implements this protection, and it's sufficient for most
 applications.
 
-Avoid the deprecated [`MODE_WORLD_WRITEABLE`](https://developer.android.com/reference/android/content/Context#MODE_WORLD_WRITEABLE) and
-[`MODE_WORLD_READABLE`](https://developer.android.com/reference/android/content/Context#MODE_WORLD_READABLE) modes for IPC files. They don't provide the ability
+Avoid the deprecated [`MODE_WORLD_WRITEABLE`](https://developer.android.com/reference/android/content/Context.md.txt#MODE_WORLD_WRITEABLE) and
+[`MODE_WORLD_READABLE`](https://developer.android.com/reference/android/content/Context.md.txt#MODE_WORLD_READABLE) modes for IPC files. They don't provide the ability
 to limit data access to particular applications, and they don't provide any
 control of data format. If you want to share your data with other app processes,
-consider using a [content provider](https://developer.android.com/guide/topics/providers/content-providers) instead, which offers read and write
+consider using a [content provider](https://developer.android.com/guide/topics/providers/content-providers.md.txt) instead, which offers read and write
 permissions to other apps and can make dynamic permission grants on a
 case-by-case basis.
 
@@ -86,7 +86,7 @@ and writable. Because external storage can be removed by the user and also
 modified by any application, only store non-sensitive information using external
 storage.
 
-[Perform input validation](https://developer.android.com/privacy-and-security/security-tips#input-validation) when handling data from external storage as you
+[Perform input validation](https://developer.android.com/privacy-and-security/security-tips.md.txt#input-validation) when handling data from external storage as you
 would with data from any untrusted source. Don't store executables or class
 files on external storage prior to dynamic loading. If your app does retrieve
 executable files from external storage, make sure the files are signed and
@@ -94,36 +94,36 @@ cryptographically verified prior to dynamic loading.
 
 ### Content providers
 
-[Content providers](https://developer.android.com/guide/topics/providers/content-providers) offer a structured storage mechanism that can be limited
+[Content providers](https://developer.android.com/guide/topics/providers/content-providers.md.txt) offer a structured storage mechanism that can be limited
 to your own application or exported to allow access by other applications. If
 you don't intend to provide other applications with access to your
-[`ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider), mark it as [`android:exported=false`](https://developer.android.com/guide/topics/manifest/provider-element#exported) in the
+[`ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider.md.txt), mark it as [`android:exported=false`](https://developer.android.com/guide/topics/manifest/provider-element.md.txt#exported) in the
 application manifest. Otherwise, set the `android:exported` attribute to `true`
 to let other apps access the stored data.
 
 When creating a `ContentProvider` that is exported for use by other
-applications, you can specify a single [permission](https://developer.android.com/guide/topics/manifest/provider-element#prmsn) for reading and writing,
+applications, you can specify a single [permission](https://developer.android.com/guide/topics/manifest/provider-element.md.txt#prmsn) for reading and writing,
 or you can specify distinct permissions for reading and writing. Limit your
 permissions to those required to accomplish the task at hand. Keep in mind that
 it's usually easier to add permissions later to expose new functionality than it
 is to take them away and impact existing users.
 
 If you are using a content provider for sharing data between only your own apps,
-we recommend using the [`android:protectionLevel`](https://developer.android.com/guide/topics/manifest/permission-element#plevel) attribute set to
-`signature` protection. [Signature permissions](https://developer.android.com/guide/topics/permissions/overview#signature) don't require user
+we recommend using the [`android:protectionLevel`](https://developer.android.com/guide/topics/manifest/permission-element.md.txt#plevel) attribute set to
+`signature` protection. [Signature permissions](https://developer.android.com/guide/topics/permissions/overview.md.txt#signature) don't require user
 confirmation, so they provide a better user experience and more controlled
 access to the content provider data when the apps accessing the data are
 [signed](https://developer.android.com/tools/publishing/app-signing) with the same key.
 
 Content providers can also provide more granular access by declaring the
-[`android:grantUriPermissions`](https://developer.android.com/guide/topics/manifest/provider-element#gprmsn) attribute and using the
-[`FLAG_GRANT_READ_URI_PERMISSION`](https://developer.android.com/reference/android/content/Intent#FLAG_GRANT_READ_URI_PERMISSION) and
-[`FLAG_GRANT_WRITE_URI_PERMISSION`](https://developer.android.com/reference/android/content/Intent#FLAG_GRANT_WRITE_URI_PERMISSION) flags in the [`Intent`](https://developer.android.com/reference/android/content/Intent) object that
+[`android:grantUriPermissions`](https://developer.android.com/guide/topics/manifest/provider-element.md.txt#gprmsn) attribute and using the
+[`FLAG_GRANT_READ_URI_PERMISSION`](https://developer.android.com/reference/android/content/Intent.md.txt#FLAG_GRANT_READ_URI_PERMISSION) and
+[`FLAG_GRANT_WRITE_URI_PERMISSION`](https://developer.android.com/reference/android/content/Intent.md.txt#FLAG_GRANT_WRITE_URI_PERMISSION) flags in the [`Intent`](https://developer.android.com/reference/android/content/Intent.md.txt) object that
 activates the component. The scope of these permissions can be further limited
-by the [`<grant-uri-permission>`](https://developer.android.com/guide/topics/manifest/grant-uri-permission-element) element.
+by the [`<grant-uri-permission>`](https://developer.android.com/guide/topics/manifest/grant-uri-permission-element.md.txt) element.
 
 When accessing a content provider, use parameterized query methods such as
-[`query`](https://developer.android.com/reference/android/content/ContentProvider#query(android.net.Uri,%20java.lang.String%5B%5D,%20java.lang.String,%20java.lang.String%5B%5D,%20java.lang.String))(), [`update`](https://developer.android.com/reference/android/content/ContentProvider#update(android.net.Uri,%20android.content.ContentValues,%20java.lang.String,%20java.lang.String%5B%5D))(), and [`delete()`](https://developer.android.com/reference/android/content/ContentProvider#delete(android.net.Uri,%20java.lang.String,%20java.lang.String%5B%5D)) to avoid potential SQL
+[`query`](https://developer.android.com/reference/android/content/ContentProvider.md.txt#query(android.net.Uri,%20java.lang.String%5B%5D,%20java.lang.String,%20java.lang.String%5B%5D,%20java.lang.String))(), [`update`](https://developer.android.com/reference/android/content/ContentProvider.md.txt#update(android.net.Uri,%20android.content.ContentValues,%20java.lang.String,%20java.lang.String%5B%5D))(), and [`delete()`](https://developer.android.com/reference/android/content/ContentProvider.md.txt#delete(android.net.Uri,%20java.lang.String,%20java.lang.String%5B%5D)) to avoid potential SQL
 injection from untrusted sources. Note that using parameterized methods is not
 sufficient if the `selection` argument is built by concatenating user data prior
 to submitting it to the method.
@@ -154,16 +154,16 @@ permissions](https://developer.android.com/training/permissions/evaluating).
 
 If possible, design your application in a way that doesn't require any
 permissions. For example, rather than requesting access to device information to
-create a unique identifier, create a [UUID](https://developer.android.com/reference/java/util/UUID) for your application. (Learn
-more in the section about [user data](https://developer.android.com/privacy-and-security/security-tips#user-data)). Or, rather than using external
+create a unique identifier, create a [UUID](https://developer.android.com/reference/java/util/UUID.md.txt) for your application. (Learn
+more in the section about [user data](https://developer.android.com/privacy-and-security/security-tips.md.txt#user-data)). Or, rather than using external
 storage (which requires permission), store data on internal storage.
 
 In addition to requesting permissions, your application can use the
-[`<permission>`](https://developer.android.com/guide/topics/manifest/permission-element) element to protect IPC that is security sensitive and is
-exposed to other applications, such as a [`ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider). In general, we
+[`<permission>`](https://developer.android.com/guide/topics/manifest/permission-element.md.txt) element to protect IPC that is security sensitive and is
+exposed to other applications, such as a [`ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider.md.txt). In general, we
 recommend using access controls other than user-confirmed permissions where
 possible, because permissions can be confusing for users. For example, consider
-using the [signature protection level](https://developer.android.com/guide/topics/manifest/permission-element#plevel) on permissions for IPC communication
+using the [signature protection level](https://developer.android.com/guide/topics/manifest/permission-element.md.txt#plevel) on permissions for IPC communication
 between applications provided by a single developer.
 
 Don't leak permission-protected data. This occurs when your app exposes data
@@ -177,19 +177,19 @@ Defenses](https://www.usenix.org/legacy/event/sec11/tech/full_papers/Felt.pdf), 
 
 Define the smallest set of permissions that satisfy your security requirements.
 Creating a new permission is relatively uncommon for most applications, because
-the [system-defined permissions](https://developer.android.com/reference/android/Manifest.permission) cover many situations. Where appropriate,
+the [system-defined permissions](https://developer.android.com/reference/android/Manifest.permission.md.txt) cover many situations. Where appropriate,
 perform access checks using existing permissions.
 
 If you need a new permission, consider whether you can accomplish your task with
-a [signature protection level](https://developer.android.com/guide/topics/manifest/permission-element#plevel). Signature permissions are transparent to the
+a [signature protection level](https://developer.android.com/guide/topics/manifest/permission-element.md.txt#plevel). Signature permissions are transparent to the
 user and allow access only by applications signed by the same developer as the
 application performing the permission check.
 
 If creating a new permission is still required, declare it in the app manifest
-using the [`<permission>`](https://developer.android.com/guide/topics/manifest/permission-element) element. Apps using the new permission can
-reference it by adding a [`<uses-permission>`](https://developer.android.com/guide/topics/manifest/uses-permission-element) element in their manifest
+using the [`<permission>`](https://developer.android.com/guide/topics/manifest/permission-element.md.txt) element. Apps using the new permission can
+reference it by adding a [`<uses-permission>`](https://developer.android.com/guide/topics/manifest/uses-permission-element.md.txt) element in their manifest
 files. You can also add permissions dynamically by using the
-[`addPermission()`](https://developer.android.com/reference/android/content/pm/PackageManager#addPermission(android.content.pm.PermissionInfo)) method.
+[`addPermission()`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#addPermission(android.content.pm.PermissionInfo)) method.
 
 If you create a permission with the dangerous protection level, there are a
 number of complexities that you need to consider:
@@ -215,13 +215,13 @@ implement all best practices toward keeping the user's data secure at all times.
 
 Networking on Android is not significantly different from other Linux
 environments. The key consideration is making sure that appropriate protocols
-are used for sensitive data, such as [`HttpsURLConnection`](https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection) for secure web
+are used for sensitive data, such as [`HttpsURLConnection`](https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection.md.txt) for secure web
 traffic. Use HTTPS over HTTP anywhere that HTTPS is supported on the server,
 because mobile devices frequently connect on networks that aren't secured, such
 as public Wi-Fi hotspots.
 
 Authenticated, encrypted socket-level communication can be easily implemented
-using the [`SSLSocket`](https://developer.android.com/reference/javax/net/ssl/SSLSocket) class. Given the frequency with which Android
+using the [`SSLSocket`](https://developer.android.com/reference/javax/net/ssl/SSLSocket.md.txt) class. Given the frequency with which Android
 devices connect to unsecured wireless networks using Wi-Fi, the use of secure
 networking is strongly encouraged for all applications that communicate over the
 network.
@@ -229,12 +229,12 @@ network.
 Some applications use [localhost](https://en.wikipedia.org/wiki/Localhost) network ports for handling
 sensitive IPC. Don't use this approach, because these interfaces are accessible
 by other applications on the device. Instead, use an Android IPC mechanism where
-authentication is possible, such as with a [`Service`](https://developer.android.com/reference/android/app/Service). Binding to the
+authentication is possible, such as with a [`Service`](https://developer.android.com/reference/android/app/Service.md.txt). Binding to the
 non-specific IP address `INADDR_ANY` is worse than using loopback, because it
 allows your application to receive requests from any IP address.
 
 Make sure that you don't trust data downloaded from HTTP or other insecure
-protocols. This includes validation of input in [`WebView`](https://developer.android.com/reference/android/webkit/WebView) and any
+protocols. This includes validation of input in [`WebView`](https://developer.android.com/reference/android/webkit/WebView.md.txt) and any
 responses to intents issued against HTTP.
 
 ### Telephony networking
@@ -252,7 +252,7 @@ unauthenticated SMS data to perform sensitive commands. Also, be aware that SMS
 can be subject to spoofing and/or interception on the network. On the
 Android-powered device itself, SMS messages are transmitted as broadcast
 intents, so they can be read or captured by other applications that have the
-[`READ_SMS`](https://developer.android.com/reference/android/Manifest.permission#READ_SMS) permission.
+[`READ_SMS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_SMS) permission.
 
 ## Input validation
 
@@ -319,7 +319,7 @@ running any code using sensitive data on the client to avoid transmitting user
 data. Also, make sure that you don't inadvertently expose user data to other
 applications on the device through overly permissive IPC, world-writable files,
 or network sockets. Overly permissive IPC is a special case of leaking
-permission-protected data, discussed in the [Permission requests](https://developer.android.com/privacy-and-security/security-tips#requesting-permissions) section.
+permission-protected data, discussed in the [Permission requests](https://developer.android.com/privacy-and-security/security-tips.md.txt#permission-requests) section.
 
 If a Globally Unique Identifier (GUID) is required, create a large, unique
 number and store it. Don't use phone identifiers such as the phone number or
@@ -328,7 +328,7 @@ discussed in more detail in the page about [best practices for unique
 identifiers](https://developer.android.com/training/articles/user-data-ids).
 
 Be careful when writing to on-device logs. On Android, logs are a shared
-resource and are available to an application with the [`READ_LOGS`](https://developer.android.com/reference/android/Manifest.permission#READ_LOGS)
+resource and are available to an application with the [`READ_LOGS`](https://developer.android.com/reference/android/Manifest.permission.md.txt#READ_LOGS)
 permission. Even though the phone log data is temporary and erased on reboot,
 inappropriate logging of user information could inadvertently leak user data to
 other applications. In addition to not logging PII, limit log usage in
@@ -337,7 +337,7 @@ classes with easily configurable logging levels.
 
 ## WebView
 
-Because [`WebView`](https://developer.android.com/reference/android/webkit/WebView) consumes web content that can include HTML and
+Because [`WebView`](https://developer.android.com/reference/android/webkit/WebView.md.txt) consumes web content that can include HTML and
 JavaScript, improper use can introduce common web security issues such as
 [cross-site scripting](https://en.wikipedia.org/wiki/Cross_site_scripting) (JavaScript injection). Android includes a
 number of mechanisms to reduce the scope of these potential issues by limiting
@@ -345,12 +345,12 @@ the capability of `WebView` to the minimum functionality required by your
 application.
 
 If your application doesn't directly use JavaScript within a `WebView`, *don't*
-call [`setJavaScriptEnabled`](https://developer.android.com/reference/android/webkit/WebSettings#setJavaScriptEnabled(boolean))(). Some sample code uses this method; if you
+call [`setJavaScriptEnabled`](https://developer.android.com/reference/android/webkit/WebSettings.md.txt#setJavaScriptEnabled(boolean))(). Some sample code uses this method; if you
 repurpose sample code that uses it in a production application, remove that
 method call if it's not required. By default, `WebView` doesn't execute
 JavaScript, so cross-site scripting is not possible.
 
-Use [`addJavaScriptInterface()`](https://developer.android.com/reference/android/webkit/WebView#addJavascriptInterface(java.lang.Object,%20java.lang.String)) with particular care, because it lets
+Use [`addJavaScriptInterface()`](https://developer.android.com/reference/android/webkit/WebView.md.txt#addJavascriptInterface(java.lang.Object,%20java.lang.String)) with particular care, because it lets
 JavaScript invoke operations that are normally reserved for Android
 applications. If you use it, expose `addJavaScriptInterface()` only to web pages
 from which all input is trustworthy. If untrusted input is allowed, untrusted
@@ -359,15 +359,15 @@ we recommend exposing `addJavaScriptInterface()` only to JavaScript that is
 contained within your application APK.
 
 If your application accesses sensitive data with a `WebView`, consider using the
-[`clearCache()`](https://developer.android.com/reference/android/webkit/WebView#clearCache(boolean)) method to delete any files stored locally. You can also use
+[`clearCache()`](https://developer.android.com/reference/android/webkit/WebView.md.txt#clearCache(boolean)) method to delete any files stored locally. You can also use
 server-side headers, such as `no-store`, to indicate that an application should
 not cache particular content.
 
 Devices running platforms older than Android 4.4 (API level 19) use a version of
-[`webkit`](https://developer.android.com/reference/android/webkit/package-summary) that has a number of security issues. As a workaround, if your
+[`webkit`](https://developer.android.com/reference/android/webkit/package-summary.md.txt) that has a number of security issues. As a workaround, if your
 app is running on these devices, it must confirm that `WebView` objects display
 only trusted content. To make sure your app isn't exposed to potential
-vulnerabilities in SSL, use the updatable security [`Provider`](https://developer.android.com/reference/java/security/Provider) object as
+vulnerabilities in SSL, use the updatable security [`Provider`](https://developer.android.com/reference/java/security/Provider.md.txt) object as
 described in [Update your security provider to protect against SSL
 exploits](https://developer.android.com/training/articles/security-gms-provider). If your application must render content from the open web,
 consider providing your own renderer so you can keep it up to date with the
@@ -395,9 +395,9 @@ credential requests in your Android apps more secure.
 
 ### Practice secure account management
 
-- Connect to services that are accessible to multiple applications using [`AccountManager`](https://developer.android.com/reference/android/accounts/AccountManager). Use the `AccountManager` class to invoke a cloud-based service, and don't store passwords on the device.
-- Before passing credentials to an [`Account`](https://developer.android.com/reference/android/accounts/Account) retrieved with `AccountManager`, verify the signing identity of the calling application so that you don't inadvertently pass credentials to a malicious or unauthorized app.
-- If credentials are used only by applications that you create, you can verify the application that accesses the `AccountManager` using [`checkSignatures`](https://developer.android.com/reference/android/content/pm/PackageManager#checkSignatures(int,%20int))() or signature-based permission checks. Alternatively, if only one application uses the credential, you might use a [`KeyStore`](https://developer.android.com/reference/java/security/KeyStore) for storage.
+- Connect to services that are accessible to multiple applications using [`AccountManager`](https://developer.android.com/reference/android/accounts/AccountManager.md.txt). Use the `AccountManager` class to invoke a cloud-based service, and don't store passwords on the device.
+- Before passing credentials to an [`Account`](https://developer.android.com/reference/android/accounts/Account.md.txt) retrieved with `AccountManager`, verify the signing identity of the calling application so that you don't inadvertently pass credentials to a malicious or unauthorized app.
+- If credentials are used only by applications that you create, you can verify the application that accesses the `AccountManager` using [`checkSignatures`](https://developer.android.com/reference/android/content/pm/PackageManager.md.txt#checkSignatures(int,%20int))() or signature-based permission checks. Alternatively, if only one application uses the credential, you might use a [`KeyStore`](https://developer.android.com/reference/java/security/KeyStore.md.txt) for storage.
 
 ### Stay vigilant
 
@@ -433,7 +433,7 @@ protection and user privacy using a defense-in-depth approach.
 
 #### Strong key storage
 
-For optimal key management security, use the [Android Keystore](https://developer.android.com/privacy-and-security/keystore), and encrypt
+For optimal key management security, use the [Android Keystore](https://developer.android.com/privacy-and-security/keystore.md.txt), and encrypt
 stored keys using a robust tool such as [Tink Java](https://github.com/tink-crypto/tink-java).
 
 #### Source control exclusion
@@ -483,7 +483,7 @@ and expiration needs.
 ### General best practices
 
 - **Use SSL/HTTPS**: Always use HTTPS communication to encrypt your API requests.
-- **Certificate pinning** : For an extra layer of security, you can consider implementing [certificate pinning](https://developer.android.com/privacy-and-security/security-config#CertificatePinning) to check which certificates are considered valid.
+- **Certificate pinning** : For an extra layer of security, you can consider implementing [certificate pinning](https://developer.android.com/privacy-and-security/security-config.md.txt#CertificatePinning) to check which certificates are considered valid.
 - **Validate and sanitize user input**: Validate and sanitize user input to prevent injection attacks that could expose API keys.
 - **Follow security best practices**: Implement general security best practices in your development process, including secure coding techniques, code reviews, and vulnerability scanning.
 - **Stay informed**: Stay updated on the latest security threats and best practices for API key management.
@@ -502,14 +502,14 @@ in the Google-specified order.
 
 If you need to securely retrieve a file from a known network location, a simple
 HTTPS URI might be adequate and requires no knowledge of cryptography. If you
-need a secure tunnel, consider using [`HttpsURLConnection`](https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection) or
-[`SSLSocket`](https://developer.android.com/reference/javax/net/ssl/SSLSocket) rather than writing your own protocol. If you use `SSLSocket`,
+need a secure tunnel, consider using [`HttpsURLConnection`](https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection.md.txt) or
+[`SSLSocket`](https://developer.android.com/reference/javax/net/ssl/SSLSocket.md.txt) rather than writing your own protocol. If you use `SSLSocket`,
 be aware that it doesn't perform hostname verification. See [Warnings about
 using `SSLSocket` directly](https://developer.android.com/training/articles/security-ssl#WarningsSslSocket).
 
 If you find that you need to implement your own protocol, don't implement your
 own cryptographic algorithms. Use existing cryptographic algorithms, such as the
-implementations of AES and RSA provided in the [`Cipher`](https://developer.android.com/reference/javax/crypto/Cipher) class.
+implementations of AES and RSA provided in the [`Cipher`](https://developer.android.com/reference/javax/crypto/Cipher.md.txt) class.
 Additionally, follow these best practices:
 
 - Use 256-bit AES for commercial purposes. (If unavailable, use 128-bit AES.)
@@ -521,36 +521,36 @@ Additionally, follow these best practices:
   - HMAC-SHA-512
   - GCM mode
 
-Use a secure random number generator, [`SecureRandom`](https://developer.android.com/reference/java/security/SecureRandom), to initialize any
-cryptographic keys generated by [`KeyGenerator`](https://developer.android.com/reference/javax/crypto/KeyGenerator). Use of a key that is not
+Use a secure random number generator, [`SecureRandom`](https://developer.android.com/reference/java/security/SecureRandom.md.txt), to initialize any
+cryptographic keys generated by [`KeyGenerator`](https://developer.android.com/reference/javax/crypto/KeyGenerator.md.txt). Use of a key that is not
 generated with a secure random number generator significantly weakens the
 strength of the algorithm and may allow offline attacks.
 
 If you need to store a key for repeated use, use a mechanism, such as
-[`KeyStore`](https://developer.android.com/reference/java/security/KeyStore), that provides long term storage and retrieval of cryptographic
+[`KeyStore`](https://developer.android.com/reference/java/security/KeyStore.md.txt), that provides long term storage and retrieval of cryptographic
 keys.
 
 ## Interprocess communication
 
 Some apps attempt to implement IPC using traditional Linux techniques such as
 network sockets and shared files. However, we recommend instead that you use
-Android system functionality for IPC such as [`Intent`](https://developer.android.com/reference/android/content/Intent), [`Binder`](https://developer.android.com/reference/android/os/Binder) or
-[`Messenger`](https://developer.android.com/reference/android/os/Messenger) with a [`Service`](https://developer.android.com/reference/android/app/Service), and [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver). The
+Android system functionality for IPC such as [`Intent`](https://developer.android.com/reference/android/content/Intent.md.txt), [`Binder`](https://developer.android.com/reference/android/os/Binder.md.txt) or
+[`Messenger`](https://developer.android.com/reference/android/os/Messenger.md.txt) with a [`Service`](https://developer.android.com/reference/android/app/Service.md.txt), and [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver.md.txt). The
 Android IPC mechanisms let you verify the identity of the application connecting
 to your IPC and set security policy for each IPC mechanism.
 
 Many of the security elements are shared across IPC mechanisms. If your IPC
 mechanism isn't intended for use by other applications, set the
 `android:exported` attribute to `false` in the component's manifest element,
-such as for the [`<service>`](https://developer.android.com/guide/topics/manifest/service-element#exported) element. This is useful for applications that
+such as for the [`<service>`](https://developer.android.com/guide/topics/manifest/service-element.md.txt#exported) element. This is useful for applications that
 consist of multiple processes within the same UID or if you decide late in
 development that you don't actually want to expose functionality as IPC, but you
 don't want to rewrite the code.
 
 If your IPC is accessible to other applications, you can apply a security policy
-by using the [`<permission>`](https://developer.android.com/guide/topics/manifest/permission-element) element. If the IPC is between apps that are
+by using the [`<permission>`](https://developer.android.com/guide/topics/manifest/permission-element.md.txt) element. If the IPC is between apps that are
 your own and are signed with the same key, use a `signature-level` permission in
-the [`android:protectionLevel`](https://developer.android.com/guide/topics/manifest/permission-element#plevel).
+the [`android:protectionLevel`](https://developer.android.com/guide/topics/manifest/permission-element.md.txt#plevel).
 
 ### Intents
 
@@ -561,7 +561,7 @@ the [`android:protectionLevel`](https://developer.android.com/guide/topics/manif
 
 ### Android Intent security
 
-Use the Intent security [Android skill](https://developer.android.com/tools/agents/android-skills) to secure your components and handle intents safely. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+Use the Intent security [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to secure your components and handle intents safely. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
 
     android skills add android-intent-security
 
@@ -569,12 +569,12 @@ Use the Intent security [Android skill](https://developer.android.com/tools/agen
 
 For activities and broadcast receivers, intents are the preferred mechanism for
 asynchronous IPC on Android. Depending on your application requirements, you
-might use [`sendBroadcast`](https://developer.android.com/reference/android/content/Context#sendBroadcast(android.content.Intent))(), [`sendOrderedBroadcast`](https://developer.android.com/reference/android/content/Context#sendOrderedBroadcast(android.content.Intent,%20java.lang.String))(), or an explicit
+might use [`sendBroadcast`](https://developer.android.com/reference/android/content/Context.md.txt#sendBroadcast(android.content.Intent))(), [`sendOrderedBroadcast`](https://developer.android.com/reference/android/content/Context.md.txt#sendOrderedBroadcast(android.content.Intent,%20java.lang.String))(), or an explicit
 intent to a specific application component. For security purposes, explicit
 intents are preferred.
 
 > [!CAUTION]
-> **Caution:** If you use an intent to bind to a [`Service`](https://developer.android.com/reference/android/app/Service), use an [explicit](https://developer.android.com/guide/components/intents-filters#Types) intent to keep your app secure. Using an implicit intent to start a service is a security hazard, because you can't be certain what service will respond to the intent and the user can't see which service starts. Beginning with Android 5.0 (API level 21), the system throws an exception if you call [`bindService()`](https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent,%20android.content.ServiceConnection,%20int)) with an implicit intent.
+> **Caution:** If you use an intent to bind to a [`Service`](https://developer.android.com/reference/android/app/Service.md.txt), use an [explicit](https://developer.android.com/guide/components/intents-filters.md.txt#Types) intent to keep your app secure. Using an implicit intent to start a service is a security hazard, because you can't be certain what service will respond to the intent and the user can't see which service starts. Beginning with Android 5.0 (API level 21), the system throws an exception if you call [`bindService()`](https://developer.android.com/reference/android/content/Context.md.txt#bindService(android.content.Intent,%20android.content.ServiceConnection,%20int)) with an implicit intent.
 
 Note that ordered broadcasts can be *consumed* by a recipient, so they might not
 be delivered to all applications. If you are sending an intent that must be
@@ -594,24 +594,24 @@ than raising a broadcast.
 
 ### Services
 
-A [`Service`](https://developer.android.com/reference/android/app/Service) is often used to supply functionality for other applications
-to use. Each service class must have a corresponding [`<service>`](https://developer.android.com/guide/topics/manifest/service-element)
+A [`Service`](https://developer.android.com/reference/android/app/Service.md.txt) is often used to supply functionality for other applications
+to use. Each service class must have a corresponding [`<service>`](https://developer.android.com/guide/topics/manifest/service-element.md.txt)
 declaration in its manifest file.
 
 By default, services aren't exported and can't be invoked by any other
 application. However, if you add any intent filters to the service declaration,
 it is exported by default. It's best if you explicitly declare the
-[`android:exported`](https://developer.android.com/guide/topics/manifest/service-element#exported) attribute to be sure it behaves the way you intend it
-to. Services can also be protected using the [`android:permission`](https://developer.android.com/guide/topics/manifest/service-element#prmsn)
+[`android:exported`](https://developer.android.com/guide/topics/manifest/service-element.md.txt#exported) attribute to be sure it behaves the way you intend it
+to. Services can also be protected using the [`android:permission`](https://developer.android.com/guide/topics/manifest/service-element.md.txt#prmsn)
 attribute. By doing so, other applications need to declare a corresponding
-[`<uses-permission>`](https://developer.android.com/guide/topics/manifest/uses-permission-element) element in their own manifest to be able to start,
+[`<uses-permission>`](https://developer.android.com/guide/topics/manifest/uses-permission-element.md.txt) element in their own manifest to be able to start,
 stop, or bind to the service.
 
 > [!NOTE]
-> **Note:** If your app targets Android 5.0 (API level 21) or higher, use the [`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler) to execute background services.
+> **Note:** If your app targets Android 5.0 (API level 21) or higher, use the [`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler.md.txt) to execute background services.
 
 A service can protect individual IPC calls that are made into it with
-permissions. This is done by calling [`checkCallingPermission()`](https://developer.android.com/reference/android/content/Context#checkCallingPermission(java.lang.String)) before
+permissions. This is done by calling [`checkCallingPermission()`](https://developer.android.com/reference/android/content/Context.md.txt#checkCallingPermission(java.lang.String)) before
 executing the implementation of the call. We recommend using the declarative
 permissions in the manifest, since those are less prone to oversight.
 
@@ -620,7 +620,7 @@ permissions in the manifest, since those are less prone to oversight.
 
 ### Binder and Messenger interfaces
 
-Using [`Binder`](https://developer.android.com/reference/android/os/Binder) or [`Messenger`](https://developer.android.com/reference/android/os/Messenger) is the preferred mechanism for RPC
+Using [`Binder`](https://developer.android.com/reference/android/os/Binder.md.txt) or [`Messenger`](https://developer.android.com/reference/android/os/Messenger.md.txt) is the preferred mechanism for RPC
 style IPC on Android. They provide well-defined interfaces that enable mutual
 authentication of the endpoints, if required.
 
@@ -628,35 +628,35 @@ We recommend that you design your app interfaces in a way that doesn't require
 interface-specific permission checks. `Binder` and `Messenger` objects aren't
 declared within the application manifest, and therefore you can't apply
 declarative permissions directly to them. They generally inherit permissions
-declared in the application manifest for the [`Service`](https://developer.android.com/reference/android/app/Service) or [`Activity`](https://developer.android.com/reference/android/app/Activity)
+declared in the application manifest for the [`Service`](https://developer.android.com/reference/android/app/Service.md.txt) or [`Activity`](https://developer.android.com/reference/android/app/Activity.md.txt)
 within which they are implemented. If you are creating an interface that
 requires authentication and/or access controls, you must explicitly add those
 controls as code in the `Binder` or `Messenger` interface.
 
 If you are providing an interface that does require access controls, use
-[`checkCallingPermission()`](https://developer.android.com/reference/android/content/Context#checkCallingPermission(java.lang.String)) to verify whether the caller has a required
+[`checkCallingPermission()`](https://developer.android.com/reference/android/content/Context.md.txt#checkCallingPermission(java.lang.String)) to verify whether the caller has a required
 permission. This is especially important before accessing a service on behalf of
 the caller, as the identity of your application is passed to other interfaces.
 If you are invoking an interface provided by a `Service`, the
-[`bindService()`](https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent,%20android.content.ServiceConnection,%20int)) invocation can fail if you don't have permission to access
+[`bindService()`](https://developer.android.com/reference/android/content/Context.md.txt#bindService(android.content.Intent,%20android.content.ServiceConnection,%20int)) invocation can fail if you don't have permission to access
 the given service. If you need to allow an external process to interact with
 your app but it doesn't have the necessary permissions to do so, you can use the
-[`clearCallingIdentity()`](https://developer.android.com/reference/android/os/Binder#clearCallingIdentity()) method. This method performs the call to your
+[`clearCallingIdentity()`](https://developer.android.com/reference/android/os/Binder.md.txt#clearCallingIdentity()) method. This method performs the call to your
 app's interface as though your app were making the call itself, rather than the
 external caller. You can restore the caller permissions later with the
-[`restoreCallingIdentity()`](https://developer.android.com/reference/android/os/Binder#restoreCallingIdentity(long)) method.
+[`restoreCallingIdentity()`](https://developer.android.com/reference/android/os/Binder.md.txt#restoreCallingIdentity(long)) method.
 
 For more information about performing IPC with a service, see [Bound
 Services](https://developer.android.com/guide/components/bound-services).
 
 ### Broadcast receivers
 
-A [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) handles asynchronous requests initiated by an
-[`Intent`](https://developer.android.com/reference/android/content/Intent).
+A [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver.md.txt) handles asynchronous requests initiated by an
+[`Intent`](https://developer.android.com/reference/android/content/Intent.md.txt).
 
 By default, receivers are exported and can be invoked by any other application.
 If your `BroadcastReceiver` is intended for use by other applications, you might
-want to apply security permissions to receivers using the [`<receiver>`](https://developer.android.com/guide/topics/manifest/receiver-element)
+want to apply security permissions to receivers using the [`<receiver>`](https://developer.android.com/guide/topics/manifest/receiver-element.md.txt)
 element within the application manifest. This prevents applications without
 appropriate permissions from sending an intent to the `BroadcastReceiver`.
 
@@ -681,7 +681,7 @@ network modify the content in transit or another application on a user's device
 to modify the content on the device. On the other hand, modules included
 directly within your APK can't be modified by other applications. This is true
 whether the code is a native library or a class being loaded using
-[`DexClassLoader`](https://developer.android.com/reference/dalvik/system/DexClassLoader).
+[`DexClassLoader`](https://developer.android.com/reference/dalvik/system/DexClassLoader.md.txt).
 
 ## Security in a virtual machine
 

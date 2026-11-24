@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/cyrus-stoller
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/unnamed_26_f996d1f7cf_2bofD0.webp)
 
 # Cyrus Stoller
@@ -11,13 +13,13 @@ source: md.txt
 Group Product Manager
 
 Laptops \& Tablets
-- 12 Oct 2026 12 Oct 2026 ![](https://developer.android.com/static/blog/assets/1006_ABL_141_Strapi_1_540d64279e_Z1veewf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 12 Oct 2026 12 Oct 2026 ![](https://developer.android.com/static/blog/assets/1006_ABL_141_Strapi_1_540d64279e_Z1veewf.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Introducing the Googlebook Linux Terminal Preview: A VM-Backed Environment for AI and Development](https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm)
+  ## [Introducing the Googlebook Linux Terminal Preview: A VM-Backed Environment for AI and Development](https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm) With Googlebook, we're excited to help users express themselves and gain access to these tools.
+  [arrow_forward](https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm.md.txt) With Googlebook, we're excited to help users express themselves and gain access to these tools.
   2 min read
-  - [#Googlebook](https://developer.android.com/blog/topics/googlebook)
+  - [#Googlebook](https://developer.android.com/blog/topics/googlebook.md.txt)
 Stay in the loop
 
 

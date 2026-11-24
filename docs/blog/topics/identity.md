@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/topics/identity
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/llms.txt
+
 # #identity
 
-- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 30 Sep 2025 30 Sep 2025 ![](https://developer.android.com/static/blog/assets/lets_Talk_Security_3e0a595955_ZQycm0.webp) [Community](https://developer.android.com/blog/categories/community)
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) 30 Sep 2025 30 Sep 2025 ![](https://developer.android.com/static/blog/assets/lets_Talk_Security_3e0a595955_ZQycm0.webp) [Community](https://developer.android.com/blog/categories/community.md.txt)
 
-  ## [Let's talk security: Answering your top questions about Android developer verification](https://developer.android.com/blog/posts/lets-talk-security-answering-your-top)
+  ## [Let's talk security: Answering your top questions about Android developer verification](https://developer.android.com/blog/posts/lets-talk-security-answering-your-top.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/lets-talk-security-answering-your-top) Android recently announced developer verification, an extra layer of security that deters bad actors and makes it harder for them to spread harm.
-  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#identity](https://developer.android.com/blog/topics/identity)
+  [arrow_forward](https://developer.android.com/blog/posts/lets-talk-security-answering-your-top.md.txt) Android recently announced developer verification, an extra layer of security that deters bad actors and makes it harder for them to spread harm.
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe.md.txt) • 2 min read
+  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+  - [#identity](https://developer.android.com/blog/topics/identity.md.txt)
 Stay in the loop
 
 

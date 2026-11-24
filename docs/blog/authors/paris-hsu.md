@@ -4,18 +4,20 @@ url: https://developer.android.com/blog/authors/paris-hsu
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/blog/authors/llms.txt
+
 1 post ![](https://developer.android.com/static/blog/assets/2_o2_H5_V1lr_Zrcfhto_Au9_B2_Q_fd3ec10461_acae303cd5_ZASx4V.webp)
 
 # Paris Hsu
 
 Product Manager, Android Studio
-- 09 Oct 2025 09 Oct 2025 ![](https://developer.android.com/static/blog/assets/as_Narwhal_7bf25b6657_Z1mV2I8.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 09 Oct 2025 09 Oct 2025 ![](https://developer.android.com/static/blog/assets/as_Narwhal_7bf25b6657_Z1mV2I8.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android Studio Narwhal 4 Feature Drop: watch face support and improved stability](https://developer.android.com/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability)
+  ## [Android Studio Narwhal 4 Feature Drop: watch face support and improved stability](https://developer.android.com/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability) Android Studio Narwhal 4 Feature Drop is now stable and ready for you to use!
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability.md.txt) Android Studio Narwhal 4 Feature Drop is now stable and ready for you to use!
   5 min read
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
 Stay in the loop
 
 

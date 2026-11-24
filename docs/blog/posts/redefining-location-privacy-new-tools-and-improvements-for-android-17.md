@@ -4,11 +4,13 @@ url: https://developer.android.com/blog/posts/redefining-location-privacy-new-to
 source: md.txt
 ---
 
-[Product News](https://developer.android.com/blog/categories/product-news)
+> Documentation index: https://developer.android.com/blog/llms.txt
+
+[Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
 # Redefining Location Privacy: New Tools and Improvements for Android 17
 
-3 min read ![](https://developer.android.com/static/blog/assets/Redefining_Location_5e4a362604_2b67BT.webp) 26 Mar 2026 [![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_Z2wbL3d.webp)](https://developer.android.com/blog/authors/robert-clifford) [Robert Clifford](https://developer.android.com/blog/authors/robert-clifford) Developer Relations Engineer A pillar of the Android ecosystem is our shared commitment to user trust. As the mobile landscape has evolved, so does our approach to protecting sensitive information. In Android 17, we're introducing a suite of new location privacy features designed to give users more control and provide developers elegant solutions for data minimization and product safety. Our strategy focuses on introducing new tools to balance high-quality experiences with robust privacy protections, and improving transparency for users to help manage their data.
+3 min read ![](https://developer.android.com/static/blog/assets/Redefining_Location_5e4a362604_2b67BT.webp) 26 Mar 2026 [![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_Z2wbL3d.webp)](https://developer.android.com/blog/authors/robert-clifford.md.txt) [Robert Clifford](https://developer.android.com/blog/authors/robert-clifford.md.txt) Developer Relations Engineer A pillar of the Android ecosystem is our shared commitment to user trust. As the mobile landscape has evolved, so does our approach to protecting sensitive information. In Android 17, we're introducing a suite of new location privacy features designed to give users more control and provide developers elegant solutions for data minimization and product safety. Our strategy focuses on introducing new tools to balance high-quality experiences with robust privacy protections, and improving transparency for users to help manage their data.
 
 #### Introducing the location button: simplified access for one time use
 
@@ -60,45 +62,45 @@ The new location privacy tools are available now in Beta 3. We're looking for yo
 - Feedback: Report issues on the [\[Official Tracker\]](https://developer.android.com/about/versions/17/feedback).
 
 Build a smoother, more private experience today.
-- [#Android 17](https://developer.android.com/blog/topics/android-17)
+- [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
 Written by:
 
 -
 
-  ## [Robert Clifford](https://developer.android.com/blog/authors/robert-clifford)
+  ## [Robert Clifford](https://developer.android.com/blog/authors/robert-clifford.md.txt)
 
   ###### Developer Relations Engineer
 
   [read_more
   View profile](https://developer.android.com/blog/authors/robert-clifford) ![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_Z2wbL3d.webp) ![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_Z2wbL3d.webp)
 Continue reading
-- [![View Blair Harmon's profile](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_27tpBh.webp)](https://developer.android.com/blog/authors/blair-harmon) 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1o8xIO.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Blair Harmon's profile](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_27tpBh.webp)](https://developer.android.com/blog/authors/blair-harmon.md.txt) 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1o8xIO.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Preparing your app for broader memory limits](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits)
+  ## [Preparing your app for broader memory limits](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits) A great user experience is central to Android's mission, and delivering on that promise requires keeping devices fast, responsive, and reliable.
-  [Blair Harmon](https://developer.android.com/blog/authors/blair-harmon) • 2 min read
-  - [#App Memory Limits](https://developer.android.com/blog/topics/app-memory-limits)
-  - [#Android Vitals](https://developer.android.com/blog/topics/android-vitals)
-  - [#Multi-Process Architecture](https://developer.android.com/blog/topics/multi-process-architecture)
-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
-  - [#Performance](https://developer.android.com/blog/topics/performance)
+  [arrow_forward](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits.md.txt) A great user experience is central to Android's mission, and delivering on that promise requires keeping devices fast, responsive, and reliable.
+  [Blair Harmon](https://developer.android.com/blog/authors/blair-harmon.md.txt) • 2 min read
+  - [#App Memory Limits](https://developer.android.com/blog/topics/app-memory-limits.md.txt)
+  - [#Android Vitals](https://developer.android.com/blog/topics/android-vitals.md.txt)
+  - [#Multi-Process Architecture](https://developer.android.com/blog/topics/multi-process-architecture.md.txt)
+  - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
+  - [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
   - +3 ↩
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
+  ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here.md.txt) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 13 min read
+  - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
-  ## [The Third Beta of Android 17](https://developer.android.com/blog/posts/the-third-beta-of-android-17)
+  ## [The Third Beta of Android 17](https://developer.android.com/blog/posts/the-third-beta-of-android-17.md.txt)
 
-  [arrow_forward](https://developer.android.com/blog/posts/the-third-beta-of-android-17) Android 17 has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 5 min read
-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
-  - [#beta](https://developer.android.com/blog/topics/beta)
+  [arrow_forward](https://developer.android.com/blog/posts/the-third-beta-of-android-17.md.txt) Android 17 has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough.md.txt) • 5 min read
+  - [#Android 17](https://developer.android.com/blog/topics/android-17.md.txt)
+  - [#beta](https://developer.android.com/blog/topics/beta.md.txt)
 Stay in the loop
 
 
