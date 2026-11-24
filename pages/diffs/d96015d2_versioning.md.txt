@@ -1,0 +1,57 @@
+diff --git a/docs/training/wearables/tiles/versioning.md b/docs/training/wearables/tiles/versioning.md
+index 944b2df8..62c50c4c 100644
+--- a/docs/training/wearables/tiles/versioning.md
++++ b/docs/training/wearables/tiles/versioning.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/tiles/versioning
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/training/wearables/tiles/llms.txt
++
+ On Wear OS devices, tiles are rendered by two key components with independent
+ versioning. To help your app's tiles function correctly across all devices,
+ it's important to understand this underlying architecture.
+@@ -148,8 +150,8 @@ First, update your `build.gradle.kts` file. Update the versions and change the
+ //val protoLayoutVersion = "1.2.1"
+ 
+ // Use these versions for M3.
+-val tilesVersion = "1.5.0"
+-val protoLayoutVersion = "1.3.0"
++val tilesVersion = "1.6.2"
++val protoLayoutVersion = "1.4.2"
+ 
+  dependencies {
+      // Use to implement support for wear tiles
+@@ -175,9 +177,11 @@ val protoLayoutVersion = "1.3.0"
+ 
+ #### TileService remains largely unchanged
+ 
+-The primary changes in this migration affect the UI components. Consequently,
+-your `TileService` implementation, including any resource-loading mechanisms,
+-should require minimal to no modifications.
++The primary changes in this migration affect the UI components. Your
++`TileService` implementation requires minimal modifications, though M3
++`ImageResource` components (`icon()`, `avatarImage()`, `backgroundImage()`)
++require a [`ProtoLayoutScope`](https://developer.android.com/reference/androidx/wear/protolayout/ProtoLayoutScope.md.txt) from [`Material3TileService`](https://developer.android.com/reference/kotlin/androidx/wear/tiles/Material3TileService.md.txt) or
++[`materialScopeWithResources()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#materialScopeWithResources(android.content.Context,androidx.wear.protolayout.ProtoLayoutScope,androidx.wear.protolayout.DeviceParametersBuilders.DeviceParameters,kotlin.Boolean,androidx.wear.protolayout.material3.ColorScheme,kotlin.Function1)).
+ 
+ The main exception involves tile activity tracking: if your app uses
+ [`onTileEnterEvent()`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt#onTileEnterEvent(androidx.wear.tiles.EventBuilders.TileEnterEvent)) or [`onTileLeaveEvent()`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt#onTileLeaveEvent(androidx.wear.tiles.EventBuilders.TileLeaveEvent)), we recommend that you
+@@ -188,7 +192,7 @@ events will be batched.
+ 
+ In ProtoLayout 1.2 (M2.5), the [`onTileRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService.md.txt#onTileRequest(androidx.wear.tiles.RequestBuilders.TileRequest)) method returns a
+ [`TileBuilders.Tile`](https://developer.android.com/reference/androidx/wear/tiles/TileBuilders.Tile.md.txt). This object contained various elements, including a
+-[`TimelineBuilders.Timeline`](https://developer.android.com/reference/androidx/wear/tiles/TimelineBuilders.Timeline.md.txt), which in turn held the [`LayoutElement`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/LayoutElementBuilders.LayoutElement.md.txt)
++[`TimelineBuilders.Timeline`](https://developer.android.com/reference/androidx/wear/protolayout/TimelineBuilders.Timeline.md.txt), which in turn held the [`LayoutElement`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/LayoutElementBuilders.LayoutElement.md.txt)
+ describing the tile's UI.
+ 
+ With ProtoLayout 1.3 (M3), while the overall data structure and flow have not
+@@ -314,7 +318,7 @@ adhere to M3 styling specifications and support dynamic theming.
+ | [`PrimaryLayout`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material/layouts/PrimaryLayout.md.txt) or [`EdgeContentLayout`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material/layouts/EdgeContentLayout.md.txt) | [`primaryLayout()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).primaryLayout(kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.ModifiersBuilders.Clickable,androidx.wear.protolayout.material3.PrimaryLayoutMargins)) |
+ | --- | [`buttonGroup()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary.md.txt#(androidx.wear.protolayout.material3.MaterialScope).buttonGroup(androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,kotlin.Float,kotlin.Function1)) |
+ | **Images** |   |
+-| --- | [`icon()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/MaterialScope.md.txt#(androidx.wear.protolayout.material3.MaterialScope).icon(kotlin.String,androidx.wear.protolayout.DimensionBuilders.ImageDimension,androidx.wear.protolayout.DimensionBuilders.ImageDimension,androidx.wear.protolayout.types.LayoutColor)), [`avatarImage()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/MaterialScope.md.txt#(androidx.wear.protolayout.material3.MaterialScope).avatarImage(kotlin.String,androidx.wear.protolayout.DimensionBuilders.ImageDimension,androidx.wear.protolayout.DimensionBuilders.ImageDimension,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Int)) or [`backgroundImage()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/MaterialScope.md.txt#(androidx.wear.protolayout.material3.MaterialScope).backgroundImage(kotlin.String,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.DimensionBuilders.ImageDimension,androidx.wear.protolayout.DimensionBuilders.ImageDimension,androidx.wear.protolayout.types.LayoutColor,kotlin.Int)) |
++| --- | [`icon()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/MaterialScope.md.txt#(androidx.wear.protolayout.material3.MaterialScope).icon(androidx.wear.protolayout.ResourceBuilders.ImageResource,kotlin.String,androidx.wear.protolayout.DimensionBuilders.ImageDimension,androidx.wear.protolayout.DimensionBuilders.ImageDimension,androidx.wear.protolayout.types.LayoutColor)), [`avatarImage()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/MaterialScope.md.txt#(androidx.wear.protolayout.material3.MaterialScope).avatarImage(androidx.wear.protolayout.ResourceBuilders.ImageResource,kotlin.String,androidx.wear.protolayout.DimensionBuilders.ImageDimension,androidx.wear.protolayout.DimensionBuilders.ImageDimension,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Int)) or [`backgroundImage()`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/MaterialScope.md.txt#(androidx.wear.protolayout.material3.MaterialScope).backgroundImage(androidx.wear.protolayout.ResourceBuilders.ImageResource,kotlin.String,androidx.wear.protolayout.modifiers.LayoutModifier,androidx.wear.protolayout.DimensionBuilders.ImageDimension,androidx.wear.protolayout.DimensionBuilders.ImageDimension,androidx.wear.protolayout.types.LayoutColor,kotlin.Int)) |
+ 
+ #### Modifiers
+ 

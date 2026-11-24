@@ -1,0 +1,48 @@
+diff --git a/docs/blog/authors/amman-asfaw.md b/docs/blog/authors/amman-asfaw.md
+index 9c733951..260fdb18 100644
+--- a/docs/blog/authors/amman-asfaw.md
++++ b/docs/blog/authors/amman-asfaw.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/amman-asfaw
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/blog/authors/llms.txt
++
+ 2 posts ![](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)
+ 
+ # Amman Asfaw
+@@ -11,23 +13,23 @@ source: md.txt
+ Product Manager
+ 
+ Android Studio
+-- 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_ZqnmK9.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++- 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_ZqnmK9.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+-  ## [Leverage Android skills and Gemma 4 in Android Studio Quail 4](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4)
++  ## [Leverage Android skills and Gemma 4 in Android Studio Quail 4](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4.md.txt)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4) This is the final stable release for Android Studio Quail. The new features in Android Studio enable you to build premium apps with AI efficiently and effectively.
++  [arrow_forward](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4.md.txt) This is the final stable release for Android Studio Quail. The new features in Android Studio enable you to build premium apps with AI efficiently and effectively.
+   5 min read
+-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+-  - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+-- 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_1b91Ge.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
++  - [#Android Skills](https://developer.android.com/blog/topics/android-skills.md.txt)
++- 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_1b91Ge.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+-  ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent)
++  ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent.md.txt)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent) Android Studio Quail 2 is now stable and ready for you to use in production, bringing a shift to your IDE with concurrent agentic workflows, natively integrated memory leak profiling, and context-aware crash remediation.
++  [arrow_forward](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent.md.txt) Android Studio Quail 2 is now stable and ready for you to use in production, bringing a shift to your IDE with concurrent agentic workflows, natively integrated memory leak profiling, and context-aware crash remediation.
+   3 min read
+-  - [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
+-  - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
+-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
++  - [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio.md.txt)
++  - [# Quail 2](https://developer.android.com/blog/topics/quail-2.md.txt)
++  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
+   - +1 ↩
+ Stay in the loop
+ 

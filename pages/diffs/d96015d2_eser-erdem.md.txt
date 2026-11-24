@@ -1,0 +1,29 @@
+diff --git a/docs/blog/authors/eser-erdem.md b/docs/blog/authors/eser-erdem.md
+index c9a87e42..614a37c0 100644
+--- a/docs/blog/authors/eser-erdem.md
++++ b/docs/blog/authors/eser-erdem.md
+@@ -4,18 +4,20 @@ url: https://developer.android.com/blog/authors/eser-erdem
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/blog/authors/llms.txt
++
+ 1 post ![](https://developer.android.com/static/blog/assets/Eser_Blue_ae0cb5cc85_Z2lhw4j.webp)
+ 
+ # Eser Erdem
+ 
+ Engineering Manager
+-- 24 Mar 2026 24 Mar 2026 ![](https://developer.android.com/static/blog/assets/AAOS_SDV_Hero_dark_6dfe605408_iURQs.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++- 24 Mar 2026 24 Mar 2026 ![](https://developer.android.com/static/blog/assets/AAOS_SDV_Hero_dark_6dfe605408_iURQs.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+-  ## [Beyond Infotainment: Extending Android Automotive OS for Software-defined Vehicles](https://developer.android.com/blog/posts/beyond-infotainment-extending-android-automotive-os-for-software-defined-vehicles)
++  ## [Beyond Infotainment: Extending Android Automotive OS for Software-defined Vehicles](https://developer.android.com/blog/posts/beyond-infotainment-extending-android-automotive-os-for-software-defined-vehicles.md.txt)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/beyond-infotainment-extending-android-automotive-os-for-software-defined-vehicles) At Google we're deeply committed to the automotive industry--not just as a technology provider, but as a partner in the industry's transformation.
++  [arrow_forward](https://developer.android.com/blog/posts/beyond-infotainment-extending-android-automotive-os-for-software-defined-vehicles.md.txt) At Google we're deeply committed to the automotive industry--not just as a technology provider, but as a partner in the industry's transformation.
+   3 min read
+-  - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
++  - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os.md.txt)
+ Stay in the loop
+ 
+ 

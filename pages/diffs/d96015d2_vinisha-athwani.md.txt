@@ -1,0 +1,26 @@
+diff --git a/docs/blog/authors/vinisha-athwani.md b/docs/blog/authors/vinisha-athwani.md
+index 7b3c3a7f..ceab7455 100644
+--- a/docs/blog/authors/vinisha-athwani.md
++++ b/docs/blog/authors/vinisha-athwani.md
+@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/authors/vinisha-athwani
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/blog/authors/llms.txt
++
+ 1 post ![](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_ZMd6UB.webp)
+ 
+ # Vinisha Athwani
+ 
+ Technical Writer
+-- 04 Sep 2025 04 Sep 2025 ![](https://developer.android.com/static/blog/assets/passkeys_Credential_27ba66338c_Z1W7Rjo.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
++- 04 Sep 2025 04 Sep 2025 ![](https://developer.android.com/static/blog/assets/passkeys_Credential_27ba66338c_Z1W7Rjo.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+ 
+-  ## [Best practices for migrating users to passkeys with Credential Manager](https://developer.android.com/blog/posts/best-practices-for-migrating-users-to-passkeys-with-credential-manager)
++  ## [Best practices for migrating users to passkeys with Credential Manager](https://developer.android.com/blog/posts/best-practices-for-migrating-users-to-passkeys-with-credential-manager.md.txt)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/best-practices-for-migrating-users-to-passkeys-with-credential-manager) For Android developers, the Credential Manager API helps you guide your users towards using passkeys while ensuring continued support for traditional sign-in mechanisms, such as passwords.
++  [arrow_forward](https://developer.android.com/blog/posts/best-practices-for-migrating-users-to-passkeys-with-credential-manager.md.txt) For Android developers, the Credential Manager API helps you guide your users towards using passkeys while ensuring continued support for traditional sign-in mechanisms, such as passwords.
+   6 min read
+ Stay in the loop
+ 

@@ -1,0 +1,114 @@
+diff --git a/docs/google/play/integrity/standard.md b/docs/google/play/integrity/standard.md
+index 1d3c2fdf..f8805aea 100644
+--- a/docs/google/play/integrity/standard.md
++++ b/docs/google/play/integrity/standard.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/google/play/integrity/standard
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/google/play/integrity/llms.txt
++
+ This page describes making standard API requests for integrity verdicts, which
+ are supported on Android 5.0 (API level 21) or higher. You can make a standard
+ API request for an integrity verdict whenever your app is making a server call
+@@ -39,9 +41,8 @@ Before you make a standard request for an integrity verdict from Google Play,
+ you must prepare (or "warm up") the integrity token provider. This allows Google
+ Play to smartly cache partial attestation information on the device in order to
+ decrease the latency on the critical path when you make a request for an
+-integrity verdict. Preparing the token provider again is a way to repeat less
+-resource heavy integrity checks which will make the next integrity verdict that
+-you request more up to date.
++integrity verdict. You can also prepare the token provider again periodically
++to help keep cached attestation information fresh.
+ 
+ You might prepare the integrity token provider:
+ 
+@@ -56,7 +57,7 @@ To prepare the integrity token provider do the following:
+ 3. Use the manager to call `prepareIntegrityToken()`, supplying the `PrepareIntegrityTokenRequest`.
+ 
+ > [!TIP]
+-> **Tip:** Typical warm up latency is a few seconds and the majority of all warm ups are under 10s. However, warming up invokes a server call so a timeout that accommodates a long tail of requests is recommended (e.g. of 1 minute).
++> **Tip:** Preparing the token provider completes almost immediately if cached data is available. When a server call is needed, typical latency is a few seconds and most requests finish in under 10 seconds, but we recommend a 1-minute timeout to accommodate long-tail network latency.
+ 
+ ### Java
+ 
+@@ -100,7 +101,7 @@ IEnumerator PrepareIntegrityTokenCoroutine() {
+     // Wait for PlayAsyncOperation to complete.
+     yield return integrityTokenProviderOperation;
+ 
+-    // Check the resulting https://developer.android.com/reference/unity/namespace/Google/Play/Integrity.
++    // Check the resulting error code.
+     if (integrityTokenProviderOperation.Error != null &&
+         integrityTokenProviderOperation.Error.ErrorCode != StandardIntegrityErrorCode.NoError)
+     {
+@@ -179,7 +180,7 @@ if (error_code != STANDARD_INTEGRITY_NO_ERROR)
+ 
+ IntegrityResponseStatus token_provider_status;
+ 
+-/// Check for https://developer.android.com/reference/native/play/core/group/integrity.
++/// Check for error codes.
+ StandardIntegrityErrorCode error_code =
+         StandardIntegrityTokenProvider_getStatus(tokenProvider, &token_provider_status);
+ if (error_code == STANDARD_INTEGRITY_NO_ERROR
+@@ -219,14 +220,14 @@ When you receive an integrity verdict:
+ - Compare the app-side and server-side digests. If they do not match, the request is not trustworthy.
+ 
+ > [!NOTE]
+-> **Note:** Standard requests are [automatically protected against replay attacks](https://developer.android.com/google/play/integrity/standard#replay-protection).
++> **Note:** Standard requests are [automatically protected against replay attacks](https://developer.android.com/google/play/integrity/standard.md.txt#replay-protection).
+ 
+ ## Request an integrity verdict (on demand)
+ 
+ After you have prepared the integrity token provider, you can start requesting
+ integrity verdicts from Google Play. To do so, complete the following steps:
+ 
+-1. [Obtain a `StandardIntegrityTokenProvider`](https://developer.android.com/google/play/integrity/standard#prepare-integrity).
++1. [Obtain a `StandardIntegrityTokenProvider`](https://developer.android.com/google/play/integrity/standard.md.txt#prepare-integrity).
+ 2. Construct an `StandardIntegrityTokenRequest`, supplying the request hash of the user action you want to protect through the `setRequestHash` method.
+ 3. Use the integrity token provider to call `request()`, supplying the `StandardIntegrityTokenRequest`.
+ 
+@@ -270,7 +271,7 @@ IEnumerator RequestIntegrityTokenCoroutine() {
+     // Wait for PlayAsyncOperation to complete.
+     yield return integrityTokenOperation;
+ 
+-    // Check the resulting https://developer.android.com/reference/unity/namespace/Google/Play/Integrity.
++    // Check the resulting error code.
+     if (integrityTokenOperation.Error != null &&
+         integrityTokenOperation.Error.ErrorCode != StandardIntegrityErrorCode.NoError)
+     {
+@@ -305,7 +306,7 @@ void MyClass::RequestIntegrityToken()
+ {
+   UStandardIntegrityTokenProvider* Provider = ...
+ 
+-  // https://developer.android.com/google/play/integrity/standard#prepare-integrity.
++  // Prepare the UStandardIntegrityTokenProvider.
+ 
+   // Request integrity token by providing a user action request hash. Can be called
+   // several times for different user actions.
+@@ -351,7 +352,7 @@ if (error_code != STANDARD_INTEGRITY_NO_ERROR)
+ 
+ IntegrityResponseStatus token_status;
+ 
+-/// Check for https://developer.android.com/reference/native/play/core/group/integrity.
++/// Check for error codes.
+ StandardIntegrityErrorCode error_code =
+         StandardIntegrityToken_getStatus(token, &token_status);
+ if (error_code == STANDARD_INTEGRITY_NO_ERROR
+@@ -369,7 +370,7 @@ StandardIntegrityManager_destroy();
+ 
+ If your app uses the same token provider for too long, the token provider can
+ expire which results in the
+-[INTEGRITY_TOKEN_PROVIDER_INVALID](https://developer.android.com/google/play/integrity/error-codes#iErr_19)
++[INTEGRITY_TOKEN_PROVIDER_INVALID](https://developer.android.com/google/play/integrity/error-codes.md.txt#iErr_19)
+ error on the next token request. You should handle this error by
+ requesting a new provider.
+ 
+@@ -420,7 +421,7 @@ prompts the user to take action, for example, to get the official version of
+ your app from Google Play.
+ 
+ To learn how to trigger these dialogs from your app based on the server's
+-response, see [Remediation dialogs](https://developer.android.com/google/play/integrity/remediation).
++response, see [Remediation dialogs](https://developer.android.com/google/play/integrity/remediation.md.txt).
+ 
+ > [!TIP]
+ > **Tip:** At any time, users can [check their device's Play Protect certified

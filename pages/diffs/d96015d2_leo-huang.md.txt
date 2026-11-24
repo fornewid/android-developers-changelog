@@ -1,0 +1,26 @@
+diff --git a/docs/blog/authors/leo-huang.md b/docs/blog/authors/leo-huang.md
+index dbb17e12..a473acab 100644
+--- a/docs/blog/authors/leo-huang.md
++++ b/docs/blog/authors/leo-huang.md
+@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/authors/leo-huang
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/blog/authors/llms.txt
++
+ 1 post ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
+ 
+ # Leo Huang
+ 
+ Software Engineer
+-- 28 Oct 2025 28 Oct 2025 ![](https://developer.android.com/static/blog/assets/25_Android_Camera_X_High_speed_Slomo_Blog_1_fc4509cdb7_1QABPN.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
++- 28 Oct 2025 28 Oct 2025 ![](https://developer.android.com/static/blog/assets/25_Android_Camera_X_High_speed_Slomo_Blog_1_fc4509cdb7_1QABPN.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+ 
+-  ## [High-Speed Capture and Slow-Motion Video with CameraX 1.5](https://developer.android.com/blog/posts/high-speed-capture-and-slow-motion-video-with-camera-x-1-5)
++  ## [High-Speed Capture and Slow-Motion Video with CameraX 1.5](https://developer.android.com/blog/posts/high-speed-capture-and-slow-motion-video-with-camera-x-1-5.md.txt)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/high-speed-capture-and-slow-motion-video-with-camera-x-1-5) Capturing fast-moving action with clarity is a key feature for modern camera apps. This is achieved through high-speed capture---the process of acquiring frames at rates like 120 or 240 fps.
++  [arrow_forward](https://developer.android.com/blog/posts/high-speed-capture-and-slow-motion-video-with-camera-x-1-5.md.txt) Capturing fast-moving action with clarity is a key feature for modern camera apps. This is achieved through high-speed capture---the process of acquiring frames at rates like 120 or 240 fps.
+   6 min read
+ Stay in the loop
+ 

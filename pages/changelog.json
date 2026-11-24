@@ -1,5 +1,801 @@
 [
   {
+    "date": "2026-11-24T15:09:51Z",
+    "commit_hash": "d96015d2",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/mlkit-agent-api/references/tools_and_functions\" target=\"_blank\">Local tools and function calling reference</a>",
+        "path": "agents/skills/device-ai/mlkit-agent-api/references/tools_and_functions.md",
+        "summary": "Updated the code examples in the ML Kit Agent API reference documentation to use proper Markdown code blocks (` ```kotlin `) instead of raw indentation, and refactored function names (such as changing `fetch_calendar` to `fetchCalendar` and `update_preference` to `updatePreference`) to adhere to standard Kotlin camelCase conventions and ensure accurate model function resolution.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_tools_and_functions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/navigation/navigation-3/skill\" target=\"_blank\">Jetpack Navigation 3 Skill</a>",
+        "path": "agents/skills/navigation/navigation-3/skill.md",
+        "summary": "Expanded the Navigation 3 documentation skill with numerous new recipes and guides, including support for Parcelable arguments, custom deep link serializers, scene decorators, dynamic feature modules, shared ViewModels, serializable results, and Fragment/View interoperability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/profilers/android-profiler/analysis/workflows/perfetto-trace-analysis/perfetto_trace_analysis\" target=\"_blank\">Perfetto Trace Analysis</a>",
+        "path": "agents/skills/profilers/android-profiler/analysis/workflows/perfetto-trace-analysis/perfetto_trace_analysis.md",
+        "summary": "Refactored the Perfetto trace analysis workflow documentation into a direct, step-by-step diagnostic guide focusing on trace health checks, thread blocking states, runnable analysis, display/GPU bottlenecks, and janky frame categorization.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_perfetto_trace_analysis.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/profilers/android-profiler/references/env_setup\" target=\"_blank\">Replace with the absolute path of the directory containing SKILL.md.</a>",
+        "path": "agents/skills/profilers/android-profiler/references/env_setup.md",
+        "summary": "Updated the explanation and instructions for setting the `$SKILL_ROOT` environment variable. The documentation now clearly defines `$SKILL_ROOT` as the absolute path of the directory containing the skill's `SKILL.md` and clarifies that it must be set before running any command because skills are loaded from a plugin directory rather than the user's workspace.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_env_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/profilers/android-profiler/references/perfetto/bin/trace_processor.rawcontent\" target=\"_blank\">Copyright (C) 2021 The Android Open Source Project</a>",
+        "path": "agents/skills/profilers/android-profiler/references/perfetto/bin/trace_processor.rawcontent.md",
+        "summary": "Updated the Perfetto prebuilts manifest for the trace processor shell from version v58.3 to v59.1. This rolls the underlying binaries to newer builds across all supported platforms (macOS, Linux, Android, and Windows) with updated file sizes and SHA256 hashes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_trace_processor.rawcontent.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/profilers/android-profiler/references/perfetto/setup\" target=\"_blank\">some installs lose the exec bit</a>",
+        "path": "agents/skills/profilers/android-profiler/references/perfetto/setup.md",
+        "summary": "Updated the Perfetto setup documentation to improve readability and added critical guidelines regarding the usage of the bundled `trace_processor` wrapper. These updates ensure engineers use the correct pinned binary wrapper instead of external tools or `sqlite3`, maintaining compatibility with Perfetto's standard library and avoiding version discrepancies.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/profilers/android-profiler/references/perfetto/sql\" target=\"_blank\">Querying Perfetto traces</a>",
+        "path": "agents/skills/profilers/android-profiler/references/perfetto/sql.md",
+        "summary": "Massive refactoring and truncation of the PerfettoSQL documentation reference file (sql.md), removing detailed usage guides, session management rules, schema-discovery queries, standard library module listings, writing tips, and common analysis patterns.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_sql.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/wear/wear-compose-m3/skill\" target=\"_blank\">Android Developers</a>",
+        "path": "agents/skills/wear/wear-compose-m3/skill.md",
+        "summary": "Updated the Wear Compose Material3 skill documentation to include comprehensive guidance on migrating from legacy XML Views to Compose, introduced a new Capability 4 section detailing view-to-component mappings and cleanup steps, and added explicit best practices for ambient mode management, color schemes, and surface transformations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/android-performance-analyzer\" target=\"_blank\">Android Performance Analyzer (APA)</a>",
+        "path": "android-performance-analyzer.md",
+        "summary": "Updated the Android Performance Analyzer (APA) documentation to promote the release from Beta version 0.9.0 to Stable version 1.0.0-stable, updating all download URLs and checksum tables accordingly. Additionally, added documentation for new features including agentic integration and reorganized feature highlights.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_android-performance-analyzer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/android-performance-analyzer/agentic\" target=\"_blank\">Agentic analysis</a>",
+        "path": "android-performance-analyzer/agentic.md",
+        "summary": "Introduces the new agentic capabilities for the Android Performance Analyzer, enabling AI agents to read, query, and directly manipulate trace views using natural language.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/android-performance-analyzer/release-notes\" target=\"_blank\">Android Performance Analyzer release notes</a>",
+        "path": "android-performance-analyzer/release-notes.md",
+        "summary": "Version 1.0.0-Stable of Android Performance Analyzer introduces built-in AI Agent integration (supporting ACP, Google sign-in, and custom models like Claude/Codex) for conversational trace analysis and natural language trace control. It adds Perfetto SQL querying directly from the search bar, expanded trace data tracks (including long wakelocks and thermal/network counters), improved navigation and area selection, a visual refresh matching the Perfetto UI, macOS Finder integration for trace files, and numerous bug fixes and performance stability improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog\" target=\"_blank\">The Android Developers' Blog</a>",
+        "path": "blog.md",
+        "summary": "The git diff shows a reordering of blog post entries on the Android developer blog page, specifically moving the announcement regarding new adaptive app quality standards on Google Play by Mekka Okereke to a higher position on the page for better visibility.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_blog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/adarsh-fernando\" target=\"_blank\">Adarsh Fernando</a>",
+        "path": "blog/authors/adarsh-fernando.md",
+        "summary": "Updated internal links within Adarsh Fernando's author profile documentation to append '.md.txt' extensions, aligning with the documentation routing schema, and added a documentation index reference link at the top.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_adarsh-fernando.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/alec-garcia\" target=\"_blank\">Alec Garcia</a>",
+        "path": "blog/authors/alec-garcia.md",
+        "summary": "The documentation for author Alec Garcia was updated to include a link to the LLMs documentation index and to append '.md.txt' extensions to the blog post and category URLs, aligning them with internal documentation routing conventions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_alec-garcia.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/alon-hetzroni\" target=\"_blank\">Alon Hetzroni</a>",
+        "path": "blog/authors/alon-hetzroni.md",
+        "summary": "Updated the author's documentation page to include a reference to the LLM documentation index and appended '.md.txt' extensions to internal blog post and category links for improved documentation parsing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_alon-hetzroni.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/amman-asfaw\" target=\"_blank\">Amman Asfaw</a>",
+        "path": "blog/authors/amman-asfaw.md",
+        "summary": "The changes in the Amman Asfaw author documentation primarily involve updating internal URLs and links to include the '.md.txt' suffix for better reference handling, alongside the addition of a documentation index reference link.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_amman-asfaw.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/andrei-shikov\" target=\"_blank\">Andrei Shikov</a>",
+        "path": "blog/authors/andrei-shikov.md",
+        "summary": "Updated author documentation for Andrei Shikov by adding a documentation index reference link (llms.txt) and appending '.md.txt' to internal blog category, post, and topic URLs to ensure proper navigation within the text-based documentation structure.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_andrei-shikov.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/arti-arutiunov\" target=\"_blank\">Arti Arutiunov</a>",
+        "path": "blog/authors/arti-arutiunov.md",
+        "summary": "Updated internal links within the author's documentation page to include '.md.txt' extensions, ensuring proper routing for local documentation indices and LLM-friendly resources, and added a documentation index reference link.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_arti-arutiunov.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/bradley-allen\" target=\"_blank\">Bradley Allen</a>",
+        "path": "blog/authors/bradley-allen.md",
+        "summary": "Added a documentation index link pointing to the LLM text file and updated internal blog category and post links to reference local Markdown text file counterparts. This improves navigation and consistency within the documentation source files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_bradley-allen.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/charles-munger\" target=\"_blank\">Charles Munger</a>",
+        "path": "blog/authors/charles-munger.md",
+        "summary": "Added a documentation index link for LLMs and updated author post URLs to point to their corresponding .md.txt text versions, improving automated ingestion and documentation referencing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_charles-munger.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/chris-assigbe\" target=\"_blank\">Chris Assigbe</a>",
+        "path": "blog/authors/chris-assigbe.md",
+        "summary": "Updated author documentation for Chris Assigbe by adding a reference to the documentation index (llms.txt) and appending '.md.txt' extensions to the blog post and category links to align with internal routing conventions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_chris-assigbe.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/coco-fatus\" target=\"_blank\">Coco Fatus</a>",
+        "path": "blog/authors/coco-fatus.md",
+        "summary": "Added a documentation index link pointing to llms.txt and updated author post links to include '.md.txt' extensions for improved documentation parsing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_coco-fatus.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/cyrus-stoller\" target=\"_blank\">Cyrus Stoller</a>",
+        "path": "blog/authors/cyrus-stoller.md",
+        "summary": "Updated links in the author's documentation page to point to their corresponding '.md.txt' versions and added a documentation index reference for LLMs. This ensures better compatibility and discoverability for automated agents and text-based scrapers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_cyrus-stoller.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/dan-brown\" target=\"_blank\">Dan Brown</a>",
+        "path": "blog/authors/dan-brown.md",
+        "summary": "Updated author documentation for Dan Brown to include a reference to the LLM documentation index and adjusted post and category links to point to their corresponding Markdown text files (.md.txt).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_dan-brown.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/daniel-santiago-rivera\" target=\"_blank\">Daniel Santiago Rivera</a>",
+        "path": "blog/authors/daniel-santiago-rivera.md",
+        "summary": "Added an LLM documentation index link at the top of the author page and updated the blog post and category links to point to their respective .md.txt text versions, improving machine-readability for documentation parsers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_daniel-santiago-rivera.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/david-chou\" target=\"_blank\">David Chou</a>",
+        "path": "blog/authors/david-chou.md",
+        "summary": "Updated the author documentation for David Chou by adding a reference link to the LLMs documentation index and appending '.md.txt' extensions to the blog post and category URLs to improve documentation parsing and navigation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_david-chou.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/eric-lynch\" target=\"_blank\">Eric Lynch</a>",
+        "path": "blog/authors/eric-lynch.md",
+        "summary": "Updated the author documentation for Eric Lynch to include a reference to the documentation index (llms.txt) and appended '.md.txt' extensions to the blog post and category links. This ensures proper resolution of internal links within the documentation processing pipeline.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_eric-lynch.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/eser-erdem\" target=\"_blank\">Eser Erdem</a>",
+        "path": "blog/authors/eser-erdem.md",
+        "summary": "Updated author profile documentation for Eser Erdem to include a reference to the LLM documentation index and appended '.md.txt' extensions to various blog post, category, and topic links. This ensures proper routing and consistency for text-based documentation scrapers and LLM ingestion tools.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_eser-erdem.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/fabien-sanglard\" target=\"_blank\">Fabien Sanglard</a>",
+        "path": "blog/authors/fabien-sanglard.md",
+        "summary": "Updated internal links within Fabien Sanglard's author profile page to append .md.txt extensions, ensuring proper navigation and routing for LLM-focused documentation indexes. Additionally, a reference index link pointing to llms.txt was added to the top of the file.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_fabien-sanglard.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/fung-lam\" target=\"_blank\">Fung Lam</a>",
+        "path": "blog/authors/fung-lam.md",
+        "summary": "The changes update internal links within the author profile page to reference local markdown/text representations (appending `.md.txt`) and add a reference link to the documentation index for LLMs. These modifications are structural updates to support documentation tooling and indexing rather than content changes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_fung-lam.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/ivy-knight\" target=\"_blank\">Ivy Knight</a>",
+        "path": "blog/authors/ivy-knight.md",
+        "summary": "Updated author profile documentation for Ivy Knight to include a documentation index link and appended `.md.txt` extensions to various blog post, category, and source URLs to match restructured markdown paths.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_ivy-knight.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/jason-buchel\" target=\"_blank\">Jason Buchel</a>",
+        "path": "blog/authors/jason-buchel.md",
+        "summary": "Updated links in Jason Buchel's author documentation to point directly to the corresponding `.md.txt` files for categories, posts, and topics, and added a reference link to the LLM documentation index.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_jason-buchel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/jean-pierre-pralle\" target=\"_blank\">Jean-Pierre Pralle</a>",
+        "path": "blog/authors/jean-pierre-pralle.md",
+        "summary": "Updated author documentation for Jean-Pierre Pralle by adding a link to the LLM documentation index and appending .md.txt extensions to internal blog category and post URLs to align with documentation parsing standards.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_jean-pierre-pralle.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/john-zoeller\" target=\"_blank\">John Zoeller</a>",
+        "path": "blog/authors/john-zoeller.md",
+        "summary": "The author documentation file for John Zoeller was updated to include a reference to the documentation index (llms.txt) and appended '.md.txt' extensions to various blog category, post, and topic links to maintain consistency with the documentation's internal routing format.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_john-zoeller.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/joseph-lewis\" target=\"_blank\">Joseph Lewis</a>",
+        "path": "blog/authors/joseph-lewis.md",
+        "summary": "Updated the author documentation for Joseph Lewis by adding a reference link to the LLM documentation index and appending '.md.txt' extensions to the blog post and category URLs to maintain consistency with the documentation routing system.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_joseph-lewis.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/leo-huang\" target=\"_blank\">Leo Huang</a>",
+        "path": "blog/authors/leo-huang.md",
+        "summary": "Updated the author documentation for Leo Huang by adding a documentation index reference link (llms.txt) and appending '.md.txt' extensions to category and blog post URLs to maintain correct navigation within the documentation source files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_leo-huang.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/maunik-shah\" target=\"_blank\">Maunik Shah</a>",
+        "path": "blog/authors/maunik-shah.md",
+        "summary": "Added a documentation index link (llms.txt) and updated the blog post and category URLs to point to their respective .md.txt text versions, improving automated crawling and documentation indexing for Maunik Shah's author page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_maunik-shah.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/michael-stillwell\" target=\"_blank\">Michael Stillwell</a>",
+        "path": "blog/authors/michael-stillwell.md",
+        "summary": "Updated author documentation for Michael Stillwell to include a link to the documentation index (llms.txt) and appended '.md.txt' extensions to various blog post and category URLs. This change standardizes resource linking and ensures proper routing to markdown text versions of the developer content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_michael-stillwell.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/michelle-martin\" target=\"_blank\">Michelle Martin</a>",
+        "path": "blog/authors/michelle-martin.md",
+        "summary": "Added a documentation index link pointing to the LLM-readable text file (llms.txt) for Michelle Martin's author page. This helps AI tools and automated agents discover structured content related to the author's blog posts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_michelle-martin.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/mike-taylor-cai\" target=\"_blank\">Mike Taylor-Cai</a>",
+        "path": "blog/authors/mike-taylor-cai.md",
+        "summary": "Updated links within the author's post listing to point to their corresponding Markdown text files (`.md.txt`), aligning the blog author page structure with the documentation's LLM indexing scheme.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_mike-taylor-cai.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/mozart-louis\" target=\"_blank\">Mozart Louis</a>",
+        "path": "blog/authors/mozart-louis.md",
+        "summary": "Updated the author documentation for Mozart Louis by adding a link to the LLM documentation index and appending '.md.txt' extensions to various blog post and category URLs to maintain consistency with the documentation source structure.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_mozart-louis.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/nikita-ogorodnikov\" target=\"_blank\">Nikita Ogorodnikov</a>",
+        "path": "blog/authors/nikita-ogorodnikov.md",
+        "summary": "Added a documentation index link (llms.txt) and updated internal blog post, category, and topic links to include the '.md.txt' extension, aligning the author profile with the documentation site's file structure and LLM-friendly indexing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_nikita-ogorodnikov.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/prateek-batra\" target=\"_blank\">Prateek Batra</a>",
+        "path": "blog/authors/prateek-batra.md",
+        "summary": "Updated links within Prateek Batra's author profile to point to local Markdown text versions (`.md.txt`) of the blog posts and categories, and added a reference link to the documentation index for LLMs. This ensures better navigation across text-based documentation formats.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_prateek-batra.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/robbie-mclachlan\" target=\"_blank\">Robbie McLachlan</a>",
+        "path": "blog/authors/robbie-mclachlan.md",
+        "summary": "Updated links within the Robbie McLachlan author profile to append the '.md.txt' extension and added a reference to the corresponding llms.txt documentation index. This improves machine-readability and LLM navigation for the author's blog posts and categories.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_robbie-mclachlan.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/ron-aquino\" target=\"_blank\">Ron Aquino</a>",
+        "path": "blog/authors/ron-aquino.md",
+        "summary": "Updated documentation links for Ron Aquino's author profile by appending '.md.txt' extensions to category and blog post URLs, and added an LLM documentation index reference. This ensures proper resolution of internal markdown document references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_ron-aquino.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/sa-ryong-kang\" target=\"_blank\">Sa-ryong Kang</a>",
+        "path": "blog/authors/sa-ryong-kang.md",
+        "summary": "Added a documentation index link for LLMs and updated the author's blog post and category links to point to their Markdown text versions, improving automated ingestion and parsing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_sa-ryong-kang.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/sam-bright\" target=\"_blank\">Sam Bright</a>",
+        "path": "blog/authors/sam-bright.md",
+        "summary": "Added a documentation index link for LLMs and updated blog post and category links to point to their respective markdown text representations (`.md.txt`), improving machine-readability and documentation navigation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_sam-bright.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/santiago-solanes\" target=\"_blank\">Santiago Aboy Solanes</a>",
+        "path": "blog/authors/santiago-solanes.md",
+        "summary": "Updated the author's documentation page to include a reference to the LLM documentation index and appended '.md.txt' extensions to internal blog category and post URLs, ensuring correct navigation and linking within the Markdown documentation structure.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_santiago-solanes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/scott-nien\" target=\"_blank\">Scott Nien</a>",
+        "path": "blog/authors/scott-nien.md",
+        "summary": "Updated author documentation for Scott Nien by adding a documentation index reference link and appending '.md.txt' to internal blog post and category URLs to support local or processed file navigation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_scott-nien.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/sean-keys\" target=\"_blank\">Sean Keys</a>",
+        "path": "blog/authors/sean-keys.md",
+        "summary": "The author documentation for Sean Keys was updated to include a reference to the documentation index (llms.txt) and to append the '.md.txt' extension to internal blog category, post, and topic links. This ensures correct navigation and compatibility within the text-based documentation format.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_sean-keys.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/shai-barack\" target=\"_blank\">Shai Barack</a>",
+        "path": "blog/authors/shai-barack.md",
+        "summary": "Updated author page links and added a documentation index reference to point to the local or markdown-converted assets (.md.txt) for blog posts and categories.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_shai-barack.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/sheenam-mittal\" target=\"_blank\">Sheenam Mittal</a>",
+        "path": "blog/authors/sheenam-mittal.md",
+        "summary": "Added a documentation index link for LLMs and updated internal blog category, post, and topic URLs to reference their corresponding markdown text files (.md.txt), ensuring proper routing for text-based documentation parsers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_sheenam-mittal.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/steph-pio\" target=\"_blank\">Steph Pio</a>",
+        "path": "blog/authors/steph-pio.md",
+        "summary": "Updated author profile documentation for Steph Pio to include a link to the LLMs documentation index and appended '.md.txt' extensions to internal blog links and category references to ensure proper routing within the text-based documentation structure.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_steph-pio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/tibian-elsheikh\" target=\"_blank\">Tibian Elsheikh</a>",
+        "path": "blog/authors/tibian-elsheikh.md",
+        "summary": "Added a documentation index link and updated blog post and category URLs to point to their corresponding markdown text (.md.txt) versions. This ensures better linking for automated tools and LLM ingestion.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_tibian-elsheikh.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/tor-norbye\" target=\"_blank\">Tor Norbye</a>",
+        "path": "blog/authors/tor-norbye.md",
+        "summary": "Updated the author profile documentation for Tor Norbye to include a documentation index link and appended '.md.txt' extensions to the blog post and category links, ensuring proper routing within the documentation site structure.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_tor-norbye.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/vinisha-athwani\" target=\"_blank\">Vinisha Athwani</a>",
+        "path": "blog/authors/vinisha-athwani.md",
+        "summary": "Updated links in the author documentation to reference the corresponding Markdown text files (`.md.txt`), aligning the blog post and category references with the local documentation structure and adding an LLM documentation index link.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_vinisha-athwani.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/vinny-da-silva\" target=\"_blank\">Vinny DaSilva</a>",
+        "path": "blog/authors/vinny-da-silva.md",
+        "summary": "The changes to Vinny DaSilva's author documentation primarily consist of appending '.md.txt' to internal links and blog post URLs to support LLM documentation indexing, alongside adding a direct reference link to the llms.txt index file.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_vinny-da-silva.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest.md",
+        "summary": "The changes in the latest blog documentation primarily involve reordering existing entries on the page, specifically repositioning the announcement regarding new adaptive quality standards on Google Play for April 2027. This is a structural reordering of the feed rather than a substantive content update.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_latest.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/a-new-era-for-choice-and-openness\" target=\"_blank\">A new era for choice and openness</a>",
+        "path": "blog/posts/a-new-era-for-choice-and-openness.md",
+        "summary": "Updated the \"Continue reading\" section of the blog post to replace a reference to the Jetpack Compose November '26 release with a new post highlighting Google Play's upcoming adaptive quality standards and requirements for apps across various screen sizes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_a-new-era-for-choice-and-openness.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations\" target=\"_blank\">Accelerating your insights with faster, smarter monetization data and recommendations</a>",
+        "path": "blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations.md",
+        "summary": "Updated the \"Continue reading\" related articles section at the bottom of the blog post. The reference to the game quality standards post by Aurash Mahbod was replaced with the new post on adaptive app quality standards by Mekka Okereke.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-devices-extend-seamlessly-to-connected-displays\" target=\"_blank\">Android devices extend seamlessly to connected displays</a>",
+        "path": "blog/posts/android-devices-extend-seamlessly-to-connected-displays.md",
+        "summary": "Updated the \"Continue reading\" related articles section at the bottom of the blog post to replace a reference about game quality standards with a new post covering Google Play's upcoming adaptive app quality standards by author Mekka Okereke.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_android-devices-extend-seamlessly-to-connected-displays.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/beyond-infotainment-extending-android-automotive-os-for-software-defined-vehicles\" target=\"_blank\">Beyond Infotainment: Extending Android Automotive OS for Software-defined Vehicles</a>",
+        "path": "blog/posts/beyond-infotainment-extending-android-automotive-os-for-software-defined-vehicles.md",
+        "summary": "The suggested blog post links and sidebar widgets at the bottom of the document were updated to feature new content regarding adaptive app quality standards on Google Play instead of the previous focus on large screen game quality.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_beyond-infotainment-extending-android-automotive-os-for-software-defined-vehicles.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/beyond-the-app-google-play-buyer-reach\" target=\"_blank\">Beyond the app: Expanding buyer reach across new surfaces with Google Play</a>",
+        "path": "blog/posts/beyond-the-app-google-play-buyer-reach.md",
+        "summary": "Updated the \"Continue reading\" related articles section at the bottom of the blog post to replace a reference regarding game quality standards with a new post about adaptive app quality standards on Google Play by Mekka Okereke. This ensures readers are directed to the most current and relevant content regarding form factor and screen size requirements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_beyond-the-app-google-play-buyer-reach.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-native-android-apps-in-google-ai-studio\" target=\"_blank\">Build native Android apps in Google AI Studio</a>",
+        "path": "blog/posts/build-native-android-apps-in-google-ai-studio.md",
+        "summary": "Updated documentation links to fix an invalid Android Studio URL and refreshed the \"Continue reading\" section by replacing a Jetpack Compose blog post reference with a new post about Google Play's adaptive quality standards.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_build-native-android-apps-in-google-ai-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions\" target=\"_blank\">Driving growth on Google Play: The next era of subscriptions</a>",
+        "path": "blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions.md",
+        "summary": "Updated the \"Continue reading\" recommended blog posts section at the bottom of the subscriptions page by adding a new recommendation for adaptive app quality standards and removing an older recommendation regarding the Jetpack Compose November '26 release. This ensures readers are directed to the most relevant and current developer content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_driving-growth-on-google-play-the-next-era-of-subscriptions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2\" target=\"_blank\">Elevating media playback: A deep dive into Media3's PreloadManager - Part 2</a>",
+        "path": "blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2.md",
+        "summary": "The footer recommendations of the Media3 Preload Manager article were updated to replace a related post about game quality standards on foldables and large screens with a new post covering Google Play's adaptive app quality standards.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google\" target=\"_blank\">Enhance your app for the new Pixel lineup: Unveiled at Made by Google</a>",
+        "path": "blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md",
+        "summary": "Updated the \"Continue reading\" section to replace a recommended post about game quality standards with a new post by Mekka Okereke regarding Google Play's upcoming adaptive app quality standards and requirements set for April 2027. This change ensures developers see the most relevant and current guidance for building high-quality adaptive applications across various screen sizes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content\" target=\"_blank\">Ensuring Safety in the Generative AI Ecosystem: Protecting Users from Non-Consensual Intimate Content</a>",
+        "path": "blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content.md",
+        "summary": "Updated the \"Continue reading\" section of the blog post to replace a recommended article about game quality on foldables with a newer post regarding Google Play's adaptive app quality standards by author Mekka Okereke. This ensures readers are directed to the most current and relevant developer guidance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/faster-compiles\" target=\"_blank\">18% Faster Compiles, 0% Compromises</a>",
+        "path": "blog/posts/faster-compiles.md",
+        "summary": "Updated the \"Continue reading\" recommended blog posts section at the bottom of the document, adding a new post on Google Play adaptive quality standards by Mekka Okereke and removing a post regarding the Jetpack Compose November '26 release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_faster-compiles.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/get-inspired-and-take-your-apps-to-desktop\" target=\"_blank\">Get inspired and take your apps to desktop</a>",
+        "path": "blog/posts/get-inspired-and-take-your-apps-to-desktop.md",
+        "summary": "The 'Continue reading' recommendations section at the bottom of the blog post was updated. It now includes a new recommendation for the 'Elevating apps: New adaptive quality standards on Google Play' post by Mekka Okereke while removing the reference to the Jetpack Compose November '26 release post.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_get-inspired-and-take-your-apps-to-desktop.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/get-ready-for-google-io-may\" target=\"_blank\">Get ready for Google I/O May 19-20</a>",
+        "path": "blog/posts/get-ready-for-google-io-may.md",
+        "summary": "Updated internal links and references throughout the document to append '.md.txt', ensuring proper resolution for text-based documentation indices and LLM scrapers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_get-ready-for-google-io-may.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm\" target=\"_blank\">Introducing the Googlebook Linux Terminal Preview: A VM-Backed Environment for AI and Development</a>",
+        "path": "blog/posts/googlebook-linux-terminal-preview-vm.md",
+        "summary": "Updated the 'Related Posts' or footer section of the documentation to replace an older blog post reference about large screen game quality by Aurash Mahbod with a newer post regarding adaptive app quality standards by Mekka Okereke. This ensures readers are directed to the most current and relevant Android developer guidance.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_googlebook-linux-terminal-preview-vm.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/lets-talk-security-answering-your-top\" target=\"_blank\">Let's talk security: Answering your top questions about Android developer verification</a>",
+        "path": "blog/posts/lets-talk-security-answering-your-top.md",
+        "summary": "Updated the Android Studio documentation link in the security blog post from a `.md.txt` extension to the standard documentation URL format to ensure proper redirection and readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_lets-talk-security-answering-your-top.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/material-3-adaptive-1-2-0-is-stable\" target=\"_blank\">Material 3 Adaptive 1.2.0 is stable</a>",
+        "path": "blog/posts/material-3-adaptive-1-2-0-is-stable.md",
+        "summary": "The 'Continue reading' recommendation section at the end of the Material 3 Adaptive 1.2.0 stable release blog post was updated. It now includes a reference to the new Google Play adaptive app quality standards post by Mekka Okereke and removes the previous entry regarding the Jetpack Compose November '26 release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_material-3-adaptive-1-2-0-is-stable.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/modernizing-the-room\" target=\"_blank\">Room 3.0 - Modernizing the Room</a>",
+        "path": "blog/posts/modernizing-the-room.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to add a new recommendation regarding Google Play's adaptive quality standards and remove an outdated entry about the Jetpack Compose November '26 release. This keeps the related reading links current and relevant for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_modernizing-the-room.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025\" target=\"_blank\">Notes from Google Play: A look back at the tools that powered your growth in 2025</a>",
+        "path": "blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025.md",
+        "summary": "Updated the blog post to hyperlinking the Google Play Apps Accelerator application text to its RSVP event page, and refreshed the 'Continue reading' section by adding a new related post on adaptive app quality standards while removing an older reference to the Jetpack Compose November '26 release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api\" target=\"_blank\">Stronger threat detection, simpler integration: Protect your growth with the Play Integrity API</a>",
+        "path": "blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api.md",
+        "summary": "Updated the \"Continue reading\" section of the blog post to add a new related article about adaptive app quality standards on Google Play and removed an outdated reference to the Jetpack Compose November '26 release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio\" target=\"_blank\">Supercharge your Android development with 6 expert tips for Gemini in Android Studio</a>",
+        "path": "blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio.md",
+        "summary": "Fixed a broken download URL for Android Studio by removing the erroneous '.md.txt' extension from the link in the Gemini expert tips blog post, ensuring users are directed to the correct landing page.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/the-fourth-beta-of-android-17\" target=\"_blank\">The Fourth Beta of Android 17</a>",
+        "path": "blog/posts/the-fourth-beta-of-android-17.md",
+        "summary": "Updated the Android Studio (Panda) preview link to remove the file extension and refreshed the \"Continue reading\" section at the bottom of the Android 17 Beta 4 blog post by adding a new related article on Google Play adaptive quality standards while removing an older reference to the Jetpack Compose November '26 release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_the-fourth-beta-of-android-17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature\" target=\"_blank\">Ready to review some changes but not others? Try using Play Console's new Save for later feature</a>",
+        "path": "blog/posts/try-using-play-consoles-new-save-for-later-feature.md",
+        "summary": "The related posts section at the bottom of the document was updated to replace a Jetpack Compose release post with a new post about adaptive app quality standards on Google Play.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_try-using-play-consoles-new-save-for-later-feature.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio\" target=\"_blank\">Ultrahuman launches features 15% faster with Gemini in Android Studio</a>",
+        "path": "blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio.md",
+        "summary": "Added a documentation index link to the top of the Ultrahuman case study blog post, connecting the document to the broader LLMs text resource list.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_ultrahuman-launches-features-faster-with-gemini-in-android-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-april-26-release\" target=\"_blank\">What's new in the Jetpack Compose April '26 release</a>",
+        "path": "blog/posts/whats-new-in-the-jetpack-compose-april-26-release.md",
+        "summary": "Updated the 'Continue reading' section of the Jetpack Compose release notes to replace a related post about large screen game quality standards with a new post covering Google Play's broader adaptive app quality standards.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_whats-new-in-the-jetpack-compose-april-26-release.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/agent-skills\" target=\"_blank\">#Agent Skills</a>",
+        "path": "blog/topics/agent-skills.md",
+        "summary": "The changes introduce a documentation index link pointing to llms.txt and update various internal links throughout the agent-skills.md documentation file to append the .md.txt extension, ensuring correct navigation and file resolution for LLM-focused content.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_agent-skills.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/android-bench\" target=\"_blank\">#Android Bench</a>",
+        "path": "blog/topics/android-bench.md",
+        "summary": "The documentation updates introduce a reference link to the LLM documentation index and append the '.md.txt' extension to various author, category, topic, and post links. This ensures correct routing and consistency for markdown-based documentation consumers and LLM parsers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_android-bench.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/gemini-nano\" target=\"_blank\">#Gemini Nano</a>",
+        "path": "blog/topics/gemini-nano.md",
+        "summary": "The Gemini Nano documentation was updated to append '.md.txt' extensions to various internal links, author profiles, categories, and topic references. Additionally, a new documentation index link (llms.txt) was added to the top of the file to improve LLM-based navigation and content indexing.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_gemini-nano.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/large-screen/tier-3\" target=\"_blank\">Tier 3 — Large screen ready</a>",
+        "path": "games/large-screen/tier-3.md",
+        "summary": "Updated the `Landscape_Display` and `Portrait_Display` guidelines in tier-3 documentation to explicitly state that games must declare `android:resizeableActivity=\"true\"` to prevent running in OS compatibility mode.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_tier-3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/integrity/device-recall\" target=\"_blank\">Detect repeat abuse using device recall (beta)</a>",
+        "path": "google/play/integrity/device-recall.md",
+        "summary": "Updated the documentation for Device Recall in the Play Integrity API to clarify caching behavior in standard requests. Specifically, it notes that standard requests cache device recall values on the device rather than relying strictly on warmup calls, and explains how propagation delays affect both classic and standard requests differently.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_device-recall.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/google/play/integrity/standard\" target=\"_blank\">Make a standard API request</a>",
+        "path": "google/play/integrity/standard.md",
+        "summary": "Updated the Play Integrity standard API documentation to clarify token provider warm-up behavior, improve code comment clarity across Unity and native implementations, and fix internal documentation links to use local markdown references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_standard.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-deeplinkkey\" target=\"_blank\">DeepLinkKey Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/deeplinks-deeplinkkey.md",
+        "summary": "Added a new Navigation 3 recipe documenting how to associate deep link URI pattern templates with navigation keys using a DeepLinkKey interface. This helps centralize URL templates and parameter structures alongside their corresponding destinations.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/dynamicfeature\" target=\"_blank\">Dynamic Feature Module Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/dynamicfeature.md",
+        "summary": "Updated the Dynamic Feature Module navigation recipe to use the new `androidx.navigation3:navigation3-dynamic-features` library and API components like `DynamicFeatureNavEntryDecorator` and `DynamicFeatureModuleEntryProvider`. The changes streamline dynamic feature integration, automate ProGuard keep rules, and improve local testing and Hilt integration instructions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_dynamicfeature.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/modular-hilt\" target=\"_blank\">Modular Navigation Recipe (Hilt)</a>",
+        "path": "guide/navigation/navigation-3/recipes/modular-hilt.md",
+        "summary": "Added a documentation index link at the top and introduced a new `HiltDeepLinkActivity` code block demonstrating how to handle deep linking and intents within the modular Navigation 3 and Hilt recipe. This addition helps developers understand how to route URIs and launch activities in a multi-module architecture.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_modular-hilt.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/modular-koin\" target=\"_blank\">Modular Navigation Recipe (Koin)</a>",
+        "path": "guide/navigation/navigation-3/recipes/modular-koin.md",
+        "summary": "Added a new `KoinDeepLinkActivity` implementation to the modular Koin navigation recipe documentation, demonstrating how to handle deep links and intents within a multi-module Navigation 3 setup. This update also includes a reference link to the documentation index for LLMs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_modular-koin.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/multiple-backstacks\" target=\"_blank\">Multiple back stacks recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/multiple-backstacks.md",
+        "summary": "Added a new `rememberNavKey` utility function snippet to the multiple back stacks recipe for Navigation 3. This helper function allows tracking a single `NavKey` (such as the current top-level route) that persists across configuration changes and process death using `rememberSerializable` and `NavKeySerializer`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_multiple-backstacks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/compose-roadmap\" target=\"_blank\">Jetpack Compose Roadmap</a>",
+        "path": "jetpack/androidx/compose-roadmap.md",
+        "summary": "Updated the Jetpack Compose roadmap for November 2026, reflecting significant progress across multiple areas. Key updates include moving items like FlexBox layout, Grid layout, and Mesh Gradients into the 'Done' section, introducing new features to the 'In Focus' and 'Backlog' pipelines (such as Adaptive Navigation 3 integration and expanded Material 3 expressive components), and adding a documentation index reference.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_compose-roadmap.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/platform/in-process-codecs\" target=\"_blank\">Optimize audio performance using in-process decoders</a>",
+        "path": "media/platform/in-process-codecs.md",
+        "summary": "The documentation for in-process audio codecs has been updated to include Android 17 QPR2 (API level 37.2) additions, specifically introducing memory-safe Rust implementations for FLAC and MP3 decoders using the Symphonia library. The changes update the available component tables, decoder stream handling details for high-resolution audio (such as PCM_FLOAT configuration for FLAC), sample rate and bitrate specifications for MP3, selector examples, and guidance on removing bundled third-party libraries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_in-process-codecs.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/privacy-and-security/security-ssl\" target=\"_blank\">Security with network protocols</a>",
+        "path": "privacy-and-security/security-ssl.md",
+        "summary": "This update cleans up documentation formatting by shortening fully-qualified class and method links to simple class names (e.g., changing long URL references to `HttpURLConnection` and `SSLHandshakeException`) and appends '.md.txt' extensions to several internal reference links.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_security-ssl.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "Updated the Android Studio nightly build documentation to reference the latest Stingray 1 release (version 2026.3.1 Nightly, build date 2026-11-23, build version 2026.3.1.3). This update refreshes the download links and filenames for Windows, macOS (Apple and Intel chips), and Linux platforms, enabling developers to access the most recent fixes and features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/emulator/37\" target=\"_blank\">Android Emulator 37 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/emulator/37.md",
+        "summary": "Added release notes for Android Emulator 37.4.2 Canary, documenting a fix for Issue #281967260 where SD cards were not supported on arm64 architectures.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_37.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/tiles/versioning\" target=\"_blank\">Tiles versioning</a>",
+        "path": "training/wearables/tiles/versioning.md",
+        "summary": "Updated Wear OS dependency versions for tiles (to 1.6.2) and proto-layout (to 1.4.2), and documented necessary changes regarding Material 3 image components requiring a ProtoLayoutScope from Material3TileService or materialScopeWithResources().",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d96015d2_versioning.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-23T15:09:59Z",
     "commit_hash": "ac7720f2",
     "entries": [

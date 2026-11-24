@@ -1,0 +1,45 @@
+diff --git a/docs/android-performance-analyzer/release-notes.md b/docs/android-performance-analyzer/release-notes.md
+index 918556d3..0a8bcae8 100644
+--- a/docs/android-performance-analyzer/release-notes.md
++++ b/docs/android-performance-analyzer/release-notes.md
+@@ -10,6 +10,40 @@ releases of Android Performance Analyzer.
+ 
+ ## Stable
+ 
++## 1.0.0-Stable (November 2026)
++
++This release builds AI Agent into the app, lets you run SQL queries from the
++search bar, refreshes the trace viewer, and fixes many bugs.
++
++### New features and improvements
++
++- **AI Agent is built in:** Use the ACP integration to use Claude, Antigravity, or Codex inside Android Performance Analyzer. Or, you can sign in with your Google Account and use the built-in agent. Use **Ask AI** to analyze a trace, and use **Generate
++  Query** to have AI Agent write SQL for you.
++- **AI Agent can see and control your open trace view:** It can see what you're looking at and answer your questions by querying the trace. You can also control the trace viewer directly with natural language. Tell the AI Agent what you want to see. For example: "Zoom to the longest frame on the main thread," "Pin the app's RenderThread," or "Bookmark where startup ends." Based on your commands, it drives the view for you by zooming, panning, selecting slices, pinning tracks, and adding bookmarks.
++- **Android-profiler skill is built in:** The AI Agent can use the built-in profiling skill to understand System Profiler (Perfetto) traces and perform deep performance analyses.
++- **SQL in the search bar:** Type `:` to run a Perfetto SQL query. Results open in tabs below the timeline, and slice IDs link straight to the slice.
++- **More trace data:** A new Long wakelocks track, plus counter tracks that were missing before, such as thermal, network, disk I/O, memory, and battery.
++- **Easier navigation:** Area selection with `Shift+drag`, smooth animated jumps to slices, filtering tracks by several terms at once, and `Esc` to clear highlights.
++- **Richer selection details:** A two-column layout, wrapped values, table cells you can copy, and callstacks for track events such as Jetpack Compose state reads.
++- **Visual refresh:** Colors that match the Perfetto UI, clearer slice labels and selection outlines, and a trace view that scales with the IDE zoom level.
++- **Smoother recording:** Faster device setup and recording start, the app's default activity selected for you, a searchable package list, and clearer error messages.
++- **Open traces from Finder on macOS:** Android Performance Analyzer can now be your default app to open trace files on macOS. You can open the trace file directly in Android Performance Analyzer from Finder or using the `open` command in Terminal.
++
++### Bug fixes
++
++- Fixed system traces for some devices losing CPU scheduling data after the first second.
++- Fixed GPU render stages no longer being recorded on devices with recent Android updates.
++- Fixed the timeline wobbling, jittering, and freezing when zoomed in very deeply.
++- Fixed device setup getting stuck, hiding installation errors, or not recovering when you click Retry.
++- Fixed Android Performance Analyzer staying in the macOS Dock after you quit it.
++- Fixed some traces failing to load, and FPS and Frame Time tracks being wrong during idle periods.
++- Fixed undo and redo in the SQL editor.
++
++### Other changes
++
++- Trace Processor is updated to v58.2.
++- Help buttons now open the Android Performance Analyzer documentation.
++
+ ## 0.9.0-Stable (July 2026)
+ 
+ This release brings various usability improvements such as slice search and

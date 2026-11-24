@@ -1,0 +1,35 @@
+diff --git a/docs/blog/authors/john-zoeller.md b/docs/blog/authors/john-zoeller.md
+index 1f60b603..1d818924 100644
+--- a/docs/blog/authors/john-zoeller.md
++++ b/docs/blog/authors/john-zoeller.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/john-zoeller
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/blog/authors/llms.txt
++
+ 1 post ![](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_i6BeP.webp)
+ 
+ # John Zoeller
+@@ -11,15 +13,15 @@ source: md.txt
+ Developer Relations Engineer
+ 
+ Wear OS
+-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Developer_Blog_2_1_1440x720_6_64da0326e3_b0x4M.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Developer_Blog_2_1_1440x720_6_64da0326e3_b0x4M.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+-  ## [What's New in Wear OS 7](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7)
++  ## [What's New in Wear OS 7](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7.md.txt)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7) We are excited to introduce Wear OS 7, a major update that brings a new era of power efficiency and intelligence to users and developers alike.
++  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7.md.txt) We are excited to introduce Wear OS 7, a major update that brings a new era of power efficiency and intelligence to users and developers alike.
+   9 min read
+-  - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
+-  - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+-  - [#Compose](https://developer.android.com/blog/topics/compose)
++  - [#AppFunctions](https://developer.android.com/blog/topics/app-functions.md.txt)
++  - [#Wear OS](https://developer.android.com/blog/topics/wear-os.md.txt)
++  - [#Compose](https://developer.android.com/blog/topics/compose.md.txt)
+   - +1 ↩
+ Stay in the loop
+ 

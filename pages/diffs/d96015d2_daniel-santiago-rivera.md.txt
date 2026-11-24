@@ -1,0 +1,26 @@
+diff --git a/docs/blog/authors/daniel-santiago-rivera.md b/docs/blog/authors/daniel-santiago-rivera.md
+index 0a6f5ba0..4436e475 100644
+--- a/docs/blog/authors/daniel-santiago-rivera.md
++++ b/docs/blog/authors/daniel-santiago-rivera.md
+@@ -4,16 +4,18 @@ url: https://developer.android.com/blog/authors/daniel-santiago-rivera
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/blog/authors/llms.txt
++
+ 1 post ![](https://developer.android.com/static/blog/assets/Daniel_Santiago_Rivera_157422eedb_VG66u.webp)
+ 
+ # Daniel Santiago Rivera
+ 
+ Software Engineer
+-- 13 Mar 2026 13 Mar 2026 ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_5IIEj.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++- 13 Mar 2026 13 Mar 2026 ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_5IIEj.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+-  ## [Room 3.0 - Modernizing the Room](https://developer.android.com/blog/posts/modernizing-the-room)
++  ## [Room 3.0 - Modernizing the Room](https://developer.android.com/blog/posts/modernizing-the-room.md.txt)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/modernizing-the-room) The first alpha of Room 3.0 has been released! Room 3.0 is a major breaking version of the library that focuses on Kotlin Multiplatform (KMP) and adds support for JavaScript and WebAssembly (WASM) on top of the existing Android, iOS and JVM desktop support.
++  [arrow_forward](https://developer.android.com/blog/posts/modernizing-the-room.md.txt) The first alpha of Room 3.0 has been released! Room 3.0 is a major breaking version of the library that focuses on Kotlin Multiplatform (KMP) and adds support for JavaScript and WebAssembly (WASM) on top of the existing Android, iOS and JVM desktop support.
+   4 min read
+ Stay in the loop
+ 

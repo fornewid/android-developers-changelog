@@ -1,0 +1,28 @@
+diff --git a/docs/blog/authors/mozart-louis.md b/docs/blog/authors/mozart-louis.md
+index 1bff7930..5ea6cd4d 100644
+--- a/docs/blog/authors/mozart-louis.md
++++ b/docs/blog/authors/mozart-louis.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/mozart-louis
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/blog/authors/llms.txt
++
+ 1 post ![](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_K6xYF.webp)
+ 
+ # Mozart Louis
+@@ -11,11 +13,11 @@ source: md.txt
+ Developer Relations Engineer
+ 
+ Android Camera
+-- 13 Oct 2025 13 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_2daQMX.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++- 13 Oct 2025 13 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_2daQMX.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+-  ## [Boost user engagement with AI Image Generation](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation)
++  ## [Boost user engagement with AI Image Generation](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation.md.txt)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation) Adding custom images to your app can significantly improve and personalize user experience and boost user engagement.
++  [arrow_forward](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation.md.txt) Adding custom images to your app can significantly improve and personalize user experience and boost user engagement.
+   5 min read
+ Stay in the loop
+ 

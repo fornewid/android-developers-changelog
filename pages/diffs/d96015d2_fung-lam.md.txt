@@ -1,0 +1,35 @@
+diff --git a/docs/blog/authors/fung-lam.md b/docs/blog/authors/fung-lam.md
+index 167043b2..804e73bb 100644
+--- a/docs/blog/authors/fung-lam.md
++++ b/docs/blog/authors/fung-lam.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/blog/authors/fung-lam
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/blog/authors/llms.txt
++
+ 1 post ![](https://developer.android.com/static/blog/assets/Fung_Lam_profile_633041f048_viwYX.webp)
+ 
+ # Fung Lam
+@@ -11,15 +13,15 @@ source: md.txt
+ Developer Relations Engineer
+ 
+ Android
+-- 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z1unXc4.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
++- 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z1unXc4.webp) [How-tos](https://developer.android.com/blog/categories/how-tos.md.txt)
+ 
+-  ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
++  ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17.md.txt)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
++  [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17.md.txt) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
+   10 min read
+-  - [#Memory](https://developer.android.com/blog/topics/memory)
+-  - [#Android](https://developer.android.com/blog/topics/android)
+-  - [#Performance](https://developer.android.com/blog/topics/performance)
++  - [#Memory](https://developer.android.com/blog/topics/memory.md.txt)
++  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
++  - [#Performance](https://developer.android.com/blog/topics/performance.md.txt)
+   - +1 ↩
+ Stay in the loop
+ 

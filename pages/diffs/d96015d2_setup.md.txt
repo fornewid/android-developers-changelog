@@ -1,0 +1,43 @@
+diff --git a/docs/agents/skills/profilers/android-profiler/references/perfetto/setup.md b/docs/agents/skills/profilers/android-profiler/references/perfetto/setup.md
+index c160a518..02775b46 100644
+--- a/docs/agents/skills/profilers/android-profiler/references/perfetto/setup.md
++++ b/docs/agents/skills/profilers/android-profiler/references/perfetto/setup.md
+@@ -9,22 +9,19 @@ source: md.txt
+ 
+ ## Put the bundled `trace_processor` on the `PATH`
+ 
+-The skill ships a `trace_processor` wrapper at
+-`$SKILL_ROOT/references/perfetto/bin/trace_processor`. Make it invokable for
+-this session:
++**`trace_processor`** is bundled at
++`$SKILL_ROOT/references/perfetto/bin/trace_processor`:
+ 
+-    # some installs lose the exec bit
+-    chmod +x "$SKILL_ROOT/references/perfetto/bin/trace_processor"
+-    export PATH="$SKILL_ROOT/references/perfetto/bin:$PATH"
+-    trace_processor --version                   # smoke test
++```bash
++# some installs lose the exec bit
++chmod +x "$SKILL_ROOT/references/perfetto/bin/trace_processor"
++export PATH="$SKILL_ROOT/references/perfetto/bin:$PATH"
++trace_processor --version                     # smoke test
++```
+ 
+-After this, every bare `trace_processor ...` command in this skill works
+-verbatim. If each command runs in a fresh shell, repeat the `export` line in
+-that command. On Windows, skip the `PATH` setup and invoke it as
+-`python "$SKILL_ROOT/references/perfetto/bin/trace_processor" ...` instead.
+-
+-Notes:
+-
+-- The first invocation downloads the prebuilt native binary (picking the right one for the host platform) into `~/.local/share/perfetto/prebuilts/` and caches it; only the first call pays the download cost.
+-- Do **not** download, symlink, or `find` another `trace_processor` or `trace_processor_shell` - the wrapper is pinned to the skill's release.
+-- If the user's environment has its own mandatory `trace_processor` (Google-internal, OEM build environments, CI images), prefer that team-specific setup instead.
+\ No newline at end of file
++- If each command runs in a fresh shell, repeat the `export` lines in that command.
++- The first invocation downloads the prebuilt binary for the host platform into `~/.local/share/perfetto/prebuilts/` and caches it.
++- Do not download `trace_processor` separately: the wrapper is pinned to the release the skill was built for.
++- On Windows skip the `PATH` step and run `python "$SKILL_ROOT/references/perfetto/bin/trace_processor" ...`.
++- If the environment **explicitly** mandates its own `trace_processor` (Google internal, OEM build environments, CI images), prefer that setup.
++- The querying guidelines in `$SKILL_ROOT/references/perfetto/sql.md` target the `trace_processor` wrapper shipped with this skill. Only if subcommands, tables, or modules that `sql.md` documents are rejected as unknown in the preferred setup, check `--help` for supported options and find tables using `LIMIT 0` and the stdlib docs. Do **not** export the trace to SQLite or query using `sqlite3`: it is slower and loses the Perfetto standard library.
+\ No newline at end of file

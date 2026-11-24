@@ -1,0 +1,88 @@
+diff --git a/docs/agents/skills/wear/wear-compose-m3/skill.md b/docs/agents/skills/wear/wear-compose-m3/skill.md
+index 04a72dcc..5129b7d0 100644
+--- a/docs/agents/skills/wear/wear-compose-m3/skill.md
++++ b/docs/agents/skills/wear/wear-compose-m3/skill.md
+@@ -23,16 +23,17 @@ source: md.txt
+ 
+ ### Capability 1: Migration, updates, and adding features
+ 
+-Use this guidance when migrating from an older version of Wear OS Compose or
+-Horologist, updating an existing Wear Compose Material3 project, or adding
+-features.
++Use this guidance when migrating from XML Views, an older version of Wear OS
++Compose, or Horologist, updating an existing Wear Compose Material3 project, or
++adding features.
+ 
+ 1. Unless otherwise indicated by the developer, use the latest stable version of Wear Compose Material3 from `{VERSION}` (superseding any literal version strings in the migration guide).
+ 2. When migrating from Material 2.5 or Horologist, read the [migration guide](https://developer.android.com/training/wearables/compose/migrate-to-material3.md.txt) and use its official component mappings.
+-3. Before refactoring any component (for example, `Chip` -\> `Button`), check the parameter names, slot types, and "Expressive" design tokens.
+-4. Do not use the Horologist Composables, Compose Layout, or Compose Material libraries; replace Horologist components with Wear Compose M3 equivalents (`AppScaffold` -\> M3 `AppScaffold`, `ScreenScaffold` -\> M3 `ScreenScaffold`, `ScalingLazyColumn` -\> `TransformingLazyColumn`, `ResponsiveListHeader` -\> `ListHeader`, `PagerScreen` -\> `HorizontalPagerScaffold`, `Chip` -\> `Button`, `Confirmation` -\> `ConfirmationDialog`).
+-5. **Always** check against the component guidance in Capability 3.
+-6. Expect screenshot tests to fail when migrating or updating components: expected defaults for padding and positioning will have changed. Do not seek to artificially match the previous screenshot, but give preference to the Material3 defaults.
++3. When migrating from XML Views (`res/layout/*.xml`, `ViewBinding`, `WearableRecyclerView`, `ConstraintLayout`, or `MotionLayout`), follow **Capability 4: Migrating from XML Views** and the component checklist in Capability 3.
++4. Before refactoring any component (for example, `Chip` -\> `Button`), check the parameter names, slot types, and "Expressive" design tokens.
++5. Do not use the Horologist Composables, Compose Layout, or Compose Material libraries; replace Horologist components with Wear Compose M3 equivalents (`AppScaffold` -\> M3 `AppScaffold`, `ScreenScaffold` -\> M3 `ScreenScaffold`, `ScalingLazyColumn` -\> `TransformingLazyColumn`, `ResponsiveListHeader` -\> `ListHeader`, `PagerScreen` -\> `HorizontalPagerScaffold`, `Chip` -\> `Button`, `Confirmation` -\> `ConfirmationDialog`).
++6. **Always** check against the component guidance in Capability 3.
++7. Expect screenshot tests to fail when migrating or updating components: expected defaults for padding and positioning will have changed. Do not seek to artificially match the previous screenshot, but give preference to the Material3 defaults.
+ 
+ ### Capability 2: Component samples
+ 
+@@ -238,7 +239,7 @@ the component syntax.
+      - Note: This is a scoped modifier available within `TransformingLazyColumnItemScope`.
+    - \[ \] Ensure items morph and scale (apply to components **within** `TransformingLazyColumn`, not the list itself):
+      - \[ \] Use `Modifier.transformedHeight(this, transformationSpec)`.
+-     - \[ \] Use `transformation = SurfaceTransformation(transformationSpec)`.
++     - \[ \] Use `transformation = SurfaceTransformation(transformationSpec)` (`androidx.wear.compose.material3.SurfaceTransformation`).
+    - \[ \] If configuring a list for snapping, use `flingBehavior` and `rotaryScrollableBehavior` **together**:
+ 
+ 
+@@ -298,14 +299,14 @@ the component syntax.
+ 
+    <br />
+ 
+-6. `Column`
++6. `Column` and `Box` (non-scrolling layouts)
+ 
+-   - \[ \] USE as a direct child of `ScreenScaffold` *if* the screen will **never** scroll, even with the largest system font.
++   - \[ \] Use `Column` or `Box` as a direct child of `ScreenScaffold` *if* the screen is a fixed spatial or radial layout (see Capability 4) or will **never** scroll, even with the largest system font.
+    - \[ \] Use `TransformingLazyColumn` instead for all other cases.
+ 7. Styles
+ 
+    - \[ \] Do **NOT** hard-code text sizes, use `typography` from `MaterialTheme`.
+-   - \[ \] Do **NOT** hard-code colors, use `colorScheme` from `MaterialTheme`.
++   - \[ \] Do **NOT** hard-code colors in composables; use `colorScheme` from `MaterialTheme` (define custom brand or semantic colors in a custom `ColorScheme` or as the `dynamicColorScheme` fallback).
+ 8. Use component defaults:
+ 
+    - \[ \] Components such as `Button` have a corresponding `ButtonDefaults` object.
+@@ -319,6 +320,8 @@ the component syntax.
+ 10. Ambient mode
+ 
+     - \[ \] Use `LocalAmbientModeManager` (provided by `CompositionLocalProvider` and `rememberAmbientModeManager()`) instead of `AmbientLifecycleObserver`.
++    - \[ \] Use `AmbientTickEffect` for periodic (\~once-per-minute) UI state updates in ambient mode instead of `onUpdateAmbient()` or legacy `AlarmManager` ambient refresh loops.
++    - \[ \] Do **NOT** manually shift UI elements when `isBurnInProtectionRequired` is `true`; the system handles burn-in shifting (`ScreenScaffold` already provides safe edge padding).
+ 11. Navigation
+ 
+     - \[ \] When adding navigation fresh, use Navigation3 (`androidx.wear.compose:compose-navigation3`).
+@@ -344,4 +347,19 @@ the component syntax.
+     - \[ \] Pass the same `MutableInteractionSource` instance to both the clickable component and `Modifier.oneHandedGesture`.
+     - \[ \] In `1.7.x`, guard `showIndicator()` in `onGestureAvailable` with a remembered boolean flag (resetting on `Lifecycle.Event.ON_STOP` using `LifecycleEventEffect`) or remember the `Modifier.oneHandedGesture` instance so recompositions (such as toggling `"play"`/`"pause"` labels) do not replay the hint animation.
+     - \[ \] You must pass an explicit, stable `gestureId` string to `rememberOneHandedGestureConfiguration` when a gesture-enabled component is inside conditional `if`/`else` branches, and you must provide `CompositionLocalProvider(LocalOneHandedGestureEnabled provides
+-      enabled)` when the control has an `enabled` parameter.
+\ No newline at end of file
++      enabled)` when the control has an `enabled` parameter.
++
++### Capability 4: Migrating from XML Views
++
++Use this guidance when migrating legacy Wear OS XML View layouts
++(`res/layout/*.xml`, `ViewBinding`, `findViewById`) to Wear Compose Material3.
++Verify the implementation against **Capability 3: Component guidance**.
++
++1. **Preserve spatial layouts versus lists:**
++   - Convert vertical or scrollable XML layouts (`WearableRecyclerView`, `ScrollView`, stacked controls) to `AppScaffold` -\> `ScreenScaffold` -\> `TransformingLazyColumn` (with `EdgeButton` for a primary bottom action). Never copy `Horologist` (`com.google.android.horologist.*`) or `Column(Modifier.verticalScroll)` from sibling modules. If `libs.versions.toml` defines an older `1.0.0-alpha*` of `compose-material3`, upgrade it to stable `{VERSION}`.
++   - **Do NOT flatten radial or fixed spatial layouts** (for example, 4-way directional controls, media or recorder HUDs, and dials) into a `TransformingLazyColumn`. Keep them in a non-scrolling `Box` inside `ScreenScaffold` so all controls remain visible at once.
++2. **Component mappings:**
++   - `ProgressBar` in a radial or watch layout (even if styled horizontal in XML) -\> full-screen perimeter `CircularProgressIndicator(modifier = Modifier.fillMaxSize(), ...)`.
++   - Circular `ImageButton` or clickable `ImageView` controls -\> `FilledIconButton`, `FilledTonalIconButton`, or `IconToggleButton` (for stateful toggles). Don't build custom `Box` + `Modifier.clickable` circles.
++   - `ConfirmationOverlay` -\> `ConfirmationDialog`, `SuccessConfirmationDialog`, `FailureConfirmationDialog`, or `OpenOnPhoneDialog` (use `confirmationDialogCurvedText` or `openOnPhoneDialogCurvedText`, or pass `curvedText = null` when the original overlay had no message text).
++3. **Cleanup:** Delete migrated `res/layout/*.xml` and unused `res/drawable/*.xml` files. In the migrated module's `build.gradle` or `build.gradle.kts`, remove `viewBinding` and remove legacy View dependencies (`implementation(libs.androidx.wear)` or `androidx.wear:wear`, `constraintlayout`, `recyclerview`, `percentlayout`).
+\ No newline at end of file
