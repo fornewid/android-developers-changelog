@@ -4,7 +4,7 @@ url: https://developer.android.com/stories/apps/twitter-kotlin
 source: md.txt
 ---
 
-# Twitter increases developer productivity and code reliability with Kotlin
+> Documentation index: https://developer.android.com/stories/llms.txt
 
 ![](https://developer.android.com/static/images/distribute/stories/twitter-logo.png)
 
@@ -13,7 +13,7 @@ is one of the most widely used social media platforms where users can see what's
 happening in the world at any given moment.
 The engineering team introduced Kotlin in 2017 with the goal of making their
 codebase more maintainable and their Android app more reliable as a result of
-Kotlin's [null safety features](https://developer.android.com/kotlin/common-patterns#nullability).
+Kotlin's [null safety features](https://kotlinlang.org/docs/null-safety.html).
 
 ## What they did
 
@@ -30,8 +30,7 @@ classes, and default parameters, which allowed them to be able to write less
 code, and faster. Kotlin's smart casting has also reduced the amount of code
 their team needs to write and maintain.
 
-*"Kotlin is a joy to use. The reduction in boilerplate reduces the amount of
-code we need to write." - Andy Fox, Senior Software Engineer at Twitter*
+*"Kotlin is a joy to use. The reduction in boilerplate reduces the amount of code we need to write." - Andy Fox, Senior Software Engineer at Twitter*
 
 Kotlin's null safety features have also increased Twitter's code reliability.
 Initially when the team introduced Kotlin, they uncovered silent failures that
@@ -50,4 +49,4 @@ DM Reactions, and Lists in Kotlin.
 
 ## Get started
 
-Learn more about [developing an Android app with Kotlin](https://developer.android.com/kotlin).
+Learn more about [developing an Android app with Kotlin](https://developer.android.com/kotlin.md.txt).

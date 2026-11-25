@@ -4,6 +4,8 @@ url: https://developer.android.com/kotlin/multiplatform/kmp-integration
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/kotlin/multiplatform/llms.txt
+
 This guide explains how to detect, interact with, and configure the Android
 target in a Kotlin Multiplatform (KMP) project from a custom Gradle plugin. Use
 these APIs when writing convention plugins for your build or publishing Gradle
@@ -183,6 +185,16 @@ properties through this single object.
         }
     }
 
+In AGP 8.13.0 and higher, use the `compileSdk` block with
+[`CompileSdkSpec`](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/CompileSdkSpec.md.txt) to configure a minor compile SDK version
+for API level 36 and higher, or to set an SDK extension:
+
+    androidTarget.compileSdk {
+        version = release(36) {
+            minorApiLevel = 1
+        }
+    }
+
 Unlike other Android plugins (such as `com.android.library` or
 `com.android.application`), the KMP Android plugin doesn't register its main
 DSL extension at the project level. It lives within the KMP target hierarchy
@@ -332,6 +344,6 @@ or library classes.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Set up your environment](https://developer.android.com/kotlin/multiplatform/setup)
-- [Add KMP module to a project](https://developer.android.com/kotlin/multiplatform/migrate)
-- [Set up the Android Gradle Library Plugin for KMP](https://developer.android.com/kotlin/multiplatform/plugin)
+- [Set up your environment](https://developer.android.com/kotlin/multiplatform/setup.md.txt)
+- [Add KMP module to a project](https://developer.android.com/kotlin/multiplatform/migrate.md.txt)
+- [Set up the Android Gradle Library Plugin for KMP](https://developer.android.com/kotlin/multiplatform/plugin.md.txt)

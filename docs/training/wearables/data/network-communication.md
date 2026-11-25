@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/data/network-communication
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/training/wearables/llms.txt
+
 With Wear OS by Google, a watch can communicate with a network directly, without
 access to an Android or iOS phone. Don't use the Data Layer API to connect a
 Wear OS app to a network. Instead, follow the guidelines and steps in this
@@ -194,4 +196,4 @@ requests:
   device is charging.
 
 For more information, review the WorkManager's [Effect of constraints on
-periodic work](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work#constraints) guide.
+periodic work](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work#effect_of_constraints_on_periodic_work) guide.

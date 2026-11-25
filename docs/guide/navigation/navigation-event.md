@@ -4,10 +4,25 @@ url: https://developer.android.com/guide/navigation/navigation-event
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/guide/navigation/navigation-event/llms.txt
+
 Navigation Event is a library that provides a Kotlin Multiplatform (KMP)
 solution for integrating system-level navigation events into your application.
 It is designed to be the foundational layer for handling navigation directions
 across various [supported platforms](https://developer.android.com/kotlin/multiplatform#kotlin-multiplatform-and-jetpack-libraries).
+
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/navigation/navigation-event)
+
+### Use the NavigationEvent library
+
+Use the NavigationEvent [Android skill](https://developer.android.com/tools/agents/android-skills.md.txt) to intercept back gestures and run predictive back animations. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt), run:
+
+    android skills add navigation-event
+
+<br />
 
 ## Key concepts
 

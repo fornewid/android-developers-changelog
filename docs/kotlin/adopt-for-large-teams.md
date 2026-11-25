@@ -4,6 +4,8 @@ url: https://developer.android.com/kotlin/adopt-for-large-teams
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/kotlin/llms.txt
+
 Moving to a new language can be challenging. To set your team up for success,
 start slow, migrate in small chunks, and test frequently. Kotlin compiles to JVM
 bytecode and it's fully interoperable with Java, which makes migration easier.
@@ -272,8 +274,8 @@ grows:
 ### Common coding standards
 
 Be sure to define a standard set of coding conventions early on in your adoption
-process. You can diverge from the Android
-[Kotlin style guide](https://developer.android.com/kotlin/style-guide.md.txt) where it makes sense.
+process. You can diverge from the
+[Kotlin in Android style guide](https://developer.android.com/kotlin/style-guide.md.txt) where it makes sense.
 
 ### Static analysis tools
 
@@ -373,6 +375,4 @@ with both unit and instrumented tests.
 For more information about using Kotlin, see the following links:
 
 - [Android's Kotlin-first approach](https://developer.android.com/kotlin/first.md.txt)
-- [Resources for getting started with Kotlin](https://developer.android.com/kotlin/getting-started-resources.md.txt)
-- [Resources for Java users learning Kotlin](https://developer.android.com/kotlin/kotlin-java-resources.md.txt)
 - [Java to Kotlin learning pathway](https://developer.android.com/kotlin/campaign/learn), a collection of resources that help Java programmers learn and write idiomatic Kotlin.

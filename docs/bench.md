@@ -811,7 +811,7 @@ All categories App conversion App creation Migration New feature **Number of tas
 
 **Latest results as of
 November 18th.**   
-View [**archived leaderboards**](https://developer.android.com/bench/archive.md.txt) and check back periodically for updates.
+View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.
 
 ### 1.0 task results
 
@@ -854,11 +854,11 @@ All models Open weights models Closed weights models
 
 **Latest results as of
 August 11th.**   
-View [**archived leaderboards**](https://developer.android.com/bench/archive.md.txt) and check back periodically for updates.
+View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.
 
-### [Latest Updates](http://developer.android.com/bench/changelog.md.txt)
+### [Latest Updates](http://developer.android.com/bench/changelog)
 
-Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. Stay updated with our routine methodology updates and release logs. [View all updates](http://developer.android.com/bench/changelog.md.txt)
+Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. Stay updated with our routine methodology updates and release logs. [View all updates](http://developer.android.com/bench/changelog)
 - New agent results • Nov 18th   
   **claude-code results now available** ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Fable 5.2
 
@@ -879,7 +879,11 @@ Track the latest AI model benchmarks, newly introduced agent architectures, and 
   **kimi-code results now available** ![](https://developer.android.com/static/images/bench/icons/moonshotai.png) Kimi K3.1 Pro
 - New agent results • Nov 4th   
   **codex results now available** ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 6.1 Terra
-![](http://developer.android.com/static/images/picto-icons/badge.svg)
+[![](http://developer.android.com/static/images/cluster-illustrations/policy.svg)](https://research.google/pubs/android-bench-measuring-frontier-coding-agents-on-long-horizon-mobile-engineering/)
+
+### [Android Bench 2.0 research paper](https://research.google/pubs/android-bench-measuring-frontier-coding-agents-on-long-horizon-mobile-engineering/)
+
+Explore how frontier coding agents perform on 30 real-world, long-horizon Android engineering tasks-evaluating UI fidelity, app migrations, and multi-file builds on a live emulator. [Read the findings](https://research.google/pubs/android-bench-measuring-frontier-coding-agents-on-long-horizon-mobile-engineering/) ![](http://developer.android.com/static/images/picto-icons/badge.svg)
 
 ## Learn more about Android Bench
 

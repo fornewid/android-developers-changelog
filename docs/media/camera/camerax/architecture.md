@@ -280,10 +280,7 @@ App Permissions](https://developer.android.com/training/permissions/requesting).
 
 ## Requirements
 
-CameraX has the following minimum version requirements:
-
-- Android API level 21
-- Android Architecture Components 1.1.1
+CameraX requires Android 7.0 (API level 24) and higher.
 
 For lifecycle-aware activities, use
 [`FragmentActivity`](https://developer.android.com/reference/androidx/fragment/app/FragmentActivity.md.txt) or
@@ -321,37 +318,11 @@ dependencyResolutionManagement {
 }
 ```
 
-Add the following to the end of the Android block:
-
-### Groovy
-
-```groovy
-android {
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    // For Kotlin projects
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-}
-```
-
-### Kotlin
-
-```kotlin
-android {
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    // For Kotlin projects
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-}
-```
+CameraX 1.7.0 and higher is compiled to Java 11 bytecode, which is also the
+default target of the Android Gradle plugin 9.0 and higher. If your app sets a
+Java or Kotlin JVM target, such as `targetCompatibility` in `compileOptions` or
+`jvmTarget` in [`kotlin { compilerOptions { ... } }`](https://developer.android.com/build/migrate-to-built-in-kotlin.md.txt#migration-steps-migrate-kotlin-options),
+set it to 11 or higher.
 
 Add the following to each module's `build.gradle` file for an app:
 
@@ -398,10 +369,6 @@ dependencies {
     implementation("androidx.camera:camera-extensions:${camerax_version}")
 }
 ```
-
-For more information on configuring your app to conform to these requirements,
-see [Declaring
-dependencies](https://developer.android.com/jetpack/androidx/releases/lifecycle#declaring_dependencies).
 
 ## CameraX interoperability with Camera2
 

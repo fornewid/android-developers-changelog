@@ -4,21 +4,32 @@ url: https://developer.android.com/studio/gemini/get-started
 source: md.txt
 ---
 
-> [!NOTE]
-> **Note:** You can get higher rate limits by subscribing to [Google One](https://one.google.com/intl/en_us/about). Or, you can [add a Gemini API key](https://developer.android.com/studio/gemini/add-api-key) to expand your context window and pay per token.
+> Documentation index: https://developer.android.com/studio/llms.txt
 
 To get started with AI in Android Studio, follow these steps:
 
-1. [Download Android Studio](https://developer.android.com/studio). Note that some features are under active development and only available through [Studio Labs](https://developer.android.com/studio/gemini/labs) or a [preview
+1. [Download Android Studio](https://developer.android.com/studio). Note that some features are under active development and only available through [Studio Labs](https://developer.android.com/studio/gemini/labs.md.txt) or a [preview
    version of Android Studio](https://developer.android.com/studio/preview).
 2. To launch an agent, open or start an Android Studio project and click **Agent** ![](https://developer.android.com/static/studio/images/agent-icon.png). Alternatively, click **View \> Tool Windows \> Agent**.
 3. Use the **Agents** drop-down to add, configure, and select agents.
-4. To use a Gemini model, click the model menu. Sign in to your Google Account if needed, and then click **Set up Gemini** .
-   1. Select **Individuals** when given the choice of product tier. You can now select a Gemini model to use.
-   2. To configure settings for AI in Android Studio, click **File** (**Android Studio** on macOS) **\> Settings \> Tools \> AI**.
+
+## Use the Antigravity agent in Android Studio
+
+If you use the Gemini model provider in Android Studio, you'll be upgraded to
+the [Antigravity agent](https://antigravity.google/docs/ide/extensions/android-studio/), which includes access to the latest
+Gemini models and more quota.
+
+> [!CAUTION]
+> **Caution:** After December 17, 2026, the Gemini model provider will be removed from **Settings \> Tools \> AI \> Model Providers** for the built-in agent. You can continue to use the built-in agent for [local models](https://developer.android.com/studio/gemini/use-a-local-model.md.txt) like Gemma.
+
+### Migrate from Gemini Code Assist
+
+Because Gemini Code Assist is being deprecated, update your license to Gemini
+Enterprise before using the Antigravity agent in Android Studio. For more
+information, see the [Gemini Code Assist deprecation schedule](https://docs.cloud.google.com/gemini/docs/codeassist/sunset).
 
 ## Next steps
 
-- See the [best practices](https://developer.android.com/studio/gemini/best-practices) for tips on how to use the agent.
-- Explore the [guides](https://developer.android.com/studio/gemini/agent-mode) to learn more about the agent's features.
+- See the [best practices](https://developer.android.com/studio/gemini/best-practices.md.txt) for tips on how to use the agent.
+- Explore the [guides](https://developer.android.com/studio/gemini/agent-mode.md.txt) to learn more about the agent's features.
 - Browse the [Prompt Gallery](https://developer.android.com/studio/prompt-gallery) for inspiration for what to ask the agent.

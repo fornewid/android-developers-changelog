@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/text/emoji
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/text/llms.txt
+
 The standard set of emoji is [refreshed annually by
 Unicode](https://emojipedia.org/new/), as emoji usage is increasing
 rapidly for all types of apps.
@@ -29,7 +31,7 @@ The following are examples of modern emoji.
 | 🧑🏻‍🦰 🧑🏿‍🦯 👩🏻‍🤝‍👩🏼 | [12.1](https://emojipedia.org/emoji-12.1/) (October 2019) |
 | 🦩 🦻🏿 👩🏼‍🤝‍👩🏻 | [12.0](https://emojipedia.org/emoji-12.0/) (February 2019) |
 
-[BOM March 2023](https://developer.android.com/develop/ui/compose/bom/bom) ([Compose UI 1.4](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#version_14_2))) brings support for the [latest emoji
+[BOM March 2023](https://developer.android.com/develop/ui/compose/bom.md.txt) ([Compose UI 1.4](https://developer.android.com/jetpack/androidx/releases/compose-ui.md.txt#version_14_2))) brings support for the [latest emoji
 version](https://developer.android.com/develop/ui/views/text-and-emoji/emoji2), including backwards compatibility with older Android versions down
 to API 21.
 

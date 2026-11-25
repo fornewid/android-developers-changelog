@@ -34,7 +34,8 @@ your app's text content behaves as you expect. You can use techniques such as
 the following to make your app's text more accessible:
 
 - If you use [autosizing text](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/TextAutoSize.md.txt), set explicit values for [`minFontSize`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/TextAutoSize.md.txt#StepBased(androidx.compose.ui.unit.TextUnit,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.unit.TextUnit)) and [`maxFontSize`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/TextAutoSize.md.txt#StepBased(androidx.compose.ui.unit.TextUnit,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.unit.TextUnit)).
-- Use an ellipsis to show that text overflows its container. The Material text element [uses an overflow ellipsis by default](https://developer.android.com/reference/androidx/wear/protolayout/material/Text.Builder.md.txt#setOverflow(int)).
+- Use an ellipsis to show that text overflows its container. For tiles, the [ProtoLayout](https://developer.android.com/jetpack/androidx/releases/wear-protolayout.md.txt) Material text element [uses an overflow ellipsis by
+  default](https://developer.android.com/reference/androidx/wear/protolayout/material/Text.Builder#setOverflow(int)).
 - Use hyphenation when words wrap across multiple lines, such as when users
   increase the font size or when your app displays translated or dynamic
   content. By default, Compose uses [`Hyphens.None`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/Hyphens.md.txt#None()), which splits words
@@ -54,6 +55,9 @@ the following to make your app's text more accessible:
       style = LocalTextStyle.current.copy(hyphens = Hyphens.Auto)
   )
   ```
+
+  `Hyphens.Auto` applies only to Compose text. Tiles use ProtoLayout, which
+  doesn't support automatic hyphenation.
 
 ## Enable rotary input
 

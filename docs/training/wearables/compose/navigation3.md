@@ -17,9 +17,9 @@ applications.
 
 - **[`NavKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavKey.md.txt)**: A type-safe, serializable identifier for a destination (screen) in your app.
 - **[`NavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavBackStack.md.txt)** : A mutable list of `NavKey` instances representing the navigation history. You push and pop items directly from this list.
-- **[`rememberNavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary.md.txt#rememberNavBackStack)**: A composable that creates and persists the back stack across configuration changes and process death.
+- **[`rememberNavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary.md.txt#rememberNavBackStack(kotlin.Array))**: A composable that creates and persists the back stack across configuration changes and process death.
 - **[`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay.md.txt)**: The core UI component that observes the back stack and renders the active screen.
-- **[`EntryProvider`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary.md.txt#entryProvider)** : A mapping DSL that links a `NavKey` to its actual `@Composable` UI.
+- **[`EntryProvider`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary.md.txt#entryProvider(kotlin.Function1,kotlin.Function1))** : A mapping DSL that links a `NavKey` to its actual `@Composable` UI.
 - **[`SwipeDismissableSceneStrategy`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation3/SwipeDismissableSceneStrategy.md.txt)**: The Wear-specific strategy that wraps your screens in a swipe-to-dismiss gesture and handles built-in back animations.
 
 ## Step 1: Add dependencies

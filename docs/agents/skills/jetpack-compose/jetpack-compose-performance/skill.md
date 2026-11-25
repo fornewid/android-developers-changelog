@@ -34,7 +34,6 @@ place:
 - **Synchronous State Derivation** : Audit for asynchronous `produceState` + `snapshotFlow` blocks observing Compose states (such as scroll positions or collection sizes); replace them with synchronous `remember { derivedStateOf
   { ... } }` (or `computedStateOf` on Compose 1.13+).
 - **Trivial Primitives** : Prefer plain custom Kotlin getters (`get()`) over `derivedStateOf` or `computedStateOf` for simple boolean expressions and property lookups.
-- **Collection State Tracking** : Back whole-list updates with standard `mutableListOf()` and `mutableStateOf(list, neverEqualPolicy())` with load-bearing assignments instead of `mutableStateListOf()`.
 - **Snapshot Collections** : Use `SnapshotStateList.toList()` for repeated queries or iterations to avoid per-element read observation overhead.
 - **Repeated State Reads** : Extract repeated Compose `State` property reads into a local variable at the top of the block.
 - **State in Setters** : Avoid reading Compose `State` inside custom property setters; use a raw backing field when triggering change side-effects and batch multi-property updates.

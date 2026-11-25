@@ -39,7 +39,7 @@ This document summarizes the main tasks you need to perform to prepare your
 app for release. The tasks described on this page apply to all Android apps,
 regardless of how they are released or distributed to users. If you are
 releasing your app through Google Play, read [Release with
-confidence](https://developer.android.com/distribute/best-practices/launch/launch-checklist).
+confidence](https://play.google.com/console/about/guides/releasewithconfidence/).
 
 **Note:** As a best practice, make sure your app
 meets all of your release criteria for functionality, performance, and

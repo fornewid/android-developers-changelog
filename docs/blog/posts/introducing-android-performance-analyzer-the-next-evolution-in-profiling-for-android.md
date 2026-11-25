@@ -35,7 +35,7 @@ We're also working across the Android ecosystem with our esteemed industry partn
 APA ships in two different forms, and you can download whichever one suits your needs best
 
 - As a [lightweight standalone desktop app](https://developer.android.com/android-performance-analyzer.md.txt).
-- And also integrated directly into Android Studio as the updated System Trace viewer (available in [Panda 4 canary builds](https://developer.android.com/studio/preview) and later).
+- And also integrated directly into Android Studio as the updated System Trace viewer (available in [Panda 4 canary builds](https://developer.android.com/studio/preview.md.txt) and later).
 
 The standalone desktop app is intended to be used without an Android Studio project or Gradle build - and provides deep customization of recording configuration, built-in Vulkan layers for graphics analysis, deep inspection of GPU counters and much more.
 
@@ -128,7 +128,7 @@ You can read [our exploration of Filament here](https://developer.android.com/an
 The Android Performance Analyzer is available for you to try out and use today:
 
 - **Standalone profiler:** [https://developer.android.com/android-performance-analyzer](https://developer.android.com/android-performance-analyzer.md.txt)
-- **Android Studio Canary Build (Panda 4 canary builds and later):** [https://developer.android.com/studio/preview](https://developer.android.com/studio/preview)
+- **Android Studio Canary Build (Panda 4 canary builds and later):** [https://developer.android.com/studio/preview](https://developer.android.com/studio/preview.md.txt)
 
 This is beta software, which means that you might run into an occasional bug -- please report it to us if you find any (**Help Menu \> Submit a bug report**).
 
