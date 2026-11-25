@@ -1,0 +1,309 @@
+diff --git a/docs/kotlin/multiplatform/plugin.md b/docs/kotlin/multiplatform/plugin.md
+index 4e83aae1..e553e4be 100644
+--- a/docs/kotlin/multiplatform/plugin.md
++++ b/docs/kotlin/multiplatform/plugin.md
+@@ -4,31 +4,33 @@ url: https://developer.android.com/kotlin/multiplatform/plugin
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/kotlin/multiplatform/llms.txt
++
+ The `com.android.kotlin.multiplatform.library` Gradle plugin is the officially
+ supported tool for adding an Android target to a Kotlin Multiplatform (KMP)
+-[library module](https://developer.android.com/studio/projects/android-library). It simplifies project configuration, improves
++[library module](https://developer.android.com/studio/projects/android-library.md.txt). It simplifies project configuration, improves
+ build performance, and offers better integration with Android Studio.
+ 
+ Using the `com.android.library` plugin for KMP development depends on Android
+ Gradle Plugin APIs that are deprecated and [require opt-in](https://developer.android.com/r/tools/new-dsl) in Android
+ Gradle plugin 9.0 and higher (Q4 2025). These APIs
+-[are expected to be removed](https://developer.android.com/build/releases/gradle-plugin-roadmap) in Android Gradle plugin 10.0
++[are expected to be removed](https://developer.android.com/build/releases/gradle-plugin-roadmap.md.txt) in Android Gradle plugin 10.0
+ (second half of 2026).
+ 
+ > [!NOTE]
+ > **Note:** There isn't a direct replacement for configuring a Kotlin Multiplatform module using `com.android.application` plugin. To migrate, extract your Android **application** to a separate Gradle module.
+ 
+-To apply this plugin, refer to the [Apply the Android-KMP plugin](https://developer.android.com/kotlin/multiplatform/plugin#apply)
++To apply this plugin, refer to the [Apply the Android-KMP plugin](https://developer.android.com/kotlin/multiplatform/plugin.md.txt#apply)
+ section. If you need to migrate from the legacy APIs, check the [Migration
+ Guide](https://developer.android.com/kotlin/multiplatform/plugin#migrate).
+ 
+ For help with the AGP 9.0+ migration, you can use the [agent skill](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-agp9-migration)
+ created by JetBrains for KMP apps. For more information about using skills in
+-Android Studio, see [Extend Agent Mode with skills](https://developer.android.com/studio/gemini/skills). Keep in mind
++Android Studio, see [Extend Agent Mode with skills](https://developer.android.com/studio/gemini/skills.md.txt). Keep in mind
+ that AI results aren't entirely predictable.
+ 
+ > [!CAUTION]
+-> **Caution:** Before you migrate to the new plugin, be aware of the [known issues](https://developer.android.com/kotlin/multiplatform/plugin#known-issues) and [unsupported features](https://developer.android.com/kotlin/multiplatform/plugin#unsupported-features-and-workarounds).
++> **Caution:** Before you migrate to the new plugin, be aware of the [known issues](https://developer.android.com/kotlin/multiplatform/plugin.md.txt#known-issues) and [unsupported features](https://developer.android.com/kotlin/multiplatform/plugin.md.txt#unsupported-features-and-workarounds).
+ 
+ ## Key features and differences
+ 
+@@ -93,8 +95,8 @@ for the unsupported features:
+   the `com.android.library` plugin, configure build types and product flavors
+   within that module, and then consume it as a standard project dependency
+   from your Kotlin Multiplatform library's `androidMain` source set.
+-  For more details, see [Create an Android library](https://developer.android.com/studio/projects/android-library) and
+-  [Configure build variants](https://developer.android.com/build/build-variants).
++  For more details, see [Create an Android library](https://developer.android.com/studio/projects/android-library.md.txt) and
++  [Configure build variants](https://developer.android.com/build/build-variants.md.txt).
+ - **Data binding and View binding**
+ 
+   These are Android-specific UI framework features tightly coupled to the
+@@ -117,8 +119,8 @@ for the unsupported features:
+   recommendation is to create a separate standalone `com.android.library` module
+   where you can integrate native code, and consume that standalone library from
+   your Kotlin Multiplatform library project's `androidMain` source set.
+-  For more details, see [Create an Android library](https://developer.android.com/studio/projects/android-library) and
+-  [Add C and C++ code to your project](https://developer.android.com/studio/projects/add-native-code).
++  For more details, see [Create an Android library](https://developer.android.com/studio/projects/android-library.md.txt) and
++  [Add C and C++ code to your project](https://developer.android.com/studio/projects/add-native-code.md.txt).
+ - **`BuildConfig` class**
+ 
+   The `BuildConfig` feature is most useful in multi-variant environments.
+@@ -144,17 +146,18 @@ steps:
+    (usually `gradle/libs.versions.toml`) and add the plugin definitions
+    section:
+ 
+-       # To check the version number of the latest Kotlin release, go to
+-       # https://kotlinlang.org/docs/releases.html
+-
+-       [versions]
+-       androidGradlePlugin = "9.5.0"
+-       kotlin = "KOTLIN_VERSION"
++   ```toml
++   # To check the version number of the latest Kotlin release, go to
++   # https://kotlinlang.org/docs/releases.html
+ 
+-       [plugins]
+-       kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+-       android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "androidGradlePlugin" }
++   [versions]
++   androidGradlePlugin = "9.5.0"
++   kotlin = "KOTLIN_VERSION"
+ 
++   [plugins]
++   kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
++   android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "androidGradlePlugin" }
++   ```
+ 2. **Apply the plugin declaration in root build file.** Open the
+    `build.gradle.kts` file located in the root directory of your project. Add
+    the plugin aliases to the `plugins` block using `apply false`. This makes
+@@ -236,7 +239,7 @@ steps:
+ 
+           compilerOptions.configure {
+               jvmTarget.set(
+-                  org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8
++                  org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+               )
+           }
+       }
+@@ -277,7 +280,7 @@ steps:
+           }
+ 
+           compilerOptions.options.jvmTarget.set(
+-              org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8
++              org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+           )
+       }
+ 
+@@ -301,6 +304,43 @@ steps:
+ 5. **Apply changes.** After applying the plugin and configuring the `kotlin`
+    block, sync your Gradle project to apply the changes.
+ 
++### Configure a minor compile SDK version
++
++Unlike `CommonExtension`,
++[`KotlinMultiplatformAndroidLibraryExtension`](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/KotlinMultiplatformAndroidLibraryExtension.md.txt)
++doesn't expose a top-level `compileSdkMinor` property. In AGP 8.13.0 and higher,
++use the `compileSdk` block with [`CompileSdkSpec`](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/CompileSdkSpec.md.txt) to target
++a minor SDK release for API level 36 and higher. Set
++[`minorApiLevel`](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/CompileSdkReleaseSpec#minorApiLevel()) inside `release`:
++
++### Kotlin
++
++```kotlin
++kotlin {
++    android {
++        compileSdk {
++            version = release(36) {
++                minorApiLevel = 1
++            }
++        }
++    }
++}
++```
++
++### Groovy
++
++```groovy
++kotlin {
++    android {
++        compileSdk {
++            version = release(36) {
++                minorApiLevel = 1
++            }
++        }
++    }
++}
++```
++
+ ## Migrate from the legacy plugin
+ 
+ This guide helps you migrate from the legacy `com.android.library` plugin to the
+@@ -589,7 +629,7 @@ and Java compilation for the Android target.
+         withJava()
+         // Configure the JVM target for both Kotlin and Java sources
+         compilerOptions {
+-          jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8)
++          jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+         }
+       }
+       // ...
+@@ -613,15 +653,19 @@ Kotlin sources was set in the android block using compileOptions.
+     android {
+       // ...
+       compileOptions {
+-        sourceCompatibility = JavaVersion.VERSION_1_8
+-        targetCompatibility = JavaVersion.VERSION_1_8
++        sourceCompatibility = JavaVersion.VERSION_11
++        targetCompatibility = JavaVersion.VERSION_11
+       }
+     }
+ 
+     kotlin {
+       androidTarget {
+         compilations.all {
+-          kotlinOptions.jvmTarget = "1.8"
++          compileTaskProvider.configure {
++            compilerOptions.jvmTarget.set(
++              org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
++            )
++          }
+         }
+       }
+     }
+@@ -700,7 +744,7 @@ productFlavors` blocks. This often involved using `missingDimensionStrategy`
+ to provide a default flavor for a dimension that your library didn't have,
+ or `matchingFallbacks` within a specific flavor to define a search order.
+ 
+-Refer to [Resolve Matching Errors](https://developer.android.com/build/build-variants#resolve_matching_errors) for more
++Refer to [Resolve Matching Errors](https://developer.android.com/build/build-variants.md.txt#resolve_matching_errors) for more
+ detailed information on the API usage.
+ 
+ ### 9. Add Compose preview dependencies
+@@ -717,7 +761,7 @@ To add a dependency only for local development and testing, add the
+ dependency directly to the runtime classpath configuration (in the top-level
+ `dependencies` block) of the main Android compilation. This helps ensure the
+ dependency is available at runtime (for example for tools like
+-[Compose Preview](https://developer.android.com/develop/ui/compose/tooling/previews)) but is not part of the compile
++[Compose Preview](https://developer.android.com/develop/ui/compose/tooling/previews.md.txt)) but is not part of the compile
+ classpath or the published API of your library.
+ 
+ > [!WARNING]
+@@ -745,7 +789,7 @@ from being included in the library's release variant used by the consumers.
+ The KMP Android plugin sets the JVM target using
+ `android.compilerOptions.jvmTarget`, which applies to both Java and
+ Kotlin, simplifying the configuration compared to the separate
+-`compileOptions` and `kotlinOptions` blocks in pure Android projects.
++`compileOptions` and `kotlin.compilerOptions` blocks in pure Android projects.
+ 
+ ### Android-KMP
+ 
+@@ -755,6 +799,9 @@ for both Kotlin and Java compiler. Understanding the scope and hierarchy of
+ these configurations is key to managing your project's bytecode
+ compatibility.
+ 
++> [!NOTE]
++> **Note:** Without a JVM target or toolchain, the JVM target follows the JDK that runs Gradle. For Android libraries, use JVM 11, which can call AndroidX inline functions without raising your consumers' requirements.
++
+ Here are the three primary ways to set the JVM target, ordered from
+ lowest to highest precedence. JVM target values that take higher precedence
+ apply to smaller subset of your configured targets and override values that
+@@ -773,8 +820,11 @@ targets in your project, including Android.
+         jvmToolchain(21)
+     }
+ 
+-This configuration makes both `kotlinc` and `javac` target JVM 21. It's
+-a great way to establish a consistent baseline for your entire project.
++This configuration makes both `kotlinc` and `javac` target JVM 21. For a
++library, this also raises the requirements for its consumers: Kotlin code
++that calls the library's inline functions must also target JVM 21 or
++higher. To build with a newer JDK but keep a lower JVM target, also set the
++JVM target for the Android target, as shown in the next section.
+ 
+ **Using android target-level compiler options (medium precedence)**
+ 
+@@ -826,14 +876,15 @@ you use the KMP Android plugin (but conceptually similar).
+ 
+ The `kotlin.jvmToolchain()` method works identically, setting the
+ `sourceCompatibility` and `targetCompatibility` for Java and the
+-`jvmTarget` for Kotlin. We recommend using this approach.
++`jvmTarget` for Kotlin. As with the Android-KMP plugin, the toolchain
++version then becomes the JVM target that consumers of a library need.
+ 
+     // build.gradle.kts
+     kotlin {
+         jvmToolchain(21)
+     }
+ 
+-**compileOptions and kotlinOptions**
++**compileOptions and compilerOptions**
+ 
+ If you don't use Kotlin toolchain, you have to configure the JVM
+ targets using separate blocks for Java and Kotlin.
+@@ -844,9 +895,15 @@ targets using separate blocks for Java and Kotlin.
+             sourceCompatibility = JavaVersion.VERSION_11
+             targetCompatibility = JavaVersion.VERSION_11
+         }
++    }
+ 
+-        kotlinOptions {
+-            jvmTarget = "11"
++    kotlin {
++        androidTarget {
++            compilations.all {
++                compileTaskProvider.configure {
++                    compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
++                }
++            }
+         }
+     }
+ 
+@@ -910,18 +967,18 @@ you need to follow the standard Android library publishing guide to
+ prepare and publish the Android-specific artifact (`.aar`).
+ 
+ For detailed instructions, see
+-[Prepare your library for release](https://developer.android.com/build/publish-library/prep-lib-release).
++[Prepare your library for release](https://developer.android.com/build/publish-library/prep-lib-release.md.txt).
+ 
+ ## Plugin API reference
+ 
+ The new plugin has a different API surface than `com.android.library`. For
+ detailed information on the new DSL and interfaces, see the API references:
+ 
+-- [`KotlinMultiplatformAndroidLibraryExtension`](https://developer.android.com/reference/tools/gradle-api/8.11/com/android/build/api/dsl/KotlinMultiplatformAndroidLibraryExtension)
+-- [`KotlinMultiplatformAndroidLibraryTarget`](https://developer.android.com/reference/tools/gradle-api/8.11/com/android/build/api/dsl/KotlinMultiplatformAndroidLibraryTarget)
+-- [`KotlinMultiplatformAndroidDeviceTest`](https://developer.android.com/reference/tools/gradle-api/8.11/com/android/build/api/dsl/KotlinMultiplatformAndroidDeviceTest)
+-- [`KotlinMultiplatformAndroidHostTest`](https://developer.android.com/reference/tools/gradle-api/8.11/com/android/build/api/dsl/KotlinMultiplatformAndroidHostTest)
+-- [`KotlinMultiplatformAndroidVariant`](https://developer.android.com/reference/tools/gradle-api/8.11/com/android/build/api/variant/KotlinMultiplatformAndroidVariant)
++- [`KotlinMultiplatformAndroidLibraryExtension`](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/KotlinMultiplatformAndroidLibraryExtension.md.txt)
++- [`KotlinMultiplatformAndroidLibraryTarget`](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/KotlinMultiplatformAndroidLibraryTarget.md.txt)
++- [`KotlinMultiplatformAndroidDeviceTest`](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/KotlinMultiplatformAndroidDeviceTest.md.txt)
++- [`KotlinMultiplatformAndroidHostTest`](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/KotlinMultiplatformAndroidHostTest)
++- [`KotlinMultiplatformAndroidVariant`](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/variant/KotlinMultiplatformAndroidVariant.md.txt)
+ 
+ ## Known issues with the Android-KMP library plugin
+ 
+@@ -946,5 +1003,5 @@ These are the known issues that might occur when you apply the new
+ ## Recommended for you
+ 
+ - Note: link text is displayed when JavaScript is off
+-- [Set up your environment](https://developer.android.com/kotlin/multiplatform/setup)
+-- [Add KMP module to a project](https://developer.android.com/kotlin/multiplatform/migrate)
+\ No newline at end of file
++- [Set up your environment](https://developer.android.com/kotlin/multiplatform/setup.md.txt)
++- [Add KMP module to a project](https://developer.android.com/kotlin/multiplatform/migrate.md.txt)
+\ No newline at end of file

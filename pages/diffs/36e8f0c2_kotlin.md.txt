@@ -1,0 +1,101 @@
+diff --git a/docs/kotlin.md b/docs/kotlin.md
+index ad657421..1296236d 100644
+--- a/docs/kotlin.md
++++ b/docs/kotlin.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ ### Develop Android apps with Kotlin
+ 
+-Write better Android apps faster with Kotlin. Kotlin is a modern statically typed programming language used by over 60% of professional Android developers that helps boost productivity, developer satisfaction, and code safety. [Get started](http://developer.android.com/kotlin/first.md.txt) ![](http://developer.android.com/static/images/picto-icons/code.svg)
++Write better Android apps faster with Kotlin. Kotlin is a modern statically typed programming language used by over 60% of professional Android developers that helps boost productivity, developer satisfaction, and code safety. [Get started](http://developer.android.com/kotlin/learn.md.txt) ![](http://developer.android.com/static/images/picto-icons/code.svg)
+ 
+ ### Expressive and concise
+ 
+@@ -18,7 +18,7 @@ Kotlin's modern language features allow you to focus on expressing your ideas an
+ 
+ ### Safer code
+ 
+-With nullability included in its type system, Kotlin helps you avoid NullPointerExceptions. Android apps that use Kotlin are 20% less likely to crash. [Learn more](http://developer.android.com/kotlin/learn.md.txt#null-safety) ![](http://developer.android.com/static/images/spot-icons/jetpack-compose.svg)
++With nullability included in its type system, Kotlin helps you avoid NullPointerExceptions. [Learn more](https://kotlinlang.org/docs/null-safety.html) ![](http://developer.android.com/static/images/spot-icons/jetpack-compose.svg)
+ 
+ ### Jetpack Compose
+ 
+@@ -36,7 +36,7 @@ Share code across Android, iOS, and desktop platforms with Kotlin Multiplatform.
+ 
+ getting started
+ 
+-### [Learning Android \& Kotlin from scratch](http://developer.android.com/courses/android-basics-compose/course.md.txt)
++### [Learning Android \& Kotlin from scratch](http://developer.android.com/courses/android-basics-compose/course)
+ 
+ View our guides for beginners, teaching you how to build Android apps with Kotlin and Jetpack Compose. getting started
+ 
+@@ -58,19 +58,19 @@ Kotlin is fully supported for Android development with tools and resources to he
+ 
+ ### Android Studio
+ 
+-Android Studio provides first-class support for Kotlin. It even has built-in tools to help you convert Java-based code to Kotlin. The Show Kotlin Bytecode tool lets you to see the equivalent Java-based code as you learn Kotlin. [Download](http://developer.android.com/studio.md.txt) ![](http://developer.android.com/static/images/picto-icons/android-ktx.svg)
++Android Studio provides first-class support for Kotlin. It even has built-in tools to help you convert Java-based code to Kotlin. The Show Kotlin Bytecode tool lets you to see the equivalent Java-based code as you learn Kotlin. [Download](http://developer.android.com/studio) ![](http://developer.android.com/static/images/picto-icons/android-badge.svg)
+ 
+-### Android KTX
++### Kotlin-first
+ 
+-Android KTX makes Android development with Kotlin more concise, pleasant, and idiomatic by leveraging Kotlin language features. [Learn more](http://developer.android.com/kotlin/ktx.md.txt) ![](http://developer.android.com/static/images/picto-icons/kotlin-friendly-sdk.svg)
++Android Jetpack libraries, Jetpack Compose, samples, and documentation are designed Kotlin-first while remaining interoperable with the Java programming language. [Learn more](http://developer.android.com/kotlin/first.md.txt) ![](http://developer.android.com/static/images/picto-icons/kotlin-friendly-sdk.svg)
+ 
+ ### Kotlin-friendly SDK
+ 
+ Starting with Android 9 (API level 28), the Android SDK contains nullability annotations to help avoid NullPointerExceptions. API reference documentation is also available in Kotlin. [See documentation](http://developer.android.com/reference/kotlin) ![](http://developer.android.com/static/images/picto-icons/learning-resources.svg)
+ 
+-### Learning resources
++### Learn Kotlin
+ 
+-Explore a curated set of resources in various formats to help you jumpstart learning Kotlin. [See resources](http://developer.android.com/kotlin/getting-started-resources.md.txt)
++Start learning the Kotlin programming language for Android development. [Read guide](http://developer.android.com/kotlin/learn.md.txt)
+ 
+ ## What does Kotlin code look like?
+ 
+@@ -137,11 +137,11 @@ Learn the latest best practices and APIs for building Android apps in Kotlin. [C
+ 
+ ### [Android + Kotlin on Medium](https://medium.com/androiddevelopers/tagged/kotlin)
+ 
+-Technical articles on Kotlin from the Android team. [Explore articles](https://medium.com/androiddevelopers/tagged/kotlin) [![](http://developer.android.com/static/images/picto-icons/courses.svg)](http://developer.android.com/courses/android-basics-compose/course.md.txt)
++Technical articles on Kotlin from the Android team. [Explore articles](https://medium.com/androiddevelopers/tagged/kotlin) [![](http://developer.android.com/static/images/picto-icons/courses.svg)](http://developer.android.com/courses/android-basics-compose/course)
+ 
+-### [Android Basics with Compose course](http://developer.android.com/courses/android-basics-compose/course.md.txt)
++### [Android Basics with Compose course](http://developer.android.com/courses/android-basics-compose/course)
+ 
+-For those with no programming experience, learn the basics of the Kotlin programming language and how to build simple Android apps. [Start course](http://developer.android.com/courses/android-basics-compose/course.md.txt)
++For those with no programming experience, learn the basics of the Kotlin programming language and how to build simple Android apps. [Start course](http://developer.android.com/courses/android-basics-compose/course)
+ 
+ ## Kotlin language documentation
+ 
+@@ -149,8 +149,24 @@ For those with no programming experience, learn the basics of the Kotlin program
+ 
+ ### [Kotlin playground](http://developer.android.com/training/kotlinplayground)
+ 
+-Try using Kotlin now, right in your web browser. [Try Now](http://developer.android.com/training/kotlinplayground) [![](http://developer.android.com/static/images/picto-icons/language.svg)](https://kotlinlang.org/docs/reference/)
++Try using Kotlin now, right in your web browser. [Try Now](http://developer.android.com/training/kotlinplayground) [![](http://developer.android.com/static/images/picto-icons/language.svg)](https://kotlinlang.org/docs/home.html)
+ 
+-### [Official language reference](https://kotlinlang.org/docs/reference/)
++### [Kotlin documentation](https://kotlinlang.org/docs/home.html)
+ 
+-Start learning Kotlin from the official language reference site. [View resource](https://kotlinlang.org/docs/reference/)
+\ No newline at end of file
++Read the official Kotlin language reference and guides from JetBrains. [View resource](https://kotlinlang.org/docs/home.html) [![](http://developer.android.com/static/images/picto-icons/interactive-lessons.svg)](https://kotlinlang.org/docs/kotlin-tour-welcome.html)
++
++### [Kotlin tour](https://kotlinlang.org/docs/kotlin-tour-welcome.html)
++
++Learn Kotlin basics step by step with interactive examples from JetBrains. [Take the tour](https://kotlinlang.org/docs/kotlin-tour-welcome.html)
++
++## Kotlin community and books
++
++[![](http://developer.android.com/static/images/picto-icons/chat-bubbles.svg)](https://kotlinlang.org/community/)
++
++### [Kotlin community](https://kotlinlang.org/community/)
++
++Find Kotlin user groups, the Kotlin Slack, the Talking Kotlin podcast, and more. [Join the community](https://kotlinlang.org/community/) [![](http://developer.android.com/static/images/picto-icons/learning-resources.svg)](https://kotlinlang.org/docs/books.html)
++
++### [Kotlin books](https://kotlinlang.org/docs/books.html)
++
++Browse books about Kotlin, including *Kotlin in Action*, curated by JetBrains. [See books](https://kotlinlang.org/docs/books.html)
+\ No newline at end of file

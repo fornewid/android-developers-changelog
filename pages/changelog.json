@@ -1,5 +1,203 @@
 [
   {
+    "date": "2026-11-25T15:11:33Z",
+    "commit_hash": "36e8f0c2",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/jetpack-compose/jetpack-compose-performance/references/state-and-stability\" target=\"_blank\">State, snapshots, and stability optimization</a>",
+        "path": "agents/skills/jetpack-compose/jetpack-compose-performance/references/state-and-stability.md",
+        "summary": "Removed the section on optimizing whole-collection updates with `neverEqualPolicy()` and re-indexed the remaining subsections under State and snapshot optimizations. This matters because it streamlines the performance guide, removing a pattern that required manual load-bearing assignments which can be error-prone for developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_state-and-stability.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench\" target=\"_blank\">Android Bench</a>",
+        "path": "bench.md",
+        "summary": "Updated documentation links to point to clean URLs by removing the '.md.txt' file extensions for archived leaderboards and changelogs. Additionally, added a new section highlighting the Android Bench 2.0 research paper, complete with a visual illustration link and a descriptive overview of frontier coding agent evaluations on long-horizon mobile engineering tasks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_bench.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench/methodology/2\" target=\"_blank\">Android Bench</a>",
+        "path": "bench/methodology/2.md",
+        "summary": "Added a promotional section and direct link to the Android Bench 2.0 research paper, highlighting its evaluation of frontier coding agents on long-horizon mobile engineering tasks. Additionally, updated the reference link for the Android Bench Leaderboard and Datasets to point to the markdown text version.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-native-android-apps-in-google-ai-studio\" target=\"_blank\">Build native Android apps in Google AI Studio</a>",
+        "path": "blog/posts/build-native-android-apps-in-google-ai-studio.md",
+        "summary": "Updated documentation links to point to internal markdown files (.md.txt) for Android Studio and Android CLI references, ensuring correct internal routing and resource resolution.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_build-native-android-apps-in-google-ai-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/setup-compose-dependencies-and-compiler\" target=\"_blank\">Set up the Compose Compiler Gradle plugin</a>",
+        "path": "develop/ui/compose/setup-compose-dependencies-and-compiler.md",
+        "summary": "Updated the recommended Jetpack Compose Bill of Materials (BOM) version to 2026.11.01 and bumped the lifecycle-viewmodel-compose dependency version to 2.11.1. These updates ensure developers use the latest stable releases and bug fixes for Compose integrations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_setup-compose-dependencies-and-compiler.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/text/emoji\" target=\"_blank\">Display emoji</a>",
+        "path": "develop/ui/compose/text/emoji.md",
+        "summary": "The emoji documentation was updated to include a link to the documentation index for LLMs and to fix a broken relative link for the Compose BOM (Bill of Materials) reference.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_emoji.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/distribute/aep/aep-req-restore-credentials\" target=\"_blank\">AEP guideline: Restore Credentials</a>",
+        "path": "distribute/aep/aep-req-restore-credentials.md",
+        "summary": "Updated the Restore Credentials API documentation to clarify backend implementation options, adding support for the WebAuthn largeBlob extension in Google Play services 26.43+ for token-based backends without WebAuthn endpoints, alongside internal link adjustments.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_aep-req-restore-credentials.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-event\" target=\"_blank\">Navigation Event</a>",
+        "path": "guide/navigation/navigation-event.md",
+        "summary": "Added documentation for Android skills and the NavigationEvent library, including instructions for installing the skill via the Android CLI to handle back gestures and predictive back animations. A link to the LLMs.txt documentation index was also introduced.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_navigation-event.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin\" target=\"_blank\">Kotlin and Android</a>",
+        "path": "kotlin.md",
+        "summary": "Updated links, resources, and sections in the Kotlin documentation. This includes changing internal `.md.txt` links to standard URL paths, redirecting null-safety resources to official Kotlin documentation, replacing the Android KTX section with a Kotlin-first overview, and adding new sections for the Kotlin tour, community, and books.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_kotlin.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/faq\" target=\"_blank\">Kotlin on Android FAQ</a>",
+        "path": "kotlin/faq.md",
+        "summary": "Updated the Kotlin FAQ documentation (`docs/kotlin/faq.md`) to reflect the current Kotlin-first approach on Android, refine phrasing, update resource links with appropriate file extensions, and remove outdated version details.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_faq.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/first\" target=\"_blank\">Android's Kotlin-first approach</a>",
+        "path": "kotlin/first.md",
+        "summary": "The Kotlin-first documentation was updated to modernize its messaging, update broken or outdated links (such as the Kotlin Foundation URL, KSP docs, and internal FAQ/story links), and remove specific older survey statistics. These changes ensure the documentation accurately reflects current Android development standards and provides valid references for AI and human readers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_first.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/multiplatform/kmp-integration\" target=\"_blank\">Build custom Gradle plugins for Android KMP</a>",
+        "path": "kotlin/multiplatform/kmp-integration.md",
+        "summary": "The documentation was updated to add a reference for configuring minor compile SDK versions and SDK extensions using the `compileSdk` block with `CompileSdkSpec` in AGP 8.13.0 and higher. Additionally, a documentation index link was added, and recommended links were updated to point to `.md.txt` files.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_kmp-integration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/multiplatform/plugin\" target=\"_blank\">Set up the Android Gradle library plugin for KMP</a>",
+        "path": "kotlin/multiplatform/plugin.md",
+        "summary": "Updated the Kotlin Multiplatform (KMP) Android plugin documentation to raise the default JVM target from JVM 1.8 to JVM 11 across configuration examples and migration guides. It added a new section detailing how to configure a minor compile SDK version using `CompileSdkSpec` for API level 36 and higher, provided guidance on handling JVM toolchains and consumer requirements, and updated API reference links to the AGP 9.5 versions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_plugin.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/parcelize\" target=\"_blank\">Parcelable implementation generator</a>",
+        "path": "kotlin/parcelize.md",
+        "summary": "Updated the parcelize documentation to include version catalog setup instructions for Gradle, improved markdown formatting for code snippets and internal links, and clarified the usage of `additionalAnnotation` for Kotlin 2.0+ multiplatform compatibility.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_parcelize.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/style-guide\" target=\"_blank\">Kotlin in Android style guide</a>",
+        "path": "kotlin/style-guide.md",
+        "summary": "The Kotlin style guide was updated to add a link to the LLM documentation index, fix a generic type constraint example (`Comparable<T>`), and correct an annotation example from `JvmStatic` to `JvmField` for volatile fields. These changes improve code accuracy and provide better AI-assistive developer resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_style-guide.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/latest-updates\" target=\"_blank\">Android latest updates</a>",
+        "path": "latest-updates.md",
+        "summary": "Updated the latest Android Studio preview release entry in the documentation to Stingray 1 | 2026.3.1 Canary 3, reflecting the newest version release date and details for developers tracking the Canary channel.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_latest-updates.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/camera/camerax/architecture\" target=\"_blank\">CameraX architecture</a>",
+        "path": "media/camera/camerax/architecture.md",
+        "summary": "The CameraX documentation was updated to reflect new minimum requirements and build configurations. Specifically, the minimum supported Android version was raised from API level 21 to Android 7.0 (API level 24), and instructions for Java 8 compatibility were replaced with guidelines for Java 11 bytecode targeting CameraX 1.7.0 and higher.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_architecture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/gemini/get-started\" target=\"_blank\">Get started with AI in Android Studio</a>",
+        "path": "studio/gemini/get-started.md",
+        "summary": "The get-started documentation for Android Studio AI features has been updated to introduce the new Antigravity agent, add a deprecation warning for the Gemini model provider set to occur after December 17, 2026, and include migration guidance for Gemini Code Assist users.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_get-started.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview\" target=\"_blank\">Android Studio Preview</a>",
+        "path": "studio/preview.md",
+        "summary": "Updated the Android Studio preview documentation to bump the download version from Stingray 1 | 2026.3.1 Canary 2 to Canary 3 across Windows, Mac, and Linux platforms, including corresponding file names and download URLs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2026.3.1\" target=\"_blank\">Android Studio Stingray 1 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/studio/2026.3.1.md",
+        "summary": "Added release notes for Android Studio Stingray 1 | 2026.3.1 Canary 3, bundled with Android Gradle Plugin 9.6.0-alpha06. This update documents fixes for several key issues, including AGP bug fixes for test fixtures and Prefab tasks, a K2 lint false positive for IntDef constants in binary dependencies, and the integration of DPAD extended controls for TV emulators.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_2026.3.1.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-score\" target=\"_blank\">Get your App Performance Score</a>",
+        "path": "topic/performance/app-score.md",
+        "summary": "Updated the App Performance Score documentation to introduce a structured tiered performance journey (Levels 1-5), restructured the relationship and ordering between static and dynamic scores (recommending static optimizations first for higher ROI), and updated specific criteria and links for AGP, R8, Compose, and Baseline Profiles.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_app-score.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/compose/migrate-to-navigation3\" target=\"_blank\">Migrate to Navigation 3</a>",
+        "path": "training/wearables/compose/migrate-to-navigation3.md",
+        "summary": "The migration documentation for Navigation 3 on Wear OS was updated with precise API reference links, including explicit signatures for `rememberNavBackStack` and `entryProvider`, and an added documentation index link for LLMs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_migrate-to-navigation3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/data/network-communication\" target=\"_blank\">Communicate directly over a network on standalone devices</a>",
+        "path": "training/wearables/data/network-communication.md",
+        "summary": "The network-communication.md documentation for Wear OS was updated to include a link to the LLMs documentation index and to fix a broken link to the WorkManager constraints guide, ensuring developers are directed to the correct current documentation resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_network-communication.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/wearables/tiles/versioning\" target=\"_blank\">Tiles versioning</a>",
+        "path": "training/wearables/tiles/versioning.md",
+        "summary": "Updated the documentation links for the `text()` function in Wear OS ProtoLayout Material 3. The reference URLs were updated to include an additional parameter (`kotlin.collections.List`), ensuring developers have accurate API signatures for text components.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/36e8f0c2_versioning.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-24T15:09:51Z",
     "commit_hash": "d96015d2",
     "entries": [

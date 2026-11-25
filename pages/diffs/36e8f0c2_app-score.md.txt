@@ -1,0 +1,260 @@
+diff --git a/docs/topic/performance/app-score.md b/docs/topic/performance/app-score.md
+index e46989eb..84eff06a 100644
+--- a/docs/topic/performance/app-score.md
++++ b/docs/topic/performance/app-score.md
+@@ -11,39 +11,55 @@ and discover opportunities for improvement. The App Performance Score provides a
+ standardized framework to measure performance with minimal in-depth technical
+ tasks.
+ 
+-It guides engineering and product teams to assess technical performance of any
+-given Android app. After the assessment is complete, an evaluation and
+-recommended actions help to identify and prioritize the most important areas for
+-performance improvement.
++It guides engineering and product teams to assess the technical performance of
++any Android app. After you complete the assessment, the evaluation and
++recommended actions help you identify and prioritize the most important areas
++for performance improvement.
+ 
+ > [!WARNING]
+-> **Preview:** This page contains the first iteration of the App Performance Score.
++> **Preview:** This page contains the App Performance Score assessment.
+ >
+-> - Scoring, evaluation and recommendations are likely to change in the future.
+-> - Recommendations and guidance provided has curated with performance impact in mind.
+-> - Tools and guidance in the recommendations are stable and can help to improve app startup and rendering performance.
++> - Scoring, evaluation, and recommendations update as performance guidance evolves.
++> - Recommendations and guidance focus on performance impact and return on investment (ROI).
++> - Tools and guidance in the recommendations are stable and help improve app startup and rendering performance.
+ 
+ *** ** * ** ***
+ 
+ ### Introduction
+ 
+ The App Performance Score provides app developers with static and dynamic
+-assessments. Both can be conducted individually and provide unique insights into
+-an app's performance behavior. These insights are coupled with actionable
+-recommendations which can help to improve the status quo and elevate the app's
+-performance.
+-
+-A score between 0 and 100 is provided to help gauge the overall performance.
+-A lower number means more room to improve.
+-
+-Use the score and recommendations for each item to direct engineering efforts
+-into areas where high performance gains can be achieved. When recommendations
+-have been applied, take the assessment again and see how the score has improved.
+-
+-| Dynamic score | Static score |
++assessments. You can run each assessment individually to get insights into your
++app's performance behavior, along with actionable recommendations to improve
++your app's performance.
++
++The assessment provides a score between 0 and 100 to help you gauge overall
++performance. A lower number means more room to improve.
++
++Use the score and recommendations for each item to focus engineering efforts on
++areas with high performance gains. Start with the **Static App Performance
++Score** to apply foundational build and configuration optimizations first, then
++use the **Dynamic App Performance Score** to validate runtime startup and
++rendering improvements on physical devices. After you apply the
++recommendations, retake the assessment to see how your score improves.
++
++### Where the App Performance Score fits in your performance journey
++
++Improving app performance follows a tiered, step-by-step progression from
++low-effort, high-ROI foundational practices to advanced custom telemetry:
++
++1. **Level 1 (Monitor field vitals)** : Track production health in Google Play Console using [Android vitals](https://developer.android.com/google/play/vitals.md.txt), including user-perceived crash rate, user-perceived ANR rate, excessive battery usage, excessive partial wake locks, low-memory killer (LMK) rate, and DEX optimization status.
++2. **Level 2 (App Performance Score assessment)** : Apply high-ROI optimizations using this scorecard:
++   - **Step 1 ([Static App Performance Score](https://developer.android.com/topic/performance/app-score.md.txt#static-score))** : Verify project configuration and tooling adoption, including Android Gradle Plugin (AGP), [R8 app optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt), [Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt), [Startup Profiles](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations), [Jetpack Compose](https://developer.android.com/compose), and [`reportFullyDrawn`](https://developer.android.com/reference/android/app/Activity.md.txt#reportFullyDrawn()).
++   - **Step 2 ([Dynamic App Performance Score](https://developer.android.com/topic/performance/app-score.md.txt#dynamic-score))**: Measure cold startup and frame rendering performance on low-end physical devices.
++3. **Level 3 (Automated local benchmarking)** : Prevent regressions and automate measurement using Jetpack [Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics.md.txt) (`StartupTimingMetric` and `FrameTimingMetric`) and [`UiAutomator`](https://developer.android.com/training/testing/other-components/ui-automator.md.txt).
++4. **Level 4 (In-depth trace diagnosis)** : Diagnose complex startup and rendering bottlenecks using [Perfetto and the Android Studio System Trace
++   Profiler](https://developer.android.com/topic/performance/tracing).
++5. **Level 5 (Custom production telemetry)** : Collect targeted field diagnostics using [`ApplicationStartInfo`](https://developer.android.com/reference/android/app/ApplicationStartInfo.md.txt), [`ProfilingManager`](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture.md.txt), and [`ApplicationExitInfo`](https://developer.android.com/reference/android/app/ApplicationExitInfo.md.txt).
++
++| Static score (Step 1) | Dynamic score (Step 2) |
+ |---|---|
+-| The application's runtime behavior is used to assess performance characteristics. The dynamic performance score is a direct reflection of how well an app performs on a specific device. | The application is statically assessed to evaluate performance predictors based on use of best practices and tooling adoption. The static performance score highlights tools with high impact on app performance. No runtime evaluation is needed for this score. |
+-| [Jump to dynamic score](https://developer.android.com/topic/performance/app-score#dynamic-score) | [Jump to static score](https://developer.android.com/topic/performance/app-score#static-score) |
++| Statically assesses your app to evaluate performance predictors based on best practices and tooling adoption. The static performance score highlights tools with high impact on app performance and doesn't require runtime evaluation. | Uses your app's runtime behavior to assess performance characteristics. The dynamic performance score directly reflects how well your app performs on a specific device. |
++| [Jump to static score](https://developer.android.com/topic/performance/app-score.md.txt#static-score) | [Jump to dynamic score](https://developer.android.com/topic/performance/app-score.md.txt#dynamic-score) |
+ 
+ <br />
+ 
+@@ -51,30 +67,28 @@ have been applied, take the assessment again and see how the score has improved.
+ 
+ <br />
+ 
+-![](https://developer.android.com/static/images/picto-icons/lightning.svg)
+-
+-## Dynamic App Performance Score
++![Static score icon](https://developer.android.com/static/images/picto-icons/layout.svg)
+ 
+-During dynamic assessment of the App Performance Score, runtime data are used to
+-evaluate an app's performance on a specific device.
+-
+-The dynamic assessment requires a physical device for a realistic performance
+-evaluation. The score will vary depending on the device's capabilities. Assess
+-the performance on multiple devices to get a better understanding how users are
+-impacted by performance shortcomings.
++## Static App Performance Score
+ 
+-> [!TIP]
+-> **Tip:** Use lower end devices to exaggerate performance issues. This will result in an overall lower score and emphasize areas that can be improved.
++The static App Performance Score measures your adoption of high-impact tools and
++best practices. Start with the static assessment before measuring your dynamic
++score, because these configuration and build optimizations offer the highest
++return on investment and directly improve runtime startup and rendering metrics.
++To score an app's static performance indicators, you need access to the
++project's source code.
+ 
+-The current dynamic app score categories and assessment criteria are outlined in
+-the following table.
++The following table lists the criteria that generate the static App Performance
++Score:
+ 
+ | Category | Assessment criteria |
+ |---|---|
+-| Application startup | Measured duration between app startup and the app becoming interactive [TTFD](https://developer.android.com/topic/performance/issues/launch-time#time-full). |
+-| Rendering performance | Percentage of slow and frozen frames for scrolling, animating and full screen renders. |
++| Build and optimization improvements | App uses a recent [Android Gradle Plugin](https://developer.android.com/build/gradle-build-overview.md.txt) (such as AGP 9.0 or higher, or AGP 9.3 or higher for simplified optimization configuration), and [R8 minification and optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt) are enabled in [full mode](https://developer.android.com/topic/performance/app-optimization/full-mode.md.txt) (or adopted [incrementally](https://developer.android.com/topic/performance/app-optimization/adopt-optimizations-incrementally.md.txt)) with minimal keep rules verified by the [R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer.md.txt). |
++| Startup performance | [Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt) are automated and cover startup and critical user journeys, and Startup Profiles apply [DEX layout optimizations](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations). |
++| Compose adoption | App uses a recent stable [Jetpack Compose BOM](https://developer.android.com/compose) (such as Compose BOM 2025.04.01 or higher). |
++| Monitoring and optimization | App calls [`FullyDrawnReporter`](https://developer.android.com/reference/kotlin/androidx/activity/FullyDrawnReporter.md.txt) or [`reportFullyDrawn`](https://developer.android.com/reference/android/app/Activity.md.txt#reportFullyDrawn()) when it becomes interactive. |
+ 
+-<iframe src="https://android.devsite.google/frame/topic/performance/app-score/index_c44a88f56f601ba1d26535a1282ce0eb0513841c1f79fba5949979d365849e37.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/topic/performance/app-score/index_c36fb58dac5593531ced3fb3482d47efc4f26471bc9b61b93e4e5276cee40d98.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ <br />
+ 
+@@ -82,25 +96,31 @@ the following table.
+ 
+ <br />
+ 
+-![](https://developer.android.com/static/images/picto-icons/layout.svg)
++![Dynamic score icon](https://developer.android.com/static/images/picto-icons/lightning.svg)
+ 
+-## Static App Performance Score
++## Dynamic App Performance Score
++
++After applying the static optimizations, use the dynamic assessment of the App
++Performance Score to evaluate your app's runtime performance on a specific
++device.
++
++The dynamic assessment requires a physical device for a realistic performance
++evaluation. The score varies depending on the device's capabilities. Assess
++performance on multiple devices to better understand how performance
++shortcomings affect users.
+ 
+-The static App Performance Score is calculated based on the usage of highly
+-impactful tools and best practices. To correctly score an app's static
+-performance indicators, access to the project's source code is required.
++> [!TIP]
++> **Tip:** Use lower-end devices to make performance issues more visible. Lower-end devices produce a lower overall score and highlight areas that you can improve.
+ 
+-The criteria listed in the following table are used to assess and generate the
+-static App Performance Score.
++The following table outlines the dynamic app score categories and assessment
++criteria:
+ 
+ | Category | Assessment criteria |
+ |---|---|
+-| Build time improvements | - App uses latest version of the [Android Gradle Plugin](https://developer.android.com/build/gradle-build-overview) to unlock access to performance enhancing tools - [Minification and optimizations](https://developer.android.com/build/shrink-code) enabled with full mode R8. Exceptions are minimal and limited to necessary areas. |
+-| Startup performance | - [Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview) are found in the app and applied correctly for app startup - Baseline Profiles cover one or more user journeys - Startup Profiles applied to apply [Dex Layout Optimizations](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations) |
+-| Compose adoption | App uses latest stable version of [Compose](https://developer.android.com/compose) |
+-| Monitoring and optimization | [`FullyDrawnReporter`](https://developer.android.com/reference/kotlin/androidx/activity/FullyDrawnReporter) or [`reportFullyDrawn`](https://developer.android.com/reference/android/app/Activity#reportFullyDrawn()) is used at an appropriate time |
++| Application startup | Measured duration between app startup and the app becoming interactive ([TTFD](https://developer.android.com/topic/performance/issues/launch-time.md.txt#time-full)). |
++| Rendering performance | Percentage of slow and frozen frames for scrolling, animating, and full-screen renders. |
+ 
+-<iframe src="https://android.devsite.google/frame/topic/performance/app-score/index_42d3cbea530dfdd38f49eaa6a437db64b3f3ef56a3f0c310dbf88d4bf5e003b2.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/topic/performance/app-score/index_5bad8a629260cec5e9af4ecd40d73b901ad30bbe0884a98d4c23f2f0e8be5cba.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Tips for evaluating your app
+ 
+@@ -109,43 +129,46 @@ Here are some tips when measuring your App Performance Score.
+ ### Choose a representative device
+ 
+ When measuring your dynamic score, we recommend using the same type of device as
+-your user base. Unlike the static score, a dynamic score will vary based
+-on the device specs. If you don't know where to start, use a low-end device and
+-work on improvements from there.
++your user base. Unlike the static score, a dynamic score varies based on the
++device specifications. If you don't know where to start, use a low-end device
++and work on improvements from there.
+ 
+ ### Assess dynamic score variability
+ 
+-It's possible that your dynamic score changes across multiple observation
+-periods, without you changing your code. This could be due to inherent
+-variability in the app performance or other system activities happening on your
+-device. If you notice that your score is highly variable, we recommend testing
+-multiple times in sequence and noting the most common behavior.
++Your dynamic score might change across multiple observation periods, even
++without code changes. This variability can happen because of inherent
++variability in app performance or other system activities on your device. If
++your score varies significantly, test multiple times in sequence and note the
++most common behavior.
+ 
+-Your static score should remain stable unless you change your code.
++Your static score remains stable unless you change your code.
+ 
+ ### Use scores separately if needed
+ 
+-If you don't have the time or capacity to calculate both the dynamic and static
+-score, you can use each alone as well. Any improvement to your dynamic or static
+-score will still benefit your users.
++If you don't have the time or capacity to calculate both the static and dynamic
++score, you can use each alone as well. Any improvement to your static or dynamic
++score still benefits your users.
+ 
+ ### Supplement with other monitoring metrics
+ 
+-The App Performance Score is a quick, high-level way to assess app performance.
+-To get more detailed performance insights, consider exploring other data sources
+-such as [Android Vitals](https://google.play/business/vitals/),
+-[Firebase Performance Monitoring](https://firebase.google.com/docs/perf-mon),
+-and [benchmarks](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview).
++The App Performance Score is a high-level way to assess app performance at
++Level 2 of your performance journey. As your performance practices mature,
++combine it with tools from the other tiers:
++
++- **Field monitoring (Level 1)** : Monitor real-world stability and performance thresholds in [Android vitals](https://developer.android.com/google/play/vitals.md.txt) (or [Play Console vitals](https://google.play/business/vitals/)) and [Firebase Performance Monitoring](https://firebase.google.com/docs/perf-mon).
++- **Automated benchmarking (Level 3)** : Automate startup and frame timing measurements in CI or locally with [Jetpack Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview.md.txt) and [`UiAutomator`](https://developer.android.com/training/testing/other-components/ui-automator.md.txt).
++- **System trace analysis (Level 4)** : Capture and inspect system traces using [Perfetto and the Android Studio System Trace Profiler](https://developer.android.com/topic/performance/tracing.md.txt).
++- **Custom production telemetry (Level 5)** : Track detailed startup states, production system traces, and process terminations using [`ApplicationStartInfo`](https://developer.android.com/reference/android/app/ApplicationStartInfo.md.txt), [`ProfilingManager`](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture.md.txt), and [`ApplicationExitInfo`](https://developer.android.com/reference/android/app/ApplicationExitInfo.md.txt).
+ 
+ ## How to improve your score
+ 
+-In general, if both your static and dynamic scores are subpar we recommend
+-taking actions to maximize your static score before troubleshooting the dynamic
+-one. Addressing shortcomings in the static score will likely improve the dynamic
+-score as well, so it's helpful to optimize the former as a first step to
+-improving your app performance. The static score is based on concrete values or
+-settings in your app code, whereas the dynamic metrics usually take longer to
+-investigate and identify the root cause of.
++To maximize engineering return on investment, follow the tiered performance
++workflow when improving your score:
++
++1. **Maximize your Static App Performance Score first (Level 2, Step 1)** : Start by upgrading AGP, enabling [R8 app optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt) in [full mode](https://developer.android.com/topic/performance/app-optimization/full-mode.md.txt) (or [adopting optimizations incrementally](https://developer.android.com/topic/performance/app-optimization/adopt-optimizations-incrementally.md.txt)), generating [Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt) and [Startup Profiles](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations), updating [Jetpack
++   Compose](https://developer.android.com/compose), and calling [`reportFullyDrawn`](https://developer.android.com/reference/android/app/Activity.md.txt#reportFullyDrawn()). Because the static score is based on concrete build and configuration settings, these optimizations are faster to implement and directly improve runtime startup and rendering.
++2. **Validate with the Dynamic App Performance Score (Level 2, Step 2)**: Measure cold startup and frame rendering on low-end physical devices to verify the effect of your static changes and identify remaining runtime bottlenecks.
++3. **Automate and diagnose deeper bottlenecks (Levels 3-5)** : Convert manual dynamic checks into repeatable [Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics.md.txt) tests, use [system tracing with Perfetto](https://developer.android.com/topic/performance/tracing.md.txt) to isolate slow startup work or slow and frozen frames, and monitor field metrics with [Android vitals](https://developer.android.com/google/play/vitals.md.txt) and [`ProfilingManager`](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture.md.txt).
+ 
+ Within each segment, the App Performance Score provides actionable steps to
+ improve your app.
+@@ -153,8 +176,9 @@ improve your app.
+ ## Recommended for you
+ 
+ - Note: link text is displayed when JavaScript is off
+-- [Capture Macrobenchmark metrics](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics)
+-- [Get started with Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview)
++- [Enable app optimization with R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization.md.txt)
++- [Capture Macrobenchmark metrics](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics.md.txt)
++- [Get started with Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview.md.txt)
+ - [Create Startup Profiles](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations)
+-- [Overview of measuring app performance](https://developer.android.com/topic/performance/measuring-performance)
+-- [Frozen frames](https://developer.android.com/topic/performance/issues/render#frozen-frames)
+\ No newline at end of file
++- [Overview of measuring app performance](https://developer.android.com/topic/performance/measuring-performance.md.txt)
++- [Frozen frames](https://developer.android.com/topic/performance/issues/render.md.txt#frozen-frames)
+\ No newline at end of file

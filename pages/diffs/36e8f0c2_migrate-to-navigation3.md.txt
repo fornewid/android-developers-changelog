@@ -1,0 +1,31 @@
+diff --git a/docs/training/wearables/compose/migrate-to-navigation3.md b/docs/training/wearables/compose/migrate-to-navigation3.md
+index 7ab7f565..f2a87c96 100644
+--- a/docs/training/wearables/compose/migrate-to-navigation3.md
++++ b/docs/training/wearables/compose/migrate-to-navigation3.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/training/wearables/compose/migrate-to-navigat
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/training/wearables/compose/llms.txt
++
+ Navigation 3 represents a fundamental shift in how Jetpack Compose handles
+ navigation state and offers significant architectural advantages over
+ Navigation 2.
+@@ -80,7 +82,7 @@ sealed interface MigrationScreen : NavKey {
+ ### 3. Replace the Routing Logic ([`NavController`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController.md.txt) to `NavBackStack`)
+ 
+ Replace your [`NavController`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController.md.txt) with a [`NavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavBackStack.md.txt) initialized using
+-[`rememberNavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary.md.txt#rememberNavBackStack). You also need to instantiate the
++[`rememberNavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary.md.txt#rememberNavBackStack(kotlin.Array)). You also need to instantiate the
+ [`SwipeDismissableSceneStrategy`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation3/SwipeDismissableSceneStrategy.md.txt) specifically for Wear OS.
+ 
+ **Before (Navigation 2):**
+@@ -99,7 +101,7 @@ val strategy = rememberSwipeDismissableSceneStrategy<NavKey>()
+ ### 4. Replace `NavHost` with `NavDisplay` and the `entryProvider` DSL
+ 
+ The `NavHost` container and its internal `composable("route") { ... }` builder
+-DSL are replaced by [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay.md.txt) and the [`entryProvider`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary.md.txt#entryProvider) `{
++DSL are replaced by [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay.md.txt) and the [`entryProvider`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary.md.txt#entryProvider(kotlin.Function1,kotlin.Function1)) `{
+ entry<Key> { ... } }` DSL.
+ 
+ **Before (Navigation 2):**

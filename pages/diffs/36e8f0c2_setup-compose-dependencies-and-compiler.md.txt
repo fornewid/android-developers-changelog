@@ -1,0 +1,67 @@
+diff --git a/docs/develop/ui/compose/setup-compose-dependencies-and-compiler.md b/docs/develop/ui/compose/setup-compose-dependencies-and-compiler.md
+index 90c5f0b7..c40749db 100644
+--- a/docs/develop/ui/compose/setup-compose-dependencies-and-compiler.md
++++ b/docs/develop/ui/compose/setup-compose-dependencies-and-compiler.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/setup-compose-dependencies
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/develop/ui/llms.txt
++
+ For Gradle, use the Compose Compiler Gradle plugin to set up and configure
+ Compose.
+ 
+@@ -90,7 +92,7 @@ For the full list of available options, see the [documentation](https://www.jetb
+ 
+ ## Set up Compose dependencies
+ 
+-Always use the latest Compose BOM version: `2026.09.00`.
++Always use the latest Compose BOM version: `2026.11.01`.
+ 
+ Set the `compose` flag to `true` inside the Android [`BuildFeatures`](https://developer.android.com/reference/tools/gradle-api/com/android/build/api/dsl/BuildFeatures) to
+ enable [Compose functionality](https://developer.android.com/develop/ui/compose/tooling.md.txt) in Android Studio.
+@@ -124,7 +126,7 @@ Add the Compose BOM and the subset of Compose library dependencies:
+ ```groovy
+ dependencies {
+ 
+-    def composeBom = platform('androidx.compose:compose-bom:2026.09.00')
++    def composeBom = platform('androidx.compose:compose-bom:2026.11.01')
+     implementation composeBom
+     androidTestImplementation composeBom
+ 
+@@ -151,7 +153,7 @@ dependencies {
+     // Optional - Integration with activities
+     implementation 'androidx.activity:activity-compose:1.13.0'
+     // Optional - Integration with ViewModels
+-    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.11.0'
++    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.11.1'
+     // Optional - Integration with LiveData
+     implementation 'androidx.compose.runtime:runtime-livedata'
+     // Optional - Integration with RxJava
+@@ -165,7 +167,7 @@ dependencies {
+ ```kotlin
+ dependencies {
+ 
+-    val composeBom = platform("androidx.compose:compose-bom:2026.09.00")
++    val composeBom = platform("androidx.compose:compose-bom:2026.11.01")
+     implementation(composeBom)
+     androidTestImplementation(composeBom)
+ 
+@@ -192,7 +194,7 @@ dependencies {
+     // Optional - Integration with activities
+     implementation("androidx.activity:activity-compose:1.13.0")
+     // Optional - Integration with ViewModels
+-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.11.0")
++    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.11.1")
+     // Optional - Integration with LiveData
+     implementation("androidx.compose.runtime:runtime-livedata")
+     // Optional - Integration with RxJava
+@@ -203,7 +205,7 @@ dependencies {
+ 
+ > [!NOTE]
+ > **Note:** Jetpack Compose is shipped using a Bill of Materials (BOM), to keep the versions of all library groups in sync. Read more about it in the [Bill of
+-> Materials page](https://developer.android.com/develop/ui/compose/bom/bom).
++> Materials page](https://developer.android.com/develop/ui/compose/bom).
+ 
+ ## `compileSdk` and Android Gradle Plugin compatibility
+ 

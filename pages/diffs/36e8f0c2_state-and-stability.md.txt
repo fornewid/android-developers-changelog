@@ -1,0 +1,54 @@
+diff --git a/docs/agents/skills/jetpack-compose/jetpack-compose-performance/references/state-and-stability.md b/docs/agents/skills/jetpack-compose/jetpack-compose-performance/references/state-and-stability.md
+index 07b26e03..70d07d1b 100644
+--- a/docs/agents/skills/jetpack-compose/jetpack-compose-performance/references/state-and-stability.md
++++ b/docs/agents/skills/jetpack-compose/jetpack-compose-performance/references/state-and-stability.md
+@@ -217,30 +217,7 @@ For more information, see the [Backwards Write documentation](https://developer.
+ 
+ ## 3. State and snapshot optimizations
+ 
+-### A. Optimize whole-collection updates with `neverEqualPolicy()`
+-
+-`mutableStateListOf` tracks every individual element mutation through the
+-snapshot system. When fine-grained element tracking is not needed, back your
+-collection with a standard `MutableList` wrapped in `mutableStateOf(list,
+-neverEqualPolicy())` and trigger recomposition using a load-bearing assignment
+-(`state.value = list`).
+-
+-
+-```kotlin
+-class ActiveQueueManager {
+-    private val list = mutableListOf<Item>()
+-    val items = mutableStateOf(list, neverEqualPolicy())
+-
+-    fun enqueue(item: Item) {
+-        list.add(item)
+-        items.value = list // Load-bearing assignment triggers recomposition
+-    }
+-}
+-```
+-
+-<br />
+-
+-### B. Use `SnapshotStateList.toList()` for repeated queries and iterations
++### A. Use `SnapshotStateList.toList()` for repeated queries and iterations
+ 
+ Iterating or querying a `SnapshotStateList` (or `SnapshotStateMap`) repeatedly
+ inside a composable registers snapshot read observations on each accessed index
+@@ -295,7 +272,7 @@ of the scope and perform operations on that read-only snapshot:
+ 
+   <br />
+ 
+-### C. Extract repeated state reads into local variables
++### B. Extract repeated state reads into local variables
+ 
+ Reading Compose `State` properties (such as `transition.currentState`,
+ `scrollState.value`, or `state.value`) multiple times in a function registers
+@@ -329,7 +306,7 @@ top of the block.
+ 
+   <br />
+ 
+-### D. Use `computedStateOf` versus `derivedStateOf` (Compose 1.13+)
++### C. Use `computedStateOf` versus `derivedStateOf` (Compose 1.13+)
+ 
+ When deriving state from frequently changing inputs (such as checking
+ `scrollState.value > 0` on every scroll tick), reading the raw state directly in
