@@ -1,0 +1,153 @@
+diff --git a/docs/topic/performance/memory/guide/bitmaps.md b/docs/topic/performance/memory/guide/bitmaps.md
+index b3e9605f..6eaaee71 100644
+--- a/docs/topic/performance/memory/guide/bitmaps.md
++++ b/docs/topic/performance/memory/guide/bitmaps.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/topic/performance/memory/guide/bitmaps
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/topic/performance/memory/guide/llms.txt
++
+ Bitmap objects are often the largest single contributors to an application's
+ memory footprint. Whether it's app icons, notification images, or media content,
+ inefficient bitmap handling can quickly lead to Out-Of-Memory (OOM) errors and
+@@ -22,7 +24,7 @@ The configuration defines how many bytes are used to represent each pixel:
+ | `RGB_565` | 2 | Red (5 bits), Green (6 bits), Blue (5 bits). No alpha. Good for opaque images where high color fidelity isn't critical. |
+ | `ARGB_8888` | 4 | Alpha, Red, Green, Blue (8 bits each). Default and most common. |
+ | `RGBA_F16` | 8 | Half-precision floating point. Used for wide-gamut and HDR content. |
+-| `HARDWARE` | N/A | Stored in graphics memory (gralloc/DMABuf). See [Hardware Bitmaps](https://developer.android.com/topic/performance/memory/guide/bitmaps#hardware-bitmaps). |
++| `HARDWARE` | N/A | Stored in graphics memory (gralloc/DMABuf). See [Hardware Bitmaps](https://developer.android.com/topic/performance/memory/guide/bitmaps.md.txt#hardware-bitmaps). |
+ 
+ **Memory Formula:** `Memory (Bytes) = Width × Height × Bytes Per Pixel`
+ 
+@@ -46,7 +48,7 @@ for a notification), Android avoids copying the pixel data by using **shared
+ memory** (`ashmem` or `memfd`).
+ 
+ A `Bitmap` instance can be copied to shared memory explicitly by calling
+-[`Bitmap.asShared()`](https://developer.android.com/reference/android/graphics/Bitmap#asShared()),
++[`Bitmap.asShared()`](https://developer.android.com/reference/android/graphics/Bitmap.md.txt#asShared()),
+ or implicitly if a `Bitmap` is put inside a `Parcel` (typically by adding the
+ Bitmap to a `Parcelable` such as a `Bundle`) and sent over Binder IPC.
+ 
+@@ -102,23 +104,33 @@ A full-resolution 4000 × 3000 pixel photo takes 48 MB in `ARGB_8888`. Decoding
+ that full image only to render it inside a 200 × 150 pixel thumbnail wastes
+ over 99% of the allocated pixel buffer.
+ 
+-When you decode images directly with [`ImageDecoder`](https://developer.android.com/reference/android/graphics/ImageDecoder) or
+-[`BitmapFactory`](https://developer.android.com/reference/android/graphics/BitmapFactory), downsample during the decode pass to match
++When you decode images directly with [`ImageDecoder`](https://developer.android.com/reference/android/graphics/ImageDecoder.md.txt) or
++[`BitmapFactory`](https://developer.android.com/reference/android/graphics/BitmapFactory.md.txt), downsample during the decode pass to match
+ the target view dimensions using `ImageDecoder.setTargetSize()` or
+ `BitmapFactory.Options.inSampleSize`. Image loading libraries like Glide and
+ Coil perform this downsampling automatically when you provide a bounded target
+ view size.
+ 
+-For example, when decoding a bitmap with [`ImageDecoder`](https://developer.android.com/reference/android/graphics/ImageDecoder), pass
+-an [`OnHeaderDecodedListener`](https://developer.android.com/reference/android/graphics/ImageDecoder.OnHeaderDecodedListener) that scales the
++For example, when decoding a bitmap with [`ImageDecoder`](https://developer.android.com/reference/android/graphics/ImageDecoder.md.txt), pass
++an [`OnHeaderDecodedListener`](https://developer.android.com/reference/android/graphics/ImageDecoder.OnHeaderDecodedListener.md.txt) that scales the
+ output dimensions down to your target view size:
+ 
+-    val source = ImageDecoder.createSource(resources, R.drawable.high_res_photo)
+-    val bitmap = ImageDecoder.decodeBitmap(source) { decoder, info, _ ->
+-        if (info.size.width > targetWidth || info.size.height > targetHeight) {
+-            decoder.setTargetSize(targetWidth, targetHeight)
+-        }
++```kotlin
++val source = ImageDecoder.createSource(resources, R.drawable.high_res_photo)
++val bitmap = ImageDecoder.decodeBitmap(source) { decoder, info, _ ->
++    val scale = minOf(
++        targetWidth.toFloat() / info.size.width,
++        targetHeight.toFloat() / info.size.height,
++        1f,
++    )
++    if (scale < 1f) {
++        decoder.setTargetSize(
++            (info.size.width * scale).roundToInt().coerceAtLeast(1),
++            (info.size.height * scale).roundToInt().coerceAtLeast(1),
++        )
+     }
++}
++```
+ 
+ ### High concurrent retention from parallel decoding
+ 
+@@ -139,9 +151,9 @@ at once.
+ In Android 8.0 and higher, the Java `Bitmap` wrapper object takes only about 56
+ bytes on the Java heap, while its pixel buffer lives in the native heap and can
+ take several megabytes. You can verify this split in the Android Studio Memory
+-Profiler or [AHAT](https://developer.android.com/topic/performance/memory/guide/bitmaps#bitmaps-ahat), where each `Bitmap` instance shows a \~56-byte
++Profiler or [AHAT](https://developer.android.com/topic/performance/memory/guide/bitmaps.md.txt#bitmaps-ahat), where each `Bitmap` instance shows a \~56-byte
+ shallow Java size alongside its multi-megabyte native size, and in
+-[`dumpsys meminfo`](https://developer.android.com/topic/performance/memory/guide/bitmaps#measuring-dumpsys-meminfo) under `Native Allocations`
++[`dumpsys meminfo`](https://developer.android.com/topic/performance/memory/guide/bitmaps.md.txt#measuring-dumpsys-meminfo) under `Native Allocations`
+ (`Bitmap (malloced)`).
+ 
+ High-frequency pipelines such as camera frame analysis, OCR, or ML inference
+@@ -165,7 +177,9 @@ We will use the **BitmapLab** sample app to explore these concepts.
+ 
+ Launch **BitmapLab** and tap **ALLOCATE 10MB ARGB_8888**. Then run:
+ 
+-    adb shell dumpsys meminfo -s com.android.bitmaplab
++```bash
++adb shell dumpsys meminfo -s com.android.bitmaplab
++```
+ 
+ On modern Android versions, look for the **Native Allocations** section. These
+ provide much better attribution for bitmaps than the generic **App Summary**:
+@@ -198,7 +212,9 @@ By default, shared bitmaps use a generic name ("bitmap"). To enable detailed
+ attribution and unique bitmap tracking (identifying shared bitmaps across
+ different processes), you must enable the following system property:
+ 
+-    adb shell setprop debug.hwui.bitmap_ashmem_long_name true
++```bash
++adb shell setprop debug.hwui.bitmap_ashmem_long_name true
++```
+ 
+ > [!NOTE]
+ > **Note:** You may need to restart the application or the system for this change to take effect.
+@@ -223,10 +239,11 @@ AHAT provides excellent visualization for Bitmaps.
+ 1. In **BitmapLab**, allocate a few bitmaps.
+ 2. Capture a heap dump with the `-b` flag (to include native bitmap data):
+ 
+-       adb shell am dumpheap -b png com.android.bitmaplab /data/local/tmp/bitmaps.hprof
+-       adb pull /data/local/tmp/bitmaps.hprof .
+-       ahat bitmaps.hprof
+-
++   ```bash
++   adb shell am dumpheap -b png com.android.bitmaplab /data/local/tmp/bitmaps.hprof
++   adb pull /data/local/tmp/bitmaps.hprof .
++   ahat bitmaps.hprof
++   ```
+ 3. Open `localhost:7100` and look for the **Bitmaps** link in the sidebar or
+    search for the `Bitmap` class.
+ 
+@@ -244,8 +261,10 @@ a specific application.
+ 1. Start a trace. You must include the `gfx` category and target the specific
+    app package using the `-a` flag:
+ 
+-       external/perfetto/tools/record_android_trace -o bitmaps.perfetto-trace \
+-           -t 15s -b 64mb view gfx dalvik am res memory -a com.android.bitmaplab
++   ```bash
++   external/perfetto/tools/record_android_trace -o bitmaps.perfetto-trace \
++       -t 15s -b 64mb view gfx dalvik am res memory -a com.android.bitmaplab
++   ```
+ 
+    > [!NOTE]
+    > **Note:** If you prefer using a configuration file, ensure it includes the `gfx` atrace categories and lists the package in `atrace_apps`.
+@@ -320,6 +339,12 @@ challenges:
+    You can also use `adb shell dmabuf_dump -b` for a summary of all buffers and
+    total system-wide DMA-BUF usage.
+ 
++## Next steps
++
++For app-level guidance on container-bound downsampling, adaptive cache sizing,
++and foreground-service cache cleanup, see
++[Optimize bitmap memory](https://developer.android.com/topic/performance/memory/bitmaps.md.txt).
++
+ *** ** * ** ***
+ 
+-**[← Java](https://developer.android.com/topic/performance/memory/guide/java-memory) \| [↑ Up](https://developer.android.com/topic/performance/memory/guide) \| [Native →](https://developer.android.com/topic/performance/memory/guide/native-memory)**
+\ No newline at end of file
++**[← Java](https://developer.android.com/topic/performance/memory/guide/java-memory.md.txt) \| [↑ Up](https://developer.android.com/topic/performance/memory/guide.md.txt) \| [Native →](https://developer.android.com/topic/performance/memory/guide/native-memory.md.txt)**
+\ No newline at end of file

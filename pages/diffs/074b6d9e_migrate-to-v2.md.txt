@@ -1,0 +1,173 @@
+diff --git a/docs/games/pgs/android/migrate-to-v2.md b/docs/games/pgs/android/migrate-to-v2.md
+index b5e18b73..2f6e5bd5 100644
+--- a/docs/games/pgs/android/migrate-to-v2.md
++++ b/docs/games/pgs/android/migrate-to-v2.md
+@@ -6,8 +6,8 @@ source: md.txt
+ 
+ > Documentation index: https://developer.android.com/games/llms.txt
+ 
+-This document describes how to migrate existing games from the [games v1
+-SDK](https://developers.google.com/android/games_v1/reference/com/google/android/gms/games/package-summary) to the [games v2 SDK](https://developers.google.com/android/reference/com/google/android/gms/games/package-summary).
++This document describes how to migrate existing games from the games v1
++SDK to the [games v2 SDK](https://developers.google.com/android/reference/com/google/android/gms/games/package-summary).
+ 
+ ## Before you begin
+ 
+@@ -78,7 +78,7 @@ handles player identity. To ensure a smooth transition and prevent player data
+ loss, identify the scenario that best matches your existing setup and follow the
+ corresponding steps.
+ 
+-### Option 1: For Games where IGA is bound to Play Games Services Player ID
++### Option 1: For games where IGA is bound to Play Games Services Player ID
+ 
+ This scenario applies to games that have used the Play Games Services `Player ID` as the only
+ identifier for a player's In-Game Account (IGA) and have not previously
+@@ -91,7 +91,7 @@ The migration flow includes the following steps:
+ 1. When the game launches, the Play Games Services v2 SDK automatically and silently authenticates the platform.
+ 2. Present a login screen that features a [**Sign in with Google**](https://developer.android.com/identity/sign-in/credential-manager-siwg.md.txt#use-sign) button,
+    replacing the **Google Play** button.
+-   For example, see [CredManBridge.java](https://github.com/android/games-samples/blob/wickedcube/multi-login-credman/trivialkart/trivialkart-unity/Assets/Plugins/Android/CredManBridge.java).
++   For example, see [CredManBridge.java](https://github.com/android/games-samples/blob/main/trivialkart/trivialkart-unity/Assets/Scripts/Utils/CredManBridge.java).
+ 
+    ##### CredManBridge.java
+ 
+@@ -311,12 +311,12 @@ You can perform step 3 using a game client-side implementation.
+       ID`.
+    2. Verify if the Play Games Services `Player ID` is linked with an in-game account.
+       1. This indicates a returning user from Play Games Services v1.
+-   3. Link the new gaia ID with the previous Play Games Services v1 account.
++   3. Link the new Google Account ID with the previous Play Games Services v1 account.
+ 6. If the account doesn't have a pre-existing grant on the `GAMES_LITE` scope, the Authorization API returns a `PendingIntent`:
+    1. This indicates the user doesn't have an existing account from Play Games Services v1.
+    2. Safely discard the `PendingIntent` without showing any UI.
+ 
+-### Option 2: For Games already binding IGA to OpenID
++### Option 2: For games already binding IGA to OpenID
+ 
+ Developers in this group have the most straightforward migration path. If your
+ game's in-game account is already primarily bound to the OpenID, you only need
+@@ -325,7 +325,7 @@ steps.
+ 
+ ## Migrate from deprecated Google Sign-In
+ 
+-Replace the [`GoogleSignInClient`](https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInClient)
++Replace the `GoogleSignInClient`
+ class with the [`GamesSignInClient`](https://developers.google.com/android/reference/com/google/android/gms/games/GamesSignInClient)
+ class.
+ 
+@@ -415,7 +415,7 @@ PlayGames.getGamesSignInClient(this)
+ 
+ ### Update the `GoogleSignIn` code
+ 
+-[`GoogleSignIn`](https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignIn) API
++`GoogleSignIn` API
+ is not supported in the games v2 SDK. Replace the `GoogleSignIn` API
+ code with the [`GamesSignInClient`](https://developers.google.com/android/reference/com/google/android/gms/games/GamesSignInClient) API as shown in the following example.
+ 
+@@ -669,7 +669,7 @@ private fun startSignInIntent() {
+ 
+ ### Remove sign-out code
+ 
+-Remove the code for [`GoogleSignInClient.signOut`](https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInClient#public-taskvoid-signout).
++Remove the code for `GoogleSignInClient.signOut`.
+ 
+ Remove the code shown in the following example:
+ 
+@@ -734,7 +734,7 @@ boolean isAuthenticated =
+ ### Kotlin
+ 
+ ```kotlin
+-private void checkIfAutomaticallySignedIn() {
++private fun checkIfAutomaticallySignedIn() {
+ gamesSignInClient.isAuthenticated()
+     .addOnCompleteListener { task ->
+     val isAuthenticated = task.isSuccessful && task.result?.isAuthenticated ?: false
+@@ -755,7 +755,7 @@ are different.
+ Use the corresponding
+ [`PlayGames.getxxxClient()`](https://developers.google.com/android/reference/com/google/android/gms/games/PlayGames#public-method-summary)
+ methods instead of
+-[`Games.getxxxClient()`](https://developers.google.com/android/games_v1/reference/com/google/android/gms/games/Games#public-method-summary)
++`Games.getxxxClient()`
+ methods.
+ 
+ For example, for
+@@ -764,7 +764,7 @@ use `PlayGames.getLeaderboardsClient()` instead of the
+ `Games.getLeaderboardsClient()` method.
+ 
+ Remove any code related to the `GamesClient` and `GamesMetadataClient` classes
+-as we don't have any replacement classes in games v2.
++because there are no replacement classes in games v2.
+ 
+ ### Java
+ 
+@@ -841,7 +841,7 @@ method instead of the
+ method.
+ 
+ For more information, see
+-[Send the server auth code](https://developers.google.com/android/games_v1/reference/com/google/android/gms/games/package-summary).
++[Send the server auth code](https://developer.android.com/games/pgs/android/server-access.md.txt#send-auth-code).
+ 
+ The following example shows how to request a server side access token.
+ 
+@@ -915,7 +915,7 @@ And update it to this:
+ 
+ Locate the code for `GoogleSignInOptions` class.
+ 
+-```java
++```kotlin
+   // ... existing code
+ 
+   private val RC_SIGN_IN = 9001
+@@ -958,35 +958,36 @@ Locate the code for `GoogleSignInOptions` class.
+ 
+ And update it to this:
+ 
+-```java
+-  private void startRequestServerSideAccess() {
+-  GamesSignInClient gamesSignInClient = PlayGames.getGamesSignInClient(this);
++```kotlin
++  private fun startRequestServerSideAccess() {
++      val gamesSignInClient = PlayGames.getGamesSignInClient(this)
+       gamesSignInClient
+-          .requestServerSideAccess(OAUTH_2_WEB_CLIENT_ID, /* forceRefreshToken= */ false,
+-          /* additional AuthScope */ scopes)
+-          .addOnCompleteListener(task -> {
+-              if (task.isSuccessful()) {
+-                  AuthResponse authresp = task.getResult();
++          .requestServerSideAccess(
++              OAUTH_2_WEB_CLIENT_ID,
++              /* forceRefreshToken= */ false,
++              /* additional AuthScope */ scopes
++          )
++          .addOnCompleteListener { task ->
++              if (task.isSuccessful) {
++                  val authresp: AuthResponse = task.result
+                   // Send the authorization code as a string and a
+                   // list of the granted AuthScopes that were granted by the
+                   // user. Exchange for an access token.
+                   // Verify the player with Play Games Services REST APIs.
+               } else {
+-                // Authentication code retrieval failed.
++                  // Authentication code retrieval failed.
+               }
+-        });
++          }
+   }
+   
+ ```
+ 
+ ## Migrate from GoogleApiClient
+ 
+-For older existing integrations your game may be depending on the
+-`GoogleApiClient` API variation of the Play Games Services SDK. This was
+-[deprecated in late 2017](https://android-developers.googleblog.com/2017/11/moving-past-googleapiclient_21.html)
+-and replaced by "connectionless" clients.
+-To migrate you can replace the `GoogleApiClient` class with a "connectionless"
+-equivalent.
++For earlier integrations, your game might depend on the `GoogleApiClient` API
++variation of the Play Games Services SDK. This was [deprecated in late 2017](https://android-developers.googleblog.com/2017/11/moving-past-googleapiclient_21.html)
++and replaced by "connectionless" clients. To migrate, replace the
++`GoogleApiClient` class with a "connectionless" equivalent.
+ The following table lists the common class mappings from games v1 to games v2:
+ 
+ <br />

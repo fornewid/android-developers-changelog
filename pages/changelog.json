@@ -1,5 +1,329 @@
 [
   {
+    "date": "2026-11-26T15:09:45Z",
+    "commit_hash": "074b6d9e",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/ai-in-android\" target=\"_blank\">AI in Android Studio - Android Developers</a>",
+        "path": "ai-in-android.md",
+        "summary": "Updated Android Studio download links, package names, and release headings from Rabbit 2 2026.2.2 Patch 2 to Patch 3 across multiple platforms (Linux, ChromeOS) to provide users with the latest IDE build.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_ai-in-android.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/android-settings-plugin\" target=\"_blank\">Configure project-wide build properties with the settings plugin</a>",
+        "path": "build/android-settings-plugin.md",
+        "summary": "Added documentation for the new incubating kotlinGradlePluginVersion property in the Android settings plugin, starting with AGP 9.6.0-alpha06. This allows developers to centralize and configure a single Kotlin Gradle plugin version across all modules in their `settings.gradle` file, streamlining dependency management and version alignment.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_android-settings-plugin.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/migrate-to-built-in-kotlin\" target=\"_blank\">Add the following plugin definition</a>",
+        "path": "build/migrate-to-built-in-kotlin.md",
+        "summary": "Added documentation for choosing and configuring a Kotlin Gradle plugin (KGP) version when using built-in Kotlin in AGP 9.0 and higher (including AGP 9.6 specific version separation), detailed default/minimum KGP version behaviors, options for pinning KGP versions using the Android settings plugin or `buildscript` blocks, and updated guidance regarding AGP 9.6 limitations on opting out or using KGP versions lower than 2.2.10.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_migrate-to-built-in-kotlin.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/migrate-to-ksp\" target=\"_blank\">Migrate from kapt to KSP</a>",
+        "path": "build/migrate-to-ksp.md",
+        "summary": "Updated the migration guide to reflect that starting with KSP 2.3.0, KSP versions are no longer tied to specific Kotlin versions, and starting with AGP 9.6, AGP removes its runtime dependency constraint on the KSP Gradle plugin, allowing independent version declarations. Additionally, guidance was added for removing the legacy kapt plugin when using built-in Kotlin.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_migrate-to-ksp.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-9-6-0-release-notes\" target=\"_blank\">Android Gradle plugin 9.6.0</a>",
+        "path": "build/releases/agp-9-6-0-release-notes.md",
+        "summary": "AGP 9.6.0 introduces updates to Kotlin Gradle plugin (KGP) integration and KSP version handling. The default KGP version is updated to 2.4.20 while maintaining a minimum supported version of 2.2.10, separating default and minimum constraints using rich version constraints. Additionally, AGP removes its hardcoded runtime constraint on the KSP plugin, allowing developers to upgrade KSP independently of the Kotlin version starting from KSP 2.3.0.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_agp-9-6-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/courses/extras/utilities\" target=\"_blank\">Android utilities and troubleshooting</a>",
+        "path": "courses/extras/utilities.md",
+        "summary": "Updated the Android utilities and troubleshooting documentation by adding a reference to the LLM documentation index, broadening the course applicability description from specific codelabs to general Android training courses, and embedding the Google Doc directly into the page via an iframe for a better user experience.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_utilities.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/adaptive-apps/quality-guidelines/tv-app-quality\" target=\"_blank\">TV app quality</a>",
+        "path": "develop/adaptive-apps/quality-guidelines/tv-app-quality.md",
+        "summary": "The TV app quality guidelines were updated to revise criterion TV-AA regarding clickable non-fullscreen, non-video advertisements, allowing them to link to other apps as long as those apps are available on TV devices. Additionally, the newly added criterion TV-AN was completely removed along with its corresponding change note for January 2027, relaxing the strict prohibition against cross-application navigation and off-screen conversion for ads.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_tv-app-quality.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/graphics/images/optimization\" target=\"_blank\">Optimizing bitmap images</a>",
+        "path": "develop/ui/compose/graphics/images/optimization.md",
+        "summary": "Updated Jetpack Compose image optimization documentation to emphasize memory efficiency, proper image loading library configuration (Coil and Glide), hardware bitmap usage, aggressive downsampling strategies, and proper cache eviction for background states to avoid UI jank and OutOfMemoryError crashes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_optimization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/graphics\" target=\"_blank\">Handling bitmaps</a>",
+        "path": "develop/ui/views/graphics.md",
+        "summary": "The graphics documentation was updated to fix a broken reference to the ARGB_8888 bitmap configuration, add a link to the LLM documentation index, and update various links to performance and memory optimization guides for bitmaps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_graphics.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/docs/quality-guidelines/tv-app-quality\" target=\"_blank\">TV app quality</a>",
+        "path": "docs/quality-guidelines/tv-app-quality.md",
+        "summary": "Updated the TV app quality guidelines by modifying the advertising criterion TV-AA to allow clickable, non-fullscreen, non-video ads to link to other apps as long as they are available on TV devices, and removed the recently added TV-AN advertising criterion and its corresponding January 2027 change notes. This adjustment refines ad navigation rules specifically for Android TV.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_tv-app-quality.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/android/migrate-to-v2\" target=\"_blank\">Migrate to Play Games Services v2 (Java or Kotlin)</a>",
+        "path": "games/pgs/android/migrate-to-v2.md",
+        "summary": "Updated the Play Games Services migration documentation by fixing broken links, correcting sample code paths and language tags (such as fixing a Java snippet incorrectly labeled as Kotlin), and improving general readability.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_migrate-to-v2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/recall\" target=\"_blank\">Recall API</a>",
+        "path": "games/pgs/recall.md",
+        "summary": "Updated internal documentation links within the Recall API guide to point to their corresponding markdown text files and added a reference to the llms.txt documentation index. This matters for maintaining accurate cross-references and navigation in the source documentation repository.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_recall.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/pgs/recall/recall-setup\" target=\"_blank\">Integrate the PGS Recall API within your game</a>",
+        "path": "games/pgs/recall/recall-setup.md",
+        "summary": "Updated the Recall API documentation by formatting all code snippets into proper markdown blocks for Java, Kotlin, C#, and C++ (v2 Native SDK), improving readability and code correctness. Additionally, fixed internal documentation links to point to the correct markdown files and updated error-handling practices for C++ callbacks.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_recall-setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/billing\" target=\"_blank\">Integrate the Google Play for Native PC Billing Library into your app</a>",
+        "path": "games/playgames/native-pc/billing.md",
+        "summary": "Updated the native PC billing documentation to include instructions on utilizing `obfuscated_account_id` within `LaunchPurchaseFlowParams` for fraud and abuse detection, properly formatted code blocks into markdown syntax, and corrected internal and external reference links with `.md.txt` extensions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_billing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/playgames/native-pc/setup\" target=\"_blank\">Power your game using the Play Games PC SDK</a>",
+        "path": "games/playgames/native-pc/setup.md",
+        "summary": "Updated documentation links to include '.md.txt' extensions, formatted the manifest example code block with proper Markdown syntax, and added important guidance on placing 'manifest.xml' in split-executable layouts (such as Unreal Engine builds) where the main game binary rather than the root bootstrapper initializes the SDK.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_setup.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/media3\" target=\"_blank\">Media3</a>",
+        "path": "jetpack/androidx/releases/media3.md",
+        "summary": "Android Media3 has been updated to include the release notes for Version 1.12.0-rc01, detailing important bug fixes and improvements across ExoPlayer, Extractors, Inspector, Text, Session, UI, and extensions like OkHttp, HLS, and Cast.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_media3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions\" target=\"_blank\">AndroidX releases</a>",
+        "path": "jetpack/androidx/versions.md",
+        "summary": "Updated the Jetpack Media3 library release version tracking in the AndroidX versions documentation. Media3 advanced from a beta release (1.12.0-beta01) to a release candidate (1.12.0-rc01) with a new release date of November 25, 2026, signaling that the library is nearing its stable public release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_versions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/all-channel\" target=\"_blank\">Recent Release Notes</a>",
+        "path": "jetpack/androidx/versions/all-channel.md",
+        "summary": "Added release documentation for Media3 Version 1.12.0-rc01 under the November 25, 2026 section, keeping developers informed about the latest Jetpack library updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_all-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/rc-channel\" target=\"_blank\">RC Releases</a>",
+        "path": "jetpack/androidx/versions/rc-channel.md",
+        "summary": "Added a release entry for Media3 Version 1.12.0-rc01 under the November 25, 2026 section, keeping developers informed about the latest release candidates available in the RC channel.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_rc-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/kotlin/coroutines\" target=\"_blank\">Kotlin coroutines on Android</a>",
+        "path": "kotlin/coroutines.md",
+        "summary": "The coroutines documentation has been updated to include a link to the LLMs documentation index and to streamline the features section by removing the bulleted list in favor of standard links to official Kotlin documentation. Additionally, references were updated to emphasize modern practices, such as using `StateFlow` instead of `LiveData` for exposing UI state from `ViewModel` and referencing `androidx.lifecycle:lifecycle-viewmodel` version 2.8.0 or later for `viewModelScope`.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_coroutines.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/latest-updates\" target=\"_blank\">Android latest updates</a>",
+        "path": "latest-updates.md",
+        "summary": "The latest updates documentation was refreshed to reflect the transition of Android Studio preview versions from Canary to Release Candidate (RC), specifically updating version references for Stingray and Rabbit, along with adjusted release dates for patch updates and the Android Gradle Plugin.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_latest-updates.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/privacy-and-security/local-network-permission\" target=\"_blank\">Local network permission</a>",
+        "path": "privacy-and-security/local-network-permission.md",
+        "summary": "Updated the local network permission documentation for Android 17 by correcting API method names (from `requestPermission` to `requestPermissions`), fixing markdown link paths to include `.md.txt` extensions, and improving code block formatting for Kotlin snippets and ADB commands.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_local-network-permission.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio\" target=\"_blank\">Download Android Studio</a>",
+        "path": "studio.md",
+        "summary": "Updated Android Studio download links, package file names, checksums, and version references to point to Android Studio Rabbit 2 | 2026.2.2 Patch 3 across all supported platforms.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/install\" target=\"_blank\">Install Android Studio</a>",
+        "path": "studio/install.md",
+        "summary": "Updated the Android Studio installation documentation to reflect the release of Android Studio Rabbit 2 | 2026.2.2 Patch 3. This update updates download links, file names, and build versions (incremented to version 2026.2.2.11) across multiple operating system sections (Linux and ChromeOS) to ensure users download the latest patched version.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_install.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview\" target=\"_blank\">Android Studio Preview</a>",
+        "path": "studio/preview.md",
+        "summary": "Updated the Android Studio documentation to point to Android Studio Rabbit 3 | 2026.2.3 RC 2 (build 2026.2.3.5) across all platforms including Windows, macOS (Intel and Apple Silicon), and Linux, replacing the previous RC 1 links and references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/features\" target=\"_blank\">Release notes for Android Studio preview</a>",
+        "path": "studio/preview/features.md",
+        "summary": "The Android Studio preview documentation has been updated to detail new AI-powered features, including automated View-to-Compose migration tools, a Progress UI for tracking long-running agent tasks, and an in-memory UI sandbox for exploring design options before modifying project source code. These additions matter because they streamline modern UI adoption and provide better transparency and safety when working with AI coding assistants.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_features.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases\" target=\"_blank\">Android Studio Rabbit 2</a>",
+        "path": "studio/releases.md",
+        "summary": "Updated the Android Studio release documentation to reflect the rollout of Android Studio Rabbit 2 | 2026.2.2 Patch 3. This update updates download links, file names, and version numbers across Linux and ChromeOS platforms to point users to the latest patch release.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_releases.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.2\" target=\"_blank\">Android Studio Rabbit 2 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/studio/2026.2.2.md",
+        "summary": "Added release documentation for Android Studio Rabbit 2 | 2026.2.2 Patch 3, which is released alongside Android Gradle Plugin 9.5.3 and includes minor fixes and improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_2026.2.2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/appstate/transform\" target=\"_blank\">Transform</a>",
+        "path": "topic/libraries/architecture/appstate/transform.md",
+        "summary": "The `transform` API documentation has been updated to include the new `container` parameter of type `SavedStateContainer`. This addition allows developers to pass a nested container derived from `SavedStateHandle.getOrCreateContainer` to persist `rememberSaveable` or `rememberSerializable` state within a `transform` or `TransformScope.launchTransform` block, ensuring proper state preservation across configuration changes or process death.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_transform.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/paging\" target=\"_blank\">Paging 2 library overview</a>",
+        "path": "topic/libraries/architecture/paging.md",
+        "summary": "The changes in the Paging documentation update outdated documentation links and fix file references within the Android Jetpack and Paging 2 library overview guide.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_paging.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/saved-state-container\" target=\"_blank\">SavedStateContainer</a>",
+        "path": "topic/libraries/architecture/saved-state-container.md",
+        "summary": "This new documentation introduces SavedStateContainer, a thread-safe hierarchical container in AndroidX that coordinates state saving and restoration across components like SavedStateRegistry, SavedStateHandle, and Compose's SaveableStateRegistry without key collisions.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/saving-states\" target=\"_blank\">Save UI states</a>",
+        "path": "topic/libraries/architecture/saving-states.md",
+        "summary": "The changes primarily update documentation links across the saving states guide to include `.md.txt` extensions, refine markdown formatting for note and warning blocks, and slightly improve sentence phrasing regarding state restoration strategies and data limitations.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_saving-states.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate\" target=\"_blank\">Saved State module for ViewModel</a>",
+        "path": "topic/libraries/architecture/viewmodel/viewmodel-savedstate.md",
+        "summary": "Added documentation for nested SavedStateHandle support, introducing the `getOrCreateSavedStateHandle` and `getOrCreateContainer` APIs to prevent key collisions when reusing child state holders, along with minor code snippet type corrections and phrasing improvements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_viewmodel-savedstate.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/keep-rule-examples\" target=\"_blank\">Keep rule use cases and examples</a>",
+        "path": "topic/performance/app-optimization/keep-rule-examples.md",
+        "summary": "Updated the keep-rule-examples.md documentation to properly format code snippets as Markdown code blocks and added guidance on using Jetpack Keep annotations for reflection-based tasks, replacing manual keep rules.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_keep-rule-examples.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/graphics/load-bitmap\" target=\"_blank\">Loading Large Bitmaps Efficiently</a>",
+        "path": "topic/performance/graphics/load-bitmap.md",
+        "summary": "Updated the bitmap loading documentation to modernize manual decoding guidance. It introduces modern APIs like `ImageDecoder` for Android 9+ (API level 28) with hardware bitmap allocation and `BitmapRegionDecoder` for large zoomable images, while cleaning up legacy `BitmapFactory` examples and references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_load-bitmap.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/issues/bitmap-memory-usage\" target=\"_blank\">Bitmap memory usage</a>",
+        "path": "topic/performance/issues/bitmap-memory-usage.md",
+        "summary": "Updated the bitmap memory usage documentation to provide more advanced, up-to-date best practices. The changes refresh the reference links, refine the core principles (Reduce, Reuse, Recycle) with actionable strategies, and update the optimization checklist to include modern techniques such as hardware bitmaps, container-bound downsampling, unified image loaders, and proper handling of foreground services.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_bitmap-memory-usage.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory\" target=\"_blank\">Android memory</a>",
+        "path": "topic/performance/memory.md",
+        "summary": "Updated the bitmap optimization documentation link and description in the memory performance guide. This change points developers to a more comprehensive resource on reducing, reusing, and recycling bitmap memory across different display sizes, image loaders, and process lifecycles.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_memory.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory/bitmaps\" target=\"_blank\">Optimize bitmap memory</a>",
+        "path": "topic/performance/memory/bitmaps.md",
+        "summary": "This new documentation page provides a comprehensive guide on managing bitmap memory in Android applications, covering uncompressed pixel math, architectural defect layers, and the Reduce, Reuse, and Recycle (3Rs) framework to prevent out-of-memory errors and performance jank.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory/guide/bitmaps\" target=\"_blank\">Bitmaps and memory</a>",
+        "path": "topic/performance/memory/guide/bitmaps.md",
+        "summary": "Updated the bitmaps memory guide documentation with improved markdown code blocks, fixed and updated internal/external reference links to include `.md.txt` suffixes, enhanced the ImageDecoder scaling code snippet for aspect ratio preservation, and added a new 'Next steps' section pointing to related optimization guides.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_bitmaps.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/memory/manage-app-memory\" target=\"_blank\">Manage your app's memory</a>",
+        "path": "topic/performance/memory/manage-app-memory.md",
+        "summary": "Updated documentation links to include local `.md.txt` extensions, added a documentation index link, improved the code block formatting for the `onTrimMemory` example, and updated bitmap memory management guidance to address third-party image library caching behaviors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/074b6d9e_manage-app-memory.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-25T15:11:33Z",
     "commit_hash": "36e8f0c2",
     "entries": [

@@ -1,0 +1,43 @@
+diff --git a/docs/topic/libraries/architecture/appstate/transform.md b/docs/topic/libraries/architecture/appstate/transform.md
+index 0691d375..58e9ad19 100644
+--- a/docs/topic/libraries/architecture/appstate/transform.md
++++ b/docs/topic/libraries/architecture/appstate/transform.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/topic/libraries/architecture/appstate/transfo
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/topic/libraries/architecture/appstate/llms.txt
++
+ # Transform
+ Part of [Android Jetpack](https://developer.android.com/jetpack).
+ 
+@@ -33,6 +35,7 @@ package androidx.appstate.transform
+ 
+ import androidx.compose.runtime.Composable
+ import androidx.compose.runtime.State
++import androidx.savedstate.SavedStateContainer
+ import kotlinx.coroutines.CoroutineDispatcher
+ import kotlinx.coroutines.CoroutineScope
+ import kotlinx.coroutines.Dispatchers
+@@ -40,6 +43,7 @@ import kotlinx.coroutines.Dispatchers
+ public fun <R> transform(
+     initialValue: R,
+     scope: CoroutineScope,
++    container: SavedStateContainer = SavedStateContainer(),
+     dispatcher: CoroutineDispatcher = Dispatchers.Default,
+     onUpdate: @Composable (R) -> R,
+ ): State<R>
+@@ -314,7 +318,12 @@ switches between collecting `mediaRepository.downloadedTracksFlow` when offline
+ and `mediaRepository.allTracksFlow` when online, exposing a single
+ `State<HomeUiState>` that UI composables can read directly. For more details on
+ combining `transform` with `MutableState` and `SavedStateHandle.saveable`, see
+-[Use Compose State in a ViewModel](https://developer.android.com/topic/libraries/architecture/appstate/state-beyond-ui.md.txt#state-in-viewmodel).
++[Use Compose State in a ViewModel](https://developer.android.com/topic/libraries/architecture/appstate/state-beyond-ui.md.txt#state-in-viewmodel). To persist
++`rememberSaveable` or `rememberSerializable` state inside a `transform` or
++[`TransformScope.launchTransform`](https://developer.android.com/reference/kotlin/androidx/appstate/transform/TransformScope.md.txt#launchTransform(kotlin.Any,kotlin.Function1)) block, pass a nested
++container from `SavedStateHandle.getOrCreateContainer` to the `container`
++parameter; for more information, see [Use `SavedStateContainer` with
++Transform](https://developer.android.com/topic/libraries/architecture/saved-state-container#transform).
+ 
+ > [!NOTE]
+ > **Note:** A `transform` scoped to `viewModelScope` remains active for the entire lifetime of `viewModelScope` (including while the UI is in the background), whereas the `@Composable transform` overload follows the lifecycle of the UI composition that calls it.

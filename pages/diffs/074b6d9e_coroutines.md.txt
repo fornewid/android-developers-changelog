@@ -1,0 +1,81 @@
+diff --git a/docs/kotlin/coroutines.md b/docs/kotlin/coroutines.md
+index c48f9a30..423b81e2 100644
+--- a/docs/kotlin/coroutines.md
++++ b/docs/kotlin/coroutines.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/kotlin/coroutines
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/kotlin/coroutines/llms.txt
++
+ A *coroutine* is a concurrency design pattern that you can use on
+ Android to simplify code that executes asynchronously.
+ [Coroutines](https://kotlinlang.org/docs/coroutines-guide.html)
+@@ -12,20 +14,20 @@ concepts from other languages.
+ 
+ On Android, coroutines help to manage long-running tasks that might
+ otherwise block the main thread and cause your app to become unresponsive.
+-Over 50% of professional developers who use coroutines have reported seeing
+-increased productivity.
+ This topic describes how you can use Kotlin coroutines to address these
+ problems, enabling you to write cleaner and more concise app code.
+ 
+ ## Features
+ 
+-Coroutines is our recommended solution for asynchronous programming on
+-Android. Noteworthy features include the following:
++Coroutines are the recommended solution for asynchronous programming on
++Android. For how suspension, structured concurrency, and cancellation work, see
++[Coroutines basics](https://kotlinlang.org/docs/coroutines-basics.html) and [Cancellation](https://kotlinlang.org/docs/coroutines-cancellation.html) in the
++Kotlin documentation.
+ 
+-- **Lightweight** : You can run many coroutines on a single thread due to support for [*suspension*](https://kotlinlang.org/docs/reference/coroutines/basics.html), which doesn't block the thread where the coroutine is running. Suspending saves memory over blocking while supporting many concurrent operations.
+-- **Fewer memory leaks** : Use [*structured concurrency*](https://kotlinlang.org/docs/reference/coroutines/basics.html#structured-concurrency) to run operations within a scope.
+-- **Built-in cancellation support** : [Cancellation](https://kotlinlang.org/docs/reference/coroutines/cancellation-and-timeouts.html) is propagated automatically through the running coroutine hierarchy.
+-- **Jetpack integration** : Many Jetpack libraries include [extensions](https://developer.android.com/kotlin/ktx.md.txt) that provide full coroutines support. Some libraries also provide their own [coroutine scope](https://developer.android.com/topic/libraries/architecture/coroutines.md.txt) that you can use for structured concurrency.
++On Android, coroutines also integrate with Jetpack: many Jetpack libraries
++include [extensions](https://developer.android.com/kotlin/ktx.md.txt) that provide full coroutines support, and some libraries
++provide their own [coroutine scope](https://developer.android.com/topic/libraries/architecture/coroutines.md.txt) that you can use for structured
++concurrency.
+ 
+ ## Examples overview
+ 
+@@ -38,10 +40,10 @@ Architecture component calls the repository layer on the main thread to
+ trigger the network request. This guide iterates through various solutions
+ that use coroutines to keep the main thread unblocked.
+ 
+-`ViewModel` includes a set of KTX extensions that work directly with
+-coroutines. These extension are
+-[`lifecycle-viewmodel-ktx` library](https://developer.android.com/kotlin/ktx.md.txt#viewmodel) and are used
+-in this guide.
++`ViewModel` includes Kotlin extensions that work directly with coroutines, such
++as [`viewModelScope`](https://developer.android.com/topic/libraries/architecture/coroutines.md.txt#viewmodelscope), which is part of
++`androidx.lifecycle:lifecycle-viewmodel` (version 2.8.0 or later) and is used in
++this guide.
+ 
+ ## Dependency info
+ 
+@@ -151,7 +153,7 @@ class LoginViewModel(
+ 
+ Let's dissect the coroutines code in the `login` function:
+ 
+-- `viewModelScope` is a predefined `CoroutineScope` that is included with the `ViewModel` KTX extensions. Note that all coroutines must run in a scope. A `CoroutineScope` manages one or more related coroutines.
++- `viewModelScope` is a predefined `CoroutineScope` included in the `androidx.lifecycle:lifecycle-viewmodel` library. Note that all coroutines must run in a scope. A `CoroutineScope` manages one or more related coroutines.
+ - `launch` is a function that creates a coroutine and dispatches the execution of its function body to the corresponding dispatcher.
+ - `Dispatchers.IO` indicates that this coroutine should be executed on a thread reserved for I/O operations.
+ 
+@@ -257,12 +259,12 @@ The login function now executes as follows:
+ - Once the `withContext` block finishes, the coroutine in `login()` resumes execution *on the main thread* with the result of the network request.
+ 
+ > [!NOTE]
+-> **Note:** To communicate with the `View` from the `ViewModel` layer, use `LiveData` as recommended in the [Guide to app architecture](https://developer.android.com/jetpack/docs/guide). When following this pattern, the code in the `ViewModel` is executed on the main thread, so you can call `MutableLiveData`'s `setValue()` function directly.
++> **Note:** To expose the result to the UI from the `ViewModel`, hold it in a `StateFlow` as described in the [UI layer guide](https://developer.android.com/topic/architecture/ui-layer.md.txt#expose-ui-state) and update the `MutableStateFlow` value when `makeLoginRequest()` returns.
+ 
+ ## Handling exceptions
+ 
+ To handle exceptions that the `Repository` layer can throw, use Kotlin's
+-[built-in support for exceptions](https://kotlinlang.org/docs/reference/exceptions.html).
++[built-in support for exceptions](https://kotlinlang.org/docs/exceptions.html).
+ In the following example, we use a `try-catch` block:
+ 
+ 

@@ -1,0 +1,55 @@
+diff --git a/docs/games/pgs/recall.md b/docs/games/pgs/recall.md
+index ee757310..727d124f 100644
+--- a/docs/games/pgs/recall.md
++++ b/docs/games/pgs/recall.md
+@@ -4,11 +4,13 @@ url: https://developer.android.com/games/pgs/recall
+ source: md.txt
+ ---
+ 
++> Documentation index: https://developer.android.com/games/pgs/recall/llms.txt
++
+ The Recall API helps you seamlessly link Google Play Games Services users to their in-game
+ accounts, enabling automatic progress restoration. You store *recall tokens*
+ in game servers, which associate these tokens with a user's Google Play Games Services
+ profile. Using Recall API is optional and is the recommended method for
+-implementing [seamless restore](https://developer.android.com/games/pgs/seamless-restore#bind-iga-pgs-id) if you don't have your own
++implementing [seamless restore](https://developer.android.com/games/pgs/seamless-restore.md.txt#bind-iga-pgs-id) if you don't have your own
+ robust identity backend.
+ 
+ ## Terminology
+@@ -73,7 +75,7 @@ corresponding to the in-game account, known as *persona* . You might think of a
+ persona as the label which represents the user's in-game account within the
+ developer's identity system, and the recall token as a key which is used to
+ restore the user's in-game account to the game. Persona and token values must
+-not be reused across different [PGS projects](https://developer.android.com/games/pgs/console/setup#add_your_game_to_the). Also, while recall tokens may
++not be reused across different [PGS projects](https://developer.android.com/games/pgs/console/setup.md.txt#add-game-to-play-console). Also, while recall tokens may
+ be changed over time, a persona should be stable according to the user's in-game
+ account.
+ 
+@@ -92,7 +94,7 @@ The game initializes the PGS SDK and attempts to authenticate the user with PGS.
+ ![User authentication with PGS](https://developer.android.com/static/images/games/pgs/recall-flow-user-pgs-signin.png)
+ 
+ Assuming the user is authenticated, request a session ID from the Games SDK on
+-the game client, and request an [OAuth 2.0](https://developer.android.com/games/pgs/android/server-access#get-auth-code) token from Google's OAuth
++the game client, and request an [OAuth 2.0](https://developer.android.com/games/pgs/android/server-access.md.txt#get-auth-code) token from Google's OAuth
+ backend. The session ID and OAuth 2.0 tokens are used to communicate with the
+ Google Games backend.
+ 
+@@ -102,7 +104,7 @@ ID](https://developer.android.com/static/images/games/pgs/recall-flow-request-se
+ ### Step 2: Retrieve any available recall token
+ 
+ Request for any associated recall token with the PGS user's account. If a token
+-is present, [proceed to Step 3a and restore progress](https://developer.android.com/games/pgs/recall#restore-progress).
++is present, [proceed to Step 3a and restore progress](https://developer.android.com/games/pgs/recall.md.txt#restore-progress).
+ Otherwise, if this is a new user and they have no token present, [proceed to
+ Step 3b and store a new token](https://developer.android.com/games/pgs/recall#store-tokens).
+ 
+@@ -139,7 +141,7 @@ You can store recall tokens for a user who hasn't created a PGS profile yet by
+ using profileless mode. However, there are two important caveats:
+ 
+ - You can't retrieve tokens for a user who doesn't have a PGS profile. Profile creation is automatically prompted when the user tries to log into your game with Play Games Services on a second device.
+-- You must follow [additional guidelines](https://developer.android.com/games/pgs/recall/recall-setup#terms) to ensure you have an appropriate notice describing the following items and obtaining the appropriate end-user consent:
++- You must follow [additional guidelines](https://developer.android.com/games/pgs/recall/recall-setup.md.txt#terms) to ensure you have an appropriate notice describing the following items and obtaining the appropriate end-user consent:
+   - Your sharing of the data with Google to enable the Play Games account linking feature.
+   - The availability of settings to manage this sharing, such as Play Games settings.
+   - The processing of such data under the [Google Privacy

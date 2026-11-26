@@ -1,0 +1,547 @@
+diff --git a/docs/topic/performance/app-optimization/keep-rule-examples.md b/docs/topic/performance/app-optimization/keep-rule-examples.md
+index 20d8d4f2..d5631be0 100644
+--- a/docs/topic/performance/app-optimization/keep-rule-examples.md
++++ b/docs/topic/performance/app-optimization/keep-rule-examples.md
+@@ -14,7 +14,7 @@ However, in certain scenarios, it might be unavoidable. The following examples
+ provide guidance for keep rules in common scenarios that use reflection.
+ 
+ > [!IMPORTANT]
+-> **Important:** All reflection, whether in apps or libraries, necessitates corresponding keep rules. Apps place these rules in their own configuration, but libraries must include them in their [consumer keep rules file](https://developer.android.com/topic/performance/app-optimization/library-optimization#library-keep-rule-types).
++> **Important:** All reflection, whether in apps or libraries, necessitates corresponding keep rules. Apps place these rules in their own configuration, but libraries must include them in their [consumer keep rules file](https://developer.android.com/topic/performance/app-optimization/library-optimization.md.txt#library-keep-rule-types).
+ 
+ If the reflection is in your own app or library code, you can use [keep
+ annotations](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations) instead of writing keep rules manually. A Gradle plugin
+@@ -27,42 +27,46 @@ Libraries often load classes dynamically by using the class name as a `String`.
+ However, R8 cannot detect classes that are loaded in this manner, and might
+ remove the classes it considers unused.
+ 
+-For example, consider the following scenario where you have a library and an app
+-that uses the library- the code demonstrates a library loader that
+-instantiates a `StartupTask` interface implemented by an app.
+-
+-The library code is as follows:
+-
+-    // The interface for a task that runs once.
+-    interface StartupTask {
+-        fun run()
++For example, consider the following scenario where your app uses a library. The
++following code demonstrates a library loader that instantiates a `StartupTask`
++interface implemented by an app.
++
++**Library code**
++
++```kotlin
++// The interface for a task that runs once.
++interface StartupTask {
++    fun run()
++}
++
++// The library object that loads and executes the task.
++object TaskRunner {
++    fun execute(className: String) {
++        // R8 won't retain classes specified by this string value at runtime
++        val taskClass = Class.forName(className)
++        val task = taskClass.getDeclaredConstructor().newInstance() as StartupTask
++        task.run()
+     }
+-
+-    // The library object that loads and executes the task.
+-    object TaskRunner {
+-        fun execute(className: String) {
+-            // R8 won't retain classes specified by this string value at runtime
+-            val taskClass = Class.forName(className)
+-            val task = taskClass.getDeclaredConstructor().newInstance() as StartupTask
+-            task.run()
+-        }
+-    }
+-
+-The app that uses the library has the following code:
+-
+-    // The app's task to pre-cache data.
+-    // R8 will remove this class because it's only referenced by a string.
+-    class PreCacheTask : StartupTask {
+-        override fun run() {
+-            // This log will never appear if the class is removed by R8.
+-            Log.d("AppTask", "Warming up the cache...")
+-        }
++}
++```
++
++**App code**
++
++```kotlin
++// The app's task to pre-cache data.
++// R8 will remove this class because it's only referenced by a string.
++class PreCacheTask : StartupTask {
++    override fun run() {
++        // This log will never appear if the class is removed by R8.
++        Log.d("AppTask", "Warming up the cache...")
+     }
++}
+ 
+-    fun onCreate() {
+-        // The library is told to run the app's task by its name.
+-        TaskRunner.execute("com.example.app.PreCacheTask")
+-    }
++fun onCreate() {
++    // The library is told to run the app's task by its name.
++    TaskRunner.execute("com.example.app.PreCacheTask")
++}
++```
+ 
+ In this scenario, your library should include a consumer keep rules file with
+ the following keep rules:
+@@ -77,6 +81,33 @@ classes that implement your library's `StartupTask` interface and preserves
+ them, along with their no-argument constructor, allowing the library to
+ successfully instantiate and execute `PreCacheTask`.
+ 
++#### Use Jetpack Keep annotations
++
++With [Jetpack Keep](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations.md.txt) (in alpha), annotate `TaskRunner.execute` with
++[`@UsesReflectionToConstruct`](https://developer.android.com/reference/kotlin/androidx/annotation/keep/UsesReflectionToConstruct.md.txt) and specify
++`StartupTask::class` as the target:
++
++```kotlin
++import androidx.annotation.keep.UsesReflectionToConstruct
++
++object TaskRunner {
++    @UsesReflectionToConstruct(
++        classConstant = StartupTask::class,
++        parameterTypes = [],
++    )
++    fun execute(className: String) {
++        val task = Class.forName(className)
++            .getDeclaredConstructor()
++            .newInstance() as StartupTask
++        task.run()
++    }
++}
++```
++
++This annotation generates a conditional consumer keep rule that keeps the
++no-argument constructor of every `StartupTask` implementation when R8 keeps the
++`execute` method.
++
+ ### Reflection with `::class.java`
+ 
+ Libraries can load classes by having the app pass the `Class` object directly,
+@@ -92,32 +123,36 @@ interface by passing the class reference directly.
+ 
+ The library code is as follows:
+ 
+-    // The interface for a task that runs once.
+-    interface StartupTask {
+-        fun run()
+-    }
+-    // The library object that loads and executes the task.
+-    object TaskRunner {
+-        fun execute(taskClass: Class<out StartupTask>) {
+-            // The class isn't removed, but its constructor might be.
+-            val task = taskClass.getDeclaredConstructor().newInstance()
+-            task.run()
+-        }
++```kotlin
++// The interface for a task that runs once.
++interface StartupTask {
++    fun run()
++}
++// The library object that loads and executes the task.
++object TaskRunner {
++    fun execute(taskClass: Class<out StartupTask>) {
++        // The class isn't removed, but its constructor might be.
++        val task = taskClass.getDeclaredConstructor().newInstance()
++        task.run()
+     }
++}
++```
+ 
+ The app that uses the library has the following code:
+ 
+-    // The app's task is to pre-cache data.
+-    class PreCacheTask : StartupTask {
+-        override fun run() {
+-            Log.d("AppTask", "Warming up the cache...")
+-        }
++```kotlin
++// The app's task is to pre-cache data.
++class PreCacheTask : StartupTask {
++    override fun run() {
++        Log.d("AppTask", "Warming up the cache...")
+     }
++}
+ 
+-    fun onCreate() {
+-        // The library is given a direct reference to the app's task class.
+-        TaskRunner.execute(PreCacheTask::class.java)
+-    }
++fun onCreate() {
++    // The library is given a direct reference to the app's task class.
++    TaskRunner.execute(PreCacheTask::class.java)
++}
++```
+ 
+ In this scenario, your library should include a consumer keep rules file with
+ the following keep rules:
+@@ -152,6 +187,15 @@ call.
+ > [!NOTE]
+ > **Note:** Keeping the `run` method is not necessary because the library calls the `run` method directly.
+ 
++#### Use Jetpack Keep annotations
++
++With [Jetpack Keep](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations.md.txt), add the same
++`@UsesReflectionToConstruct(classConstant = StartupTask::class,
++parameterTypes = [])` annotation to
++`TaskRunner.execute(taskClass: Class<out StartupTask>)` as shown in [Reflection
++with classes loaded by name](https://developer.android.com/topic/performance/app-optimization/keep-rule-examples#reflection-with-classes-loaded-by-name). The generated conditional
++rules replace the manual `-keep` and `-keepclassmembers` rules.
++
+ ### Reflection based on method annotation
+ 
+ Libraries often define annotations that developers use to tag methods or fields.
+@@ -165,41 +209,45 @@ invokes methods annotated with `@OnEvent`.
+ 
+ The library code is as follows:
+ 
+-    @Retention(AnnotationRetention.RUNTIME)
+-    @Target(AnnotationTarget.FUNCTION)
+-    annotation class OnEvent
+-
+-    class EventBus {
+-        fun dispatch(listener: Any) {
+-            // Find all methods annotated with @OnEvent and invoke them
+-            listener::class.java.declaredMethods.forEach { method ->
+-                if (method.isAnnotationPresent(OnEvent::class.java)) {
+-                    try {
+-                        method.invoke(listener)
+-                    } catch (e: Exception) { /* ... */ }
+-                }
++```kotlin
++@Retention(AnnotationRetention.RUNTIME)
++@Target(AnnotationTarget.FUNCTION)
++annotation class OnEvent
++
++class EventBus {
++    fun dispatch(listener: Any) {
++        // Find all methods annotated with @OnEvent and invoke them
++        listener::class.java.declaredMethods.forEach { method ->
++            if (method.isAnnotationPresent(OnEvent::class.java)) {
++                try {
++                    method.invoke(listener)
++                } catch (e: Exception) { /* ... */ }
+             }
+         }
+     }
++}
++```
+ 
+ The app that uses the library has the following code:
+ 
+-    class MyEventListener {
+-        @OnEvent
+-        fun onSomethingHappened() {
+-            // This method will be removed by R8 without a keep rule
+-            Log.d(TAG, "Event received!")
+-        }
++```kotlin
++class MyEventListener {
++    @OnEvent
++    fun onSomethingHappened() {
++        // This method will be removed by R8 without a keep rule
++        Log.d(TAG, "Event received!")
+     }
++}
+ 
+-    fun onCreate() {
+-        // Instantiate the listener and the event bus
+-        val listener = MyEventListener()
+-        val eventBus = EventBus()
++fun onCreate() {
++    // Instantiate the listener and the event bus
++    val listener = MyEventListener()
++    val eventBus = EventBus()
+ 
+-        // Dispatch the listener to the event bus
+-        eventBus.dispatch(listener)
+-    }
++    // Dispatch the listener to the event bus
++    eventBus.dispatch(listener)
++}
++```
+ 
+ The library should include a consumer keep rules file that automatically
+ preserves any methods using its annotations:
+@@ -210,7 +258,7 @@ preserves any methods using its annotations:
+         @com.example.library.OnEvent <methods>;
+     }
+ 
+-- **`-keepattributes RuntimeVisibleAnnotations`** : This rule preserves [annotations](https://developer.android.com/topic/performance/app-optimization/global-options#commonly-required-attributes) that are meant to be read at runtime.
++- **`-keepattributes RuntimeVisibleAnnotations`** : This rule preserves [annotations](https://developer.android.com/topic/performance/app-optimization/global-options.md.txt#commonly-required-attributes) that are meant to be read at runtime.
+ - **`-keep @interface com.example.library.OnEvent`** : This rule preserves the `OnEvent` annotation class itself.
+ - **`-keepclassmembers class * {@com.example.library.OnEvent <methods>;}`** : This rule preserves a class and specific members only if the class is being used and the class contains those members.
+   - **`-keepclassmembers`**: This rule preserves a class and specific members only if the class is being used and the class contains those members.
+@@ -229,39 +277,43 @@ that uses the library.
+ 
+ The library has the following code:
+ 
+-    @Retention(AnnotationRetention.RUNTIME)
+-    @Target(AnnotationTarget.CLASS)
+-    annotation class ReflectiveExecutor
+-
+-    class TaskRunner {
+-        fun process(task: Any) {
+-            val taskClass = task::class.java
+-            if (taskClass.isAnnotationPresent(ReflectiveExecutor::class.java)) {
+-                val methodToCall = taskClass.getMethod("execute")
+-                methodToCall.invoke(task)
+-            }
++```kotlin
++@Retention(AnnotationRetention.RUNTIME)
++@Target(AnnotationTarget.CLASS)
++annotation class ReflectiveExecutor
++
++class TaskRunner {
++    fun process(task: Any) {
++        val taskClass = task::class.java
++        if (taskClass.isAnnotationPresent(ReflectiveExecutor::class.java)) {
++            val methodToCall = taskClass.getMethod("execute")
++            methodToCall.invoke(task)
+         }
+     }
++}
++```
+ 
+ The app that uses the library has the following code:
+ 
+-    // In consumer app
++```kotlin
++// In consumer app
+ 
+-    @ReflectiveExecutor
+-    class ImportantBackgroundTask {
+-        fun execute() {
+-            // This class will be removed by R8 without a keep rule
+-            Log.e("ImportantBackgroundTask", "Executing the important background task...")
+-        }
++@ReflectiveExecutor
++class ImportantBackgroundTask {
++    fun execute() {
++        // This class will be removed by R8 without a keep rule
++        Log.e("ImportantBackgroundTask", "Executing the important background task...")
+     }
++}
+ 
+-    // Usage of ImportantBackgroundTask
++// Usage of ImportantBackgroundTask
+ 
+-    fun onCreate(){
+-        val task = ImportantBackgroundTask()
+-        val runner = TaskRunner()
+-        runner.process(task)
+-    }
++fun onCreate(){
++    val task = ImportantBackgroundTask()
++    val runner = TaskRunner()
++    runner.process(task)
++}
++```
+ 
+ Because the library reflectively uses reflection to get specific classes, the
+ library should include a consumer keep rules file with the following keep rules:
+@@ -297,30 +349,34 @@ for an optional `VideoEventTracker` class to enable video analytics.
+ 
+ The core library has the following code:
+ 
+-    object AnalyticsManager {
+-        private const val VIDEO_TRACKER_CLASS = "com.example.analytics.video.VideoEventTracker"
+-
+-        fun initialize() {
+-            try {
+-                // Attempt to load the optional module's class using reflection
+-                Class.forName(VIDEO_TRACKER_CLASS).getDeclaredConstructor().newInstance()
+-                Log.d(TAG, "Video tracking enabled.")
+-            } catch (e: ClassNotFoundException) {
+-                Log.d(TAG,"Video tracking module not found. Skipping.")
+-            } catch (e: Exception) {
+-                Log.e(TAG, e.printStackTrace())
+-            }
++```kotlin
++object AnalyticsManager {
++    private const val VIDEO_TRACKER_CLASS = "com.example.analytics.video.VideoEventTracker"
++
++    fun initialize() {
++        try {
++            // Attempt to load the optional module's class using reflection
++            Class.forName(VIDEO_TRACKER_CLASS).getDeclaredConstructor().newInstance()
++            Log.d(TAG, "Video tracking enabled.")
++        } catch (e: ClassNotFoundException) {
++            Log.d(TAG,"Video tracking module not found. Skipping.")
++        } catch (e: Exception) {
++            Log.e(TAG, e.printStackTrace())
+         }
+     }
++}
++```
+ 
+ The optional video library has the following code:
+ 
+-    package com.example.analytics.video
++```kotlin
++package com.example.analytics.video
+ 
+-    class VideoEventTracker {
+-        // This constructor must be kept for the reflection call to succeed.
+-        init { /* ... */ }
+-    }
++class VideoEventTracker {
++    // This constructor must be kept for the reflection call to succeed.
++    init { /* ... */ }
++}
++```
+ 
+ The developer of the optional library is responsible for providing the necessary
+ consumer keep rule. This keep rule makes sure that any app using the optional
+@@ -368,19 +424,23 @@ access a private field from a library class.
+ 
+ A library that you don't own has the following code:
+ 
+-    class LibraryClass {
+-        private val secretMessage = "R8 will remove me"
+-    }
++```kotlin
++class LibraryClass {
++    private val secretMessage = "R8 will remove me"
++}
++```
+ 
+ Your app has the following code:
+ 
+-    fun accessSecretMessage(instance: LibraryClass) {
+-        // Use Java reflection from Kotlin to access the private field
+-        val secretField = instance::class.java.getDeclaredField("secretMessage")
+-        secretField.isAccessible = true
+-        // This will crash at runtime with R8 enabled
+-        val message = secretField.get(instance) as String
+-    }
++```kotlin
++fun accessSecretMessage(instance: LibraryClass) {
++    // Use Java reflection from Kotlin to access the private field
++    val secretField = instance::class.java.getDeclaredField("secretMessage")
++    secretField.isAccessible = true
++    // This will crash at runtime with R8 enabled
++    val message = secretField.get(instance) as String
++}
++```
+ 
+ Add a `-keep` rule in your app to prevent R8 from removing the private field:
+ 
+@@ -419,31 +479,35 @@ The following example shows a Kotlin class with a method intended to be called
+ from a native library. The native library instantiates an application type and
+ passes data from native code to the Kotlin code.
+ 
+-    package com.example.models
+-
+-    // This class is used in the JNI bridge method signature
+-    data class NativeData(val id: Int, val payload: String)
+-
+-    package com.example.app
+-    // In package com.example.app
+-    class JniBridge {
+-        /**
+-         *   This method is called from the native side.
+-         *   R8 will remove it if it's not kept.
+-         */
+-        fun onNativeEvent(data: NativeData) {
+-            Log.d(TAG, "Received event from native code: $data")
+-        }
+-        // Use 'external' to declare a native method
+-        external fun startNativeProcess()
++```kotlin
++package com.example.models
++
++// This class is used in the JNI bridge method signature
++data class NativeData(val id: Int, val payload: String)
++```
++
++```kotlin
++package com.example.app
++// In package com.example.app
++class JniBridge {
++    /**
++     *   This method is called from the native side.
++     *   R8 will remove it if it's not kept.
++     */
++    fun onNativeEvent(data: NativeData) {
++        Log.d(TAG, "Received event from native code: $data")
++    }
++    // Use 'external' to declare a native method
++    external fun startNativeProcess()
+ 
+-        companion object {
+-            init {
+-                // Load the native library
+-                System.loadLibrary("my-native-lib")
+-            }
++    companion object {
++        init {
++            // Load the native library
++            System.loadLibrary("my-native-lib")
+         }
+     }
++}
++```
+ 
+ In this case, you must inform R8 to prevent the application type from being
+ optimized. Additionally, if methods called from native code use your own classes
+@@ -461,7 +525,7 @@ Add the following keep rules to your app:
+     }
+ 
+ > [!NOTE]
+-> **Note:** In such cases, put the Kotlin or Java code used by the JNI call into an isolated package, and then include the package in a keep rule. For more details, [see Adopt optimizations incrementally](https://developer.android.com/topic/performance/app-optimization/adopt-optimizations-incrementally).
++> **Note:** In such cases, put the Kotlin or Java code used by the JNI call into an isolated package, and then include the package in a keep rule. For more details, [see Adopt optimizations incrementally](https://developer.android.com/topic/performance/app-optimization/adopt-optimizations-incrementally.md.txt).
+ 
+ These keep rules prevent R8 from removing or renaming the `onNativeEvent` method
+ and---critically---its parameter type.
+@@ -480,7 +544,7 @@ and---critically---its parameter type.
+ > **Warning:** If you forget this rule, your app crashes with an `UnsatisfiedLinkError` or `NoSuchMethodError` when the native code tries to call the missing method. These crashes can be hard to debug because the error originates outside the Dalvik/ART virtual machine.
+ 
+ You can also annotate methods that native code calls with the
+-[`@UnconditionallyKeep`](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations#unconditionally-keep) annotation from Jetpack Keep instead of writing keep
++[`@UnconditionallyKeep`](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations.md.txt#unconditionally-keep) annotation from Jetpack Keep instead of writing keep
+ rules for them. The annotation doesn't keep classes in the method's signature,
+ such as `NativeData`, so you still need to keep those classes separately.
+ 
+@@ -496,15 +560,17 @@ including the `CREATOR` field and methods that the framework needs.
+ For example, consider the following example where the `kotlin-parcelize` plugin
+ is used to create a `Parcelable` class:
+ 
+-    import android.os.Parcelable
+-    import kotlinx.parcelize.Parcelize
++```kotlin
++import android.os.Parcelable
++import kotlinx.parcelize.Parcelize
+ 
+-    // Add the @Parcelize annotation to your data class
+-    @Parcelize
+-    data class UserData(
+-        val name: String,
+-        val age: Int
+-    ) : Parcelable
++// Add the @Parcelize annotation to your data class
++@Parcelize
++data class UserData(
++    val name: String,
++    val age: Int
++) : Parcelable
++```
+ 
+ In this scenario, there isn't a recommended keep rule. The `kotlin-parcelize`
+ Gradle plugin automatically generates the required keep rules for the classes
+@@ -541,7 +607,7 @@ rules to your project.
+ ### Gson
+ 
+ Gson is a JSON serialization and deserialization library that relies heavily on
+-reflection. When you use [full mode](https://developer.android.com/topic/performance/app-optimization/full-mode) to optimize your app, it strips generic
++reflection. When you use [full mode](https://developer.android.com/topic/performance/app-optimization/full-mode.md.txt) to optimize your app, it strips generic
+ type signatures, default constructors, and non-annotated fields unless
+ explicitly instructed otherwise.
+ 
