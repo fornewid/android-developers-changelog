@@ -38,11 +38,11 @@ Jetpack libraries like [androidx.compose.material3.adaptive.layout](https://deve
 
 ## Learn to use Jetpack
 
-[![](http://developer.android.com/static/images/picto-icons/learn.svg)](http://developer.android.com/courses/android-basics-compose/course.md.txt)
+[![](http://developer.android.com/static/images/picto-icons/learn.svg)](http://developer.android.com/courses/android-basics-compose/course)
 
-### [Fundamentals Training](http://developer.android.com/courses/android-basics-compose/course.md.txt)
+### [Fundamentals Training](http://developer.android.com/courses/android-basics-compose/course)
 
-Learn the essential Jetpack libraries in the Android Basics with Compose course and reduce boilerplate in your app [Start course](http://developer.android.com/courses/android-basics-compose/course.md.txt) [![](http://developer.android.com/static/images/picto-icons/courses.svg)](http://developer.android.com/training/data-storage/room.md.txt)
+Learn the essential Jetpack libraries in the Android Basics with Compose course and reduce boilerplate in your app [Start course](http://developer.android.com/courses/android-basics-compose/course) [![](http://developer.android.com/static/images/picto-icons/courses.svg)](http://developer.android.com/training/data-storage/room.md.txt)
 
 ### [Local database guide](http://developer.android.com/training/data-storage/room.md.txt)
 

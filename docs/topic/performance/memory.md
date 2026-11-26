@@ -42,9 +42,9 @@ memory.
     handling, and graphic asset management guidance tailored specifically for
     apps using game engines.
 
-[Optimizing bitmap images](https://developer.android.com/develop/ui/compose/graphics/images/optimization.md.txt)
-:   Demonstrates how to size, decode, and cache
-    bitmap assets efficiently within image libraries.
+[Optimize bitmap memory](https://developer.android.com/topic/performance/memory/bitmaps.md.txt)
+:   Explains how to reduce, reuse, and recycle bitmap memory across display
+    sizes, image loaders, and process lifecycles.
 
 [Manage and diagnose WebView memory](https://developer.android.com/develop/ui/views/layout/webapps/manage-webview-memory.md.txt)
 :   Explains the WebView multi-process

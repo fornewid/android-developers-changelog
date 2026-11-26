@@ -33,6 +33,10 @@ To get the latest product updates delivered to you in an RSS feed, add the URL o
 
 These Jetpack libraries have been recently updated.
 
+## November 25, 2026
+
+- [Media3 Version 1.12.0-rc01](https://developer.android.com/jetpack/androidx/releases/media3.md.txt#1.12.0-rc01)
+
 ## November 18, 2026
 
 - [Appfunctions Version 1.0.0](https://developer.android.com/jetpack/androidx/releases/appfunctions.md.txt#1.0.0)

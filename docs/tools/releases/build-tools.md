@@ -4,16 +4,18 @@ url: https://developer.android.com/tools/releases/build-tools
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/tools/llms.txt
+
 Android SDK Build-Tools is a component of the Android SDK required for
 building Android apps. It's installed in the
 `<sdk>/build-tools/` directory.
 
 You should always keep your Build Tools component updated by downloading the latest version
-using the [Android SDK Manager](https://developer.android.com/studio/intro/update). If you're using
+using the [Android SDK Manager](https://developer.android.com/studio/intro/update.md.txt). If you're using
 [Android plugin for Gradle 3.0.0](https://developer.android.com/studio/releases/gradle-plugin#3-0-0) or higher,
 your project automatically uses a default version of the build tools that the plugin specifies. To
 use a different version of the build tools, specify it using
-[`buildToolsVersion`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.AppExtension.html#com.android.build.gradle.AppExtension:buildToolsVersion)
+[`buildToolsVersion`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/CommonExtension#buildToolsVersion())
 in your module's `build.gradle`, as follows:
 
 ### Groovy
@@ -85,11 +87,11 @@ Includes the latest version of [D8](https://developer.android.com/studio/command
 Build Tools, Revision 27.0.3 *(December 2017)*
 
 Improves support for compiling lambdas when you enable
-[Java 8 language features](https://developer.android.com/studio/write/java8-support).
+[Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt).
 Build Tools, Revision 27.0.2 *(December 2017)*
 
 Improves support for
-[Java 8 language features](https://developer.android.com/studio/write/java8-support).
+[Java 8 language features](https://developer.android.com/studio/write/java8-support.md.txt).
 Build Tools, Revision 27.0.1 *(November 2017)*
 
 Adds support for legacy multidex for test APKs.
@@ -113,7 +115,7 @@ following updates to the tool:
 
 - Adds PKCS #11 support to allow signing with keys held in secure hardware. ([Issue #37140484](https://issuetracker.google.com/issues/37140484))
 - Adds support for loading additional [JCA Providers](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html#Provider) before signing.
-- Honors `https://developer.android.com/reference/android/R.attr#targetSandboxVersion` when verifying APKs.
+- Honors `android:targetSandboxVersion` when verifying APKs.
 - When signing, rejects APKs with files that include 'CR' (carriage return), 'LF' (line feed), or 'NUL' (null) special characters in the file name.
 - Fixes `apksigner.bat` to correctly handle parameters containing spaces. ([Issue #38132450](https://issuetracker.google.com/issues/38132450))
 - Fixes a bug in JAR signature verification when multiple digests are present for the same entry in `MANIFEST.MF`. ([Issue #38497270](https://issuetracker.google.com/issues/38497270))
@@ -152,13 +154,13 @@ Build Tools, Revision 24.0.3 *(September 2016)*
   Signature Scheme v2](https://developer.android.com/about/versions/nougat/android-7.0#apk_signature_v2) introduced in Android 7.0 (API level 24). Any modification to an APK signed with APK Signature Scheme v2 invalidates its signature. Thus, APK post-processing, such as `zipalign`, must be performed before `apksigner` is invoked, not after. Invoking `zipalign` before `apksigner` works fine because `apksigner` preserves APK alignment and compression (unlike `jarsigner`).
 Build Tools, Revision 23.0.3 *(March 2016)*
 
-- Fix issues in the [RenderScript](https://developer.android.com/guide/topics/renderscript/compute) Support Library on arm64 devices.
-- Fix issues in the [RenderScript](https://developer.android.com/guide/topics/renderscript/compute) Support Library on certain Jelly Bean devices.
+- Fix issues in the [RenderScript](https://developer.android.com/guide/topics/renderscript/compute.md.txt) Support Library on arm64 devices.
+- Fix issues in the [RenderScript](https://developer.android.com/guide/topics/renderscript/compute.md.txt) Support Library on certain Jelly Bean devices.
 - Support `renderscriptTargetAPI 21+` when using Android Plugin for Gradle, Revision 2.1.0 and above .
 Build Tools, Revision 23.0.2 *(November 2015)*
 
 - Improved the merging performance of the `dx` tool.
-- Fixed issues in the [RenderScript](https://developer.android.com/guide/topics/renderscript/compute) compiler for Windows.
+- Fixed issues in the [RenderScript](https://developer.android.com/guide/topics/renderscript/compute.md.txt) compiler for Windows.
 Build Tools, Revision 23.0.1 *(October 2015)*
 
 Fixed issues in the RenderScript tools.
@@ -168,7 +170,7 @@ Added support for the Android 6.0 (API level 23) release.
 Build Tools, Revision 22.0.1 *(March 2015)*
 
 Fixed compatibility issues with
-[RenderScript](https://developer.android.com/guide/topics/renderscript/compute) kernels on
+[RenderScript](https://developer.android.com/guide/topics/renderscript/compute.md.txt) kernels on
 Android 4.4 (API level 19) to Android 4.1 (API level 16) devices.
 Build Tools, Revision 22.0.0 *(March 2015)*
 

@@ -47,31 +47,32 @@ bitmaps retained by destroyed components.
 These resources provide comprehensive guidance on best practices for efficient
 bitmap handling across different Android components.
 
-- [Managing Bitmap Memory](https://developer.android.com/topic/performance/graphics/manage-memory.md.txt)
-- [Optimizing Bitmap Images](https://developer.android.com/develop/ui/compose/graphics/images/optimization.md.txt)
+- [Optimize bitmap memory](https://developer.android.com/topic/performance/memory/bitmaps.md.txt)
+- [Bitmaps and memory](https://developer.android.com/topic/performance/memory/guide/bitmaps.md.txt)
+- [Optimizing bitmap images (Compose)](https://developer.android.com/develop/ui/compose/graphics/images/optimization.md.txt)
 - [Manage your app's memory](https://developer.android.com/topic/performance/memory/manage-app-memory.md.txt)
 
 ### Developer checklist for optimizing bitmap memory usage
 
 To optimize bitmap memory efficiency, follow the three core principles: reduce,
-reuse, and recycle.
+reuse, and recycle. For architectural defect layers, adaptive cache formulas,
+and library configuration snippets, see [Optimize bitmap memory](https://developer.android.com/topic/performance/memory/bitmaps.md.txt).
 
 - **Reduce**: Minimize the initial memory footprint when loading or displaying bitmaps.
-- **Reuse**: Implement caching mechanisms to avoid redundant bitmap allocations.
-- **Recycle**: Proactively release resources to allow memory re-allocation for active processes.
+- **Reuse**: Consolidate image pipelines, eliminate duplicate decodes, and size caches to the active window.
+- **Recycle**: Proactively release UI resources when your app's UI is hidden, including while running foreground services.
 
 The following developer checklist can help you optimize bitmap memory usage.
 
-| Core Principle | Area | Description |
+| Core principle | Area | Description |
 |---|---|---|
-| **Reduce** | Eliminate Duplicate Bitmaps | Analyze heap dumps [using the Memory Profiler](https://developer.android.com/topic/performance/memory/manage-app-memory.md.txt#monitor) to detect redundant bitmap allocations. Refer to the [Managing Bitmap Memory](https://developer.android.com/topic/performance/graphics/manage-memory.md.txt) guide. |
-|   | Leverage Image Loading Libraries | Use [libraries like Glide and Coil](https://developer.android.com/develop/ui/compose/graphics/images/optimization.md.txt#bitmap-libraries), to automate threading, caching, and efficient decoding. |
-|   | Implement Downsampling | [Decode images](https://developer.android.com/develop/ui/compose/graphics/images/optimization.md.txt#downsample) to match target UI container dimensions instead of loading full-resolution assets. |
-|   | Use RGB_565 for Opaque Images | Reduce memory footprint by 50% by [switching from `ARGB_8888` to a 16-bit configuration](https://developer.android.com/develop/ui/compose/graphics/images/optimization.md.txt#pixel-format) for images without transparency. |
-|   | Prioritize VectorDrawables | Use [vectors for icons and basic graphics](https://developer.android.com/develop/ui/compose/graphics/images/optimization.md.txt#vectors-bitmap) to ensure sharp scaling with minimal memory overhead. |
-|   | Optimize Server-Side Image Delivery | Configure backend APIs to [serve images tailored to device density](https://www.youtube.com/watch?v=4BlGtrTeCMU&t=1234s) and UI container dimensions. |
-|   | Eliminate Transparent Margins | Avoid allocating memory for "invisible" pixels by using InsetDrawable or layout padding instead of baked-in margins. See [Engineering memory-performant Android apps](https://www.youtube.com/watch?v=fOXJR5qLq54). |
-| **Reuse** | Configure Optimal Cache Sizes | Tailor memory and disk cache limits based on device RAM and screen resolution. Refer to [Caching Bitmaps](https://developer.android.com/topic/performance/graphics/cache-bitmap.md.txt). |
-| **Recycle** | Purge Resources in Background | [Implement `TRIM_MEMORY_BACKGROUND`](https://developer.android.com/topic/performance/memory/manage-app-memory.md.txt#release) to clear caches and improve process survival during system memory pressure. |
-|   | Release Assets when UI is Hidden | [Use `TRIM_MEMORY_UI_HIDDEN`](https://developer.android.com/topic/performance/memory/manage-app-memory.md.txt#release) to release bitmap caches when the app is no longer visible to the user. |
-|   | Monitor for Memory Leaks | Use LeakCanary and Memory Profiler to find bitmaps retained after their LifecycleOwner is destroyed. Refer to [Manage your app's memory](https://developer.android.com/topic/performance/memory/manage-app-memory.md.txt). |
+| **Reduce** | Implement container-bound downsampling | [Decode images to match target UI container bounds](https://developer.android.com/topic/performance/memory/bitmaps.md.txt#downsample-bounds) on both your CDN and client decoder instead of loading full-resolution or full-screen assets. |
+| **Reduce** | Prefer `Bitmap.Config.HARDWARE` for static UI | [Enable hardware bitmaps](https://developer.android.com/topic/performance/memory/bitmaps.md.txt#pixel-configs) so immutable UI images reside in graphics memory rather than the native heap, and avoid blanket `RGB_565` on photo feeds. |
+| **Reduce** | Prioritize `VectorDrawable` and zero-byte backgrounds | Use [vectors for icons](https://developer.android.com/develop/ui/compose/graphics/images/optimization.md.txt#vectors-bitmap) and `ColorDrawable` or `Modifier.background` instead of solid-color software bitmaps. |
+| **Reduce** | Eliminate transparent margins | Avoid allocating memory for invisible border pixels by cropping margins and using `InsetDrawable` or layout padding. See [Trim transparent margins](https://developer.android.com/topic/performance/memory/bitmaps.md.txt#trim-and-vectors). |
+| **Reuse** | Consolidate onto one image loader | Standardize on a [single shared image loader](https://developer.android.com/topic/performance/memory/bitmaps.md.txt#single-loader) per process (such as Coil or Glide) to avoid duplicate `LruCache` pools across Views and Compose. |
+| **Reuse** | Eliminate duplicate bitmaps | Capture [lossless PNG heap dumps](https://developer.android.com/topic/performance/memory/bitmaps.md.txt#verify) (`adb shell am dumpheap -g -b png`) or use the [Memory Profiler](https://developer.android.com/studio/profile/capture-heap-dump.md.txt#duplicate-bitmaps) to detect and deduplicate identical pixel buffers, including vector animation raster frames. |
+| **Reuse** | Size caches to the active window | Bound strong memory caches to [window pixel dimensions and RAM tier](https://developer.android.com/topic/performance/memory/bitmaps.md.txt#cache-formula) rather than static Java heap percentages. |
+| **Recycle** | Configure `TRIM_MEMORY_UI_HIDDEN` eviction | [Configure Coil, Glide, Fresco, and Lottie](https://developer.android.com/topic/performance/memory/bitmaps.md.txt#loader-trim) to clear strong UI caches when the UI leaves the screen instead of waiting for `TRIM_MEMORY_BACKGROUND`. |
+| **Recycle** | Clear UI caches under foreground services | Observe [`ProcessLifecycleOwner` `ON_STOP`](https://developer.android.com/topic/performance/memory/bitmaps.md.txt#fgs-trap) so UI bitmaps release even when an active foreground service keeps your process at perceptible priority. |
+| **Recycle** | Cancel in-flight decodes and monitor leaks | Scope image requests to UI lifecycles so backgrounded scroll decodes don't inflate memory, and use LeakCanary and the Memory Profiler to catch backstack leaks. See [Manage your app's memory](https://developer.android.com/topic/performance/memory/manage-app-memory.md.txt). |

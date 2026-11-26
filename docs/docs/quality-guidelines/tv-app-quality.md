@@ -68,8 +68,7 @@ Android TV OS capabilities.
 | Advertising | TV-AP | The app offers interaction with advertising using D-pad controls. For more information, see [Enable D-pad navigation](https://developer.android.com/training/tv/start/navigation#enable_d-pad_navigation). |
 | Advertising | TV-AD | For advertising that displays full screen, non-video ads, the app lets the user immediately dismiss the ad with D-pad or gamepad controls. |
 | Advertising | TV-AU | For advertising that uses clickable, non-fullscreen, non-video ads, the app does not let ads link to a web URL. |
-| Advertising | TV-AA | For advertising that uses clickable ads, the app must not link to another application, initiate cross-package navigation, or trigger the installation of a separate application. |
-| Advertising | TV-AN | All ads must prevent navigation disruption and either remain in-context (inside the current application) or use off-screen conversion mechanisms (such as QR codes). |
+| Advertising | TV-AA | For advertising that uses clickable, non-fullscreen, non-video ads, the app does not let ads link to another app that is not available on TV devices. |
 | Web Content | TV-WB | For web content, the app must only use [`WebView`](https://developer.android.com/reference/android/webkit/WebView.md.txt) components. The app must not attempt to launch a web browser app. |
 | Media Playback | TV-NP | If the app continues to play audio after the user returns to the home screen or switches to another app, the app provides media controls in the system UI (such as a card or notification) so users can return to the app to control playback. For more information, see [Display a Now Playing card](https://developer.android.com/training/tv/playback/now-playing.md.txt). Video apps must not use these media controls, and video must be paused when the user switches out of the app. |
 | Media Playback | TV-PA | If the app provides media controls on the system UI, selecting them takes the user to a screen that lets the user pause playback. |
@@ -156,21 +155,6 @@ Apps that meet the requirements for TV will appear on the Play Store on TV
 devices immediately.
 
 ## Change notes
-
-### January 2027
-
-- Advertising
-
-  - Updated criterion, [`TV-AA`](https://developer.android.com/docs/quality-guidelines/tv-app-quality.md.txt#TV-AA):
-
-    For advertising that uses clickable ads, the app must not link to
-    another application, initiate cross-package navigation, or trigger the
-    installation of a separate application.
-  - New criterion, [`TV-AN`](https://developer.android.com/docs/quality-guidelines/tv-app-quality.md.txt#TV-AN):
-
-    All ads must prevent navigation disruption and either remain in-context
-    (inside the current application) or use off-screen conversion
-    mechanisms (such as QR codes).
 
 ### May 2026
 

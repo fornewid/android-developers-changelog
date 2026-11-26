@@ -18,6 +18,10 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions.md.txt).
 
+## November 25, 2026
+
+- [Media3 Version 1.12.0-rc01](https://developer.android.com/jetpack/androidx/releases/media3.md.txt#1.12.0-rc01)
+
 ## November 18, 2026
 
 - [Biometric Version 1.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/biometric.md.txt#1.4.0-rc01)

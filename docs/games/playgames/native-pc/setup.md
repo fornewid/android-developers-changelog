@@ -4,13 +4,15 @@ url: https://developer.android.com/games/playgames/native-pc/setup
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/playgames/native-pc/setup/llms.txt
+
 With the Play Games PC SDK you can access Google Play services to build and
 monetize your game on PCs. Sell digital content using Play Billing, seamlessly
 sign-in using Play Games, and verify your users have a valid entitlement to your
 application with Play Integrity.
 
 For a high-level view of upcoming features, stable releases, and the integration
-architecture, see the [Play Games PC Roadmap](https://developer.android.com/games/playgames/native-pc/roadmap).
+architecture, see the [Play Games PC Roadmap](https://developer.android.com/games/playgames/native-pc/roadmap.md.txt).
 
 Ready to get started?
 
@@ -55,7 +57,7 @@ Ready to get started?
   [Install a UPM package from a local tar file](https://docs.unity3d.com/6000.3/Documentation/Manual/upm-ui-tarball.html)
 
 - For detailed documentation, setup instructions, and additional guidance,
-  see the [Play PC Unity Package](https://developer.android.com/games/playgames/native-pc/unity) page.
+  see the [Play PC Unity Package](https://developer.android.com/games/playgames/native-pc/unity.md.txt) page.
 
 ## **Step 2**: Add a manifest file
 
@@ -69,12 +71,14 @@ same directory as your game's executable.
 
 Example `manifest.xml` contents:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <Manifest version="1">
-        <Application>
-            <PackageName>com.example.package</PackageName>
-        </Application>
-    </Manifest>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Manifest version="1">
+    <Application>
+        <PackageName>com.example.package</PackageName>
+    </Application>
+</Manifest>
+```
 
 Example `manifest.xml` placement:
 
@@ -83,10 +87,13 @@ Example `manifest.xml` placement:
         ├───Game.exe
         └───manifest.xml
 
+> [!NOTE]
+> **Note:** If your game uses a split-executable layout---such as Unreal Engine builds where a root bootstrapper `.exe` launches the main game binary in `<Game>\Binaries\Win64\*-Win64-Shipping.exe`---place `manifest.xml` in the directory of the executable that initializes the Play Games PC SDK (for Unreal Engine, \`\\Binaries\\Win64\`, rather than only the root bootstrapper directory). See [Step 5](https://developer.android.com/games/playgames/native-pc/setup.md.txt#step-5) for multi-process integration requirements.
+
 ## **Step 3**: Digitally sign your game
 
 > [!TIP]
-> **Tip:** Developers can skip this step during local development by enabling [developer mode](https://developer.android.com/games/playgames/native-pc/setup/developer_mode).
+> **Tip:** Developers can skip this step during local development by enabling [developer mode](https://developer.android.com/games/playgames/native-pc/setup/developer_mode.md.txt).
 
 Before your game can use the SDK, the game's executable must be digitally
 signed using an
@@ -110,10 +117,10 @@ as possible and avoids your game window briefly appearing in cases where your
 game process needs to exit.
 
 Start using the SDK by calling
-[`GooglePlayInitialize`](https://developer.android.com/games/playgames/native-pc/reference/namespace/google/play/initialization) (C++) or
-[`GooglePlayInitialization.InitializeAsync`](https://developer.android.com/games/playgames/native-pc/unity/api_reference#playpcsdkmanaged-initialization) (C#)
+[`GooglePlayInitialize`](https://developer.android.com/games/playgames/native-pc/reference/namespace/google/play/initialization.md.txt) (C++) or
+[`GooglePlayInitialization.InitializeAsync`](https://developer.android.com/games/playgames/native-pc/unity/api_reference.md.txt#playpcsdkmanaged-initialization) (C#)
 to initialize the API. We recommend passing your game's Android package name in
-[`GooglePlayInitializeParams`](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/initialization/google-play-initialize-params) during
+[`GooglePlayInitializeParams`](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/initialization/google-play-initialize-params.md.txt) during
 initialization. This sets up global state, connects with the SDK runtime, and
 verifies the application was started correctly. You must call this and have the
 continuation callback complete with `InitializeResult::ok()` (C++) or
@@ -223,7 +230,7 @@ A non-successful response may indicate one of the following conditions:
 
 - The SDK runtime was unable to verify the application identity of the
   game. This could be due to an invalid `manifest.xml` or using the SDK
-  without enabling [developer mode](https://developer.android.com/games/playgames/native-pc/setup/developer_mode)
+  without enabling [developer mode](https://developer.android.com/games/playgames/native-pc/setup/developer_mode.md.txt)
   when developing. Without this your game's executable is required to be
   digitally signed with the digital certificate registered to your Play
   package name.
@@ -241,12 +248,27 @@ one that is launched by Google Play Games on PC. For example, if Google Play
 Games on PC launches your game's launcher, and then your launcher starts the
 game process that will interact with the SDK.
 
-1. The process directly launched by Google Play Games for PC must
-   verify a successful [initialization of the Play Games PC SDK](https://developer.android.com/games/playgames/native-pc/setup#step-4).
+1. Each process that uses the Play Games PC SDK must verify a successful
+   [initialization of the Play Games PC SDK](https://developer.android.com/games/playgames/native-pc/setup.md.txt#step-4).
 
-   This provides the best user experience by surfacing errors as soon as
-   possible. Note that child-process using the SDK must also perform
-   initialization in addition to the directly launched process.
+   If the process directly launched by Google Play Games for PC uses the SDK,
+   initializing it there provides the best user experience by surfacing errors
+   as soon as possible. If the directly launched process is a pass-through
+   launcher or bootstrapper that only forwards command-line arguments and does
+   not call the SDK, only the child process that initializes the SDK requires
+   `manifest.xml` in its executable directory. If both the directly launched
+   process and a child process initialize the SDK, each process must perform
+   initialization and have `manifest.xml` in its own executable directory. For
+   example, in Unreal Engine split-executable builds where only the shipping
+   binary initializes the SDK, place `manifest.xml` in ``<Game>\Binaries\Win64\`
+   alongside``\*-Win64-Shipping.exe\`:
+
+       C:\Program Files\Example Game
+       ├───ExampleGame.exe
+       └───ExampleGame\Binaries\Win64
+           ├───ExampleGame-Win64-Shipping.exe
+           └───manifest.xml
+
 2. To use the Play Games PC SDK in a child-process forward the command line
    parameters to the spawned child-process.
 
@@ -280,10 +302,10 @@ game process that will interact with the SDK.
 
 Use the SDK while developing in your IDE:
 
-- Enable [developer mode](https://developer.android.com/games/playgames/native-pc/setup/developer_mode)
+- Enable [developer mode](https://developer.android.com/games/playgames/native-pc/setup/developer_mode.md.txt)
 
 Add Google Play PC features to your app:
 
-- Sell digital goods with [Play Billing](https://developer.android.com/games/playgames/native-pc/billing)
-- Measure your marketing with [Play Install Referrer](https://developer.android.com/games/playgames/native-pc/install_referrer)
-- Protect your game with [Play Integrity for PC](https://developer.android.com/games/playgames/native-pc/trust)
+- Sell digital goods with [Play Billing](https://developer.android.com/games/playgames/native-pc/billing.md.txt)
+- Measure your marketing with [Play Install Referrer](https://developer.android.com/games/playgames/native-pc/install_referrer.md.txt)
+- Protect your game with [Play Integrity for PC](https://developer.android.com/games/playgames/native-pc/trust.md.txt)

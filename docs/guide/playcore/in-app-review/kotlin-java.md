@@ -63,7 +63,7 @@ val manager = ReviewManagerFactory.create(context)
 ### Java
 
 ```java
-ReviewManager manager = ReviewManagerFactory.create(context)
+ReviewManager manager = ReviewManagerFactory.create(context);
 ```
 
 ## Request a ReviewInfo object

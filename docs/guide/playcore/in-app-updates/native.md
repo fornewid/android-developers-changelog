@@ -13,7 +13,7 @@ cases where your implementation uses [Unity](https://developer.android.com/guide
 
 > [!NOTE]
 > **Note:** The Native API for in-app updates requires your app to [use Play Core
-> library](https://developer.android.com/guide/playcore#native) version 1.10.0 or higher.
+> library](https://developer.android.com/guide/playcore) version 1.10.0 or higher.
 
 ## Native SDK overview
 
@@ -44,8 +44,8 @@ I have read and agree with the above terms and conditions <button class="button 
 
 1. Do either of the following:
 
-   - Install [Android Studio](https://developer.android.com/studio.md.txt) version 4.0 or higher. Use the SDK Manager UI to install Android SDK Platform version 10.0 (API level 29).
-   - Install the [Android SDK command-line tools](https://developer.android.com/studio.md.txt#command-tools) and use [`sdkmanager`](https://developer.android.com/studio/command-line/sdkmanager) to install Android SDK Platform version 10.0 (API level 29).
+   - Install [Android Studio](https://developer.android.com/studio) version 4.0 or higher. Use the SDK Manager UI to install Android SDK Platform version 10.0 (API level 29).
+   - Install the [Android SDK command-line tools](https://developer.android.com/studio#command-tools) and use [`sdkmanager`](https://developer.android.com/studio/command-line/sdkmanager) to install Android SDK Platform version 10.0 (API level 29).
 2. Prepare Android Studio for native development by using the
    [SDK Manager](https://developer.android.com/studio/intro/update.md.txt#sdk-manager) to install the latest
    CMake and Android Native Development Kit (NDK). For more information on
@@ -91,9 +91,9 @@ I have read and agree with the above terms and conditions <button class="button 
            buildTypes {
                release {
                    // Include Play Core Library proguard config files to strip unused code while retaining the Java symbols needed for JNI.
-                   proguardFile '$playcoreDir/proguard/common.pgcfg'
-                   proguardFile '$playcoreDir/proguard/gms_task.pgcfg'
-                   proguardFile '$playcoreDir/proguard/per-feature-proguard-files'
+                   proguardFile "$playcoreDir/proguard/common.pgcfg"
+                   proguardFile "$playcoreDir/proguard/gms_task.pgcfg"
+                   proguardFile "$playcoreDir/proguard/per-feature-proguard-files"
                    ...
                }
                debug {
@@ -164,7 +164,7 @@ I have read and agree with the above terms and conditions <button class="button 
        }
        externalNativeBuild {
            cmake {
-               path = "src/main/CMakeLists.txt"
+               path = file("src/main/CMakeLists.txt")
            }
        }
    }
@@ -193,7 +193,7 @@ I have read and agree with the above terms and conditions <button class="button 
    include(${PLAYCORE_LOCATION}/playcore.cmake)
    add_playcore_static_library()
 
-   // In this example “main” is your native code library, i.e. libmain.so.
+   # In this example "main" is your native code library, i.e. libmain.so.
    add_library(main SHARED
            ...)
 
@@ -258,7 +258,7 @@ gathers the required information to launch the in-app update flow later. The
 function returns `APP_UPDATE_NO_ERROR` if the request starts successfully.
 
 ```c
-AppUpdateErrorCode error_code = AppUpdateManager_requestInfo()
+AppUpdateErrorCode error_code = AppUpdateManager_requestInfo();
 
 if (error_code == APP_UPDATE_NO_ERROR) {
     // The request has successfully started, check the result using
@@ -274,7 +274,7 @@ function in every game loop until it returns a non-null result for `info`:
 
 ```c
 AppUpdateInfo* info;
-GameUpdate() {
+void GameUpdate() {
 
    // Keep calling this in every game loop until info != nullptr
    AppUpdateErrorCode error_code = AppUpdateManager_getInfo(&info);
@@ -436,7 +436,7 @@ This section describes solutions for common errors indicated by specific
 
 - An error code of `-110, APP_UPDATE_INITIALIZATION_NEEDED` indicates that the API has not been initialized successfully. Call `AppUpdateManager_init()` to initialize the API.
 - An error code of `-4, APP_UPDATE_INVALID_REQUEST` indicates that some parameters of the update flow request are malformed. Check to make sure that the `AppUpdateInfo` and `AppUpdateOptions` objects are not null and are correctly formatted.
-- An error code of `-5, APP_UPDATE_UNAVAILABLE` indicates that there is no applicable update available. Make sure that the target version has the same [package name](https://developer.android.com/studio/build/configure-app-module#change_the_package_name), [application ID](https://developer.android.com/studio/build/configure-app-module#set_the_application_id), and [signing key](https://developer.android.com/studio/publish/app-signing.md.txt). If there is an update available, clear the app's cache and call `AppUpdateManager_requestAppUpdateInfo()` again to refresh `AppUpdateInfo`.
+- An error code of `-5, APP_UPDATE_UNAVAILABLE` indicates that there is no applicable update available. Make sure that the target version has the same [package name](https://developer.android.com/studio/build/configure-app-module#change_the_package_name), [application ID](https://developer.android.com/build/configure-app-module.md.txt#set-application-id), and [signing key](https://developer.android.com/studio/publish/app-signing.md.txt). If there is an update available, clear the app's cache and call `AppUpdateManager_requestInfo()` again to refresh `AppUpdateInfo`.
 - An error code of `-6, APP_UPDATE_NOT_ALLOWED` indicates that the update type indicated by the `AppUpdateOption` object is not allowed. Check whether the `AppUpdateInfo` object indicates that the update type is allowed before starting the update flow.
 
 ## Next steps

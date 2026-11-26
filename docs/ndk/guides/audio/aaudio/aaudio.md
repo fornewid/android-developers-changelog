@@ -4,8 +4,10 @@ url: https://developer.android.com/ndk/guides/audio/aaudio/aaudio
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/ndk/guides/audio/llms.txt
+
 > [!NOTE]
-> **Note:** Developers should consider using the open source Oboe library which is available on [GitHub](https://github.com/google/oboe). Oboe is a C++ wrapper that provides an API that closely resembles AAudio. It calls AAudio when it is available, and falls back to [OpenSL ES](https://developer.android.com/ndk/guides/audio/opensl) if AAudio is not available.
+> **Note:** Developers should consider using the open source Oboe library which is available on [GitHub](https://github.com/google/oboe). Oboe is a C++ wrapper that provides an API that closely resembles AAudio. It calls AAudio when it is available, and falls back to [OpenSL ES](https://developer.android.com/ndk/guides/audio/opensl.md.txt) if AAudio is not available.
 
 AAudio is a new Android C API introduced in the Android O release. It is designed for high-performance audio applications that require low latency. Apps communicate with AAudio by reading and writing data to streams.
 
@@ -22,7 +24,9 @@ it doesn't perform these functions:
 
 You can call AAudio from C++ code. To add the AAudio feature set to your app, include the AAudio.h header file:
 
-    #include <aaudio/AAudio.h>
+```c++
+#include <aaudio/AAudio.h>
+```
 
 ## Audio streams
 
@@ -41,7 +45,7 @@ Each stream is attached to a single audio device.
 An audio device is a hardware interface or virtual endpoint that acts as a source or sink for a continuous stream of digital audio data. Don't confuse an *audio device*
 (a built-in mic or bluetooth headset) with the *Android device* (the phone or watch) that is running your app.
 
-You can use the `AudioManager` method `https://developer.android.com/reference/android/media/AudioManager#getDevices(int)` to discover the audio devices that are available on your Android device. The method returns information about the `https://developer.android.com/reference/android/media/AudioDeviceInfo` of each device.
+You can use the `AudioManager` method `getDevices()` to discover the audio devices that are available on your Android device. The method returns information about the `type` of each device.
 
 Each audio device has a unique ID on the Android device. You can use the ID to bind an audio stream to a specific audio device. However, in most cases you can let AAudio choose the default primary device rather than specifying one yourself.
 
@@ -81,11 +85,13 @@ If you do not specify a sample format, AAudio will choose one that is optimal.
 After the stream is opened you must query the sample data format and then
 convert data if necessary, as in this example:
 
-    aaudio_format_t dataFormat = AAudioStream_getDataFormat(stream);
-    //... later
-    if (dataFormat == AAUDIO_FORMAT_PCM_I16) {
-         convertFloatToPcm16(...)
-    }
+```c++
+aaudio_format_t dataFormat = AAudioStream_getDataFormat(stream);
+//... later
+if (dataFormat == AAUDIO_FORMAT_PCM_I16) {
+     convertFloatToPcm16(...)
+}
+```
 
 ## Creating an audio stream
 
@@ -166,11 +172,13 @@ Data only flows through a stream when the stream is in the Started state. To
 move a stream between states, use one of the functions that request a state
 transition:
 
-    aaudio_result_t result;
-    result = AAudioStream_requestStart(stream);
-    result = AAudioStream_requestStop(stream);
-    result = AAudioStream_requestPause(stream);
-    result = AAudioStream_requestFlush(stream);
+```c++
+aaudio_result_t result;
+result = AAudioStream_requestStart(stream);
+result = AAudioStream_requestStop(stream);
+result = AAudioStream_requestPause(stream);
+result = AAudioStream_requestFlush(stream);
+```
 
 Note that you can only request pause or flush on an output stream:
 
@@ -191,7 +199,7 @@ Though it's not shown, you can call `close()` from any state
 
 AAudio doesn't provide callbacks to alert you to state changes. One special
 function,
-`https://developer.android.com/ndk/reference/group___audio#ga6ae9b716d703eaf350c03a60c36b8d8b` can be used to wait for a state change.
+`AAudioStream_waitForStateChange(stream, inputState, nextState, timeout)` can be used to wait for a state change.
 
 The function does not detect a state change on its own, and does not wait for a
 specific state. It waits until the current state
@@ -202,11 +210,13 @@ the transient state Pausing, and arrive sometime later at the Paused state - tho
 Since you can't wait for the Paused state, use `waitForStateChange()` to wait for *any state
 other than Pausing*. Here's how that's done:
 
-    aaudio_stream_state_t inputState = AAUDIO_STREAM_STATE_PAUSING;
-    aaudio_stream_state_t nextState = AAUDIO_STREAM_STATE_UNINITIALIZED;
-    int64_t timeoutNanos = 100 * AAUDIO_NANOS_PER_MILLISECOND;
-    result = AAudioStream_requestPause(stream);
-    result = AAudioStream_waitForStateChange(stream, inputState, &nextState, timeoutNanos);
+```c++
+aaudio_stream_state_t inputState = AAUDIO_STREAM_STATE_PAUSING;
+aaudio_stream_state_t nextState = AAUDIO_STREAM_STATE_UNINITIALIZED;
+int64_t timeoutNanos = 100 * AAUDIO_NANOS_PER_MILLISECOND;
+result = AAudioStream_requestPause(stream);
+result = AAudioStream_waitForStateChange(stream, inputState, &nextState, timeoutNanos);
+```
 
 If the stream's state is not Pausing (the `inputState`, which we assumed was the
 current state at call time), the function returns immediately. Otherwise, it
@@ -224,7 +234,7 @@ while `waitForStateChange()` is running in another thread.
 
 There are two ways to process the data in a stream after it is started:
 
-- Use a [high priority callback](https://developer.android.com/ndk/guides/audio/aaudio/aaudio#high-priority-callback).
+- Use a [high priority callback](https://developer.android.com/ndk/guides/audio/aaudio/aaudio.md.txt#high-priority-callback).
 - Use the functions [`AAudioStream_read(stream, buffer, numFrames, timeoutNanos)`](https://developer.android.com/ndk/reference/group___audio#gaaab7b0aa16105267b27e0a1ae2d13652) and [`AAudioStream_write(stream, buffer, numFrames, timeoutNanos)`](https://developer.android.com/ndk/reference/group___audio#ga12c6681893f9ce2df479c67334f41d21). to read or write the stream.
 
 For a blocking read or write that transfers the specified number of frames, set timeoutNanos greater than zero.
@@ -235,16 +245,18 @@ frames was read. If not, the buffer might contain unknown data that could cause 
 audio glitch. You can pad the buffer with zeros to create a
 silent dropout:
 
-    aaudio_result_t result =
-        AAudioStream_read(stream, audioData, numFrames, timeout);
-    if (result < 0) {
-      // Error!
-    }
-    if (result != numFrames) {
-      // pad the buffer with zeros
-      memset(static_cast<sample_type*>(audioData) + result * samplesPerFrame, 0,
-          sizeof(sample_type) * (numFrames - result) * samplesPerFrame);
-    }
+```c++
+aaudio_result_t result =
+    AAudioStream_read(stream, audioData, numFrames, timeout);
+if (result < 0) {
+  // Error!
+}
+if (result != numFrames) {
+  // pad the buffer with zeros
+  memset(static_cast<sample_type*>(audioData) + result * samplesPerFrame, 0,
+      sizeof(sample_type) * (numFrames - result) * samplesPerFrame);
+}
+```
 
 You can prime the stream's buffer before starting the stream by writing data or silence into it. This must be done in a non-blocking call with timeoutNanos set to zero.
 
@@ -254,7 +266,9 @@ The data in the buffer must match the data format returned by `AAudioStream_getD
 
 When you are finished using a stream, close it:
 
-    AAudioStream_close(stream);
+```c++
+AAudioStream_close(stream);
+```
 
 After you close a stream you cannot use the stream pointer with any AAudio
 stream-based function.
@@ -289,13 +303,15 @@ of the stream must be done from another thread. Otherwise you may have a deadloc
 Note that if you open a new stream it might have different settings
 from the original stream (for example framesPerBurst):
 
-    void errorCallback(AAudioStream *stream,
-                       void *userData,
-                       aaudio_result_t error) {
-        // Launch a new thread to handle the disconnect.
-        std::thread myThread(my_error_thread_proc, stream, userData);
-        myThread.detach(); // Don't wait for the thread to finish.
-    }
+```c++
+void errorCallback(AAudioStream *stream,
+                   void *userData,
+                   aaudio_result_t error) {
+    // Launch a new thread to handle the disconnect.
+    std::thread myThread(my_error_thread_proc, stream, userData);
+    myThread.detach(); // Don't wait for the thread to finish.
+}
+```
 
 ## Optimizing performance
 
@@ -333,27 +349,29 @@ can do it continuously while the app reads or writes data to a stream.
 
 Here is an example of a buffer optimization loop:
 
-    int32_t previousUnderrunCount = 0;
-    int32_t framesPerBurst = AAudioStream_getFramesPerBurst(stream);
-    int32_t bufferSize = AAudioStream_getBufferSizeInFrames(stream);
+```c++
+int32_t previousUnderrunCount = 0;
+int32_t framesPerBurst = AAudioStream_getFramesPerBurst(stream);
+int32_t bufferSize = AAudioStream_getBufferSizeInFrames(stream);
 
-    int32_t bufferCapacity = AAudioStream_getBufferCapacityInFrames(stream);
+int32_t bufferCapacity = AAudioStream_getBufferCapacityInFrames(stream);
 
-    while (go) {
-        result = writeSomeData();
-        if (result < 0) break;
+while (go) {
+    result = writeSomeData();
+    if (result < 0) break;
 
-        // Are we getting underruns?
-        if (bufferSize < bufferCapacity) {
-            int32_t underrunCount = AAudioStream_getXRunCount(stream);
-            if (underrunCount > previousUnderrunCount) {
-                previousUnderrunCount = underrunCount;
-                // Try increasing the buffer size by one burst
-                bufferSize += framesPerBurst;
-                bufferSize = AAudioStream_setBufferSize(stream, bufferSize);
-            }
+    // Are we getting underruns?
+    if (bufferSize < bufferCapacity) {
+        int32_t underrunCount = AAudioStream_getXRunCount(stream);
+        if (underrunCount > previousUnderrunCount) {
+            previousUnderrunCount = underrunCount;
+            // Try increasing the buffer size by one burst
+            bufferSize += framesPerBurst;
+            bufferSize = AAudioStream_setBufferSize(stream, bufferSize);
         }
     }
+}
+```
 
 There is no advantage to using this technique to optimize the buffer size for an input stream.
 Input streams run as fast as possible, trying to keep the amount
@@ -368,15 +386,20 @@ AAudio executes the callback in a higher-priority thread that has better perform
 
 The callback function has this prototype:
 
-    typedef aaudio_data_callback_result_t (*AAudioStream_dataCallback)(
-            AAudioStream *stream,
-            void *userData,
-            void *audioData,
-            int32_t numFrames);
+```c++
+typedef aaudio_data_callback_result_t (*AAudioStream_dataCallback)(
+        AAudioStream *stream,
+        void *userData,
+        void *audioData,
+        int32_t numFrames);
+
+```
 
 Use the stream building to register the callback:
 
-    AAudioStreamBuilder_setDataCallback(builder, myCallback, myUserData);
+```c++
+AAudioStreamBuilder_setDataCallback(builder, myCallback, myUserData);
+```
 
 In the simplest case, the stream periodically executes the callback function to
 acquire the data for its next burst.
@@ -390,17 +413,19 @@ data into the buffer.
 For example, you could use a callback to continuously generate a sine wave output
 like this:
 
-    aaudio_data_callback_result_t myCallback(
-            AAudioStream *stream,
-            void *userData,
-            void *audioData,
-            int32_t numFrames) {
-        int64_t timeout = 0;
+```c++
+aaudio_data_callback_result_t myCallback(
+        AAudioStream *stream,
+        void *userData,
+        void *audioData,
+        int32_t numFrames) {
+    int64_t timeout = 0;
 
-        // Write samples directly into the audioData array.
-        generateSineWave(static_cast<float *>(audioData), numFrames);
-        return AAUDIO_CALLBACK_RESULT_CONTINUE;
-    }
+    // Write samples directly into the audioData array.
+    generateSineWave(static_cast<float *>(audioData), numFrames);
+    return AAUDIO_CALLBACK_RESULT_CONTINUE;
+}
+```
 
 It is possible to process more than one stream using AAudio. You can use one stream as the master, and
 pass pointers to other streams in the user data. Register a callback for the master stream. Then use non-blocking I/O on the other streams. Here is an example of a round-trip callback that passes an input stream to an output stream.
@@ -408,25 +433,27 @@ The master calling stream is the output stream. The input stream is included in 
 
 The callback does a non-blocking read from the input stream placing the data into the buffer of the output stream:
 
-    aaudio_data_callback_result_t myCallback(
-            AAudioStream *stream,
-            void *userData,
-            void *audioData,
-            int32_t numFrames) {
-        AAudioStream *inputStream = (AAudioStream *) userData;
-        int64_t timeout = 0;
-        aaudio_result_t result =
-            AAudioStream_read(inputStream, audioData, numFrames, timeout);
+```c++
+aaudio_data_callback_result_t myCallback(
+        AAudioStream *stream,
+        void *userData,
+        void *audioData,
+        int32_t numFrames) {
+    AAudioStream *inputStream = (AAudioStream *) userData;
+    int64_t timeout = 0;
+    aaudio_result_t result =
+        AAudioStream_read(inputStream, audioData, numFrames, timeout);
 
-      if (result == numFrames)
-          return AAUDIO_CALLBACK_RESULT_CONTINUE;
-      if (result >= 0) {
-          memset(static_cast<sample_type*>(audioData) + result * samplesPerFrame, 0,
-              sizeof(sample_type) * (numFrames - result) * samplesPerFrame);
-          return AAUDIO_CALLBACK_RESULT_CONTINUE;
-      }
-      return AAUDIO_CALLBACK_RESULT_STOP;
-    }
+  if (result == numFrames)
+      return AAUDIO_CALLBACK_RESULT_CONTINUE;
+  if (result >= 0) {
+      memset(static_cast<sample_type*>(audioData) + result * samplesPerFrame, 0,
+          sizeof(sample_type) * (numFrames - result) * samplesPerFrame);
+      return AAUDIO_CALLBACK_RESULT_CONTINUE;
+  }
+  return AAUDIO_CALLBACK_RESULT_STOP;
+}
+```
 
 Note that in this example it is assumed the input and output streams have the same number of channels, format and sample rate. The format of the streams can be mismatched - as long as the code handles the translations properly.
 
@@ -449,15 +476,17 @@ This is typical for apps that play back previously generated music, such as stre
 
 In the current version of AAudio, in order to achieve the lowest possible latency you must use the `AAUDIO_PERFORMANCE_MODE_LOW_LATENCY` performance mode along with a high-priority callback. Follow this example:
 
-    // Create a stream builder
-    AAudioStreamBuilder *streamBuilder;
-    AAudio_createStreamBuilder(&streamBuilder);
-    AAudioStreamBuilder_setDataCallback(streamBuilder, dataCallback, nullptr);
-    AAudioStreamBuilder_setPerformanceMode(streamBuilder, AAUDIO_PERFORMANCE_MODE_LOW_LATENCY);
+```c++
+// Create a stream builder
+AAudioStreamBuilder *streamBuilder;
+AAudio_createStreamBuilder(&streamBuilder);
+AAudioStreamBuilder_setDataCallback(streamBuilder, dataCallback, nullptr);
+AAudioStreamBuilder_setPerformanceMode(streamBuilder, AAUDIO_PERFORMANCE_MODE_LOW_LATENCY);
 
-    // Use it to create the stream
-    AAudioStream *stream;
-    AAudioStreamBuilder_openStream(streamBuilder, &stream);
+// Use it to create the stream
+AAudioStream *stream;
+AAudioStreamBuilder_openStream(streamBuilder, &stream);
+```
 
 ## Thread safety
 
@@ -490,16 +519,7 @@ To learn more, take advantage of the following resources:
 
 ### API Reference
 
-- [AAudio](https://developer.android.com/ndk/reference/group/audio)
-
-<br />
-
-<br />
-
-### Codelabs
-
-- [Making Waves Part 1 - Build a Synthesizer](https://codelabs.developers.google.com/codelabs/making-waves-1-synth/index.html)
-- [Making More Waves - Sampler](https://codelabs.developers.google.com/codelabs/making-waves-2-sampler/index.html)
+- [AAudio](https://developer.android.com/ndk/reference/group/audio.md.txt)
 
 <br />
 

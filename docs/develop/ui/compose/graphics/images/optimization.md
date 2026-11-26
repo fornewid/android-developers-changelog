@@ -4,167 +4,158 @@ url: https://developer.android.com/develop/ui/compose/graphics/images/optimizati
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/develop/ui/compose/graphics/images/llms.txt
+
 Working with images can quickly introduce performance issues if you aren't
-careful. Even a small graphic in a compressed format like JPG or PNG can turn
-into a large bitmap when it's decoded for display. If you aren't efficient
-with how you use graphics, you can run into memory problems
-that can hurt the performance of your app and other apps on the device.
-Follow these best practices to ensure your app performs at its best.
+careful. Even a small graphic in a compressed format like JPEG or PNG inflates
+into a large uncompressed bitmap in memory when decoded for display. Unbounded
+decoding and retained caches drive UI jank, `OutOfMemoryError` crashes, and
+low-memory kills across the device.
+
+> [!NOTE]
+> **Note:** This page focuses on Jetpack Compose image mechanics. For end-to-end guidance on bitmap memory architecture, device RAM tiers, window-adaptive cache sizing, and lifecycle eviction (including foreground services), see [Optimize
+> bitmap memory](https://developer.android.com/topic/performance/memory/bitmaps).
 
 ## Use image loading libraries
 
-You can improve your app's efficiency by using image loading libraries
-like [Coil](https://coil-kt.github.io/coil/api/coil-core/coil3.request/-image-request/) (for Kotlin-first projects) or [Glide](https://bumptech.github.io/glide/javadocs/470/com/bumptech/glide/load/DecodeFormat.html) (for Java projects).
-These libraries reduce your app's memory usage by doing things like caching
-images, downsampling graphics when needed, and recycling graphic objects.
+Improve your app's efficiency by using an image loading library such as
+[Coil](https://coil-kt.github.io/coil/compose/) (for Kotlin-first and Compose projects) or [Glide](https://bumptech.github.io/glide/int/compose.html). These libraries
+handle asynchronous decoding, downsampling, and in-memory pooling automatically.
+
+Standardize on *one* shared image loader singleton per process. During an
+incremental View-to-Compose migration, use your existing loader's Compose
+integration (or load into Views from Coil). Don't initialize two in-memory
+caches side by side. See [Standardize on a single image
+loader](https://developer.android.com/topic/performance/memory/bitmaps#single-loader).
 
 ## Downsample images
 
-Make sure to use the appropriate image size for your needs. You should avoid
-loading a large, high-resolution image into a small container
-(such as a thumbnail). Instead, use downsampling to scale the image down before
-decoding it into memory.
+Decode only the pixels you render. Don't load a full-resolution asset into a
+small container such as a feed card or thumbnail. Scale the image down before
+you decode it into memory.
 
 ### Client-side downsampling
 
-Image loading libraries like Coil and Glide handle downsampling for you
-automatically. You can configure their downsampling strategies
-by using [`ImageLoader`](https://coil-kt.github.io/coil/image_loaders/) (for Coil) or [`DownsampleStrategy`](https://bumptech.github.io/glide/javadocs/470/com/bumptech/glide/load/resource/bitmap/DownsampleStrategy.html)
-(for Glide). If you're managing bitmaps manually, you can use
-[`inSampleSize`](https://developer.android.com/reference/android/graphics/BitmapFactory.Options#inSampleSize) to decode a smaller version. To do this safely, you should
-first set [`inJustDecodeBounds`](https://developer.android.com/reference/android/graphics/BitmapFactory.Options#inJustDecodeBounds) to `true` to read the image dimensions
-without allocating memory, calculate the sample size, set `inSampleSize` to
-that value, set `inJustDecodeBounds` to `false`, and then decode the image.
+Image loading libraries such as Coil and Glide downsample automatically when
+given bounded target sizes. Configure downsampling behavior using
+[`ImageLoader`](https://coil-kt.github.io/coil/image_loaders/) (for Coil) or [`RequestOptions`](https://bumptech.github.io/glide/doc/options.html) (for Glide).
+
+If you decode local bitmaps manually, prefer [`ImageDecoder`](https://developer.android.com/reference/android/graphics/ImageDecoder.md.txt)
+on Android 9 (API level 28) and higher. Compute a uniform scale factor for
+`setTargetSize` inside an `OnHeaderDecodedListener` so images don't stretch or
+upscale, and use `ALLOCATOR_HARDWARE` for immutable UI images. On
+lower API levels, use [`inJustDecodeBounds`](https://developer.android.com/reference/android/graphics/BitmapFactory.Options.md.txt#inJustDecodeBounds) and [`inSampleSize`](https://developer.android.com/reference/android/graphics/BitmapFactory.Options.md.txt#inSampleSize) with
+`BitmapFactory.Options`.
 
 ### Prefer server-side resizing
 
 Where possible, request the exact image dimensions you need directly from your
-backend server. This reduces network usage and your disk cache footprint, while
-providing lighter memory usage by avoiding the memory overhead of resizing
-images on the device.
+image CDN or backend server. This reduces network usage and disk cache size
+while avoiding the memory overhead of decoding oversized assets on the device.
 
-You can configure libraries to dynamically append the target view size to the
-image URL. For example, Coil allows this using custom interceptors, and Glide
-supports it using custom model loaders (such as `BaseGlideUrlLoader`).
+Configure your image loader to append target dimensions to image URLs
+dynamically---for example, using custom interceptors in Coil or custom model
+loaders in Glide.
 
 ### Avoid unconstrained layout sizes
 
 For image loaders to downsample (client-side or server-side) effectively, they
 must know the target size *before* executing the request.
 
-Avoid using `wrapContentSize` or leaving dimensions unconstrained on
-composables that load remote images. If these libraries cannot infer the target
-bounds, they fall back to loading the original full-size image.
-This can lead to loading a substantially larger image than necessary, increasing
-memory usage and latency.
-
-Instead, set explicit dimensions on your image composable (for example, using
-`Modifier.size`) or define an aspect ratio. This allows the layout engine to
-calculate the exact pixel target upfront, which the image loader can then use to
-request and decode the correctly sized asset.
+- **Provide explicit Compose bounds** : Avoid `wrapContentSize` or unconstrained modifiers on composables that load remote images. When a loader can't infer target bounds, it falls back to decoding the original full-size image. Set explicit dimensions using `Modifier.size` or `Modifier.fillMaxWidth().aspectRatio(...)` so the layout engine calculates the exact pixel target upfront.
+- **Use `AsyncImage` or `GlideImage` instead of `painterResource` for large
+  rasters** : Load photos and large raster assets asynchronously with your image loader. Calling `painterResource` decodes a full-resolution software bitmap synchronously on the main thread without downsampling to the composable's bounds.
+- **Use adaptive columns on large screens** : On tablets and unfolded foldables (`sw >= 600dp`), use multi-column layouts such as `GridCells.Adaptive(minSize = 160.dp)`. Multi-column grids keep image cards from stretching full-width and inflating GPU graphics buffers.
 
 ### Supply alternative resources for different screen sizes
 
-If you are shipping images with your app, consider supplying different sized
-assets for different device resolutions. This can help reduce the download size
-of your app on devices, and improve performance as it'll load up a lower
-resolution image on a lower resolution device. For more information on providing
-alternative bitmaps for different device sizes, [check out the alternative
-bitmap documentation](https://developer.android.com/training/multiscreen/screendensities#TaskProvideAltBmp).
+If you ship raster images inside your app, supply density-specific assets.
+Density-specific assets reduce download size and avoid oversized decodes on
+lower-density displays. For more information, see [Provide alternative
+bitmaps](https://developer.android.com/training/multiscreen/screendensities#TaskProvideAltBmp).
 
 ## Don't apply padding directly
 
-Sometimes you might need to add padding to an image. For example, you might
-want to have the image surrounded by a transparent border for letterboxing.
-In those situations, *don't* add the padding directly to the image, changing
-the image's dimensions. Instead, leave the image's dimensions as they are,
-and adjust the image's location on the screen by using [`InsetDrawable`](https://developer.android.com/reference/android/graphics/drawable/InsetDrawable).
-Alternatively, you can add padding into the Composable or View holding the
-image.
+Don't bake transparent or solid-color letterboxing margins into image files,
+which wastes uncompressed `4 B/px` pixel memory on invisible borders. Trim
+uniform margins in your asset pipeline or CDN and apply runtime spacing using
+Compose `Modifier.padding` or View [`InsetDrawable`](https://developer.android.com/reference/android/graphics/drawable/InsetDrawable.md.txt).
 
 ## Choose the right pixel format
 
-Balance memory and quality by choosing the right pixel format. Use `RGB_565`
-when you don't need transparency; this format uses half the memory of the
-default `ARGB_8888` format.
+- **Prefer `Bitmap.Config.HARDWARE` for static UI** : Hardware bitmaps store immutable pixel buffers in graphics memory instead of on the native heap. Coil enables hardware bitmaps by default on Android 8.0 (API level 26) and higher. In Glide on Android 9 (API level 28) and higher, opt in globally with `Downsampler.ALLOW_HARDWARE_CONFIG`. Apply rounded corners with `Modifier.clip` instead of CPU bitmap transformations. Hardware bitmaps still count toward Android vitals bitmap memory usage, so pair them with downsampling and cache eviction.
+- **Avoid blanket `RGB_565` on photo feeds** : `RGB_565` uses 2 bytes per pixel, but forcing it across photo feeds can cause color banding and reduce bitmap-pool reuse. Wide-gamut color transforms can also allocate temporary 4-byte conversion buffers. Reserve `RGB_565` for verified opaque thumbnails, and restrict `RGBA_F16` (`8 B/px`) to surfaces that render HDR content. See [Prefer `HARDWARE` configs over blanket
+  `RGB_565`](https://developer.android.com/topic/performance/memory/bitmaps#pixel-configs).
 
-In Glide you can configure this by using [`DecodeFormat`](https://bumptech.github.io/glide/javadocs/470/com/bumptech/glide/load/DecodeFormat.html). In Coil, you can
-use the [`bitmapConfig`](https://coil-kt.github.io/coil/api/coil-core/coil3.request/-image-request/) property.
+## Use vectors and zero-byte backgrounds where possible
 
-## Use vectors where possible
-
-For images made up of geometric shapes, a vector graphic is much smaller than a
-bitmap and scales smoothly for any display density. When suitable, use elements
-like [`ShapeDrawable`](https://developer.android.com/reference/android/graphics/drawable/ShapeDrawable) to represent graphics.
+For icons and simple geometric illustrations, prefer `ImageVector` or
+`VectorDrawable`, which scale cleanly across display densities with minimal
+memory overhead. For solid backdrops, dividers, or shimmer loading skeletons,
+use `Modifier.background`, `ColorPainter`, or [`ShapeDrawable`](https://developer.android.com/reference/android/graphics/drawable/ShapeDrawable.md.txt) instead of
+allocating solid-color software bitmaps.
 
 ## Release and reuse bitmaps when you can
 
-Large graphic files can take up a lot of memory. To reduce their impact, you
-should release or reuse the graphic objects whenever you can.
+Size strong in-memory caches to the active window, capped by a heap guardrail,
+rather than a fixed heap percentage alone. Release UI caches when your app has
+no visible windows, including while a foreground service runs:
 
-If you use an image loading library, make sure to release
-bitmaps to the library's managed pool when you no longer need them. The
-library can reuse the objects when needed, and keeps a memory buffer available
-for future needs.
-
-If you're managing graphics manually, you should release
-bitmaps when you're done with them by calling [`Bitmap.recycle`](https://developer.android.com/reference/android/graphics/Bitmap#recycle())
-and immediately discarding the `Bitmap` reference, instead
-of relying on garbage collection.
+- **Configure `TRIM_MEMORY_UI_HIDDEN` eviction** : Popular loaders don't clear their full strong memory caches on `TRIM_MEMORY_UI_HIDDEN` by default (for example, Coil 3 defaults `memoryCacheMaxSizePercentWhileInBackground` to `1.0`). Configure explicit background eviction and observe `ProcessLifecycleOwner` `ON_STOP` so caches release even when a foreground service keeps the process perceptible. See [Release UI bitmaps when the UI
+  is hidden](https://developer.android.com/topic/performance/memory/bitmaps#recycle).
+- **Manual bitmap loops** : If you decode transient bitmaps manually in camera or ML loops, reuse pre-allocated buffers. Otherwise, call [`Bitmap.recycle`](https://developer.android.com/reference/android/graphics/Bitmap.md.txt#recycle()) on superseded frames and drop each reference.
 
 ## Other tips and tricks
 
-This section lists a few other ways to improve your app's performance when
-handling graphics.
+This section lists additional Compose-specific practices for image performance.
 
-### Don't package large images with your AAB/APK file
+### Don't package large images with your AAB or APK file
 
-One of the top causes for large app download size is graphics that are
-packaged inside the AAB or APK file. Use the [APK analyzer](https://developer.android.com/studio/debug/apk-analyzer) tool to ensure
-that you aren't packaging larger than required image files. Reduce the sizes or
-consider placing the images on a server and only downloading them when required.
+Bundled graphics are a frequent contributor to large app download sizes. Use the
+[APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer.md.txt) to verify that you don't package oversized raster assets.
+Compress them or serve appropriately sized variants from your backend.
 
 ### Find redundant bitmaps
 
-If you have several copies of the same image, that wastes memory. You can use
-the Android Studio profiler to identify redundant graphics. Use the [heap dump
-analyzer](https://developer.android.com/studio/profile/capture-heap-dump) to capture a heap dump, and filter the results by choosing the
-**duplicate bitmaps** setting.
+Use the [Android Studio Memory Profiler](https://developer.android.com/studio/profile/capture-heap-dump.md.txt) to capture a heap dump and inspect
+flagged duplicate bitmaps with inline previews. On Android 15 (API level 35)
+and higher, capture lossless PNG heap dumps from a debuggable build
+(`adb shell am dumpheap -g -b png com.example.app /data/local/tmp/heap.hprof`)
+to verify exact pixel duplicates, empty canvases, and trimmable borders. See
+[Measure, diagnose, and prevent regressions](https://developer.android.com/topic/performance/memory/bitmaps.md.txt#verify).
 
 ### When using `ImageBitmap`, call `prepareToDraw` before drawing
 
-When using `ImageBitmap`, to start the process of uploading the texture to the
-GPU, call [`ImageBitmap#prepareToDraw()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ImageBitmap#prepareToDraw()) before actually drawing it. This
-helps the GPU prepare the texture and improve the performance of showing a
-visual on screen. Most image loading libraries already do this optimization, but
-if you are working with the `ImageBitmap` class yourself, it is something to
-keep in mind.
+When working directly with `ImageBitmap`, call
+[`ImageBitmap.prepareToDraw`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ImageBitmap.md.txt#prepareToDraw()) before drawing to begin uploading the texture
+to the GPU. Image loading libraries handle this automatically, so you only need
+to call it for custom `ImageBitmap` pipelines.
 
-### Prefer passing a `Int` `DrawableRes` or URL as parameters into your composable instead of `Painter`
+### Prefer passing a `DrawableRes` ID or URL instead of `Painter`
 
-Due to the complexities of dealing with images (for example, writing an equals
-function for `Bitmaps` would be computationally expensive), the `Painter` API is
-explicitly not marked as stable with the [`@Stable`](https://medium.com/androiddevelopers/jetpack-compose-stability-explained-79c10db270c8)
-annotation. Unstable classes can lead to unnecessary recompositions because the
-compiler cannot easily infer if the data has changed.
+Because comparing `Bitmap` contents is computationally expensive, `Painter`
+isn't marked [`@Stable`](https://medium.com/androiddevelopers/jetpack-compose-stability-explained-79c10db270c8). Passing an unstable `Painter` directly
+into a composable can trigger unnecessary recompositions.
 
-Therefore, we recommend passing a URL or drawable resource ID as parameters
-to your composable, instead of passing a `Painter` as a parameter.
+Pass a stable URL string or `@DrawableRes` `Int` into your composable instead:
 
-    // Prefer this:
-    @Composable
-    fun MyImage(url: String) {
+```kotlin
+// Prefer this:
+@Composable
+fun MyImage(url: String) {
 
-    }
-    // Over this:
-    @Composable
-    fun MyImage(painter: Painter) {
+}
+// Over this:
+@Composable
+fun MyImage(painter: Painter) {
 
-    }
+}
+```
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [ImageBitmap versus ImageVector {:#bitmap-vs-vector}](https://developer.android.com/develop/ui/compose/graphics/images/compare)
-- [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving)
-- [Jetpack Compose Phases](https://developer.android.com/develop/ui/compose/phases)
+- [Optimize bitmap memory](https://developer.android.com/topic/performance/memory/bitmaps.md.txt)
+- [ImageBitmap versus ImageVector {:#bitmap-vs-vector}](https://developer.android.com/develop/ui/compose/graphics/images/compare.md.txt)
+- [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving.md.txt)
+- [Jetpack Compose Phases](https://developer.android.com/develop/ui/compose/phases.md.txt)

@@ -8,7 +8,7 @@ source: md.txt
 
 This page lists the new features introduced in Android Studio preview releases.
 The preview builds provide early access to the latest features and improvements
-in Android Studio. [You can download these preview versions](https://developer.android.com/studio/preview.md.txt).
+in Android Studio. [You can download these preview versions](https://developer.android.com/studio/preview).
 If you encounter any problems using a preview version of Android Studio, [let us
 know](https://developer.android.com/studio/report-bugs). Your bug reports help to make Android Studio better.
 
@@ -63,11 +63,42 @@ The following are new features in Android Studio Rabbit 3.
 To see what's been fixed in this version of Android Studio, see the [closed
 issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.3).
 
-### Migrations in Android Studio
+### Migrate Views to Jetpack Compose
 
-You can now migrate a project with views-based UI to a Kotlin and Jetpack
-Compose-based app. This feature produces a functional project that's ready for
-testing and verification.
+![](https://developer.android.com/static/studio/releases/assistant/images/migrate-compose.png)
+
+You can now migrate existing View-based UI to Jetpack Compose using automated
+migration tooling in Android Studio. Right-click any XML layout and choose
+**AI \> Migrate to Compose**, or run it across your whole project from the action
+palette. The agent scopes the work with you, drafts a plan, and converts your
+layouts, view binding code, and UI logic into idiomatic Compose. The integrated
+Progress UI provides end-to-end visibility across planning, code transformation,
+and build verification, producing migrated screens ready for review and testing.
+
+### Progress UI for long-running agent tasks
+
+![](https://developer.android.com/static/studio/releases/assistant/images/progress-ui.png)
+
+The agent tool window now includes a Progress UI for long-running tasks. A
+status bar and expandable timeline show the phases and steps of the task the
+agent is working on, which step is currently running, how long each step took,
+and what remains to be done. Progress UI appears automatically for migrations,
+for planning mode, and whenever the agent takes on a complex multi-step task.
+Progress is saved with the conversation, so you can step away, come back, and
+pick up where the agent left off.
+
+### Explore UI design options before changing your code
+
+![](https://developer.android.com/static/studio/releases/assistant/images/ui-sandbox.png)
+
+The agent in Android Studio can now prototype UI in a sandbox, rendering Jetpack
+Compose previews without creating or modifying any file in your project. Ask for
+a design change, a new screen, or several variations of a component, and the
+agent compiles its proposals in memory against your module (using your real
+composables, theme, and resources) and shows them as a gallery in the agent tool
+window for you to compare. You can keep iterating on the proposals, and nothing
+is written to your source code until you accept a design. When you do, the agent
+applies the change to your project.
 
 ### Agentic Journeys
 

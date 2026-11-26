@@ -4,11 +4,13 @@ url: https://developer.android.com/google/play/integrity/native-setup
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/google/play/integrity/llms.txt
+
 This guide shows you how to set up your native Android project to use the Play
 Integrity API from C or C++. Before you can make calls to the API, you must
 first integrate the Play Core Native SDK by configuring your development
 environment and updating your `build.gradle` and `CMakeLists.txt` files as shown
-in the following section. For more details see our [Native API Reference](https://developer.android.com/reference/native/play/core/group/integrity).
+in the following section. For more details see our [Native API Reference](https://developer.android.com/reference/native/play/core/group/integrity.md.txt).
 
 
 ## Download Play Core Native SDK
@@ -33,10 +35,10 @@ I have read and agree with the above terms and conditions <button class="button 
    - Install [Android Studio](https://developer.android.com/studio) version 4.0 or higher. Use the SDK Manager UI to install Android SDK Platform version 10.0 (API level 29).
    - Install the [Android SDK command-line tools](https://developer.android.com/studio#command-tools) and use [`sdkmanager`](https://developer.android.com/studio/command-line/sdkmanager) to install Android SDK Platform version 10.0 (API level 29).
 2. Prepare Android Studio for native development by using the
-   [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) to install the latest
+   [SDK Manager](https://developer.android.com/studio/intro/update.md.txt#sdk-manager) to install the latest
    CMake and Android Native Development Kit (NDK). For more information on
    creating or importing native projects, see
-   [Getting Started with the NDK](https://developer.android.com/ndk/guides).
+   [Getting Started with the NDK](https://developer.android.com/ndk/guides.md.txt).
 
 3. Download the zip file and extract it alongside your project.
 
@@ -77,9 +79,9 @@ I have read and agree with the above terms and conditions <button class="button 
            buildTypes {
                release {
                    // Include Play Core Library proguard config files to strip unused code while retaining the Java symbols needed for JNI.
-                   proguardFile '$playcoreDir/proguard/common.pgcfg'
-                   proguardFile '$playcoreDir/proguard/gms_task.pgcfg'
-                   proguardFile '$playcoreDir/proguard/per-feature-proguard-files'
+                   proguardFile "$playcoreDir/proguard/common.pgcfg"
+                   proguardFile "$playcoreDir/proguard/gms_task.pgcfg"
+                   proguardFile "$playcoreDir/proguard/per-feature-proguard-files"
                    ...
                }
                debug {
@@ -150,7 +152,7 @@ I have read and agree with the above terms and conditions <button class="button 
        }
        externalNativeBuild {
            cmake {
-               path = "src/main/CMakeLists.txt"
+               path = file("src/main/CMakeLists.txt")
            }
        }
    }
@@ -179,7 +181,7 @@ I have read and agree with the above terms and conditions <button class="button 
    include(${PLAYCORE_LOCATION}/playcore.cmake)
    add_playcore_static_library()
 
-   // In this example “main” is your native code library, i.e. libmain.so.
+   # In this example "main" is your native code library, i.e. libmain.so.
    add_library(main SHARED
            ...)
 
@@ -202,7 +204,7 @@ improve the product, including:
 - App's package version
 - Play Core Native SDK's version
 
-This data will be collected when you upload [your app package](https://developer.android.com/studio/publish/upload-bundle)
+This data will be collected when you upload [your app package](https://developer.android.com/studio/publish/upload-bundle.md.txt)
 to the Play Console. To opt-out of this data collection process, remove the
 `$playcoreDir/playcore-native-metadata.jar` import in the build.gradle file.
 

@@ -87,6 +87,27 @@ plugins {
 }
 ```
 
+### KSP version compatibility with AGP and KGP
+
+Starting with KSP 2.3.0, KSP versions are no longer tied to a Kotlin version,
+so you don't need to choose a KSP version prefixed with your Kotlin version
+(for example, `2.2.10-2.0.2`).
+
+Starting with AGP 9.6, AGP [removes its runtime dependency constraint](https://developer.android.com/build/releases/agp-9-6-0-release-notes.md.txt#ksp-version-constraint-removed) on
+`com.google.devtools.ksp:symbol-processing-gradle-plugin`. You can declare and
+upgrade `com.google.devtools.ksp` independently in your top-level `plugins`
+block or version catalog without AGP overriding the KSP version or requiring
+`version { strictly(...) }`. Use a KSP version that is compatible with your
+project's Kotlin Gradle plugin (KGP) version; see the [KSP releases](https://github.com/google/ksp/releases) page
+for compatibility details. Because AGP 9.6 raises its default KGP version to
+2.4.20 and no longer upgrades KSP automatically, projects that still declare a
+Kotlin-prefixed KSP version (such as `2.2.10-2.0.2`) must upgrade KSP (or pin
+KGP) themselves.
+
+> [!NOTE]
+> **Note:** In AGP 9.0 through 9.5, AGP includes a runtime dependency constraint on `com.google.devtools.ksp:symbol-processing-gradle-plugin:2.2.10-2.0.2`. KSP 2.3.0 and higher already satisfy that constraint. If you need a KSP version lower than `2.2.10-2.0.2` on AGP 9.0 through 9.5, see [Downgrade to a lower KGP
+> version](https://developer.android.com/build/releases/agp-9-0-0-release-notes#runtime-dependency-on-kotlin-gradle-plugin-downgrade) in the AGP 9.0 release notes.
+
 ## Replace annotation processors with KSP
 
 With KSP enabled, you can start replacing usages of kapt with KSP. For a vast
@@ -128,7 +149,8 @@ Some common issues to look out for:
 ## Remove the kapt plugin
 
 When you have no dependencies included with `kapt` in your module anymore,
-remove the kapt plugin.
+remove the kapt plugin. If you migrated to [built-in Kotlin](https://developer.android.com/build/migrate-to-built-in-kotlin.md.txt#migration-steps-migrate-kotlin-kapt-plugin) and applied the
+`com.android.legacy-kapt` plugin, remove `com.android.legacy-kapt` instead.
 
 > [!NOTE]
 > **Note:** [Data Binding](https://developer.android.com/topic/libraries/data-binding.md.txt) also requires kapt to be enabled in the module. In modules where Data Binding is used, kapt can't be removed.

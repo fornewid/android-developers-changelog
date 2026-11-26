@@ -4,7 +4,9 @@ url: https://developer.android.com/games/pgs/android/android-signin
 source: md.txt
 ---
 
-In order to access Google Play Games Services functionality, your game needs to provide the
+> Documentation index: https://developer.android.com/games/llms.txt
+
+To access Google Play Games Services functionality, your game needs to provide the
 authenticated player's account. This documentation describes how to
 implement a seamless authentication experience in your game.
 
@@ -28,7 +30,7 @@ This section shows how to do a new client integration with Play Games Services
 Sign In v2.
 
 > [!NOTE]
-> **Note:** If you already have a client integration with v1, follow the instructions in [Migrate from v1 to v2](https://developer.android.com/games/pgs/android/migrate-to-v2) to migrate your integration.
+> **Note:** If you already have a client integration with v1, follow the instructions in [Migrate from v1 to v2](https://developer.android.com/games/pgs/android/migrate-to-v2.md.txt) to migrate your integration.
 
 ### Add the dependency
 
@@ -36,9 +38,11 @@ Add the Play Game Services SDK dependency to your app's root-level
 `build.gradle` file. If you are using Gradle, you can add or update the
 dependency as follows:
 
-    dependencies {
-     implementation "com.google.android.gms:play-services-games-v2:+"
-    }
+```groovy
+dependencies {
+ implementation "com.google.android.gms:play-services-games-v2:+"
+}
+```
 
 ### Define the project ID
 
@@ -48,71 +52,80 @@ following steps:
 1. In your app's `AndroidManifest.xml` file, add the following `<meta-data>`
    element and attributes to the `<application>` element:
 
-       <manifest>
-         <application>
-           <meta-data android:name="com.google.android.gms.games.APP_ID"
-                      android:value="@string/game_services_project_id"/>
-         </application>
-       </manifest>
+   ```xml
+   <manifest>
+     <application>
+       <meta-data android:name="com.google.android.gms.games.APP_ID"
+                  android:value="@string/game_services_project_id"/>
+     </application>
+   </manifest>
+   ```
 
    Define the String resource reference `@string/game_services_project_id`
    using your games' Game services project id as the value. Your Games services
    project id can be found under your game name in the *Configuration* page on
    the Google Play Console.
 2. In your `res/values/strings.xml` file, add a string resource reference
-   and set your project ID as the value. In Google Play Console, you can find your
-   project ID under your game name in the **Configuration** page. For example:
+   and set your project ID as the value. In Google Play Console, you can find
+   your project ID under your game name in the **Configuration** page. For
+   example:
 
-       <!-- res/values/strings.xml -->
-       <resources>
-         <!-- Replace 0000000000 with your game's project id. Example value shown above.  -->
-         <string translatable="false"  name="game_services_project_id"> 0000000000 </string>
-       </resources>
+
+   `xml
+   <!-- res/values/strings.xml -->
+   <resources>
+   <!-- Replace 0000000000 with your game's project id. Example value shown above. -->
+   <string translatable="false" name="game_services_project_id"> 0000000000 </string>
+   </resources>`
 
 ### Initialize the SDK
 
 Initialize Play Games SDK in the `onCreate(..)` callback of your `Application`
 class.
 
-    import com.google.android.gms.games.PlayGamesSdk;
+```java
+import com.google.android.gms.games.PlayGamesSdk;
 
-    ...
+...
 
-    @Override
-    public void onCreate(){
-      super.onCreate();
-      PlayGamesSdk.initialize(this);
-    }
+@Override
+public void onCreate(){
+  super.onCreate();
+  PlayGamesSdk.initialize(this);
+}
+```
 
 ### Get the authentication result
 
-When your game launches, it will always attempt to authenticate the user. To
+When your game launches, it attempts to authenticate the user. To
 authenticate the user, you must verify that the user successfully authenticated,
-and then get their Player ID.
+and then get their player ID.
 
-To verify the authentication attempt, call `GamesSignInClient.isAuthenticated()`
+To verify the authentication attempt, call `GamesSignInClient.isAuthenticated`
 and use `addOnCompleteListener` to retrieve the results. For example:
 
-    GamesSignInClient gamesSignInClient = PlayGames.getGamesSignInClient(getActivity());
+```java
+GamesSignInClient gamesSignInClient = PlayGames.getGamesSignInClient(getActivity());
 
-    gamesSignInClient.isAuthenticated().addOnCompleteListener(isAuthenticatedTask -> {
-      boolean isAuthenticated =
-        (isAuthenticatedTask.isSuccessful() &&
-         isAuthenticatedTask.getResult().isAuthenticated());
+gamesSignInClient.isAuthenticated().addOnCompleteListener(isAuthenticatedTask -> {
+  boolean isAuthenticated =
+    (isAuthenticatedTask.isSuccessful() &&
+     isAuthenticatedTask.getResult().isAuthenticated());
 
-      if (isAuthenticated) {
-        // Continue with Play Games Services
-      } else {
-        // Show a sign-in button to ask players to authenticate. Clicking it should
-        // call GamesSignInClient.signIn().
-      }
-    });
+  if (isAuthenticated) {
+    // Continue with Play Games Services
+  } else {
+    // Show a sign-in button to ask players to authenticate. Clicking it should
+    // call GamesSignInClient.signIn().
+  }
+});
+```
 
 > [!IMPORTANT]
-> **Key Point:** If the authentication fails when the game launches, Play Games Services would retry authentication automatically. Play Games Services doesn't require a manual **Sign in** button to be implemented.
+> **Key Point:** If the authentication fails when the game launches, Play Games Services retries authentication automatically. Play Games Services doesn't require a manual **Sign in** button to be implemented.
 
 > [!NOTE]
-> **Note:** You shouldn't store the player ID returned from the Android SDK in the game's backend, as it's possible for an untrusted device to tamper with it. Instead, you should [enable server-side API access](https://developer.android.com/games/pgs/android/server-access) and retrieve the player ID or other data with a server-side call directly from the game's backend.
+> **Note:** You shouldn't store the player ID returned from the Android SDK in the game's backend, as it's possible for an untrusted device to tamper with it. Instead, you should [enable server-side API access](https://developer.android.com/games/pgs/android/server-access.md.txt) and retrieve the player ID or other data with a server-side call directly from the game's backend.
 
 ### Prevent auto-triggered profile creation
 
@@ -120,7 +133,7 @@ You can disable auto-triggered profile creation prompts
 through the manifest file. This allows users without a Play Games Services
 profile to continue to load the game without being prompted to create a
 Play Games Services profile.
-For more information, see [Profile creation options](https://developer.android.com/games/pgs/signin#profile-creation-options).
+For more information, see [Profile creation options](https://developer.android.com/games/pgs/platform-authentication.md.txt#automatic-sign-in).
 
 To use this feature, ensure that the following conditions are met:
 
@@ -161,10 +174,10 @@ following steps:
    profile to proceed with your implemented authentication methods without
    immediately being prompted to create a Play Games Services profile.
    Profile creation can be initiated by calling
-   [`GamesSignInService.signin()`](https://developers.google.com/android/reference/com/google/android/gms/games/GamesSignInClient#public-abstract-taskauthenticationresult-signin).
+   [`GamesSignInClient.signIn`](https://developers.google.com/android/reference/com/google/android/gms/games/GamesSignInClient#signIn()).
 
    > [!NOTE]
-   > **Note:** For users who already have a profile but failed the initial authentication, Play Games Services attempts to authenticate them again when you call `GamesSignInService.signin()`.
+   > **Note:** For users who already have a profile but failed the initial authentication, Play Games Services attempts to authenticate them again when you call `GamesSignInClient.signIn`.
 
    ```java
    import com.google.android.gms.games.PlayGames;
@@ -180,10 +193,10 @@ following steps:
                int statusCode = ((ApiException) exception).getStatusCode();
                if (statusCode == GamesClientStatusCodes.SIGN_IN_REQUIRED) {
                  // SIGN_IN_REQUIRED: The user needs to sign in with Play Games Services.
-                 // Call GamesSignInService.signin() to prompt for
+                 // Call GamesSignInClient.signIn() to prompt for
                  // authentication at a suitable time which will trigger the
                  // profile creation UI.
-                 // (e.g., after a tutorial). Use GamesSignInService.isAuthenticated() to check auth status.
+                 // (e.g., after a tutorial). Use GamesSignInClient.isAuthenticated() to check auth status.
                }
              }
            });

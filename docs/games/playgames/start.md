@@ -4,10 +4,12 @@ url: https://developer.android.com/games/playgames/start
 source: md.txt
 ---
 
-Your game must meet the [playability requirements](https://developer.android.com/games/playgames/start#playability-requirements)
+> Documentation index: https://developer.android.com/games/llms.txt
+
+Your game must meet the [playability requirements](https://developer.android.com/games/playgames/start.md.txt#playability-requirements)
 before you can release the game on
 [Google Play Games on PC](https://developer.android.com/games/playgames/overview). Once the game is on the
-platform, you can work towards [full certification](https://developer.android.com/games/playgames/start#requirements-checklist) by
+platform, you can work towards [full certification](https://developer.android.com/games/playgames/start.md.txt#requirements-checklist) by
 adding platform features that delight players, such as seamless continuity of
 play, platform input controls, and improved performance.
 
@@ -41,7 +43,7 @@ Here are a couple of things to consider:
 - Support multi-touch gestures with keyboard shortcuts.
 - Add keyboard shortcuts for common actions such as an enter press to accept dialogs or an escape press to cancel.
 
-Use the [developer emulator](https://developer.android.com/games/playgames/start#get-emulator) to test the playability of your
+Use the [developer emulator](https://developer.android.com/games/playgames/start.md.txt#get-emulator) to test the playability of your
 game.
 
 ### Game ABI architecture
@@ -77,29 +79,29 @@ requirements.
     - 60 FPS on a higher-end PC
   - No crashes over 20+ minutes of continuous gameplay
 - Playability requirements
-  - [Disable unsupported Android features and permissions](https://developer.android.com/games/playgames/pc-compatibility#unsupported-android-features)
-  - [Disable unsupported Google APIs](https://developer.android.com/games/playgames/pc-compatibility#unsupported-google-apis)
-  - [Use scoped storage for file system access](https://developer.android.com/games/playgames/pc-compatibility#scoped-storage)
+  - [Disable unsupported Android features and permissions](https://developer.android.com/games/playgames/pc-compatibility.md.txt#unsupported-android-features)
+  - [Disable unsupported Google APIs](https://developer.android.com/games/playgames/pc-compatibility.md.txt#unsupported-google-apis)
+  - [Use scoped storage for file system access](https://developer.android.com/games/playgames/pc-compatibility.md.txt#scoped-storage)
 - Graphics \& Audio
-  - [Use high resolution assets and textures](https://developer.android.com/games/playgames/graphics#high-resolution-assets), such that there is no blurriness and text is readable when played at 1440p resolution
-  - [Support 16:9 aspect ratio](https://developer.android.com/games/playgames/graphics#aspect-ratios) (or 9:16 for portrait). This means that there aren't any black bars when running in this aspect ratio.
-  - [Scale UI elements for larger screens](https://developer.android.com/games/playgames/graphics#ui-scaling)
+  - [Use high resolution assets and textures](https://developer.android.com/games/playgames/graphics.md.txt#high-resolution-assets), such that there is no blurriness and text is readable when played at 1440p resolution
+  - [Support 16:9 aspect ratio](https://developer.android.com/games/playgames/graphics.md.txt#aspect-ratios) (or 9:16 for portrait). This means that there aren't any black bars when running in this aspect ratio.
+  - [Scale UI elements for larger screens](https://developer.android.com/games/playgames/graphics.md.txt#ui-scaling)
   - Audio playback is smooth and in sync
 - Device input
-  - [Support mouse and keyboard input](https://developer.android.com/games/playgames/input#input-support)
-  - [Integrate the Input SDK](https://developer.android.com/games/playgames/input-sdk)
+  - [Support mouse and keyboard input](https://developer.android.com/games/playgames/input.md.txt#input-support)
+  - [Integrate the Input SDK](https://developer.android.com/games/playgames/input-sdk.md.txt)
 - Cross-Platform play
-  - [Support cross-device and cross-platform progress sync](https://developer.android.com/games/playgames/identity#cloud-save) including PC, Android, and iOS
+  - [Support cross-device and cross-platform progress sync](https://developer.android.com/games/playgames/identity.md.txt) including PC, Android, and iOS
 
 For more information about when these requirements need to be integrated and
-how they are tested, see the [milestone checklist](https://developer.android.com/games/playgames/checklist) page.
+how they are tested, see the [milestone checklist](https://developer.android.com/games/playgames/checklist.md.txt) page.
 
 ## Recommendations (NOT requirements)
 
 To further improve the player experience, we recommend the following:
 
-- [Include x86-64 ABI architecture](https://developer.android.com/games/playgames/pc-compatibility#x86-requirement)
-- [Integrate the Sign-in service for Google Play Games Services v2 on mobile and PC](https://developer.android.com/games/playgames/identity#game-identity)
+- [Include x86-64 ABI architecture](https://developer.android.com/games/playgames/pc-compatibility.md.txt#x86-requirement)
+- [Integrate the Sign-in service for Google Play Games Services v2 on mobile and PC](https://developer.android.com/games/playgames/identity.md.txt)
 - Controller / Gamepad support
   - For most games, controllers provide a better user experience on larger screens, and may be the input of choice for some players.
 
@@ -128,4 +130,4 @@ easier to test your game on Windows.
 You can sideload an APK to the emulator through [Android Studio](https://developer.android.com/studio)
 or the [Android Debug Bridge](https://developer.android.com/studio/command-line/adb).
 
-See [Developing with the Google Play Games on PC Developer Emulator](https://developer.android.com/games/playgames/pg-emulator) for more information.
+See [Developing with the Google Play Games on PC Developer Emulator](https://developer.android.com/games/playgames/pg-emulator.md.txt) for more information.

@@ -20,12 +20,127 @@ Here is other compatibility info:
 |   | Minimum version | Default version | Notes |
 |---:|:---:|:---:|:---:|
 | Gradle | 9.8.2 | 9.8.2 | To learn more, see [updating Gradle](https://developer.android.com/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
-| SDK Build Tools | 36.0.0 | 36.0.0 | [Install](https://developer.android.com/studio/intro/update.md.txt#sdk-manager) or [configure](https://developer.android.com/tools/releases/build-tools.md.txt) SDK Build Tools. |
+| SDK Build Tools | 37.0.0 | 37.0.0 | [Install](https://developer.android.com/studio/intro/update.md.txt#sdk-manager) or [configure](https://developer.android.com/tools/releases/build-tools.md.txt) SDK Build Tools. |
 | NDK | N/A | 28.2.13676358 | [Install](https://developer.android.com/studio/projects/install-ndk.md.txt#specific-version) or [configure](https://developer.android.com/studio/projects/install-ndk.md.txt#apply-specific-version) a different version of the NDK. |
 | JDK | 17 | 17 | To learn more, see [setting the JDK version](https://developer.android.com/studio/intro/studio-config.md.txt#jdk). |
 | Kotlin Gradle plugin (KGP) | 2.2.10 | 2.4.20 | To learn more, see [Runtime dependency on Kotlin Gradle plugin](https://developer.android.com/build/releases/agp-9-0-0-release-notes.md.txt#runtime-dependency-on-kotlin-gradle-plugin). |
 
 <br />
+
+## Separate default and minimum Kotlin Gradle plugin versions
+
+Starting with AGP 9.6.0-alpha04, AGP separates its default Kotlin Gradle plugin
+(KGP) version (**2.4.20** ) from its minimum supported KGP version (**2.2.10** ).
+In its published Gradle module metadata, AGP declares its runtime dependency on
+KGP using Gradle [rich version constraints](https://docs.gradle.org/current/userguide/dependency_versions.html#sec:rich-version-constraints)
+with `prefer("2.4.20")` and `reject("(,2.2.10)")`:
+
+- **Default KGP version (2.4.20)** : If your build doesn't declare a KGP version---for example, when you use [built-in Kotlin](https://developer.android.com/build/migrate-to-built-in-kotlin.md.txt) without applying any Kotlin Gradle plugin---Gradle resolves KGP 2.4.20 automatically.
+- **Supported KGP range (2.2.10 or higher)**: If your build declares any KGP version of 2.2.10 or higher, including versions lower than the 2.4.20 default (such as 2.2.10 or 2.3.10) or versions higher than 2.4.20, Gradle uses your declared version with built-in Kotlin enabled instead of forcing an upgrade to 2.4.20.
+- **Unsupported KGP versions (lower than 2.2.10)** : AGP 9.6 rejects KGP versions lower than 2.2.10. If your build or a plugin requests a KGP version lower than 2.2.10, buildscript dependency resolution fails, even if you set `android.builtInKotlin=false` in `gradle.properties`. Gradle's error output lists which plugin or dependency requested the lower version; upgrade that plugin or declare KGP 2.2.10 or higher.
+
+> [!IMPORTANT]
+> **Important:** If you upgrade from AGP 9.0 through 9.5, the following KGP behavior changes apply:
+
+- **Default KGP moves from 2.2.10 to 2.4.20** : Builds that don't declare a KGP version move from KGP 2.2.10 to 2.4.20. To keep compiling with KGP 2.2.10 (or another supported version), [declare that KGP version
+  explicitly](https://developer.android.com/build/releases/agp-9-6-0-release-notes#specify-kgp-version).
+- **KGP versions lower than 2.2.10 fail resolution instead of
+  auto-upgrading**: In AGP 9.0 through 9.5, Gradle automatically upgraded KGP versions lower than 2.2.10 to 2.2.10. Starting with AGP 9.6, KGP versions lower than 2.2.10 fail dependency resolution.
+- **Downgrading below 2.2.10 with `strictly` and
+  `android.builtInKotlin=false` is no longer supported** : The AGP 9.0 through 9.5 workaround of opting out of built-in Kotlin and using `version { strictly(...) }` to use KGP versions lower than 2.2.10 fails dependency resolution in AGP 9.6 and higher.
+
+### Specify a KGP version
+
+Starting with AGP 9.6.0-alpha06, if your build uses the
+[Android settings plugin](https://developer.android.com/build/android-settings-plugin.md.txt#configure-kgp-version), you can set the incubating
+`kotlinGradlePluginVersion` property in your `settings.gradle` file to pin a
+single KGP version across all projects in the build:
+
+### Kotlin
+
+    // settings.gradle.kts file
+    android {
+        kotlinGradlePluginVersion = "KGP_VERSION"
+    }
+
+### Groovy
+
+```groovy
+// settings.gradle file
+android {
+    kotlinGradlePluginVersion = 'KGP_VERSION'
+}
+```
+
+When you set `kotlinGradlePluginVersion`:
+
+- Kotlin Gradle plugins applied in `plugins` blocks use that version automatically, so you don't need to declare a version on each plugin.
+- KGP dependencies on `buildscript` classpaths, including AGP's runtime dependency for built-in Kotlin, align to that version through `org.jetbrains.kotlin:kotlin-gradle-plugins-bom`, which must be available in your plugin or `buildscript` repositories.
+- Gradle logs a warning if this overrides a different version in a `plugins` block or a higher version on a `buildscript` classpath.
+- The setting requires a concrete version of 2.2.10 or higher and doesn't apply to `buildSrc` or included builds. AGP logs a warning if a project uses a different KGP version (for example, because `buildSrc` depends on it).
+
+If you don't use the Android settings plugin and your top-level `plugins` block
+already declares a Kotlin Gradle plugin---such as
+`org.jetbrains.kotlin.plugin.compose`,
+`org.jetbrains.kotlin.plugin.serialization`, `org.jetbrains.kotlin.jvm`, or
+`org.jetbrains.kotlin.multiplatform`---with a version of 2.2.10 or higher, Gradle
+aligns KGP to that version automatically through
+`org.jetbrains.kotlin:kotlin-gradle-plugins-bom`.
+
+If you don't use the Android settings plugin or apply other Kotlin Gradle
+plugins and you want to use a KGP version other than the 2.4.20 default, add
+`org.jetbrains.kotlin:kotlin-gradle-plugin` to the `buildscript` block in your
+top-level build file:
+
+### Kotlin
+
+    // Top-level build.gradle.kts file
+    buildscript {
+        dependencies {
+            classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:KGP_VERSION")
+        }
+    }
+
+### Groovy
+
+```groovy
+// Top-level build.gradle file
+buildscript {
+    dependencies {
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:KGP_VERSION'
+    }
+}
+```
+
+Replace `KGP_VERSION` with the KGP version that you want to use, which must be
+2.2.10 or higher (for example, `2.2.10` or `2.3.10`). You don't need
+`version { strictly(...) }` or `android.builtInKotlin=false` to use a supported
+KGP version lower than the 2.4.20 default.
+
+### Considerations when pinning lower KGP versions
+
+If you pin a KGP version lower than the 2.4.20 default, keep the following
+Gradle compatibility considerations in mind (see
+[Compatibility](https://developer.android.com/build/releases/agp-9-6-0-release-notes.md.txt#compatibility) for the required Gradle version):
+
+- **Kotlin convention plugins in `buildSrc` or included builds** : Starting with AGP 9.6.0-alpha04, AGP requires Gradle 9.8.2. Gradle 9.8.2 bundles Kotlin 2.4, so `gradleApi()` contains classes with Kotlin 2.4 metadata. Because KGP 2.2.x can read Kotlin metadata only up to version 2.3, Kotlin convention plugins in `buildSrc` or included builds that apply `org.jetbrains.kotlin.jvm` at KGP 2.2.x and compile against `gradleApi()` fail with an incompatible metadata version error. Configure those plugin builds to use KGP 2.3.0 or higher (precompiled script plugins that use Gradle's bundled `kotlin-dsl` plugin are unaffected), even if your Android modules pin KGP 2.2.10.
+- **Deprecation warnings with `--warning-mode=fail`** : KGP versions lower than 2.3.20 (including 2.2.10 and 2.3.10) call Gradle APIs that are deprecated in Gradle 9.8.2, which causes builds to fail when you run Gradle with `--warning-mode=fail`. To avoid these KGP deprecation warnings, use the default KGP version (2.4.20). Other plugins, such as KSP, might still emit Gradle 9 deprecation warnings independently.
+
+## Removed runtime version constraint on KSP
+
+Starting with AGP 9.6.0-alpha04, AGP removes its runtime dependency constraint
+on `com.google.devtools.ksp:symbol-processing-gradle-plugin` (which AGP 9.0
+through 9.5 constrained to `2.2.10-2.0.2`). Starting with KSP 2.3.0,
+[Kotlin Symbol Processing (KSP)](https://developer.android.com/build/migrate-to-ksp.md.txt) versions are no longer tied to a
+Kotlin version. You can declare and upgrade the `com.google.devtools.ksp` plugin
+independently in your build files without AGP overriding the KSP version or
+requiring `version { strictly(...) }`.
+
+Because AGP 9.6 no longer upgrades KSP automatically and raises the default KGP
+version to 2.4.20, projects that declare a Kotlin-prefixed KSP version (such as
+`2.2.10-2.0.2`) must upgrade KSP to a version compatible with their KGP version
+(see [KSP releases](https://github.com/google/ksp/releases)), or
+[pin KGP](https://developer.android.com/build/releases/agp-9-6-0-release-notes.md.txt#specify-kgp-version) to a compatible version.
 
 ## Unified coverage and test reports
 
