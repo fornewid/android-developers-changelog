@@ -121,10 +121,7 @@ UI state.
 Never call `Environment.create` with the Play services runtime: the APK has
 no LiteRT runtime library. Don't call `env.getAvailableAccelerators`: on
 devices with an older Play services LiteRT module, it crashes the process with
-`SIGBUS`; rely on `CompiledModel.create` with the CPU fallback instead. Use the
-`LiteRtInitializationOptions.builder` form, not the
-`initializationOptions { }` Kotlin function of `LiteRtDsl`, which stops the
-Kotlin compiler with an internal error in `17.0.0`.
+`SIGBUS`; rely on `CompiledModel.create` with the CPU fallback instead.
 
 ## Changes to Steps 2 and 3
 
@@ -197,4 +194,5 @@ After the build passes, tell the user:
 
 - Which runtime the app uses, and why.
 - That `play-services-litert` requires Google Play services on the device, and that the first `initialize` call downloads the runtime module when the device doesn't have it yet.
+- That `Accelerator.GPU` runs on the GPU only where Google Play services has its GPU module; on other devices the CPU fallback of Step 3 runs the model, and `UiState.accelerator` shows which one ran.
 - What didn't migrate (NPU, custom operators, Support library classes).

@@ -18,10 +18,29 @@ Android.
 
 Run the fixed input with `Accelerator.CPU` first and compare with the reference;
 a difference here is in the model file or preprocessing, not in the device.
-Next, run `Accelerator.GPU` and compare in two ways:
+
+Next, run `Accelerator.GPU`. First check that the model runs on the GPU: after
+the CPU fallback of Step 3, `UiState.accelerator` is `CPU` (the button reads
+`Run (CPU)`), and the following comparison would compare the CPU with itself.
+Logcat names the delegate that took the model's operators: `Replacing <n> out of
+<n> node(s) with delegate (LITERT_CL)` for the GPU, `(TfLiteXNNPackDelegate)`
+for the CPU. On the Google Play services runtime, `Error loading LiteRT GPU
+accelerator module` means that Google Play services doesn't have its GPU module
+on the device yet, and the model runs on the CPU. Then compare in two ways:
 
 1. **Numbers**: Compute maximum absolute difference and Pearson correlation against the reference dump.
 2. **Task result**: Check task-level agreement (top-1 argmax, segmentation mask, or output text). Because the GPU computes in FP16, the least significant digits move slightly, whereas the task result shouldn't change.
+
+When the `Accelerator.CPU` run differs and the app builds the input from a
+picture, compare the array the app writes with the input that produced the
+reference. Check its length against the input element count (`writeFloat` writes
+a shorter array without an error, Step
+2 of the skill),
+the bitmap's config (by default `ImageDecoder` returns `HARDWARE` bitmaps, which
+`getPixels` can't read; copy to `ARGB_8888` first, Step
+4 of the skill),
+then the input dimensions, mean, standard deviation, channel order, and tensor
+layout.
 
 ## Diagnostic indicators
 

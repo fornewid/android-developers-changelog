@@ -37,6 +37,15 @@ For more information and best practices, see [Configure graphics for Google Play
 
 To maximize the viewable area for your game in full screen on large screen tablets, foldables, Googlebook, ChromeOS, and connected displays, support [full-screen immersive mode](https://developer.android.com/develop/ui/views/layout/immersive.md.txt) and hide the system bars by setting flags on [`decorView`](https://developer.android.com/reference/kotlin/android/view/Window.md.txt#getdecorview), system UI visibility, or through the [`WindowInsetsCompat`](https://developer.android.com/reference/kotlin/androidx/core/view/WindowInsetsCompat.md.txt) API. You'll also want to gracefully handle rotation and resizing configuration events or prevent them from happening.
 
+Even after requesting immersive full-screen mode, extend your background canvas
+edge to edge while querying actual visible window insets (display cutouts,
+status bars, and persistent bottom taskbars or gesture bars) so interactive HUD
+buttons and text aren't obscured:
+
+| Not recommended | Recommended |
+|---|---|
+| ![Not recommended: Camera punch-hole cutout, top status bar, and bottom taskbar directly overlap and obscure interactive HUD buttons.](https://developer.android.com/static/images/games/multiplatform/insets-antipattern.jpg) | ![Recommended: Background renders edge to edge past the camera cutout and taskbar while interactive HUD controls stay padded inside window insets.](https://developer.android.com/static/images/games/multiplatform/insets-best-practice.jpg) |
+
 Note that on large screen Android devices, your game can run in configurations that you might not already handle. If your game doesn't support all window size and orientation configurations, the platform letterboxes your game in [compatibility mode](https://developer.android.com/guide/topics/large-screens/large-screen-compatibility-mode) and, if necessary, prompts the player before changing to an unsupported configuration.
 ![](https://developer.android.com/static/images/games/multiplatform/configuration_compatibility_dialog.png) **Figure 1.** Configuration compatibility dialog.
 
@@ -111,6 +120,14 @@ the window without entering platform compatibility mode.
 
 Regardless of the approach you take, [test your game in various configurations](https://developer.android.com/games/large-screen/build-large-screen-games.md.txt) (fold and unfold, different rotation changes, split‑screen mode) and ensure there are no cut‑off or overlapping in‑game UI elements, issues with touch‑target accessibility, or aspect ratio issues causing the game to become stretched, squashed, or otherwise distorted.
 
+Handling configuration changes without recreating the activity preserves active
+gameplay progress across folding, unfolding, and window resizing instead of
+resetting players back to an initial loading screen:
+
+| Not recommended | Recommended |
+|---|---|
+| ![Not recommended: Missing configuration change handling recreates the activity on unfold and resets the player back to the initial loading screen, losing battle progress.](https://developer.android.com/static/images/games/multiplatform/continuity-antipattern.jpg) | ![Recommended: Game handles the unfold configuration change seamlessly, preserving active Turn 4 boss battle progress across the full unfolded display.](https://developer.android.com/static/images/games/multiplatform/continuity-best-practice.jpg) |
+
 Additionally, larger screens usually mean bigger pixels, because you have the same number of pixels for a much larger area. This can cause pixelation for downsized render buffers or lower resolution assets. Use your highest quality assets on large screen devices and [performance profile your game](https://developer.android.com/agi) to ensure there are no issues. If your game supports multiple quality levels, ensure that it accounts for large screen devices.
 
 ### Multi-window mode
@@ -127,6 +144,14 @@ Instead, use other event handlers or state change handlers such as
 `onConfigurationChanged()` or `onResume()`. Note that you can always use the
 [`isInMultiWindowMode()`](https://developer.android.com/reference/kotlin/android/app/Activity.md.txt#isinmultiwindowmode) method to detect whether the current activity is
 running in multi-window mode.
+
+Scale HUD layouts cleanly inside 50/50 split-screen panes and handle unfocused
+multi-resume states without freezing, losing the rendering surface, or dropping
+online multiplayer sessions:
+
+| Not recommended | Recommended |
+|---|---|
+| ![Not recommended: Focusing the companion chat pane in 50/50 split-screen causes the game pane to lose its surface and drop its session.](https://developer.android.com/static/images/games/multiplatform/multiwindow-antipattern.jpg) | ![Recommended: Co-op game scales cleanly in 50/50 split-screen and maintains live rendering and network continuity while unfocused.](https://developer.android.com/static/images/games/multiplatform/multiwindow-best-practice.jpg) |
 
 With desktop windowing on Googlebook, ChromeOS, and large screen tablets and foldables, the initial window dimensions become an important consideration. A game need not be full screen, and you'll want to declare what the size of the window should be for that case. There are two recommended ways to approach this.
 
