@@ -1,0 +1,20 @@
+diff --git a/docs/agents/skills/device-ai/litert/litert-lm/references/get-a-model.md b/docs/agents/skills/device-ai/litert/litert-lm/references/get-a-model.md
+index b71ad33a..eb8b4496 100644
+--- a/docs/agents/skills/device-ai/litert/litert-lm/references/get-a-model.md
++++ b/docs/agents/skills/device-ai/litert/litert-lm/references/get-a-model.md
+@@ -17,11 +17,14 @@ second; both run on the CPU and the GPU.
+ The other files in a repository are other builds of the same model:
+ 
+ - Other quantizations and context lengths. The Qwen3 card lists each file with its quantization, its context length in tokens, and its size.
++- Builds that need a newer `litertlm-android` than the skill's 0.18.0, as their card says. The GPU path of `Qwen3-0.6B_dynamic_wi4b32_afp32.litertlm` needs 0.19.0 or newer; with 0.18.0 that file doesn't run on the GPU.
+ - Web builds, named with the `-web` suffix.
+ - Builds for one chip, named after it, such as `_Google_Tensor_G5` or `.mediatek.mt6993`. These are NPU builds, which this skill doesn't cover.
+ 
+ When the user hasn't named a file, use one of the two files in this section.
+-Don't pick a web build or an NPU build.
++When the user names another file, read its card for the LiteRT-LM version it
++needs, and set `litertlm-android` to that version or newer. Don't pick a web
++build or an NPU build.
+ 
+ ## Write the in-app download code
+ 

@@ -1,0 +1,274 @@
+diff --git a/docs/bench.md b/docs/bench.md
+index 1724c5c6..574eeabf 100644
+--- a/docs/bench.md
++++ b/docs/bench.md
+@@ -12,7 +12,7 @@ AI-assisted software engineering has seen the emergence of several benchmarks to
+ 
+ ### Long-horizon task results
+ 
+-All agents antigravity-sdk claude-code codex kimi-code muse-code opencode qwen-coder All models Open weights models Closed weights models
++All agents antigravity-sdk claude-code codex kimi-code muse-code opencode pi qwen-coder All models Open weights models Closed weights models
+ 
+ | Model - Agent | Pass rate (%) info Average percentage of 30 tasks successfully resolved across all runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) | Completion rate (%) info How close each run got to a complete solution, even when the task failed | Avg latency (h) info Average time taken to solve 30 tasks across all runs | Avg cost ($) info Average cost per full benchmark run |
+ |---|---|---|---|---|---|
+@@ -22,12 +22,16 @@ All agents antigravity-sdk claude-code codex kimi-code muse-code opencode qwen-c
+ | <button data-modal-dialog-id="android-bench-score-model-dialog-openai/gpt-6.1-sol"> </button> ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 6.1 Sol (max) codex chevron_right | **29.3** | 15.3 --- 42.7 | **82.8** | 26.6 | $99.5 |
+ | <button data-modal-dialog-id="android-bench-score-model-dialog-openai/gpt-6.1-terra"> </button> ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 6.1 Terra (max) codex chevron_right | **28.7** | 14.0 --- 42.7 | **81.1** | 18.7 | $178.3 |
+ | <button data-modal-dialog-id="android-bench-score-model-dialog-openai/gpt-6-astra"> </button> ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 6 Astra (high) codex chevron_right | **28.0** | 13.3 --- 42.0 | **82.2** | 7.9 | $375.7 |
++| <button data-modal-dialog-id="android-bench-score-model-dialog-gemini/gemini-4-neon"> </button> :gemini: Gemini 4 Neon (high) antigravity-sdk chevron_right | **26.0** | 12.0 --- 40.7 | **81.3** | 25.3 | $624.0 |
++| <button data-modal-dialog-id="android-bench-score-model-dialog-openrouter/qwen/qwen4-max"> </button> ![](https://developer.android.com/static/images/bench/icons/qwen.png) Qwen4-Max (xhigh) qwen-coder chevron_right | **24.7** | 13.3 --- 36.7 | **80.8** | 34.2 | $147.7 |
+ | <button data-modal-dialog-id="android-bench-score-model-dialog-moonshotai/kimi-k3.1-pro"> </button> ![](https://developer.android.com/static/images/bench/icons/moonshotai.png) Kimi K3.1 Pro (max) kimi-code chevron_right | **24.0** | 12.0 --- 37.3 | **82.3** | 27.4 | $317.4 |
+ | <button data-modal-dialog-id="android-bench-score-model-dialog-gemini/gemini-4-carbon"> </button> :gemini: Gemini 4 Carbon (high) antigravity-sdk chevron_right | **23.3** | 11.3 --- 36.7 | **83.7** | 31.0 | $183.6 |
+ | <button data-modal-dialog-id="android-bench-score-model-dialog-anthropic/claude-fable-5-1"> </button> ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Fable 5.1 (high) claude-code chevron_right | **22.7** | 10.7 --- 36.0 | **82.4** | 22.2 | $492.6 |
+ | <button data-modal-dialog-id="android-bench-score-model-dialog-gemini/gemini-4-argon"> </button> :gemini: Gemini 4 Argon (high) antigravity-sdk chevron_right | **21.3** | 10.0 --- 33.3 | **81.8** | 52.8 | $267.6 |
++| <button data-modal-dialog-id="android-bench-score-model-dialog-gemini/gemini-4-hydrogen"> </button> :gemini: Gemini 4 Hydrogen (high) antigravity-sdk chevron_right | **21.3** | 9.3 --- 33.3 | **77.8** | 21.7 | $157.2 |
+ | <button data-modal-dialog-id="android-bench-score-model-dialog-anthropic/claude-haiku-5-5"> </button> ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Haiku 5.5 (max) claude-code chevron_right | **20.7** | 8.0 --- 33.3 | **74.3** | 22.9 | $191.4 |
+ | <button data-modal-dialog-id="android-bench-score-model-dialog-openrouter/deepseek/deepseek-v4.1-flash-1017"> </button> ![](https://developer.android.com/static/images/bench/icons/deepseek.png) DeepSeek V4.1 Flash 1017 (high) opencode chevron_right | **17.3** | 6.7 --- 28.7 | **71.2** | 12.0 | $9.9 |
++| <button data-modal-dialog-id="android-bench-score-model-dialog-openrouter/thinkingmachines/inkling-2-small"> </button> ![](https://developer.android.com/static/images/bench/icons/thinkingmachines.png) Inkling 2 Small (high) pi chevron_right | **16.7** | 7.3 --- 28.7 | **71.7** | 38.2 | $139.4 |
+ | <button data-modal-dialog-id="android-bench-score-model-dialog-meta/muse-wonder-1.0"> </button> ![](https://developer.android.com/static/images/bench/icons/meta.png) Muse Wonder (max) muse-code chevron_right | **13.3** | 4.7 --- 22.7 | **74.6** | 14.4 | $271.9 |
+ | <button data-modal-dialog-id="android-bench-score-model-dialog-qwen/qwen3.8-max"> </button> ![](https://developer.android.com/static/images/bench/icons/qwen.png) Qwen3.8 Max (default) qwen-coder chevron_right | **12.5** | 4.2 --- 21.7 | **75.0** | 45.4 | $258.4 |
+ | <button data-modal-dialog-id="android-bench-score-model-dialog-kimi-k3"> </button> ![](https://developer.android.com/static/images/bench/icons/moonshot.png) Kimi K3 (max) kimi-code chevron_right | **12.0** | 3.3 --- 22.0 | **72.8** | 66.2 | $418.3 |
+@@ -293,6 +297,92 @@ All categories App conversion App creation Migration New feature **Number of tas
+ | XML views to Compose migration in WordPress: people invite screen | Migration | 35% | 0/5 | All runs failed tests |
+ | New book searching app using the OpenLibrary API | App creation | 100% | 5/5 | N/A |
+ 
++### :gemini: Gemini 4 Neon
++•
++[antigravity-sdk](https://antigravity.google/)
++
++Closed weights model <button class="devsite-dialog-close button button-white"> close </button> Pass rate 26.0% Avg completion rate 81.3% Avg latency 25.3 h Avg cost $624.0
++
++#### Per task results
++
++All categories App conversion App creation Migration New feature **Number of tasks:** 30 2 10 13 5 /30
++
++| Task | Category | Avg completion rate | Runs passed | Failure reason(s) |
++|---|---|---|---|---|
++| Convert Flutter to Android: Habo app (habit tracker) | App conversion | 43% | 0/5 | All runs failed tests |
++| Convert React Native to Android: BlueWallet app (Bitcoin wallet) | App conversion | 63% | 0/5 | All runs failed tests |
++| New accessibility support across Droidcon (conference app) | New feature | 96% | 0/5 | All runs failed tests |
++| New Media3 and ExoPlayer video playback in Now in Android (news app) | New feature | 100% | 5/5 | N/A |
++| New picture-in-picture video mode in Now in Android (news app) | New feature | 100% | 5/5 | N/A |
++| New CameraX profile picture capture in Now in Android (news app) | New feature | 100% | 5/5 | N/A |
++| New user account submodule in Food Vibes (full app creation - food delivery) | App creation | 98% | 4/5 | 1 run failed tests |
++| New authentication flow with SMS verification in Food Vibes (full app creation - food delivery) | App creation | 69% | 0/5 | All runs failed validation |
++| New bottom navigation and Browse search screen in Food Vibes (full app creation - food delivery) | App creation | 96% | 0/5 | All runs failed tests |
++| New design system and reusable UI component library in Food Vibes (full app creation - food delivery) | App creation | 81% | 0/5 | All runs failed validation |
++| New All Filters screen in Food Vibes (full app creation - food delivery) | App creation | 93% | 0/5 | All runs failed validation |
++| New map integration and location features in Food Vibes (full app creation - food delivery) | App creation | 82% | 2/5 | 2 runs failed validation, 1 run failed tests |
++| New real-time order tracking in Food Vibes (full app creation - food delivery) | App creation | 96% | 0/5 | All runs failed validation |
++| New promotions submodule and active offers screen in Food Vibes (full app creation - food delivery) | App creation | 100% | 5/5 | N/A |
++| New restaurant listing feed in Food Vibes (full app creation - food delivery) | App creation | 75% | 0/5 | All runs failed validation |
++| New ViewModel layer in Fossify File Manager | New feature | 93% | 0/5 | All runs failed tests |
++| Nav 2 to Nav 3 library migration in Bitwarden (password manager) | Migration | 89% | 0/5 | All runs failed tests |
++| Dual-pane adaptive layout migration in Bitwarden (password manager): settings screens | Migration | 100% | 5/5 | N/A |
++| Hilt to Koin dependency injection migration in Bitwarden (password manager) | Migration | 79% | 1/5 | 4 runs failed tests |
++| XML views to Compose migration in Fossify File Manager: main tabs and settings | Migration | 74% | 0/5 | All runs failed tests |
++| Hilt to Koin dependency injection migration in Now in Android (news app) | Migration | 93% | 0/5 | All runs failed tests |
++| Kotlin Multiplatform migration in Now in Android (news app): datastore and database | Migration | 61% | 1/5 | 3 runs failed tests, 1 run failed the build |
++| Retrofit to Ktor migration in Pocket Casts (podcast player) | Migration | 100% | 5/5 | N/A |
++| XML views to Compose migration in Signal (messaging app): custom chat colour creator | Migration | 96% | 0/5 | All runs failed tests |
++| XML views to Compose migration in Signal (messaging app): profile creation | Migration | 93% | 0/5 | All runs failed tests |
++| XML views to Compose migration in Signal (messaging app): phone number entry | Migration | 11% | 0/5 | All runs failed tests |
++| Java to Kotlin migration in Signal (messaging app): Glide image loading module | Migration | 20% | 1/5 | 4 runs failed the build |
++| XML views to Compose migration in Signal (messaging app): edit profile screens | Migration | 93% | 0/5 | All runs failed tests |
++| XML views to Compose migration in WordPress: people invite screen | Migration | 56% | 0/5 | All runs failed tests |
++| New book searching app using the OpenLibrary API | App creation | 76% | 0/5 | 4 runs failed tests, 1 run failed the build |
++
++### ![](https://developer.android.com/static/images/bench/icons/qwen.png) Qwen4-Max
++•
++[qwen-coder](https://coder.qwen.ai/)
++
++Closed weights model <button class="devsite-dialog-close button button-white"> close </button> Pass rate 24.7% Avg completion rate 80.8% Avg latency 34.2 h Avg cost $147.7
++
++#### Per task results
++
++All categories App conversion App creation Migration New feature **Number of tasks:** 30 2 10 13 5 /30
++
++| Task | Category | Avg completion rate | Runs passed | Failure reason(s) |
++|---|---|---|---|---|
++| Convert Flutter to Android: Habo app (habit tracker) | App conversion | 90% | 0/5 | All runs failed tests |
++| Convert React Native to Android: BlueWallet app (Bitcoin wallet) | App conversion | 68% | 0/5 | All runs failed tests |
++| New accessibility support across Droidcon (conference app) | New feature | 98% | 4/5 | 1 run failed tests |
++| New Media3 and ExoPlayer video playback in Now in Android (news app) | New feature | 98% | 4/5 | 1 run failed tests |
++| New picture-in-picture video mode in Now in Android (news app) | New feature | 84% | 1/5 | 4 runs failed tests |
++| New CameraX profile picture capture in Now in Android (news app) | New feature | 80% | 4/5 | 1 run missed required test results |
++| New user account submodule in Food Vibes (full app creation - food delivery) | App creation | 95% | 3/5 | 1 run failed tests, 1 run failed validation |
++| New authentication flow with SMS verification in Food Vibes (full app creation - food delivery) | App creation | 43% | 0/5 | All runs failed validation |
++| New bottom navigation and Browse search screen in Food Vibes (full app creation - food delivery) | App creation | 88% | 0/5 | 3 runs failed tests, 2 runs failed validation |
++| New design system and reusable UI component library in Food Vibes (full app creation - food delivery) | App creation | 58% | 0/5 | All runs failed validation |
++| New All Filters screen in Food Vibes (full app creation - food delivery) | App creation | 94% | 2/5 | 3 runs failed validation |
++| New map integration and location features in Food Vibes (full app creation - food delivery) | App creation | 97% | 2/5 | 2 runs failed validation, 1 run failed tests |
++| New real-time order tracking in Food Vibes (full app creation - food delivery) | App creation | 95% | 0/5 | All runs failed validation |
++| New promotions submodule and active offers screen in Food Vibes (full app creation - food delivery) | App creation | 80% | 0/5 | All runs failed tests |
++| New restaurant listing feed in Food Vibes (full app creation - food delivery) | App creation | 64% | 0/5 | All runs failed validation |
++| New ViewModel layer in Fossify File Manager | New feature | 94% | 0/5 | All runs failed tests |
++| Nav 2 to Nav 3 library migration in Bitwarden (password manager) | Migration | 91% | 0/5 | All runs failed tests |
++| Dual-pane adaptive layout migration in Bitwarden (password manager): settings screens | Migration | 100% | 5/5 | N/A |
++| Hilt to Koin dependency injection migration in Bitwarden (password manager) | Migration | 84% | 3/5 | 2 runs failed tests |
++| XML views to Compose migration in Fossify File Manager: main tabs and settings | Migration | 69% | 0/5 | All runs failed tests |
++| Hilt to Koin dependency injection migration in Now in Android (news app) | Migration | 56% | 0/5 | All runs failed tests |
++| Kotlin Multiplatform migration in Now in Android (news app): datastore and database | Migration | 84% | 0/5 | All runs failed tests |
++| Retrofit to Ktor migration in Pocket Casts (podcast player) | Migration | 98% | 3/5 | 2 runs failed tests |
++| XML views to Compose migration in Signal (messaging app): custom chat colour creator | Migration | 95% | 1/5 | 4 runs failed tests |
++| XML views to Compose migration in Signal (messaging app): profile creation | Migration | 88% | 0/5 | All runs failed tests |
++| XML views to Compose migration in Signal (messaging app): phone number entry | Migration | 11% | 0/5 | All runs failed tests |
++| Java to Kotlin migration in Signal (messaging app): Glide image loading module | Migration | 79% | 3/5 | 1 run failed the build, 1 run failed tests |
++| XML views to Compose migration in Signal (messaging app): edit profile screens | Migration | 98% | 2/5 | 3 runs failed tests |
++| XML views to Compose migration in WordPress: people invite screen | Migration | 39% | 0/5 | All runs failed tests |
++| New book searching app using the OpenLibrary API | App creation | 92% | 0/5 | All runs failed tests |
++
+ ### ![](https://developer.android.com/static/images/bench/icons/moonshotai.png) Kimi K3.1 Pro
+ •
+ [kimi-code](https://www.kimi.com/code/en)
+@@ -465,6 +555,49 @@ All categories App conversion App creation Migration New feature **Number of tas
+ | XML views to Compose migration in WordPress: people invite screen | Migration | 58% | 0/5 | All runs failed tests |
+ | New book searching app using the OpenLibrary API | App creation | 95% | 0/5 | All runs failed tests |
+ 
++### :gemini: Gemini 4 Hydrogen
++•
++[antigravity-sdk](https://antigravity.google/)
++
++Closed weights model <button class="devsite-dialog-close button button-white"> close </button> Pass rate 21.3% Avg completion rate 77.8% Avg latency 21.7 h Avg cost $157.2
++
++#### Per task results
++
++All categories App conversion App creation Migration New feature **Number of tasks:** 30 2 10 13 5 /30
++
++| Task | Category | Avg completion rate | Runs passed | Failure reason(s) |
++|---|---|---|---|---|
++| Convert Flutter to Android: Habo app (habit tracker) | App conversion | 22% | 0/5 | All runs failed tests |
++| Convert React Native to Android: BlueWallet app (Bitcoin wallet) | App conversion | 20% | 0/5 | All runs failed tests |
++| New accessibility support across Droidcon (conference app) | New feature | 97% | 1/5 | 4 runs failed tests |
++| New Media3 and ExoPlayer video playback in Now in Android (news app) | New feature | 90% | 3/5 | 2 runs failed tests |
++| New picture-in-picture video mode in Now in Android (news app) | New feature | 100% | 5/5 | N/A |
++| New CameraX profile picture capture in Now in Android (news app) | New feature | 100% | 5/5 | N/A |
++| New user account submodule in Food Vibes (full app creation - food delivery) | App creation | 86% | 0/5 | All runs failed tests |
++| New authentication flow with SMS verification in Food Vibes (full app creation - food delivery) | App creation | 58% | 0/5 | All runs failed validation |
++| New bottom navigation and Browse search screen in Food Vibes (full app creation - food delivery) | App creation | 94% | 0/5 | 4 runs failed tests, 1 run failed validation |
++| New design system and reusable UI component library in Food Vibes (full app creation - food delivery) | App creation | 79% | 0/5 | All runs failed validation |
++| New All Filters screen in Food Vibes (full app creation - food delivery) | App creation | 93% | 0/5 | All runs failed validation |
++| New map integration and location features in Food Vibes (full app creation - food delivery) | App creation | 82% | 2/5 | 2 runs failed validation, 1 run failed tests |
++| New real-time order tracking in Food Vibes (full app creation - food delivery) | App creation | 96% | 0/5 | All runs failed validation |
++| New promotions submodule and active offers screen in Food Vibes (full app creation - food delivery) | App creation | 98% | 4/5 | 1 run failed validation |
++| New restaurant listing feed in Food Vibes (full app creation - food delivery) | App creation | 68% | 0/5 | All runs failed validation |
++| New ViewModel layer in Fossify File Manager | New feature | 92% | 0/5 | All runs failed tests |
++| Nav 2 to Nav 3 library migration in Bitwarden (password manager) | Migration | 91% | 0/5 | All runs failed tests |
++| Dual-pane adaptive layout migration in Bitwarden (password manager): settings screens | Migration | 100% | 5/5 | N/A |
++| Hilt to Koin dependency injection migration in Bitwarden (password manager) | Migration | 84% | 2/5 | 3 runs failed tests |
++| XML views to Compose migration in Fossify File Manager: main tabs and settings | Migration | 74% | 0/5 | All runs failed tests |
++| Hilt to Koin dependency injection migration in Now in Android (news app) | Migration | 56% | 0/5 | All runs failed tests |
++| Kotlin Multiplatform migration in Now in Android (news app): datastore and database | Migration | 72% | 0/5 | 4 runs failed tests, 1 run failed the build |
++| Retrofit to Ktor migration in Pocket Casts (podcast player) | Migration | 98% | 3/5 | 2 runs failed tests |
++| XML views to Compose migration in Signal (messaging app): custom chat colour creator | Migration | 97% | 1/5 | 4 runs failed tests |
++| XML views to Compose migration in Signal (messaging app): profile creation | Migration | 90% | 0/5 | All runs failed tests |
++| XML views to Compose migration in Signal (messaging app): phone number entry | Migration | 11% | 0/5 | All runs failed tests |
++| Java to Kotlin migration in Signal (messaging app): Glide image loading module | Migration | 39% | 1/5 | 3 runs failed the build, 1 run failed tests |
++| XML views to Compose migration in Signal (messaging app): edit profile screens | Migration | 94% | 0/5 | All runs failed tests |
++| XML views to Compose migration in WordPress: people invite screen | Migration | 43% | 0/5 | All runs failed tests |
++| New book searching app using the OpenLibrary API | App creation | 95% | 0/5 | All runs failed tests |
++
+ ### ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Haiku 5.5
+ •
+ [claude-code](https://claude.com/product/claude-code)
+@@ -551,6 +684,49 @@ All categories App conversion App creation Migration New feature **Number of tas
+ | XML views to Compose migration in WordPress: people invite screen | Migration | 53% | 0/5 | All runs failed tests |
+ | New book searching app using the OpenLibrary API | App creation | 92% | 0/5 | All runs failed tests |
+ 
++### ![](https://developer.android.com/static/images/bench/icons/thinkingmachines.png) Inkling 2 Small
++•
++pi
++
++Open weights model <button class="devsite-dialog-close button button-white"> close </button> Pass rate 16.7% Avg completion rate 71.7% Avg latency 38.2 h Avg cost $139.4
++
++#### Per task results
++
++All categories App conversion App creation Migration New feature **Number of tasks:** 30 2 10 13 5 /30
++
++| Task | Category | Avg completion rate | Runs passed | Failure reason(s) |
++|---|---|---|---|---|
++| Convert Flutter to Android: Habo app (habit tracker) | App conversion | 36% | 0/5 | All runs failed tests |
++| Convert React Native to Android: BlueWallet app (Bitcoin wallet) | App conversion | 43% | 0/5 | All runs failed tests |
++| New accessibility support across Droidcon (conference app) | New feature | 97% | 1/5 | 4 runs failed tests |
++| New Media3 and ExoPlayer video playback in Now in Android (news app) | New feature | 85% | 3/5 | 2 runs failed tests |
++| New picture-in-picture video mode in Now in Android (news app) | New feature | 85% | 2/5 | 3 runs failed tests |
++| New CameraX profile picture capture in Now in Android (news app) | New feature | 80% | 4/5 | 1 run missed required test results |
++| New user account submodule in Food Vibes (full app creation - food delivery) | App creation | 83% | 1/5 | 4 runs failed validation |
++| New authentication flow with SMS verification in Food Vibes (full app creation - food delivery) | App creation | 54% | 0/5 | All runs failed validation |
++| New bottom navigation and Browse search screen in Food Vibes (full app creation - food delivery) | App creation | 83% | 0/5 | 4 runs failed validation, 1 run failed tests |
++| New design system and reusable UI component library in Food Vibes (full app creation - food delivery) | App creation | 62% | 0/5 | All runs failed validation |
++| New All Filters screen in Food Vibes (full app creation - food delivery) | App creation | 94% | 1/5 | 4 runs failed validation |
++| New map integration and location features in Food Vibes (full app creation - food delivery) | App creation | 36% | 0/5 | All runs failed validation |
++| New real-time order tracking in Food Vibes (full app creation - food delivery) | App creation | 83% | 0/5 | All runs failed validation |
++| New promotions submodule and active offers screen in Food Vibes (full app creation - food delivery) | App creation | 90% | 1/5 | 4 runs failed validation |
++| New restaurant listing feed in Food Vibes (full app creation - food delivery) | App creation | 60% | 0/5 | All runs failed validation |
++| New ViewModel layer in Fossify File Manager | New feature | 90% | 0/5 | All runs failed tests |
++| Nav 2 to Nav 3 library migration in Bitwarden (password manager) | Migration | 72% | 0/5 | 3 runs failed tests, 2 runs failed validation |
++| Dual-pane adaptive layout migration in Bitwarden (password manager): settings screens | Migration | 100% | 5/5 | N/A |
++| Hilt to Koin dependency injection migration in Bitwarden (password manager) | Migration | 100% | 5/5 | N/A |
++| XML views to Compose migration in Fossify File Manager: main tabs and settings | Migration | 52% | 0/5 | All runs failed tests |
++| Hilt to Koin dependency injection migration in Now in Android (news app) | Migration | 65% | 0/5 | All runs failed tests |
++| Kotlin Multiplatform migration in Now in Android (news app): datastore and database | Migration | 84% | 0/5 | All runs failed tests |
++| Retrofit to Ktor migration in Pocket Casts (podcast player) | Migration | 63% | 2/5 | 2 runs missed required test results, 1 run failed tests |
++| XML views to Compose migration in Signal (messaging app): custom chat colour creator | Migration | 79% | 0/5 | All runs failed tests |
++| XML views to Compose migration in Signal (messaging app): profile creation | Migration | 85% | 0/5 | All runs failed tests |
++| XML views to Compose migration in Signal (messaging app): phone number entry | Migration | 11% | 0/5 | All runs failed tests |
++| Java to Kotlin migration in Signal (messaging app): Glide image loading module | Migration | 59% | 0/5 | 3 runs failed tests, 2 runs failed the build |
++| XML views to Compose migration in Signal (messaging app): edit profile screens | Migration | 90% | 0/5 | All runs failed tests |
++| XML views to Compose migration in WordPress: people invite screen | Migration | 32% | 0/5 | All runs failed tests |
++| New book searching app using the OpenLibrary API | App creation | 88% | 0/5 | All runs failed tests |
++
+ ### ![](https://developer.android.com/static/images/bench/icons/meta.png) Muse Wonder
+ •
+ muse-code
+@@ -810,8 +986,8 @@ All categories App conversion App creation Migration New feature **Number of tas
+ | New book searching app using the OpenLibrary API | App creation | 51% | 0/5 | 3 runs failed tests, 1 run failed the build, 1 run missed required test results |
+ 
+ **Latest results as of
+-November 18th.**   
+-View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.
++November 25th.**   
++View [**archived leaderboards**](https://developer.android.com/bench/archive.md.txt) and check back periodically for updates.
+ 
+ ### 1.0 task results
+ 
+@@ -854,11 +1030,20 @@ All models Open weights models Closed weights models
+ 
+ **Latest results as of
+ August 11th.**   
+-View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.
++View [**archived leaderboards**](https://developer.android.com/bench/archive.md.txt) and check back periodically for updates.
+ 
+-### [Latest Updates](http://developer.android.com/bench/changelog)
++### [Latest Updates](http://developer.android.com/bench/changelog.md.txt)
++
++Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. Stay updated with our routine methodology updates and release logs. [View all updates](http://developer.android.com/bench/changelog.md.txt)
++- New agent results • Nov 25th   
++  **antigravity-sdk results now available** :gemini: Gemini 4 Hydrogen, Gemini 4 Neon
++- New agent results • Nov 25th   
++  **qwen-coder results now available** ![](https://developer.android.com/static/images/bench/icons/qwen.png) Qwen4-Max
++- New agent results • Nov 25th   
++  **pi results now available** ![](https://developer.android.com/static/images/bench/icons/thinkingmachines.png) Inkling 2 Small
++
++<!-- -->
+ 
+-Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. Stay updated with our routine methodology updates and release logs. [View all updates](http://developer.android.com/bench/changelog)
+ - New agent results • Nov 18th   
+   **claude-code results now available** ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Fable 5.2
+ 
+@@ -870,15 +1055,6 @@ Track the latest AI model benchmarks, newly introduced agent architectures, and
+   **antigravity-sdk results now available** :gemini: Gemini 4 Carbon
+ - New agent results • Nov 11th   
+   **muse-code results now available** ![](https://developer.android.com/static/images/bench/icons/meta.png) Muse Wonder
+-
+-<!-- -->
+-
+-- New agent results • Nov 4th   
+-  **opencode results now available** ![](https://developer.android.com/static/images/bench/icons/deepseek.png) Deepseek V4.1 Flash 1017
+-- New agent results • Nov 4th   
+-  **kimi-code results now available** ![](https://developer.android.com/static/images/bench/icons/moonshotai.png) Kimi K3.1 Pro
+-- New agent results • Nov 4th   
+-  **codex results now available** ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 6.1 Terra
+ [![](http://developer.android.com/static/images/cluster-illustrations/policy.svg)](https://research.google/pubs/android-bench-measuring-frontier-coding-agents-on-long-horizon-mobile-engineering/)
+ 
+ ### [Android Bench 2.0 research paper](https://research.google/pubs/android-bench-measuring-frontier-coding-agents-on-long-horizon-mobile-engineering/)

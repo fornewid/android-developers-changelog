@@ -1,5 +1,107 @@
 [
   {
+    "date": "2026-11-27T15:10:51Z",
+    "commit_hash": "05939603",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-lm/references/get-a-model\" target=\"_blank\">Get a model</a>",
+        "path": "agents/skills/device-ai/litert/litert-lm/references/get-a-model.md",
+        "summary": "Updated the model selection guidance to account for version requirements of specific LiteRT-LM builds. It now instructs developers to check model cards for required `litertlm-android` versions (such as needing 0.19.0+ for certain GPU paths) and update the version configuration accordingly.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/05939603_get-a-model.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-lm/skill\" target=\"_blank\">Build an Android app with the LiteRT-LM Kotlin API</a>",
+        "path": "agents/skills/device-ai/litert/litert-lm/skill.md",
+        "summary": "Updated the LiteRT-LM documentation to format code snippets correctly using markdown code blocks, added a missing directory creation step when pushing models via adb to prevent copy failures, and fixed documentation link references.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/05939603_skill.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/references/play-services\" target=\"_blank\">Run CompiledModel on LiteRT in Google Play services</a>",
+        "path": "agents/skills/device-ai/litert/litert-runtime/references/play-services.md",
+        "summary": "The documentation was updated to remove a workaround regarding a Kotlin compiler internal error with LiteRtDsl v17.0.0 and added a new recommendation to inform users about GPU execution behavior, noting that Accelerator.GPU only runs on devices with the Google Play services GPU module and otherwise falls back to the CPU.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/05939603_play-services.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/references/verify\" target=\"_blank\">Verify the model on the device</a>",
+        "path": "agents/skills/device-ai/litert/litert-runtime/references/verify.md",
+        "summary": "Updated the verification documentation to include detailed instructions on validating GPU execution via Logcat delegates and handling Google Play services fallback errors. Additionally, added a troubleshooting guide for input discrepancies when running CPU inference, covering bitmap configuration issues, array lengths, and tensor normalization parameters.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/05939603_verify.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench\" target=\"_blank\">Android Bench</a>",
+        "path": "bench.md",
+        "summary": "Added benchmark results and per-task performance data for new AI models (Gemini 4 Neon, Qwen4-Max, and Inkling 2 Small) to the AI-assisted software engineering benchmark documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/05939603_bench.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench/archive\" target=\"_blank\">Android Bench</a>",
+        "path": "bench/archive.md",
+        "summary": "Added historical benchmark performance data for the November 18th, 2026 Android LLM Benchmark 2.0 release, including pass rates, latency, costs, and per-task results for models such as Claude Fable 5.2 and Claude Sonnet 5.5. This update expands the archive to provide developers with the latest AI model evaluation metrics.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/05939603_archive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/bench/changelog\" target=\"_blank\">Android Bench</a>",
+        "path": "bench/changelog.md",
+        "summary": "Updated the platform changelog with new AI model benchmark results for November 25th, 2026. This addition includes performance evaluations for antigravity-sdk (Gemini 4 Hydrogen and Neon), qwen-coder (Qwen4-Max), and pi (Inkling 2 Small), providing developers with expanded visibility into the latest agent architectures.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/05939603_changelog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/develop/multiplatform/letterboxing\" target=\"_blank\">Design for large screens</a>",
+        "path": "games/develop/multiplatform/letterboxing.md",
+        "summary": "The letterboxing documentation has been updated to include visual comparison tables illustrating recommended versus non-recommended practices for game layouts on foldables, tablets, and square displays. These additions explain how to handle square unfolded foldables using `android:resizeableActivity=\"true\"`, how to manage free rotation on large displays to prevent games from getting stuck sideways, and why developers should avoid non-uniform stretching to prevent distorted geometry and HUD elements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/05939603_letterboxing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/develop/multiplatform/support-large-screen-resizability\" target=\"_blank\">Support large screen resizability</a>",
+        "path": "games/develop/multiplatform/support-large-screen-resizability.md",
+        "summary": "The large-screen resizability documentation for games has been updated to include visual comparison tables illustrating best practices versus anti-patterns for edge-to-edge window insets, configuration change continuity, and multi-window split-screen behavior. These additions help developers better understand how to prevent UI occlusion, avoid unwanted activity recreation during folding or unfolding, and maintain proper rendering and network connectivity in multi-resume states.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/05939603_support-large-screen-resizability.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/latest-updates\" target=\"_blank\">Android latest updates</a>",
+        "path": "latest-updates.md",
+        "summary": "Updated the latest Android Studio release information in the documentation, shifting the focus from the RC channel (Rabbit 3 | 2026.2.3 RC 2) to the newer Canary channel release (Stingray 1 | 2026.3.1 Canary 4) published on November 26, 2026. This matters for developers tracking the bleeding-edge features and preview builds of the Android development environment.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/05939603_latest-updates.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview\" target=\"_blank\">Android Studio Preview</a>",
+        "path": "studio/preview.md",
+        "summary": "Updated Android Studio preview documentation to reference Android Studio Stingray 1 | 2026.3.1 Canary 4 across all download links, filenames, and headers, replacing Canary 3 to provide developers with the latest preview build.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/05939603_preview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/studio/2026.3.1\" target=\"_blank\">Android Studio Stingray 1 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/studio/2026.3.1.md",
+        "summary": "Added release notes for Android Studio Stingray 1 | 2026.3.1 Canary 4, accompanied by Android Gradle Plugin 9.6.0-alpha07. This update details bug fixes concerning Dynamic Feature Module resolution errors in AGP, global options filtering in consumer rules, and third-party plugin markdown rendering issues.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/05939603_2026.3.1.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-26T15:09:45Z",
     "commit_hash": "074b6d9e",
     "entries": [
