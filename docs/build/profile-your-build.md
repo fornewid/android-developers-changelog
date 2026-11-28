@@ -247,7 +247,7 @@ the following steps:
    - `--profile`: Enables profiling.
 
    - `--offline`: Disables Gradle from fetching online dependencies. This
-     makes sure than any delays caused by Gradle attempting to update your
+     makes sure that any delays caused by Gradle attempting to update your
      dependencies don't interfere with your profiling data. You should have
      already built your project once to make sure Gradle has already
      downloaded and cached your dependencies.

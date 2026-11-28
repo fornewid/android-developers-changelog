@@ -70,7 +70,7 @@ To ensure we get this foundational layer correct, the API will remain experiment
 
 ## **Runtime Optimizations**
 
-### **Keyed** SideEffect**Overload**
+### Keyed SideEffect Overload
 
 [`SideEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/SideEffect.composable.md.txt) now supports key arguments, which lets you fire one-shot side effects whenever specific keys change. This can lead to better performance compared to using a `LaunchedEffect` or `DisposableEffect `when you don't need the coroutine or dispose block. `SideEffect` is up to 90% faster than `LaunchedEffect` and around 20% faster than `DisposableEffect`. Note that `SideEffect` runs its effect before `DisposableEffect` and `LaunchedEffect`, so use caution if migrating existing effects to this API, especially for `LaunchedEffects` that rely on being dispatched to start after the current frame is completed.
 

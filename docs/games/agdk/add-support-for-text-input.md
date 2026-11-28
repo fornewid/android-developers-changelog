@@ -113,7 +113,7 @@ libraries and source code to your [CMake project](https://developer.android.com/
        ...
    }
    ```
-2. Create a `InputEnabledTextView` Java class with access to
+2. Create an `InputEnabledTextView` Java class with access to
    [`InputConnection`](https://developer.android.com/reference/android/view/inputmethod/InputConnection.md.txt).
 
    ```java

@@ -228,7 +228,7 @@ After you have prepared the integrity token provider, you can start requesting
 integrity verdicts from Google Play. To do so, complete the following steps:
 
 1. [Obtain a `StandardIntegrityTokenProvider`](https://developer.android.com/google/play/integrity/standard.md.txt#prepare-integrity).
-2. Construct an `StandardIntegrityTokenRequest`, supplying the request hash of the user action you want to protect through the `setRequestHash` method.
+2. Construct a `StandardIntegrityTokenRequest`, supplying the request hash of the user action you want to protect through the `setRequestHash` method.
 3. Use the integrity token provider to call `request()`, supplying the `StandardIntegrityTokenRequest`.
 
 ### Java

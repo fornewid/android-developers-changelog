@@ -91,8 +91,8 @@ using various deprecated APIs, including:
 | Deprecated API in the `android` block | Function | Replacement |
 |---|---|---|
 | `applicationVariants`, `libraryVariants`, `testVariants`, and `unitTestVariants` | Extension points for plugins to add new functionality to AGP. | Replace this with the [`androidComponents.onVariants`](https://developer.android.com/reference/tools/gradle-api/9.0/com/android/build/api/variant/AndroidComponentsExtension.md.txt#onVariants(com.android.build.api.variant.VariantSelector,kotlin.Function1)) API, for example: ```kotlin androidComponents { onVariants() { variant -> variant.signingConfig .enableV1Signing.set(false) } } ``` There might not be a direct replacement for all previous APIs. [File an issue](https://developer.android.com/studio/report-bugs.md.txt) if there is a use case that is not covered by the new variant APIs. |
-| `variantFilter` | Allows selected variants to be disabled. | Replace this with the [`androidComponents.beforeVariants`](https://developer.android.com/reference/tools/gradle-api/9.0/com/android/build/api/variant/AndroidComponentsExtension.md.txt#beforeVariants(com.android.build.api.variant.VariantSelector,kotlin.Function1))) API, for example: ```kotlin androidComponents { beforeVariants( selector() .withBuildType("debug") .withFlavor("color", "blue") ) { variantBuilder -> variantBuilder.enable = false } } ``` |
-| `deviceProvider` and `testServer` | Registration of custom test environments for running tests against Android devices and emulators. | Switch to [Gradle-managed devices](https://developer.android.com/studio/test/gradle-managed-devices). |
+| `variantFilter` | Allows selected variants to be disabled. | Replace this with the [`androidComponents.beforeVariants`](https://developer.android.com/reference/tools/gradle-api/9.0/com/android/build/api/variant/AndroidComponentsExtension.md.txt#beforeVariants(com.android.build.api.variant.VariantSelector,kotlin.Function1)) API, for example: ```kotlin androidComponents { beforeVariants( selector() .withBuildType("debug") .withFlavor("color", "blue") ) { variantBuilder -> variantBuilder.enable = false } } ``` |
+| `deviceProvider` and `testServer` | Registration of custom test environments for running tests against Android devices and emulators. | Switch to [Gradle-managed devices](https://developer.android.com/studio/test/managed-devices.md.txt). |
 | `sdkDirectory`, `ndkDirectory`, `bootClasspath`, `adbExecutable`, and `adbExe` | Using various components of the Android SDK for custom tasks. | Switch to [`androidComponents.sdkComponents`](https://developer.android.com/reference/tools/gradle-api/9.0/com/android/build/api/dsl/SdkComponents.md.txt). |
 | `registerArtifactType`, `registerBuildTypeSourceProvider`, `registerProductFlavorSourceProvider`, `registerJavaArtifact`, `registerMultiFlavorSourceProvider`, and `wrapJavaSourceSet` | Obsolete functionality mostly related to the handling of generated sources in Android Studio, which stopped working in AGP 7.2.0. | There is no direct replacement for these APIs. |
 | `dexOptions` | Obsolete settings related to the `dx` tool, which has been replaced by [`d8`](https://developer.android.com/tools/d8.md.txt). None of the settings have had any effect since Android Gradle plugin 7.0. | There is no direct replacement. |
@@ -270,7 +270,7 @@ This gives you the choice to preserve the AGP 8.13 behavior when upgrading:
 Android Gradle plugin 9.0 removes the following functionality:
 
 - **Embedded Wear OS app support**  
-  AGP 9.0 removes support for embedding Wear OS apps, which is no longer supported in Play. This includes removing the `wearApp` configurations and the [`AndroidSourceSet.wearAppConfigurationName`](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/dsl/AndroidSourceSet.md.txt#wearAppConfigurationName()) DSL. See [Distribute to Wear OS](https://developer.android.com/distribute/best-practices/launch/distribute-wear) for how to publish your app to Wear OS.
+  AGP 9.0 removes support for embedding Wear OS apps, which is no longer supported in Play. This includes removing the `wearApp` configurations and the [`AndroidSourceSet.wearAppConfigurationName`](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/dsl/AndroidSourceSet.md.txt#wearAppConfigurationName()) DSL. See [Distribute to Wear OS](https://developer.android.com/training/wearables/packaging.md.txt) for how to publish your app to Wear OS.
 - **`androidDependencies` and `sourceSets` report task**
 - **Density split APK support**   
   AGP 9.0 removes support for creating split APKs based on screen density. The functionality and the related APIs have been removed. To split APKs based on screen density using AGP 9.0 or higher, use [app bundles](https://developer.android.com/guide/app-bundle.md.txt).
@@ -380,7 +380,7 @@ Android Gradle plugin 9.0 removes:
 
 - [`Variant.maxSdkVersion`](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Variant.md.txt#maxSdkVersion()). Is is replaced by [`maxSdk`](https://developer.android.com/reference/tools/gradle-api/9.0/com/android/build/api/variant/Variant.md.txt#maxSdk())
 
-- [`Variant.targetSdkVersion`](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Variant.md.txt#targetSdkVersion()). Is is replaced by [`targetSdk`](https://developer.android.com/reference/tools/gradle-api/9.0/com/android/build/api/variant/Variant.md.txt#targetSdk())
+- [`Variant.targetSdkVersion`](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Variant.md.txt#targetSdkVersion()). Is is replaced by [`targetSdk`](https://developer.android.com/reference/tools/gradle-api/9.0/com/android/build/api/variant/GeneratesApk.md.txt#targetSdk())
 
 - [`Variant.unitTest`](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Variant.md.txt#unitTest()), as it was not applicable to the
   [`com.android.test`](https://developer.android.com/reference/tools/gradle-api/9.0/com/android/build/gradle/TestPlugin.md.txt) plugin.
@@ -524,7 +524,7 @@ when either obfuscation or optimization is enabled).
 Given an obfuscated stack trace, the new source file attribute makes it
 possible to extract the ID of the mapping file that is required for
 retracing, which can be used to support
-[automated retracing of stack traces in Logcat](https://developer.android.com/studio/preview/features.md.txt#logcat-retrace).
+[automated retracing of stack traces in Logcat](https://developer.android.com/studio/releases/past-releases/as-otter-3-feature-drop-release-notes.md.txt#logcat-retrace).
 
 If a custom source file attribute is used (`-renamesourcefileattribute`)
 this custom source file attribute continues to take precedence.

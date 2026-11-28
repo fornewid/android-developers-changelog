@@ -4,6 +4,8 @@ url: https://developer.android.com/games/optimize/vertex-data-management
 source: md.txt
 ---
 
+> Documentation index: https://developer.android.com/games/optimize/llms.txt
+
 Good vertex data layout and compression is integral to the performance of any graphical application, whether an app consists of 2D user interfaces or is a large 3D open world game. Internal testing with [Android GPU Inspector's](https://developer.android.com/agi) Frame Profiler on dozens of top Android Games indicates that much could be done to improve vertex data management. We have observed that it's common for vertex data to use full precision, 32-bit float values for all vertex attributes, and a vertex buffer layout that uses an array of structures formatted with fully interleaved attributes.
 
 This article discusses how to optimize the graphics performance of your Android application by using the following techniques:
@@ -36,65 +38,73 @@ For example, if a vertex uses full 32-bit floats for position (vec3), normal (ve
 
 Vertex position data can be compressed from full precision 32-bit floating point values to half precision 16-bit floating point values in the vast majority of meshes, and half floats are supported in hardware on almost all mobile devices. A conversion function going from float32 to float16 looks like this ([adapted from this guide](https://apprize.best/programming/opengl/19.html)):
 
-    uint16_t f32_to_f16(float f) {
-      uint32_t x = (uint32_t)f;
-      uint32_t sign = (unsigned short)(x >> 31);
-      uint32_t mantissa;
-      uint32_t exp;
-      uint16_t hf;
+```c++
+uint16_t f32_to_f16(float f) {
+  uint32_t x = (uint32_t)f;
+  uint32_t sign = (unsigned short)(x >> 31);
+  uint32_t mantissa;
+  uint32_t exp;
+  uint16_t hf;
 
-      mantissa = x & ((1 << 23) - 1);
-      exp = x & (0xFF << 23);
-      if (exp >= 0x47800000) {
-        // check if the original number is a NaN
-        if (mantissa && (exp == (0xFF << 23))) {
-          // single precision NaN
-          mantissa = (1 << 23) - 1;
-        } else {
-          // half-float will be Inf
-          mantissa = 0;
-        }
-        hf = (((uint16_t)sign) << 15) | (uint16_t)((0x1F << 10)) |
-             (uint16_t)(mantissa >> 13);
-      }
-      // check if exponent is <= -15
-      else if (exp <= 0x38000000) {
-        hf = 0;  // too small to be represented
-      } else {
-        hf = (((uint16_t)sign) << 15) | (uint16_t)((exp - 0x38000000) >> 13) |
-             (uint16_t)(mantissa >> 13);
-      }
-
-      return hf;
+  mantissa = x & ((1 << 23) - 1);
+  exp = x & (0xFF << 23);
+  if (exp >= 0x47800000) {
+    // check if the original number is a NaN
+    if (mantissa && (exp == (0xFF << 23))) {
+      // single precision NaN
+      mantissa = (1 << 23) - 1;
+    } else {
+      // half-float will be Inf
+      mantissa = 0;
     }
+    hf = (((uint16_t)sign) << 15) | (uint16_t)((0x1F << 10)) |
+         (uint16_t)(mantissa >> 13);
+  }
+  // check if exponent is <= -15
+  else if (exp <= 0x38000000) {
+    hf = 0;  // too small to be represented
+  } else {
+    hf = (((uint16_t)sign) << 15) | (uint16_t)((exp - 0x38000000) >> 13) |
+         (uint16_t)(mantissa >> 13);
+  }
+
+  return hf;
+}
+```
 
 There is a limitation to this approach; precision degrades as the vertex gets farther from the origin, making it less suitable for meshes that are very large spatially (vertices that have elements that go beyond 1024). You can address this by splitting up a mesh into smaller chunks, centering each chunk around the model origin, and scaling so that all the vertices for each chunk fit within the \[-1, 1\] range, which contains the highest precision for floating point values. The pseudocode for compression looks like this:
 
-    for each position p in Mesh:
-       p -= center_of_bounding_box // Moves Mesh back to the center of model space
-       p /= half_size_bounding_box // Fits the mesh into a [-1, 1] cube
-       vec3<float16> result = vec3(f32_to_f16(p.x), f32_to_f16(p.y), f32_to_f16(p.z));
+```c++
+for each position p in Mesh:
+   p -= center_of_bounding_box // Moves Mesh back to the center of model space
+   p /= half_size_bounding_box // Fits the mesh into a [-1, 1] cube
+   vec3<float16> result = vec3(f32_to_f16(p.x), f32_to_f16(p.y), f32_to_f16(p.z));
+```
 
 You bake the scale factor and translation into the model matrix in order to decompress the vertex data when rendering. Keep in mind that you don't want to use this same model matrix for transforming normals, as they didn't have the same compression applied. You will need a matrix without these decompression transformations for normals, or you can use the base model matrix (which you can use for normals) and then apply the additional decompression transformations to the model matrix within the shader. An example:
 
-    vec3 in in_pos;
+```c++
+vec3 in in_pos;
 
-    void main() {
-       ...
-       // bounding box data packed into uniform buffer
-       vec3 decompress_pos = in_pos * half_size_bounding_box + center_of_bounding_box;
-       gl_Position = proj * view * model * decompress_pos;
-    }
+void main() {
+   ...
+   // bounding box data packed into uniform buffer
+   vec3 decompress_pos = in_pos * half_size_bounding_box + center_of_bounding_box;
+   gl_Position = proj * view * model * decompress_pos;
+}
+```
 
 Another approach involves using [Signed Normalized Integers (SNORM)](https://www.khronos.org/opengl/wiki/Normalized_Integer#Signed). SNORM data types use integers rather than floating point to represent values between \[-1, 1\]. Using a 16-bit SNORM for positions gives you the same memory savings as a float16 without the drawbacks of non-uniform distributions. An implementation we recommend for using SNORM looks like this:
 
-    const int BITS = 16
+```c++
+const int BITS = 16
 
-    for each position p in Mesh:
-       p -= center_of_bounding_box // Moves Mesh back to the center of model space
-       p /= half_size_bounding_box // Fits the mesh into a [-1, 1] cube
-       // float to integer value conversion
-       p = clamp(p * (2^(BITS - 1) - 1), -2^(BITS - 1), 2^(BITS - 1) - 1) 
+for each position p in Mesh:
+   p -= center_of_bounding_box // Moves Mesh back to the center of model space
+   p /= half_size_bounding_box // Fits the mesh into a [-1, 1] cube
+   // float to integer value conversion
+   p = clamp(p * (2^(BITS - 1) - 1), -2^(BITS - 1), 2^(BITS - 1) - 1) 
+```
 
 |   | Format | Size |
 |---|---|---|
@@ -113,84 +123,90 @@ These vectors can typically be represented using 16-bit floats without any perce
 
 We can compress further with a [technique known as QTangents](https://dl.acm.org/doi/10.1145/2037826.2037841) that stores the entire tangent space in a single quaternion. Since quaternions can be used to represent rotations, by thinking of the tangent space vectors as column vectors of a 3x3 matrix representing a rotation (in this case from model space into the tangent space) we can convert between the two! A quaternion can be treated as vec4 data-wise, and a conversion from tangent space vectors to a QTangent based on the paper linked above and [adapted from the implementation here](https://www.yosoygames.com.ar/wp/2018/03/vertex-formats-part-1-compression/) is as follows:
 
-    const int BITS = 16
+```c++
+const int BITS = 16
 
-    quaternion tangent_space_to_quat(vec3 normal, vec3 tangent, vec3 bitangent) {
-       mat3 tbn = {normal, tangent, bitangent};
-       quaternion qTangent(tbn);
-       qTangent.normalize();
+quaternion tangent_space_to_quat(vec3 normal, vec3 tangent, vec3 bitangent) {
+   mat3 tbn = {normal, tangent, bitangent};
+   quaternion qTangent(tbn);
+   qTangent.normalize();
 
-       //Make sure QTangent is always positive
-       if (qTangent.w < 0)
-           qTangent = -qTangent;
+   //Make sure QTangent is always positive
+   if (qTangent.w < 0)
+       qTangent = -qTangent;
 
-       const float bias = 1.0 / (2^(BITS - 1) - 1);
+   const float bias = 1.0 / (2^(BITS - 1) - 1);
 
-       //Because '-0' sign information is lost when using integers,
-       //we need to apply a "bias"; while making sure the Quaternion
-       //stays normalized.
-       // ** Also our shaders assume qTangent.w is never 0. **
-       if (qTangent.w < bias) {
-           Real normFactor = Math::Sqrt( 1 - bias * bias );
-           qTangent.w = bias;
-           qTangent.x *= normFactor;
-           qTangent.y *= normFactor;
-           qTangent.z *= normFactor;
-       }
+   //Because '-0' sign information is lost when using integers,
+   //we need to apply a "bias"; while making sure the Quaternion
+   //stays normalized.
+   // ** Also our shaders assume qTangent.w is never 0. **
+   if (qTangent.w < bias) {
+       Real normFactor = Math::Sqrt( 1 - bias * bias );
+       qTangent.w = bias;
+       qTangent.x *= normFactor;
+       qTangent.y *= normFactor;
+       qTangent.z *= normFactor;
+   }
 
-       //If it's reflected, then make sure .w is negative.
-       vec3 naturalBinormal = cross_product(tangent, normal);
-       if (dot_product(naturalBinormal, binormal) <= 0)
-           qTangent = -qTangent;
-       return qTangent;
-    }
+   //If it's reflected, then make sure .w is negative.
+   vec3 naturalBinormal = cross_product(tangent, normal);
+   if (dot_product(naturalBinormal, binormal) <= 0)
+       qTangent = -qTangent;
+   return qTangent;
+}
+```
 
 The quaternion will be normalized, and you will be able to compress it using SNORMs. 16-bit SNORMs give good precision and memory savings. 8-bit SNORMs can provide even more savings, but may cause artifacts on highly specular materials. You can try both and see what works best for your assets! Encoding the quaternion looks like this:
 
-    for each vertex v in mesh:
-       quaternion res = tangent_space_to_quat(v.normal, v.tangent, v.bitangent);
-       // Once we have the quaternion we can compress it
-       res = clamp(res * (2^(BITS - 1) - 1), -2^(BITS - 1), 2^(BITS - 1) - 1);
+```c++
+for each vertex v in mesh:
+   quaternion res = tangent_space_to_quat(v.normal, v.tangent, v.bitangent);
+   // Once we have the quaternion we can compress it
+   res = clamp(res * (2^(BITS - 1) - 1), -2^(BITS - 1), 2^(BITS - 1) - 1);
+```
 
 To decode the quaternion in the vertex shader ([adapted from here](https://www.yosoygames.com.ar/wp/2018/03/vertex-formats-part-1-compression/)):
 
-    vec3 xAxis( vec4 qQuat )
-    {
-      float fTy  = 2.0 * qQuat.y;
-      float fTz  = 2.0 * qQuat.z;
-      float fTwy = fTy * qQuat.w;
-      float fTwz = fTz * qQuat.w;
-      float fTxy = fTy * qQuat.x;
-      float fTxz = fTz * qQuat.x;
-      float fTyy = fTy * qQuat.y;
-      float fTzz = fTz * qQuat.z;
+```c++
+vec3 xAxis( vec4 qQuat )
+{
+  float fTy  = 2.0 * qQuat.y;
+  float fTz  = 2.0 * qQuat.z;
+  float fTwy = fTy * qQuat.w;
+  float fTwz = fTz * qQuat.w;
+  float fTxy = fTy * qQuat.x;
+  float fTxz = fTz * qQuat.x;
+  float fTyy = fTy * qQuat.y;
+  float fTzz = fTz * qQuat.z;
 
-      return vec3( 1.0-(fTyy+fTzz), fTxy+fTwz, fTxz-fTwy );
-    }
+  return vec3( 1.0-(fTyy+fTzz), fTxy+fTwz, fTxz-fTwy );
+}
 
-    vec3 yAxis( vec4 qQuat )
-    {
-      float fTx  = 2.0 * qQuat.x;
-      float fTy  = 2.0 * qQuat.y;
-      float fTz  = 2.0 * qQuat.z;
-      float fTwx = fTx * qQuat.w;
-      float fTwz = fTz * qQuat.w;
-      float fTxx = fTx * qQuat.x;
-      float fTxy = fTy * qQuat.x;
-      float fTyz = fTz * qQuat.y;
-      float fTzz = fTz * qQuat.z;
+vec3 yAxis( vec4 qQuat )
+{
+  float fTx  = 2.0 * qQuat.x;
+  float fTy  = 2.0 * qQuat.y;
+  float fTz  = 2.0 * qQuat.z;
+  float fTwx = fTx * qQuat.w;
+  float fTwz = fTz * qQuat.w;
+  float fTxx = fTx * qQuat.x;
+  float fTxy = fTy * qQuat.x;
+  float fTyz = fTz * qQuat.y;
+  float fTzz = fTz * qQuat.z;
 
-      return vec3( fTxy-fTwz, 1.0-(fTxx+fTzz), fTyz+fTwx );
-    }
+  return vec3( fTxy-fTwz, 1.0-(fTxx+fTzz), fTyz+fTwx );
+}
 
-    void main() {
-      vec4 qtangent = normalize(in_qtangent); //Needed because 16-bit quantization
-      vec3 normal = xAxis(qtangent);
-      vec3 tangent = yAxis(qtangent);
-      float biNormalReflection = sign(in_qtangent.w); //ensured qtangent.w != 0
-      vec3 binormal = cross(normal, tangent) * biNormalReflection;
-      ...
-    }
+void main() {
+  vec4 qtangent = normalize(in_qtangent); //Needed because 16-bit quantization
+  vec3 normal = xAxis(qtangent);
+  vec3 tangent = yAxis(qtangent);
+  float biNormalReflection = sign(in_qtangent.w); //ensured qtangent.w != 0
+  vec3 binormal = cross(normal, tangent) * biNormalReflection;
+  ...
+}
+```
 
 |   | Format | Size |
 |---|---|---|
@@ -201,63 +217,71 @@ To decode the quaternion in the vertex shader ([adapted from here](https://www.y
 
 If you only need to store normal vectors, there is a different approach that can lead to more savings - using [Octahedral Mapping of unit vectors rather than Cartesian Coordinates to compress the normal vector](http://jcgt.org/published/0003/02/01/). Octahedral Mapping works by projecting a unit sphere to an octahedron, and then projecting the octahedron down to a 2D plane. The result is that you can represent any normal vector using just two numbers. These two numbers can be thought of as texture coordinates we use to "sample" the 2D plane we projected the sphere onto, allowing us to recover the original vector. These two numbers can then be stored in an SNORM8.
 
-![Projecting a unit sphere to an octahedron and projecting the octahedron to a 2D plane](https://developer.android.com/images/games/vertex/vertex-octahedral-mapping-visualized.svg "Octahedral Mapping Visualized")
+![Projecting a unit sphere to an octahedron and projecting the octahedron to a 2D plane](https://developer.android.com/static/images/games/vertex/vertex-octahedral-mapping-visualized.svg "Octahedral Mapping Visualized")
 
 **Figure
 2:** Octahedral Mapping Visualized ([source](http://jcgt.org/published/0003/02/01/))
 
-    const int BITS = 8
+```c++
+const int BITS = 8
 
-    // Assumes the vector is unit length
-    // sign() function should return positive for 0
-    for each normal n in mesh:
-      float invL1Norm = 1.0 / (abs(n.x) + abs(n.y) + abs(n.z));
-      vec2 res;
-      if (n.z < 0.0) {
-        res.x = (1.0 - abs(n.y * invL1Norm)) * sign(n.x);
-        res.y = (1.0 - abs(n.x * invL1Norm)) * sign(n.y);
-      } else {
-        res.x = n.x * invL1Norm;
-        res.y = n.y * invL1Norm;
-      }
-      res = clamp(res * (2^(BITS - 1) - 1), -2^(BITS - 1), 2^(BITS - 1) - 1)
+// Assumes the vector is unit length
+// sign() function should return positive for 0
+for each normal n in mesh:
+  float invL1Norm = 1.0 / (abs(n.x) + abs(n.y) + abs(n.z));
+  vec2 res;
+  if (n.z < 0.0) {
+    res.x = (1.0 - abs(n.y * invL1Norm)) * sign(n.x);
+    res.y = (1.0 - abs(n.x * invL1Norm)) * sign(n.y);
+  } else {
+    res.x = n.x * invL1Norm;
+    res.y = n.y * invL1Norm;
+  }
+  res = clamp(res * (2^(BITS - 1) - 1), -2^(BITS - 1), 2^(BITS - 1) - 1)
+```
 
 Decompression in the vertex shader (to convert back to cartesian coordinates) is inexpensive; with most modern mobile devices we did not see any major performance degradation when implementing this technique. The decompression in the vertex shader:
 
-    //Additional Optimization: twitter.com/Stubbesaurus/status/937994790553227264
-    vec3 oct_to_vec(vec2 e):
-      vec3 v = vec3(e.xy, 1.0 - abs(e.x) - abs(e.y));
-      float t = max(-v.z, 0.0);
-      v.xy += t * -sign(v.xy);
-      return v;
+```c++
+//Additional Optimization: twitter.com/Stubbesaurus/status/937994790553227264
+vec3 oct_to_vec(vec2 e):
+  vec3 v = vec3(e.xy, 1.0 - abs(e.x) - abs(e.y));
+  float t = max(-v.z, 0.0);
+  v.xy += t * -sign(v.xy);
+  return v;
+```
 
 This approach can also be used to store the entire tangent space, using this technique to store the normal and tangent vector using vec2\<`SNORM8`\> but you will need to find a way to store the direction of the bitangent (needed for the common scenario where you have mirrored UV coordinates on a model). One way to implement this is to map a component of your tangent vector encoding to always be positive, then flip it's sign if you need to flip the bitangent direction and check for that in the vertex shader:
 
-    const int BITS = 8
-    const float bias = 1.0 / (2^(BITS - 1) - 1)
+```c++
+const int BITS = 8
+const float bias = 1.0 / (2^(BITS - 1) - 1)
 
-    // Compressing
-    for each normal n in mesh:
-      //encode to octahedron, result in range [-1, 1]
-      vec2 res = vec_to_oct(n);
+// Compressing
+for each normal n in mesh:
+  //encode to octahedron, result in range [-1, 1]
+  vec2 res = vec_to_oct(n);
 
-      // map y to always be positive
-      res.y = res.y * 0.5 + 0.5;
+  // map y to always be positive
+  res.y = res.y * 0.5 + 0.5;
 
-      // add a bias so that y is never 0 (sign in the vertex shader)
-      if (res.y < bias)
-        res.y = bias;
+  // add a bias so that y is never 0 (sign in the vertex shader)
+  if (res.y < bias)
+    res.y = bias;
 
-      // Apply the sign of the binormal to y, which was computed elsewhere
-      if (binormal_sign < 0)
-        res.y *= -1;
+  // Apply the sign of the binormal to y, which was computed elsewhere
+  if (binormal_sign < 0)
+    res.y *= -1;
 
-      res = clamp(res * (2^(BITS - 1) - 1), -2^(BITS - 1), 2^(BITS - 1) - 1)
+  res = clamp(res * (2^(BITS - 1) - 1), -2^(BITS - 1), 2^(BITS - 1) - 1)
+```
 
-    // Vertex shader decompression
-    vec2 encode = vec2(tangent_encoded.x, abs(tangent_encoded.y) * 2.0 - 1.0));
-    vec3 tangent_real = oct_to_vec3(encode);
-    float binormal_sign = sign(tangent_encode.y);
+```c++
+// Vertex shader decompression
+vec2 encode = vec2(tangent_encoded.x, abs(tangent_encoded.y) * 2.0 - 1.0));
+vec3 tangent_real = oct_to_vec3(encode);
+float binormal_sign = sign(tangent_encode.y);
+```
 
 > [!NOTE]
 > **Note:** Storing at this bit precision may raise some issues for highly specular materials. Keep that in mind and test to see what works best for your assets!
@@ -273,10 +297,12 @@ UV Coordinates, used for texture mapping (among other things), are typically sto
 
 The better approach is to use unsigned normalized integers (UNORM), specifically UNORM16; this provides uniform distribution across the entire texture coordinate range, supporting textures up to 65536x65536! This assumes texture coordinates are within the range \[0.0, 1.0\] per element, which may not be the case depending on the mesh (for example walls can use wrapping texture coordinates that go beyond 1.0) so keep that in mind when looking at this technique. The conversion function would look like this:
 
-    const int BITS = 16
+```c++
+const int BITS = 16
 
-    for each vertex_uv V in mesh:
-      V *= clamp(2^BITS - 1, 0, 2^BITS - 1);  // float to integer value conversion
+for each vertex_uv V in mesh:
+  V *= clamp(2^BITS - 1, 0, 2^BITS - 1);  // float to integer value conversion
+```
 
 |   | Format | Size |
 |---|---|---|
@@ -289,7 +315,7 @@ These vertex compression techniques led to a 66% reduction in vertex memory stor
 
 - Vertex Memory Read Bandwidth:
   - Binning: 27GB/s to 9GB/s
-  - Rendering: 4.5B/s to 1.5GB/s
+  - Rendering: 4.5GB/s to 1.5GB/s
 - Vertex Fetch Stalls:
   - Binning: 50% to 0%
   - Rendering: 90% to 90%

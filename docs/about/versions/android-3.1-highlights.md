@@ -203,7 +203,7 @@ when the Wi-Fi access point is connected, and may optionally be used by other
 apps. The proxy and IP configuration is now backed up and restored across system
 updates and resets.
 
-To meet the needs of tablet users, the platform now allows a "encrypted
+To meet the needs of tablet users, the platform now allows an "encrypted
 storage card" device policy to be accepted on devices with emulated storage
 cards and encrypted primary storage.
 

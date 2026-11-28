@@ -13,7 +13,7 @@ source: md.txt
 2 min read ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_Zj9dt4.webp) 26 May 2026 [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi.md.txt) [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi.md.txt) Developer Relations Manager At Google I/O 2026, we introduced Android's shift from an operating system to an intelligence system. We also demonstrated how you can build intelligent experiences natively with the system and bring the power of Google's AI into your apps. If you missed these updates, check out our quick recap video here:
 [Video](https://www.youtube.com/watch?v=TZNu9u9TfN4)
 
-#### 1. **Putting your apps at the center of the intelligence system**
+#### 1. Putting your apps at the center of the intelligence system
 
 The Android OS already enables agents like [Gemini](https://www.android.com/gemini-intelligence/?utm_source=blog.google&utm_medium=owned&utm_campaign=next) to complete task automation, where it can navigate an app on the users behalf.
 
@@ -29,7 +29,7 @@ The Android OS already enables agents like [Gemini](https://www.android.com/gemi
 To see it in action, check out the live demo showcased during the *What's New in Android* presentation.
 [Video](https://www.youtube.com/watch?v=2K7VVAMUYPw)
 
-#### 2. **On-Device Power with Gemini Nano 4 Preview**
+#### 2. On-Device Power with Gemini Nano 4 Preview
 
 Last month, we launched [Gemma 4](https://android-developers.googleblog.com/2026/04/gemma-4-new-standard-for-local-agentic-intelligence.html), our state-of-the-art open models. You can already preview and prototype with the next generation of Gemini Nano (Nano 4) models with the [AIcore developer preview](https://developers.google.com/ml-kit/genai/aicore-dev-preview). To make productionizing with Gemini Nano more reliable and performant, we are adding a few new features in **ML Kit GenAI APIs**:
 
@@ -40,7 +40,7 @@ Last month, we launched [Gemma 4](https://android-developers.googleblog.com/2026
 For highly customized or niche use cases, you can also use **LiteRT-LM** to [bring your own](https://youtu.be/boy-UjB8hpA?si=MCPddRD7eblz8ICr) fine-tuned small language model to Android.
 [Video](https://www.youtube.com/watch?v=Z7zx_sTbFPI)
 
-#### **3. Hybrid Inference \& Agents**
+#### 3. Hybrid Inference \& Agents
 
 To help you build more advanced AI features like hybrid inference and explore building in-app agents, we've released new APIs, framework and guidances:
 
@@ -51,7 +51,7 @@ To help you build more advanced AI features like hybrid inference and explore bu
 From building with on-device models, exploring hybrid inference to building agents, you can see them in action in this talk:
 [Video](https://www.youtube.com/watch?v=_iuXykdlTkk)
 
-### **Start Building Today**
+### Start Building Today
 
 Whether you are experimenting with AppFunctions to prepare for the intelligence system, or looking to bring the power of Google's AI within your own app, we've got you covered. Dive deeper into the code snippets, samples and comprehensive developer guides on the Android AI [hub](https://developer.android.com/ai). For the full breakdown of what's new, check out the official **AI on Android at Google I/O 2026** [playlist](https://www.youtube.com/playlist?list=PLWz5rJ2EKKc-GL3584TkxUyoPfzPkB1mV).
 

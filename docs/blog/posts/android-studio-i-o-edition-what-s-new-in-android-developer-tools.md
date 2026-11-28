@@ -132,7 +132,7 @@ APA integrates natively with AI agents and offers two new skills: **Perfetto SQL
 
 ### Suggested fixes for crashes with Agent integration in AQ**I**
 
-The [App Quality Insights](https://developer.android.com/studio/debug/app-quality-insights.md.txt) tool window is now integrated with the AI agent to analyze crash data along with your source code to provide detailed explanations and suggest potential fixes. After selecting a crash in the App Quality Insights tool window, navigate to the Insights tab and click "See more" to see a detailed explanation of the crash. Click "Fix with AI" to have the agent suggest code changes that you can review and accept.  
+The [App Quality Insights](https://developer.android.com/studio/debug/app-quality-insights.md.txt) tool window is now integrated with the AI agent to analyze crash data along with your source code to provide detailed explanations and suggest potential fixes. After selecting a crash in the App Quality Insights tool window, navigate to the Insights tab and click "See more" to see a detailed explanation of the crash. Click "Fix with AI" to have the agent suggest code changes that you can review and accept.
 ![aqi-agent-integration.png](https://developer.android.com/static/blog/assets/aqi_agent_integration_a97c103aa9_1mdV0J.webp) App Quality Insights and Fix with AI
 
 ## Get started

@@ -294,7 +294,7 @@ Android Auto. These features include meeting rooms, call silence, and additional
 call icons. When your app implements an extension, information that the app
 provides will be synchronized with all of the connected devices that also
 support displaying these extensions in their UI. This means that these features
-will be also be available on remote devices for users to interact with.
+will also be available on remote devices for users to interact with.
 
 #### Create a Call with Extensions
 

@@ -208,7 +208,7 @@ fragmentation.
   information on asset management in Unity with, see
   [`Addressables`](https://docs.unity3d.com/Packages/com.unity.addressables@2.6/manual/index.html).
 
-- Centralized shared dependencies \&mdash: Group shared dependencies, such as
+- Centralized shared dependencies --- Group shared dependencies, such as
   shaders, textures, and fonts, systematically into dedicated bundles or
   `Addressable` groups. This reduces duplication and ensures that unnecessary
   assets are unloaded efficiently.
@@ -254,7 +254,7 @@ the frequency of managed heap allocations and to the
   - Dynamic changes to UI elements --- When UI elements like Text, Image, or `RectTransform` properties are updated (for example, changing text content, resizing elements, or animating positions), the engine may allocate memory for temporary objects.
   - String allocations --- UI elements like Text often require string updates, since strings are immutable in most programming languages.
   - Dirty canvas --- When something on a canvas changes (for example, resizing, enabling and disabling elements, or modifying layout properties), the entire canvas or a portion of it may be marked as *dirty* and be rebuilt. This can trigger the creation of temporary data structures (for example, mesh data, vertex buffers, or layout calculations), which adds to garbage generation.
-  - Comples or frequent updates --- If the canvas has a large number of elements or is updated frequently (for example, every frame), these rebuilds can lead to significant memory churn.
+  - Complex or frequent updates --- If the canvas has a large number of elements or is updated frequently (for example, every frame), these rebuilds can lead to significant memory churn.
 - [Enable incremental GC](https://docs.unity3d.com/Manual/performance-incremental-garbage-collection.html) to reduce large collection spikes by
   spreading allocation cleanups over multiple frames. Profile to verify whether
   this option improves your game's performance and memory footprint.
@@ -365,7 +365,7 @@ stripping (which is activated by default) removes unused code from managed
 assemblies. The process works by defining root assemblies and then using static
 code analysis to determine what other managed code those root assemblies use.
 Any code that is not reachable is removed. For more information about Managed
-Code Stripping, see the [TTales from the optimization trenches: Better managed
+Code Stripping, see the [Tales from the optimization trenches: Better managed
 code stripping with Unity 2020 LTS](https://unity.com/blog/engine-platform/tales-from-the-optimization-trenches-better-managed-code-stripping-with-unity-2020) blog post and the [Managed
 code stripping](https://docs.unity3d.com/6000.0/Documentation/Manual/managed-code-stripping.html) documentation.
 

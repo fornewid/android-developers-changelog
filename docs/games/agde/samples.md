@@ -64,7 +64,7 @@ cubes while trying to reach the end of a tunnel. It was ported from an OpenGL
 sample in the [Android NDK repository on Github](https://github.com/android/ndk-samples/tree/main/endless-tunnel). The sample
 does not provide a Windows version of the game.
 
-The sample already has its settings and Android plaforms configured, so you can
+The sample already has its settings and Android platforms configured, so you can
 build and run the project in Visual Studio without any modifications. When you
 open the solution, **Solution Explorer** displays these modules:
 

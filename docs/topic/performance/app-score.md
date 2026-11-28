@@ -120,7 +120,7 @@ criteria:
 | Application startup | Measured duration between app startup and the app becoming interactive ([TTFD](https://developer.android.com/topic/performance/issues/launch-time.md.txt#time-full)). |
 | Rendering performance | Percentage of slow and frozen frames for scrolling, animating, and full-screen renders. |
 
-<iframe src="https://android.devsite.google/frame/topic/performance/app-score/index_5bad8a629260cec5e9af4ecd40d73b901ad30bbe0884a98d4c23f2f0e8be5cba.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/topic/performance/app-score/index_2315ade97e02150875d7b06cc2d1e48e1725b65b23641a5342b804bf7b05d4c9.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Tips for evaluating your app
 

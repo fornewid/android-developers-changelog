@@ -19,16 +19,6 @@ source: md.txt
   - [#AppFunctions](https://developer.android.com/blog/topics/app-functions.md.txt)
   - [#On-device](https://developer.android.com/blog/topics/on-device.md.txt)
   - +2 ↩
-- [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_1yXUBh.webp)](https://developer.android.com/blog/authors/luke-hopkins.md.txt)[![View Ryan Bartley's profile](https://developer.android.com/static/blog/assets/Ryan_Bartley_35cf836cd8_Z1nXWK3.webp)](https://developer.android.com/blog/authors/ryan-bartley.md.txt) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_2hInNY.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
-
-  ## [Android XR Updates for Unity, Unreal, and Godot](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot.md.txt)
-
-  [arrow_forward](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot.md.txt) We are excited to announce that official support for Unreal Engine and Godot has arrived for Android XR. We are also launching new tools designed to boost your productivity and enable new XR capabilities: the Android XR Engine Hub and the Android XR Interaction Framework.
-  [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins.md.txt), [Ryan Bartley](https://developer.android.com/blog/authors/ryan-bartley.md.txt) • 4 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
-  - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development.md.txt)
-  - +1 ↩
 - [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz.md.txt) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_Z14DWX.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
 
   ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem.md.txt)
@@ -72,6 +62,16 @@ source: md.txt
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
   - [#Android Developers](https://developer.android.com/blog/topics/android-developers.md.txt)
   - +2 ↩
+- [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_1yXUBh.webp)](https://developer.android.com/blog/authors/luke-hopkins.md.txt)[![View Ryan Bartley's profile](https://developer.android.com/static/blog/assets/Ryan_Bartley_35cf836cd8_Z1nXWK3.webp)](https://developer.android.com/blog/authors/ryan-bartley.md.txt) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_2hInNY.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+
+  ## [Android XR Updates for Unity, Unreal, and Godot](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot.md.txt)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot.md.txt) We are excited to announce that official support for Unreal Engine and Godot has arrived for Android XR. We are also launching new tools designed to boost your productivity and enable new XR capabilities: the Android XR Engine Hub and the Android XR Interaction Framework.
+  [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins.md.txt), [Ryan Bartley](https://developer.android.com/blog/authors/ryan-bartley.md.txt) • 4 min read
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr.md.txt)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+  - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development.md.txt)
+  - +1 ↩
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1

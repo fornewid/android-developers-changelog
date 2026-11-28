@@ -13,7 +13,7 @@ API integration, or malicious activity and active attacks. The type of
 error code returned depends on the type of request:
 
 - Standard requests: The API returns a [StandardIntegrityErrorCode](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/model/StandardIntegrityErrorCode.md.txt).
-- Classic requests: The API returns a [IntegrityErrorCode](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/model/IntegrityErrorCode.md.txt).
+- Classic requests: The API returns an [IntegrityErrorCode](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/model/IntegrityErrorCode.md.txt).
 
 > [!NOTE]
 > **Note:** If the error is due to transient conditions, you should retry the call. If the conditions are not transient, you shouldn't retry the call.

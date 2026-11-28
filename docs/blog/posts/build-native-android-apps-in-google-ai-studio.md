@@ -32,7 +32,7 @@ We have streamlined the entire development lifecycle so you can focus on your id
 
 #### Seamless app development handoff
 
-As you iterate on your app in AI Studio, you may find you need more advanced Android tools or support for a wider variety of Android device types. To move beyond the browser, you can seamlessly hand off your project to [Android Studio](https://developer.android.com/studio.md.txt) by downloading a ZIP file or exporting it directly to GitHub.
+As you iterate on your app in AI Studio, you may find you need more advanced Android tools or support for a wider variety of Android device types. To move beyond the browser, you can seamlessly hand off your project to [Android Studio](https://developer.android.com/studio) by downloading a ZIP file or exporting it directly to GitHub.
 ![AI_Studio_Download.png](https://developer.android.com/static/blog/assets/AI_Studio_Download_6346ff1740_Z1BCx80.webp)
 
 When transitioning to a team environment or local development, you can leverage any IDE or agent you prefer. For a specialized experience, we recommend [Gemini in Android Studio](https://developer.android.com/gemini-in-android), which features models designed with Android in mind, or Antigravity, which integrates [Android CLI](https://developer.android.com/tools/agents/android-cli.md.txt) commands into Google's agentic development platform. This workflow makes building high-quality apps more accessible while giving you total flexibility in how you use AI to scale your project.

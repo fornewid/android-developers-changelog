@@ -699,7 +699,7 @@ and bug fixes.
 - Added support for hinge sensors for foldable devices. This requires a future
   Android 11 system image and AVD configuration. 3D foldable view and hinge
   parameters are now integrated with the existing foldable presets. The following
-  can be a used with, for instance, the 7.3 foldable AVD's `config.ini` file:
+  can be used with, for instance, the 7.3 foldable AVD's `config.ini` file:
 
       hw.sensor.hinge = yes
       hw.sensor.hinge.count = 1
@@ -757,7 +757,7 @@ and bug fixes.
 ### Other new features and enhancements
 
 - USB passthrough is now available on Windows using `-qemu -usb -device
-  usb-host,vendorid=<usb-vendor-id>,productid=<usb-product-id>`. (This should also have been workng on Linux and macOS already)
+  usb-host,vendorid=<usb-vendor-id>,productid=<usb-product-id>`. (This should also have been working on Linux and macOS already)
 - Updated WebRTC libraries to M83.
 - The emulator now supports audio streaming in containers over WebRTC.
 - darwinn pipe endpoint has been removed.
@@ -784,9 +784,9 @@ and bug fixes.
   `NoDeviceFrame = on` to `~/.android/advancedFeatures.ini` (Create this file if
   it doesn't exist already).
 
-- Added a drop down item in cellular page to turn on and turn off meterdness
+- Added a drop down item in cellular page to turn on and turn off meteredness
   support, this is a no-op for older system images that do not support the 5G
-  meterdness toggle.
+  meteredness toggle.
 
   - Also added console command for the same purpose: `gsm meter on|off`
 - Upgraded toolchain / build to C++17.
@@ -1105,7 +1105,7 @@ Project Marble initiative:
 - Fixed issues with twitching and incorrect frames that were displayed on systems with Intel GPUs when using Android Q system images.
 - Fixed issues where a black screen was displayed when using Android Q system images with Pixel 2 XL skins (or any skin that has a notch or rounded corners).
 - Fixed an issue where the `-partition-size` command line option would not set the data partition size.
-- Fixed an issue where pulseaudio on the Linx emulator would spin and take up an entire CPU core in some situations.
+- Fixed an issue where pulseaudio on the Linux emulator would spin and take up an entire CPU core in some situations.
 - Fixed issues with out of bounds memory access when processing compressed textures.
 - Fixed GL errors that occurred on the host in `glTexSubImage2D` when updating certain gralloc buffers (with format RGB 565, RGB10A2, RGB(A)16F).
 - Fixed a [display issue](https://www.reddit.com/r/androiddev/comments/b0rzjl/loving_android_qs_rainbow_theme_epilepsy_warning/) in Android Q system images with snapshots where the notification shade's geometry was rendered with an improper instance divisor setting.
@@ -1615,7 +1615,7 @@ choose which of the saved snapshots to load when you start the emulator.
 
 Starting with Android Studio 3.2 Canary 13, each device configuration includes
 a control in the advanced settings in the Virtual Device Configuration dialog
-with which you can you can specify which AVD snapshot to load when starting the
+with which you can specify which AVD snapshot to load when starting the
 AVD.
 
 To accommodate this expansion of the snapshot features, we have added a

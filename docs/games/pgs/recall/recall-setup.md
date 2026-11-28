@@ -186,7 +186,7 @@ profile. Set the [conflicting links resolution policy](https://developer.android
 how violations of the 1:1 cardinality constraint should resolve.
 
 Optionally set the expiration time of the token. Use [`SetTtl()`](https://googleapis.dev/java/google-api-services-games/latest/com/google/api/services/games/model/LinkPersonaRequest.html#setTtl-java.lang.String-) with a
-[`Durations`](https://developers.google.com/protocol-buffers/docs/reference/java/com/google/protobuf/util/Durations) object to set a Time to Live or provide an exact expiration
+[`Durations`](https://protobuf.dev/reference/java/api-docs/com/google/protobuf/util/Durations) object to set a Time to Live or provide an exact expiration
 time with [`setExpireTime()`](https://googleapis.dev/java/google-api-services-games/latest/com/google/api/services/games/model/LinkPersonaRequest.html#setExpireTime-java.lang.String-).
 
 You must encrypt the persona and game token, and they cannot contain personally
@@ -390,7 +390,7 @@ PGS profiles by following these steps:
 
 ### Additional terms
 
-You must also comply with the [Play Games Services Terms of Service](https://developers.google.com/games/services/terms). If you
+You must also comply with the [Play Games Services Terms of Service](https://developer.android.com/games/pgs/terms.md.txt). If you
 use the Recall API for users without a PGS profile, which involves sharing
 end-user data with Google, you must, before sharing this data with Google,
 provide end users with an appropriate notice that describes the following:

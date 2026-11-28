@@ -128,6 +128,6 @@ experience. Additionally, it includes some additional controls that make it
 easier to test your game on Windows.
 
 You can sideload an APK to the emulator through [Android Studio](https://developer.android.com/studio)
-or the [Android Debug Bridge](https://developer.android.com/studio/command-line/adb).
+or the [Android Debug Bridge](https://developer.android.com/tools/adb.md.txt).
 
 See [Developing with the Google Play Games on PC Developer Emulator](https://developer.android.com/games/playgames/pg-emulator.md.txt) for more information.

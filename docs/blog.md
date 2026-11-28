@@ -108,12 +108,18 @@ See all latest posts](https://developer.android.com/blog/latest) ![](https://dev
 
 [arrow_forward
 More](https://developer.android.com/blog/categories/product-news) [arrow_forward
-More](https://developer.android.com/blog/categories/product-news) [Highlighted Author
-# Matthew Warner
+More](https://developer.android.com/blog/categories/product-news) Highlighted Author
+
+# [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt)
+
 ## 4
+
 Posts ![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp) <button class="adb--button adb--large adb--filled adb--global-hover-button astro-vnzlvqnm"> arrow_forward </button>
+
 ###### Product Manager,
-Android Developer Experience](https://developer.android.com/blog/authors/matthew-warner) Stay in the loop
+Android Developer Experience
+
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox
