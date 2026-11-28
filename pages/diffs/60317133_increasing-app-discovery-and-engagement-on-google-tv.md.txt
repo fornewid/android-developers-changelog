@@ -1,0 +1,26 @@
+diff --git a/docs/blog/posts/increasing-app-discovery-and-engagement-on-google-tv.md b/docs/blog/posts/increasing-app-discovery-and-engagement-on-google-tv.md
+index cef2ab7b..c16d7938 100644
+--- a/docs/blog/posts/increasing-app-discovery-and-engagement-on-google-tv.md
++++ b/docs/blog/posts/increasing-app-discovery-and-engagement-on-google-tv.md
+@@ -116,13 +116,17 @@ Continue reading
+   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+   - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development.md.txt)
+   - +1 ↩
+-- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic.md.txt)[![View Ben Trengrove's profile](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_Z1TO68U.webp)](https://developer.android.com/blog/authors/ben-trengrove.md.txt) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_2hInNY.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
++- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+-  ## [Android CLI Now Stable 1.0: Accelerate developing for Android using any agent](https://developer.android.com/blog/posts/android-cli-now-stable-1-accelerate-developing-for-android-using-any-agent.md.txt)
++  ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md.txt)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/android-cli-now-stable-1-accelerate-developing-for-android-using-any-agent.md.txt) As Android developers, you have many choices when it comes to the agents, tools, command-line interfaces (CLI), and LLMs you use for app development.
+-  [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic.md.txt), [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove.md.txt) • 5 min read
++  [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md.txt) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
++  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt) • 8 min read
++  - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills.md.txt)
+   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
++  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
++  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
++  - +2 ↩
+ Stay in the loop
+ 
+ 

@@ -1,0 +1,22 @@
+diff --git a/docs/games/engines/unity/start-in-unity.md b/docs/games/engines/unity/start-in-unity.md
+index 85bcfef2..8474a5c9 100644
+--- a/docs/games/engines/unity/start-in-unity.md
++++ b/docs/games/engines/unity/start-in-unity.md
+@@ -235,7 +235,7 @@ profiling time into your process, and to use the following best practices:
+ - Profile your game on target devices to get an accurate picture of how your game performs at the current stage of development.
+ - Profile different parts of your game.
+ - Profile how your players play the game. (Don't profile your game only when it's sitting in an idle state or on a pause screen.)
+-- Profile in sustained mode after the game has been running for awhile to help find throttling issues that you might encounter when the mobile devices are [hot](https://developer.android.com/games/optimize/adpf.md.txt#thermal).
++- Profile in sustained mode after the game has been running for awhile to help find throttling issues that you might encounter when the mobile devices are [hot](https://developer.android.com/games/optimize/adpf/thermal.md.txt).
+ 
+ You can use the following profiling tools separately or in combination.
+ 
+@@ -287,7 +287,7 @@ JSON handle for mobile optimization, see the article
+ on Hutch.
+ 
+ Use the
+-[Memory Advice API](https://developer.android.com/games/sdk/memory-advice/overview)
++[Memory Advice API](https://developer.android.com/reference/games/memory-advice/group/memory-advice.md.txt)
+ to determine what your memory usage looks like at runtime. The API
+ exposes a stoplight indicator for high, normal, and low memory usage. You
+ can subscribe to the indicator for updates or, poll it directly

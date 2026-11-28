@@ -1,0 +1,13 @@
+diff --git a/docs/privacy-and-security/declare-data-use.md b/docs/privacy-and-security/declare-data-use.md
+index b9f2ffda..71a55816 100644
+--- a/docs/privacy-and-security/declare-data-use.md
++++ b/docs/privacy-and-security/declare-data-use.md
+@@ -420,7 +420,7 @@ Any other app performance data not listed here.
+ ## Device or other IDs
+ 
+ Examples of these IDs include: an [IMEI number](https://developer.android.com/reference/android/telephony/TelephonyManager.md.txt#getImei(int)), [MAC address](https://developer.android.com/reference/android/net/wifi/WifiInfo.md.txt#getMacAddress()),
+-[Widevine Device ID](https://developers.google.com/widevine/drm/client/android/vendor-extensions#bytearray_properties), [Firebase installation ID](https://firebase.google.com/docs/projects/manage-installations#retrieve_client_identifers), or [advertising
++[Widevine Device ID](https://developer.android.com/reference/android/media/MediaDrm.md.txt#PROPERTY_DEVICE_UNIQUE_ID), [Firebase installation ID](https://firebase.google.com/docs/projects/manage-installations#retrieve_client_identifers), or [advertising
+ identifier](https://developers.google.com/android/reference/com/google/android/gms/ads/identifier/AdvertisingIdClient).
+ 
+ There are different ways that your app, or a library included in your app, may

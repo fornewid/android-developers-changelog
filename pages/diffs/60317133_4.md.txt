@@ -1,0 +1,40 @@
+diff --git a/docs/blog/latest/4.md b/docs/blog/latest/4.md
+index 62732790..5138afe3 100644
+--- a/docs/blog/latest/4.md
++++ b/docs/blog/latest/4.md
+@@ -94,6 +94,17 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+   - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development.md.txt)
+   - +1 ↩
++- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
++
++  ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md.txt)
++
++  [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md.txt) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
++  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt) • 8 min read
++  - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills.md.txt)
++  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
++  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
++  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
++  - +2 ↩
+ - [![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_2v5Cdi.webp)](https://developer.android.com/blog/authors/blog-author.md.txt)[![View Simon Cooke's profile](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_1EPpUS.webp)](https://developer.android.com/blog/authors/simon-cooke.md.txt) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+   ## [Introducing Android Performance Analyzer - The Next Evolution in Profiling for Android](https://developer.android.com/blog/posts/introducing-android-performance-analyzer-the-next-evolution-in-profiling-for-android.md.txt)
+@@ -115,17 +126,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   [arrow_forward](https://developer.android.com/blog/posts/android-cli-now-stable-1-accelerate-developing-for-android-using-any-agent.md.txt) As Android developers, you have many choices when it comes to the agents, tools, command-line interfaces (CLI), and LLMs you use for app development.
+   [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic.md.txt), [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove.md.txt) • 5 min read
+   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+-- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner.md.txt) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+-
+-  ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md.txt)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md.txt) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
+-  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner.md.txt) • 8 min read
+-  - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills.md.txt)
+-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o.md.txt)
+-  - [#Android](https://developer.android.com/blog/topics/android.md.txt)
+-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio.md.txt)
+-  - +2 ↩
+ - [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng.md.txt) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_7GyQM.webp) [Product News](https://developer.android.com/blog/categories/product-news.md.txt)
+ 
+   ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play.md.txt)

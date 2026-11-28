@@ -1,5 +1,90 @@
 [
   {
+    "date": "2026-11-28T15:09:56Z",
+    "commit_hash": "60317133",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/8\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/8.md",
+        "summary": "Updated the product news blog index (page 8) by removing the post on Android XR updates for Unity, Unreal, and Godot, and adding a new post detailing features and tools for increasing app discovery and engagement on Google TV.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/60317133_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/9\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/9.md",
+        "summary": "The product news blog index was updated to remove an older post about Google TV app discovery and add a new announcement regarding Android XR updates for game engines like Unity, Unreal, and Godot. This update keeps developers informed about the latest tooling and official support expansions for extended reality development.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/60317133_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/4\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/4.md",
+        "summary": "Reordered the blog post entries on the documentation page, moving the 'Android Studio I/O Edition: What's new in Android Developer tools' article to appear earlier in the feed.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/60317133_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-native-android-apps-in-google-ai-studio\" target=\"_blank\">Build native Android apps in Google AI Studio</a>",
+        "path": "blog/posts/build-native-android-apps-in-google-ai-studio.md",
+        "summary": "Updated documentation links to point directly to valid Android developer web pages instead of internal `.md.txt` files, ensuring readers are directed to the correct resources for Android Studio and Android CLI.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/60317133_build-native-android-apps-in-google-ai-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv\" target=\"_blank\">Increasing app discovery and engagement on Google TV</a>",
+        "path": "blog/posts/increasing-app-discovery-and-engagement-on-google-tv.md",
+        "summary": "Updated the 'Continue reading' section at the bottom of the Google TV blog post to replace older recommended articles with newer Google I/O-related content, specifically featuring the Android Studio I/O Edition post by Matthew Warner instead of the Android CLI 1.0 post by Simona Milanovic and Ben Trengrove.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/60317133_increasing-app-discovery-and-engagement-on-google-tv.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/google-i-o\" target=\"_blank\">#Google I/O</a>",
+        "path": "blog/topics/google-i-o.md",
+        "summary": "Updated the Google I/O topic documentation by reordering the blog post entries, specifically moving the article on 'Android XR Updates for Unity, Unreal, and Godot' to a different position within the feed. This ensures the listing reflects the correct chronological or curated display order.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/60317133_google-i-o.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-9-0-0-release-notes\" target=\"_blank\">Android Gradle plugin 9.0.1 (January 2026)</a>",
+        "path": "build/releases/agp-9-0-0-release-notes.md",
+        "summary": "The git diff fixes several documentation links and typos in the Android Gradle Plugin 9.0 release notes. These corrections update outdated links for Gradle-managed devices, Wear OS packaging guides, API references for targetSdk, and automated logcat retracing release notes to ensure developers are directed to the correct resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/60317133_agp-9-0-0-release-notes.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/views/layout/webapps/trace-webview\" target=\"_blank\">Trace WebView performance  |  Views  |  Android Developers</a>",
+        "path": "develop/ui/views/layout/webapps/trace-webview.md",
+        "summary": "This new documentation page explains how to use Perfetto to trace and analyze WebView performance, including startup latency, rendering, and network bottlenecks.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/games/engines/unity/start-in-unity\" target=\"_blank\">Get started with game development in Unity</a>",
+        "path": "games/engines/unity/start-in-unity.md",
+        "summary": "Updated documentation links to point to correct resources, specifically fixing the Android Dynamic Performance Framework (ADPF) thermal guide link and updating the Memory Advice API reference URL to ensure developers can access accurate and current optimization documentation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/60317133_start-in-unity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/privacy-and-security/declare-data-use\" target=\"_blank\">Declare your app's data use</a>",
+        "path": "privacy-and-security/declare-data-use.md",
+        "summary": "Updated the documentation for declaring data use by replacing an outdated link for the Widevine Device ID with a valid Android developer reference link (MediaDrm PROPERTY_DEVICE_UNIQUE_ID). This ensures developers have accurate and up-to-date documentation when declaring device identifier usage for Google Play data safety requirements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/60317133_declare-data-use.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-11-27T15:10:51Z",
     "commit_hash": "05939603",
     "entries": [
